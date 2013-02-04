@@ -1,4 +1,3 @@
-#environnement de développement
 = Environnement de développement =
 Tous les projets sont des projets qui utilise maven
 
