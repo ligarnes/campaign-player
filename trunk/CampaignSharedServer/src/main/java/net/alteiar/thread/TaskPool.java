@@ -41,7 +41,7 @@ public class TaskPool {
 
 	public synchronized Task getTask() {
 		while (allTask.isEmpty()) {
-			// if no task we wait until one is add
+			// if no task we wait until one is added
 			try {
 				this.wait();
 			} catch (InterruptedException e) {

@@ -35,7 +35,7 @@ public class MapObservableRemote extends BaseObservableRemote {
 
 	private static final long serialVersionUID = -1808992998811038888L;
 
-	private static final Class<?> LISTENER = IMapObserverRemote.class;
+	private static final Class<?> MAP_LISTENER = IMapObserverRemote.class;
 
 	/**
 	 * @throws RemoteException
@@ -45,11 +45,12 @@ public class MapObservableRemote extends BaseObservableRemote {
 	}
 
 	public void addMapListener(IMapObserverRemote map) throws RemoteException {
-		this.addListener(LISTENER, map);
+		this.addListener(MAP_LISTENER, map);
 	}
 
-	public void removeMapListener(IMapObserverRemote map) throws RemoteException {
-		this.removeListener(LISTENER, map);
+	public void removeMapListener(IMapObserverRemote map)
+			throws RemoteException {
+		this.removeListener(MAP_LISTENER, map);
 	}
 
 	protected void notifyMapElementAdded(IMapElementObservableRemote newPosition) {
@@ -78,8 +79,9 @@ public class MapObservableRemote extends BaseObservableRemote {
 		private final boolean isAdded;
 
 		public MapElementChangeTask(BaseObservableRemote observable,
-				Remote observer, IMapElementObservableRemote remote, boolean isAdded) {
-			super(observable, LISTENER, observer);
+				Remote observer, IMapElementObservableRemote remote,
+				boolean isAdded) {
+			super(observable, MAP_LISTENER, observer);
 			this.remote = remote;
 			this.isAdded = isAdded;
 		}
@@ -109,7 +111,7 @@ public class MapObservableRemote extends BaseObservableRemote {
 
 		public MapScaleChangeTask(BaseObservableRemote observable,
 				Remote observer, Scale scale) {
-			super(observable, LISTENER, observer);
+			super(observable, MAP_LISTENER, observer);
 			this.scale = scale;
 		}
 

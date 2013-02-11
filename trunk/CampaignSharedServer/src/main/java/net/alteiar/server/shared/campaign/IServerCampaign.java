@@ -28,7 +28,6 @@ import net.alteiar.server.shared.campaign.battle.IBattleRemote;
 import net.alteiar.server.shared.campaign.battle.map.Scale;
 import net.alteiar.server.shared.campaign.character.ICharacterRemote;
 import net.alteiar.server.shared.campaign.chat.IChatRoomRemote;
-import net.alteiar.server.shared.campaign.notes.INoteRemote;
 import net.alteiar.server.shared.campaign.player.IPlayerRemote;
 import net.alteiar.server.shared.observer.IGUIDRemote;
 import net.alteiar.server.shared.observer.campaign.ICampaignObserverRemote;
@@ -47,9 +46,9 @@ public interface IServerCampaign extends IGUIDRemote {
 			throws RemoteException;
 
 	// Notes
-	void createNote(String title, String text) throws RemoteException;
+	// void createNote(String title, String text) throws RemoteException;
 
-	List<INoteRemote> getAllNotes() throws RemoteException;
+	// List<INoteRemote> getAllNotes() throws RemoteException;
 
 	// Players
 	IPlayerRemote createPlayer(String name, Boolean isMj)

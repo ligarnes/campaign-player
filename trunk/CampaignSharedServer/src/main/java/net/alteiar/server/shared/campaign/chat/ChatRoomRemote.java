@@ -20,10 +20,6 @@
 package net.alteiar.server.shared.campaign.chat;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import net.alteiar.server.shared.observer.campaign.chat.ChatRoomObservableRemote;
 
@@ -35,45 +31,25 @@ public class ChatRoomRemote extends ChatRoomObservableRemote implements
 		IChatRoomRemote {
 	private static final long serialVersionUID = 1L;
 
-	private final ConcurrentLinkedQueue<MessageRemote> allMessage;
-
 	/**
 	 * @throws RemoteException
 	 */
 	public ChatRoomRemote() throws RemoteException {
 		super();
-
-		allMessage = new ConcurrentLinkedQueue<MessageRemote>();
 	}
 
 	@Override
 	public void join(MessageRemote join) {
-		allMessage.add(join);
 		this.notifyPlayerJoin(join);
 	}
 
 	@Override
 	public void talk(MessageRemote message) {
-		allMessage.add(message);
 		this.notifyPlayerTalk(message);
 	}
 
 	@Override
 	public void leave(MessageRemote leave) {
-		allMessage.add(leave);
 		this.notifyPlayerLeave(leave);
 	}
-
-	@Override
-	public List<MessageRemote> getAllMessage() {
-		List<MessageRemote> allMsg = new ArrayList<MessageRemote>();
-
-		Iterator<MessageRemote> itt = allMessage.iterator();
-		while (itt.hasNext()) {
-			allMsg.add(itt.next());
-		}
-
-		return allMsg;
-	}
-
 }

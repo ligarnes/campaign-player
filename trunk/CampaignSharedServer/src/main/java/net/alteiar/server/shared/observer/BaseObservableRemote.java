@@ -21,8 +21,8 @@ package net.alteiar.server.shared.observer;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.concurrent.ConcurrentHashMap;
 
 import net.alteiar.thread.Task;
 
@@ -33,17 +33,17 @@ import net.alteiar.thread.Task;
 public class BaseObservableRemote extends GUIDRemote {
 	private static final long serialVersionUID = -3655647076385346860L;
 
-	private final ConcurrentHashMap<Class<?>, HashSet<Remote>> observers;
+	private final HashMap<Class<?>, HashSet<Remote>> observers;
 
 	/**
 	 * @throws RemoteException
 	 */
 	public BaseObservableRemote() throws RemoteException {
 		super();
-		observers = new ConcurrentHashMap<Class<?>, HashSet<Remote>>();
+		observers = new HashMap<Class<?>, HashSet<Remote>>();
 	}
 
-	public void addListener(Class<?> key, Remote observer)
+	public synchronized void addListener(Class<?> key, Remote observer)
 			throws RemoteException {
 		HashSet<Remote> set = observers.get(key);
 		if (set == null) {
@@ -53,7 +53,7 @@ public class BaseObservableRemote extends GUIDRemote {
 		set.add(observer);
 	}
 
-	public void removeListener(Class<?> key, Remote observer)
+	public synchronized void removeListener(Class<?> key, Remote observer)
 			throws RemoteException {
 		HashSet<Remote> set = observers.get(key);
 		if (set != null) {
@@ -61,13 +61,18 @@ public class BaseObservableRemote extends GUIDRemote {
 		}
 	}
 
-	protected HashSet<Remote> getListener(Class<?> key) {
-		HashSet<Remote> set = observers.get(key);
-		if (set == null) {
-			set = new HashSet<Remote>();
-			observers.put(key, set);
+	protected Remote[] getListener(Class<?> key) {
+		Remote[] obs = null;
+		synchronized (this) {
+			HashSet<Remote> set = observers.get(key);
+			if (set == null) {
+				set = new HashSet<Remote>();
+				observers.put(key, set);
+			}
+			obs = new Remote[set.size()];
+			set.toArray(obs);
 		}
-		return set;
+		return obs;
 	}
 
 	public abstract class BaseNotify implements Task {

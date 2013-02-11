@@ -20,7 +20,6 @@
 package net.alteiar.server.shared.campaign.chat;
 
 import java.rmi.RemoteException;
-import java.util.List;
 
 import net.alteiar.server.shared.observer.IGUIDRemote;
 import net.alteiar.server.shared.observer.campaign.chat.IChatRoomObserverRemote;
@@ -42,5 +41,5 @@ public interface IChatRoomRemote extends IGUIDRemote {
 
 	void leave(MessageRemote leave) throws RemoteException;
 
-	List<MessageRemote> getAllMessage() throws RemoteException;
+	// List<MessageRemote> getAllMessage() throws RemoteException;
 }
