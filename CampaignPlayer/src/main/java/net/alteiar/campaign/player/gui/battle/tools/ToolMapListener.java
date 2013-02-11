@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Observable;
 
@@ -50,7 +49,7 @@ public class ToolMapListener extends Observable implements MapListener {
 		return contain;
 	}
 
-	public List<ICharacterSheetClient> getAvaibleCharacter() {
+	public ICharacterSheetClient[] getAvaibleCharacter() {
 		List<ICharacterSheetClient> lst = new ArrayList<ICharacterSheetClient>();
 		for (final ICharacterSheetClient character : CampaignClient.INSTANCE
 				.getAllCharacter()) {
@@ -60,7 +59,9 @@ public class ToolMapListener extends Observable implements MapListener {
 			}
 		}
 
-		return lst;
+		ICharacterSheetClient[] res = new ICharacterSheetClient[lst.size()];
+		lst.toArray(res);
+		return res;
 	}
 
 	public void setToolState(Tools tool) {
@@ -160,9 +161,9 @@ public class ToolMapListener extends Observable implements MapListener {
 		}
 	}
 
-	private void addCharacter(MouseEvent orgEvent,
-			Collection<ICharacterSheetClient> lst, Point mapPosition) {
-		if (lst.size() > 0) {
+	private void addCharacter(MouseEvent orgEvent, ICharacterSheetClient[] lst,
+			Point mapPosition) {
+		if (lst.length > 0) {
 			Boolean isMonster = toolState.equals(Tools.ADD_MONSTER);
 			PanelAddCharacter panelAdd = new PanelAddCharacter(lst, isMonster);
 

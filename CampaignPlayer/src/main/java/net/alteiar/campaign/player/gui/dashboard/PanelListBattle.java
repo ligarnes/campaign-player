@@ -1,5 +1,7 @@
 package net.alteiar.campaign.player.gui.dashboard;
 
+import javax.swing.JPanel;
+
 import net.alteiar.client.shared.campaign.CampaignClient;
 import net.alteiar.client.shared.campaign.battle.IBattleClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
@@ -16,12 +18,13 @@ public class PanelListBattle extends PanelList implements ICampaignObserver {
 		CampaignClient.INSTANCE.addCampaignListener(this);
 
 		for (IBattleClient battle : CampaignClient.INSTANCE.getBattles()) {
-			panels.put(battle, new PanelSimpleBattle(battle));
+			battleAdded(battle);
 		}
+	}
 
-		panelCreate = new PanelCreateBattle();
-
-		this.initialize();
+	@Override
+	protected JPanel createPanelCreate() {
+		return new PanelCreateBattle();
 	}
 
 	@Override

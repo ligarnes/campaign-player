@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.swing.JCheckBoxMenuItem;
@@ -77,19 +76,19 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildMenuRemoveElement(event));
 			} else {
 				// Show add -> circle, rect, character, monstre...
-				final List<ICharacterSheetClient> availableCharacter = getAvaibleCharacter();
-				final Collection<ICharacterSheetClient> availableMonster = CampaignClient.INSTANCE
+				final ICharacterSheetClient[] availableCharacter = getAvaibleCharacter();
+				final ICharacterSheetClient[] availableMonster = CampaignClient.INSTANCE
 						.getAllMonster();
 
 				// Menu item add character
-				if (!availableCharacter.isEmpty()) {
+				if (availableCharacter.length > 0) {
 					popup.add(buildAddCharacter(event.getMouseEvent(),
 							event.getMapPosition(), availableCharacter, false));
 				}
 
 				if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
 					// Menu item add monster
-					if (!availableMonster.isEmpty()) {
+					if (availableMonster.length > 0) {
 						popup.add(buildAddCharacter(event.getMouseEvent(),
 								event.getMapPosition(), availableMonster, true));
 					}
@@ -216,8 +215,7 @@ public class DefaultMapListener extends ActionMapListener {
 
 	private JMenuItem buildAddCharacter(final MouseEvent event,
 			final Point mapPosition,
-			final Collection<ICharacterSheetClient> availableUnit,
-			final Boolean isMonster) {
+			final ICharacterSheetClient[] availableUnit, final Boolean isMonster) {
 
 		String title = "personnage";
 		if (isMonster) {
@@ -385,7 +383,7 @@ public class DefaultMapListener extends ActionMapListener {
 		return contain;
 	}
 
-	private List<ICharacterSheetClient> getAvaibleCharacter() {
+	private ICharacterSheetClient[] getAvaibleCharacter() {
 		List<ICharacterSheetClient> lst = new ArrayList<ICharacterSheetClient>();
 		for (final ICharacterSheetClient character : CampaignClient.INSTANCE
 				.getAllCharacter()) {
@@ -395,7 +393,9 @@ public class DefaultMapListener extends ActionMapListener {
 			}
 		}
 
-		return lst;
+		ICharacterSheetClient[] res = new ICharacterSheetClient[lst.size()];
+		lst.toArray(res);
+		return res;
 	}
 
 	private void doDamage(MouseEvent orgEvent,
@@ -447,8 +447,8 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private void addCharacter(MouseEvent orgEvent, Point mapPosition,
-			Collection<ICharacterSheetClient> lst, boolean isMonster) {
-		if (lst.size() > 0) {
+			ICharacterSheetClient[] lst, boolean isMonster) {
+		if (lst.length > 0) {
 			PanelAddCharacter panelAdd = new PanelAddCharacter(lst, isMonster);
 
 			String title = "Ajouter personnage";

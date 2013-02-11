@@ -2,7 +2,6 @@ package net.alteiar.campaign.player.gui.battle.tools;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Random;
 
@@ -44,9 +43,9 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 		}
 	}
 
-	public PanelAddCharacter(Collection<ICharacterSheetClient> lstCharacter,
+	public PanelAddCharacter(ICharacterSheetClient[] lstCharacter,
 			Boolean isMonster) {
-		CharacterAdapter[] lst = new CharacterAdapter[lstCharacter.size()];
+		CharacterAdapter[] lst = new CharacterAdapter[lstCharacter.length];
 		int i = 0;
 		for (ICharacterSheetClient character : lstCharacter) {
 			lst[i] = new CharacterAdapter(character);

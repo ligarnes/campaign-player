@@ -48,6 +48,25 @@
 	</dependency>
 	
 	<dependency>
+	<groupId>com.miglayout</groupId>
+	<artifactId>miglayout</artifactId>
+	<version>3.7.4</version>
+</dependency>
+
+<dependency>
+	<groupId>commons-lang</groupId>
+	<artifactId>commons-lang</artifactId>
+	<version>2.6</version>
+</dependency>
+
+<!-- DO NOT USE FOR THE MOMENT
+<dependency>
+	<groupId>com.jidesoft</groupId>
+	<artifactId>jide-oss</artifactId>
+	<version>3.5.0</version>
+</dependency>
+	-->
+	<dependency>
 	<groupId>pdfbox</groupId>
 	<artifactId>pdfbox</artifactId>
 	<version>0.7.3</version>

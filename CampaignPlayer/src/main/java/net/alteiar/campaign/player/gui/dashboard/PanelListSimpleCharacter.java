@@ -1,5 +1,7 @@
 package net.alteiar.campaign.player.gui.dashboard;
 
+import javax.swing.JPanel;
+
 import net.alteiar.client.shared.campaign.CampaignClient;
 import net.alteiar.client.shared.campaign.battle.IBattleClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
@@ -18,22 +20,27 @@ public class PanelListSimpleCharacter extends PanelList implements
 
 		for (ICharacterSheetClient character : CampaignClient.INSTANCE
 				.getAllCharacter()) {
-			panels.put(character, new PanelSimpleCharacter(character, false));
+			characterAdded(character);
 		}
+	}
 
-		panelCreate = new PanelCreateCharacter(false);
-
-		this.initialize();
+	@Override
+	protected JPanel createPanelCreate() {
+		return new PanelCreateCharacter(false);
 	}
 
 	@Override
 	public void characterAdded(ICharacterSheetClient character) {
+		System.out.println("add: " + character.getName() + " | id: "
+				+ character.getId());
 		PanelSimpleCharacter panel = new PanelSimpleCharacter(character, false);
 		this.addElement(character, panel);
 	}
 
 	@Override
 	public void characterRemoved(ICharacterSheetClient character) {
+		System.out.println("remove: " + character.getName() + " | id: "
+				+ character.getId());
 		this.removeElement(character);
 	}
 

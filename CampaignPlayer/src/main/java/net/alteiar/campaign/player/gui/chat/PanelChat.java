@@ -23,23 +23,23 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
 
-import javax.swing.BoundedRangeModel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import net.alteiar.client.shared.campaign.CampaignClient;
+import net.alteiar.client.shared.campaign.chat.ChatObject;
 import net.alteiar.client.shared.campaign.chat.ChatRoomClient;
+import net.alteiar.client.shared.campaign.chat.DiceSender;
+import net.alteiar.client.shared.campaign.chat.MjSender;
+import net.alteiar.client.shared.campaign.chat.PrivateSender;
 import net.alteiar.client.shared.observer.campaign.chat.IChatRoomObserver;
-import net.alteiar.logger.LoggerConfig;
 import net.alteiar.server.shared.campaign.chat.MessageRemote;
-import net.alteiar.shared.tool.Randomizer;
 
 /**
  * @author Cody Stoutenburg
@@ -48,18 +48,16 @@ import net.alteiar.shared.tool.Randomizer;
 public class PanelChat extends JPanel implements IChatRoomObserver {
 	private static final long serialVersionUID = 1L;
 
-	private final ChatEditor textMessage;
-	private final ChatEditor textSend;
+	private final PanelMessageReceived receive;
+	private final JTextArea textSend;
 
 	private final ChatRoomClient chatRoom;
 
 	public PanelChat(Dimension dimRec, Dimension dimSend) {
 		super();
-		textMessage = new ChatEditor();
-		textMessage.setAutoscrolls(true);
-		textMessage.setEditable(false);
+		receive = new PanelMessageReceived(dimRec);
 
-		textSend = new ChatEditor();
+		textSend = new JTextArea();
 		textSend.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -78,35 +76,6 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 				}
 			}
 		});
-
-		final JScrollPane scrollRead = new JScrollPane(textMessage);
-		scrollRead.setAutoscrolls(true);
-		scrollRead
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollRead
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollRead.setPreferredSize(dimRec);
-		scrollRead.setSize(dimRec);
-		scrollRead.setMinimumSize(dimRec);
-		scrollRead.setMaximumSize(dimRec);
-		scrollRead.getVerticalScrollBar().addAdjustmentListener(
-				new AdjustmentListener() {
-
-					BoundedRangeModel brm = scrollRead.getVerticalScrollBar()
-							.getModel();
-					boolean wasAtBottom = true;
-
-					@Override
-					public void adjustmentValueChanged(AdjustmentEvent e) {
-						if (!brm.getValueIsAdjusting()) {
-							if (wasAtBottom)
-								brm.setValue(brm.getMaximum());
-						} else
-							wasAtBottom = ((brm.getValue() + brm.getExtent()) == brm
-									.getMaximum());
-
-					}
-				});
 
 		JScrollPane scrollWrite = new JScrollPane(textSend);
 		scrollWrite.setAutoscrolls(true);
@@ -139,7 +108,7 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 		gbc_panelScrollRead.fill = GridBagConstraints.BOTH;
 		gbc_panelScrollRead.gridx = 0;
 		gbc_panelScrollRead.gridy = 0;
-		add(scrollRead, gbc_panelScrollRead);
+		add(receive, gbc_panelScrollRead);
 
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -149,81 +118,93 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 	}
 
 	protected void sendMessage() {
-		String pseudo = CampaignClient.INSTANCE.getCurrentPlayer().getName();
-		// TODO insert here a macro function
-		String message = applyMacro(this.textSend.getText());
-		chatRoom.talk(new MessageRemote(pseudo, message));
+		String message = this.textSend.getText();
 
+		String command = MessageRemote.TEXT_MESSAGE;
+		if (message.startsWith("/")) {
+			String[] args = message.split(" ");
+			command = args[0];
+			ChatObject send = applyMacro(command,
+					Arrays.copyOfRange(args, 1, args.length));
+
+			if (send != null) {
+				chatRoom.talk(send, command);
+			}
+		} else {
+			chatRoom.talk(message, command);
+		}
 		this.textSend.setText("");
-		LoggerConfig.showStat();
+		// LoggerConfig.showStat();
 	}
 
-	protected String applyMacro(String message) {
-		try {
-			if (message.startsWith("!")) {
-				String diceCntStr = message.substring(1, message.indexOf("d"));
-
-				int modif = message.indexOf("+");
-				int diceValEnd = modif == -1 ? message.length() : modif;
-				String diceValStr = message.substring(message.indexOf("d") + 1,
-						diceValEnd);
-
-				String modStr = "0";
-				if (modif != -1) {
-					modStr = message.substring(modif + 1);
-				}
-
-				int diceCount = Integer.valueOf(diceCntStr);
-				int diceValue = Integer.valueOf(diceValStr);
-				int mod = Integer.valueOf(modStr);
-
-				int total = mod;
-				int[] results = new int[diceCount];
-				for (int i = 0; i < diceCount; i++) {
-					results[i] = Randomizer.dice(diceValue);
-					total += results[i];
-				}
-
-				StringBuilder builder = new StringBuilder();
-				builder.append("Vous avez obtenu " + total + " [" + diceCount
-						+ "d" + diceValue + " (");
-				for (int i = 0; i < results.length; i++) {
-					builder.append(results[i] + ",");
-				}
-				builder.deleteCharAt(builder.length() - 1);
-				builder.append(")");
-				if (modif != -1) {
-					builder.append(" + " + mod);
-				}
-				builder.append("]");
-
-				message = builder.toString();
-			}
-		} catch (Exception e) {
-			// do not care about exception
+	private String concat(String[] vals, String separator) {
+		StringBuilder builder = new StringBuilder();
+		for (String name : vals) {
+			builder.append(name + " ");
 		}
+
+		return builder.toString();
+	}
+
+	protected ChatObject applyMacro(String command, String... args) {
+		ChatObject message = null;
+
+		if (command.equals("/dice") || command.equals("/d")) {
+			message = applyDice(args[0]);
+		} else if (command.equals("/name")) {
+			CampaignClient.INSTANCE.getChatRoom().setPseudo(concat(args, " "));
+		} else if (command.equals("/to")) {
+			message = applyPrivateMessage(args);
+		} else if (command.equals("/mj")) {
+			String newCommand = MessageRemote.TEXT_MESSAGE;
+			String msg = concat(args, " ");
+			if (args[0].startsWith("/")) {
+				newCommand = args[0];
+				msg = applyMacro(args[0],
+						Arrays.copyOfRange(args, 1, args.length))
+						.stringFormat();
+			}
+
+			message = new MjSender(newCommand, msg);
+		}
+
 		return message;
 	}
 
-	@Override
-	public void join(MessageRemote message) {
-		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "join : "
-				+ formatMessage(message));
+	private PrivateSender applyPrivateMessage(String[] args) {
+		StringBuilder builder = new StringBuilder();
+
+		for (int i = 1; i < args.length; i++) {
+			builder.append(args[i] + " ");
+		}
+		builder.deleteCharAt(builder.length() - 1);
+
+		return new PrivateSender(args[0], builder.toString());
 	}
 
-	@Override
-	public void leave(MessageRemote message) {
-		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "leave : "
-				+ formatMessage(message));
+	private DiceSender applyDice(String message) {
+		// Parse the chat standard
+		String diceCntStr = message.substring(0, message.indexOf("d"));
+
+		int modif = message.indexOf("+");
+		int diceValEnd = modif == -1 ? message.length() : modif;
+		String diceValStr = message.substring(message.indexOf("d") + 1,
+				diceValEnd);
+
+		String modStr = "0";
+		if (modif != -1) {
+			modStr = message.substring(modif + 1);
+		}
+
+		int diceCount = Integer.valueOf(diceCntStr);
+		int diceValue = Integer.valueOf(diceValStr);
+		int mod = Integer.valueOf(modStr);
+
+		return new DiceSender(diceCount, diceValue, mod);
 	}
 
 	@Override
 	public void talk(MessageRemote message) {
-		textMessage.appendText(formatMessage(message));
-	}
-
-	public static String formatMessage(MessageRemote message) {
-		return "<b>" + message.getExpediteur() + " : </b>"
-				+ message.getMessage() + "<br />";
+		receive.appendMessage(message);
 	}
 }
