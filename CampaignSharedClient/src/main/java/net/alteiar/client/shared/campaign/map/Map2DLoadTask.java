@@ -20,6 +20,7 @@
 package net.alteiar.client.shared.campaign.map;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 import net.alteiar.ExceptionTool;
@@ -59,26 +60,31 @@ public class Map2DLoadTask implements Task {
 			// set all local stuff
 			mapClient.setLocalScale(remoteMap.getScale());
 
-			BufferedImage img = remoteMap.getBackground().restoreImage();
-			mapClient.setLocalBackground(img);
+			BufferedImage img;
+			try {
+				img = remoteMap.getBackground().restoreImage();
+				mapClient.setLocalBackground(img);
 
-			// mapClient
-			IFilterRemote remote = remoteMap.getFilter();
-			Map2DFilterClient client = new Map2DFilterClient(remote, mapClient,
-					img.getWidth(), img.getHeight());
-			mapClient.setLocalFilter(client);
+				// mapClient
+				IFilterRemote remote = remoteMap.getFilter();
+				Map2DFilterClient client = new Map2DFilterClient(remote,
+						mapClient, img.getWidth(), img.getHeight());
+				mapClient.setLocalFilter(client);
 
-			for (IMapElementObservableRemote mapElement : remoteMap
-					.getAllElements()) {
-				BaseMapElementClient element = Map2DClient.loadMapElement(
-						mapElement, mapClient);
+				for (IMapElementObservableRemote mapElement : remoteMap
+						.getAllElements()) {
+					BaseMapElementClient element = Map2DClient.loadMapElement(
+							mapElement, mapClient);
 
-				if (element != null) {
-					mapClient.addLocalMapElement(element);
+					if (element != null) {
+						mapClient.addLocalMapElement(element);
+					}
 				}
-			}
 
-			mapClient.setMapLoaded(true);
+				mapClient.setMapLoaded(true);
+			} catch (IOException e) {
+				ExceptionTool.showError(e, "Fail to load the map");
+			}
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}

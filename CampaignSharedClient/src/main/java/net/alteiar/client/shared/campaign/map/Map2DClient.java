@@ -184,21 +184,23 @@ public class Map2DClient<E extends IMap2DRemote> extends
 	}
 
 	@Override
-	public List<IMapElementClient> getAllElements() {
-		return allElements.getUnmodifiableList();
+	public IMapElementClient[] getAllElements() {
+		allElements.incCounter();
+		IMapElementClient[] elements = new IMapElementClient[allElements.size()];
+		allElements.toArray(elements);
+		allElements.decCounter();
+		return elements;
 	}
 
 	@Override
 	public IMapElementClient getElementAt(Point location) {
 		IMapElementClient element = null;
-		allElements.incCounter();
-		for (IMapElementClient mapElement : allElements.getUnmodifiableList()) {
+		for (IMapElementClient mapElement : getAllElements()) {
 			if (mapElement.isInside(location)) {
 				element = mapElement;
 				break;
 			}
 		}
-		allElements.decCounter();
 		return element;
 	}
 

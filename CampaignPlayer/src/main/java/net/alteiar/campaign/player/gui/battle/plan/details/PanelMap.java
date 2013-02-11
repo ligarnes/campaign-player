@@ -53,8 +53,9 @@ public class PanelMap extends PanelBasicMap {
 
 	@Override
 	protected void drawCharacter(Graphics2D g2) {
+		System.out.println("draw characters: " + map.getAllCharacter().length);
 		for (ICharacterCombatClient element : map.getAllCharacter()) {
-			if (element.IsVisibleForPlayer()
+			if (element.isVisibleForPlayer()
 					|| CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
 
 				Point2D.Double position = convertPointStandardToPanel(element

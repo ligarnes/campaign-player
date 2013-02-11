@@ -46,7 +46,7 @@ public interface ICharacterCombatClient extends
 
 	void setInit(Integer init);
 
-	Boolean IsVisibleForPlayer();
+	Boolean isVisibleForPlayer();
 
 	void setVisibleForAllPlayer(Boolean isVisible);
 

@@ -43,7 +43,7 @@ public class PanelCreateElement extends JPanel implements PanelOkCancel {
 	private final JTextField textFieldSize2;
 
 	private Color currentColor;
-	private final JComboBox<String> comboBoxUnite;
+	private final JComboBox comboBoxUnite;
 
 	public PanelCreateElement() {
 		currentColor = Color.BLUE;
@@ -74,14 +74,14 @@ public class PanelCreateElement extends JPanel implements PanelOkCancel {
 		add(textFieldSize2, gbc_textField_1);
 		textFieldSize2.setColumns(10);
 
-		comboBoxUnite = new JComboBox<String>();
+		comboBoxUnite = new JComboBox();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 0, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 1;
 		add(comboBoxUnite, gbc_comboBox);
-		comboBoxUnite.setModel(new DefaultComboBoxModel<String>(ALL_UNITE));
+		comboBoxUnite.setModel(new DefaultComboBoxModel(ALL_UNITE));
 
 		btnColorSelector = new JButton();
 		GridBagConstraints gbc_btnColorselector = new GridBagConstraints();

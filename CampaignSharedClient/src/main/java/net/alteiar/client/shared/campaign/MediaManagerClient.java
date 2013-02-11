@@ -74,17 +74,20 @@ public class MediaManagerClient extends
 						addRemoteImage(guid, img);
 					} catch (RemoteException e) {
 						ExceptionTool.showError(e);
+					} catch (IOException e) {
+						ExceptionTool.showError(e,
+								"Impossible de charger l'image: " + guid);
 					}
 				}
 
 				@Override
 				public String getStartText() {
-					return "downloading image";
+					return "téléchargement d'une image";
 				}
 
 				@Override
 				public String getFinishText() {
-					return "image downloaded";
+					return "image télécharger";
 				}
 			});
 		}

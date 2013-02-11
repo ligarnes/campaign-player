@@ -19,6 +19,7 @@
  */
 package net.alteiar.logger;
 
+import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 /**
@@ -29,11 +30,14 @@ public class LoggerConfig {
 	public static final Logger SERVER_LOGGER = Logger.getLogger("server");
 	public static final Logger CLIENT_LOGGER = Logger.getLogger("client");
 
-	public static void SETUP() {
+	static {
+		for (Handler handler : SERVER_LOGGER.getHandlers()) {
+			SERVER_LOGGER.removeHandler(handler);
+		}
 		// Do not need to add console handler because it is a default
 		// SERVER_LOGGER.addHandler(new ConsoleHandler());
 		// CLIENT_LOGGER.addHandler(new ConsoleHandler());
-	}
+	}// void SETUP()
 
 	public static void showStat() {
 		Runtime runtime = Runtime.getRuntime();

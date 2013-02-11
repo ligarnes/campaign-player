@@ -61,7 +61,7 @@ public class PanelDetailsBattle extends PanelDetails {
 		if (battle != null) {
 			this.getPanelData().removeAll();
 
-			List<ICharacterCombatRemote> characters = battle.getAllCharacter();
+			ICharacterCombatRemote[] characters = battle.getAllCharacter();
 			for (ICharacterCombatRemote iCharacterCombatRemote : characters) {
 				Boolean isVisible = iCharacterCombatRemote.isVisibleForPlayer();
 				String name = iCharacterCombatRemote.getCharacterSheet()

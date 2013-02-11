@@ -108,13 +108,7 @@ public class SerializableFile implements Serializable {
 		}
 	}
 
-	public BufferedImage restoreImage() {
-		BufferedImage img = null;
-		try {
-			img = ImageIO.read(new ByteArrayInputStream(file));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return img;
+	public BufferedImage restoreImage() throws IOException {
+		return ImageIO.read(new ByteArrayInputStream(file));
 	}
 }

@@ -166,7 +166,7 @@ public class PanelBattleCharacter extends JPanel implements
 		super.paint(g);
 
 		// Draw image
-		if (!character.IsVisibleForPlayer()) {
+		if (!character.isVisibleForPlayer()) {
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.7f));

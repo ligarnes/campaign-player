@@ -32,7 +32,6 @@ import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.PanelConnexion;
 import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
 import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.logger.LoggerConfig;
 import net.alteiar.server.shared.campaign.ServerCampaign;
 
 /**
@@ -51,8 +50,6 @@ public class Main {
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
 		}
-
-		LoggerConfig.SETUP();
 
 		try {
 			// Set cross-platform Java L&F (also called "Metal")

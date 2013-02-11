@@ -146,8 +146,7 @@ public class BattleClient extends BattleClientObservable implements
 		return currentTurn;
 	}
 
-	protected synchronized ICharacterCombatClient addCharacterRemote(
-			ICharacterCombatRemote combat) {
+	protected synchronized void addCharacterRemote(ICharacterCombatRemote combat) {
 		ICharacterCombatClient characterClient = new CharacterCombatClient(
 				this, combat);
 
@@ -186,11 +185,11 @@ public class BattleClient extends BattleClientObservable implements
 						notifyMapChanged();
 					}
 				});
+
 		characters.put(characterClient.getId(), characterClient);
+
 		notifyCharacterAdded(this, characterClient);
 		notifyMapChanged();
-
-		return characterClient;
 	}
 
 	protected void removeCharacterRemote(Long characterId) {

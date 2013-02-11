@@ -20,8 +20,6 @@
 package net.alteiar.client.shared.campaign.battle.character;
 
 import java.util.Comparator;
-import java.util.Random;
-
 
 /**
  * @author Cody Stoutenburg
@@ -29,12 +27,7 @@ import java.util.Random;
  */
 public class CharacterCombatInitiativeComparator implements
 		Comparator<ICharacterCombatClient> {
-	private static final Random RANDOM = new Random();
-
-	private final long seed;
-
 	public CharacterCombatInitiativeComparator() {
-		seed = RANDOM.nextLong();
 	}
 
 	@Override
@@ -47,12 +40,9 @@ public class CharacterCombatInitiativeComparator implements
 		}
 
 		while (result == 0) {
-			// Do this in order to keep similar
-			RANDOM.setSeed(seed
-					- (o1.getCharacter().getId() + o2.getCharacter().getId() + o1
-							.getInitiative()));
-			result = RANDOM.nextInt(20) - RANDOM.nextInt(20);
+			result = o1.getId().intValue() - o2.getId().intValue();
 		}
+
 		return result;
 	}
 

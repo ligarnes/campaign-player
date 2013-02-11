@@ -1,8 +1,6 @@
 package net.alteiar;
 
-import net.alteiar.battle.TestBattle;
-import net.alteiar.character.TestCharacter;
-import net.alteiar.character.TestMonster;
+import net.alteiar.battle.TestBattleMonster;
 import net.alteiar.server.shared.campaign.ServerCampaign;
 
 import org.junit.AfterClass;
@@ -12,7 +10,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestBattle.class, TestCharacter.class, TestMonster.class })
+@SuiteClasses({ /*TestCharacter.class, TestMonster.class,*/
+TestBattleMonster.class, /*TestBattle.class*/})
 public class AllTests {
 	@BeforeClass
 	public static void setUp() {

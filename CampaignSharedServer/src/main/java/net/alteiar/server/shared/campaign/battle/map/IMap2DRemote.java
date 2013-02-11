@@ -56,11 +56,13 @@ public interface IMap2DRemote extends IGUIDRemote {
 
 	void hidePolygon(List<Point> cwPts) throws RemoteException;
 
-	List<IMapElementObservableRemote> getAllElements() throws RemoteException;
+	IMapElementObservableRemote[] getAllElements() throws RemoteException;
 
-	void addMapElement(IMapElementObservableRemote element) throws RemoteException;
+	void addMapElement(IMapElementObservableRemote element)
+			throws RemoteException;
 
-	void removedMapElement(IMapElementObservableRemote element) throws RemoteException;
+	void removedMapElement(IMapElementObservableRemote element)
+			throws RemoteException;
 
 	ICircleRemote createCircle(Point position, Color color,
 			MapElementSize radius) throws RemoteException;

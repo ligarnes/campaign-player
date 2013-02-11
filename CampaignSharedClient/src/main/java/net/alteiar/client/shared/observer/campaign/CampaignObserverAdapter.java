@@ -60,22 +60,22 @@ public class CampaignObserverAdapter implements ICampaignObserver {
 	}
 
 	@Override
-	public void characterAdded(ICharacterSheetClient note) {
+	public void characterAdded(ICharacterSheetClient character) {
 
 	}
 
 	@Override
-	public void characterRemoved(ICharacterSheetClient note) {
+	public void characterRemoved(ICharacterSheetClient character) {
 
 	}
 
 	@Override
-	public void monsterAdded(ICharacterSheetClient note) {
+	public void monsterAdded(ICharacterSheetClient monster) {
 
 	}
 
 	@Override
-	public void monsterRemoved(ICharacterSheetClient note) {
+	public void monsterRemoved(ICharacterSheetClient monster) {
 
 	}
 }

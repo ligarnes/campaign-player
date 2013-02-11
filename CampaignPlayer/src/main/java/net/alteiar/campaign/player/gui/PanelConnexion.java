@@ -51,8 +51,8 @@ public class PanelConnexion extends PanelAlwaysValidOkCancel {
 	private final JTextField pseudoTextField;
 	private final JCheckBox isMj;
 
-	private final DefaultComboBoxModel<String> model;
-	private final JComboBox<String> comboboxLocalIp;
+	private final DefaultComboBoxModel model;
+	private final JComboBox comboboxLocalIp;
 	private final JTextField addressIpServer;
 	private final JTextField port;
 
@@ -61,8 +61,8 @@ public class PanelConnexion extends PanelAlwaysValidOkCancel {
 	public PanelConnexion() {
 		pseudoTextField = new JTextField(10);
 
-		model = new DefaultComboBoxModel<String>();
-		comboboxLocalIp = new JComboBox<String>(model);
+		model = new DefaultComboBoxModel();
+		comboboxLocalIp = new JComboBox(model);
 		addressIpServer = new JTextField(10);
 		port = new JTextField(5);
 

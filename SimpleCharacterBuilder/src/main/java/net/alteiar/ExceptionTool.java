@@ -122,6 +122,8 @@ public class ExceptionTool {
 	 *            if msg is null print e.getMessage()
 	 */
 	public static void showError(Exception e, String msg) {
+		e.printStackTrace();
+
 		// stock la trace d'execution dans une String
 		StringWriter sw = new StringWriter();
 		e.printStackTrace(new PrintWriter(sw));

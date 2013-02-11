@@ -17,6 +17,15 @@ public class PlayerAdapter extends BasicAdapter<IPlayerClient> {
 		return this.getObject().getName();
 	}
 
+	public static List<PlayerAdapter> getAdapters(IPlayerClient[] list) {
+		List<PlayerAdapter> result = new ArrayList<PlayerAdapter>();
+		for (IPlayerClient playerClient : list) {
+			result.add(new PlayerAdapter(playerClient));
+		}
+
+		return result;
+	}
+
 	public static List<PlayerAdapter> getAdapters(Collection<IPlayerClient> list) {
 		List<PlayerAdapter> result = new ArrayList<PlayerAdapter>();
 		for (IPlayerClient playerClient : list) {

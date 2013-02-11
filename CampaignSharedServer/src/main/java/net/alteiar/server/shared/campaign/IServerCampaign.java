@@ -56,7 +56,7 @@ public interface IServerCampaign extends IGUIDRemote {
 
 	void disconnectPlayer(String name) throws RemoteException;
 
-	List<IPlayerRemote> getAllPlayer() throws RemoteException;
+	IPlayerRemote[] getAllPlayer() throws RemoteException;
 
 	// Chat
 	IChatRoomRemote getChat() throws RemoteException;
