@@ -31,7 +31,7 @@ import net.alteiar.server.shared.campaign.battle.map.Scale;
 import net.alteiar.server.shared.campaign.character.ICharacterRemote;
 import net.alteiar.server.shared.observer.campaign.battle.BattleObservableRemote;
 import net.alteiar.shared.tool.Randomizer;
-import net.alteiar.shared.tool.SynchronizedList;
+import net.alteiar.shared.tool.SynchronizedHashMap;
 
 /**
  * @author Cody Stoutenburg
@@ -45,14 +45,14 @@ public class BattleRemote extends BattleObservableRemote implements
 	private Boolean initiativeEachTurn;
 
 	private final String battleName;
-	private final SynchronizedList<ICharacterCombatRemote> allCharacter;
+	private final SynchronizedHashMap<Long, ICharacterCombatRemote> allCharacter;
 
 	public BattleRemote(String battleName, SerializableFile background,
 			Scale scale) throws RemoteException {
 		super(background, scale);
 
 		this.battleName = battleName;
-		this.allCharacter = new SynchronizedList<ICharacterCombatRemote>();
+		this.allCharacter = new SynchronizedHashMap<Long, ICharacterCombatRemote>();
 
 		currentTurn = 0;
 		initiativeEachTurn = false;
@@ -72,7 +72,7 @@ public class BattleRemote extends BattleObservableRemote implements
 		ICharacterCombatRemote combat = new CharacterCombatRemote(found);
 		combat.setPosition(position);
 		combat.setInitiative(init);
-		allCharacter.add(combat);
+		allCharacter.put(combat.getId(), combat);
 
 		this.notifyCharacterAdded(combat);
 	}
@@ -90,9 +90,7 @@ public class BattleRemote extends BattleObservableRemote implements
 		Boolean characterChanged = true;
 		while (characterChanged) {
 			characterChanged = false;
-			this.allCharacter.incCounter();
-			for (ICharacterCombatRemote character : this.allCharacter
-					.getUnmodifiableList()) {
+			for (ICharacterCombatRemote character : this.allCharacter.values()) {
 				if (character.getCharacterSheet().getCharacterFacade()
 						.getName().equals(name)) {
 					idx++;
@@ -101,31 +99,32 @@ public class BattleRemote extends BattleObservableRemote implements
 					break;
 				}
 			}
-			this.allCharacter.decCounter();
 		}
 		ICharacterCombatRemote combat = new CharacterCombatRemote(
 				found.fastCopy(name));
 		combat.setVisibleForPlayer(isVisible);
 		combat.setPosition(position);
 		combat.setInitiative(init);
-		allCharacter.add(combat);
+		allCharacter.put(combat.getId(), combat);
 
 		this.notifyCharacterAdded(combat);
 	}
 
 	@Override
-	public void removeCharacter(ICharacterCombatRemote character)
-			throws RemoteException {
-		allCharacter.remove(character);
-		this.notifyCharacterRemoved(character);
+	public void removeCharacter(Long characterId) throws RemoteException {
+		allCharacter.remove(characterId);
+		this.notifyCharacterRemoved(characterId);
 	}
 
 	@Override
 	public List<ICharacterCombatRemote> getAllCharacter()
 			throws RemoteException {
-		List<ICharacterCombatRemote> allCharacters = new ArrayList<ICharacterCombatRemote>();
-		allCharacters.addAll(allCharacter.getUnmodifiableList());
-		return allCharacters;
+		allCharacter.incCounter();
+		ArrayList<ICharacterCombatRemote> characters = new ArrayList<ICharacterCombatRemote>(
+				allCharacter.values());
+		allCharacter.decCounter();
+
+		return characters;
 	}
 
 	@Override
@@ -154,8 +153,7 @@ public class BattleRemote extends BattleObservableRemote implements
 	}
 
 	private void runInitForAllCharacter() {
-		for (ICharacterCombatRemote character : allCharacter
-				.getUnmodifiableList()) {
+		for (ICharacterCombatRemote character : allCharacter.values()) {
 			try {
 				character.setInitiative(rollInitiative());
 			} catch (RemoteException e) {
@@ -163,5 +161,4 @@ public class BattleRemote extends BattleObservableRemote implements
 			}
 		}
 	}
-
 }

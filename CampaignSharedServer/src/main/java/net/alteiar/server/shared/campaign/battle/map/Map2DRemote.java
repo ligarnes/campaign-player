@@ -68,7 +68,8 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 	}
 
 	@Override
-	public void addMapElement(IMapElementObservableRemote element) throws RemoteException {
+	public void addMapElement(IMapElementObservableRemote element)
+			throws RemoteException {
 		this.allElements.add(element);
 		this.notifyMapElementAdded(element);
 	}
@@ -81,7 +82,8 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 	}
 
 	@Override
-	public List<IMapElementObservableRemote> getAllElements() throws RemoteException {
+	public List<IMapElementObservableRemote> getAllElements()
+			throws RemoteException {
 		return this.allElements.getUnmodifiableList();
 	}
 

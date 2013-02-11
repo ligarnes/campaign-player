@@ -36,7 +36,7 @@ public class BattleObservableRemote extends Map2DRemote {
 
 	private static final long serialVersionUID = -911665897802134769L;
 
-	private static final Class<?> LISTENER = IBattleObserverRemote.class;
+	private static final Class<?> BATTLE_LISTENER = IBattleObserverRemote.class;
 
 	public BattleObservableRemote(SerializableFile background, Scale scale)
 			throws RemoteException {
@@ -45,30 +45,30 @@ public class BattleObservableRemote extends Map2DRemote {
 
 	public void addBattleListener(IBattleObserverRemote listener)
 			throws RemoteException {
-		this.addListener(LISTENER, listener);
+		this.addListener(BATTLE_LISTENER, listener);
 	}
 
 	public void removeBattleListener(IBattleObserverRemote listener)
 			throws RemoteException {
-		this.removeListener(LISTENER, listener);
+		this.removeListener(BATTLE_LISTENER, listener);
 	}
 
 	protected void notifyCharacterAdded(ICharacterCombatRemote remote) {
-		for (Remote observer : this.getListener(LISTENER)) {
+		for (Remote observer : this.getListener(BATTLE_LISTENER)) {
 			ServerCampaign.SERVER_THREAD_POOL.addTask(new CharacterAddedTask(
 					this, observer, remote, true));
 		}
 	}
 
-	protected void notifyCharacterRemoved(ICharacterCombatRemote remote) {
-		for (Remote observer : this.getListener(LISTENER)) {
-			ServerCampaign.SERVER_THREAD_POOL.addTask(new CharacterAddedTask(
-					this, observer, remote, false));
+	protected void notifyCharacterRemoved(Long characterId) {
+		for (Remote observer : this.getListener(BATTLE_LISTENER)) {
+			ServerCampaign.SERVER_THREAD_POOL.addTask(new CharacterRemovedTask(
+					this, observer, characterId));
 		}
 	}
 
 	protected void notifyNextTurn(Integer currentTurn) {
-		for (Remote observer : this.getListener(LISTENER)) {
+		for (Remote observer : this.getListener(BATTLE_LISTENER)) {
 			ServerCampaign.SERVER_THREAD_POOL.addTask(new nextBattleTask(this,
 					observer, currentTurn));
 		}
@@ -80,7 +80,7 @@ public class BattleObservableRemote extends Map2DRemote {
 
 		public CharacterAddedTask(BattleObservableRemote observable,
 				Remote observer, ICharacterCombatRemote access, Boolean isAdded) {
-			super(observable, LISTENER, observer);
+			super(observable, BATTLE_LISTENER, observer);
 			this.character = access;
 			this.isAdded = isAdded;
 		}
@@ -106,12 +106,37 @@ public class BattleObservableRemote extends Map2DRemote {
 		}
 	}
 
+	private class CharacterRemovedTask extends BaseNotify {
+		private final Long characterId;
+
+		public CharacterRemovedTask(BattleObservableRemote observable,
+				Remote observer, Long characterId) {
+			super(observable, BATTLE_LISTENER, observer);
+			this.characterId = characterId;
+		}
+
+		@Override
+		protected void doAction() throws RemoteException {
+			((IBattleObserverRemote) observer).characterRemoved(characterId);
+		}
+
+		@Override
+		public String getStartText() {
+			return "start notify character removed";
+		}
+
+		@Override
+		public String getFinishText() {
+			return "finish notify character removed";
+		}
+	}
+
 	private class nextBattleTask extends BaseNotify {
 		private final Integer currentTurn;
 
 		public nextBattleTask(BattleObservableRemote observable,
 				Remote observer, Integer currentTurn) {
-			super(observable, LISTENER, observer);
+			super(observable, BATTLE_LISTENER, observer);
 			this.currentTurn = currentTurn;
 		}
 

@@ -19,16 +19,16 @@
  */
 package net.alteiar.server.shared.observer.campaign.battle;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.shared.campaign.battle.ICharacterCombatRemote;
-import net.alteiar.server.shared.observer.campaign.map.IMapObserverRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IBattleObserverRemote extends IMapObserverRemote {
+public interface IBattleObserverRemote extends Remote {
 	void characterAdded(ICharacterCombatRemote character)
 			throws RemoteException;
 

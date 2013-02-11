@@ -19,52 +19,30 @@
  */
 package net.alteiar.server.shared.campaign.chat;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.io.Serializable;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class MessageRemote implements Externalizable {
+public class MessageRemote implements Serializable {
 
 	private static final long serialVersionUID = -2669560462857993375L;
-	// private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(
-	// "HH:mm:ss");
 
-	public static final String TO_EVERYONE = "_to_all_";
+	public static final String TEXT_MESSAGE = "text";
+	public static final String SYSTEM_CONNECT_MESSAGE = "system.connect";
+	public static final String SYSTEM_DISCONNECT_MESSAGE = "system.disconnect";
 
-	// private final String currentTime;
-	private String destinataire;
-	private String expediteur;
-	private String message;
+	private final String expediteur;
+	private final String message;
+	private final String command;
 
-	public MessageRemote() {
-		this(TO_EVERYONE, TO_EVERYONE, TO_EVERYONE);
-	}
-
-	/**
-	 * @param expediteur
-	 * @param destinataire
-	 * @param message
-	 */
-	public MessageRemote(String expediteur, String destinataire, String message) {
+	public MessageRemote(String expediteur, String message, String command) {
 		super();
-		// Date now = new Date();
-		// currentTime = DATE_FORMAT.format(now);
-		this.destinataire = destinataire;
+
 		this.expediteur = expediteur;
 		this.message = message;
-	}
-
-	public MessageRemote(String expediteur, String message) {
-		this(expediteur, TO_EVERYONE, message);
-	}
-
-	public String getDestinataire() {
-		return destinataire;
+		this.command = command;
 	}
 
 	public String getExpediteur() {
@@ -75,6 +53,11 @@ public class MessageRemote implements Externalizable {
 		return message;
 	}
 
+	public String getCommand() {
+		return command;
+	}
+
+	/*
 	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeUTF(destinataire);
@@ -88,5 +71,5 @@ public class MessageRemote implements Externalizable {
 		destinataire = in.readUTF();
 		expediteur = in.readUTF();
 		message = in.readUTF();
-	}
+	}*/
 }

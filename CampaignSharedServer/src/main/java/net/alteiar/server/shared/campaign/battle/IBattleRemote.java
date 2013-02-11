@@ -33,13 +33,13 @@ import net.alteiar.server.shared.observer.campaign.battle.IBattleObserverRemote;
  */
 public interface IBattleRemote extends IMap2DRemote, IGUIDRemote {
 
+	String getName() throws RemoteException;
+
 	void addBattleListener(IBattleObserverRemote listener)
 			throws RemoteException;
 
 	void removeBattleListener(IBattleObserverRemote listener)
 			throws RemoteException;
-
-	String getName() throws RemoteException;
 
 	void addCharacter(Long id, Integer init, Point position)
 			throws RemoteException;
@@ -47,8 +47,11 @@ public interface IBattleRemote extends IMap2DRemote, IGUIDRemote {
 	void addMonster(Long id, Integer init, Point position, Boolean isVisible)
 			throws RemoteException;
 
+	/*
 	void removeCharacter(ICharacterCombatRemote character)
 			throws RemoteException;
+			*/
+	void removeCharacter(Long guid) throws RemoteException;
 
 	List<ICharacterCombatRemote> getAllCharacter() throws RemoteException;
 

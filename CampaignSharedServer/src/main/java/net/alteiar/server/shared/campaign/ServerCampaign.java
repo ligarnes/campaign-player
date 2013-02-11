@@ -24,7 +24,6 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 import net.alteiar.ExceptionTool;
@@ -46,6 +45,7 @@ import net.alteiar.server.shared.campaign.player.IPlayerRemote;
 import net.alteiar.server.shared.campaign.player.PlayerAccess;
 import net.alteiar.server.shared.campaign.player.PlayerRemote;
 import net.alteiar.server.shared.observer.campaign.CampaignObservableRemote;
+import net.alteiar.shared.tool.SynchronizedHashMap;
 import net.alteiar.shared.tool.SynchronizedList;
 import net.alteiar.thread.TaskInfoAdapter;
 import net.alteiar.thread.WorkerPool;
@@ -67,15 +67,15 @@ public class ServerCampaign extends CampaignObservableRemote implements
 
 	public final static WorkerPool SERVER_THREAD_POOL = new WorkerPool();
 
-	private final ConcurrentHashMap<Long, IBattleRemote> allBattles;
+	private final SynchronizedHashMap<Long, IBattleRemote> allBattles;
 	private final SynchronizedList<IPlayerRemote> allPlayers;
-	private final ConcurrentHashMap<Long, ICharacterRemote> allCharacters;
-	private final ConcurrentHashMap<Long, ICharacterRemote> allMonster;
+	private final SynchronizedHashMap<Long, ICharacterRemote> allCharacters;
+	private final SynchronizedHashMap<Long, ICharacterRemote> allMonster;
 	private final SynchronizedList<INoteRemote> allNotes;
 	private final IChatRoomRemote chatRoom;
 
 	public static void startServer(String addressIp, int port) {
-		SERVER_THREAD_POOL.initWorkPool(20, new TaskInfoAdapter());
+		SERVER_THREAD_POOL.initWorkPool(10, new TaskInfoAdapter());
 
 		try {
 			RmiRegistryProxy.startRmiRegistryProxy(addressIp, port);
@@ -92,6 +92,13 @@ public class ServerCampaign extends CampaignObservableRemote implements
 
 			RmiRegistry.rebind("//" + addressIp + ":" + port + "/"
 					+ MEDIA_MANAGER, MEDIA_MANAGER_REMOTE);
+
+			/* Help to debug
+			JFrame frame = new JFrame("Serveur info");
+			frame.add(new PanelAllInfo());
+			frame.setVisible(true);
+			frame.pack();
+			*/
 		} catch (MalformedURLException e) {
 			ExceptionTool.showError(e);
 		} catch (NotBoundException e) {
@@ -111,11 +118,11 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	 */
 	protected ServerCampaign() throws RemoteException {
 		super();
-		allBattles = new ConcurrentHashMap<Long, IBattleRemote>();
+		allBattles = new SynchronizedHashMap<Long, IBattleRemote>();
 		allPlayers = new SynchronizedList<IPlayerRemote>();
 		allNotes = new SynchronizedList<INoteRemote>();
-		allCharacters = new ConcurrentHashMap<Long, ICharacterRemote>();
-		allMonster = new ConcurrentHashMap<Long, ICharacterRemote>();
+		allCharacters = new SynchronizedHashMap<Long, ICharacterRemote>();
+		allMonster = new SynchronizedHashMap<Long, ICharacterRemote>();
 		chatRoom = new ChatRoomRemote();
 	}
 
@@ -155,11 +162,14 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	}
 
 	@Override
-	public void createBattle(String name, SerializableFile background,
-			Scale scale) throws RemoteException {
+	public synchronized void createBattle(String name,
+			SerializableFile background, Scale scale) throws RemoteException {
 		LoggerConfig.SERVER_LOGGER.log(Level.INFO,
 				"Create a new Battle on server");
 
+		if (name.isEmpty()) {
+			name = "sans nom";
+		}
 		// force unique name
 		int idx = 0;
 		boolean haveChanged = true;
@@ -198,7 +208,7 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	}
 
 	@Override
-	public void createCharacter(IPlayerRemote player,
+	public synchronized void createCharacter(IPlayerRemote player,
 			PathfinderCharacterFacade character) throws RemoteException {
 
 		ICharacterRemote characterSheet = new CharacterRemote(character);
@@ -224,7 +234,6 @@ public class ServerCampaign extends CampaignObservableRemote implements
 		}
 
 		this.allCharacters.put(characterSheet.getId(), characterSheet);
-
 		this.notifyCharacterAdded(characterSheet);
 	}
 
@@ -233,17 +242,19 @@ public class ServerCampaign extends CampaignObservableRemote implements
 		return new ArrayList<ICharacterRemote>(this.allCharacters.values());
 	}
 
+	@Override
+	public void removeCharacter(Long characterId) throws RemoteException {
+		this.allCharacters.remove(characterId);
+		this.notifyCharacterRemoved(characterId);
+	}
+
 	public ICharacterRemote getCharater(Long id) {
 		return this.allCharacters.get(id);
 	}
 
-	public ICharacterRemote getMonster(Long id) {
-		return this.allMonster.get(id);
-	}
-
 	// ////////// MONSTERS METHODS ///////////////////////
 	@Override
-	public void createMonster(PathfinderCharacterFacade character)
+	public synchronized void createMonster(PathfinderCharacterFacade character)
 			throws RemoteException {
 		ICharacterRemote characterSheet = new CharacterRemote(character);
 
@@ -281,6 +292,10 @@ public class ServerCampaign extends CampaignObservableRemote implements
 		return new ArrayList<ICharacterRemote>(this.allMonster.values());
 	}
 
+	public ICharacterRemote getMonster(Long id) {
+		return this.allMonster.get(id);
+	}
+
 	// ////////// CHAT METHODS ///////////////////////
 	@Override
 	public IChatRoomRemote getChat() throws RemoteException {
@@ -288,22 +303,14 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	}
 
 	// ////////// NOTES METHODS ///////////////////////
-	@Override
 	public void createNote(String title, String text) throws RemoteException {
 		INoteRemote note = new Note(title, text);
 		this.allNotes.add(note);
 		this.notifyNoteAdded(note);
 	}
 
-	@Override
 	public List<INoteRemote> getAllNotes() throws RemoteException {
 		return new ArrayList<INoteRemote>(allNotes.getUnmodifiableList());
-	}
-
-	@Override
-	public void removeCharacter(Long characterId) throws RemoteException {
-		this.allCharacters.remove(characterId);
-		this.notifyCharacterRemoved(characterId);
 	}
 
 }
