@@ -31,7 +31,6 @@ import net.alteiar.client.shared.campaign.IMediaManagerClient;
 import net.alteiar.client.shared.observer.campaign.character.CharacterClientObservable;
 import net.alteiar.pcgen.PathfinderCharacter;
 import net.alteiar.pcgen.PathfinderCharacterFacade;
-import net.alteiar.server.shared.campaign.MyTimer;
 import net.alteiar.server.shared.campaign.character.ICharacterRemote;
 import net.alteiar.server.shared.campaign.player.PlayerAccess;
 
@@ -65,8 +64,6 @@ public class CharacterSheetClient extends CharacterClientObservable implements
 	public CharacterSheetClient(ICharacterRemote characterSheet) {
 		super(characterSheet);
 
-		MyTimer timer = new MyTimer();
-		timer.startTimer();
 		try {
 			new CharacterSheetRemoteObserver(this, characterSheet);
 
@@ -89,8 +86,6 @@ public class CharacterSheetClient extends CharacterClientObservable implements
 		} catch (RemoteException ex) {
 			ExceptionTool.showError(ex);
 		}
-		timer.endTimer();
-		timer.printTime("CharacterClient created " + getId());
 	}
 
 	@Override

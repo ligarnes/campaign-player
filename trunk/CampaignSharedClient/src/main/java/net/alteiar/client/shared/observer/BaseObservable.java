@@ -19,43 +19,51 @@
  */
 package net.alteiar.client.shared.observer;
 
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
 public class BaseObservable {
-	private final ConcurrentHashMap<Class<?>, HashSet<Object>> observers;
+	private final HashMap<Class<?>, HashSet<Object>> observers;
 
 	public BaseObservable() {
 		super();
-		observers = new ConcurrentHashMap<Class<?>, HashSet<Object>>();
+		observers = new HashMap<Class<?>, HashSet<Object>>();
 	}
 
-	protected void addListener(Class<?> key, Object observer) {
+	protected synchronized void addListener(Class<?> key, Object observer) {
+		if (observer == null)
+			throw new NullPointerException();
+
 		HashSet<Object> set = observers.get(key);
 		if (set == null) {
 			set = new HashSet<Object>();
 			observers.put(key, set);
 		}
 		set.add(observer);
+
 	}
 
-	protected void removeListener(Class<?> key, Object observer) {
+	protected synchronized void removeListener(Class<?> key, Object observer) {
 		HashSet<Object> set = observers.get(key);
 		if (set != null) {
 			set.remove(observer);
 		}
 	}
 
-	protected HashSet<Object> getListener(Class<?> key) {
-		HashSet<Object> set = observers.get(key);
-		if (set == null) {
-			set = new HashSet<Object>();
-			observers.put(key, set);
+	protected Object[] getListener(Class<?> key) {
+		Object[] obs = null;
+		synchronized (this) {
+			HashSet<Object> set = observers.get(key);
+			if (set == null) {
+				set = new HashSet<Object>();
+				observers.put(key, set);
+			}
+			obs = set.toArray();
 		}
-		return set;
+		return obs;
 	}
 }

@@ -21,20 +21,18 @@ package net.alteiar.client.shared.campaign.battle;
 
 import java.awt.Point;
 import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.concurrent.ConcurrentHashMap;
+import java.rmi.server.UnicastRemoteObject;
 
 import net.alteiar.ExceptionTool;
 import net.alteiar.client.shared.campaign.battle.character.CharacterCombatClient;
 import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.campaign.map.Map2DRemoteObserver;
 import net.alteiar.client.shared.observer.campaign.battle.BattleClientObservable;
 import net.alteiar.client.shared.observer.campaign.battle.character.ICharacterCombatObserver;
-import net.alteiar.server.shared.campaign.MyTimer;
 import net.alteiar.server.shared.campaign.battle.IBattleRemote;
 import net.alteiar.server.shared.campaign.battle.ICharacterCombatRemote;
 import net.alteiar.server.shared.observer.campaign.battle.IBattleObserverRemote;
+import net.alteiar.shared.tool.SynchronizedHashMap;
 
 /**
  * @author Cody Stoutenburg
@@ -46,14 +44,11 @@ public class BattleClient extends BattleClientObservable implements
 
 	private String name;
 	private Integer currentTurn;
-	private final ConcurrentHashMap<Long, ICharacterCombatClient> characters;
+	private final SynchronizedHashMap<Long, ICharacterCombatClient> characters;
 
 	public BattleClient(IBattleRemote battle) {
 		super(battle);
-
-		MyTimer timer = new MyTimer();
-		timer.startTimer();
-		characters = new ConcurrentHashMap<Long, ICharacterCombatClient>();
+		characters = new SynchronizedHashMap<Long, ICharacterCombatClient>();
 		try {
 			name = remoteObject.getName();
 			currentTurn = remoteObject.getCurrentTurn();
@@ -62,12 +57,10 @@ public class BattleClient extends BattleClientObservable implements
 			for (ICharacterCombatRemote combat : remoteObject.getAllCharacter()) {
 				addCharacterRemote(combat);
 			}
-			new BattleClientRemoteObserver(this, remoteObject);
+			new BattleClientRemoteObserver(remoteObject);
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
-		timer.endTimer();
-		timer.printTime("battle client created " + getId());
 	}
 
 	@Override
@@ -99,16 +92,20 @@ public class BattleClient extends BattleClientObservable implements
 	@Override
 	public void removeCharacter(ICharacterCombatClient character) {
 		try {
-			remoteObject.removeCharacter(((CharacterCombatClient) character)
-					.getRemoteReference());
+			remoteObject.removeCharacter(character.getId());
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
 	}
 
 	@Override
-	public Collection<ICharacterCombatClient> getAllCharacter() {
-		return characters.values();
+	public ICharacterCombatClient[] getAllCharacter() {
+		characters.incCounter();
+		ICharacterCombatClient[] allCharacters = new ICharacterCombatClient[characters
+				.values().size()];
+		characters.values().toArray(allCharacters);
+		characters.decCounter();
+		return allCharacters;
 	}
 
 	@Override
@@ -175,7 +172,6 @@ public class BattleClient extends BattleClientObservable implements
 					@Override
 					public void initiativeChange(
 							ICharacterCombatClient character) {
-						notifyMapChanged();
 					}
 
 					@Override
@@ -198,9 +194,7 @@ public class BattleClient extends BattleClientObservable implements
 	}
 
 	protected void removeCharacterRemote(Long characterId) {
-		// ICharacterCombatClient client = new CharacterCombatClient(this,
-		// combat);
-		ICharacterCombatClient client = characters.remove(characterId);// client.getId());
+		ICharacterCombatClient client = characters.remove(characterId);
 		notifyCharacterRemove(this, client);
 		notifyMapChanged();
 	}
@@ -212,6 +206,7 @@ public class BattleClient extends BattleClientObservable implements
 
 	@Override
 	public ICharacterCombatClient getCharacterAt(Point location) {
+		characters.incCounter();
 		ICharacterCombatClient characterAt = null;
 		for (ICharacterCombatClient character : getAllCharacter()) {
 			if (character.isInside(location)) {
@@ -219,6 +214,7 @@ public class BattleClient extends BattleClientObservable implements
 				break;
 			}
 		}
+		characters.decCounter();
 		return characterAt;
 	}
 
@@ -228,13 +224,13 @@ public class BattleClient extends BattleClientObservable implements
 	 * @author Cody Stoutenburg
 	 * 
 	 */
-	private class BattleClientRemoteObserver extends Map2DRemoteObserver
+	private class BattleClientRemoteObserver extends UnicastRemoteObject
 			implements IBattleObserverRemote {
-		private static final long serialVersionUID = 2559145398149500009L;
+		private static final long serialVersionUID = 1L;
 
-		protected BattleClientRemoteObserver(BattleClient client,
-				IBattleRemote battle) throws RemoteException {
-			super(client, battle);
+		protected BattleClientRemoteObserver(IBattleRemote battle)
+				throws RemoteException {
+			super();
 			battle.addBattleListener(this);
 		}
 

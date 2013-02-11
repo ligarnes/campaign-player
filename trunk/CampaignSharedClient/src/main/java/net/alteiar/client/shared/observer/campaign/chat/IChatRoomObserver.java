@@ -26,9 +26,6 @@ import net.alteiar.server.shared.campaign.chat.MessageRemote;
  * 
  */
 public interface IChatRoomObserver {
-	void join(MessageRemote message);
-
-	void leave(MessageRemote message);
 
 	void talk(MessageRemote message);
 }

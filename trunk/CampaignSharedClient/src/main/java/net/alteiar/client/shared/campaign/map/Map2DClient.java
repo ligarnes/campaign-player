@@ -60,17 +60,18 @@ public class Map2DClient<E extends IMap2DRemote> extends
 
 	private boolean isMapLoaded;
 
-	public Map2DClient(E map2D) {
+	protected Map2DClient(E map2D) {
 		super(map2D);
 
 		allElements = new SynchronizedList<IMapElementClient>();
 		isMapLoaded = false;
 		try {
+			CampaignClient.WORKER_POOL_CAMPAIGN.addTask(new Map2DLoadTask(this,
+					remoteObject));
+
 			// our observer
 			new Map2DRemoteObserver(this, this.remoteObject);
 
-			CampaignClient.WORKER_POOL_CAMPAIGN.addTask(new Map2DLoadTask(this,
-					remoteObject));
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}

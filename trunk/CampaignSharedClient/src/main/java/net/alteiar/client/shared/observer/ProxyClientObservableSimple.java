@@ -45,7 +45,7 @@ public class ProxyClientObservableSimple<E extends IGUIDRemote> extends
 		this.removeListener(Observer.class, o);
 	}
 
-	protected void notifyListeners(Object arg) {
+	protected synchronized void notifyListeners(Object arg) {
 		for (Object obs : this.getListener(Observer.class)) {
 			((Observer) obs).update(null, arg);
 		}

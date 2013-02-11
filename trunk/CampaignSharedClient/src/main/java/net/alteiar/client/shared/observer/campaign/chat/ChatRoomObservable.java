@@ -48,17 +48,17 @@ public class ChatRoomObservable extends ProxyClientObservable<IChatRoomRemote> {
 		for (Object observer : this.getListener(LISTENER)) {
 			((IChatRoomObserver) observer).talk(remote);
 		}
-	}
+	}/*
 
-	protected void notifyJoin(MessageRemote remote) {
+		protected void notifyJoin(MessageRemote remote) {
 		for (Object observer : this.getListener(LISTENER)) {
-			((IChatRoomObserver) observer).join(remote);
+			((IChatRoomObserver) observer).talk(remote);
 		}
-	}
+		}
 
-	protected void notifyLeave(MessageRemote remote) {
+		protected void notifyLeave(MessageRemote remote) {
 		for (Object observer : this.getListener(LISTENER)) {
-			((IChatRoomObserver) observer).leave(remote);
+			((IChatRoomObserver) observer).talk(remote);
 		}
-	}
+		}*/
 }

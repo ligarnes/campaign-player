@@ -1,7 +1,6 @@
 package net.alteiar.client.shared.campaign.battle;
 
 import java.awt.Point;
-import java.util.Collection;
 
 import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
@@ -26,7 +25,7 @@ public interface IBattleClient extends IMap2DClient<IBattleRemote> {
 
 	ICharacterCombatClient getCharacterCombat(Long guid);
 
-	Collection<ICharacterCombatClient> getAllCharacter();
+	ICharacterCombatClient[] getAllCharacter();
 
 	Integer getCurrentTurn();
 
