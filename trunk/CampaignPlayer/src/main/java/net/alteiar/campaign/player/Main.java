@@ -85,6 +85,7 @@ public class Main {
 			Boolean isMj = dlg.getMainPanel().isMj();
 
 			Boolean isServer = dlg.getMainPanel().isServer();
+
 			if (isServer) {
 				ServerCampaign.startServer(address, Integer.valueOf(port));
 			}
@@ -107,7 +108,7 @@ public class Main {
 				@Override
 				public void run() {
 					MainFrame.FRAME.initComponent();
-					CampaignClient.createClientCampaign(10, MainFrame.FRAME);
+					CampaignClient.createClientCampaign(5, MainFrame.FRAME);
 					MainFrame.FRAME.setVisible(true);
 				}
 			});

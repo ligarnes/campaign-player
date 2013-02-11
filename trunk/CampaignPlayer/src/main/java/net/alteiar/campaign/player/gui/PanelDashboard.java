@@ -80,11 +80,11 @@ public class PanelDashboard extends MyPanel implements ICampaignObserver {
 		labelMJ.setFont(TEXT_FONT);
 		labelPJ.setFont(TEXT_FONT);
 
-		initPanelUser();
 		CampaignClient.INSTANCE.addCampaignListener(this);
 
 		JPanel center = new JPanel();
 		center.setOpaque(false);
+		// initPanelUser();
 		// center.add(panelUsers);
 		center.add(new PanelListSimpleCharacter());
 

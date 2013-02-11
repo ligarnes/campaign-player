@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 public abstract class PanelList extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	protected final HashMap<Object, JPanel> panels;
-	protected JPanel panelCreate;
+	private final HashMap<Object, JPanel> panels;
+	private final JPanel panelCreate;
 
 	public PanelList(String title) {
 		BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
@@ -24,19 +24,16 @@ public abstract class PanelList extends JPanel {
 
 		panels = new HashMap<Object, JPanel>();
 
+		panelCreate = createPanelCreate();
+		this.add(panelCreate);
+
 		this.setOpaque(false);
 	}
 
-	protected void initialize() {
-		for (JPanel panel : panels.values()) {
-			this.add(panel);
-		}
-		this.add(panelCreate);
-	}
+	protected abstract JPanel createPanelCreate();
 
 	protected void addElement(Object obj, JPanel panel) {
 		panels.put(obj, panel);
-		// may use yPanel.add(new Box.Filler());
 		this.remove(panelCreate);
 		if (this.getComponentCount() > 0) {
 			this.remove(this.getComponentCount() - 1);
@@ -56,11 +53,13 @@ public abstract class PanelList extends JPanel {
 		JPanel panel = panels.remove(obj);
 
 		int i = this.getComponentIndex(panel);
-		this.remove(i + 1);
-		this.remove(panel);
+		if (i > -1) {
+			this.remove(i + 1);
+			this.remove(panel);
 
-		this.revalidate();
-		this.repaint();
+			this.revalidate();
+			this.repaint();
+		}
 	}
 
 	public final int getComponentIndex(Component component) {

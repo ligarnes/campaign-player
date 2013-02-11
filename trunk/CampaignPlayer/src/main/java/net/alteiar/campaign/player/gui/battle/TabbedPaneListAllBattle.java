@@ -42,9 +42,6 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		super();
 		CampaignClient.INSTANCE.addCampaignListener(this);
 
-		// Add Main Menu
-		// this.addTab("Accueil", new PanelListAllBattle());
-
 		// Add existing battles
 		for (IBattleClient battle : CampaignClient.INSTANCE.getBattles()) {
 			this.addTab(battle.getName(), new PanelGeneraBattle(battle));

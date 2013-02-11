@@ -15,6 +15,7 @@ import net.alteiar.campaign.player.gui.battle.plan.details.MapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.battle.tools.ToolMapListener.Tools;
+import net.alteiar.client.shared.campaign.CampaignClient;
 import net.alteiar.client.shared.campaign.battle.IBattleClient;
 
 public class PanelTools extends JToolBar implements Observer {
@@ -55,14 +56,18 @@ public class PanelTools extends JToolBar implements Observer {
 		});
 		this.add(addCharacter);
 
-		JToggleButton addMonster = new JToggleButton("add monster");
-		addMonster.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				changeTool(Tools.ADD_MONSTER);
-			}
-		});
-		this.add(addMonster);
+		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
+			JToggleButton addMonster = new JToggleButton("add monster");
+			addMonster.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					changeTool(Tools.ADD_MONSTER);
+				}
+			});
+			group.add(addMonster);
+
+			this.add(addMonster);
+		}
 		this.addSeparator();
 		//
 		JToggleButton addCircle = new JToggleButton(Helpers.getIcon(
@@ -92,47 +97,54 @@ public class PanelTools extends JToolBar implements Observer {
 		});
 		this.add(addRay);
 
-		//
-		this.addSeparator();
-		JToggleButton rescale = new JToggleButton("rescale");
-		rescale.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				changeTool(Tools.CHANGE_SCALE);
-			}
-		});
-		this.add(rescale);
-
-		JToggleButton showMap = new JToggleButton(Helpers.getIcon(ICON_SHOW,
-				30, 30));
-		showMap.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				MapListener listener = mapListener.getCurrentListener();
-				if (listener instanceof ShowHidePolygonMapListener) {
-					((ShowHidePolygonMapListener) listener).finishShowHide();
-				} else {
-					changeTool(Tools.SHOW);
+		// For Mj only
+		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
+			this.addSeparator();
+			JToggleButton rescale = new JToggleButton("rescale");
+			rescale.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					changeTool(Tools.CHANGE_SCALE);
 				}
-			}
-		});
-		this.add(showMap);
+			});
+			this.add(rescale);
 
-		JToggleButton hideMap = new JToggleButton(Helpers.getIcon(ICON_HIDE,
-				30, 30));
-		hideMap.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				MapListener listener = mapListener.getCurrentListener();
-				if (listener instanceof ShowHidePolygonMapListener) {
-					((ShowHidePolygonMapListener) listener).finishShowHide();
-				} else {
-					changeTool(Tools.HIDE);
+			JToggleButton showMap = new JToggleButton(Helpers.getIcon(
+					ICON_SHOW, 30, 30));
+			showMap.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					MapListener listener = mapListener.getCurrentListener();
+					if (listener instanceof ShowHidePolygonMapListener) {
+						((ShowHidePolygonMapListener) listener)
+								.finishShowHide();
+					} else {
+						changeTool(Tools.SHOW);
+					}
 				}
-			}
-		});
-		this.add(hideMap);
+			});
+			this.add(showMap);
 
+			JToggleButton hideMap = new JToggleButton(Helpers.getIcon(
+					ICON_HIDE, 30, 30));
+			hideMap.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					MapListener listener = mapListener.getCurrentListener();
+					if (listener instanceof ShowHidePolygonMapListener) {
+						((ShowHidePolygonMapListener) listener)
+								.finishShowHide();
+					} else {
+						changeTool(Tools.HIDE);
+					}
+				}
+			});
+			this.add(hideMap);
+
+			group.add(rescale);
+			group.add(showMap);
+			group.add(hideMap);
+		}
 		this.addSeparator();
 
 		JToggleButton showGrid = new JToggleButton(Helpers.getIcon(
@@ -161,13 +173,9 @@ public class PanelTools extends JToolBar implements Observer {
 		this.add(fixGrid);
 
 		group.add(addCharacter);
-		group.add(addMonster);
 		group.add(addRay);
 		group.add(addCone);
 		group.add(addCircle);
-		group.add(rescale);
-		group.add(showMap);
-		group.add(hideMap);
 	}
 
 	private void changeTool(Tools tool) {
