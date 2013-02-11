@@ -29,7 +29,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 import net.alteiar.ExceptionTool;
@@ -52,9 +51,11 @@ import net.alteiar.server.shared.campaign.IServerCampaign;
 import net.alteiar.server.shared.campaign.battle.IBattleRemote;
 import net.alteiar.server.shared.campaign.battle.map.Scale;
 import net.alteiar.server.shared.campaign.character.ICharacterRemote;
+import net.alteiar.server.shared.campaign.chat.MessageRemote;
 import net.alteiar.server.shared.campaign.notes.INoteRemote;
 import net.alteiar.server.shared.campaign.player.IPlayerRemote;
 import net.alteiar.server.shared.observer.campaign.ICampaignObserverRemote;
+import net.alteiar.shared.tool.SynchronizedHashMap;
 import net.alteiar.thread.Task;
 import net.alteiar.thread.TaskInfo;
 import net.alteiar.thread.WorkerPool;
@@ -69,11 +70,11 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 	public final static WorkerPool WORKER_POOL_CAMPAIGN = new WorkerPool();
 	public static CampaignClient INSTANCE = null;
 
-	private final ConcurrentHashMap<Long, IBattleClient> allBattles;
-	private final ConcurrentHashMap<Long, IPlayerClient> allPlayer;
+	private final SynchronizedHashMap<Long, IBattleClient> allBattles;
+	private final SynchronizedHashMap<Long, IPlayerClient> allPlayer;
 	private final List<NoteClient> allNotes;
-	private final ConcurrentHashMap<Long, ICharacterSheetClient> allCharacters;
-	private final ConcurrentHashMap<Long, ICharacterSheetClient> allMonster;
+	private final SynchronizedHashMap<Long, ICharacterSheetClient> allCharacters;
+	private final SynchronizedHashMap<Long, ICharacterSheetClient> allMonster;
 
 	private final MediaManagerClient mediaManager;
 
@@ -126,28 +127,39 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 			ExceptionTool.showError(e);
 		}
 		INSTANCE = new CampaignClient(campaign, mediaManager, name, isMj);
+		try {
+			INSTANCE.loadCampaign(name, isMj);
+		} catch (RemoteException e) {
+			ExceptionTool.showError(e);
+		}
+		INSTANCE.getChatRoom().talk(INSTANCE.getCurrentPlayer().getName(),
+				MessageRemote.SYSTEM_CONNECT_MESSAGE);
+
 	}
 
 	private CampaignClient(IServerCampaign campaign,
 			MediaManagerClient mediaManager, String name, Boolean isMj) {
 		super(campaign);
-		allBattles = new ConcurrentHashMap<Long, IBattleClient>();
-		allPlayer = new ConcurrentHashMap<Long, IPlayerClient>();
+		allBattles = new SynchronizedHashMap<Long, IBattleClient>();
+		allPlayer = new SynchronizedHashMap<Long, IPlayerClient>();
 		allNotes = new ArrayList<NoteClient>();
-		allCharacters = new ConcurrentHashMap<Long, ICharacterSheetClient>();
-		allMonster = new ConcurrentHashMap<Long, ICharacterSheetClient>();
+		allCharacters = new SynchronizedHashMap<Long, ICharacterSheetClient>();
+		allMonster = new SynchronizedHashMap<Long, ICharacterSheetClient>();
 
 		this.mediaManager = mediaManager;
 
+		/*
 		try {
 			loadCampaign(name, isMj);
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
-		}
+		}*/
 	}
 
 	public void disconnect() {
 		try {
+			chatRoom.talk(currentPlayer.getName(),
+					MessageRemote.SYSTEM_DISCONNECT_MESSAGE);
 			this.remoteObject.disconnectPlayer(currentPlayer.getName());
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
@@ -166,6 +178,9 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 		// first create campaign observer
 		new ClientCampaignObserver(remoteObject);
 
+		// create current player
+		currentPlayer = new PlayerClient(remoteObject.createPlayer(name, isMj));
+
 		// we load the chat
 		chatRoom = new ChatRoomClient(remoteObject.getChat());
 
@@ -173,18 +188,6 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 		for (IPlayerRemote player : remoteObject.getAllPlayer()) {
 			PlayerClient client = new PlayerClient(player);
 			this.allPlayer.put(client.getId(), client);
-		}
-
-		// we load all battles
-		for (IBattleRemote battle : remoteObject.getBattles()) {
-			campaignBattleAdded(battle);
-		}
-
-		// we load all notes
-		Collection<INoteRemote> allNotesRemote = remoteObject.getAllNotes();
-		for (INoteRemote notes : allNotesRemote) {
-			NoteClient client = new NoteClient(notes);
-			this.allNotes.add(client);
 		}
 
 		// we load all character sheet
@@ -195,8 +198,19 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 			this.allCharacters.put(client.getId(), client);
 		}
 
-		// create current player
-		currentPlayer = new PlayerClient(remoteObject.createPlayer(name, isMj));
+		// we load all battles
+		for (IBattleRemote battle : remoteObject.getBattles()) {
+			campaignBattleAdded(battle);
+		}
+
+		// we load all notes
+		/*
+		Collection<INoteRemote> allNotesRemote = remoteObject.getAllNotes();
+		for (INoteRemote notes : allNotesRemote) {
+			NoteClient client = new NoteClient(notes);
+			this.allNotes.add(client);
+		}
+		*/
 	}
 
 	public IMediaManagerClient getMediaManager() {
@@ -216,13 +230,14 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 		return this.chatRoom;
 	}
 
+	/*
 	public void createNotes(String title, String text) {
 		try {
 			remoteObject.createNote(title, text);
 		} catch (RemoteException ex) {
 			ExceptionTool.showError(ex);
 		}
-	}
+	}*/
 
 	public List<NoteClient> getAllNotes() {
 		return this.allNotes;
@@ -301,12 +316,22 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 		CampaignClient.WORKER_POOL_CAMPAIGN.addTask(create);
 	}
 
-	public Collection<ICharacterSheetClient> getAllCharacter() {
-		return this.allCharacters.values();
+	public ICharacterSheetClient[] getAllCharacter() {
+		this.allCharacters.incCounter();
+		ICharacterSheetClient[] characters = new ICharacterSheetClient[allCharacters
+				.size()];
+		allCharacters.values().toArray(characters);
+		this.allCharacters.decCounter();
+		return characters;
 	}
 
-	public Collection<ICharacterSheetClient> getAllMonster() {
-		return this.allMonster.values();
+	public ICharacterSheetClient[] getAllMonster() {
+		this.allMonster.incCounter();
+		ICharacterSheetClient[] monsters = new ICharacterSheetClient[allMonster
+				.size()];
+		allMonster.values().toArray(monsters);
+		this.allMonster.decCounter();
+		return monsters;
 	}
 
 	public void removeBattle(IBattleClient battle) {
@@ -317,8 +342,12 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 		}
 	}
 
-	public Collection<IBattleClient> getBattles() {
-		return allBattles.values();
+	public IBattleClient[] getBattles() {
+		allBattles.incCounter();
+		IBattleClient[] battles = new IBattleClient[allBattles.size()];
+		allBattles.values().toArray(battles);
+		allBattles.decCounter();
+		return battles;
 	}
 
 	// PLAYER
@@ -414,6 +443,7 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 
 		@Override
 		public void battleAdded(IBattleRemote battle) throws RemoteException {
+
 			campaignBattleAdded(battle);
 		}
 

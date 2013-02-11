@@ -21,9 +21,11 @@ package net.alteiar.client.shared.campaign.chat;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 import net.alteiar.ExceptionTool;
+import net.alteiar.client.shared.campaign.CampaignClient;
 import net.alteiar.client.shared.observer.campaign.chat.ChatRoomObservable;
 import net.alteiar.server.shared.campaign.chat.IChatRoomRemote;
 import net.alteiar.server.shared.campaign.chat.MessageRemote;
@@ -36,6 +38,7 @@ import net.alteiar.server.shared.observer.campaign.chat.IChatRoomObserverRemote;
 public class ChatRoomClient extends ChatRoomObservable {
 	private static final long serialVersionUID = 1L;
 
+	private String pseudo;
 	protected List<MessageRemote> allMessage;
 
 	/**
@@ -46,13 +49,36 @@ public class ChatRoomClient extends ChatRoomObservable {
 		try {
 			new ChatRoomClientRemote(remoteObject);
 
-			allMessage = remoteObject.getAllMessage();
+			allMessage = new ArrayList<MessageRemote>();
 		} catch (RemoteException ex) {
 			ExceptionTool.showError(ex);
 		}
 	}
 
-	public void talk(MessageRemote msg) {
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
+	public void talk(String message) {
+		talk(message, MessageRemote.TEXT_MESSAGE);
+	}
+
+	public void talk(ChatObject obj, String command) {
+		talk(obj.stringFormat(), command);
+	}
+
+	private String getDefaultName() {
+		return CampaignClient.INSTANCE.getCurrentPlayer().getName();
+	}
+
+	public void talk(String message, String command) {
+		if (pseudo == null) {
+			pseudo = getDefaultName();
+		}
+		talk(new MessageRemote(pseudo, message, command));
+	}
+
+	protected void talk(MessageRemote msg) {
 		try {
 			remoteObject.talk(msg);
 		} catch (RemoteException ex) {
@@ -65,7 +91,7 @@ public class ChatRoomClient extends ChatRoomObservable {
 	}
 
 	/**
-	 * this class should be observer and will use the notify of the Map2DClient
+	 * this class should be observer and will use the notify of the chat room
 	 * 
 	 * @author Cody Stoutenburg
 	 * 
@@ -87,13 +113,13 @@ public class ChatRoomClient extends ChatRoomObservable {
 		@Override
 		public void playerJoin(MessageRemote join) throws RemoteException {
 			allMessage.add(join);
-			notifyJoin(join);
+			notifyTalk(join);
 		}
 
 		@Override
 		public void playerLeave(MessageRemote leave) throws RemoteException {
 			allMessage.add(leave);
-			notifyLeave(leave);
+			notifyTalk(leave);
 		}
 
 		@Override

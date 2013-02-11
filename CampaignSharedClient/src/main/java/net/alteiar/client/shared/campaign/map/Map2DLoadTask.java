@@ -22,6 +22,7 @@ package net.alteiar.client.shared.campaign.map;
 import java.awt.image.BufferedImage;
 import java.rmi.RemoteException;
 
+import net.alteiar.ExceptionTool;
 import net.alteiar.client.shared.observer.campaign.map.element.BaseMapElementClient;
 import net.alteiar.server.shared.campaign.battle.map.IMap2DRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.IFilterRemote;
@@ -44,12 +45,12 @@ public class Map2DLoadTask implements Task {
 
 	@Override
 	public String getStartText() {
-		return "downloading map";
+		return "Chargemement de la carte";
 	}
 
 	@Override
 	public String getFinishText() {
-		return "map downloaded";
+		return "Carte charger";
 	}
 
 	@Override
@@ -79,7 +80,7 @@ public class Map2DLoadTask implements Task {
 
 			mapClient.setMapLoaded(true);
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 
 	}

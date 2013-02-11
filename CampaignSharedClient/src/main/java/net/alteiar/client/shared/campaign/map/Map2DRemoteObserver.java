@@ -41,21 +41,20 @@ public class Map2DRemoteObserver extends UnicastRemoteObject implements
 	private final IMap2DRemote remote;
 	private final Map2DClient<?> map2D;
 
-	/**
-	 * @throws RemoteException
-	 */
 	public Map2DRemoteObserver(Map2DClient<?> map2D, IMap2DRemote mapRemote)
 			throws RemoteException {
 		super();
 		this.map2D = map2D;
 
 		remote = mapRemote;
+
 		remote.addMapListener(this);
 	}
 
 	@Override
 	public void mapElementAdded(IMapElementObservableRemote mapElement)
 			throws RemoteException {
+
 		BaseMapElementClient element = Map2DClient.loadMapElement(mapElement,
 				map2D);
 

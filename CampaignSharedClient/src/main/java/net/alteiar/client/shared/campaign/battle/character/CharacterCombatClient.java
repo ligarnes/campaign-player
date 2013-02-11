@@ -39,7 +39,6 @@ import net.alteiar.client.shared.campaign.character.CharacterSheetClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
 import net.alteiar.client.shared.observer.campaign.battle.character.CharacterCombatObservableClient;
 import net.alteiar.client.shared.observer.campaign.character.ICharacterClientObserver;
-import net.alteiar.server.shared.campaign.MyTimer;
 import net.alteiar.server.shared.campaign.battle.ICharacterCombatRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.size.MapElementSize;
 import net.alteiar.server.shared.campaign.battle.map.element.size.MapElementSizeSquare;
@@ -74,16 +73,11 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 	public CharacterCombatClient(IBattleClient map,
 			ICharacterCombatRemote character) {
 		super(character);
-		MyTimer timer = new MyTimer();
-		timer.startTimer();
-
 		this.map = map;
 
 		isHighlight = false;
 
 		try {
-			new CharacterCombatClientRemoteObserver(remoteObject);
-
 			Long guid = this.remoteObject.getCharacterSheetGuid();
 
 			characterSheet = CampaignClient.INSTANCE.getCharacter(guid);
@@ -92,6 +86,16 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 				characterSheet = new CharacterSheetClient(
 						this.remoteObject.getCharacterSheet());
 			}
+
+			isVisibleForPlayer = this.remoteObject.isVisibleForPlayer();
+			init = this.remoteObject.getInitiative();
+
+			localPosition = remoteObject.getPosition();
+			localAngle = remoteObject.getAngle();
+
+			width = new MapElementSizeSquare(characterSheet.getWidth());
+			height = new MapElementSizeSquare(characterSheet.getHeight());
+
 			characterSheet.addCharacterListener(new ICharacterClientObserver() {
 				@Override
 				public void imageLoaded(ICharacterSheetClient character) {
@@ -103,35 +107,10 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 					notifyCharacterChange();
 				}
 			});
-
-			isVisibleForPlayer = this.remoteObject.isVisibleForPlayer();
-			init = this.remoteObject.getInitiative();
-
-			width = new MapElementSizeSquare(characterSheet.getWidth());
-			height = new MapElementSizeSquare(characterSheet.getHeight());
-
-			localPosition = remoteObject.getPosition();
-			localAngle = remoteObject.getAngle();
-
-			this.characterSheet
-					.addCharacterListener(new ICharacterClientObserver() {
-						@Override
-						public void characterChanged(
-								ICharacterSheetClient character) {
-							notifyCharacterChange();
-						}
-
-						@Override
-						public void imageLoaded(ICharacterSheetClient character) {
-							notifyCharacterChange();
-						}
-					});
+			new CharacterCombatClientRemoteObserver(remoteObject);
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
-
-		timer.endTimer();
-		timer.printTime("CharacterCombatClient created " + getId());
 	}
 
 	@Override

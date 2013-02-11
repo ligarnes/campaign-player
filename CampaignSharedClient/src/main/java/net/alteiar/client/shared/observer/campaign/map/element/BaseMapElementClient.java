@@ -30,7 +30,6 @@ import java.rmi.server.UnicastRemoteObject;
 import net.alteiar.ExceptionTool;
 import net.alteiar.client.shared.campaign.map.element.IMapElementClient;
 import net.alteiar.client.shared.observer.ProxyClientObservableSimple;
-import net.alteiar.server.shared.campaign.MyTimer;
 import net.alteiar.server.shared.campaign.battle.map.element.IMapElementObservableRemote;
 import net.alteiar.server.shared.observer.campaign.map.IMapElementObserverRemote;
 
@@ -53,8 +52,6 @@ public abstract class BaseMapElementClient extends
 
 	public BaseMapElementClient(IMapElementObservableRemote element) {
 		super(element);
-		MyTimer timer = new MyTimer();
-		timer.startTimer();
 		try {
 			// load all data
 			localPosition = remoteObject.getPosition();
@@ -63,8 +60,6 @@ public abstract class BaseMapElementClient extends
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
-		timer.endTimer();
-		timer.printTime("create base map element " + getId());
 	}
 
 	@Override

@@ -32,7 +32,6 @@ import java.rmi.RemoteException;
 import net.alteiar.ExceptionTool;
 import net.alteiar.client.shared.campaign.map.IMap2DClient;
 import net.alteiar.client.shared.observer.campaign.map.element.BaseMapElementClient;
-import net.alteiar.server.shared.campaign.MyTimer;
 import net.alteiar.server.shared.campaign.battle.map.element.ICircleRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.size.MapElementSize;
 
@@ -52,7 +51,6 @@ public class CircleClient extends BaseMapElementClient {
 	 */
 	public CircleClient(ICircleRemote element, IMap2DClient<?> client) {
 		super(element);
-		MyTimer timer = new MyTimer();
 		// all remote element specific to circle
 		try {
 			localColor = element.getColor();
@@ -62,8 +60,6 @@ public class CircleClient extends BaseMapElementClient {
 		}
 
 		map = client;
-		timer.endTimer();
-		timer.printTime("create circle element");
 	}
 
 	public Color getColor() {
