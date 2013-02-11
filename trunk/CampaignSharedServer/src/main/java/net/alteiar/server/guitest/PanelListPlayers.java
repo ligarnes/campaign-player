@@ -1,7 +1,6 @@
 package net.alteiar.server.guitest;
 
 import java.rmi.RemoteException;
-import java.util.List;
 
 import javax.swing.JLabel;
 
@@ -17,7 +16,7 @@ public class PanelListPlayers extends PanelSimpleListInfo {
 
 	@Override
 	protected void askRefresh() throws RemoteException {
-		List<IPlayerRemote> characters = ServerCampaign.SERVER_CAMPAIGN_REMOTE
+		IPlayerRemote[] characters = ServerCampaign.SERVER_CAMPAIGN_REMOTE
 				.getAllPlayer();
 
 		this.getPanelData().removeAll();

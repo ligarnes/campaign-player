@@ -131,12 +131,12 @@ public class DefaultMapListener extends ActionMapListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mapElement.setVisibleForAllPlayer(!mapElement
-						.IsVisibleForPlayer());
-				menuItem.setSelected(mapElement.IsVisibleForPlayer());
+						.isVisibleForPlayer());
+				menuItem.setSelected(mapElement.isVisibleForPlayer());
 			}
 		});
 
-		menuItem.setSelected(mapElement.IsVisibleForPlayer());
+		menuItem.setSelected(mapElement.isVisibleForPlayer());
 		return menuItem;
 	}
 

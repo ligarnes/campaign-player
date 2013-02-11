@@ -335,18 +335,18 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 			// draw background
 			this.drawBackground(g2);
 
-			// Draw grid
-			if (showGrid) {
-				g2.setComposite(defaultComp);
-				this.drawGrid(g2);
-			}
-
 			// Draw all elements on map (monstre, characters, spell area, ...)
 			g2.setComposite(defaultComp);
 			this.drawElements(g2);
 
 			g2.setComposite(defaultComp);
 			this.drawCharacter(g2);
+
+			// Draw grid
+			if (showGrid) {
+				g2.setComposite(defaultComp);
+				this.drawGrid(g2);
+			}
 
 			// Draw the filter
 			g2.setComposite(defaultComp);

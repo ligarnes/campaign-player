@@ -73,12 +73,19 @@
 </dependency>
 	
 
+<!-- test Frameworks -->
 	<dependency>
 	  <groupId>junit</groupId>
       	<artifactId>junit</artifactId>
       	<version>4.8.1</version>
       	<scope>test</scope>
 	</dependency>
+	
+	<dependency>
+	<groupId>org.uispec4j</groupId>
+	<artifactId>uispec4j</artifactId>
+	<version>2.4</version>
+</dependency>
   </dependencies>
 		
   <build> 

@@ -129,7 +129,6 @@ public class Map2DFilterClient extends
 	}
 
 	private void drawHide(Graphics2D g2, Shape shape) {
-		// g2.setColor(Color.GRAY);
 		Float alpha = ALPHA_COMPOSITE_HIDE_PJ;
 		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
 			alpha = ALPHA_COMPOSITE_HIDE_MJ;
@@ -141,7 +140,6 @@ public class Map2DFilterClient extends
 	}
 
 	private void drawVisible(Graphics2D g2, Shape shape) {
-		// g2.setColor(Color.GRAY);
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN, 0.0f));
 
 		g2.fill(shape);

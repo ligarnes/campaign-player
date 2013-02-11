@@ -21,10 +21,7 @@ package net.alteiar.campaign.player.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
-import java.util.Collection;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -33,17 +30,12 @@ import net.alteiar.campaign.player.gui.dashboard.PanelListBattle;
 import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleCharacter;
 import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleMonster;
 import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.campaign.notes.NoteClient;
-import net.alteiar.client.shared.campaign.player.IPlayerClient;
-import net.alteiar.client.shared.observer.campaign.ICampaignObserver;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class PanelDashboard extends MyPanel implements ICampaignObserver {
+public class PanelDashboard extends MyPanel {
 	private static final long serialVersionUID = 1L;
 
 	private static Font TITLE_FONT = new Font("SansSerif", Font.BOLD, 18);
@@ -61,14 +53,8 @@ public class PanelDashboard extends MyPanel implements ICampaignObserver {
 	private final JLabel labelMJ;
 	private final JLabel labelPJ;
 
-	private final JPanel panelUsers;
-	private final GridLayout gridLayoutUsers;
-
 	public PanelDashboard() {
 		super(new BorderLayout());
-		panelUsers = new JPanel();
-		panelUsers.setOpaque(false);
-		gridLayoutUsers = new GridLayout(2, 2, 5, 5);
 
 		titleName = new JLabel("Nom");
 		titleStatus = new JLabel("status");
@@ -80,12 +66,8 @@ public class PanelDashboard extends MyPanel implements ICampaignObserver {
 		labelMJ.setFont(TEXT_FONT);
 		labelPJ.setFont(TEXT_FONT);
 
-		CampaignClient.INSTANCE.addCampaignListener(this);
-
 		JPanel center = new JPanel();
 		center.setOpaque(false);
-		// initPanelUser();
-		// center.add(panelUsers);
 		center.add(new PanelListSimpleCharacter());
 
 		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
@@ -95,80 +77,6 @@ public class PanelDashboard extends MyPanel implements ICampaignObserver {
 
 		this.add(PanelChatFactory.buildChatLarge(), BorderLayout.WEST);
 		this.add(center, BorderLayout.CENTER);
-		refreshPlayer();
 	}
 
-	private void initPanelUser() {
-		panelUsers.setBorder(BorderFactory.createTitledBorder("Utilisateurs"));
-		panelUsers.setLayout(gridLayoutUsers);
-		refreshPlayer();
-	}
-
-	private void refreshPlayer() {
-		panelUsers.removeAll();
-
-		Collection<IPlayerClient> clients = CampaignClient.INSTANCE
-				.getAllPlayer();
-
-		gridLayoutUsers.setRows(clients.size() + 1);
-
-		panelUsers.add(titleName);
-		panelUsers.add(titleStatus);
-		for (IPlayerClient player : clients) {
-			JLabel name = new JLabel(player.getName());
-			name.setFont(TEXT_FONT);
-
-			panelUsers.add(name);
-			if (player.isMj()) {
-				panelUsers.add(labelMJ);
-			} else {
-				panelUsers.add(labelPJ);
-			}
-		}
-
-		this.revalidate();
-	}
-
-	@Override
-	public void playerAdded(IPlayerClient player) {
-		refreshPlayer();
-	}
-
-	@Override
-	public void playerRemoved(IPlayerClient player) {
-		refreshPlayer();
-	}
-
-	// ///////////////////////USELESS METHODS///////////////////
-	@Override
-	public void battleAdded(IBattleClient battle) {
-	}
-
-	@Override
-	public void battleRemoved(IBattleClient battle) {
-	}
-
-	@Override
-	public void noteAdded(NoteClient note) {
-	}
-
-	@Override
-	public void noteRemoved(NoteClient note) {
-	}
-
-	@Override
-	public void characterAdded(ICharacterSheetClient note) {
-	}
-
-	@Override
-	public void characterRemoved(ICharacterSheetClient note) {
-	}
-
-	@Override
-	public void monsterAdded(ICharacterSheetClient note) {
-	}
-
-	@Override
-	public void monsterRemoved(ICharacterSheetClient note) {
-	}
 }

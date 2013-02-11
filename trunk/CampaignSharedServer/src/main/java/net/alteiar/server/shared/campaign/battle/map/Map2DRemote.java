@@ -68,23 +68,28 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 	}
 
 	@Override
-	public void addMapElement(IMapElementObservableRemote element)
+	public synchronized void addMapElement(IMapElementObservableRemote element)
 			throws RemoteException {
 		this.allElements.add(element);
 		this.notifyMapElementAdded(element);
 	}
 
 	@Override
-	public void removedMapElement(IMapElementObservableRemote element)
-			throws RemoteException {
+	public synchronized void removedMapElement(
+			IMapElementObservableRemote element) throws RemoteException {
 		this.allElements.remove(element);
 		this.notifyMapElementRemoved(element);
 	}
 
 	@Override
-	public List<IMapElementObservableRemote> getAllElements()
+	public synchronized IMapElementObservableRemote[] getAllElements()
 			throws RemoteException {
-		return this.allElements.getUnmodifiableList();
+		this.allElements.incCounter();
+		IMapElementObservableRemote[] mapElements = new IMapElementObservableRemote[this.allElements
+				.size()];
+		this.allElements.toArray(mapElements);
+		this.allElements.decCounter();
+		return mapElements;
 	}
 
 	@Override
@@ -98,12 +103,14 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 	}
 
 	@Override
-	public void showPolygon(List<Point> cwPts) throws RemoteException {
+	public synchronized void showPolygon(List<Point> cwPts)
+			throws RemoteException {
 		this.filterRemote.showPolygon(cwPts);
 	}
 
 	@Override
-	public void hidePolygon(List<Point> cwPts) throws RemoteException {
+	public synchronized void hidePolygon(List<Point> cwPts)
+			throws RemoteException {
 		this.filterRemote.hidePolygon(cwPts);
 	}
 
@@ -131,7 +138,7 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 	}
 
 	@Override
-	public void setScale(Scale scale) throws RemoteException {
+	public synchronized void setScale(Scale scale) throws RemoteException {
 		this.scale = scale;
 		this.notifyMapElementScaleChanged(scale);
 	}

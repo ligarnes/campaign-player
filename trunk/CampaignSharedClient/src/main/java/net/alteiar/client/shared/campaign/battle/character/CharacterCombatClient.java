@@ -114,7 +114,7 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 	}
 
 	@Override
-	public Boolean IsVisibleForPlayer() {
+	public Boolean isVisibleForPlayer() {
 		return isVisibleForPlayer;
 	}
 
@@ -199,7 +199,7 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 
 		BufferedImage localImg = getRealImage();
 		Graphics2D g2 = img.createGraphics();
-		if (!IsVisibleForPlayer()) {
+		if (!isVisibleForPlayer()) {
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.6f));
 		}
@@ -208,6 +208,8 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 				- heightLife, null);
 
 		// Draw life
+		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+				0.6f));
 		Integer currentHp = getCharacter().getCurrentHp();
 		Integer totalHp = getCharacter().getTotalHp();
 
@@ -225,6 +227,8 @@ public class CharacterCombatClient extends CharacterCombatObservableClient
 
 		// Highlight
 		if (isHighlighted()) {
+			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+					1f));
 			g2.setColor(Color.BLUE);
 			Stroke org = g2.getStroke();
 			g2.setStroke(new BasicStroke(8));

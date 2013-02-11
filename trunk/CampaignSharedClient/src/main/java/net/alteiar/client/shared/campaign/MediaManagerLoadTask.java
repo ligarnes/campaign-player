@@ -19,10 +19,12 @@
  */
 package net.alteiar.client.shared.campaign;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import net.alteiar.ExceptionTool;
 import net.alteiar.SerializableFile;
 import net.alteiar.server.shared.campaign.IMediaManagerRemote;
 import net.alteiar.thread.Task;
@@ -60,11 +62,16 @@ public class MediaManagerLoadTask implements Task {
 					.getAllImages();
 
 			for (Entry<Long, SerializableFile> entry : files.entrySet()) {
-				mediaManager.addRemoteImage(entry.getKey(), entry.getValue()
-						.restoreImage());
+				try {
+					mediaManager.addRemoteImage(entry.getKey(), entry
+							.getValue().restoreImage());
+				} catch (IOException e) {
+					ExceptionTool.showError(e,
+							"Impossible de charger l'image: " + entry.getKey());
+				}
 			}
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 
 	}

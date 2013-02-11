@@ -39,8 +39,6 @@ import net.alteiar.server.shared.campaign.character.CharacterRemote;
 import net.alteiar.server.shared.campaign.character.ICharacterRemote;
 import net.alteiar.server.shared.campaign.chat.ChatRoomRemote;
 import net.alteiar.server.shared.campaign.chat.IChatRoomRemote;
-import net.alteiar.server.shared.campaign.notes.INoteRemote;
-import net.alteiar.server.shared.campaign.notes.Note;
 import net.alteiar.server.shared.campaign.player.IPlayerRemote;
 import net.alteiar.server.shared.campaign.player.PlayerAccess;
 import net.alteiar.server.shared.campaign.player.PlayerRemote;
@@ -71,7 +69,7 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	private final SynchronizedList<IPlayerRemote> allPlayers;
 	private final SynchronizedHashMap<Long, ICharacterRemote> allCharacters;
 	private final SynchronizedHashMap<Long, ICharacterRemote> allMonster;
-	private final SynchronizedList<INoteRemote> allNotes;
+	// private final SynchronizedList<INoteRemote> allNotes;
 	private final IChatRoomRemote chatRoom;
 
 	public static void startServer(String addressIp, int port) {
@@ -109,8 +107,12 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	}
 
 	@Override
-	public List<IPlayerRemote> getAllPlayer() throws RemoteException {
-		return allPlayers.getUnmodifiableList();
+	public IPlayerRemote[] getAllPlayer() throws RemoteException {
+		allPlayers.incCounter();
+		IPlayerRemote[] players = new IPlayerRemote[allPlayers.size()];
+		allPlayers.toArray(players);
+		allPlayers.decCounter();
+		return players;
 	}
 
 	/**
@@ -120,7 +122,7 @@ public class ServerCampaign extends CampaignObservableRemote implements
 		super();
 		allBattles = new SynchronizedHashMap<Long, IBattleRemote>();
 		allPlayers = new SynchronizedList<IPlayerRemote>();
-		allNotes = new SynchronizedList<INoteRemote>();
+		// allNotes = new SynchronizedList<INoteRemote>();
 		allCharacters = new SynchronizedHashMap<Long, ICharacterRemote>();
 		allMonster = new SynchronizedHashMap<Long, ICharacterRemote>();
 		chatRoom = new ChatRoomRemote();
@@ -130,7 +132,7 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	@Override
 	public IPlayerRemote createPlayer(String name, Boolean isMj)
 			throws RemoteException {
-		for (IPlayerRemote player : allPlayers.getUnmodifiableList()) {
+		for (IPlayerRemote player : getAllPlayer()) {
 			if (player.getName().equals(name)) {
 				name += "1";
 			}
@@ -144,7 +146,7 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	@Override
 	public void disconnectPlayer(String name) throws RemoteException {
 		IPlayerRemote removed = null;
-		for (IPlayerRemote player : allPlayers.getUnmodifiableList()) {
+		for (IPlayerRemote player : getAllPlayer()) {
 			if (player.getName().equals(name)) {
 				removed = player;
 				break;
@@ -303,6 +305,7 @@ public class ServerCampaign extends CampaignObservableRemote implements
 	}
 
 	// ////////// NOTES METHODS ///////////////////////
+	/*
 	public void createNote(String title, String text) throws RemoteException {
 		INoteRemote note = new Note(title, text);
 		this.allNotes.add(note);
@@ -311,6 +314,6 @@ public class ServerCampaign extends CampaignObservableRemote implements
 
 	public List<INoteRemote> getAllNotes() throws RemoteException {
 		return new ArrayList<INoteRemote>(allNotes.getUnmodifiableList());
-	}
+	}*/
 
 }

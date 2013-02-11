@@ -3,6 +3,7 @@ package net.alteiar.character;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 import net.alteiar.TestClient;
 import net.alteiar.client.shared.campaign.CampaignClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
@@ -13,40 +14,47 @@ import org.junit.Test;
 public class TestMonster extends TestClient {
 
 	@Test
-	public void testCreateMonster() {
-		final PathfinderCharacter character1 = getCharacter1();
-		// create character
-		CampaignClient.INSTANCE.createMonster(character1);
+	public void testRemoveCharacter() {
+		// create monster
+		CampaignClient.INSTANCE.createMonster(getCharacter1());
 		sleep();
 
-		ICharacterSheetClient found = findMonster(character1.getName());
+		ICharacterSheetClient found = findMonster(getCharacter1().getName());
 		assertNotNull("Le personnage n'a pas était créer", found);
 
 		// full compare
-		fullTestCharacter(character1, found);
+		fullTestCharacter(getCharacter1(), found);
 
 		// remove character
 		CampaignClient.INSTANCE.removeMonster(found);
 		sleep();
 
-		found = findMonster(character1.getName());
+		found = findMonster(getCharacter1().getName());
 		assertNull("Le personnage n'a pas était supprimer", found);
 
-		// re create character
-		CampaignClient.INSTANCE.createMonster(character1);
+		removeAllCharacter();
+	}
+
+	@Test
+	public void testDuplicate() {
+		// create duplicate characters
+		CampaignClient.INSTANCE.createMonster(getCharacter1());
+		CampaignClient.INSTANCE.createMonster(getCharacter1());
+		CampaignClient.INSTANCE.createMonster(getCharacter1());
 		sleep();
 
-		found = findMonster(character1.getName());
+		ICharacterSheetClient found = findMonster(getCharacter1().getName());
 		assertNotNull("Le personnage n'a pas était créer", found);
-
-		// create duplicate character
-		CampaignClient.INSTANCE.createMonster(character1);
-		sleep();
-
-		found = findMonster(character1.getName() + "1");
+		found = findMonster(getCharacter1().getName() + "1");
+		assertNotNull("Le personnage n'a pas était créer/renommer", found);
+		found = findMonster(getCharacter1().getName() + "2");
 		assertNotNull("Le personnage n'a pas était créer/renommer", found);
 		removeAllMonsters();
+	}
 
+	@Test
+	public void testCreateMonster() {
+		final PathfinderCharacter character1 = getCharacter1();
 		Runnable create = new Runnable() {
 			@Override
 			public void run() {
@@ -66,6 +74,15 @@ public class TestMonster extends TestClient {
 		tr3.start();
 		tr4.start();
 
+		try {
+			tr1.join();
+			tr2.join();
+			tr3.join();
+			tr4.join();
+		} catch (InterruptedException e) {
+			fail("fail to join all threads");
+		}
+
 		int count = CampaignClient.INSTANCE.getAllMonster().length;
 		int previousCount = -1;
 		while (count != previousCount) {
@@ -73,7 +90,7 @@ public class TestMonster extends TestClient {
 			sleep(500);
 			count = CampaignClient.INSTANCE.getAllMonster().length;
 		}
-		assertEquals("tous les personnages n'ont pas était créer", 200,
+		assertEquals("tous les monstres n'ont pas était créer", 200,
 				CampaignClient.INSTANCE.getAllMonster().length);
 
 		tr1 = new Thread(new Remove(0, 50));
@@ -85,6 +102,15 @@ public class TestMonster extends TestClient {
 		tr2.start();
 		tr3.start();
 		tr4.start();
+
+		try {
+			tr1.join();
+			tr2.join();
+			tr3.join();
+			tr4.join();
+		} catch (InterruptedException e) {
+			fail("fail to join all threads");
+		}
 
 		count = CampaignClient.INSTANCE.getAllMonster().length;
 		previousCount = -1;

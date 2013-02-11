@@ -21,8 +21,6 @@ package net.alteiar.server.shared.campaign.battle;
 
 import java.awt.Point;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 import net.alteiar.ExceptionTool;
 import net.alteiar.SerializableFile;
@@ -64,9 +62,8 @@ public class BattleRemote extends BattleObservableRemote implements
 	}
 
 	@Override
-	public void addCharacter(Long id, Integer init, Point position)
+	public synchronized void addCharacter(Long id, Integer init, Point position)
 			throws RemoteException {
-
 		ICharacterRemote found = ServerCampaign.SERVER_CAMPAIGN_REMOTE
 				.getCharater(id);
 		ICharacterCombatRemote combat = new CharacterCombatRemote(found);
@@ -78,7 +75,7 @@ public class BattleRemote extends BattleObservableRemote implements
 	}
 
 	@Override
-	public void addMonster(Long id, Integer init, Point position,
+	public synchronized void addMonster(Long id, Integer init, Point position,
 			Boolean isVisible) throws RemoteException {
 		ICharacterRemote found = ServerCampaign.SERVER_CAMPAIGN_REMOTE
 				.getMonster(id);
@@ -111,30 +108,31 @@ public class BattleRemote extends BattleObservableRemote implements
 	}
 
 	@Override
-	public void removeCharacter(Long characterId) throws RemoteException {
+	public synchronized void removeCharacter(Long characterId)
+			throws RemoteException {
 		allCharacter.remove(characterId);
 		this.notifyCharacterRemoved(characterId);
 	}
 
 	@Override
-	public List<ICharacterCombatRemote> getAllCharacter()
-			throws RemoteException {
+	public ICharacterCombatRemote[] getAllCharacter() throws RemoteException {
 		allCharacter.incCounter();
-		ArrayList<ICharacterCombatRemote> characters = new ArrayList<ICharacterCombatRemote>(
-				allCharacter.values());
+		ICharacterCombatRemote[] characters = new ICharacterCombatRemote[allCharacter
+				.size()];
+		allCharacter.values().toArray(characters);
 		allCharacter.decCounter();
 
 		return characters;
 	}
 
 	@Override
-	public void setInitiativeEachTurn(Boolean isInitEachTurn)
+	public synchronized void setInitiativeEachTurn(Boolean isInitEachTurn)
 			throws RemoteException {
 		initiativeEachTurn = isInitEachTurn;
 	}
 
 	@Override
-	public void nextTurn() throws RemoteException {
+	public synchronized void nextTurn() throws RemoteException {
 		if (initiativeEachTurn) {
 			runInitForAllCharacter();
 		}

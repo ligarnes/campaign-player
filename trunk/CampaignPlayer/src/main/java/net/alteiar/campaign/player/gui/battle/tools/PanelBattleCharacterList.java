@@ -48,8 +48,10 @@ public class PanelBattleCharacterList extends JPanel implements
 	}
 
 	private void refreshPanel() {
+
 		List<PanelBattleCharacter> allPanels = new ArrayList<PanelBattleCharacter>(
 				allCharactersPanel.values());
+
 		Collections.sort(allPanels, new Comparator<PanelBattleCharacter>() {
 			CharacterCombatInitiativeComparator comparator = new CharacterCombatInitiativeComparator();
 
@@ -62,7 +64,7 @@ public class PanelBattleCharacterList extends JPanel implements
 		this.removeAll();
 		for (PanelBattleCharacter panel : allPanels) {
 			if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()
-					|| panel.getCharacter().IsVisibleForPlayer()) {
+					|| panel.getCharacter().isVisibleForPlayer()) {
 				this.add(panel);
 			}
 		}
@@ -96,10 +98,12 @@ public class PanelBattleCharacterList extends JPanel implements
 	@Override
 	public void characterAdded(BattleClient battle,
 			ICharacterCombatClient character) {
+
 		character.addCharacterCombatListener(this);
 
 		allCharactersPanel.put(character.getId(), new PanelBattleCharacter(
 				battle, character));
+
 		refreshPanel();
 	}
 

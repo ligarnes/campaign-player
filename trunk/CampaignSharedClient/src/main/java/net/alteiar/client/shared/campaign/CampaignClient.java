@@ -148,12 +148,13 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 
 		this.mediaManager = mediaManager;
 
-		/*
+		// create current player
 		try {
-			loadCampaign(name, isMj);
+			currentPlayer = new PlayerClient(remoteObject.createPlayer(name,
+					isMj));
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
-		}*/
+		}
 	}
 
 	public void disconnect() {
@@ -177,9 +178,6 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 	private void loadCampaign(String name, boolean isMj) throws RemoteException {
 		// first create campaign observer
 		new ClientCampaignObserver(remoteObject);
-
-		// create current player
-		currentPlayer = new PlayerClient(remoteObject.createPlayer(name, isMj));
 
 		// we load the chat
 		chatRoom = new ChatRoomClient(remoteObject.getChat());
@@ -351,13 +349,17 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 	}
 
 	// PLAYER
-	public Collection<IPlayerClient> getAllPlayer() {
-		return this.allPlayer.values();
+	public IPlayerClient[] getAllPlayer() {
+		allPlayer.incCounter();
+		IPlayerClient[] players = new IPlayerClient[allPlayer.size()];
+		allPlayer.values().toArray(players);
+		allPlayer.decCounter();
+		return players;
 	}
 
 	public Collection<IPlayerClient> getAllPlayer(List<Long> ids) {
 		List<IPlayerClient> players = new ArrayList<IPlayerClient>();
-		for (IPlayerClient iPlayerClient : players) {
+		for (IPlayerClient iPlayerClient : allPlayer.values()) {
 			if (ids.contains(iPlayerClient.getId())) {
 				players.add(iPlayerClient);
 			}

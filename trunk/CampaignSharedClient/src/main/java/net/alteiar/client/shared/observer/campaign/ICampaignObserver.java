@@ -41,11 +41,11 @@ public interface ICampaignObserver {
 
 	void noteRemoved(NoteClient note);
 
-	void characterAdded(ICharacterSheetClient note);
+	void characterAdded(ICharacterSheetClient character);
 
-	void characterRemoved(ICharacterSheetClient note);
+	void characterRemoved(ICharacterSheetClient character);
 
-	void monsterAdded(ICharacterSheetClient note);
+	void monsterAdded(ICharacterSheetClient monster);
 
-	void monsterRemoved(ICharacterSheetClient note);
+	void monsterRemoved(ICharacterSheetClient monster);
 }

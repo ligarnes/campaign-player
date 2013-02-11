@@ -340,32 +340,36 @@ public class PanelCharacter extends JPanel {
 			File f = chooser.getSelectedFile();
 
 			this.imgFile = new SerializableFile(f);
-			BufferedImage tmp = this.imgFile.restoreImage();
+			try {
+				BufferedImage tmp = this.imgFile.restoreImage();
 
-			int width = tmp.getWidth();
-			int height = tmp.getHeight();
-			if (width > 300 && height > 300) {
-				float factor = 300.0f / Math.min(width, height);
-				tmp = ImageUtil.resizeImage(tmp, (int) (width * factor),
-						(int) (height * factor));
-				try {
-					String fileFormat = "png";
-					if (f.getName().endsWith(".jpg")) {
-						fileFormat = "jpg";
+				int width = tmp.getWidth();
+				int height = tmp.getHeight();
+				if (width > 300 && height > 300) {
+					float factor = 300.0f / Math.min(width, height);
+					tmp = ImageUtil.resizeImage(tmp, (int) (width * factor),
+							(int) (height * factor));
+					try {
+						String fileFormat = "png";
+						if (f.getName().endsWith(".jpg")) {
+							fileFormat = "jpg";
+						}
+						File output = File.createTempFile("image", "."
+								+ fileFormat);
+						ImageIO.write(tmp, fileFormat, output);
+						this.imgFile = new SerializableFile(output);
+						output.delete();
+					} catch (IOException e) {
+						ExceptionTool.showError(e,
+								"Impossible de redimensionner l'image");
 					}
-					File output = File
-							.createTempFile("image", "." + fileFormat);
-					ImageIO.write(tmp, fileFormat, output);
-					this.imgFile = new SerializableFile(output);
-					output.delete();
-				} catch (IOException e) {
-					ExceptionTool.showError(e,
-							"Impossible de redimensionner l'image");
 				}
+				BufferedImage img = ImageUtil.resizeImage(
+						this.imgFile.restoreImage(), 120, 120);
+				this.btnIcon.setIcon(new ImageIcon(img));
+			} catch (IOException e1) {
+				ExceptionTool.showError(e1, "Impossible d'ouvrir l'image");
 			}
-			BufferedImage img = ImageUtil.resizeImage(
-					this.imgFile.restoreImage(), 120, 120);
-			this.btnIcon.setIcon(new ImageIcon(img));
 		}
 	}
 
@@ -387,10 +391,14 @@ public class PanelCharacter extends JPanel {
 
 		byte[] b = character.getImage();
 		if (b != null) {
-			this.imgFile = new SerializableFile(b);
-			BufferedImage img = ImageUtil.resizeImage(
-					this.imgFile.restoreImage(), 120, 120);
-			this.btnIcon.setIcon(new ImageIcon(img));
+			try {
+				this.imgFile = new SerializableFile(b);
+				BufferedImage img = ImageUtil.resizeImage(
+						this.imgFile.restoreImage(), 120, 120);
+				this.btnIcon.setIcon(new ImageIcon(img));
+			} catch (IOException e1) {
+				ExceptionTool.showError(e1, "Impossible d'ouvrir l'image");
+			}
 		}
 	}
 

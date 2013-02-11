@@ -2,9 +2,16 @@ package net.alteiar;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import javax.xml.bind.JAXBException;
+
 import net.alteiar.client.shared.campaign.CampaignClient;
 import net.alteiar.client.shared.campaign.battle.IBattleClient;
 import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
+import net.alteiar.client.shared.campaign.player.IPlayerClient;
 import net.alteiar.pcgen.PathfinderCharacter;
 import net.alteiar.thread.TaskInfoAdapter;
 
@@ -13,22 +20,47 @@ import org.junit.Before;
 
 public class TestClient {
 
-	private final PathfinderCharacter character1;
+	private PathfinderCharacter character1;
 
 	public TestClient() {
-		character1 = new PathfinderCharacter();
-		character1.setName("test");
-		character1.setAc(15);
-		character1.setAcFlatFooted(13);
-		character1.setAcTouch(12);
+		try {
+			character1 = CharacterIO.readFile(new File(
+					"./test/ressources/character.psr"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
 
-		character1.setHp(15);
-		character1.setCurrentHp(14);
+	public void printInfo() {
+		IPlayerClient[] players = CampaignClient.INSTANCE.getAllPlayer();
+		ICharacterSheetClient[] characters = CampaignClient.INSTANCE
+				.getAllCharacter();
+		ICharacterSheetClient[] monsters = CampaignClient.INSTANCE
+				.getAllMonster();
+		IBattleClient[] battles = CampaignClient.INSTANCE.getBattles();
 
-		character1.setHeight(1f);
-		character1.setWidth(1f);
-
-		character1.setInitMod(2);
+		System.out.println("======== PLAYERS ========");
+		for (IPlayerClient player : players) {
+			System.out.println("- " + player.getName());
+		}
+		System.out.println();
+		System.out.println("======== CHARACTERS ========");
+		for (ICharacterSheetClient character : characters) {
+			System.out.println("- " + character.getName());
+		}
+		System.out.println();
+		System.out.println("======== MONSTERS ========");
+		for (ICharacterSheetClient monster : monsters) {
+			System.out.println("- " + monster.getName());
+		}
+		System.out.println();
+		System.out.println("======== BATTLES ========");
+		for (IBattleClient battle : battles) {
+			System.out.println("- " + battle.getName());
+		}
+		System.out.println();
 	}
 
 	@Before
@@ -42,6 +74,7 @@ public class TestClient {
 		CampaignClient.connect(localAdress, address, port, name, isMj);
 
 		CampaignClient.createClientCampaign(5, new TaskInfoAdapter());
+
 	}
 
 	@After
@@ -97,6 +130,9 @@ public class TestClient {
 		for (ICharacterSheetClient character : characters) {
 			CampaignClient.INSTANCE.removeCharacter(character);
 		}
+		while (CampaignClient.INSTANCE.getAllCharacter().length > 0) {
+			sleep();
+		}
 	}
 
 	public static void removeAllMonsters() {
@@ -106,6 +142,9 @@ public class TestClient {
 		for (ICharacterSheetClient monster : monsters) {
 			CampaignClient.INSTANCE.removeMonster(monster);
 		}
+		while (CampaignClient.INSTANCE.getAllMonster().length > 0) {
+			sleep();
+		}
 	}
 
 	public static void removeAllBattles() {
@@ -113,6 +152,9 @@ public class TestClient {
 
 		for (IBattleClient battle : battles) {
 			CampaignClient.INSTANCE.removeBattle(battle);
+		}
+		while (CampaignClient.INSTANCE.getBattles().length > 0) {
+			sleep();
 		}
 	}
 
@@ -152,7 +194,7 @@ public class TestClient {
 	}
 
 	public static void sleep() {
-		sleep(1000);
+		sleep(500);
 	}
 
 	public PathfinderCharacter getCharacter1() {

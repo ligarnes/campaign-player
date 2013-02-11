@@ -21,7 +21,6 @@ package net.alteiar.server.shared.campaign.battle;
 
 import java.awt.Point;
 import java.rmi.RemoteException;
-import java.util.List;
 
 import net.alteiar.server.shared.campaign.battle.map.IMap2DRemote;
 import net.alteiar.server.shared.observer.IGUIDRemote;
@@ -47,13 +46,9 @@ public interface IBattleRemote extends IMap2DRemote, IGUIDRemote {
 	void addMonster(Long id, Integer init, Point position, Boolean isVisible)
 			throws RemoteException;
 
-	/*
-	void removeCharacter(ICharacterCombatRemote character)
-			throws RemoteException;
-			*/
 	void removeCharacter(Long guid) throws RemoteException;
 
-	List<ICharacterCombatRemote> getAllCharacter() throws RemoteException;
+	ICharacterCombatRemote[] getAllCharacter() throws RemoteException;
 
 	void setInitiativeEachTurn(Boolean isInitEachTurn) throws RemoteException;
 

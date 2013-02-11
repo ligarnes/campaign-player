@@ -65,7 +65,7 @@ public interface IMap2DClient<E extends IGUIDRemote> extends IProxyClient<E> {
 
 	Integer getHeight();
 
-	List<IMapElementClient> getAllElements();
+	IMapElementClient[] getAllElements();
 
 	IMapElement getElementAt(Point location);
 

@@ -20,7 +20,7 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;
 	private static Random RANDOM = new Random(new Date().getTime());
 
-	private final JComboBox<CharacterAdapter> comboBoxCharacter;
+	private final JComboBox comboBoxCharacter;
 	private final JLabel lblInitValue;
 	private final JLabel lblTotal;
 	private final JSpinner spinnerDice;
@@ -52,7 +52,7 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 			++i;
 		}
 
-		comboBoxCharacter = new JComboBox<CharacterAdapter>(lst);
+		comboBoxCharacter = new JComboBox(lst);
 		add(comboBoxCharacter);
 
 		JLabel lblInit = new JLabel("Initiative:");
