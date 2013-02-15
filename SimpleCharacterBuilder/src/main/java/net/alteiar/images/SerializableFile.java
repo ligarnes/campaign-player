@@ -17,7 +17,7 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar;
+package net.alteiar.images;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -25,7 +25,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
@@ -33,7 +32,7 @@ import javax.imageio.ImageIO;
  * @author Cody Stoutenburg
  * 
  */
-public class SerializableFile implements Serializable {
+public class SerializableFile implements TransfertImage {
 	private static final long serialVersionUID = 4786344613415239528L;
 
 	private static byte[] getBytesFromFile(File file) throws IOException {
@@ -108,6 +107,7 @@ public class SerializableFile implements Serializable {
 		}
 	}
 
+	@Override
 	public BufferedImage restoreImage() throws IOException {
 		return ImageIO.read(new ByteArrayInputStream(file));
 	}

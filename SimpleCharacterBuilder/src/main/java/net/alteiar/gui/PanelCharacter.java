@@ -29,7 +29,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.alteiar.ExceptionTool;
 import net.alteiar.ImageUtil;
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.pcgen.PathfinderCharacter;
 
 public class PanelCharacter extends JPanel {
