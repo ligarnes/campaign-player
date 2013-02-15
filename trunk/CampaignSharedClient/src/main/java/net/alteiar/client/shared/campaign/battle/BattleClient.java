@@ -42,7 +42,6 @@ public class BattleClient extends BattleClientObservable implements
 		IBattleClient {
 	private static final long serialVersionUID = 1L;
 
-	private String name;
 	private Integer currentTurn;
 	private final SynchronizedHashMap<Long, ICharacterCombatClient> characters;
 
@@ -50,7 +49,6 @@ public class BattleClient extends BattleClientObservable implements
 		super(battle);
 		characters = new SynchronizedHashMap<Long, ICharacterCombatClient>();
 		try {
-			name = remoteObject.getName();
 			currentTurn = remoteObject.getCurrentTurn();
 
 			// Load all current Character
@@ -61,11 +59,6 @@ public class BattleClient extends BattleClientObservable implements
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
-	}
-
-	@Override
-	public String getName() {
-		return name;
 	}
 
 	@Override

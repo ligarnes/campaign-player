@@ -20,6 +20,8 @@
 package net.alteiar.client.shared.campaign;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
@@ -31,8 +33,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 
+import javax.xml.bind.JAXBException;
+
+import net.alteiar.CharacterIO;
 import net.alteiar.ExceptionTool;
 import net.alteiar.client.shared.campaign.battle.BattleClient;
+import net.alteiar.client.shared.campaign.battle.BattleIO;
+import net.alteiar.client.shared.campaign.battle.BattleSave;
 import net.alteiar.client.shared.campaign.battle.CreateBattleTask;
 import net.alteiar.client.shared.campaign.battle.IBattleClient;
 import net.alteiar.client.shared.campaign.character.CharacterSheetClient;
@@ -43,7 +50,9 @@ import net.alteiar.client.shared.campaign.player.IObjectPlayerAccess;
 import net.alteiar.client.shared.campaign.player.IPlayerClient;
 import net.alteiar.client.shared.campaign.player.PlayerClient;
 import net.alteiar.client.shared.observer.campaign.CampaignObservable;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.logger.LoggerConfig;
+import net.alteiar.pcgen.PathfinderCharacter;
 import net.alteiar.pcgen.PathfinderCharacterFacade;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.shared.campaign.IMediaManagerRemote;
@@ -246,6 +255,12 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 				battleName, background, scale));
 	}
 
+	public void createBattle(String battleName, SerializableFile background,
+			Scale scale) {
+		WORKER_POOL_CAMPAIGN.addTask(new CreateBattleTask(remoteObject,
+				battleName, background, scale));
+	}
+
 	public void createCharacter(final PathfinderCharacterFacade newCharacter) {
 		Task create = new Task() {
 			@Override
@@ -369,6 +384,98 @@ public class CampaignClient extends CampaignObservable implements Serializable {
 
 	public ICharacterSheetClient getCharacter(Long guid) {
 		return allCharacters.get(guid);
+	}
+
+	public void save(File directory) {
+		try {
+			directory.mkdir();
+			saveCharacter(directory);
+			saveMonsters(directory);
+			saveBattleMap(directory);
+		} catch (JAXBException e) {
+			ExceptionTool.showError(e);
+		} catch (IOException e) {
+			ExceptionTool.showError(e);
+		}
+	}
+
+	private void saveCharacter(File directory) throws JAXBException,
+			IOException {
+		File characterDir = new File(directory, "characters");
+		characterDir.mkdir();
+
+		for (ICharacterSheetClient character : getAllCharacter()) {
+			PathfinderCharacter characterSave = character.convert();
+			CharacterIO.writeFile(
+					new File(characterDir, characterSave.getName() + ".psr"),
+					characterSave);
+		}
+	}
+
+	private void saveMonsters(File directory) throws JAXBException, IOException {
+		File monsterDir = new File(directory, "monsters");
+		monsterDir.mkdir();
+
+		for (ICharacterSheetClient character : getAllMonster()) {
+			PathfinderCharacter monsterSave = character.convert();
+			CharacterIO.writeFile(new File(monsterDir, monsterSave.getName()
+					+ ".psr"), monsterSave);
+		}
+	}
+
+	private void saveBattleMap(File directory) throws JAXBException,
+			IOException {
+		File battleDir = new File(directory, "battles");
+		battleDir.mkdir();
+
+		for (IBattleClient battle : getBattles()) {
+			BattleSave save = new BattleSave(battle);
+			BattleIO.writeFile(new File(battleDir, battle.getName()), save);
+		}
+	}
+
+	public void load(File directory) {
+		try {
+			loadCharacters(directory);
+			loadMonsters(directory);
+			loadBattleMap(directory);
+		} catch (FileNotFoundException e) {
+			ExceptionTool.showError(e);
+		} catch (JAXBException e) {
+			ExceptionTool.showError(e);
+		}
+	}
+
+	private void loadCharacters(File directory) throws FileNotFoundException,
+			JAXBException {
+		File characterDir = new File(directory, "characters");
+
+		for (File character : characterDir.listFiles()) {
+			PathfinderCharacter characterLoad = CharacterIO.readFile(character);
+			this.createCharacter(characterLoad);
+		}
+
+	}
+
+	private void loadMonsters(File directory) throws FileNotFoundException,
+			JAXBException {
+		File monsterDir = new File(directory, "monsters");
+
+		for (File monster : monsterDir.listFiles()) {
+			PathfinderCharacter monsterLoad = CharacterIO.readFile(monster);
+			this.createMonster(monsterLoad);
+		}
+	}
+
+	private void loadBattleMap(File directory) throws FileNotFoundException,
+			JAXBException {
+		File battleDir = new File(directory, "battles");
+
+		for (File battle : battleDir.listFiles()) {
+			BattleSave save = BattleIO.readFile(battle);
+			this.createBattle(save.getName(),
+					new SerializableFile(save.getBackground()), save.getScale());
+		}
 	}
 
 	// ////////////PROTECTED METHODS///////////////

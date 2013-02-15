@@ -20,10 +20,13 @@
 package net.alteiar.client.shared.campaign.character;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.imageio.ImageIO;
 
 import net.alteiar.ExceptionTool;
 import net.alteiar.client.shared.campaign.CampaignClient;
@@ -219,9 +222,20 @@ public class CharacterSheetClient extends CharacterClientObservable implements
 
 		character.setHp(getTotalHp());
 
-		byte[] imageBytes = ((DataBufferByte) getBackground().getData()
-				.getDataBuffer()).getData();
-		character.setImage(imageBytes);
+		character.setWidth(getWidth().floatValue());
+		character.setHeight(getHeight().floatValue());
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try {
+			ImageIO.write(getBackground(), "png", baos);
+			baos.flush();
+			byte[] imageBytes = baos.toByteArray();
+			baos.close();
+
+			character.setImage(imageBytes);
+		} catch (IOException e) {
+			ExceptionTool.showError(e, "impossible de sauvegarder l'image");
+		}
 
 		return character;
 	}

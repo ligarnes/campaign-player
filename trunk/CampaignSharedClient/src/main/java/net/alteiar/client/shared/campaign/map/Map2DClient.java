@@ -53,6 +53,8 @@ public class Map2DClient<E extends IMap2DRemote> extends
 		Map2DClientObservable<E> implements IMap2DClient<E>, Observer {
 	private static final long serialVersionUID = 1L;
 
+	private String mapName;
+
 	private BufferedImage background;
 	private Map2DFilterClient filter;
 	private final SynchronizedList<IMapElementClient> allElements;
@@ -97,7 +99,12 @@ public class Map2DClient<E extends IMap2DRemote> extends
 	}
 
 	@Override
-	public synchronized boolean isMapLoaded() {
+	public String getName() {
+		return mapName;
+	}
+
+	@Override
+	public boolean isMapLoaded() {
 		return isMapLoaded;
 	}
 
@@ -245,6 +252,11 @@ public class Map2DClient<E extends IMap2DRemote> extends
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
+	}
+
+	public synchronized void setLocalName(String name) {
+		this.mapName = name;
+		notifyMapChanged();
 	}
 
 	/**

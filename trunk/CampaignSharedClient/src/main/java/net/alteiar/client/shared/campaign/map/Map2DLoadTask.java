@@ -58,6 +58,7 @@ public class Map2DLoadTask implements Task {
 	public void run() {
 		try {
 			// set all local stuff
+			mapClient.setLocalName(remoteMap.getName());
 			mapClient.setLocalScale(remoteMap.getScale());
 
 			BufferedImage img;

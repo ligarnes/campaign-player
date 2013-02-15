@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import net.alteiar.ExceptionTool;
-import net.alteiar.SerializableFile;
+import net.alteiar.images.TransfertImage;
 import net.alteiar.server.shared.campaign.IMediaManagerRemote;
 import net.alteiar.thread.Task;
 
@@ -58,10 +58,10 @@ public class MediaManagerLoadTask implements Task {
 	public void run() {
 		try {
 			// set all local stuff
-			HashMap<Long, SerializableFile> files = remoteMediaManager
+			HashMap<Long, TransfertImage> files = remoteMediaManager
 					.getAllImages();
 
-			for (Entry<Long, SerializableFile> entry : files.entrySet()) {
+			for (Entry<Long, TransfertImage> entry : files.entrySet()) {
 				try {
 					mediaManager.addRemoteImage(entry.getKey(), entry
 							.getValue().restoreImage());
