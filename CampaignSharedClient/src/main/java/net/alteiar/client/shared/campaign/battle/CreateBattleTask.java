@@ -22,7 +22,7 @@ package net.alteiar.client.shared.campaign.battle;
 import java.io.File;
 import java.rmi.RemoteException;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.server.shared.campaign.IServerCampaign;
 import net.alteiar.server.shared.campaign.battle.map.Scale;
 import net.alteiar.thread.Task;
@@ -34,16 +34,20 @@ import net.alteiar.thread.Task;
 public class CreateBattleTask implements Task {
 	private final IServerCampaign campaign;
 	private final String name;
-	private final File map;
+	private final SerializableFile map;
 	private final Scale scale;
 
-	/**
-	 * @param campaign
-	 * @param name
-	 * @param map
-	 */
 	public CreateBattleTask(IServerCampaign campaign, String name, File map,
 			Scale scale) {
+		super();
+		this.campaign = campaign;
+		this.name = name;
+		this.map = new SerializableFile(map);
+		this.scale = scale;
+	}
+
+	public CreateBattleTask(IServerCampaign campaign, String name,
+			SerializableFile map, Scale scale) {
 		super();
 		this.campaign = campaign;
 		this.name = name;
@@ -54,8 +58,7 @@ public class CreateBattleTask implements Task {
 	@Override
 	public void run() {
 		try {
-			SerializableFile serializable = new SerializableFile(map);
-			campaign.createBattle(name, serializable, scale);
+			campaign.createBattle(name, map, scale);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

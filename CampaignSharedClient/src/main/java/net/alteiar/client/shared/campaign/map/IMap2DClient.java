@@ -41,6 +41,8 @@ import net.alteiar.server.shared.observer.IGUIDRemote;
  */
 public interface IMap2DClient<E extends IGUIDRemote> extends IProxyClient<E> {
 
+	String getName();
+
 	void addMapListener(IMapObserver listener);
 
 	void removeMapListener(IMapObserver listener);

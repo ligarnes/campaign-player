@@ -13,8 +13,6 @@ public interface IBattleClient extends IMap2DClient<IBattleRemote> {
 
 	void removeBattleListener(IBattleObserver listener);
 
-	String getName();
-
 	void addCharacter(ICharacterSheetClient character, Integer init,
 			Point position);
 
