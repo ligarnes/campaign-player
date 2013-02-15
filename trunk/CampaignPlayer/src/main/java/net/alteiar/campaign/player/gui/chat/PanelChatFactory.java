@@ -6,8 +6,8 @@ public class PanelChatFactory {
 	private static Dimension DIMENSION_REC_SMALL = new Dimension(190, 200);
 	private static Dimension DIMENSION_SEND_SMALL = new Dimension(200, 50);
 
-	private static Dimension DIMENSION_REC_LARGE = new Dimension(340, 300);
-	private static Dimension DIMENSION_SEND_LARGE = new Dimension(350, 200);
+	private static Dimension DIMENSION_REC_LARGE = new Dimension(240, 300);
+	private static Dimension DIMENSION_SEND_LARGE = new Dimension(250, 200);
 
 	private static Dimension DIMENSION_REC_MEDIUM = new Dimension(190, 300);
 	private static Dimension DIMENSION_SEND_MEDIUM = new Dimension(200, 200);
