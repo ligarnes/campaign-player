@@ -23,12 +23,12 @@ import net.alteiar.campaign.player.gui.tools.PanelMoveZoom;
 import org.pdfbox.pdmodel.PDDocument;
 import org.pdfbox.pdmodel.PDPage;
 
-public class PanelRoleplay extends JPanel {
+public class PanelFramed extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private final JDesktopPane pane;
 
-	public PanelRoleplay() {
+	public PanelFramed() {
 		this.setLayout(new BorderLayout());
 
 		pane = new JDesktopPane();
