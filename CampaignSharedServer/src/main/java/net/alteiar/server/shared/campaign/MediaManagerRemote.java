@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.TransfertImage;
 import net.alteiar.server.shared.observer.campaign.MediaObservableRemote;
 import net.alteiar.shared.tool.SynchronizedHashMap;
 
@@ -12,18 +12,19 @@ public class MediaManagerRemote extends MediaObservableRemote implements
 		IMediaManagerRemote {
 	private static final long serialVersionUID = 1L;
 
-	private final SynchronizedHashMap<Long, SerializableFile> images;
+	private final SynchronizedHashMap<Long, TransfertImage> images;
 	private Long currentKey;
 
 	public MediaManagerRemote() throws RemoteException {
 		super();
 
-		images = new SynchronizedHashMap<Long, SerializableFile>();
+		images = new SynchronizedHashMap<Long, TransfertImage>();
 		currentKey = 0L;
 	}
 
 	@Override
-	public Long addImage(SerializableFile image) throws RemoteException {
+	public synchronized Long addImage(TransfertImage image)
+			throws RemoteException {
 		images.put(currentKey, image);
 		notifyMediaAdded(currentKey);
 		currentKey++;
@@ -32,8 +33,8 @@ public class MediaManagerRemote extends MediaObservableRemote implements
 	}
 
 	@Override
-	public SerializableFile getImage(Long guid) throws RemoteException {
-		SerializableFile image = images.get(guid);
+	public TransfertImage getImage(Long guid) throws RemoteException {
+		TransfertImage image = images.get(guid);
 		if (image == null) {
 			image = null;
 		}
@@ -41,12 +42,11 @@ public class MediaManagerRemote extends MediaObservableRemote implements
 	}
 
 	@Override
-	public HashMap<Long, SerializableFile> getAllImages()
-			throws RemoteException {
-		HashMap<Long, SerializableFile> transfert = new HashMap<Long, SerializableFile>();
+	public HashMap<Long, TransfertImage> getAllImages() throws RemoteException {
+		HashMap<Long, TransfertImage> transfert = new HashMap<Long, TransfertImage>();
 
 		images.incCounter();
-		for (Entry<Long, SerializableFile> entry : images.entrySet()) {
+		for (Entry<Long, TransfertImage> entry : images.entrySet()) {
 			transfert.put(entry.getKey(), entry.getValue());
 		}
 		images.decCounter();

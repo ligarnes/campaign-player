@@ -32,8 +32,6 @@ import net.alteiar.server.shared.observer.campaign.battle.IBattleObserverRemote;
  */
 public interface IBattleRemote extends IMap2DRemote, IGUIDRemote {
 
-	String getName() throws RemoteException;
-
 	void addBattleListener(IBattleObserverRemote listener)
 			throws RemoteException;
 

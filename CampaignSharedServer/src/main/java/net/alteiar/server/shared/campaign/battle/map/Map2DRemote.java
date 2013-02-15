@@ -24,7 +24,7 @@ import java.awt.Point;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.server.shared.campaign.battle.map.element.IFilterRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.IMapElementObservableRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.IRayRemote;
@@ -45,6 +45,8 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 
 	private static final long serialVersionUID = 7146516259514104557L;
 
+	private final String mapName;
+
 	private final SynchronizedList<IMapElementObservableRemote> allElements;
 
 	private final SerializableFile background;
@@ -55,9 +57,11 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 	/**
 	 * @throws RemoteException
 	 */
-	public Map2DRemote(SerializableFile background, Scale scale)
+	public Map2DRemote(String mapName, SerializableFile background, Scale scale)
 			throws RemoteException {
 		super();
+
+		this.mapName = mapName;
 
 		this.background = background;
 
@@ -65,6 +69,11 @@ public abstract class Map2DRemote extends MapObservableRemote implements
 
 		filterRemote = new MapFilterRemote();
 		this.scale = scale;
+	}
+
+	@Override
+	public String getName() throws RemoteException {
+		return mapName;
 	}
 
 	@Override

@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import net.alteiar.ExceptionTool;
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.pcgen.PathfinderCharacterFacade;
 import net.alteiar.rmi.client.RmiRegistry;
