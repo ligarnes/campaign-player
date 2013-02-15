@@ -22,7 +22,7 @@ package net.alteiar.server.shared.observer.campaign.battle;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.server.shared.campaign.ServerCampaign;
 import net.alteiar.server.shared.campaign.battle.ICharacterCombatRemote;
 import net.alteiar.server.shared.campaign.battle.map.Map2DRemote;
@@ -38,9 +38,9 @@ public class BattleObservableRemote extends Map2DRemote {
 
 	private static final Class<?> BATTLE_LISTENER = IBattleObserverRemote.class;
 
-	public BattleObservableRemote(SerializableFile background, Scale scale)
-			throws RemoteException {
-		super(background, scale);
+	public BattleObservableRemote(String mapName, SerializableFile background,
+			Scale scale) throws RemoteException {
+		super(mapName, background, scale);
 	}
 
 	public void addBattleListener(IBattleObserverRemote listener)

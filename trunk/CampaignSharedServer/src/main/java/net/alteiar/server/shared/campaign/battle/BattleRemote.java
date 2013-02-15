@@ -23,7 +23,7 @@ import java.awt.Point;
 import java.rmi.RemoteException;
 
 import net.alteiar.ExceptionTool;
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.server.shared.campaign.ServerCampaign;
 import net.alteiar.server.shared.campaign.battle.map.Scale;
 import net.alteiar.server.shared.campaign.character.ICharacterRemote;
@@ -42,23 +42,16 @@ public class BattleRemote extends BattleObservableRemote implements
 	private Integer currentTurn;
 	private Boolean initiativeEachTurn;
 
-	private final String battleName;
 	private final SynchronizedHashMap<Long, ICharacterCombatRemote> allCharacter;
 
 	public BattleRemote(String battleName, SerializableFile background,
 			Scale scale) throws RemoteException {
-		super(background, scale);
+		super(battleName, background, scale);
 
-		this.battleName = battleName;
 		this.allCharacter = new SynchronizedHashMap<Long, ICharacterCombatRemote>();
 
 		currentTurn = 0;
 		initiativeEachTurn = false;
-	}
-
-	@Override
-	public String getName() throws RemoteException {
-		return battleName;
 	}
 
 	@Override

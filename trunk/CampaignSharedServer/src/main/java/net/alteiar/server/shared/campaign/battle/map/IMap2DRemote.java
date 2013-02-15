@@ -24,7 +24,7 @@ import java.awt.Point;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.server.shared.campaign.battle.map.element.ICircleRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.IConeRemote;
 import net.alteiar.server.shared.campaign.battle.map.element.IFilterRemote;
@@ -39,6 +39,7 @@ import net.alteiar.server.shared.observer.campaign.map.IMapObserverRemote;
  * 
  */
 public interface IMap2DRemote extends IGUIDRemote {
+	String getName() throws RemoteException;
 
 	void addMapListener(IMapObserverRemote map) throws RemoteException;
 

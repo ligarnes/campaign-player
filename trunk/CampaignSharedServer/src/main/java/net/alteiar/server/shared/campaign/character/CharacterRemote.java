@@ -21,7 +21,7 @@ package net.alteiar.server.shared.campaign.character;
 
 import java.rmi.RemoteException;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.pcgen.PathfinderCharacterFacade;
 import net.alteiar.server.shared.campaign.ServerCampaign;
 import net.alteiar.server.shared.campaign.player.PlayerAccess;

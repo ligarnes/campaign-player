@@ -22,7 +22,7 @@ package net.alteiar.server.shared.campaign;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import net.alteiar.SerializableFile;
+import net.alteiar.images.SerializableFile;
 import net.alteiar.pcgen.PathfinderCharacterFacade;
 import net.alteiar.server.shared.campaign.battle.IBattleRemote;
 import net.alteiar.server.shared.campaign.battle.map.Scale;
