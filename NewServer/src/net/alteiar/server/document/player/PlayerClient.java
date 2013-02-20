@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
 
-import net.alteiar.client.DocumentClient;
+import net.alteiar.server.document.DocumentClient;
 
 /**
  * @author Cody Stoutenburg

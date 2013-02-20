@@ -1,10 +1,9 @@
-package net.alteiar.client;
+package net.alteiar.server.document;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-import net.alteiar.server.document.IDocumentListener;
-import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.client.BaseObservableClient;
 
 public abstract class DocumentClient<E extends IDocumentRemote> extends
 		BaseObservableClient {
@@ -49,7 +48,6 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 	public void initializeTransient() {
 		super.initializeTransient();
 
-		System.out.println("initialize transient DocumentClient");
 		try {
 			documentListener = new LocalDocumentListener();
 
@@ -60,8 +58,8 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 		}
 	}
 
-	private class LocalDocumentListener extends IDocumentListener implements
-			Remote {
+	private class LocalDocumentListener extends UnicastRemoteObject implements
+			IDocumentListener {
 		private static final long serialVersionUID = 1L;
 
 		protected LocalDocumentListener() throws RemoteException {

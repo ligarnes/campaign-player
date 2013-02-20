@@ -21,7 +21,7 @@ package net.alteiar.server.document.player;
 
 import java.rmi.RemoteException;
 
-import net.alteiar.client.DocumentClient;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.DocumentRemote;
 
 /**

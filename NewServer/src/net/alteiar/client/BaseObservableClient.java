@@ -71,7 +71,6 @@ public abstract class BaseObservableClient implements Serializable {
 	}
 
 	public void initializeTransient() {
-		System.out.println("initialize transient BaseObservable");
 		observers = new HashMap<Class<?>, HashSet<Object>>();
 	}
 }
