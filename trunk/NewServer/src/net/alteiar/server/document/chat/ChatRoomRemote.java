@@ -21,8 +21,8 @@ package net.alteiar.server.document.chat;
 
 import java.rmi.RemoteException;
 
-import net.alteiar.client.DocumentClient;
 import net.alteiar.server.ServerDocuments;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.chat.message.MessageRemote;
 

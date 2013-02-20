@@ -22,7 +22,7 @@ package net.alteiar.server.document.character;
 import java.awt.image.BufferedImage;
 import java.rmi.RemoteException;
 
-import net.alteiar.client.DocumentClient;
+import net.alteiar.server.document.DocumentClient;
 
 /**
  * @author Cody Stoutenburg

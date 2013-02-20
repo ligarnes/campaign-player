@@ -18,6 +18,7 @@ public class TestCreatePlayer {
 		assertNotNull("Current player must exist", current);
 
 		assertEquals(CampaignClient.getInstance().getPlayers().size(), 1);
+
 	}
 
 	@Test
@@ -37,6 +38,13 @@ public class TestCreatePlayer {
 
 		chat.talk(expectedMsg);
 
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		assertEquals("the message must be the same", chat.getAllMessage()
+				.get(0).getMessage(), expectedMsg);
 	}
 
 }

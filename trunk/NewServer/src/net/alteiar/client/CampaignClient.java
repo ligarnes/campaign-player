@@ -17,6 +17,7 @@ import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.character.DocumentCharacterBuilder;

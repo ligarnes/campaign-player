@@ -28,7 +28,7 @@ import java.util.List;
 
 import net.alteiar.ExceptionTool;
 import net.alteiar.client.CampaignClient;
-import net.alteiar.client.DocumentClient;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.chat.message.ChatObject;
 import net.alteiar.server.document.chat.message.MessageRemote;
 
@@ -39,7 +39,7 @@ import net.alteiar.server.document.chat.message.MessageRemote;
 public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 	private static final long serialVersionUID = 1L;
 
-	private transient ChatRoomClientRemote listener;
+	private transient ChatRoomListenerRemote listener;
 
 	private transient String pseudo;
 	protected transient List<MessageRemote> allMessage;
@@ -109,9 +109,8 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 	public void initializeTransient() {
 		super.initializeTransient();
 
-		System.out.println("initialize transient Chatroom");
 		try {
-			listener = new ChatRoomClientRemote(getRemote());
+			listener = new ChatRoomListenerRemote(getRemote());
 			allMessage = new ArrayList<MessageRemote>();
 		} catch (RemoteException ex) {
 			ExceptionTool.showError(ex);
@@ -129,7 +128,7 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 	 * @author Cody Stoutenburg
 	 * 
 	 */
-	private class ChatRoomClientRemote extends UnicastRemoteObject implements
+	private class ChatRoomListenerRemote extends UnicastRemoteObject implements
 			IChatRoomListener {
 
 		private static final long serialVersionUID = 2559145398149500009L;
@@ -137,7 +136,7 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 		/**
 		 * @throws RemoteException
 		 */
-		protected ChatRoomClientRemote(IChatRoomRemote chat)
+		protected ChatRoomListenerRemote(IChatRoomRemote chat)
 				throws RemoteException {
 			super();
 			chat.addChatRoomListener(this);
