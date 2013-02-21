@@ -101,7 +101,7 @@ public class ChatRoomRemote extends DocumentRemote implements IChatRoomRemote {
 
 		public ChatRoomPlayerJoinQuitTask(ChatRoomRemote observable,
 				IChatRoomListener observer, MessageRemote name, boolean join) {
-			super(observable, observer);
+			super(observable, IChatRoomListener.class, observer);
 			this.message = name;
 			this.join = join;
 		}
@@ -131,7 +131,7 @@ public class ChatRoomRemote extends DocumentRemote implements IChatRoomRemote {
 
 		public ChatRoomPlayerTalkTask(ChatRoomRemote observable,
 				IChatRoomListener observer, MessageRemote message) {
-			super(observable, observer);
+			super(observable, IChatRoomListener.class, observer);
 			this.message = message;
 		}
 

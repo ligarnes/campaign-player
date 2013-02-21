@@ -32,20 +32,37 @@ import net.alteiar.server.document.DocumentRemote;
 public class CharacterRemote extends DocumentRemote implements ICharacterRemote {
 	private static final long serialVersionUID = 1L;
 
-	private final PathfinderCharacterFacade character;
+	private final String name;
+
+	private final Integer ac;
+	private final Integer acFlatFooted;
+	private final Integer acTouch;
+
+	private final Integer initModifier;
+
+	private final Integer hpTotal;
+	private Integer hpCurrent;
+
+	private final Float width;
+	private final Float height;
+
 	private final Long imageId;
 
-	public CharacterRemote(PathfinderCharacterFacade character, Long imgId)
+	public CharacterRemote(String name, Integer ac, Integer acFlatFooted,
+			Integer acTouch, Integer initModifier, Integer hpTotal,
+			Integer hpCurrent, Float width, Float height, Long imageId)
 			throws RemoteException {
 		super();
-		this.character = character;
-		imageId = imgId;
-	}
-
-	@Override
-	public PathfinderCharacterFacade getCharacterFacade()
-			throws RemoteException {
-		return character;
+		this.name = name;
+		this.ac = ac;
+		this.acFlatFooted = acFlatFooted;
+		this.acTouch = acTouch;
+		this.initModifier = initModifier;
+		this.hpTotal = hpTotal;
+		this.hpCurrent = hpCurrent;
+		this.width = width;
+		this.height = height;
+		this.imageId = imageId;
 	}
 
 	@Override
@@ -54,9 +71,54 @@ public class CharacterRemote extends DocumentRemote implements ICharacterRemote 
 	}
 
 	@Override
+	public String getName() throws RemoteException {
+		return this.name;
+	}
+
+	@Override
+	public Integer getHp() throws RemoteException {
+		return this.hpTotal;
+	}
+
+	@Override
+	public Integer getCurrentHp() throws RemoteException {
+		return this.hpCurrent;
+	}
+
+	@Override
+	public Integer getAc() throws RemoteException {
+		return this.ac;
+	}
+
+	@Override
+	public Integer getAcFlatFooted() throws RemoteException {
+		return acFlatFooted;
+	}
+
+	@Override
+	public Integer getAcTouch() throws RemoteException {
+		return acTouch;
+	}
+
+	@Override
+	public Integer getInitMod() throws RemoteException {
+		return initModifier;
+	}
+
+	@Override
+	public Float getWidth() throws RemoteException {
+		return width;
+	}
+
+	@Override
+	public Float getHeight() throws RemoteException {
+		return height;
+	}
+
+	@Override
 	public void setCurrentHp(Integer hp) throws RemoteException {
-		this.character.setCurrentHp(hp);
-		this.notifyCurrentHealthPointChanged(hp);
+		this.hpCurrent = hp;
+		this.notifyCurrentHealthPointChanged(hpCurrent);
 	}
 
 	@Override
@@ -91,7 +153,7 @@ public class CharacterRemote extends DocumentRemote implements ICharacterRemote 
 
 		public CharacterChangedTask(CharacterRemote observable,
 				ICharacterListener observer, Integer hp) {
-			super(observable, observer);
+			super(observable, ICharacterListener.class, observer);
 			this.currentHp = hp;
 		}
 

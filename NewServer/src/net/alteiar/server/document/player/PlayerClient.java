@@ -19,8 +19,7 @@
  */
 package net.alteiar.server.document.player;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.File;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.document.DocumentClient;
@@ -94,9 +93,13 @@ public class PlayerClient extends DocumentClient<IPlayerRemote> {
 		// no observer
 	}
 
-	private void readObject(ObjectInputStream in)
-			throws ClassNotFoundException, IOException {
-		in.defaultReadObject();
-		initializeTransient();
+	@Override
+	protected void loadDocumentLocal(File file) {
+		// nothing to load
+	}
+
+	@Override
+	protected void loadDocumentRemote() throws RemoteException {
+		// nothing to load
 	}
 }

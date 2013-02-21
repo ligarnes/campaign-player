@@ -16,6 +16,7 @@ public class ImageRemote extends DocumentRemote implements IImageRemote {
 		this.transfertImage = transfertImage;
 	}
 
+	@Override
 	public TransfertImage getImage() throws RemoteException {
 		return transfertImage;
 	}

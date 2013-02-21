@@ -70,7 +70,7 @@ public abstract class BaseObservableClient implements Serializable {
 		return obs;
 	}
 
-	public void initializeTransient() {
+	public void loadDocument() {
 		observers = new HashMap<Class<?>, HashSet<Object>>();
 	}
 }

@@ -21,6 +21,7 @@ package net.alteiar.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,7 +32,7 @@ import net.alteiar.thread.Task;
  * @author Cody Stoutenburg
  * 
  */
-public abstract class BaseObservableRemote extends GUIDRemote {
+public abstract class BaseObservableRemote extends UnicastRemoteObject {
 	private static final long serialVersionUID = -3655647076385346860L;
 
 	private final HashMap<Class<?>, HashSet<Remote>> observers;
@@ -82,9 +83,12 @@ public abstract class BaseObservableRemote extends GUIDRemote {
 
 	public abstract class BaseNotify<E extends Remote> implements Task {
 		private final BaseObservableRemote observable;
+		private final Class<? extends Remote> key;
 		protected final E observer;
 
-		public BaseNotify(BaseObservableRemote observable, E observer) {
+		public BaseNotify(BaseObservableRemote observable,
+				Class<? extends Remote> key, E observer) {
+			this.key = key;
 			this.observer = observer;
 			this.observable = observable;
 		}
@@ -94,15 +98,12 @@ public abstract class BaseObservableRemote extends GUIDRemote {
 			try {
 				doAction();
 			} catch (RemoteException e) {
-				// TODO fixme
-				/*
 				try {
 					// The observer is unreachable he may have been disconnected
-					// observable.removeListener(observer);
+					observable.removeListener(key, observer);
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				}
-				*/
 			}
 		}
 

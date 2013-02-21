@@ -29,6 +29,8 @@ import net.alteiar.server.document.IDocumentRemote;
  */
 public interface ICharacterRemote extends IDocumentRemote {
 
+	// PathfinderCharacterFacade getCharacterFacade() throws RemoteException;
+
 	void addCharacterListener(ICharacterListener listener)
 			throws RemoteException;
 
@@ -37,7 +39,23 @@ public interface ICharacterRemote extends IDocumentRemote {
 
 	Long getImage() throws RemoteException;
 
-	PathfinderCharacterFacade getCharacterFacade() throws RemoteException;
+	String getName() throws RemoteException;
+
+	Integer getHp() throws RemoteException;
+
+	Integer getCurrentHp() throws RemoteException;
+
+	Integer getAc() throws RemoteException;
+
+	Integer getAcFlatFooted() throws RemoteException;
+
+	Integer getAcTouch() throws RemoteException;
+
+	Integer getInitMod() throws RemoteException;
+
+	Float getWidth() throws RemoteException;
+
+	Float getHeight() throws RemoteException;
 
 	void setCurrentHp(Integer hp) throws RemoteException;
 }
