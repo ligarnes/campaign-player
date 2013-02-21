@@ -96,10 +96,11 @@ public class ServerDocuments extends BaseObservableRemote implements
 	public synchronized Long createDocument(DocumentBuilder documentBuilder)
 			throws RemoteException {
 		IDocumentRemote remote = documentBuilder.buildDocument();
-		documents.put(remote.getId(), remote);
-		this.notifyDocumentAdd(remote.getId());
+		Long id = remote.getPath().getId();
+		documents.put(id, remote);
+		this.notifyDocumentAdd(id);
 
-		return remote.getId();
+		return id;
 	}
 
 	@Override
@@ -151,7 +152,7 @@ public class ServerDocuments extends BaseObservableRemote implements
 
 		public DocumentAdded(ServerDocuments observable,
 				ServerListener observer, Long guid) {
-			super(observable, observer);
+			super(observable, ServerListener.class, observer);
 			this.guid = guid;
 		}
 
@@ -176,7 +177,7 @@ public class ServerDocuments extends BaseObservableRemote implements
 
 		public DocumentRemoved(ServerDocuments observable,
 				ServerListener observer, Long guid) {
-			super(observable, observer);
+			super(observable, ServerListener.class, observer);
 			this.guid = guid;
 		}
 

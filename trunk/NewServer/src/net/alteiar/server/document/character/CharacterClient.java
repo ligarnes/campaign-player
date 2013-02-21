@@ -20,9 +20,13 @@
 package net.alteiar.server.document.character;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.rmi.RemoteException;
 
+import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
+import net.alteiar.server.document.files.ImageClient;
 
 /**
  * @author Cody Stoutenburg
@@ -52,20 +56,17 @@ public class CharacterClient extends DocumentClient<ICharacterRemote> implements
 		super(characterSheet);
 
 		try {
-			// new CharacterSheetRemoteObserver(this, characterSheet);
+			name = getRemote().getName();
+			ac = getRemote().getAc();
+			acFlatFooted = getRemote().getAcFlatFooted();
+			acTouch = getRemote().getAcTouch();
+			initModifier = getRemote().getInitMod();
 
-			PathfinderCharacterFacade facade = getRemote().getCharacterFacade();
-			name = facade.getName();
-			ac = facade.getAc();
-			acFlatFooted = facade.getAcFlatFooted();
-			acTouch = facade.getAcTouch();
-			initModifier = facade.getInitMod();
+			hpTotal = getRemote().getHp();
+			hpCurrent = getRemote().getCurrentHp();
 
-			hpTotal = facade.getHp();
-			hpCurrent = facade.getCurrentHp();
-
-			width = facade.getWidth().doubleValue();
-			height = facade.getHeight().doubleValue();
+			width = getRemote().getWidth().doubleValue();
+			height = getRemote().getHeight().doubleValue();
 
 			imageId = getRemote().getImage();
 		} catch (RemoteException ex) {
@@ -110,8 +111,9 @@ public class CharacterClient extends DocumentClient<ICharacterRemote> implements
 	}
 
 	@Override
-	public BufferedImage getBackground() {
-		return null; // CampaignClient.getInstance().getDocument(imageId);
+	public BufferedImage getImage() {
+		return ((ImageClient) CampaignClient.getInstance().getDocument(imageId))
+				.getImage();
 	}
 
 	@Override
@@ -142,6 +144,16 @@ public class CharacterClient extends DocumentClient<ICharacterRemote> implements
 	@Override
 	protected void closeDocument() throws RemoteException {
 
+	}
+
+	@Override
+	protected void loadDocumentLocal(File file) throws IOException {
+		// nothing
+	}
+
+	@Override
+	protected void loadDocumentRemote() throws IOException {
+		// nothing
 	}
 
 	// OBSERVABLE METHODS

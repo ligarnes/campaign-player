@@ -19,8 +19,8 @@
  */
 package net.alteiar.server.document.chat;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -106,20 +106,14 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 	}
 
 	@Override
-	public void initializeTransient() {
-		super.initializeTransient();
-
-		try {
-			listener = new ChatRoomListenerRemote(getRemote());
-			allMessage = new ArrayList<MessageRemote>();
-		} catch (RemoteException ex) {
-			ExceptionTool.showError(ex);
-		}
+	protected void loadDocumentLocal(File file) throws IOException {
+		// cannot load from document
 	}
 
-	private void readObject(ObjectInputStream in)
-			throws ClassNotFoundException, IOException {
-		in.defaultReadObject();
+	@Override
+	protected void loadDocumentRemote() throws RemoteException {
+		listener = new ChatRoomListenerRemote(getRemote());
+		allMessage = new ArrayList<MessageRemote>();
 	}
 
 	/**

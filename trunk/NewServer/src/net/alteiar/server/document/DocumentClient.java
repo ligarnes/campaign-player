@@ -1,5 +1,7 @@
 package net.alteiar.server.document;
 
+import java.io.File;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -12,12 +14,12 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 	private E remote;
 	private transient LocalDocumentListener documentListener;
 
-	private Long guid;
+	private DocumentPath documentPath;
 
 	public DocumentClient(E remote) {
 		try {
 			this.remote = remote;
-			guid = this.remote.getId();
+			this.documentPath = this.remote.getPath();
 		} catch (RemoteException e) {
 			// TODO
 			e.printStackTrace();
@@ -25,7 +27,11 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 	}
 
 	public Long getId() {
-		return guid;
+		return documentPath.getId();
+	}
+
+	protected DocumentPath getDocumentPath() {
+		return this.documentPath;
 	}
 
 	protected final E getRemote() {
@@ -45,9 +51,8 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 	protected abstract void closeDocument() throws RemoteException;
 
 	@Override
-	public void initializeTransient() {
-		super.initializeTransient();
-
+	public void loadDocument() {
+		super.loadDocument();
 		try {
 			documentListener = new LocalDocumentListener();
 
@@ -56,7 +61,23 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		File localFile = new File(getDocumentPath().getCompletePath());
+		try {
+			if (localFile.exists()) {
+				loadDocumentLocal(localFile);
+			} else {
+				loadDocumentRemote();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+
+	protected abstract void loadDocumentLocal(File f) throws IOException;
+
+	protected abstract void loadDocumentRemote() throws IOException;
 
 	private class LocalDocumentListener extends UnicastRemoteObject implements
 			IDocumentListener {

@@ -45,7 +45,7 @@ public interface ICharacterSheetClient {
 
 	Integer getInitModifier();
 
-	BufferedImage getBackground();
+	BufferedImage getImage();
 
 	void setCurrentHp(Integer currentHp);
 
