@@ -10,7 +10,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestCreatePlayer.class })
+@SuiteClasses({ TestCreatePlayer.class, TestBenchmark.class })
 public class AllTests {
 	@BeforeClass
 	public static void setUp() {
