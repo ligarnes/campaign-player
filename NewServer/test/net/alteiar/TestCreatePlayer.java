@@ -15,7 +15,6 @@ import javax.imageio.ImageIO;
 import javax.xml.bind.JAXBException;
 
 import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.character.CompleteCharacter;
 import net.alteiar.server.document.character.DocumentCharacterBuilder;
@@ -24,7 +23,6 @@ import net.alteiar.server.document.chat.IChatRoomObserver;
 import net.alteiar.server.document.chat.message.MessageRemote;
 import net.alteiar.server.document.files.DocumentImageBuilder;
 import net.alteiar.server.document.player.PlayerClient;
-import net.alteiar.shared.SerializableImage;
 import net.alteiar.shared.WebImage;
 
 import org.junit.Test;
@@ -53,12 +51,21 @@ public class TestCreatePlayer extends BasicTest {
 			}
 		});
 
+		int previousCount = chat.getAllMessage().size();
 		chat.talk(expectedMsg);
 
-		while (chat.getAllMessage().isEmpty()) {
+		int currentCount = chat.getAllMessage().size();
+		while (previousCount == currentCount) {
+			currentCount = chat.getAllMessage().size();
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				fail("interrupted exception");
+			}
 		}
-		assertEquals("the message must be the same", chat.getAllMessage()
-				.get(0).getMessage(), expectedMsg);
+		assertEquals("the message must be the same",
+				chat.getAllMessage().get(previousCount).getMessage(),
+				expectedMsg);
 	}
 
 	@Test(timeout = 2000)
@@ -66,16 +73,24 @@ public class TestCreatePlayer extends BasicTest {
 		try {
 			CompleteCharacter character = new CompleteCharacter(new File(
 					"./test/ressources/character.psr"));
+			int characterCount = CampaignClient.getInstance().getCharacters()
+					.size();
 			CampaignClient.getInstance().createCharacter(character);
 
-			try {
-				Thread.sleep(300);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			int currentCount = CampaignClient.getInstance().getCharacters()
+					.size();
+			while (characterCount == currentCount) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				currentCount = CampaignClient.getInstance().getCharacters()
+						.size();
 			}
 			List<CharacterClient> charaters = CampaignClient.getInstance()
 					.getCharacters();
-			CharacterClient loaded = charaters.get(charaters.size() - 1);
+			CharacterClient loaded = charaters.get(characterCount);
 
 			assertEquals("the character NAME should be the same", character
 					.getCharacter().getName(), loaded.getName());
@@ -104,16 +119,24 @@ public class TestCreatePlayer extends BasicTest {
 					new File("./test/ressources/character.psr"),
 					new WebImage(
 							"http://drakonis.org/uploads/7/v/0/7v0ng7m0e3//2011/10/09/20111009004148-12c8e068.jpg"));
+			int characterCount = CampaignClient.getInstance().getCharacters()
+					.size();
 			CampaignClient.getInstance().createCharacter(character);
 
-			try {
-				Thread.sleep(300);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			int currentCount = CampaignClient.getInstance().getCharacters()
+					.size();
+			while (characterCount == currentCount) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				currentCount = CampaignClient.getInstance().getCharacters()
+						.size();
 			}
 			List<CharacterClient> charaters = CampaignClient.getInstance()
 					.getCharacters();
-			CharacterClient loaded = charaters.get(charaters.size() - 1);
+			CharacterClient loaded = charaters.get(characterCount);
 
 			assertEquals("the character NAME should be the same", character
 					.getCharacter().getName(), loaded.getName());
@@ -123,7 +146,6 @@ public class TestCreatePlayer extends BasicTest {
 			BufferedImage targetImage;
 			try {
 				targetImage = character.getImage().restoreImage();
-
 				assertTrue("the character image should be the same",
 						compareImage(targetImage, loaded.getImage()));
 			} catch (IOException e) {
@@ -145,18 +167,26 @@ public class TestCreatePlayer extends BasicTest {
 			Long imageId = CampaignClient.getInstance().createDocument(
 					new DocumentImageBuilder("./test/ressources/guerrier.jpg"));
 
+			int characterCount = CampaignClient.getInstance().getCharacters()
+					.size();
 			CampaignClient.getInstance().createDocument(
 					new DocumentCharacterBuilder(character.getCharacter(),
 							imageId));
 
-			try {
-				Thread.sleep(300);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			int currentCount = CampaignClient.getInstance().getCharacters()
+					.size();
+			while (characterCount == currentCount) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				currentCount = CampaignClient.getInstance().getCharacters()
+						.size();
 			}
 			List<CharacterClient> charaters = CampaignClient.getInstance()
 					.getCharacters();
-			CharacterClient loaded = charaters.get(charaters.size() - 1);
+			CharacterClient loaded = charaters.get(characterCount);
 
 			assertEquals("the character NAME should be the same", character
 					.getCharacter().getName(), loaded.getName());
@@ -177,83 +207,6 @@ public class TestCreatePlayer extends BasicTest {
 			fail("file not found");
 		} catch (JAXBException e) {
 			fail("not able to parse the character file");
-		}
-	}
-
-	private class Timer {
-		private Long begin;
-
-		public void start() {
-			begin = System.currentTimeMillis();
-		}
-
-		public void end(String msg) {
-			System.out.println(msg + " Take :"
-					+ (System.currentTimeMillis() - begin) + "ms");
-		}
-	}
-
-	@Test
-	public void testBenchmarkImages() {
-		try {
-			Timer t = new Timer();
-			t.start();
-			Long id = CampaignClient
-					.getInstance()
-					.createDocument(
-							new DocumentImageBuilder(
-									new WebImage(
-											"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg")));
-			DocumentClient<?> doc = CampaignClient.getInstance().getDocument(
-					id, 10000L);
-			if (doc != null) {
-				t.end("server");
-			} else {
-				System.out.println("server take more than 10 second");
-			}
-
-			t.start();
-			CampaignClient.getInstance().createDocument(
-					new DocumentImageBuilder("./test/ressources/medium.jpg"));
-			doc = CampaignClient.getInstance().getDocument(id, 10000L);
-			if (doc != null) {
-				t.end("local");
-			} else {
-				System.out.println("local take more than 1 second");
-			}
-
-			t.start();
-			CampaignClient.getInstance().createDocument(
-					new DocumentImageBuilder(new SerializableImage(new File(
-							"./test/ressources/medium.jpg"))));
-			doc = CampaignClient.getInstance().getDocument(id, 10000L);
-			if (doc != null) {
-				t.end("transfert");
-			} else {
-				System.out.println("transfert take more than 10 second");
-			}
-
-			/*
-			System.out.println("large images");
-			t.start();
-			CampaignClient.getInstance().createDocument(
-					new DocumentImageBuilder(new WebImage(
-							"http://www.alteiar.net/MyUpload/large.jpg")));
-			t.end("server");
-
-			t.start();
-			CampaignClient.getInstance().createDocument(
-					new DocumentImageBuilder("./test/ressources/large.jpg"));
-			t.end("local large");
-
-			t.start();
-			CampaignClient.getInstance().createDocument(
-					new DocumentImageBuilder(new SerializableImage(new File(
-							"./test/ressources/large.jpg"))));
-			t.end("transfert large");
-			*/
-		} catch (IOException e) {
-			fail("file not found");
 		}
 	}
 }

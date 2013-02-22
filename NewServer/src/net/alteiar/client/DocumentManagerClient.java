@@ -68,7 +68,7 @@ public abstract class DocumentManagerClient {
 		return value;
 	}
 
-	private void addDocument(Long guid) {
+	private synchronized void addDocument(Long guid) {
 		IDocumentRemote doc;
 		try {
 			doc = server.getDocument(guid);
@@ -99,7 +99,7 @@ public abstract class DocumentManagerClient {
 		return guid;
 	}
 
-	private void removeDocument(Long guid) {
+	private synchronized void removeDocument(Long guid) {
 		this.documents.remove(guid);
 	}
 
