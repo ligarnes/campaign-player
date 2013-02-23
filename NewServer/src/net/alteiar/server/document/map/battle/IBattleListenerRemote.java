@@ -17,29 +17,21 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.shared;
+package net.alteiar.server.document.map.battle;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class WebImage implements TransfertImage {
-	private static final long serialVersionUID = 4786344613415239528L;
+public interface IBattleListenerRemote extends Remote {
+	/*
+	void characterAdded(ICharacterCombatRemote character)
+			throws RemoteException;
 
-	private final String url;
-
-	public WebImage(String url) {
-		this.url = url;
-	}
-
-	@Override
-	public BufferedImage restoreImage() throws IOException {
-		return ImageIO.read(new URL(url));
-	}
+	void characterRemoved(Long characterId) throws RemoteException;
+	*/
+	void nextTurn(Integer currentTurn) throws RemoteException;
 }

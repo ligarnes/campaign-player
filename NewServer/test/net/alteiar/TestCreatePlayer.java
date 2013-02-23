@@ -22,8 +22,8 @@ import net.alteiar.server.document.chat.ChatRoomClient;
 import net.alteiar.server.document.chat.IChatRoomObserver;
 import net.alteiar.server.document.chat.message.MessageRemote;
 import net.alteiar.server.document.files.DocumentImageBuilder;
+import net.alteiar.server.document.images.WebImage;
 import net.alteiar.server.document.player.PlayerClient;
-import net.alteiar.shared.WebImage;
 
 import org.junit.Test;
 

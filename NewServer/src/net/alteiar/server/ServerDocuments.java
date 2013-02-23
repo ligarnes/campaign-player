@@ -50,8 +50,6 @@ public class ServerDocuments extends BaseObservableRemote implements
 
 	public final static WorkerPool SERVER_THREAD_POOL = new WorkerPool();
 
-	private final HashMap<Long, IDocumentRemote> documents;
-
 	public static void startServer(String addressIp, int port) {
 		SERVER_THREAD_POOL.initWorkPool(10, new TaskInfoAdapter());
 
@@ -83,6 +81,8 @@ public class ServerDocuments extends BaseObservableRemote implements
 			ExceptionTool.showError(e);
 		}
 	}
+
+	private final HashMap<Long, IDocumentRemote> documents;
 
 	/**
 	 * @throws RemoteException

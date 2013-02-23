@@ -17,32 +17,32 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server;
+package net.alteiar.server.document.map.filter;
 
-import java.rmi.Remote;
+import java.awt.Point;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.DocumentBuilder;
 import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.Polygon2D;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IServerDocument extends Remote {
+public interface IMapFilterRemote extends IDocumentRemote {
+	void addFilterListener(IMapFilterListenerRemote listener)
+			throws RemoteException;
 
-	// Documents
-	Long createDocument(DocumentBuilder documentBuilder) throws RemoteException;
+	void removeFilterListener(IMapFilterListenerRemote listener)
+			throws RemoteException;
 
-	void deleteDocument(Long guid) throws RemoteException;
+	Polygon2D getVisibleRectangle() throws RemoteException;
 
-	IDocumentRemote getDocument(Long guid) throws RemoteException;
+	int getWidth() throws RemoteException;
 
-	Long[] getDocuments() throws RemoteException;
+	int getHeight() throws RemoteException;
 
-	// Listeners
-	void addServerListener(ServerListener observer) throws RemoteException;
+	void showPolygon(Point[] cwPts) throws RemoteException;
 
-	void removeServerListener(ServerListener observer) throws RemoteException;
-
+	void hidePolygon(Point[] cwPts) throws RemoteException;
 }

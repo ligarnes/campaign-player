@@ -10,15 +10,18 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestCreatePlayer.class, TestBenchmark.class })
+@SuiteClasses({ TestCreatePlayer.class, TestBattle.class /*, TestBenchmark.class*/})
 public class AllTests {
 	@BeforeClass
 	public static void setUp() {
 		System.out.println("Setting up test");
 		String address = "127.0.0.1";
 		String port = "1099";
+
+		String localDirectoryPath = "./test/ressources/campaign/";
 		ServerDocuments.startServer(address, Integer.valueOf(port));
-		CampaignClient.connect(address, address, port, "test", true);
+		CampaignClient.connect(address, address, port, localDirectoryPath,
+				"player name", true);
 	}
 
 	@AfterClass

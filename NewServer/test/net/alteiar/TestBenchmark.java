@@ -8,8 +8,8 @@ import java.io.IOException;
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.files.DocumentImageBuilder;
-import net.alteiar.shared.SerializableImage;
-import net.alteiar.shared.WebImage;
+import net.alteiar.server.document.images.SerializableImage;
+import net.alteiar.server.document.images.WebImage;
 
 import org.junit.Test;
 
@@ -42,9 +42,10 @@ public class TestBenchmark {
 							new DocumentImageBuilder(
 									new WebImage(
 											"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg")));
+			t.end("server sended");
 			doc = CampaignClient.getInstance().getDocument(id, time10second);
 			if (doc != null) {
-				t.end("server");
+				t.end("server received");
 			} else {
 				System.out.println("server take more than 10 second");
 			}
@@ -52,9 +53,10 @@ public class TestBenchmark {
 			t.start();
 			CampaignClient.getInstance().createDocument(
 					new DocumentImageBuilder("./test/ressources/medium.jpg"));
+			t.end("local sended");
 			doc = CampaignClient.getInstance().getDocument(id, time10second);
 			if (doc != null) {
-				t.end("local");
+				t.end("local received");
 			} else {
 				System.out.println("local take more than 1 second");
 			}
@@ -63,9 +65,10 @@ public class TestBenchmark {
 			CampaignClient.getInstance().createDocument(
 					new DocumentImageBuilder(new SerializableImage(new File(
 							"./test/ressources/medium.jpg"))));
+			t.end("transfert sended");
 			doc = CampaignClient.getInstance().getDocument(id, time10second);
 			if (doc != null) {
-				t.end("transfert");
+				t.end("transfert received");
 			} else {
 				System.out.println("transfert take more than 10 second");
 			}
@@ -83,9 +86,10 @@ public class TestBenchmark {
 			Long id = CampaignClient.getInstance().createDocument(
 					new DocumentImageBuilder(new WebImage(
 							"http://www.alteiar.net/MyUpload/large.jpg")));
+			t.end("server sended");
 			doc = CampaignClient.getInstance().getDocument(id, time30second);
 			if (doc != null) {
-				t.end("server");
+				t.end("server received");
 			} else {
 				System.out.println("server take more than 10 second");
 			}
@@ -93,9 +97,10 @@ public class TestBenchmark {
 			t.start();
 			CampaignClient.getInstance().createDocument(
 					new DocumentImageBuilder("./test/ressources/large.jpg"));
+			t.end("local sended");
 			doc = CampaignClient.getInstance().getDocument(id, time30second);
 			if (doc != null) {
-				t.end("local");
+				t.end("local received");
 			} else {
 				System.out.println("local take more than 10 second");
 			}
@@ -104,9 +109,10 @@ public class TestBenchmark {
 			CampaignClient.getInstance().createDocument(
 					new DocumentImageBuilder(new SerializableImage(new File(
 							"./test/ressources/large.jpg"))));
+			t.end("transfert sended");
 			doc = CampaignClient.getInstance().getDocument(id, time30second);
 			if (doc != null) {
-				t.end("transfert");
+				t.end("transfert received");
 			} else {
 				System.out.println("transfert take more than 10 second");
 			}

@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 
 import javax.xml.bind.JAXBException;
 
-import net.alteiar.shared.SerializableImage;
-import net.alteiar.shared.TransfertImage;
+import net.alteiar.server.document.images.SerializableImage;
+import net.alteiar.server.document.images.TransfertImage;
 
 public class CompleteCharacter {
 

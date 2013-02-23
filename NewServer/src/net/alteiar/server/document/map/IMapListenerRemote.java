@@ -17,32 +17,21 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server;
+package net.alteiar.server.document.map;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
-import net.alteiar.server.document.DocumentBuilder;
-import net.alteiar.server.document.IDocumentRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IServerDocument extends Remote {
+public interface IMapListenerRemote extends Remote {
+	// void mapElementAdded(IMapElementObservableRemote element) throws
+	// RemoteException;
 
-	// Documents
-	Long createDocument(DocumentBuilder documentBuilder) throws RemoteException;
+	// void mapElementRemoved(IMapElementObservableRemote element) throws
+	// RemoteException;
 
-	void deleteDocument(Long guid) throws RemoteException;
-
-	IDocumentRemote getDocument(Long guid) throws RemoteException;
-
-	Long[] getDocuments() throws RemoteException;
-
-	// Listeners
-	void addServerListener(ServerListener observer) throws RemoteException;
-
-	void removeServerListener(ServerListener observer) throws RemoteException;
-
+	void mapRescale(Scale scale) throws RemoteException;
 }

@@ -27,7 +27,8 @@ public abstract class DocumentManagerClient {
 
 	private final HashMap<Long, DocumentClient<?>> documents;
 
-	public DocumentManagerClient(IServerDocument server) throws RemoteException {
+	public DocumentManagerClient(IServerDocument server, String localPath)
+			throws RemoteException {
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
 
