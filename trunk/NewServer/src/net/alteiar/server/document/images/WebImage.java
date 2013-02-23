@@ -17,15 +17,30 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server;
+package net.alteiar.server.document.images;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IGUIDRemote extends Remote {
-	Long getId() throws RemoteException;
+public class WebImage implements TransfertImage {
+	private static final long serialVersionUID = 4786344613415239528L;
+
+	private final String url;
+
+	public WebImage(String url) {
+		this.url = url;
+	}
+
+	@Override
+	public BufferedImage restoreImage() throws IOException {
+		return ImageIO.read(new URL(url));
+	}
 }

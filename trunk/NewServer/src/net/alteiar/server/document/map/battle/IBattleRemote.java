@@ -17,32 +17,39 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server;
+package net.alteiar.server.document.map.battle;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.DocumentBuilder;
-import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.server.document.map.IMapRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IServerDocument extends Remote {
+public interface IBattleRemote extends IMapRemote {
 
-	// Documents
-	Long createDocument(DocumentBuilder documentBuilder) throws RemoteException;
+	void addBattleListener(IBattleListenerRemote listener)
+			throws RemoteException;
 
-	void deleteDocument(Long guid) throws RemoteException;
+	void removeBattleListener(IBattleListenerRemote listener)
+			throws RemoteException;
 
-	IDocumentRemote getDocument(Long guid) throws RemoteException;
+	/*
+	void addCharacter(Long id, Integer init, Point position)
+			throws RemoteException;
 
-	Long[] getDocuments() throws RemoteException;
+	void addMonster(Long id, Integer init, Point position, Boolean isVisible)
+			throws RemoteException;
 
-	// Listeners
-	void addServerListener(ServerListener observer) throws RemoteException;
+	void removeCharacter(Long guid) throws RemoteException;
 
-	void removeServerListener(ServerListener observer) throws RemoteException;
+	ICharacterCombatRemote[] getAllCharacter() throws RemoteException;
+	*/
 
+	void setInitiativeEachTurn(Boolean isInitEachTurn) throws RemoteException;
+
+	void nextTurn() throws RemoteException;
+
+	Integer getCurrentTurn() throws RemoteException;
 }

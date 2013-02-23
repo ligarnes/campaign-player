@@ -1,4 +1,4 @@
-package net.alteiar.shared;
+package net.alteiar.server.document.images;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

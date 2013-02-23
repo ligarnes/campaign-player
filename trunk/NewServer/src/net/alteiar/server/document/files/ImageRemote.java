@@ -3,7 +3,7 @@ package net.alteiar.server.document.files;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.document.DocumentRemote;
-import net.alteiar.shared.TransfertImage;
+import net.alteiar.server.document.images.TransfertImage;
 
 public class ImageRemote extends DocumentRemote implements IImageRemote {
 	private static final long serialVersionUID = 1L;

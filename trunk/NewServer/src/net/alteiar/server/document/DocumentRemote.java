@@ -1,9 +1,11 @@
 package net.alteiar.server.document;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.alteiar.server.BaseObservableRemote;
+import net.alteiar.server.ServerDocuments;
 
 public abstract class DocumentRemote extends BaseObservableRemote implements
 		IDocumentRemote {
@@ -26,9 +28,9 @@ public abstract class DocumentRemote extends BaseObservableRemote implements
 		ArrayList<IDocumentListener> listeners = this
 				.getListener(IDocumentListener.class);
 
-		// TODO do it in a task
 		for (IDocumentListener listener : listeners) {
-			listener.documentClosed();
+			ServerDocuments.SERVER_THREAD_POOL.addTask(new NotifyCloseDocument(
+					this, IDocumentListener.class, listener));
 		}
 	}
 
@@ -68,5 +70,28 @@ public abstract class DocumentRemote extends BaseObservableRemote implements
 		} else if (!path.equals(other.path))
 			return false;
 		return true;
+	}
+
+	public class NotifyCloseDocument extends BaseNotify<IDocumentListener> {
+
+		public NotifyCloseDocument(BaseObservableRemote observable,
+				Class<? extends Remote> key, IDocumentListener observer) {
+			super(observable, key, observer);
+		}
+
+		@Override
+		public String getStartText() {
+			return "";
+		}
+
+		@Override
+		public String getFinishText() {
+			return "";
+		}
+
+		@Override
+		protected void doAction() throws RemoteException {
+			this.observer.documentClosed();
+		}
 	}
 }

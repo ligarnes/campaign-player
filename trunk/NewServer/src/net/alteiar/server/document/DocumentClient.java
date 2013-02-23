@@ -62,6 +62,8 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 			e.printStackTrace();
 		}
 
+		// localPath = the local scenario directory
+		// path = localPath + getDocumentPath().getCompletePath();
 		File localFile = new File(getDocumentPath().getCompletePath());
 		try {
 			if (localFile.exists()) {
@@ -78,6 +80,13 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 	protected abstract void loadDocumentLocal(File f) throws IOException;
 
 	protected abstract void loadDocumentRemote() throws IOException;
+
+	public void saveDocument() {
+		// localPath = the local scenario directory
+		// path = localPath + getDocumentPath().getCompletePath();
+	}
+
+	// protected abstract void saveLocal(File localFile);
 
 	private class LocalDocumentListener extends UnicastRemoteObject implements
 			IDocumentListener {

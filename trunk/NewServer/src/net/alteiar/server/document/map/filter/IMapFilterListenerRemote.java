@@ -17,32 +17,17 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server;
+package net.alteiar.server.document.map.filter;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.DocumentBuilder;
-import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.Polygon2D;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IServerDocument extends Remote {
-
-	// Documents
-	Long createDocument(DocumentBuilder documentBuilder) throws RemoteException;
-
-	void deleteDocument(Long guid) throws RemoteException;
-
-	IDocumentRemote getDocument(Long guid) throws RemoteException;
-
-	Long[] getDocuments() throws RemoteException;
-
-	// Listeners
-	void addServerListener(ServerListener observer) throws RemoteException;
-
-	void removeServerListener(ServerListener observer) throws RemoteException;
-
+public interface IMapFilterListenerRemote extends Remote {
+	void filterChanged(Polygon2D img) throws RemoteException;
 }
