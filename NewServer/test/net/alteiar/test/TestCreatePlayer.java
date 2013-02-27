@@ -1,4 +1,4 @@
-package net.alteiar;
+package net.alteiar.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,11 +28,26 @@ import net.alteiar.server.document.player.PlayerClient;
 import org.junit.Test;
 
 public class TestCreatePlayer extends BasicTest {
+	// TODO Test Player Equals
+
+	@Test
+	public void testCompareDocument() {
+		PlayerClient current = CampaignClient.getInstance().getCurrentPlayer();
+
+		assertTrue("Documents should be equals", current.equals(current));
+		assertTrue("Documents should be equals", !current.equals(null));
+
+		ChatRoomClient chat = CampaignClient.getInstance().getChat();
+		assertTrue("Documents should not be equals", !current.equals(chat));
+	}
 
 	@Test
 	public void testCreatePlayer() {
 		PlayerClient current = CampaignClient.getInstance().getCurrentPlayer();
 		assertNotNull("Current player must exist", current);
+
+		assertEquals("Player names should be same", current.getName(),
+				AllTests.getPlayerName());
 
 		assertEquals(CampaignClient.getInstance().getPlayers().size(), 1);
 	}
@@ -57,11 +72,7 @@ public class TestCreatePlayer extends BasicTest {
 		int currentCount = chat.getAllMessage().size();
 		while (previousCount == currentCount) {
 			currentCount = chat.getAllMessage().size();
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-				fail("interrupted exception");
-			}
+			sleep(50);
 		}
 		assertEquals("the message must be the same",
 				chat.getAllMessage().get(previousCount).getMessage(),
@@ -80,11 +91,7 @@ public class TestCreatePlayer extends BasicTest {
 			int currentCount = CampaignClient.getInstance().getCharacters()
 					.size();
 			while (characterCount == currentCount) {
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				sleep(50);
 				currentCount = CampaignClient.getInstance().getCharacters()
 						.size();
 			}
@@ -105,6 +112,8 @@ public class TestCreatePlayer extends BasicTest {
 			} catch (IOException e) {
 				fail("enable to load image");
 			}
+
+			CampaignClient.getInstance().removeDocument(loaded);
 		} catch (FileNotFoundException e) {
 			fail("file not found");
 		} catch (JAXBException e) {
@@ -126,11 +135,7 @@ public class TestCreatePlayer extends BasicTest {
 			int currentCount = CampaignClient.getInstance().getCharacters()
 					.size();
 			while (characterCount == currentCount) {
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				sleep(100);
 				currentCount = CampaignClient.getInstance().getCharacters()
 						.size();
 			}
@@ -138,11 +143,14 @@ public class TestCreatePlayer extends BasicTest {
 					.getCharacters();
 			CharacterClient loaded = charaters.get(characterCount);
 
+			assertNotNull("element should be loaded", loaded);
+
 			assertEquals("the character NAME should be the same", character
 					.getCharacter().getName(), loaded.getName());
 			assertEquals("the character AC should be the same", character
 					.getCharacter().getAc(), loaded.getAc());
 
+			assertNotNull("image should be loaded", loaded.getImage());
 			BufferedImage targetImage;
 			try {
 				targetImage = character.getImage().restoreImage();
@@ -176,11 +184,7 @@ public class TestCreatePlayer extends BasicTest {
 			int currentCount = CampaignClient.getInstance().getCharacters()
 					.size();
 			while (characterCount == currentCount) {
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				sleep(100);
 				currentCount = CampaignClient.getInstance().getCharacters()
 						.size();
 			}

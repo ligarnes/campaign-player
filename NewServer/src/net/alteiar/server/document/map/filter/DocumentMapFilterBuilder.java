@@ -17,7 +17,7 @@ public class DocumentMapFilterBuilder extends DocumentBuilder {
 	}
 
 	@Override
-	public IDocumentRemote buildDocument() throws RemoteException {
+	public IDocumentRemote buildMainDocument() throws RemoteException {
 		return new MapFilterRemote(width, height);
 	}
 }

@@ -17,16 +17,17 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.character;
+package net.alteiar.server.document.map.element.colored;
+
+import java.awt.Color;
+import java.rmi.RemoteException;
+
+import net.alteiar.server.document.map.element.IMapElementRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterClientObserver {
-
-	void characterChanged(CharacterClient character);
-
-	void imageLoaded(CharacterClient character);
-
+public interface IMapElementColoredRemote extends IMapElementRemote {
+	Color getColor() throws RemoteException;
 }

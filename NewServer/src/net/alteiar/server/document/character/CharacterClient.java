@@ -23,6 +23,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
@@ -32,91 +33,78 @@ import net.alteiar.server.document.files.ImageClient;
  * @author Cody Stoutenburg
  * 
  */
-public class CharacterClient extends DocumentClient<ICharacterRemote> implements
-		ICharacterSheetClient {
+public class CharacterClient extends DocumentClient<ICharacterRemote> {
 	private static final long serialVersionUID = 1L;
 
-	private String name;
-	private Long imageId;
+	private transient CharacterClientListener listener;
 
-	private Integer ac;
-	private Integer acFlatFooted;
-	private Integer acTouch;
+	private final String name;
+	private final Long imageId;
 
-	private Integer initModifier;
+	private final Integer ac;
+	private final Integer acFlatFooted;
+	private final Integer acTouch;
 
-	private Integer hpTotal;
+	private final Integer initModifier;
+
+	private final Integer hpTotal;
 	private Integer hpCurrent;
 
-	private Double width;
-	private Double height;
+	private final Double width;
+	private final Double height;
 
 	public CharacterClient(ICharacterRemote characterSheet)
 			throws RemoteException {
 		super(characterSheet);
 
-		try {
-			name = getRemote().getName();
-			ac = getRemote().getAc();
-			acFlatFooted = getRemote().getAcFlatFooted();
-			acTouch = getRemote().getAcTouch();
-			initModifier = getRemote().getInitMod();
+		name = getRemote().getName();
+		ac = getRemote().getAc();
+		acFlatFooted = getRemote().getAcFlatFooted();
+		acTouch = getRemote().getAcTouch();
+		initModifier = getRemote().getInitMod();
 
-			hpTotal = getRemote().getHp();
-			hpCurrent = getRemote().getCurrentHp();
+		hpTotal = getRemote().getHp();
+		hpCurrent = getRemote().getCurrentHp();
 
-			width = getRemote().getWidth().doubleValue();
-			height = getRemote().getHeight().doubleValue();
+		width = getRemote().getWidth().doubleValue();
+		height = getRemote().getHeight().doubleValue();
 
-			imageId = getRemote().getImage();
-		} catch (RemoteException ex) {
-			// TODO
-			ex.printStackTrace();
-		}
+		imageId = getRemote().getImage();
 	}
 
-	@Override
 	public String getName() {
 		return this.name;
 	}
 
-	@Override
 	public Integer getTotalHp() {
 		return this.hpTotal;
 	}
 
-	@Override
 	public Integer getCurrentHp() {
 		return this.hpCurrent;
 	}
 
-	@Override
 	public Integer getAc() {
 		return this.ac;
 	}
 
-	@Override
 	public Integer getAcFlatFooted() {
 		return this.acFlatFooted;
 	}
 
-	@Override
 	public Integer getAcTouch() {
 		return this.acTouch;
 	}
 
-	@Override
 	public Integer getInitModifier() {
 		return this.initModifier;
 	}
 
-	@Override
 	public BufferedImage getImage() {
 		return ((ImageClient) CampaignClient.getInstance().getDocument(imageId))
 				.getImage();
 	}
 
-	@Override
 	public void setCurrentHp(Integer hp) {
 		try {
 			getRemote().setCurrentHp(hp);
@@ -126,24 +114,17 @@ public class CharacterClient extends DocumentClient<ICharacterRemote> implements
 		}
 	}
 
-	public void setLocalCurrentHp(Integer hp) {
-		this.hpCurrent = hp;
-		this.notifyCharacterModify(this);
-	}
-
-	@Override
 	public Double getWidth() {
 		return width;
 	}
 
-	@Override
 	public Double getHeight() {
 		return height;
 	}
 
 	@Override
 	protected void closeDocument() throws RemoteException {
-
+		this.getRemote().removeCharacterListener(listener);
 	}
 
 	@Override
@@ -153,31 +134,50 @@ public class CharacterClient extends DocumentClient<ICharacterRemote> implements
 
 	@Override
 	protected void loadDocumentRemote() throws IOException {
-		// nothing
+		listener = new CharacterClientListener();
+		getRemote().addCharacterListener(listener);
 	}
 
-	// OBSERVABLE METHODS
-	@Override
+	protected void setLocalCurrentHp(Integer hp) {
+		this.hpCurrent = hp;
+		this.notifyCharacterModify(this);
+	}
+
+	// LISTENER METHODS
 	public void addCharacterListener(ICharacterClientObserver listener) {
 		this.addListener(ICharacterClientObserver.class, listener);
 	}
 
-	@Override
 	public void removeCharacterListener(ICharacterClientObserver listener) {
 		this.removeListener(ICharacterClientObserver.class, listener);
 	}
 
-	protected void notifyCharacterModify(ICharacterSheetClient character) {
+	protected void notifyCharacterModify(CharacterClient character) {
 		for (ICharacterClientObserver observer : this
 				.getListener(ICharacterClientObserver.class)) {
 			observer.characterChanged(character);
 		}
 	}
 
-	protected void notifyImageLoaded(ICharacterSheetClient character) {
+	protected void notifyImageLoaded(CharacterClient character) {
 		for (ICharacterClientObserver observer : this
 				.getListener(ICharacterClientObserver.class)) {
 			observer.imageLoaded(character);
+		}
+	}
+
+	private class CharacterClientListener extends UnicastRemoteObject implements
+			ICharacterListener {
+		private static final long serialVersionUID = 1L;
+
+		public CharacterClientListener() throws RemoteException {
+			super();
+		}
+
+		@Override
+		public void currentHealthPointChanged(Integer currentHp)
+				throws RemoteException {
+			setLocalCurrentHp(currentHp);
 		}
 	}
 }

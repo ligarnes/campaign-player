@@ -29,7 +29,7 @@ public class DocumentImageBuilder extends DocumentBuilder {
 	}
 
 	@Override
-	public IDocumentRemote buildDocument() throws RemoteException {
+	public IDocumentRemote buildMainDocument() throws RemoteException {
 		if (path != null) {
 			SerializableImage img = null;
 			try {

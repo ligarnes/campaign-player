@@ -133,8 +133,8 @@ public class Vector2D implements Externalizable, Cloneable {
 	}
 
 	public void normalize() {
-		// �viter de calculer atan2 si un des cot� est de longueur 0
-		// c'est moins long et �vite les probl�mes de pr�cision
+		// éviter de calculer atan2 si un des cot� est de longueur 0
+		// c'est moins long et évite les probl�mes de pr�cision
 		if (x == 0) {
 			if (y > 0) {
 				y = 1.0f;

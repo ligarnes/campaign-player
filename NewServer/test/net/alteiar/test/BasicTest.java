@@ -1,4 +1,6 @@
-package net.alteiar;
+package net.alteiar.test;
+
+import static org.junit.Assert.fail;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -50,6 +52,14 @@ public class BasicTest {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+
+	protected void sleep(long time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			fail("not able to sleep");
 		}
 	}
 }

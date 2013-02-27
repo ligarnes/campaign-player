@@ -20,14 +20,11 @@
 package net.alteiar.server.document.map.filter;
 
 import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.TexturePaint;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -36,7 +33,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.shared.Polygon2D;
@@ -52,8 +48,8 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 
 	private transient MapFilterListenerRemote listener;
 
-	private int width;
-	private int height;
+	private final int width;
+	private final int height;
 
 	private transient BufferedImage shapeImage;
 
@@ -61,17 +57,13 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 
 	/**
 	 * @param element
+	 * @throws RemoteException
 	 */
-	public MapFilterClient(IMapFilterRemote element) {
+	public MapFilterClient(IMapFilterRemote element) throws RemoteException {
 		super(element);
 
-		try {
-			this.width = element.getWidth();
-			this.height = element.getHeight();
-		} catch (RemoteException ex) {
-			ExceptionTool.showError(ex);
-		}
-
+		this.width = element.getWidth();
+		this.height = element.getHeight();
 	}
 
 	private void computeCloud() {
@@ -150,9 +142,10 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 
+		/*
 		g2.setPaint(new TexturePaint(backgroundImg, new Rectangle2D.Float(0, 0,
 				width, height)));
-
+		*/
 		Shape shape = new Rectangle2D.Double(0, 0, realWidth, realHeight);
 		drawHide(g2, shape);
 		List<Polygon> internals = visible.getInternals();
@@ -211,6 +204,7 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 	protected void loadDocumentRemote() throws IOException {
 		listener = new MapFilterListenerRemote(getRemote());
 
+		/*
 		backgroundImg = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 
@@ -218,6 +212,7 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 		g2.setColor(Color.GRAY);
 		g2.fillRect(0, 0, width, height);
 		g2.dispose();
+		*/
 
 		refreshShape(getRemote().getVisibleRectangle());
 		computeCloud();

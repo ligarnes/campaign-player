@@ -26,11 +26,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.alteiar.ExceptionTool;
-import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.chat.message.ChatObject;
 import net.alteiar.server.document.chat.message.MessageRemote;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg
@@ -46,9 +45,11 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 
 	/**
 	 * @param remote
+	 * @throws RemoteException
 	 */
-	public ChatRoomClient(IChatRoomRemote remote) {
+	public ChatRoomClient(IChatRoomRemote remote) throws RemoteException {
 		super(remote);
+		this.pseudo = "pseudo";
 	}
 
 	public void setPseudo(String pseudo) {
@@ -63,14 +64,7 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 		talk(obj.stringFormat(), command);
 	}
 
-	private String getDefaultName() {
-		return CampaignClient.getInstance().getCurrentPlayer().getName();
-	}
-
 	public void talk(String message, String command) {
-		if (pseudo == null) {
-			pseudo = getDefaultName();
-		}
 		talk(new MessageRemote(pseudo, message, command));
 	}
 
@@ -134,18 +128,6 @@ public class ChatRoomClient extends DocumentClient<IChatRoomRemote> {
 				throws RemoteException {
 			super();
 			chat.addChatRoomListener(this);
-		}
-
-		@Override
-		public void playerJoin(MessageRemote join) throws RemoteException {
-			allMessage.add(join);
-			notifyTalk(join);
-		}
-
-		@Override
-		public void playerLeave(MessageRemote leave) throws RemoteException {
-			allMessage.add(leave);
-			notifyTalk(leave);
 		}
 
 		@Override

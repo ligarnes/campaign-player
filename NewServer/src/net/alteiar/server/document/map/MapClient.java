@@ -26,11 +26,11 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.files.ImageClient;
 import net.alteiar.server.document.map.filter.MapFilterClient;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg
@@ -41,31 +41,26 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 
 	private transient MapRemoteListener listener;
 
-	private String mapName;
-	private Integer width;
-	private Integer height;
+	private final String mapName;
+	private final Integer width;
+	private final Integer height;
 
-	private Long background;
-	private Long filter;
+	private final Long background;
+	private final Long filter;
 	// private final SynchronizedList<IMapElementClient> allElements;
 	private Scale scale;
 
-	protected MapClient(E map2D) {
+	protected MapClient(E map2D) throws RemoteException {
 		super(map2D);
 
-		try {
-			mapName = map2D.getName();
-			width = map2D.getWidth();
-			height = map2D.getHeight();
+		mapName = map2D.getName();
+		width = map2D.getWidth();
+		height = map2D.getHeight();
 
-			background = map2D.getBackground();
-			filter = map2D.getFilter();
+		background = map2D.getBackground();
+		filter = map2D.getFilter();
 
-			scale = map2D.getScale();
-		} catch (RemoteException e) {
-			// TODO
-			e.printStackTrace();
-		}
+		scale = map2D.getScale();
 		/*
 		allElements = new SynchronizedList<IMapElementClient>();
 		try {
@@ -94,10 +89,12 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 	}
 
 	public void setScale(Scale scale) {
-		try {
-			this.getRemote().setScale(scale);
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+		if (!this.scale.equals(scale)) {
+			try {
+				this.getRemote().setScale(scale);
+			} catch (RemoteException e) {
+				ExceptionTool.showError(e);
+			}
 		}
 	}
 
@@ -122,7 +119,6 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 	@Override
 	protected void loadDocumentRemote() throws IOException {
 		listener = new MapRemoteListener(getRemote());
-
 	}
 
 	public BufferedImage getFilter() {
@@ -253,7 +249,7 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 
 		protected MapRemoteListener(IMapRemote remote) throws RemoteException {
 			super();
-			remote.addMapListener(listener);
+			remote.addMapListener(this);
 		}
 
 		@Override

@@ -47,8 +47,6 @@ public interface IBattleRemote extends IMapRemote {
 	ICharacterCombatRemote[] getAllCharacter() throws RemoteException;
 	*/
 
-	void setInitiativeEachTurn(Boolean isInitEachTurn) throws RemoteException;
-
 	void nextTurn() throws RemoteException;
 
 	Integer getCurrentTurn() throws RemoteException;

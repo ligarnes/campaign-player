@@ -41,18 +41,8 @@ public class ChatRoomRemote extends DocumentRemote implements IChatRoomRemote {
 	}
 
 	@Override
-	public void join(MessageRemote join) throws RemoteException {
-		this.notifyPlayerJoin(join);
-	}
-
-	@Override
 	public void talk(MessageRemote message) throws RemoteException {
 		this.notifyPlayerTalk(message);
-	}
-
-	@Override
-	public void leave(MessageRemote leave) throws RemoteException {
-		this.notifyPlayerLeave(leave);
 	}
 
 	// Observable
@@ -68,61 +58,11 @@ public class ChatRoomRemote extends DocumentRemote implements IChatRoomRemote {
 		this.removeListener(IChatRoomListener.class, map);
 	}
 
-	protected void notifyPlayerJoin(MessageRemote join) {
-		for (IChatRoomListener observer : this
-				.getListener(IChatRoomListener.class)) {
-			ServerDocuments.SERVER_THREAD_POOL
-					.addTask(new ChatRoomPlayerJoinQuitTask(this, observer,
-							join, true));
-		}
-	}
-
-	protected void notifyPlayerLeave(MessageRemote leave) {
-		for (IChatRoomListener observer : this
-				.getListener(IChatRoomListener.class)) {
-			ServerDocuments.SERVER_THREAD_POOL
-					.addTask(new ChatRoomPlayerJoinQuitTask(this, observer,
-							leave, false));
-		}
-	}
-
 	protected void notifyPlayerTalk(MessageRemote message) {
 		for (IChatRoomListener observer : this
 				.getListener(IChatRoomListener.class)) {
 			ServerDocuments.SERVER_THREAD_POOL
 					.addTask(new ChatRoomPlayerTalkTask(this, observer, message));
-		}
-	}
-
-	private class ChatRoomPlayerJoinQuitTask extends
-			BaseNotify<IChatRoomListener> {
-		private final boolean join;
-		private final MessageRemote message;
-
-		public ChatRoomPlayerJoinQuitTask(ChatRoomRemote observable,
-				IChatRoomListener observer, MessageRemote name, boolean join) {
-			super(observable, IChatRoomListener.class, observer);
-			this.message = name;
-			this.join = join;
-		}
-
-		@Override
-		protected void doAction() throws RemoteException {
-			if (join) {
-				observer.playerJoin(message);
-			} else {
-				observer.playerLeave(message);
-			}
-		}
-
-		@Override
-		public String getStartText() {
-			return "start notify player join";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify player join";
 		}
 	}
 

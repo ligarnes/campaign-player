@@ -17,39 +17,35 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.character;
+package net.alteiar.server.document.map.element;
 
-import java.awt.image.BufferedImage;
+import java.awt.Point;
+import java.rmi.RemoteException;
+
+import net.alteiar.server.document.IDocumentRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterSheetClient {
+public interface IMapElementRemote extends IDocumentRemote {
 
-	void addCharacterListener(ICharacterClientObserver listener);
+	Point getPosition() throws RemoteException;
 
-	void removeCharacterListener(ICharacterClientObserver listener);
+	void setPosition(Point position) throws RemoteException;
 
-	String getName();
+	Double getAngle() throws RemoteException;
 
-	Integer getTotalHp();
+	void setAngle(Double angle) throws RemoteException;
 
-	Integer getCurrentHp();
+	Boolean getIsHidden() throws RemoteException;
 
-	Integer getAc();
+	void setIsHidden(Boolean isHidden) throws RemoteException;
 
-	Integer getAcFlatFooted();
+	// Listeners methods
+	void addMapElementListener(IMapElementListenerRemote listener)
+			throws RemoteException;
 
-	Integer getAcTouch();
-
-	Integer getInitModifier();
-
-	BufferedImage getImage();
-
-	void setCurrentHp(Integer currentHp);
-
-	Double getWidth();
-
-	Double getHeight();
+	void removeMapElementListener(IMapElementListenerRemote listener)
+			throws RemoteException;
 }
