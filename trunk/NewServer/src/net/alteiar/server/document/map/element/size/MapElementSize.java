@@ -17,16 +17,19 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.character;
+package net.alteiar.server.document.map.element.size;
+
+import java.io.Externalizable;
+
+import net.alteiar.server.document.map.Scale;
 
 /**
  * @author Cody Stoutenburg
  * 
+ *         this class represente a size that can be convert from scale
  */
-public interface ICharacterClientObserver {
+public abstract class MapElementSize implements Externalizable {
+	private static final long serialVersionUID = 7942889766046711297L;
 
-	void characterChanged(CharacterClient character);
-
-	void imageLoaded(CharacterClient character);
-
+	public abstract Double getPixels(Scale scale);
 }

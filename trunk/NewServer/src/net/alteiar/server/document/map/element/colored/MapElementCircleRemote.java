@@ -17,16 +17,43 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.character;
+package net.alteiar.server.document.map.element.colored;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.rmi.RemoteException;
+
+import net.alteiar.server.document.DocumentClient;
+import net.alteiar.server.document.map.element.size.MapElementSize;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterClientObserver {
+public class MapElementCircleRemote extends MapElementColoredRemote implements
+		ICircleRemote {
+	private static final long serialVersionUID = 940613673212818094L;
 
-	void characterChanged(CharacterClient character);
+	private final MapElementSize radius;
 
-	void imageLoaded(CharacterClient character);
+	/**
+	 * @param shape
+	 * @param position
+	 * @throws RemoteException
+	 */
+	public MapElementCircleRemote(Point position, Color color,
+			MapElementSize size) throws RemoteException {
+		super(position, color);
+		radius = size;
+	}
 
+	@Override
+	public MapElementSize getRadius() throws RemoteException {
+		return radius;
+	}
+
+	@Override
+	public DocumentClient<?> buildProxy() throws RemoteException {
+		return new CircleClient(this, 0L);
+	}
 }

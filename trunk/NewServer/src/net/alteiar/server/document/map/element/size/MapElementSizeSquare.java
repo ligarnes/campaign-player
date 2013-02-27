@@ -17,16 +17,45 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.character;
+package net.alteiar.server.document.map.element.size;
+
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
+import net.alteiar.server.document.map.Scale;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterClientObserver {
+public class MapElementSizeSquare extends MapElementSize {
+	private static final long serialVersionUID = -9152421144887148374L;
 
-	void characterChanged(CharacterClient character);
+	private Double squareSize;
 
-	void imageLoaded(CharacterClient character);
+	public MapElementSizeSquare() {
+		this(0.0);
+	}
+
+	public MapElementSizeSquare(double squareSize) {
+		this.squareSize = squareSize;
+	}
+
+	@Override
+	public Double getPixels(Scale scale) {
+		return (double) (scale.getPixels() * squareSize);
+	}
+
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		out.writeDouble(squareSize);
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException,
+			ClassNotFoundException {
+		squareSize = in.readDouble();
+	}
 
 }

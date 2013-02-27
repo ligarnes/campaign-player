@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.server.document.map.MapClient;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg
@@ -40,22 +40,18 @@ public class BattleClient extends MapClient<IBattleRemote> {
 	// private final SynchronizedHashMap<Long, ICharacterCombatClient>
 	// characters;
 
-	public BattleClient(IBattleRemote battle) {
+	public BattleClient(IBattleRemote battle) throws RemoteException {
 		super(battle);
 		// characters = new SynchronizedHashMap<Long, ICharacterCombatClient>();
-		try {
-			currentTurn = getRemote().getCurrentTurn();
+		currentTurn = getRemote().getCurrentTurn();
 
-			/*
-			// Load all current Character
-			for (ICharacterCombatRemote combat : remoteObject.getAllCharacter()) {
-				addCharacterRemote(combat);
-			}
-			new BattleClientRemoteObserver(remoteObject);
-			*/
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+		/* 
+		// Load all current Character
+		for (ICharacterCombatRemote combat : remoteObject.getAllCharacter()) {
+			addCharacterRemote(combat);
 		}
+		new BattleClientRemoteObserver(remoteObject);
+		*/
 	}
 
 	/*
@@ -114,14 +110,6 @@ public class BattleClient extends MapClient<IBattleRemote> {
 
 		return client;
 	}*/
-
-	public void setInitiativeEachTurn(Boolean isInitEachTurn) {
-		try {
-			getRemote().setInitiativeEachTurn(isInitEachTurn);
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
-	}
 
 	public void nextTurn() {
 		try {
@@ -210,6 +198,7 @@ public class BattleClient extends MapClient<IBattleRemote> {
 
 	@Override
 	protected void closeDocument() throws RemoteException {
+		super.closeDocument();
 		getRemote().removeBattleListener(battleListener);
 	}
 
@@ -220,8 +209,8 @@ public class BattleClient extends MapClient<IBattleRemote> {
 
 	@Override
 	protected void loadDocumentRemote() throws IOException {
+		super.loadDocumentRemote();
 		battleListener = new BattleClientRemoteObserver(getRemote());
-
 	}
 
 	/**

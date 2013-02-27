@@ -51,16 +51,12 @@ public class MapFilterRemote extends DocumentRemote implements IMapFilterRemote 
 	}
 
 	@Override
-	public int getWidth() throws RemoteException
-
-	{
+	public int getWidth() throws RemoteException {
 		return this.width;
 	}
 
 	@Override
-	public int getHeight() throws RemoteException
-
-	{
+	public int getHeight() throws RemoteException {
 		return this.height;
 	}
 

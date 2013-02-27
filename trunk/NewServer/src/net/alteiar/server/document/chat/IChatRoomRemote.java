@@ -34,9 +34,5 @@ public interface IChatRoomRemote extends IDocumentRemote {
 	void removeChatRoomListener(IChatRoomListener listener)
 			throws RemoteException;
 
-	void join(MessageRemote join) throws RemoteException;
-
 	void talk(MessageRemote message) throws RemoteException;
-
-	void leave(MessageRemote leave) throws RemoteException;
 }

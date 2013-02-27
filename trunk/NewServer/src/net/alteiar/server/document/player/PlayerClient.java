@@ -31,22 +31,18 @@ import net.alteiar.server.document.DocumentClient;
 public class PlayerClient extends DocumentClient<IPlayerRemote> {
 	private static final long serialVersionUID = 1L;
 
-	private String name;
-	private Boolean isMj;
+	private final String name;
+	private final Boolean isMj;
 
 	/**
 	 * @param remote
 	 * @throws RemoteException
 	 */
-	public PlayerClient(IPlayerRemote remote) {
+	public PlayerClient(IPlayerRemote remote) throws RemoteException {
 		super(remote);
-		try {
-			name = remote.getName();
-			isMj = remote.getIsMj();
-		} catch (RemoteException e) {
-			// TODO
-			e.printStackTrace();
-		}
+
+		name = remote.getName();
+		isMj = remote.getIsMj();
 	}
 
 	public String getName() {
@@ -64,28 +60,6 @@ public class PlayerClient extends DocumentClient<IPlayerRemote> {
 		result = prime * result + ((isMj == null) ? 0 : isMj.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PlayerClient other = (PlayerClient) obj;
-		if (isMj == null) {
-			if (other.isMj != null)
-				return false;
-		} else if (!isMj.equals(other.isMj))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
 	}
 
 	@Override

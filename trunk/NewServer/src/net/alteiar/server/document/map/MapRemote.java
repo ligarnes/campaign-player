@@ -23,14 +23,13 @@ import java.rmi.RemoteException;
 
 import net.alteiar.server.BaseObservableRemote;
 import net.alteiar.server.ServerDocuments;
-import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.DocumentRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class MapRemote extends DocumentRemote implements IMapRemote {
+public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 
 	private static final long serialVersionUID = 7146516259514104557L;
 
@@ -220,10 +219,5 @@ public class MapRemote extends DocumentRemote implements IMapRemote {
 		public String getFinishText() {
 			return "finish map rescale";
 		}
-	}
-
-	@Override
-	public DocumentClient<?> buildProxy() throws RemoteException {
-		return new MapClient(this);
 	}
 }

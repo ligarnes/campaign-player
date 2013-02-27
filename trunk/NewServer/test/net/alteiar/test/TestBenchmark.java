@@ -1,4 +1,4 @@
-package net.alteiar;
+package net.alteiar.test;
 
 import static org.junit.Assert.fail;
 

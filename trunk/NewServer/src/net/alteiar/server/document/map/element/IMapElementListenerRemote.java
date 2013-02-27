@@ -17,16 +17,20 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.character;
+package net.alteiar.server.document.map.element;
+
+import java.awt.Point;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterClientObserver {
+public interface IMapElementListenerRemote extends Remote {
+	void elementMoved(Point newPosition) throws RemoteException;
 
-	void characterChanged(CharacterClient character);
+	void elementHidden(Boolean isHidden) throws RemoteException;
 
-	void imageLoaded(CharacterClient character);
-
+	void elementRotate(Double angle) throws RemoteException;
 }

@@ -32,7 +32,7 @@ public abstract class DocumentManagerClient {
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
 
-		documents = new HashMap<>();
+		documents = new HashMap<Long, DocumentClient<?>>();
 	}
 
 	protected void loadCampaign() {
@@ -98,6 +98,15 @@ public abstract class DocumentManagerClient {
 			e.printStackTrace();
 		}
 		return guid;
+	}
+
+	public void removeDocument(DocumentClient<?> document) {
+		try {
+			this.server.deleteDocument(document.getId());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private synchronized void removeDocument(Long guid) {

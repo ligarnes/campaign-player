@@ -1,16 +1,11 @@
 package net.alteiar.client;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
@@ -19,15 +14,15 @@ import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.character.CompleteCharacter;
 import net.alteiar.server.document.character.DocumentCharacterBuilder;
 import net.alteiar.server.document.chat.ChatRoomClient;
+import net.alteiar.server.document.chat.message.MessageRemote;
 import net.alteiar.server.document.files.DocumentImageBuilder;
 import net.alteiar.server.document.images.TransfertImage;
-import net.alteiar.server.document.map.DocumentMapBuilder;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.battle.DocumentBattleBuilder;
-import net.alteiar.server.document.map.filter.DocumentMapFilterBuilder;
 import net.alteiar.server.document.player.DocumentPlayerBuilder;
 import net.alteiar.server.document.player.PlayerClient;
+import net.alteiar.shared.ExceptionTool;
 
 public class CampaignClient extends DocumentManagerClient {
 
@@ -58,12 +53,7 @@ public class CampaignClient extends DocumentManagerClient {
 					ExceptionTool.showError(e);
 				}
 			}
-
-		} catch (MalformedURLException e) {
-			ExceptionTool.showError(e);
-		} catch (NotBoundException e) {
-			ExceptionTool.showError(e);
-		} catch (RemoteException e) {
+		} catch (Exception e) {
 			ExceptionTool.showError(e);
 		}
 	}
@@ -86,9 +76,9 @@ public class CampaignClient extends DocumentManagerClient {
 		super(server, localPath);
 
 		// First create all local variable
-		players = new ArrayList<>();
-		characters = new ArrayList<>();
-		battles = new ArrayList<>();
+		players = new ArrayList<PlayerClient>();
+		characters = new ArrayList<CharacterClient>();
+		battles = new ArrayList<BattleClient>();
 
 		// Load all existing documents
 		loadCampaign();
@@ -98,6 +88,9 @@ public class CampaignClient extends DocumentManagerClient {
 		currentPlayer = (PlayerClient) getDocument(
 				server.createDocument(new DocumentPlayerBuilder(name, isMj)),
 				connectTimeout30second);
+
+		chat.setPseudo(currentPlayer.getName());
+		chat.talk(currentPlayer.getName(), MessageRemote.SYSTEM_CONNECT_MESSAGE);
 	}
 
 	public PlayerClient getCurrentPlayer() {
@@ -129,48 +122,8 @@ public class CampaignClient extends DocumentManagerClient {
 	}
 
 	public void createBattle(String mapName, TransfertImage transfertImage) {
-		BufferedImage imgs;
-		try {
-			imgs = transfertImage.restoreImage();
-
-			int width = imgs.getWidth();
-			int height = imgs.getHeight();
-
-			Long imageId = createDocument(new DocumentImageBuilder(
-					transfertImage));
-			Long mapFilterId = createDocument(new DocumentMapFilterBuilder(
-					width, height));
-
-			Scale scale = new Scale(80, 1.5);
-
-			createDocument(new DocumentBattleBuilder(mapName, width, height,
-					imageId, mapFilterId, scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void createMap(String mapName, TransfertImage transfertImage) {
-		BufferedImage imgs;
-		try {
-			imgs = transfertImage.restoreImage();
-
-			int width = imgs.getWidth();
-			int height = imgs.getHeight();
-
-			Long imageId = createDocument(new DocumentImageBuilder(
-					transfertImage));
-			Long mapFilterId = createDocument(new DocumentMapFilterBuilder(
-					width, height));
-
-			Scale scale = new Scale(80, 1.5);
-
-			createDocument(new DocumentMapBuilder(mapName, width, height,
-					imageId, mapFilterId, scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		Scale scale = new Scale(80, 1.5);
+		createDocument(new DocumentBattleBuilder(mapName, transfertImage, scale));
 	}
 
 	// TODO useless ask sylvain

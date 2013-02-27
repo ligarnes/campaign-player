@@ -3,6 +3,7 @@ package net.alteiar.server.document.character;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.document.DocumentBuilder;
+import net.alteiar.server.document.IDocumentRemote;
 
 public class DocumentCharacterBuilder extends DocumentBuilder {
 	private static final long serialVersionUID = 1L;
@@ -16,7 +17,7 @@ public class DocumentCharacterBuilder extends DocumentBuilder {
 	}
 
 	@Override
-	public CharacterRemote buildDocument() throws RemoteException {
+	public IDocumentRemote buildMainDocument() throws RemoteException {
 		return new CharacterRemote(character.getName(), character.getAc(),
 				character.getAcFlatFooted(), character.getAcTouch(),
 				character.getInitMod(), character.getHp(),

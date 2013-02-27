@@ -30,10 +30,6 @@ import net.alteiar.server.document.chat.message.MessageRemote;
  */
 public interface IChatRoomListener extends Remote {
 
-	void playerJoin(MessageRemote join) throws RemoteException;
-
-	void playerLeave(MessageRemote leave) throws RemoteException;
-
 	void playerTalk(MessageRemote message) throws RemoteException;
 
 }

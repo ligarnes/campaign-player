@@ -126,7 +126,7 @@ public class CharacterRemote extends DocumentRemote implements ICharacterRemote 
 		return new CharacterClient(this);
 	}
 
-	// Observable functions
+	// /////////////// LISTENERS functions //////////
 	@Override
 	public void addCharacterListener(ICharacterListener map)
 			throws RemoteException {
@@ -171,10 +171,5 @@ public class CharacterRemote extends DocumentRemote implements ICharacterRemote 
 		public String getFinishText() {
 			return "finish notify character changed";
 		}
-	}
-
-	@Override
-	public void closeDocument() throws RemoteException {
-		// TODO remove listener
 	}
 }

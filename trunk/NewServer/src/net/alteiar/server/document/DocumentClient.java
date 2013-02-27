@@ -11,19 +11,14 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 		BaseObservableClient {
 	private static final long serialVersionUID = 1L;
 
-	private E remote;
+	private final E remote;
 	private transient LocalDocumentListener documentListener;
 
-	private DocumentPath documentPath;
+	private final DocumentPath documentPath;
 
-	public DocumentClient(E remote) {
-		try {
-			this.remote = remote;
-			this.documentPath = this.remote.getPath();
-		} catch (RemoteException e) {
-			// TODO
-			e.printStackTrace();
-		}
+	public DocumentClient(E remote) throws RemoteException {
+		this.remote = remote;
+		this.documentPath = this.remote.getPath();
 	}
 
 	public Long getId() {
@@ -100,5 +95,31 @@ public abstract class DocumentClient<E extends IDocumentRemote> extends
 		public void documentClosed() throws RemoteException {
 			remoteCloseDocument();
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((documentPath == null) ? 0 : documentPath.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DocumentClient<?> other = (DocumentClient<?>) obj;
+		if (documentPath == null) {
+			if (other.documentPath != null)
+				return false;
+		} else if (!documentPath.equals(other.documentPath))
+			return false;
+		return true;
 	}
 }

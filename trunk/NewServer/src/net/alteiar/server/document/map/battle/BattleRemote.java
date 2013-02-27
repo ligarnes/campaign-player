@@ -24,7 +24,6 @@ import java.rmi.RemoteException;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.map.MapRemote;
 import net.alteiar.server.document.map.Scale;
-import net.alteiar.shared.Randomizer;
 
 /**
  * @author Cody Stoutenburg
@@ -34,9 +33,6 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 	private static final long serialVersionUID = -8540822570181198244L;
 
 	private Integer currentTurn;
-
-	// //TODO move to rules
-	private Boolean initiativeEachTurn;
 
 	// private final SynchronizedHashMap<Long, ICharacterCombatRemote>
 	// allCharacter;
@@ -50,7 +46,6 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 		// ICharacterCombatRemote>();
 
 		currentTurn = 0;
-		initiativeEachTurn = false;
 	}
 
 	/*
@@ -119,17 +114,7 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 	}*/
 
 	@Override
-	public synchronized void setInitiativeEachTurn(Boolean isInitEachTurn)
-			throws RemoteException {
-		initiativeEachTurn = isInitEachTurn;
-	}
-
-	@Override
 	public synchronized void nextTurn() throws RemoteException {
-		if (initiativeEachTurn) {
-			runInitForAllCharacter();
-		}
-
 		++currentTurn;
 		notifyNextTurn(currentTurn);
 	}
@@ -137,23 +122,6 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 	@Override
 	public Integer getCurrentTurn() throws RemoteException {
 		return currentTurn;
-	}
-
-	// TODO should be move in rule document
-	private Integer rollInitiative() {
-		return Randomizer.dice(20);
-	}
-
-	// TODO should be move in rule document
-	private void runInitForAllCharacter() {
-		/*
-		for (ICharacterCombatRemote character : allCharacter.values()) {
-			try {
-				character.setInitiative(rollInitiative());
-			} catch (RemoteException e) {
-				ExceptionTool.showError(e);
-			}
-		}*/
 	}
 
 	@Override

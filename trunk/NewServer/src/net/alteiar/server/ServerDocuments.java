@@ -25,13 +25,13 @@ import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentBuilder;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.server.document.chat.ChatRoomRemote;
+import net.alteiar.shared.ExceptionTool;
 import net.alteiar.thread.TaskInfoAdapter;
 import net.alteiar.thread.WorkerPool;
 
@@ -62,7 +62,8 @@ public class ServerDocuments extends BaseObservableRemote implements
 				private static final long serialVersionUID = 1L;
 
 				@Override
-				public IDocumentRemote buildDocument() throws RemoteException {
+				public IDocumentRemote buildMainDocument()
+						throws RemoteException {
 					return new ChatRoomRemote();
 				}
 			});
@@ -95,7 +96,13 @@ public class ServerDocuments extends BaseObservableRemote implements
 	@Override
 	public synchronized Long createDocument(DocumentBuilder documentBuilder)
 			throws RemoteException {
-		IDocumentRemote remote = documentBuilder.buildDocument();
+		for (IDocumentRemote remote : documentBuilder.buildDocuments()) {
+			Long id = remote.getPath().getId();
+			documents.put(id, remote);
+			this.notifyDocumentAdd(id);
+		}
+
+		IDocumentRemote remote = documentBuilder.buildMainDocument();
 		Long id = remote.getPath().getId();
 		documents.put(id, remote);
 		this.notifyDocumentAdd(id);
