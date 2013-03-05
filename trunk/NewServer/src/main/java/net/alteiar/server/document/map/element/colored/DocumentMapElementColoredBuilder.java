@@ -11,9 +11,9 @@ public abstract class DocumentMapElementColoredBuilder extends
 
 	protected final Color color;
 
-	public DocumentMapElementColoredBuilder(Point position, Double angle,
+	public DocumentMapElementColoredBuilder(Point position,
 			Color color) {
-		super(position, angle);
+		super(position);
 		this.color = color;
 	}
 }

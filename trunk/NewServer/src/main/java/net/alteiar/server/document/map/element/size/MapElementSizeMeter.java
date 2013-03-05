@@ -42,10 +42,6 @@ public class MapElementSizeMeter extends MapElementSize {
 		this.meters = meters;
 	}
 
-	public Double getMeters() {
-		return this.meters;
-	}
-
 	@Override
 	public Double getPixels(Scale scale) {
 		Double nbMetre = scale.getMetre();

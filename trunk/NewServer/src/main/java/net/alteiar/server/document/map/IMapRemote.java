@@ -20,6 +20,7 @@
 package net.alteiar.server.document.map;
 
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 import net.alteiar.server.document.IDocumentRemote;
 
@@ -46,29 +47,9 @@ public interface IMapRemote extends IDocumentRemote {
 
 	Long getFilter() throws RemoteException;
 
-	/*
-	void showPolygon(List<Point> cwPts) throws RemoteException;
+	void addMapElement(Long mapElement) throws RemoteException;
 
-	void hidePolygon(List<Point> cwPts) throws RemoteException;
-	*/
+	void removeMapElement(Long mapElement) throws RemoteException;
 
-	/*
-	IMapElementObservableRemote[] getAllElements() throws RemoteException;
-
-	void addMapElement(IMapElementObservableRemote element)
-			throws RemoteException;
-
-	void removedMapElement(IMapElementObservableRemote element)
-			throws RemoteException;
-
-	ICircleRemote createCircle(Point position, Color color,
-			MapElementSize radius) throws RemoteException;
-
-	IConeRemote createCone(Point position, Color color, MapElementSize heigth)
-			throws RemoteException;
-
-	IRayRemote createRay(Point position, Color color, MapElementSize width,
-			MapElementSize height) throws RemoteException;
-			
-	*/
+	HashSet<Long> getMapElements() throws RemoteException;
 }

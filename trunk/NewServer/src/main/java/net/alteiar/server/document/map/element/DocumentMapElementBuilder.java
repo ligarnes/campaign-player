@@ -8,10 +8,8 @@ public abstract class DocumentMapElementBuilder extends DocumentBuilder {
 	private static final long serialVersionUID = 1L;
 
 	protected final Point position;
-	protected final Double angle;
 
-	public DocumentMapElementBuilder(Point position, Double angle) {
+	public DocumentMapElementBuilder(Point position) {
 		this.position = position;
-		this.angle = angle;
 	}
 }

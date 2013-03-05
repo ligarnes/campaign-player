@@ -23,10 +23,8 @@ import java.awt.Polygon;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.awt.geom.PathIterator;
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.awt.geom.Point2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,15 +32,19 @@ import java.util.List;
  * @author Cody Stoutenburg
  * 
  */
-public class Polygon2D implements Externalizable {
-	private ArrayList<ArrayList<Vector2D>> allRectangles;
+public class Polygon2D implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ArrayList<ArrayList<Point2D>> allRectangles;
 
 	public Polygon2D() {
 	}
 
 	public Polygon2D(Area area) {
 		super();
-		allRectangles = new ArrayList<ArrayList<Vector2D>>();
+		allRectangles = new ArrayList<ArrayList<Point2D>>();
 
 		float[] coord = new float[6];
 		int type;
@@ -50,34 +52,34 @@ public class Polygon2D implements Externalizable {
 		PathIterator pi = area.getPathIterator(AffineTransform
 				.getRotateInstance(0));
 
-		ArrayList<Vector2D> currentPolygon = null;
+		ArrayList<Point2D> currentPolygon = null;
 		while (!pi.isDone()) {
 
 			type = pi.currentSegment(coord);
 			switch (type) {
 			case PathIterator.SEG_MOVETO:
-				currentPolygon = new ArrayList<Vector2D>();
+				currentPolygon = new ArrayList<Point2D>();
 				// change pour un nouveau segment
 				allRectangles.add(currentPolygon);
-				currentPolygon.add(new Vector2D(coord[0], coord[1]));
+				currentPolygon.add(new Point2D.Float(coord[0], coord[1]));
 				break;
 
 			case PathIterator.SEG_LINETO:
 				// trace une ligne
-				currentPolygon.add(new Vector2D(coord[0], coord[1]));
+				currentPolygon.add(new Point2D.Float(coord[0], coord[1]));
 				break;
 
 			case PathIterator.SEG_QUADTO:
 				// trace un arc de parabole
-				currentPolygon.add(new Vector2D(coord[0], coord[1]));
-				currentPolygon.add(new Vector2D(coord[2], coord[3]));
+				currentPolygon.add(new Point2D.Float(coord[0], coord[1]));
+				currentPolygon.add(new Point2D.Float(coord[2], coord[3]));
 				break;
 
 			case PathIterator.SEG_CUBICTO:
 				// trace une courbe de bezier cubique
-				currentPolygon.add(new Vector2D(coord[0], coord[1]));
-				currentPolygon.add(new Vector2D(coord[2], coord[3]));
-				currentPolygon.add(new Vector2D(coord[4], coord[5]));
+				currentPolygon.add(new Point2D.Float(coord[0], coord[1]));
+				currentPolygon.add(new Point2D.Float(coord[2], coord[3]));
+				currentPolygon.add(new Point2D.Float(coord[4], coord[5]));
 				break;
 
 			default:
@@ -91,8 +93,8 @@ public class Polygon2D implements Externalizable {
 	protected Polygon getPolygon(int idx) {
 		Polygon p = new Polygon();
 
-		for (Vector2D position : allRectangles.get(idx)) {
-			p.addPoint(position.getX().intValue(), position.getY().intValue());
+		for (Point2D position : allRectangles.get(idx)) {
+			p.addPoint((int) position.getX(), (int) position.getY());
 		}
 
 		return p;
@@ -163,86 +165,5 @@ public class Polygon2D implements Externalizable {
 			}
 		}
 		return externals;
-	}
-
-	public static List<Vector2D> findCollisionPoint(Polygon p1, Polygon p2) {
-		List<Vector2D> collisionPoint = new ArrayList<Vector2D>();
-		// chaque segment de p1
-		for (int i = 0; i < p1.npoints; ++i) {
-			Vector2D a1 = new Vector2D((float) p1.xpoints[i],
-					(float) p1.ypoints[i]);
-			int i2 = i + 1;
-			if (i2 == p1.npoints) {
-				i2 = 0;
-			}
-			Vector2D a2 = new Vector2D((float) p1.xpoints[i2],
-					(float) p1.ypoints[i2]);
-
-			// chaque segment de p2
-			for (int j = 0; j < p2.npoints; ++j) {
-				Vector2D b1 = new Vector2D((float) p2.xpoints[j],
-						(float) p2.ypoints[j]);
-				int j2 = j + 1;
-				if (j2 == p2.npoints) {
-					j2 = 0;
-				}
-				Vector2D b2 = new Vector2D((float) p2.xpoints[j2],
-						(float) p2.ypoints[j2]);
-
-				Vector2D collision = findCollisionPointOnSegment(a1, a2, b1, b2);
-				if (collision != null) {
-					collisionPoint.add(collision);
-				}
-			}
-		}
-
-		return collisionPoint;
-	}
-
-	public static Vector2D findCollisionPointOnSegment(Vector2D a1,
-			Vector2D a2, Vector2D b1, Vector2D b2) {
-		Vector2D result = null;
-
-		Vector2D i = a2.sub(a1);
-		Vector2D j = b2.sub(b1);
-
-		Float denominateur = i.getX() * j.getY() - i.getY() * j.getX();
-
-		// les droites ne sont pas parall�le
-		if (!denominateur.equals(0f)) {
-			Float a = i.getX() * a1.getY();
-			Float b = i.getX() * b1.getY();
-			Float c = i.getY() * a1.getX();
-			Float d = i.getY() * b1.getX();
-
-			Float m = -(-a + b + c - d) / denominateur;
-
-			if (0f < m && m < 1f) {
-				a = a1.getX() * j.getY();
-				b = b1.getX() * j.getY();
-				c = a1.getY() * j.getX();
-				d = b1.getY() * j.getX();
-				Float k = -(a - b - c + d) / denominateur;
-
-				if (0f < k && k < 1f) {
-					result = a1.add(i.multiply(k));
-				}
-			}
-
-		}
-
-		return result;
-	}
-
-	@Override
-	public void writeExternal(ObjectOutput out) throws IOException {
-		out.writeObject(allRectangles);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void readExternal(ObjectInput in) throws IOException,
-			ClassNotFoundException {
-		allRectangles = (ArrayList<ArrayList<Vector2D>>) in.readObject();
 	}
 }

@@ -17,9 +17,11 @@ import net.alteiar.server.document.chat.ChatRoomClient;
 import net.alteiar.server.document.chat.message.MessageRemote;
 import net.alteiar.server.document.files.DocumentImageBuilder;
 import net.alteiar.server.document.images.TransfertImage;
+import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.battle.DocumentBattleBuilder;
+import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
 import net.alteiar.server.document.player.DocumentPlayerBuilder;
 import net.alteiar.server.document.player.PlayerClient;
 import net.alteiar.shared.ExceptionTool;
@@ -126,13 +128,12 @@ public class CampaignClient extends DocumentManagerClient {
 		createDocument(new DocumentBattleBuilder(mapName, transfertImage, scale));
 	}
 
-	// TODO useless ask sylvain
-	/*
-	@Override
-	protected void add(PlayerClient client) {
-		System.out.println("add player");
-		this.players.add(player);
-	}*/
+	public void createMapElement(MapClient<?> map,
+			DocumentMapElementBuilder mapElement) {
+
+		Long guid = this.createDocument(mapElement);
+		map.addMapElement(guid);
+	}
 
 	@Override
 	protected void add(DocumentClient<?> client) {

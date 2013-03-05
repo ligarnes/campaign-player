@@ -20,6 +20,7 @@
 package net.alteiar.server.document.map;
 
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 import net.alteiar.server.BaseObservableRemote;
 import net.alteiar.server.ServerDocuments;
@@ -38,7 +39,7 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 	private final int width;
 	private final int height;
 
-	// private final SynchronizedList<IMapElementObservableRemote> allElements;
+	private final HashSet<Long> elements;
 
 	private final Long background;
 	private final Long filterRemote;
@@ -59,8 +60,7 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 		this.width = width;
 		this.height = height;
 
-		// this.allElements = new
-		// SynchronizedList<IMapElementObservableRemote>();
+		elements = new HashSet<Long>();
 
 		this.filterRemote = filterRemote;
 		this.scale = scale;
@@ -72,40 +72,38 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 	}
 
 	@Override
-	public Integer getWidth() {
+	public Integer getWidth() throws RemoteException {
 		return width;
 	}
 
 	@Override
-	public Integer getHeight() {
+	public Integer getHeight() throws RemoteException {
 		return height;
 	}
 
-	/*
 	@Override
-	public synchronized void addMapElement(IMapElementObservableRemote element)
-			throws RemoteException {
-		this.allElements.add(element);
-		this.notifyMapElementAdded(element);
+	public void addMapElement(Long mapElement) throws RemoteException {
+		synchronized (elements) {
+			elements.add(mapElement);
+		}
 	}
 
 	@Override
-	public synchronized void removedMapElement(
-			IMapElementObservableRemote element) throws RemoteException {
-		this.allElements.remove(element);
-		this.notifyMapElementRemoved(element);
+	public void removeMapElement(Long mapElement) throws RemoteException {
+		synchronized (elements) {
+			elements.remove(mapElement);
+		}
 	}
 
 	@Override
-	public synchronized IMapElementObservableRemote[] getAllElements()
-			throws RemoteException {
-		this.allElements.incCounter();
-		IMapElementObservableRemote[] mapElements = new IMapElementObservableRemote[this.allElements
-				.size()];
-		this.allElements.toArray(mapElements);
-		this.allElements.decCounter();
-		return mapElements;
-	}*/
+	@SuppressWarnings("unchecked")
+	public HashSet<Long> getMapElements() throws RemoteException {
+		HashSet<Long> elementsCopy = new HashSet<Long>();
+		synchronized (elements) {
+			elementsCopy = (HashSet<Long>) elements.clone();
+		}
+		return elementsCopy;
+	}
 
 	@Override
 	public Long getBackground() throws RemoteException {
@@ -141,19 +139,18 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 	}
 
 	/*
-	protected void notifyMapElementAdded(IMapElementObservableRemote newPosition) {
-		for (Remote observer : this.getListener(IMapObserverRemote.class)) {
-			ServerCampaign.SERVER_THREAD_POOL.addTask(new MapElementChangeTask(
-					this, observer, newPosition, true));
-		}
-	}
-
-	protected void notifyMapElementRemoved(IMapElementObservableRemote removed) {
-		for (Remote observer : this.getListener(IMapObserverRemote.class)) {
-			ServerCampaign.SERVER_THREAD_POOL.addTask(new MapElementChangeTask(
-					this, observer, removed, false));
-		}
-	}*/
+	 * protected void notifyMapElementAdded(IMapElementObservableRemote
+	 * newPosition) { for (Remote observer :
+	 * this.getListener(IMapObserverRemote.class)) {
+	 * ServerCampaign.SERVER_THREAD_POOL.addTask(new MapElementChangeTask( this,
+	 * observer, newPosition, true)); } }
+	 * 
+	 * protected void notifyMapElementRemoved(IMapElementObservableRemote
+	 * removed) { for (Remote observer :
+	 * this.getListener(IMapObserverRemote.class)) {
+	 * ServerCampaign.SERVER_THREAD_POOL.addTask(new MapElementChangeTask( this,
+	 * observer, removed, false)); } }
+	 */
 
 	protected void notifyMapElementScaleChanged(Scale scale) {
 		for (IMapListenerRemote observer : this
@@ -164,37 +161,24 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 	}
 
 	/*
-	private class MapElementChangeTask extends BaseNotify {
-		private final IMapElementObservableRemote remote;
-		private final boolean isAdded;
-
-		public MapElementChangeTask(BaseObservableRemote observable,
-				Remote observer, IMapElementObservableRemote remote,
-				boolean isAdded) {
-			super(observable, MAP_LISTENER, observer);
-			this.remote = remote;
-			this.isAdded = isAdded;
-		}
-
-		@Override
-		protected void doAction() throws RemoteException {
-			if (isAdded) {
-				((IMapObserverRemote) observer).mapElementAdded(remote);
-			} else {
-				((IMapObserverRemote) observer).mapElementRemoved(remote);
-			}
-		}
-
-		@Override
-		public String getStartText() {
-			return "start map element changed (remove or add)";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish map element changed (remove or add)";
-		}
-	}*/
+	 * private class MapElementChangeTask extends BaseNotify { private final
+	 * IMapElementObservableRemote remote; private final boolean isAdded;
+	 * 
+	 * public MapElementChangeTask(BaseObservableRemote observable, Remote
+	 * observer, IMapElementObservableRemote remote, boolean isAdded) {
+	 * super(observable, MAP_LISTENER, observer); this.remote = remote;
+	 * this.isAdded = isAdded; }
+	 * 
+	 * @Override protected void doAction() throws RemoteException { if (isAdded)
+	 * { ((IMapObserverRemote) observer).mapElementAdded(remote); } else {
+	 * ((IMapObserverRemote) observer).mapElementRemoved(remote); } }
+	 * 
+	 * @Override public String getStartText() { return
+	 * "start map element changed (remove or add)"; }
+	 * 
+	 * @Override public String getFinishText() { return
+	 * "finish map element changed (remove or add)"; } }
+	 */
 
 	private class MapScaleChangeTask extends BaseNotify<IMapListenerRemote> {
 		private final Scale scale;
