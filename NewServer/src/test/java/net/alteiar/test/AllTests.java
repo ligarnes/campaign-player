@@ -11,7 +11,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestCreatePlayer.class, TestBattle.class, TestChat.class,
-		TestVector2d.class /*, TestBenchmark.class*/})
+		TestMapElement.class,
+/* , TestBenchmark.class */})
 public class AllTests {
 
 	public static String getPlayerName() {

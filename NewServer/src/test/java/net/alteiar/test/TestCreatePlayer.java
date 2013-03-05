@@ -19,8 +19,6 @@ import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.character.CompleteCharacter;
 import net.alteiar.server.document.character.DocumentCharacterBuilder;
 import net.alteiar.server.document.chat.ChatRoomClient;
-import net.alteiar.server.document.chat.IChatRoomObserver;
-import net.alteiar.server.document.chat.message.MessageRemote;
 import net.alteiar.server.document.files.DocumentImageBuilder;
 import net.alteiar.server.document.images.WebImage;
 import net.alteiar.server.document.player.PlayerClient;
@@ -50,33 +48,6 @@ public class TestCreatePlayer extends BasicTest {
 				AllTests.getPlayerName());
 
 		assertEquals(CampaignClient.getInstance().getPlayers().size(), 1);
-	}
-
-	@Test(timeout = 5000)
-	public void testChat() {
-		ChatRoomClient chat = CampaignClient.getInstance().getChat();
-		assertNotNull("Current chat must exist", chat);
-
-		final String expectedMsg = "Salut";
-
-		chat.addChatRoomListener(new IChatRoomObserver() {
-			@Override
-			public void talk(MessageRemote message) {
-				assertEquals(message.getMessage(), expectedMsg);
-			}
-		});
-
-		int previousCount = chat.getAllMessage().size();
-		chat.talk(expectedMsg);
-
-		int currentCount = chat.getAllMessage().size();
-		while (previousCount == currentCount) {
-			currentCount = chat.getAllMessage().size();
-			sleep(50);
-		}
-		assertEquals("the message must be the same",
-				chat.getAllMessage().get(previousCount).getMessage(),
-				expectedMsg);
 	}
 
 	@Test(timeout = 2000)

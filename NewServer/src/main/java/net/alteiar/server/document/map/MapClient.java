@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.HashSet;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
@@ -47,8 +48,9 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 
 	private final Long background;
 	private final Long filter;
-	// private final SynchronizedList<IMapElementClient> allElements;
 	private Scale scale;
+
+	private final HashSet<Long> elements;
 
 	protected MapClient(E map2D) throws RemoteException {
 		super(map2D);
@@ -61,18 +63,8 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		filter = map2D.getFilter();
 
 		scale = map2D.getScale();
-		/*
-		allElements = new SynchronizedList<IMapElementClient>();
-		try {
-			CampaignClient.WORKER_POOL_CAMPAIGN.addTask(new Map2DLoadTask(this,
-					remoteObject));
 
-			// our observer
-			new Map2DRemoteObserver(this, this.remoteObject);
-
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}*/
+		elements = map2D.getMapElements();
 	}
 
 	public String getName() {
@@ -159,85 +151,68 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		hidePolygon(cwPts);
 	}
 
-	/*
-	@Override
-	public IMapElementClient[] getAllElements() {
-		allElements.incCounter();
-		IMapElementClient[] elements = new IMapElementClient[allElements.size()];
-		allElements.toArray(elements);
-		allElements.decCounter();
-		return elements;
-	}
-
-	@Override
-	public IMapElementClient getElementAt(Point location) {
-		IMapElementClient element = null;
-		for (IMapElementClient mapElement : getAllElements()) {
-			if (mapElement.isInside(location)) {
-				element = mapElement;
-				break;
-			}
-		}
-		return element;
-	}
-
-	@Override
-	public void addCircle(MapElementSize radius, Color color, Point position) {
+	public void addMapElement(Long mapElement) {
 		try {
-			ICircleRemote circle = remoteObject.createCircle(position, color,
-					radius);
-			remoteObject.addMapElement(circle);
+			getRemote().addMapElement(mapElement);
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
-	@Override
-	public void addCone(MapElementSize radius, Color color, Point position) {
+	public void removeMapElement(Long mapElement) {
 		try {
-			IConeRemote cone = remoteObject.createCone(position, color, radius);
-			remoteObject.addMapElement(cone);
+			getRemote().removeMapElement(mapElement);
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public void addRay(MapElementSize longueur, MapElementSize largueur,
-			Color color, Point position) {
-		try {
-			IRayRemote ray = remoteObject.createRay(position, color, longueur,
-					largueur);
-
-			remoteObject.addMapElement(ray);
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
-	}
-
-	@Override
-	public void removeMapElement(IMapElementClient mapElements) {
-		try {
-			remoteObject.removedMapElement(mapElements.getRemoteReference());
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
-	}
-	*/
 
 	/*
-	public synchronized void addLocalMapElement(BaseMapElementClient client) {
-		client.addListener(this);
-		allElements.add(client);
-		notifyMapChanged();
+	 * @Override public IMapElementClient[] getAllElements() {
+	 * allElements.incCounter(); IMapElementClient[] elements = new
+	 * IMapElementClient[allElements.size()]; allElements.toArray(elements);
+	 * allElements.decCounter(); return elements; }
+	 * 
+	 * @Override public IMapElementClient getElementAt(Point location) {
+	 * IMapElementClient element = null; for (IMapElementClient mapElement :
+	 * getAllElements()) { if (mapElement.isInside(location)) { element =
+	 * mapElement; break; } } return element; }
+	 * 
+	 * @Override public void addCircle(MapElementSize radius, Color color, Point
+	 * position) { try { ICircleRemote circle =
+	 * remoteObject.createCircle(position, color, radius);
+	 * remoteObject.addMapElement(circle); } catch (RemoteException e) {
+	 * ExceptionTool.showError(e); } }
+	 * 
+	 * @Override public void addCone(MapElementSize radius, Color color, Point
+	 * position) { try { IConeRemote cone = remoteObject.createCone(position,
+	 * color, radius); remoteObject.addMapElement(cone); } catch
+	 * (RemoteException e) { ExceptionTool.showError(e); } }
+	 * 
+	 * @Override public void addRay(MapElementSize longueur, MapElementSize
+	 * largueur, Color color, Point position) { try { IRayRemote ray =
+	 * remoteObject.createRay(position, color, longueur, largueur);
+	 * 
+	 * remoteObject.addMapElement(ray); } catch (RemoteException e) {
+	 * ExceptionTool.showError(e); } }
+	 * 
+	 * @Override public void removeMapElement(IMapElementClient mapElements) {
+	 * try { remoteObject.removedMapElement(mapElements.getRemoteReference()); }
+	 * catch (RemoteException e) { ExceptionTool.showError(e); } }
+	 */
+
+	public synchronized void addLocalMapElement(Long mapElement) {
+		elements.add(mapElement);
+		// TODO notifyMapChanged();
 	}
 
-	public synchronized void removeLocalMapElement(BaseMapElementClient elements) {
-		elements.removeListener(this);
-		allElements.remove(elements);
-		notifyMapChanged();
+	public synchronized void removeLocalMapElement(Long mapElement) {
+		elements.remove(mapElement);
+		// TODO notifyMapChanged();
 	}
-	*/
+
 	private synchronized void setLocalScale(Scale scale) {
 		this.scale = scale;
 		// TODO notify this.notifyMapChanged();

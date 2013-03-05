@@ -47,7 +47,7 @@ public abstract class MapElementRemote extends DocumentRemote implements
 	public MapElementRemote(Point position) throws RemoteException {
 		this.position = position;
 		this.angle = 0.0;
-		isHidden = false;
+		this.isHidden = false;
 	}
 
 	@Override
@@ -83,7 +83,10 @@ public abstract class MapElementRemote extends DocumentRemote implements
 
 	@Override
 	public void setIsHidden(Boolean isHidden) throws RemoteException {
-		this.isHidden = isHidden;
+		if (!this.isHidden.equals(isHidden)) {
+			this.isHidden = isHidden;
+			this.notifyElementHidden(isHidden);
+		}
 	}
 
 	// //////// LISTENERS METHODS //////////
