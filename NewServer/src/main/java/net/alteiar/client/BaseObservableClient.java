@@ -38,22 +38,22 @@ public abstract class BaseObservableClient implements Serializable {
 		observers = new HashMap<Class<?>, HashSet<Object>>();
 	}
 
-	public void addListener(Class<?> key, Object observer) {
+	protected void addListener(Class<?> key, Object listener) {
 		synchronized (observers) {
 			HashSet<Object> set = observers.get(key);
 			if (set == null) {
 				set = new HashSet<Object>();
 				observers.put(key, set);
 			}
-			set.add(observer);
+			set.add(listener);
 		}
 	}
 
-	public synchronized void removeListener(Class<?> key, Object observer) {
+	protected void removeListener(Class<?> key, Object listener) {
 		synchronized (observers) {
 			HashSet<Object> set = observers.get(key);
 			if (set != null) {
-				set.remove(observer);
+				set.remove(listener);
 			}
 		}
 	}
