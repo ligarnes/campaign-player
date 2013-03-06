@@ -15,9 +15,9 @@ import net.alteiar.campaign.player.gui.chat.message.PanelEnterMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelLeaveMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelPrivateTextMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelTextMessage;
-import net.alteiar.client.shared.campaign.chat.MjSender;
-import net.alteiar.client.shared.campaign.chat.PrivateSender;
-import net.alteiar.server.shared.campaign.chat.MessageRemote;
+import net.alteiar.server.document.chat.message.MessageRemote;
+import net.alteiar.server.document.chat.message.MjSender;
+import net.alteiar.server.document.chat.message.PrivateSender;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelMessageReceived extends JPanel {

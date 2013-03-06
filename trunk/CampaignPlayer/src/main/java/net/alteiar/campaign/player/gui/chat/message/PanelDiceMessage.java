@@ -11,8 +11,8 @@ import java.awt.RenderingHints;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.client.shared.campaign.chat.DiceSender;
-import net.alteiar.server.shared.campaign.chat.MessageRemote;
+import net.alteiar.server.document.chat.message.DiceSender;
+import net.alteiar.server.document.chat.message.MessageRemote;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelDiceMessage extends JPanel {

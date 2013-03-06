@@ -5,7 +5,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.server.shared.campaign.chat.MessageRemote;
+import net.alteiar.server.document.chat.message.MessageRemote;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelTextMessage extends JPanel {

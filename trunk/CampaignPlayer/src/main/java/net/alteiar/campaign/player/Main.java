@@ -27,12 +27,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.PanelConnexion;
 import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.server.shared.campaign.ServerCampaign;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.ServerDocuments;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg
@@ -44,6 +44,9 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println("start main");
+
+		System.out.println("start again main");
 
 		System.setProperty("java.security.policy", "./ressources/security.txt");
 		// Create and install a security manager
@@ -84,7 +87,7 @@ public class Main {
 			Boolean isServer = dlg.getMainPanel().isServer();
 
 			if (isServer) {
-				ServerCampaign.startServer(address, Integer.valueOf(port));
+				ServerDocuments.startServer(address, Integer.valueOf(port));
 			}
 
 			globalProp.setPseudo(name);
@@ -99,13 +102,16 @@ public class Main {
 				ExceptionTool.showError(ex);
 			}
 
-			CampaignClient.connect(localAdress, address, port, name, isMj);
+			System.out.println("try to connect");
+			CampaignClient.connect(localAdress, address, port, "campaign path",
+					name, isMj);
 
+			System.out.println("run");
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
 					MainFrame.FRAME.initComponent();
-					CampaignClient.createClientCampaign(5, MainFrame.FRAME);
+					// CampaignClient.createClientCampaign(5, MainFrame.FRAME);
 					MainFrame.FRAME.setVisible(true);
 				}
 			});

@@ -35,6 +35,7 @@ import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -43,23 +44,24 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import net.alteiar.campaign.player.gui.tools.Zoomable;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.map.element.IMapElement;
-import net.alteiar.client.shared.observer.campaign.map.IMapObserver;
+import net.alteiar.server.document.map.IMapListener;
+import net.alteiar.server.document.map.Scale;
+import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.MapElementClient;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public abstract class PanelBasicMap extends JPanel implements IMapObserver,
+public abstract class PanelBasicMap extends JPanel implements IMapListener,
 		Zoomable, ActionListener {
 	private static final long serialVersionUID = -5027864086357387475L;
 
-	protected final IBattleClient map;
+	protected final BattleClient map;
 	private Double zoomFactor;
 
 	private boolean drawPathToElement;
-	private IMapElement mapElement;
+	private MapElementClient<?> mapElement;
 
 	private Color lineColor;
 
@@ -73,7 +75,7 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 
 	private final Timer refreshTime;
 
-	public PanelBasicMap(IBattleClient map) {
+	public PanelBasicMap(BattleClient map) {
 		super();
 
 		this.map = map;
@@ -90,6 +92,10 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 		refreshTime = new Timer(20, this);
 
 		lstOrigin = new ArrayList<Point>();
+
+		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
+				(int) (map.getHeight() * zoomFactor));
+		this.setPreferredSize(dim);
 	}
 
 	public void showGrid(Boolean showGrid) {
@@ -110,7 +116,7 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 		drawLineToMouse(origin, Color.RED);
 	}
 
-	public void drawPathToElement(Point origin, IMapElement mapElement) {
+	public void drawPathToElement(Point origin, MapElementClient<?> mapElement) {
 		drawPathToElement = true;
 		this.mapElement = mapElement;
 		refreshTime.start();
@@ -321,7 +327,7 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 
 	@Override
 	public void paint(Graphics g) {
-		if (map.isMapLoaded() && g instanceof Graphics2D) {
+		if (map.getBackground() != null) {
 			Graphics2D g2 = (Graphics2D) g;
 
 			// Anti-alias!
@@ -440,26 +446,11 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 	 *            - the position of the map element on the panel
 	 * @return the map element
 	 */
-	public IMapElement getElementAt(Point p) {
-		IMapElement mapElement = this.map.getCharacterAt(p);
-		if (mapElement == null) {
-			mapElement = map.getElementAt(p);
-		}
-		return mapElement;
+	public MapElementClient<?> getElementAt(Point p) {
+		Collection<MapElementClient<?>> elements = map.getElementsAt(p);
+		// return the first element of the list
+		return elements.size() > 0 ? elements.iterator().next() : null;
 	}
-
-	/**
-	 * this method return the character in the map at the position p on the
-	 * panel
-	 * 
-	 * @param p
-	 *            - the position of the character on the panel
-	 * @return the character
-	 */
-	/*
-	public IMapElement getCharacterAt(Point p) {
-		return map.getCharacterAt(p);
-	}*/
 
 	@Override
 	public Double getZoomFactor() {
@@ -483,7 +474,26 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 	}
 
 	@Override
-	public void mapLoaded() {
+	public void mapElementAdded(MapElementClient<?> element) {
+		mapChanged();
+	}
+
+	@Override
+	public void mapElementRemoved(MapElementClient<?> element) {
+		mapChanged();
+	}
+
+	@Override
+	public void mapRescale(Scale scale) {
+		mapChanged();
+	}
+
+	@Override
+	public void filterChanged() {
+		mapChanged();
+	}
+
+	private void mapChanged() {
 		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
 				(int) (map.getHeight() * zoomFactor));
 		this.setPreferredSize(dim);
@@ -491,12 +501,4 @@ public abstract class PanelBasicMap extends JPanel implements IMapObserver,
 		this.repaint();
 	}
 
-	@Override
-	public void mapChanged() {
-		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
-				(int) (map.getHeight() * zoomFactor));
-		this.setPreferredSize(dim);
-		this.revalidate();
-		this.repaint();
-	}
 }

@@ -5,8 +5,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.client.shared.campaign.chat.PrivateSender;
-import net.alteiar.server.shared.campaign.chat.MessageRemote;
+import net.alteiar.server.document.chat.message.MessageRemote;
+import net.alteiar.server.document.chat.message.PrivateSender;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelPrivateTextMessage extends JPanel {

@@ -15,19 +15,19 @@ import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.MainPanel;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 public class PanelSimpleBattle extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private final JLabel lblAvatar;
-	private final IBattleClient battle;
+	private final BattleClient battle;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelSimpleBattle(IBattleClient battle) {
+	public PanelSimpleBattle(BattleClient battle) {
 		this.battle = battle;
 		// this.battle.addObserver(this);
 
@@ -48,8 +48,9 @@ public class PanelSimpleBattle extends JPanel {
 		lblAvatar = new JLabel();
 
 		/*
-		lblAvatar.setIcon(new ImageIcon(ImageUtil.resizeImage(battle
-				.getBattleMap().getBackground(), 50, 50)));*/
+		 * lblAvatar.setIcon(new ImageIcon(ImageUtil.resizeImage(battle
+		 * .getBattleMap().getBackground(), 50, 50)));
+		 */
 		GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
 		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
 		gbc_lblAvatar.gridx = 0;
@@ -95,6 +96,6 @@ public class PanelSimpleBattle extends JPanel {
 	}
 
 	protected void deleteBattle() {
-		CampaignClient.INSTANCE.removeBattle(battle);
+		CampaignClient.getInstance().removeDocument(battle);
 	}
 }

@@ -11,23 +11,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.client.shared.campaign.battle.BattleClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
-import net.alteiar.client.shared.observer.campaign.battle.IBattleObserver;
+import net.alteiar.server.document.map.battle.BattleClient;
 
-public class PanelBattleNextTurn extends JPanel implements IBattleObserver {
+public class PanelBattleNextTurn extends JPanel /* implements IBattleObserver */{
 	private static final long serialVersionUID = 1L;
 
-	private final IBattleClient battle;
+	private final BattleClient battle;
 
 	private final JLabel lblTour;
 
-	public PanelBattleNextTurn(IBattleClient battle) {
+	public PanelBattleNextTurn(BattleClient battle) {
 		this.setPreferredSize(new Dimension(70, 50));
 
 		this.battle = battle;
-		this.battle.addBattleListener(this);
+		// TODO this.battle.addBattleListener(this);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
@@ -63,20 +60,16 @@ public class PanelBattleNextTurn extends JPanel implements IBattleObserver {
 		this.battle.nextTurn();
 	}
 
-	@Override
-	public void characterAdded(BattleClient battle,
-			ICharacterCombatClient character) {
-		// Do not care
-	}
-
-	@Override
-	public void characterRemove(BattleClient battle,
-			ICharacterCombatClient character) {
-		// Do not care
-	}
-
-	@Override
-	public void turnChanged(BattleClient battle) {
-		lblTour.setText("Tour " + this.battle.getCurrentTurn());
-	}
+	/*
+	 * TODO
+	 * 
+	 * @Override public void characterAdded(BattleClient battle,
+	 * ICharacterCombatClient character) { // Do not care }
+	 * 
+	 * @Override public void characterRemove(BattleClient battle,
+	 * ICharacterCombatClient character) { // Do not care }
+	 * 
+	 * @Override public void turnChanged(BattleClient battle) {
+	 * lblTour.setText("Tour " + this.battle.getCurrentTurn()); }
+	 */
 }

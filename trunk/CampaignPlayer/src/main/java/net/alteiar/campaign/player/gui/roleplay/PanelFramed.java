@@ -17,8 +17,8 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.campaign.player.gui.tools.PanelMoveZoom;
+import net.alteiar.shared.ExceptionTool;
 
 import org.pdfbox.pdmodel.PDDocument;
 import org.pdfbox.pdmodel.PDPage;
@@ -118,29 +118,18 @@ public class PanelFramed extends JPanel {
 
 		return buffImage;
 		/*
-		// config option 1:convert all document to image
-		String[] args_1 = new String[3];
-		args_1[0] = "-jpg";
-		args_1[1] = "my_image_1";
-		args_1[2] = pdfPath;
-
-		// config option 2:convert page 1 in pdf to image
-		String[] args_2 = new String[7];
-		args_2[0] = "-startPage";
-		args_2[1] = "1";
-		args_2[2] = "-endPage";
-		args_2[3] = "1";
-		args_2[4] = "-outputPrefix";
-		args_2[5] = "my_image_2";
-		args_2[6] = pdfPath;
-		
-		try {
-			// will output "my_image_1.jpg"
-			PDFToImage.main(args_1);
-			// will output "my_image_2.jpg"
-			// PDFToImage.main(args_2);
-		} catch (Exception e) {
-			// logger.error(e.getMessage(), e);
-		}*/
+		 * // config option 1:convert all document to image String[] args_1 =
+		 * new String[3]; args_1[0] = "-jpg"; args_1[1] = "my_image_1";
+		 * args_1[2] = pdfPath;
+		 * 
+		 * // config option 2:convert page 1 in pdf to image String[] args_2 =
+		 * new String[7]; args_2[0] = "-startPage"; args_2[1] = "1"; args_2[2] =
+		 * "-endPage"; args_2[3] = "1"; args_2[4] = "-outputPrefix"; args_2[5] =
+		 * "my_image_2"; args_2[6] = pdfPath;
+		 * 
+		 * try { // will output "my_image_1.jpg" PDFToImage.main(args_1); //
+		 * will output "my_image_2.jpg" // PDFToImage.main(args_2); } catch
+		 * (Exception e) { // logger.error(e.getMessage(), e); }
+		 */
 	}
 }

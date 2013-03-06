@@ -23,12 +23,10 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
 
-import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.campaign.map.element.IMapElement;
-import net.alteiar.client.shared.campaign.map.element.IMapElementClient;
-import net.alteiar.server.shared.campaign.battle.map.Scale;
-import net.alteiar.server.shared.campaign.battle.map.element.size.MapElementSize;
+import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.server.document.map.Scale;
+import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.server.document.map.element.size.MapElementSize;
 
 /**
  * @author Cody Stoutenburg
@@ -50,7 +48,7 @@ public interface MapEditableInfo {
 
 	void setVisibleText(String text);
 
-	Point getPositionOf(IMapElement currentElement);
+	Point getPositionOf(MapElementClient<?> currentElement);
 
 	/**
 	 * 
@@ -58,7 +56,7 @@ public interface MapEditableInfo {
 	 *            - the position where the element should be
 	 * @return the element at the position or null if nothing is here
 	 */
-	IMapElement getElementAt(Point position);
+	MapElementClient<?> getElementAt(Point position);
 
 	Boolean getFixGrid();
 
@@ -78,17 +76,16 @@ public interface MapEditableInfo {
 
 	void addRay(Point p, MapElementSize width, MapElementSize height, Color c);
 
-	void addCharacterAt(ICharacterSheetClient character, Integer init,
-			Point position);
+	void addCharacterAt(CharacterClient character, Integer init, Point position);
 
-	void addMonsterAt(ICharacterSheetClient character, Integer init,
+	void addMonsterAt(CharacterClient character, Integer init,
 			Boolean isVisible, Point position);
 
-	void removeCharacter(ICharacterCombatClient character);
+	// TODO void removeCharacter(ICharacterCombatClient character);
 
-	void removeElement(IMapElementClient toRemove);
+	void removeElement(MapElementClient<?> toRemove);
 
-	void moveElementAt(IMapElement currentElement, Point position);
+	void moveElementAt(MapElementClient<?> currentElement, Point position);
 
 	void rescaleMap(Point beginMouse, Point endMouse);
 
@@ -96,7 +93,7 @@ public interface MapEditableInfo {
 
 	void setLineColor(Color lineColor);
 
-	void drawPathToElement(Point first, IMapElement mapElement);
+	void drawPathToElement(Point first, MapElementClient<?> mapElement);
 
 	void addPointToPath(Point next);
 
@@ -110,7 +107,7 @@ public interface MapEditableInfo {
 
 	void addPointToLine(Point next);
 
-	void addPointToLine(IMapElement currentElement, Point next);
+	void addPointToLine(MapElementClient<?> currentElement, Point next);
 
 	void stopDrawLineToMouse();
 

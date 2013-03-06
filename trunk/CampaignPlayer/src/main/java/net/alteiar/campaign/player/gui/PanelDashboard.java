@@ -29,7 +29,7 @@ import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
 import net.alteiar.campaign.player.gui.dashboard.PanelListBattle;
 import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleCharacter;
 import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleMonster;
-import net.alteiar.client.shared.campaign.CampaignClient;
+import net.alteiar.client.CampaignClient;
 
 /**
  * @author Cody Stoutenburg
@@ -70,7 +70,7 @@ public class PanelDashboard extends MyPanel {
 		center.setOpaque(false);
 		center.add(new PanelListSimpleCharacter());
 
-		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
+		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 			center.add(new PanelListSimpleMonster());
 		}
 		center.add(new PanelListBattle());

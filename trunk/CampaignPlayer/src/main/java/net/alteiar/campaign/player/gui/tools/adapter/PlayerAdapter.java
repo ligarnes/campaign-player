@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import net.alteiar.client.shared.campaign.player.IPlayerClient;
+import net.alteiar.server.document.player.PlayerClient;
 
-public class PlayerAdapter extends BasicAdapter<IPlayerClient> {
+public class PlayerAdapter extends BasicAdapter<PlayerClient> {
 
-	public PlayerAdapter(IPlayerClient src) {
+	public PlayerAdapter(PlayerClient src) {
 		super(src);
 	}
 
@@ -17,18 +17,18 @@ public class PlayerAdapter extends BasicAdapter<IPlayerClient> {
 		return this.getObject().getName();
 	}
 
-	public static List<PlayerAdapter> getAdapters(IPlayerClient[] list) {
+	public static List<PlayerAdapter> getAdapters(PlayerClient[] list) {
 		List<PlayerAdapter> result = new ArrayList<PlayerAdapter>();
-		for (IPlayerClient playerClient : list) {
+		for (PlayerClient playerClient : list) {
 			result.add(new PlayerAdapter(playerClient));
 		}
 
 		return result;
 	}
 
-	public static List<PlayerAdapter> getAdapters(Collection<IPlayerClient> list) {
+	public static List<PlayerAdapter> getAdapters(Collection<PlayerClient> list) {
 		List<PlayerAdapter> result = new ArrayList<PlayerAdapter>();
-		for (IPlayerClient playerClient : list) {
+		for (PlayerClient playerClient : list) {
 			result.add(new PlayerAdapter(playerClient));
 		}
 

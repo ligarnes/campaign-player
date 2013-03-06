@@ -40,10 +40,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
+import net.alteiar.shared.ExceptionTool;
 
 public class PanelConnexion extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 6892353388010135512L;

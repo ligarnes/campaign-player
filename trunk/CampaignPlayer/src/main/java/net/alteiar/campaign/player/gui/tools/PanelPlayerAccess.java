@@ -5,14 +5,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import net.alteiar.campaign.player.gui.tools.adapter.PlayerAdapter;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.server.shared.campaign.player.PlayerAccess;
+import net.alteiar.client.CampaignClient;
 
 public class PanelPlayerAccess extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;
@@ -70,8 +68,8 @@ public class PanelPlayerAccess extends PanelAlwaysValidOkCancel {
 		add(checkBoxAll, gbc_checkBoxTous);
 
 		panel = new ListDouble<PlayerAdapter>(
-				PlayerAdapter.getAdapters(CampaignClient.INSTANCE
-						.getAllPlayer()), "Tous les joueurs",
+				PlayerAdapter.getAdapters(CampaignClient.getInstance()
+						.getPlayers()), "Tous les joueurs",
 				"Les joueurs qui ont acces");
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridwidth = 3;
@@ -86,38 +84,31 @@ public class PanelPlayerAccess extends PanelAlwaysValidOkCancel {
 		this.panel.setEnabled(!this.checkBoxAll.isSelected());
 	}
 
-	public void setAccess(PlayerAccess access) {
-		Boolean authAll = access.getAuthorizationAll();
-		Boolean authMj = access.getAuthorizationMj();
-
-		this.checkBoxMj.setSelected(authMj);
-		this.checkBoxAll.setSelected(authAll);
-		if (authAll) {
-			this.panel.setEnabled(false);
-
-		} else {
-			this.panel.setEnabled(true);
-			List<Long> authList = access.getAuthorizationList();
-
-			this.panel
-					.setSelectedData(PlayerAdapter
-							.getAdapters(CampaignClient.INSTANCE
-									.getAllPlayer(authList)));
-
-		}
-	}
-
-	public PlayerAccess getPlayerAccess() {
-		List<PlayerAdapter> lstPlayer = this.panel.getSelectedData();
-		PlayerAccess access = new PlayerAccess(this.checkBoxMj.isSelected(),
-				this.checkBoxAll.isSelected());
-
-		if (!access.getAuthorizationAll()) {
-			for (PlayerAdapter playerAdapter : lstPlayer) {
-				access.addPlayer(playerAdapter.getObject().getId());
-			}
-		}
-
-		return access;
-	}
+	/*
+	 * public void setAccess(PlayerAccess access) { Boolean authAll =
+	 * access.getAuthorizationAll(); Boolean authMj =
+	 * access.getAuthorizationMj();
+	 * 
+	 * this.checkBoxMj.setSelected(authMj);
+	 * this.checkBoxAll.setSelected(authAll); if (authAll) {
+	 * this.panel.setEnabled(false);
+	 * 
+	 * } else { this.panel.setEnabled(true); List<Long> authList =
+	 * access.getAuthorizationList();
+	 * 
+	 * this.panel .setSelectedData(PlayerAdapter
+	 * .getAdapters(CampaignClient.INSTANCE .getAllPlayer(authList)));
+	 * 
+	 * } }
+	 * 
+	 * public PlayerAccess getPlayerAccess() { List<PlayerAdapter> lstPlayer =
+	 * this.panel.getSelectedData(); PlayerAccess access = new
+	 * PlayerAccess(this.checkBoxMj.isSelected(),
+	 * this.checkBoxAll.isSelected());
+	 * 
+	 * if (!access.getAuthorizationAll()) { for (PlayerAdapter playerAdapter :
+	 * lstPlayer) { access.addPlayer(playerAdapter.getObject().getId()); } }
+	 * 
+	 * return access; }
+	 */
 }

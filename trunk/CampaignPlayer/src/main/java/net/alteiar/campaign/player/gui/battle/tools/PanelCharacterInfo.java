@@ -8,16 +8,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.BattleClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.observer.campaign.battle.IBattleObserver;
-import net.alteiar.client.shared.observer.campaign.battle.character.ICharacterCombatObserver;
+import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.character.CharacterCombatClient;
 
-public class PanelCharacterInfo extends JPanel implements
-		ICharacterCombatObserver, IBattleObserver {
+public class PanelCharacterInfo extends JPanel /*
+												 * implements
+												 * ICharacterCombatObserver,
+												 * IBattleObserver
+												 */{
 	private static final long serialVersionUID = 1L;
 
 	private final JTextField textFieldName;
@@ -28,9 +27,9 @@ public class PanelCharacterInfo extends JPanel implements
 	private final JLabel labelInit;
 	private final JTextField textFieldInit;
 
-	private ICharacterCombatClient current;
+	private CharacterCombatClient current;
 
-	public PanelCharacterInfo(final IBattleClient battle) {
+	public PanelCharacterInfo(final BattleClient battle) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0 };
@@ -128,18 +127,18 @@ public class PanelCharacterInfo extends JPanel implements
 		add(textFieldAcTouch, gbc_textFieldCaTouch);
 		textFieldAcTouch.setColumns(10);
 
-		battle.addBattleListener(this);
-		for (final ICharacterCombatClient characterCombat : battle
-				.getAllCharacter()) {
-			characterCombat.addCharacterCombatListener(this);
-		}
+		/*
+		 * battle.addBattleListener(this); for (final ICharacterCombatClient
+		 * characterCombat : battle .getAllCharacter()) {
+		 * characterCombat.addCharacterCombatListener(this); }
+		 */
 	}
 
 	public void updateCharacterView() {
-		ICharacterSheetClient character = current.getCharacter();
+		CharacterClient character = current.getCharacter();
 		this.textFieldName.setText(character.getName());
 
-		this.textFieldInit.setText(current.getInitiative().toString());
+		// this.textFieldInit.setText(current.getInitiative().toString());
 
 		this.textFieldAc.setText(character.getAc().toString());
 		this.textFieldAcFlatFooted.setText(character.getAcFlatFooted()
@@ -150,63 +149,40 @@ public class PanelCharacterInfo extends JPanel implements
 		this.repaint();
 	}
 
-	@Override
-	public void characterChange(ICharacterCombatClient character) {
-		if (character.isHighlighted()
-				&& CampaignClient.INSTANCE.canAccess(character.getCharacter())) {
-			current = character;
-			updateCharacterView();
-		}
-	}
-
-	@Override
-	public void highLightChange(ICharacterCombatClient character,
-			Boolean isHighlighted) {
-		if (character.isHighlighted()
-				&& CampaignClient.INSTANCE.canAccess(character.getCharacter())) {
-			current = character;
-			updateCharacterView();
-		}
-	}
-
-	@Override
-	public void visibilityChange(ICharacterCombatClient character) {
-		// Do not care (for the moment)
-	}
-
-	@Override
-	public void initiativeChange(ICharacterCombatClient character) {
-		if (character.isHighlighted()
-				&& CampaignClient.INSTANCE.canAccess(character.getCharacter())) {
-			current = character;
-			updateCharacterView();
-		}
-	}
-
-	@Override
-	public void characterAdded(BattleClient battle,
-			ICharacterCombatClient character) {
-		character.addCharacterCombatListener(this);
-	}
-
-	@Override
-	public void characterRemove(BattleClient battle,
-			ICharacterCombatClient character) {
-		character.removeCharacterCombatListener(this);
-	}
-
-	@Override
-	public void turnChanged(BattleClient battle) {
-		// Do not care
-	}
-
-	@Override
-	public void positionChanged(ICharacterCombatClient character) {
-		// Do not care
-	}
-
-	@Override
-	public void rotationChanged(ICharacterCombatClient character) {
-		// Do not care
-	}
+	/*
+	 * @Override public void characterChange(CharacterCombatClient character) {
+	 * if (character.isHighlighted() &&
+	 * CampaignClient.INSTANCE.canAccess(character.getCharacter())) { current =
+	 * character; updateCharacterView(); } }
+	 * 
+	 * @Override public void highLightChange(CharacterCombatClient character,
+	 * Boolean isHighlighted) { if (character.isHighlighted() &&
+	 * CampaignClient.INSTANCE.canAccess(character.getCharacter())) { current =
+	 * character; updateCharacterView(); } }
+	 * 
+	 * @Override public void visibilityChange(ICharacterCombatClient character)
+	 * { // Do not care (for the moment) }
+	 * 
+	 * @Override public void initiativeChange(CharacterCombatClient character) {
+	 * 
+	 * if (character.isHighlighted() &&
+	 * CampaignClient.INSTANCE.canAccess(character.getCharacter())) { current =
+	 * character; updateCharacterView(); } }
+	 * 
+	 * @Override public void characterAdded(BattleClient battle,
+	 * ICharacterCombatClient character) {
+	 * character.addCharacterCombatListener(this); }
+	 * 
+	 * @Override public void characterRemove(BattleClient battle,
+	 * ICharacterCombatClient character) {
+	 * character.removeCharacterCombatListener(this); }
+	 * 
+	 * @Override public void turnChanged(BattleClient battle) { // Do not care }
+	 * 
+	 * @Override public void positionChanged(ICharacterCombatClient character) {
+	 * // Do not care }
+	 * 
+	 * @Override public void rotationChanged(ICharacterCombatClient character) {
+	 * // Do not care }
+	 */
 }

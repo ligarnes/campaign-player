@@ -15,8 +15,8 @@ import net.alteiar.campaign.player.gui.battle.plan.details.MapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.battle.tools.ToolMapListener.Tools;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 public class PanelTools extends JToolBar implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -38,7 +38,7 @@ public class PanelTools extends JToolBar implements Observer {
 	private final ButtonGroup group;
 
 	public PanelTools(GlobalMapListener globalListener,
-			final MapEditableInfo mapInfo, IBattleClient battle) {
+			final MapEditableInfo mapInfo, BattleClient battle) {
 		this.mapListener = globalListener;
 
 		toolListener = new ToolMapListener(mapInfo, globalListener, battle);
@@ -56,7 +56,7 @@ public class PanelTools extends JToolBar implements Observer {
 		});
 		this.add(addCharacter);
 
-		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
+		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 			JToggleButton addMonster = new JToggleButton("add monster");
 			addMonster.addActionListener(new ActionListener() {
 				@Override
@@ -98,7 +98,7 @@ public class PanelTools extends JToolBar implements Observer {
 		this.add(addRay);
 
 		// For Mj only
-		if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
+		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 			this.addSeparator();
 			JToggleButton rescale = new JToggleButton("rescale");
 			rescale.addActionListener(new ActionListener() {

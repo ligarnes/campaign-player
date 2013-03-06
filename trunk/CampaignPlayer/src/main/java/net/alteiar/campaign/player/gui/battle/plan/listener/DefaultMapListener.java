@@ -21,11 +21,11 @@ import net.alteiar.campaign.player.gui.battle.tools.PanelAddCharacter;
 import net.alteiar.campaign.player.gui.battle.tools.PanelCreateElement;
 import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.campaign.map.element.IMapElement;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.server.document.map.element.character.CharacterCombatClient;
 
 public class DefaultMapListener extends ActionMapListener {
 
@@ -33,11 +33,11 @@ public class DefaultMapListener extends ActionMapListener {
 		CIRCLE, CONE, RAY
 	};
 
-	private final IBattleClient battle;
+	private final BattleClient battle;
 	private final MapEditableInfo mapInfo;
 
 	public DefaultMapListener(GlobalMapListener mapListener,
-			IBattleClient battle, MapEditableInfo mapInfo) {
+			BattleClient battle, MapEditableInfo mapInfo) {
 		super(mapListener);
 		this.battle = battle;
 		this.mapInfo = mapInfo;
@@ -64,11 +64,10 @@ public class DefaultMapListener extends ActionMapListener {
 							event.getCharacter(), true));
 					popup.add(buildMenuDamage(event.getMouseEvent(),
 							event.getCharacter(), false));
-
-					popup.addSeparator();
-					popup.add(buildShowHideElement(event.getCharacter()));
-					popup.addSeparator();
 				}
+				popup.addSeparator();
+				popup.add(buildShowHideElement(event.getMapElement()));
+				popup.addSeparator();
 
 				// need move
 				popup.add(buildMenuRotate(event.getMapElement(),
@@ -76,23 +75,23 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildMenuRemoveElement(event));
 			} else {
 				// Show add -> circle, rect, character, monstre...
-				final ICharacterSheetClient[] availableCharacter = getAvaibleCharacter();
-				final ICharacterSheetClient[] availableMonster = CampaignClient.INSTANCE
-						.getAllMonster();
-
+				final CharacterClient[] availableCharacter = getAvaibleCharacter();
+				/*
+				 * final CharacterClient[] availableMonster = CampaignClient
+				 * .getInstance().getAllMonster();
+				 */
 				// Menu item add character
 				if (availableCharacter.length > 0) {
 					popup.add(buildAddCharacter(event.getMouseEvent(),
 							event.getMapPosition(), availableCharacter, false));
 				}
 
-				if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
-					// Menu item add monster
-					if (availableMonster.length > 0) {
-						popup.add(buildAddCharacter(event.getMouseEvent(),
-								event.getMapPosition(), availableMonster, true));
-					}
-				}
+				/*
+				 * if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) { //
+				 * Menu item add monster if (availableMonster.length > 0) {
+				 * popup.add(buildAddCharacter(event.getMouseEvent(),
+				 * event.getMapPosition(), availableMonster, true)); } }
+				 */
 
 				// Menu item add Circle
 				popup.add(buildAddElement(event.getMouseEvent(),
@@ -102,7 +101,7 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildAddElement(event.getMouseEvent(),
 						event.getMapPosition(), FORM.RAY));
 
-				if (CampaignClient.INSTANCE.getCurrentPlayer().isMj()) {
+				if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 					popup.addSeparator();
 					popup.add(buildShowHideMapListener(event.getMapPosition(),
 							true));
@@ -122,21 +121,19 @@ public class DefaultMapListener extends ActionMapListener {
 		}
 	}
 
-	private JMenuItem buildShowHideElement(
-			final ICharacterCombatClient mapElement) {
+	private JMenuItem buildShowHideElement(final MapElementClient<?> mapElement) {
 
 		final JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
 				"Afficher le personnage aux joueurs");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapElement.setVisibleForAllPlayer(!mapElement
-						.isVisibleForPlayer());
-				menuItem.setSelected(mapElement.isVisibleForPlayer());
+				mapElement.setIsHidden(!mapElement.getIsHidden());
+				menuItem.setSelected(mapElement.getIsHidden());
 			}
 		});
 
-		menuItem.setSelected(mapElement.isVisibleForPlayer());
+		menuItem.setSelected(mapElement.getIsHidden());
 		return menuItem;
 	}
 
@@ -214,8 +211,8 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildAddCharacter(final MouseEvent event,
-			final Point mapPosition,
-			final ICharacterSheetClient[] availableUnit, final Boolean isMonster) {
+			final Point mapPosition, final CharacterClient[] availableUnit,
+			final Boolean isMonster) {
 
 		String title = "personnage";
 		if (isMonster) {
@@ -261,7 +258,7 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildMoveElement(final Point mapPosition,
-			final IMapElement mapElement) {
+			final MapElementClient<?> mapElement) {
 		JMenuItem menuItem = new JMenuItem("Deplacer");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
@@ -285,7 +282,7 @@ public class DefaultMapListener extends ActionMapListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (event.getCharacter() != null) {
-					mapInfo.removeCharacter(event.getCharacter());
+					// TODO fixme mapInfo.removeCharacter(event.getCharacter());
 				} else {
 					mapInfo.removeElement(event.getMapElementClient());
 				}
@@ -295,7 +292,7 @@ public class DefaultMapListener extends ActionMapListener {
 		return removeElement;
 	}
 
-	private JMenuItem buildMenuRotate(final IMapElement element,
+	private JMenuItem buildMenuRotate(final MapElementClient<?> element,
 			final Point mapPosition) {
 		String title = "element";
 		// if (MapElementUtils.isCharacter(element)) {
@@ -318,7 +315,7 @@ public class DefaultMapListener extends ActionMapListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				element.setAngle(0.0);
-				element.applyRotate();
+				// TODO element.applyRotate();
 			}
 		});
 
@@ -354,7 +351,7 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildMenuDamage(final MouseEvent orgEvent,
-			final ICharacterCombatClient character, final Boolean isDamage) {
+			final CharacterCombatClient character, final Boolean isDamage) {
 
 		String title = "Dégât";
 		if (!isDamage) {
@@ -372,34 +369,33 @@ public class DefaultMapListener extends ActionMapListener {
 		return menuItem;
 	}
 
-	private Boolean verifyBattleContainCharacter(ICharacterSheetClient src) {
+	private Boolean verifyBattleContainCharacter(CharacterClient src) {
 		Boolean contain = false;
-		for (ICharacterCombatClient characterCombat : battle.getAllCharacter()) {
-			if (characterCombat.getCharacter().equals(src)) {
-				contain = true;
-				break;
-			}
-		}
+		/*
+		 * TODO for (CharacterClient characterCombat : battle.getAllCharacter())
+		 * { if (characterCombat.getCharacter().equals(src)) { contain = true;
+		 * break; } }
+		 */
 		return contain;
 	}
 
-	private ICharacterSheetClient[] getAvaibleCharacter() {
-		List<ICharacterSheetClient> lst = new ArrayList<ICharacterSheetClient>();
-		for (final ICharacterSheetClient character : CampaignClient.INSTANCE
-				.getAllCharacter()) {
+	private CharacterClient[] getAvaibleCharacter() {
+		List<CharacterClient> lst = new ArrayList<CharacterClient>();
+		for (final CharacterClient character : CampaignClient.getInstance()
+				.getCharacters()) {
 			final Boolean isInBattle = verifyBattleContainCharacter(character);
 			if (!isInBattle) {
 				lst.add(character);
 			}
 		}
 
-		ICharacterSheetClient[] res = new ICharacterSheetClient[lst.size()];
+		CharacterClient[] res = new CharacterClient[lst.size()];
 		lst.toArray(res);
 		return res;
 	}
 
 	private void doDamage(MouseEvent orgEvent,
-			ICharacterCombatClient character, Boolean isDamage) {
+			CharacterCombatClient characterCombat, Boolean isDamage) {
 		final JTextField textFieldDegat = new JTextField(5);
 
 		String builder = "dégâts";
@@ -438,16 +434,19 @@ public class DefaultMapListener extends ActionMapListener {
 		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
 			Integer degat = Integer.valueOf(textFieldDegat.getText());
 
+			CharacterClient characterSheet = characterCombat.getCharacter();
 			if (isDamage) {
-				character.doDamage(degat);
+				characterSheet.setCurrentHp(characterSheet.getCurrentHp()
+						- degat);
 			} else {
-				character.doHeal(degat);
+				characterSheet.setCurrentHp(characterSheet.getCurrentHp()
+						+ degat);
 			}
 		}
 	}
 
 	private void addCharacter(MouseEvent orgEvent, Point mapPosition,
-			ICharacterSheetClient[] lst, boolean isMonster) {
+			CharacterClient[] lst, boolean isMonster) {
 		if (lst.length > 0) {
 			PanelAddCharacter panelAdd = new PanelAddCharacter(lst, isMonster);
 
@@ -518,9 +517,9 @@ public class DefaultMapListener extends ActionMapListener {
 		}
 	}
 
-	private void rotateMapElement(IMapElement rotate, Double angle) {
+	private void rotateMapElement(MapElementClient<?> rotate, Double angle) {
 		rotate.setAngle(rotate.getAngle() + angle);
-		rotate.applyRotate();
+		// TODO rotate.applyRotate();
 	}
 
 }

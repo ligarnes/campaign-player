@@ -7,14 +7,14 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.map.element.IMapElement;
+import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.MapElementClient;
 
 public class PanelMapWithListener extends PanelMap implements MouseListener,
 		MouseMotionListener, MouseWheelListener {
 	private static final long serialVersionUID = 1L;
 
-	public PanelMapWithListener(IBattleClient map) {
+	public PanelMapWithListener(BattleClient map) {
 		super(map);
 
 		this.addMouseListener(this);
@@ -36,7 +36,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mousePressed(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		IMapElement mapElement = this.getElementAt(mapPosition);
+		MapElementClient<?> mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {
@@ -47,7 +47,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		IMapElement mapElement = this.getElementAt(mapPosition);
+		MapElementClient<?> mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {
@@ -58,7 +58,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		IMapElement mapElement = this.getElementAt(mapPosition);
+		MapElementClient<?> mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {

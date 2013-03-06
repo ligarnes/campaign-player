@@ -3,8 +3,7 @@ package net.alteiar.campaign.player;
 import java.io.IOException;
 import java.io.Serializable;
 
-import net.alteiar.ExceptionTool;
-import net.alteiar.PropertieBase;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * 
