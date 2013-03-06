@@ -29,8 +29,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.PanelConnexion;
-import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
 import net.alteiar.client.CampaignClient;
+import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.shared.ExceptionTool;
 

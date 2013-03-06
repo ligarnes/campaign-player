@@ -2,21 +2,21 @@ package net.alteiar.campaign.player.gui.dashboard;
 
 import javax.swing.JPanel;
 
+import net.alteiar.client.CampaignAdapter;
 import net.alteiar.client.CampaignClient;
-import net.alteiar.client.ICampaignListener;
 import net.alteiar.server.document.map.battle.BattleClient;
 
-public class PanelListBattle extends PanelList implements ICampaignListener {
+public class PanelListBattle extends PanelList {
 	private static final long serialVersionUID = 1L;
 
 	public PanelListBattle() {
 		super("Combats");
 
-		net.alteiar.client.CampaignClient.getInstance().addCampaignListener(
-				this);
+		CampaignClient.getInstance()
+				.addCampaignListener(new CampaignListener());
 
 		for (BattleClient battle : CampaignClient.getInstance().getBattles()) {
-			battleAdded(battle);
+			addBattle(battle);
 		}
 	}
 
@@ -25,14 +25,20 @@ public class PanelListBattle extends PanelList implements ICampaignListener {
 		return new PanelCreateBattle();
 	}
 
-	@Override
-	public void battleAdded(BattleClient battle) {
+	private void addBattle(BattleClient battle) {
 		PanelSimpleBattle panel = new PanelSimpleBattle(battle);
-		this.addElement(battle, panel);
+		addElement(battle, panel);
 	}
 
-	@Override
-	public void battleRemoved(BattleClient battle) {
-		this.removeElement(battle);
+	private class CampaignListener extends CampaignAdapter {
+		@Override
+		public void battleAdded(BattleClient battle) {
+			addBattle(battle);
+		}
+
+		@Override
+		public void battleRemoved(BattleClient battle) {
+			removeElement(battle);
+		}
 	}
 }

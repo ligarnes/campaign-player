@@ -17,7 +17,7 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.campaign.player.gui.tools;
+package net.alteiar.dialog;
 
 import java.awt.Container;
 import java.awt.FlowLayout;

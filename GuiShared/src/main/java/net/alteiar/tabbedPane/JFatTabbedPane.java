@@ -23,7 +23,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-package net.alteiar.campaign.player.gui.adapter;
+package net.alteiar.tabbedPane;
 
 /* 
  * Last update: 2012-02-11 02:09:00 
@@ -270,7 +270,7 @@ public class JFatTabbedPane extends JTabbedPane {
 			// TODO change if refactored
 			draggableTabbedPaneFlavor = new DataFlavor(
 					DataFlavor.javaJVMLocalObjectMimeType
-							+ ";class=net.alteiar.campaign.player.gui.adapter.JFatTabbedPane");
+							+ ";class=net.alteiar.tabbedPane.JFatTabbedPane");
 		} catch (ClassNotFoundException ex) {
 			throw new RuntimeException(ex);
 		}
@@ -372,7 +372,7 @@ public class JFatTabbedPane extends JTabbedPane {
 					popOutButton
 							.setIcon(new ImageIcon(
 									JFatTabComponent.class
-											.getResource("/net/alteiar/campaign/player/gui/adapter/buttonpopout.png")));
+											.getResource("/net/alteiar/tabbedPane/buttonpopout.png")));
 					popOutButton.setPreferredSize(buttonSize);
 					popOutButton.addActionListener(new ActionListener() {
 						@Override
@@ -416,7 +416,7 @@ public class JFatTabbedPane extends JTabbedPane {
 					closeButton
 							.setIcon(new ImageIcon(
 									JFatTabComponent.class
-											.getResource("/net/alteiar/campaign/player/gui/adapter/buttonclose.png")));
+											.getResource("/net/alteiar/tabbedPane/buttonclose.png")));
 					closeButton.setPreferredSize(buttonSize);
 					closeButton.addActionListener(new ActionListener() {
 						@Override

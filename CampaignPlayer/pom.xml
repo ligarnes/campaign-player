@@ -31,6 +31,13 @@
 		<version>1.0-SNAPSHOT</version>
 		<scope>compile</scope>
 	</dependency>
+	
+	<dependency>
+		<groupId>net.alteiar.campaign.player</groupId>
+		<artifactId>gui-shared</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<scope>compile</scope>
+	</dependency>
     <!-- 
 	<dependency>
 		<groupId>net.alteiar.campaign.player</groupId>

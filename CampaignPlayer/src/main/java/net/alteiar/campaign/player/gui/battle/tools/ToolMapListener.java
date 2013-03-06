@@ -13,8 +13,8 @@ import net.alteiar.campaign.player.gui.battle.plan.details.MapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.RescaleMapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.ShowHidePolygonMapListener;
-import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
 import net.alteiar.client.CampaignClient;
+import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
 

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.gui.tools.PanelOkCancel;
+import net.alteiar.dialog.PanelOkCancel;
 import net.alteiar.server.document.map.element.size.MapElementSize;
 import net.alteiar.server.document.map.element.size.MapElementSizeMeter;
 import net.alteiar.server.document.map.element.size.MapElementSizePixel;

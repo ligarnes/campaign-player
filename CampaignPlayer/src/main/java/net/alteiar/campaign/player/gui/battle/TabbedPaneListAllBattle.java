@@ -22,8 +22,8 @@ package net.alteiar.campaign.player.gui.battle;
 import javax.swing.JTabbedPane;
 
 import net.alteiar.campaign.player.gui.battle.plan.PanelGeneraBattle;
+import net.alteiar.client.CampaignAdapter;
 import net.alteiar.client.CampaignClient;
-import net.alteiar.client.ICampaignListener;
 import net.alteiar.server.document.map.battle.BattleClient;
 
 /**
@@ -31,14 +31,14 @@ import net.alteiar.server.document.map.battle.BattleClient;
  * 
  */
 public class TabbedPaneListAllBattle extends JTabbedPane
-/* JFatTabbedPane */implements ICampaignListener {
+/* JFatTabbedPane */{
 
 	private static final long serialVersionUID = -5183267274885482007L;
 
 	public TabbedPaneListAllBattle() {
 		super();
-		net.alteiar.client.CampaignClient.getInstance().addCampaignListener(
-				this);
+		CampaignClient.getInstance()
+				.addCampaignListener(new CampaignListener());
 
 		// Add existing battles
 		for (BattleClient battle : CampaignClient.getInstance().getBattles()) {
@@ -46,14 +46,16 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		}
 	}
 
-	@Override
-	public void battleAdded(BattleClient battle) {
-		this.addTab(battle.getName(), new PanelGeneraBattle(battle));
-	}
+	private class CampaignListener extends CampaignAdapter {
+		@Override
+		public void battleAdded(BattleClient battle) {
+			addTab(battle.getName(), new PanelGeneraBattle(battle));
+		}
 
-	@Override
-	public void battleRemoved(BattleClient battle) {
-		this.removeTabAt(indexOf(battle));
+		@Override
+		public void battleRemoved(BattleClient battle) {
+			removeTabAt(indexOf(battle));
+		}
 	}
 
 	public BattleClient getSelectedBattle() {
@@ -96,5 +98,4 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		return idx;
 	}
 
-	// ///////////////////////USELESS METHODS///////////////////
 }
