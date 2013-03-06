@@ -17,37 +17,16 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.map.element;
+package net.alteiar.server.document.map.element.character;
 
-import java.awt.Point;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.server.document.map.element.IMapElementRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IMapElementRemote extends IDocumentRemote {
-
-	Long getMap() throws RemoteException;
-
-	Point getPosition() throws RemoteException;
-
-	void setPosition(Point position) throws RemoteException;
-
-	Double getAngle() throws RemoteException;
-
-	void setAngle(Double angle) throws RemoteException;
-
-	Boolean getIsHidden() throws RemoteException;
-
-	void setIsHidden(Boolean isHidden) throws RemoteException;
-
-	// Listeners methods
-	void addMapElementListener(IMapElementListenerRemote listener)
-			throws RemoteException;
-
-	void removeMapElementListener(IMapElementListenerRemote listener)
-			throws RemoteException;
+public interface ICharacterElementRemote extends IMapElementRemote {
+	Long getCharacterClient() throws RemoteException;
 }

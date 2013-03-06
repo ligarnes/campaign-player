@@ -12,8 +12,11 @@ import net.alteiar.server.document.DocumentBuilder;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
 
-public abstract class DocumentManagerClient {
+public abstract class DocumentManagerClient extends BaseObservableClient {
 
+	private static final long serialVersionUID = 1L;
+
+	// Use to notify when a document is received for blocking access
 	private static CountDownLatch counter = new CountDownLatch(0);
 
 	private static synchronized CountDownLatch getCounterInstance() {
@@ -79,6 +82,7 @@ public abstract class DocumentManagerClient {
 			this.documents.put(guid, client);
 
 			this.add(client);
+			notifyDocumentReceived(client);
 			getCounterInstance().countDown();
 		} catch (RemoteException e) {
 			// TODO
@@ -111,6 +115,22 @@ public abstract class DocumentManagerClient {
 
 	private synchronized void removeDocument(Long guid) {
 		this.documents.remove(guid);
+	}
+
+	public void addWaitForDocumentListener(IWaitForDocumentListener listener) {
+		this.addListener(IWaitForDocumentListener.class, listener);
+	}
+
+	public void removeWaitForDocumentListener(IWaitForDocumentListener listener) {
+		this.removeListener(IWaitForDocumentListener.class, listener);
+	}
+
+	protected void notifyDocumentReceived(DocumentClient<?> doc) {
+		for (IWaitForDocumentListener listener : getListener(IWaitForDocumentListener.class)) {
+			if (doc.getId().equals(listener.getDocument())) {
+				listener.documentReceived(doc);
+			}
+		}
 	}
 
 	private class CampaignClientObserver extends UnicastRemoteObject implements

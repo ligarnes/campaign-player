@@ -39,15 +39,26 @@ public abstract class MapElementRemote extends DocumentRemote implements
 
 	private Boolean isHidden;
 
+	private final Long map;
+
 	/**
 	 * @param position
 	 * @param color
 	 * @throws RemoteException
 	 */
-	public MapElementRemote(Point position) throws RemoteException {
+	public MapElementRemote(Long map, Point position) throws RemoteException {
+		super();
+
 		this.position = position;
 		this.angle = 0.0;
 		this.isHidden = false;
+
+		this.map = map;
+	}
+
+	@Override
+	public Long getMap() throws RemoteException {
+		return map;
 	}
 
 	@Override

@@ -9,7 +9,6 @@ import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.element.MapElementClient;
 
 public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
@@ -29,29 +28,16 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 		return color;
 	}
 
-	protected abstract double getWidth(Scale scale, double zoomFactor);
+	protected abstract Shape getShape(double zoomFactor);
 
-	protected abstract double getHeight(Scale scale, double zoomFactor);
-
-	protected abstract Shape getShape(Scale scale, double zoomFactor);
-
-	protected abstract Shape getShapeBorder(Scale scale, double zoomFactor,
-			int strokeSize);
-
-	protected double getX(Scale scale, double zoomFactor) {
-		return getPosition().x * zoomFactor;
-	}
-
-	protected double getY(Scale scale, double zoomFactor) {
-		return getPosition().y * zoomFactor;
-	}
+	protected abstract Shape getShapeBorder(double zoomFactor, int strokeSize);
 
 	@Override
-	public void draw(Graphics2D g2, Scale scale, double zoomFactor) {
+	public void draw(Graphics2D g, double zoomFactor) {
+		Graphics2D g2 = (Graphics2D) g.create();
 		// Compute the size of the stroke
 		Integer strokeSize = STROKE_SIZE_LARGE;
-		if (getWidth(scale, zoomFactor) < 100
-				|| getHeight(scale, zoomFactor) < 100) {
+		if (getWidth() < 100 || getHeight() < 100) {
 			strokeSize = STROKE_SIZE_SMALL;
 		}
 
@@ -62,15 +48,18 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 		g2.setColor(getColor());
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.5f));
-		g2.fill(getShape(scale, zoomFactor));
+		g2.fill(getShape(zoomFactor));
 
 		// Draw the border
 		g2.setColor(Color.BLACK);
 		g2.setStroke(new BasicStroke(strokeSize));
-		g2.draw(getShapeBorder(scale, zoomFactor, strokeSize));
+		g2.draw(getShapeBorder(zoomFactor, strokeSize));
+
+		g2.dispose();
 	}
 
-	public boolean contain(Point p, Scale scale, double zoomFactor) {
-		return getShape(scale, zoomFactor).contains(p);
+	@Override
+	public Boolean contain(Point p) {
+		return getShape(1.0).contains(p);
 	}
 }

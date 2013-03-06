@@ -86,6 +86,7 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 		synchronized (elements) {
 			elements.add(mapElement);
 		}
+		notifyMapElementAdded(mapElement);
 	}
 
 	@Override
@@ -93,6 +94,7 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 		synchronized (elements) {
 			elements.remove(mapElement);
 		}
+		notifyMapElementRemoved(mapElement);
 	}
 
 	@Override
@@ -123,7 +125,7 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 	@Override
 	public synchronized void setScale(Scale scale) throws RemoteException {
 		this.scale = scale;
-		this.notifyMapElementScaleChanged(scale);
+		this.notifyMapScaleChanged(scale);
 	}
 
 	// /////////////// LISTENERS METHODS //////////////////////
@@ -152,12 +154,62 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 	 * observer, removed, false)); } }
 	 */
 
-	protected void notifyMapElementScaleChanged(Scale scale) {
+	protected void notifyMapScaleChanged(Scale scale) {
 		for (IMapListenerRemote observer : this
 				.getListener(IMapListenerRemote.class)) {
 			ServerDocuments.SERVER_THREAD_POOL.addTask(new MapScaleChangeTask(
 					this, observer, scale));
 		}
+	}
+
+	protected void notifyMapElementAdded(Long mapElement) {
+		for (IMapListenerRemote observer : this
+				.getListener(IMapListenerRemote.class)) {
+			ServerDocuments.SERVER_THREAD_POOL
+					.addTask(new MapElementAddedRemoved(this, observer,
+							mapElement, true));
+		}
+	}
+
+	protected void notifyMapElementRemoved(Long mapElement) {
+		for (IMapListenerRemote observer : this
+				.getListener(IMapListenerRemote.class)) {
+			ServerDocuments.SERVER_THREAD_POOL
+					.addTask(new MapElementAddedRemoved(this, observer,
+							mapElement, false));
+		}
+	}
+
+	private class MapElementAddedRemoved extends BaseNotify<IMapListenerRemote> {
+		private final Long elementId;
+		private final Boolean isAdded;
+
+		public MapElementAddedRemoved(BaseObservableRemote observable,
+				IMapListenerRemote observer, Long elementId, Boolean isAdded) {
+			super(observable, IMapListenerRemote.class, observer);
+			this.elementId = elementId;
+			this.isAdded = isAdded;
+		}
+
+		@Override
+		public String getStartText() {
+			return "element added or removed";
+		}
+
+		@Override
+		public String getFinishText() {
+			return "element added or removed";
+		}
+
+		@Override
+		protected void doAction() throws RemoteException {
+			if (isAdded) {
+				observer.mapElementAdded(elementId);
+			} else {
+				observer.mapElementRemoved(elementId);
+			}
+		}
+
 	}
 
 	/*

@@ -12,9 +12,9 @@ public abstract class MapElementColoredRemote extends MapElementRemote
 
 	private final Color color;
 
-	public MapElementColoredRemote(Point position, Color color)
+	public MapElementColoredRemote(Long map, Point position, Color color)
 			throws RemoteException {
-		super(position);
+		super(map, position);
 		this.color = color;
 	}
 

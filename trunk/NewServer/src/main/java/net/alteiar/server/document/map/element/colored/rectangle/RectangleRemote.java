@@ -43,9 +43,9 @@ public class RectangleRemote extends MapElementColoredRemote implements
 	 * @param position
 	 * @throws RemoteException
 	 */
-	public RectangleRemote(Point position, Color color, MapElementSize width,
-			MapElementSize height) throws RemoteException {
-		super(position, color);
+	public RectangleRemote(Long map, Point position, Color color,
+			MapElementSize width, MapElementSize height) throws RemoteException {
+		super(map, position, color);
 		this.width = width;
 		this.height = height;
 	}

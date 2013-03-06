@@ -27,11 +27,9 @@ import java.rmi.RemoteException;
  * 
  */
 public interface IMapListenerRemote extends Remote {
-	// void mapElementAdded(IMapElementObservableRemote element) throws
-	// RemoteException;
+	void mapElementAdded(Long elementId) throws RemoteException;
 
-	// void mapElementRemoved(IMapElementObservableRemote element) throws
-	// RemoteException;
+	void mapElementRemoved(Long elementId) throws RemoteException;
 
 	void mapRescale(Scale scale) throws RemoteException;
 }

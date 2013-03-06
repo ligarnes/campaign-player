@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
+import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.Scale;
 
 public abstract class MapElementClient<E extends IMapElementRemote> extends
@@ -17,6 +19,8 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 	protected static final Integer STROKE_SIZE_SMALL = 2;
 
 	private transient IMapElementListenerRemote listener;
+
+	private final Long map;
 	// the position is the position of the upper left corner
 	private Point position;
 	private Double angle;
@@ -28,8 +32,60 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 		position = remote.getPosition();
 		angle = remote.getAngle();
 		isHidden = remote.getIsHidden();
+
+		map = remote.getMap();
 	}
 
+	protected MapClient<?> getMap() {
+		return (MapClient<?>) CampaignClient.getInstance().getDocument(map);
+	}
+
+	protected Scale getScale() {
+		return getMap().getScale();
+	}
+
+	/**
+	 * 
+	 * @return the width in pixel of the element
+	 */
+	public abstract Double getWidth();
+
+	/**
+	 * 
+	 * @return the height in pixel
+	 */
+	public abstract Double getHeight();
+
+	/**
+	 * 
+	 * @return the x coordinate in pixel
+	 */
+	public Integer getX() {
+		return position.x;
+	}
+
+	/**
+	 * 
+	 * @return the y coordinate in pixel
+	 */
+	public Integer getY() {
+		return position.y;
+	}
+
+	/**
+	 * 
+	 * @return the center in pixel
+	 */
+	public Point getCenterPosition() {
+		int x = (int) (getX() + (getWidth() / 2));
+		int y = (int) (getY() + (getHeight() / 2));
+		return new Point(x, y);
+	}
+
+	/**
+	 * 
+	 * @return the relative position (independent of map scale)
+	 */
 	public Point getPosition() {
 		return position;
 	}
@@ -86,7 +142,13 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 		// TODO notify listeners
 	}
 
-	public abstract void draw(Graphics2D g2, Scale scale, double zoomFactor);
+	public final void draw(Graphics2D g2) {
+		draw(g2, 1.0);
+	}
+
+	public abstract void draw(Graphics2D g2, double zoomFactor);
+
+	public abstract Boolean contain(Point p);
 
 	@Override
 	protected void loadDocumentRemote() throws IOException {
