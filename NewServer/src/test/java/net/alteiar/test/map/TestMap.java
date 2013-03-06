@@ -1,4 +1,4 @@
-package net.alteiar.test;
+package net.alteiar.test.map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -19,27 +19,34 @@ import net.alteiar.server.document.images.SerializableImage;
 import net.alteiar.server.document.images.TransfertImage;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.test.BasicTest;
 
 import org.junit.Test;
 
-public class TestBattle extends BasicTest {
+public class TestMap extends BasicTest {
 
-	@Test(timeout = 10000)
-	public void testCreateBattle() {
-		String targetName = "test battle";
-
-		List<BattleClient> current = CampaignClient.getInstance().getBattles();
-
+	public TransfertImage createTransfertImage(String path) {
 		TransfertImage battleImages = null;
-
-		int previousSize = current.size();
 		try {
-			battleImages = new SerializableImage(new File(
-					"./test/ressources/guerrier.jpg"));
+			battleImages = new SerializableImage(new File(path));
 		} catch (IOException e) {
 			fail("cannot read file guerrier.jpg");
 		}
-		CampaignClient.getInstance().createBattle(targetName, battleImages);
+
+		return battleImages;
+	}
+
+	public TransfertImage createTransfertImage() {
+		return createTransfertImage("./test/ressources/guerrier.jpg");
+	}
+
+	public BattleClient createBattle(String battleName,
+			TransfertImage battleImage) {
+
+		List<BattleClient> current = CampaignClient.getInstance().getBattles();
+
+		int previousSize = current.size();
+		CampaignClient.getInstance().createBattle(battleName, battleImage);
 
 		int currentSize = current.size();
 		while (previousSize == currentSize) {
@@ -49,8 +56,15 @@ public class TestBattle extends BasicTest {
 			sleep(50);
 		}
 
-		BattleClient created = CampaignClient.getInstance().getBattles()
-				.get(previousSize);
+		return CampaignClient.getInstance().getBattles().get(previousSize);
+	}
+
+	@Test(timeout = 10000)
+	public void testCreateBattle() {
+		String targetName = "test battle";
+
+		TransfertImage battleImages = createTransfertImage();
+		BattleClient created = createBattle(targetName, battleImages);
 		assertEquals("Battle name have a wrong name", targetName,
 				created.getName());
 

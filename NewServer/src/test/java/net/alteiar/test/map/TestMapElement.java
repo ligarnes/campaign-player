@@ -1,4 +1,4 @@
-package net.alteiar.test;
+package net.alteiar.test.map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,7 +11,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.map.Scale;
+import net.alteiar.server.document.images.TransfertImage;
+import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.element.colored.circle.CircleClient;
 import net.alteiar.server.document.map.element.colored.circle.DocumentCircleBuilder;
 import net.alteiar.server.document.map.element.colored.rectangle.DocumentRectangleBuilder;
@@ -23,22 +24,24 @@ import net.alteiar.server.document.map.element.size.MapElementSizeSquare;
 
 import org.junit.Test;
 
-public class TestMapElement extends BasicTest {
+public class TestMapElement extends TestMap {
 
 	@Test(timeout = 5000)
 	public void testCircle() {
+		TransfertImage battleImages = createTransfertImage();
+		BattleClient battle = createBattle("test battle", battleImages);
+
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
 		Point position = new Point(5, 5);
 
-		DocumentCircleBuilder circle = new DocumentCircleBuilder(position,
-				Color.RED, circleRadius);
+		DocumentCircleBuilder circle = new DocumentCircleBuilder(battle,
+				position, Color.RED, circleRadius);
 
 		Long id = CampaignClient.getInstance().createDocument(circle);
 
 		CircleClient circleClient = (CircleClient) CampaignClient.getInstance()
 				.getDocument(id, 1000L);
 
-		Scale testScale = new Scale(150, 1.5);
 		assertEquals("The position should be equals", position,
 				circleClient.getPosition());
 		assertEquals("The color should be equals", Color.RED,
@@ -46,20 +49,19 @@ public class TestMapElement extends BasicTest {
 		assertEquals("The angle should be equals", Double.valueOf(0),
 				circleClient.getAngle());
 		assertEquals("The radius should be equals",
-				circleRadius.getPixels(testScale), circleClient.getRadius()
-						.getPixels(testScale));
+				circleRadius.getPixels(battle.getScale()),
+				circleClient.getRadius());
 
-		Scale drawScale = new Scale(1, 1.0);
 		BufferedImage imgGenerated = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = (Graphics2D) imgGenerated.getGraphics();
-		circleClient.draw(g2, drawScale, 1.0);
+		circleClient.draw(g2);
 		g2.dispose();
 
 		BufferedImage imgExpected = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) imgExpected.getGraphics();
-		circleClient.draw(g2, drawScale, 1.0);
+		circleClient.draw(g2);
 		g2.dispose();
 
 		try {
@@ -85,26 +87,30 @@ public class TestMapElement extends BasicTest {
 		assertEquals("The angle should be equals", isHidden,
 				circleClient.getIsHidden());
 
-		assertTrue("", !circleClient.contain(new Point(5, 5), testScale, 1.0));
-		assertTrue("", circleClient.contain(new Point(22, 22), testScale, 1.0));
+		assertTrue("", !circleClient.contain(new Point(5, 5)));
+		assertTrue("", circleClient.contain(new Point(15, 15)));
+
 	}
 
 	@Test(timeout = 5000)
 	public void testRectangle() {
+		TransfertImage battleImages = createTransfertImage();
+		BattleClient battle = createBattle("test battle", battleImages);
+
 		MapElementSize rectangleWidth = new MapElementSizeMeter(1.5);
 		MapElementSize rectangleHeight = new MapElementSizeSquare(3.0);
 		Point position = new Point(10, 10);
 		Color targetColor = Color.BLUE;
 
 		DocumentRectangleBuilder circle = new DocumentRectangleBuilder(
-				position, targetColor, rectangleWidth, rectangleHeight);
+				battle.getId(), position, targetColor, rectangleWidth,
+				rectangleHeight);
 
 		Long id = CampaignClient.getInstance().createDocument(circle);
 
 		RectangleClient rectangleClient = (RectangleClient) CampaignClient
 				.getInstance().getDocument(id, 1000L);
 
-		Scale testScale = new Scale(150, 1.5);
 		assertEquals("The position should be equals", position,
 				rectangleClient.getPosition());
 		assertEquals("The color should be equals", targetColor,
@@ -113,23 +119,22 @@ public class TestMapElement extends BasicTest {
 				rectangleClient.getAngle());
 
 		assertEquals("The width should be equals",
-				rectangleWidth.getPixels(testScale), rectangleClient.getWidth()
-						.getPixels(testScale));
+				rectangleWidth.getPixels(battle.getScale()),
+				rectangleClient.getWidth());
 		assertEquals("The height should be equals",
-				rectangleHeight.getPixels(testScale), rectangleClient
-						.getHeight().getPixels(testScale));
+				rectangleHeight.getPixels(battle.getScale()),
+				rectangleClient.getHeight());
 
-		Scale drawScale = new Scale(1, 1.0);
 		BufferedImage imgGenerated = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = (Graphics2D) imgGenerated.getGraphics();
-		rectangleClient.draw(g2, drawScale, 1.0);
+		rectangleClient.draw(g2, 1.0);
 		g2.dispose();
 
 		BufferedImage imgExpected = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) imgExpected.getGraphics();
-		rectangleClient.draw(g2, drawScale, 1.0);
+		rectangleClient.draw(g2, 1.0);
 		g2.dispose();
 
 		try {
@@ -138,6 +143,5 @@ public class TestMapElement extends BasicTest {
 		} catch (IOException e) {
 			fail("fail to compare images");
 		}
-
 	}
 }
