@@ -1,5 +1,7 @@
 package net.alteiar.client;
 
+import java.io.File;
+import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import net.alteiar.server.document.character.DocumentCharacterBuilder;
 import net.alteiar.server.document.chat.ChatRoomClient;
 import net.alteiar.server.document.chat.message.MessageRemote;
 import net.alteiar.server.document.files.DocumentImageBuilder;
+import net.alteiar.server.document.images.SerializableImage;
 import net.alteiar.server.document.images.TransfertImage;
 import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.Scale;
@@ -27,6 +30,7 @@ import net.alteiar.server.document.player.PlayerClient;
 import net.alteiar.shared.ExceptionTool;
 
 public class CampaignClient extends DocumentManagerClient {
+	private static final long serialVersionUID = 1L;
 
 	private static CampaignClient INSTANCE = null;
 
@@ -95,6 +99,10 @@ public class CampaignClient extends DocumentManagerClient {
 		chat.talk(currentPlayer.getName(), MessageRemote.SYSTEM_CONNECT_MESSAGE);
 	}
 
+	public void disconnect() {
+		// TODO notify
+	}
+
 	public PlayerClient getCurrentPlayer() {
 		return currentPlayer;
 	}
@@ -128,6 +136,11 @@ public class CampaignClient extends DocumentManagerClient {
 		createDocument(new DocumentBattleBuilder(mapName, transfertImage, scale));
 	}
 
+	public void createBattle(String mapName, File image) throws IOException {
+		SerializableImage transfertImage = new SerializableImage(image);
+		createBattle(mapName, transfertImage);
+	}
+
 	public void createMapElement(MapClient<?> map,
 			DocumentMapElementBuilder mapElement) {
 
@@ -145,7 +158,31 @@ public class CampaignClient extends DocumentManagerClient {
 		} else if (client instanceof CharacterClient) {
 			characters.add((CharacterClient) client);
 		} else if (client instanceof BattleClient) {
-			battles.add((BattleClient) client);
+			addBattle((BattleClient) client);
 		}
+	}
+
+	protected void addBattle(BattleClient battle) {
+		battles.add(battle);
+		for (ICampaignListener listener : this
+				.getListener(ICampaignListener.class)) {
+			listener.battleAdded(battle);
+		}
+	}
+
+	protected void removeBattle(BattleClient battle) {
+		battles.remove(battle);
+		for (ICampaignListener listener : this
+				.getListener(ICampaignListener.class)) {
+			listener.battleRemoved(battle);
+		}
+	}
+
+	public void addCampaignListener(ICampaignListener listener) {
+		this.addListener(ICampaignListener.class, listener);
+	}
+
+	public void removeCampaignListener(ICampaignListener listener) {
+		this.removeListener(ICampaignListener.class, listener);
 	}
 }

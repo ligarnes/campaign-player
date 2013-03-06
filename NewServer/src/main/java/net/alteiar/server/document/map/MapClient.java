@@ -25,11 +25,15 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 
 import net.alteiar.client.CampaignClient;
+import net.alteiar.client.IWaitForDocumentListener;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.files.ImageClient;
+import net.alteiar.server.document.map.element.MapElementClient;
 import net.alteiar.server.document.map.filter.MapFilterClient;
 import net.alteiar.shared.ExceptionTool;
 
@@ -113,10 +117,13 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		listener = new MapRemoteListener(getRemote());
 	}
 
+	protected MapFilterClient getMapFilter() {
+		return (MapFilterClient) CampaignClient.getInstance().getDocument(
+				filter);
+	}
+
 	public BufferedImage getFilter() {
-		MapFilterClient mapFilter = (MapFilterClient) CampaignClient
-				.getInstance().getDocument(filter);
-		return mapFilter.getShape();
+		return getMapFilter().getShape();
 	}
 
 	public void showPolygon(Point[] cwPts) {
@@ -169,53 +176,94 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		}
 	}
 
-	/*
-	 * @Override public IMapElementClient[] getAllElements() {
-	 * allElements.incCounter(); IMapElementClient[] elements = new
-	 * IMapElementClient[allElements.size()]; allElements.toArray(elements);
-	 * allElements.decCounter(); return elements; }
+	/**
+	 * only elements who are loaded
 	 * 
-	 * @Override public IMapElementClient getElementAt(Point location) {
-	 * IMapElementClient element = null; for (IMapElementClient mapElement :
-	 * getAllElements()) { if (mapElement.isInside(location)) { element =
-	 * mapElement; break; } } return element; }
-	 * 
-	 * @Override public void addCircle(MapElementSize radius, Color color, Point
-	 * position) { try { ICircleRemote circle =
-	 * remoteObject.createCircle(position, color, radius);
-	 * remoteObject.addMapElement(circle); } catch (RemoteException e) {
-	 * ExceptionTool.showError(e); } }
-	 * 
-	 * @Override public void addCone(MapElementSize radius, Color color, Point
-	 * position) { try { IConeRemote cone = remoteObject.createCone(position,
-	 * color, radius); remoteObject.addMapElement(cone); } catch
-	 * (RemoteException e) { ExceptionTool.showError(e); } }
-	 * 
-	 * @Override public void addRay(MapElementSize longueur, MapElementSize
-	 * largueur, Color color, Point position) { try { IRayRemote ray =
-	 * remoteObject.createRay(position, color, longueur, largueur);
-	 * 
-	 * remoteObject.addMapElement(ray); } catch (RemoteException e) {
-	 * ExceptionTool.showError(e); } }
-	 * 
-	 * @Override public void removeMapElement(IMapElementClient mapElements) {
-	 * try { remoteObject.removedMapElement(mapElements.getRemoteReference()); }
-	 * catch (RemoteException e) { ExceptionTool.showError(e); } }
+	 * @return
 	 */
-
-	public synchronized void addLocalMapElement(Long mapElement) {
-		elements.add(mapElement);
-		// TODO notifyMapChanged();
+	public Collection<MapElementClient<?>> getElements() {
+		ArrayList<MapElementClient<?>> elementsCopy = new ArrayList<MapElementClient<?>>();
+		synchronized (elements) {
+			for (Long element : elements) {
+				MapElementClient<?> mapElement = (MapElementClient<?>) CampaignClient
+						.getInstance().getDocument(element);
+				if (mapElement != null) {
+					elementsCopy.add(mapElement);
+				}
+			}
+		}
+		return elementsCopy;
 	}
 
-	public synchronized void removeLocalMapElement(Long mapElement) {
-		elements.remove(mapElement);
-		// TODO notifyMapChanged();
+	public Collection<MapElementClient<?>> getElementsAt(Point p) {
+		ArrayList<MapElementClient<?>> elementsCopy = new ArrayList<MapElementClient<?>>();
+		for (MapElementClient<?> element : getElements()) {
+			if (element.contain(p)) {
+				elementsCopy.add(element);
+			}
+		}
+		return elementsCopy;
+	}
+
+	public void addLocalMapElement(final Long mapElementId) {
+		synchronized (elements) {
+			elements.add(mapElementId);
+		}
+
+		// Notify when element is received only
+		CampaignClient.getInstance().addWaitForDocumentListener(
+				new IWaitForDocumentListener() {
+					@Override
+					public Long getDocument() {
+						return mapElementId;
+					}
+
+					@Override
+					public void documentReceived(DocumentClient<?> doc) {
+						notifyMapElementAdded((MapElementClient<?>) doc);
+					}
+				});
+	}
+
+	public void removeLocalMapElement(final Long mapElementId) {
+		synchronized (elements) {
+			elements.remove(mapElementId);
+		}
+
+		MapElementClient<?> mapElement = (MapElementClient<?>) CampaignClient
+				.getInstance().getDocument(mapElementId);
+		this.notifyMapElementRemoved(mapElement);
 	}
 
 	private synchronized void setLocalScale(Scale scale) {
 		this.scale = scale;
-		// TODO notify this.notifyMapChanged();
+		this.notifyScaleChanged();
+	}
+
+	public void addMapListener(IMapListener listener) {
+		this.addListener(IMapListener.class, listener);
+	}
+
+	public void removeMapListener(IMapListener listener) {
+		this.removeListener(IMapListener.class, listener);
+	}
+
+	protected void notifyMapElementAdded(MapElementClient<?> mapElement) {
+		for (IMapListener listener : getListener(IMapListener.class)) {
+			listener.mapElementAdded(mapElement);
+		}
+	}
+
+	protected void notifyMapElementRemoved(MapElementClient<?> mapElement) {
+		for (IMapListener listener : getListener(IMapListener.class)) {
+			listener.mapElementRemoved(mapElement);
+		}
+	}
+
+	protected void notifyScaleChanged() {
+		for (IMapListener listener : getListener(IMapListener.class)) {
+			listener.mapRescale(scale);
+		}
 	}
 
 	private class MapRemoteListener extends UnicastRemoteObject implements
@@ -230,6 +278,16 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		@Override
 		public void mapRescale(Scale scale) throws RemoteException {
 			setLocalScale(scale);
+		}
+
+		@Override
+		public void mapElementAdded(Long elementId) throws RemoteException {
+			addLocalMapElement(elementId);
+		}
+
+		@Override
+		public void mapElementRemoved(Long elementId) throws RemoteException {
+			removeLocalMapElement(elementId);
 		}
 	}
 }

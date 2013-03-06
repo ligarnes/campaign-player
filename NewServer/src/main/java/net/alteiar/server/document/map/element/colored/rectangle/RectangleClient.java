@@ -25,7 +25,6 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.element.colored.MapElementColoredClient;
 import net.alteiar.server.document.map.element.size.MapElementSize;
 
@@ -49,50 +48,33 @@ public class RectangleClient extends MapElementColoredClient<RectangleRemote> {
 		localHeight = element.getHeight();
 	}
 
-	public MapElementSize getWidth() {
-		return this.localWidth;
-	}
-
-	public MapElementSize getHeight() {
-		return this.localHeight;
+	@Override
+	public Double getWidth() {
+		return localWidth.getPixels(getScale());
 	}
 
 	@Override
-	protected double getWidth(Scale scale, double zoomFactor) {
-		return localWidth.getPixels(scale) * zoomFactor;
+	public Double getHeight() {
+		return localHeight.getPixels(getScale());
 	}
 
 	@Override
-	protected double getHeight(Scale scale, double zoomFactor) {
-		return localHeight.getPixels(scale) * zoomFactor;
+	protected Shape getShape(double zoomFactor) {
+		return new Rectangle2D.Double(getX() * zoomFactor, getY() * zoomFactor,
+				getWidth() * zoomFactor, getHeight() * zoomFactor);
 	}
 
 	@Override
-	protected Shape getShape(Scale scale, double zoomFactor) {
-		double x = getX(scale, zoomFactor);
-		double y = getY(scale, zoomFactor);
-		double widthInPixels = getWidth(scale, zoomFactor);
-		double heightInPixels = getHeight(scale, zoomFactor);
-
-		return new Rectangle2D.Double(x, y, widthInPixels, heightInPixels);
-	}
-
-	@Override
-	protected Shape getShapeBorder(Scale scale, double zoomFactor,
-			int strokeSize) {
-		double x = getX(scale, zoomFactor);
-		double y = getY(scale, zoomFactor);
-		double width = getWidth(scale, zoomFactor);
-		double height = getHeight(scale, zoomFactor);
-
+	protected Shape getShapeBorder(double zoomFactor, int strokeSize) {
 		Double strokeSizeMiddle = (double) strokeSize / 2;
 
-		return new Rectangle2D.Double(x + strokeSizeMiddle, y
-				+ strokeSizeMiddle, width - 2 * strokeSizeMiddle, height - 2
-				* strokeSizeMiddle);
+		return new Rectangle2D.Double(getX() * zoomFactor + strokeSizeMiddle,
+				getY() * zoomFactor + strokeSizeMiddle, getWidth() * zoomFactor
+						- strokeSize, getHeight() * zoomFactor - strokeSize);
 	}
 
 	@Override
 	protected void loadDocumentLocal(File f) throws IOException {
 	}
+
 }

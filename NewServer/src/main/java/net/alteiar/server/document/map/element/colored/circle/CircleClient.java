@@ -25,7 +25,6 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.element.colored.MapElementColoredClient;
 import net.alteiar.server.document.map.element.size.MapElementSize;
 
@@ -48,45 +47,36 @@ public class CircleClient extends
 		localRadius = element.getRadius();
 	}
 
-	public MapElementSize getRadius() {
-		return this.localRadius;
+	public Double getRadius() {
+		return localRadius.getPixels(getScale());
 	}
 
 	@Override
-	protected double getWidth(Scale scale, double zoomFactor) {
-		return localRadius.getPixels(scale) * zoomFactor * 2;
+	public Double getWidth() {
+		return getRadius() * 2;
 	}
 
 	@Override
-	protected double getHeight(Scale scale, double zoomFactor) {
-		return localRadius.getPixels(scale) * zoomFactor * 2;
+	public Double getHeight() {
+		return getRadius() * 2;
 	}
 
 	@Override
-	protected Shape getShape(Scale scale, double zoomFactor) {
-		double x = getX(scale, zoomFactor);
-		double y = getY(scale, zoomFactor);
-
-		double radius = getWidth(scale, zoomFactor) / 2;
-
-		Shape shape = new Ellipse2D.Double(x, y, radius - STROKE_SIZE_LARGE,
-				radius - STROKE_SIZE_LARGE);
+	protected Shape getShape(double zoomFactor) {
+		Shape shape = new Ellipse2D.Double(getX() * zoomFactor, getY()
+				* zoomFactor, getRadius() * zoomFactor - STROKE_SIZE_LARGE,
+				getRadius() * zoomFactor - STROKE_SIZE_LARGE);
 
 		return shape;
 	}
 
 	@Override
-	protected Shape getShapeBorder(Scale scale, double zoomFactor,
-			int strokeSize) {
-		double x = getX(scale, zoomFactor);
-		double y = getY(scale, zoomFactor);
-
-		double radius = getWidth(scale, zoomFactor) / 2;
-
+	protected Shape getShapeBorder(double zoomFactor, int strokeSize) {
 		Double strokeSizeMiddle = (double) strokeSize / 2;
-		Shape shape = new Ellipse2D.Double(x + strokeSizeMiddle, y
-				+ strokeSizeMiddle, radius - STROKE_SIZE_LARGE, radius
-				- STROKE_SIZE_LARGE);
+		Shape shape = new Ellipse2D.Double(getX() * zoomFactor
+				- strokeSizeMiddle, getY() * zoomFactor - strokeSizeMiddle,
+				getRadius() * zoomFactor - STROKE_SIZE_LARGE, getRadius()
+						* zoomFactor - STROKE_SIZE_LARGE);
 		return shape;
 	}
 

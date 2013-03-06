@@ -17,45 +17,44 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.map.element.colored.circle;
+package net.alteiar.server.document.map.element.character;
 
-import java.awt.Color;
 import java.awt.Point;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.map.MapClient;
-import net.alteiar.server.document.map.element.colored.MapElementColoredRemote;
-import net.alteiar.server.document.map.element.size.MapElementSize;
+import net.alteiar.server.document.map.element.MapElementRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class MapElementCircleRemote extends MapElementColoredRemote implements
-		ICircleRemote {
-	private static final long serialVersionUID = 940613673212818094L;
+public class CharacterCombatRemote extends MapElementRemote implements
+		ICharacterElementRemote {
+	private static final long serialVersionUID = -3573905342323034939L;
 
-	private final MapElementSize radius;
+	private final Long characterClient;
 
-	public MapElementCircleRemote(MapClient<?> map, Point position,
-			Color color, MapElementSize size) throws RemoteException {
-		this(map.getId(), position, color, size);
+	public CharacterCombatRemote(MapClient<?> map, Point position,
+			Long characterClient) throws RemoteException {
+		this(map.getId(), position, characterClient);
 	}
 
-	public MapElementCircleRemote(Long map, Point position, Color color,
-			MapElementSize size) throws RemoteException {
-		super(map, position, color);
-		radius = size;
+	public CharacterCombatRemote(Long map, Point position, Long characterClient)
+			throws RemoteException {
+		super(map, position);
+
+		this.characterClient = characterClient;
 	}
 
 	@Override
-	public MapElementSize getRadius() throws RemoteException {
-		return radius;
+	public Long getCharacterClient() throws RemoteException {
+		return this.characterClient;
 	}
 
 	@Override
 	public DocumentClient<?> buildProxy() throws RemoteException {
-		return new CircleClient(this);
+		return new CharacterCombatClient(this);
 	}
 }
