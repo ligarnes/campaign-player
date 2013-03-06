@@ -14,7 +14,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
+import net.alteiar.server.document.character.CharacterClient;
 
 public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;
@@ -27,13 +27,13 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private final JCheckBox chckbxVisible;
 
 	private class CharacterAdapter {
-		private final ICharacterSheetClient character;
+		private final CharacterClient character;
 
-		public CharacterAdapter(ICharacterSheetClient character) {
+		public CharacterAdapter(CharacterClient character) {
 			this.character = character;
 		}
 
-		public ICharacterSheetClient getCharacter() {
+		public CharacterClient getCharacter() {
 			return this.character;
 		}
 
@@ -43,11 +43,10 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 		}
 	}
 
-	public PanelAddCharacter(ICharacterSheetClient[] lstCharacter,
-			Boolean isMonster) {
+	public PanelAddCharacter(CharacterClient[] lstCharacter, Boolean isMonster) {
 		CharacterAdapter[] lst = new CharacterAdapter[lstCharacter.length];
 		int i = 0;
-		for (ICharacterSheetClient character : lstCharacter) {
+		for (CharacterClient character : lstCharacter) {
 			lst[i] = new CharacterAdapter(character);
 			++i;
 		}
@@ -105,7 +104,7 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 		this.lblTotal.setText(total.toString());
 	}
 
-	public ICharacterSheetClient getCharacter() {
+	public CharacterClient getCharacter() {
 		return ((CharacterAdapter) this.comboBoxCharacter.getSelectedItem())
 				.getCharacter();
 	}

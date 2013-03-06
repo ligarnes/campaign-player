@@ -25,9 +25,8 @@ import java.io.IOException;
 
 import javax.swing.JFileChooser;
 
-import net.alteiar.ExceptionTool;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.gui.CharacterFileFilter;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg
@@ -68,8 +67,9 @@ public class StaticDialog {
 			// setup the dialog
 			String path = Helpers.getGlobalProperties().getCharacterPath();
 			FILE_CHOOSER_OPEN_CHARACTER = new JFileChooser(path);
-			FILE_CHOOSER_OPEN_CHARACTER
-					.setFileFilter(new CharacterFileFilter());
+			// TODO fixme restore
+			// FILE_CHOOSER_OPEN_CHARACTER
+			// .setFileFilter(new CharacterFileFilter());
 		}
 
 		File file = null;

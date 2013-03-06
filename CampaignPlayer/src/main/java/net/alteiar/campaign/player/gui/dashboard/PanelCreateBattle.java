@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -17,8 +18,8 @@ import javax.swing.border.LineBorder;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.server.shared.campaign.battle.map.Scale;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateBattle extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -80,8 +81,12 @@ public class PanelCreateBattle extends JPanel {
 				File f = StaticDialog
 						.getSelectedImageFile(PanelCreateBattle.this);
 				if (f != null) {
-					CampaignClient.INSTANCE.createBattle(txtName.getText(), f,
-							new Scale(80, 1.5));
+					try {
+						CampaignClient.getInstance().createBattle(
+								txtName.getText(), f);
+					} catch (IOException e1) {
+						ExceptionTool.showError(e1);
+					}
 					txtName.setText("");
 				}
 			}

@@ -32,14 +32,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.chat.ChatObject;
-import net.alteiar.client.shared.campaign.chat.ChatRoomClient;
-import net.alteiar.client.shared.campaign.chat.DiceSender;
-import net.alteiar.client.shared.campaign.chat.MjSender;
-import net.alteiar.client.shared.campaign.chat.PrivateSender;
-import net.alteiar.client.shared.observer.campaign.chat.IChatRoomObserver;
-import net.alteiar.server.shared.campaign.chat.MessageRemote;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.chat.ChatRoomClient;
+import net.alteiar.server.document.chat.IChatRoomObserver;
+import net.alteiar.server.document.chat.message.ChatObject;
+import net.alteiar.server.document.chat.message.DiceSender;
+import net.alteiar.server.document.chat.message.MessageRemote;
+import net.alteiar.server.document.chat.message.MjSender;
+import net.alteiar.server.document.chat.message.PrivateSender;
 
 /**
  * @author Cody Stoutenburg
@@ -88,9 +88,9 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 		scrollWrite.setMinimumSize(dimSend);
 		scrollWrite.setMaximumSize(dimSend);
 
-		chatRoom = CampaignClient.INSTANCE.getChatRoom();
+		chatRoom = CampaignClient.getInstance().getChat();
 
-		List<MessageRemote> allMsg = CampaignClient.INSTANCE.getChatRoom()
+		List<MessageRemote> allMsg = CampaignClient.getInstance().getChat()
 				.getAllMessage();
 		for (MessageRemote msg : allMsg) {
 			this.talk(msg);
@@ -152,7 +152,7 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 		if (command.equals("/dice") || command.equals("/d")) {
 			message = applyDice(args[0]);
 		} else if (command.equals("/name")) {
-			CampaignClient.INSTANCE.getChatRoom().setPseudo(concat(args, " "));
+			CampaignClient.getInstance().getChat().setPseudo(concat(args, " "));
 		} else if (command.equals("/to")) {
 			message = applyPrivateMessage(args);
 		} else if (command.equals("/mj")) {

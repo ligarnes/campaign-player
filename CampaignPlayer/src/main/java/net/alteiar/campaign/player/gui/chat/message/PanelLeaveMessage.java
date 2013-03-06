@@ -1,6 +1,6 @@
 package net.alteiar.campaign.player.gui.chat.message;
 
-import net.alteiar.server.shared.campaign.chat.MessageRemote;
+import net.alteiar.server.document.chat.message.MessageRemote;
 
 public class PanelLeaveMessage extends PanelSystemMessage {
 	private static final long serialVersionUID = 1L;

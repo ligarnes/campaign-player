@@ -27,7 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.server.shared.campaign.character.ICharacterRemote;
+import net.alteiar.server.document.character.ICharacterRemote;
 
 public class PanelCreateCharacterSheet extends JPanel {
 	private static final long serialVersionUID = -2286637648122082031L;

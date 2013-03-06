@@ -21,15 +21,13 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
-import net.alteiar.campaign.player.gui.tools.PanelPlayerAccess;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.observer.campaign.character.ICharacterClientObserver;
+import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.server.document.character.ICharacterClientObserver;
 
 public class PanelCharacterLocal extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final ICharacterSheetClient character;
+	private final CharacterClient character;
 
 	private final JLabel btnIcon;
 	private final JTextField textFieldName;
@@ -42,7 +40,7 @@ public class PanelCharacterLocal extends JPanel {
 	private final JSpinner spinnerAcFlatFooted;
 	private final JSpinner spinnerAcTouch;
 
-	public PanelCharacterLocal(ICharacterSheetClient character) {
+	public PanelCharacterLocal(CharacterClient character) {
 		this.character = character;
 
 		setAlignmentY(Component.TOP_ALIGNMENT);
@@ -240,12 +238,12 @@ public class PanelCharacterLocal extends JPanel {
 		this.character.addCharacterListener(new ICharacterClientObserver() {
 
 			@Override
-			public void characterChanged(ICharacterSheetClient character) {
+			public void characterChanged(CharacterClient character) {
 				characterChange();
 			}
 
 			@Override
-			public void imageLoaded(ICharacterSheetClient character) {
+			public void imageLoaded(CharacterClient character) {
 				characterChange();
 			}
 		});
@@ -264,7 +262,7 @@ public class PanelCharacterLocal extends JPanel {
 		this.spinnerAcFlatFooted.setValue(character.getAcFlatFooted());
 		this.spinnerAcTouch.setValue(character.getAcTouch());
 
-		BufferedImage img = resize(character.getBackground(), 120, 120);
+		BufferedImage img = resize(character.getImage(), 120, 120);
 		this.btnIcon.setIcon(new ImageIcon(img));
 	}
 
@@ -279,22 +277,24 @@ public class PanelCharacterLocal extends JPanel {
 		this.spinnerAcFlatFooted.setValue(character.getAcFlatFooted());
 		this.spinnerAcTouch.setValue(character.getAcTouch());
 
-		BufferedImage img = resize(character.getBackground(), 120, 120);
+		BufferedImage img = resize(character.getImage(), 120, 120);
 		this.btnIcon.setIcon(new ImageIcon(img));
 	}
 
 	protected void editPlayerAccess() {
-		PanelPlayerAccess panelAccess = new PanelPlayerAccess();
-		DialogOkCancel<PanelPlayerAccess> dialog = new DialogOkCancel<PanelPlayerAccess>(
-				null, "Changer les access", true, panelAccess);
-
-		panelAccess.setAccess(this.character.getAccess());
-
-		dialog.setVisible(true);
-
-		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
-			this.character.setAccess(panelAccess.getPlayerAccess());
-		}
+		/*
+		 * PanelPlayerAccess panelAccess = new PanelPlayerAccess();
+		 * DialogOkCancel<PanelPlayerAccess> dialog = new
+		 * DialogOkCancel<PanelPlayerAccess>( null, "Changer les access", true,
+		 * panelAccess);
+		 * 
+		 * panelAccess.setAccess(this.character.getAccess());
+		 * 
+		 * dialog.setVisible(true);
+		 * 
+		 * if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
+		 * this.character.setAccess(panelAccess.getPlayerAccess()); }
+		 */
 	}
 
 	private static BufferedImage resize(BufferedImage image, int width,
@@ -309,7 +309,7 @@ public class PanelCharacterLocal extends JPanel {
 		return resizedImage;
 	}
 
-	public ICharacterSheetClient getCharacter() {
+	public CharacterClient getCharacter() {
 		return this.character;
 	}
 }

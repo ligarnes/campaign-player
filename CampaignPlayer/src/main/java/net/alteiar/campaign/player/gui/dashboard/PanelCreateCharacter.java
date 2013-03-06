@@ -15,11 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.xml.bind.JAXBException;
 
-import net.alteiar.CharacterIO;
-import net.alteiar.ExceptionTool;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
-import net.alteiar.client.shared.campaign.CampaignClient;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.character.CompleteCharacter;
+import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateCharacter extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -62,11 +62,12 @@ public class PanelCreateCharacter extends JPanel {
 				if (f != null) {
 					try {
 						if (isMonster) {
-							CampaignClient.INSTANCE.createMonster(CharacterIO
-									.readFile(f));
+							// TODO
+							// CampaignClient.getInstance().createMonster(
+							// CharacterIO.readFile(f));
 						} else {
-							CampaignClient.INSTANCE.createCharacter(CharacterIO
-									.readFile(f));
+							CampaignClient.getInstance().createCharacter(
+									new CompleteCharacter(f));
 						}
 					} catch (JAXBException ex) {
 						ExceptionTool.showError(ex);

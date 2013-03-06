@@ -11,14 +11,14 @@ import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.battle.plan.MapEditableInfo;
 import net.alteiar.campaign.player.gui.battle.plan.details.MapEvent;
-import net.alteiar.client.shared.campaign.map.element.IMapElement;
+import net.alteiar.server.document.map.element.MapElementClient;
 
 public class MoveElementMapListener extends ActionMapListener {
-	private final IMapElement mapElement;
+	private final MapElementClient<?> mapElement;
 	private final MapEditableInfo mapInfo;
 
 	public MoveElementMapListener(GlobalMapListener mapListener,
-			MapEditableInfo mapInfo, Point first, IMapElement mapElement) {
+			MapEditableInfo mapInfo, Point first, MapElementClient<?> mapElement) {
 		super(mapListener);
 		this.mapElement = mapElement;
 
@@ -77,7 +77,7 @@ public class MoveElementMapListener extends ActionMapListener {
 	}
 
 	private void cancelPoint() {
-		mapElement.revertPosition();
+		// TODO mapElement.revertPosition();
 		mapListener.defaultListener();
 		mapInfo.stopDrawPathToMouse();
 
@@ -90,7 +90,7 @@ public class MoveElementMapListener extends ActionMapListener {
 
 	private void finishMove(Point mapPosition) {
 		mapInfo.moveElementAt(mapElement, mapPosition);
-		mapElement.applyPosition();
+		// TODO mapElement.applyPosition();
 		mapListener.defaultListener();
 
 		finish();

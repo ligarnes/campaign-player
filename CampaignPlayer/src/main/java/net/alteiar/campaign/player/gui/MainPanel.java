@@ -22,7 +22,6 @@ package net.alteiar.campaign.player.gui;
 import javax.swing.JTabbedPane;
 
 import net.alteiar.campaign.player.gui.battle.TabbedPaneListAllBattle;
-import net.alteiar.campaign.player.gui.settings.PanelSettings;
 
 /**
  * @author Cody Stoutenburg
@@ -49,7 +48,7 @@ public class MainPanel extends JTabbedPane {
 		this.addTab("Tableau de bord", new PanelDashboard());
 		this.addTab("Combats", allBattle);
 
-		this.addTab("Paramètres", new PanelSettings());
+		// this.addTab("Paramètres", new PanelSettings());
 
 		// this.addTab("Debug-Test", new PanelImages());
 	}

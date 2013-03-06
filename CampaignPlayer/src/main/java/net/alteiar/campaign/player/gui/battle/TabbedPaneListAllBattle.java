@@ -22,44 +22,42 @@ package net.alteiar.campaign.player.gui.battle;
 import javax.swing.JTabbedPane;
 
 import net.alteiar.campaign.player.gui.battle.plan.PanelGeneraBattle;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.campaign.notes.NoteClient;
-import net.alteiar.client.shared.campaign.player.IPlayerClient;
-import net.alteiar.client.shared.observer.campaign.ICampaignObserver;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.client.ICampaignListener;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
 public class TabbedPaneListAllBattle extends JTabbedPane
-/*JFatTabbedPane*/implements ICampaignObserver {
+/* JFatTabbedPane */implements ICampaignListener {
 
 	private static final long serialVersionUID = -5183267274885482007L;
 
 	public TabbedPaneListAllBattle() {
 		super();
-		CampaignClient.INSTANCE.addCampaignListener(this);
+		net.alteiar.client.CampaignClient.getInstance().addCampaignListener(
+				this);
 
 		// Add existing battles
-		for (IBattleClient battle : CampaignClient.INSTANCE.getBattles()) {
+		for (BattleClient battle : CampaignClient.getInstance().getBattles()) {
 			this.addTab(battle.getName(), new PanelGeneraBattle(battle));
 		}
 	}
 
 	@Override
-	public void battleAdded(IBattleClient battle) {
+	public void battleAdded(BattleClient battle) {
 		this.addTab(battle.getName(), new PanelGeneraBattle(battle));
 	}
 
 	@Override
-	public void battleRemoved(IBattleClient battle) {
+	public void battleRemoved(BattleClient battle) {
 		this.removeTabAt(indexOf(battle));
 	}
 
-	public IBattleClient getSelectedBattle() {
-		IBattleClient battle = null;
+	public BattleClient getSelectedBattle() {
+		BattleClient battle = null;
 		int battleIdx = this.getSelectedIndex() - 1;
 		if (battleIdx >= 0) {
 			battle = findBattleFromName(this.getTitleAt(battleIdx));
@@ -67,16 +65,16 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		return battle;
 	}
 
-	public void setSelectedBattle(IBattleClient battle) {
+	public void setSelectedBattle(BattleClient battle) {
 		int idx = indexOf(battle);
 		if (idx >= 0) {
 			this.setSelectedIndex(idx);
 		}
 	}
 
-	private IBattleClient findBattleFromName(String name) {
-		IBattleClient finded = null;
-		for (IBattleClient battle : CampaignClient.INSTANCE.getBattles()) {
+	private BattleClient findBattleFromName(String name) {
+		BattleClient finded = null;
+		for (BattleClient battle : CampaignClient.getInstance().getBattles()) {
 			if (battle.getName().equals(name)) {
 				finded = battle;
 				break;
@@ -85,7 +83,7 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		return finded;
 	}
 
-	private int indexOf(IBattleClient battle) {
+	private int indexOf(BattleClient battle) {
 		int idx = -1;
 		String battleName = battle.getName();
 		for (int i = 0; i < this.getTabCount(); ++i) {
@@ -99,36 +97,4 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 	}
 
 	// ///////////////////////USELESS METHODS///////////////////
-
-	@Override
-	public void playerAdded(IPlayerClient player) {
-	}
-
-	@Override
-	public void playerRemoved(IPlayerClient player) {
-	}
-
-	@Override
-	public void noteAdded(NoteClient note) {
-	}
-
-	@Override
-	public void noteRemoved(NoteClient note) {
-	}
-
-	@Override
-	public void characterAdded(ICharacterSheetClient note) {
-	}
-
-	@Override
-	public void characterRemoved(ICharacterSheetClient note) {
-	}
-
-	@Override
-	public void monsterAdded(ICharacterSheetClient note) {
-	}
-
-	@Override
-	public void monsterRemoved(ICharacterSheetClient note) {
-	}
 }

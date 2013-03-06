@@ -2,26 +2,23 @@ package net.alteiar.campaign.player.gui.dashboard;
 
 import javax.swing.JPanel;
 
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
-import net.alteiar.client.shared.campaign.notes.NoteClient;
-import net.alteiar.client.shared.campaign.player.IPlayerClient;
-import net.alteiar.client.shared.observer.campaign.ICampaignObserver;
+import net.alteiar.client.ICampaignListener;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 public class PanelListSimpleMonster extends PanelList implements
-		ICampaignObserver {
+		ICampaignListener {
 	private static final long serialVersionUID = 1L;
 
 	public PanelListSimpleMonster() {
 		super("Monstres");
 
-		CampaignClient.INSTANCE.addCampaignListener(this);
-
-		for (ICharacterSheetClient character : CampaignClient.INSTANCE
-				.getAllMonster()) {
-			monsterAdded(character);
-		}
+		net.alteiar.client.CampaignClient.getInstance().addCampaignListener(
+				this);
+		/*
+		 * for (ICharacterSheetClient character :
+		 * CampaignClient.getInstance().getMonsters) { monsterAdded(character);
+		 * }
+		 */
 	}
 
 	@Override
@@ -30,53 +27,43 @@ public class PanelListSimpleMonster extends PanelList implements
 	}
 
 	@Override
-	public void monsterAdded(ICharacterSheetClient character) {
-		PanelSimpleCharacter panel = new PanelSimpleCharacter(character, true);
-		this.addElement(character, panel);
+	public void battleAdded(BattleClient battle) {
+		// do not care
 	}
 
 	@Override
-	public void monsterRemoved(ICharacterSheetClient character) {
-		this.removeElement(character);
+	public void battleRemoved(BattleClient battle) {
+		// do not care
 	}
 
-	@Override
-	public void characterAdded(ICharacterSheetClient character) {
-		// Do not care
-	}
-
-	@Override
-	public void characterRemoved(ICharacterSheetClient note) {
-		// Do not care
-	}
-
-	@Override
-	public void battleAdded(IBattleClient battle) {
-		// Do not care
-	}
-
-	@Override
-	public void battleRemoved(IBattleClient battle) {
-		// Do not care
-	}
-
-	@Override
-	public void playerAdded(IPlayerClient player) {
-		// Do not care
-	}
-
-	@Override
-	public void playerRemoved(IPlayerClient player) {
-		// Do not care
-	}
-
-	@Override
-	public void noteAdded(NoteClient note) {
-		// Do not care
-	}
-
-	@Override
-	public void noteRemoved(NoteClient note) {
-		// Do not care
-	}
+	/*
+	 * @Override public void monsterAdded(ICharacterSheetClient character) {
+	 * PanelSimpleCharacter panel = new PanelSimpleCharacter(character, true);
+	 * this.addElement(character, panel); }
+	 * 
+	 * @Override public void monsterRemoved(ICharacterSheetClient character) {
+	 * this.removeElement(character); }
+	 * 
+	 * @Override public void characterAdded(ICharacterSheetClient character) {
+	 * // Do not care }
+	 * 
+	 * @Override public void characterRemoved(ICharacterSheetClient note) { //
+	 * Do not care }
+	 * 
+	 * @Override public void battleAdded(IBattleClient battle) { // Do not care
+	 * }
+	 * 
+	 * @Override public void battleRemoved(IBattleClient battle) { // Do not
+	 * care }
+	 * 
+	 * @Override public void playerAdded(IPlayerClient player) { // Do not care
+	 * }
+	 * 
+	 * @Override public void playerRemoved(IPlayerClient player) { // Do not
+	 * care }
+	 * 
+	 * @Override public void noteAdded(NoteClient note) { // Do not care }
+	 * 
+	 * @Override public void noteRemoved(NoteClient note) { // Do not care }
+	 */
 }

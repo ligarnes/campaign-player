@@ -14,10 +14,9 @@ import net.alteiar.campaign.player.gui.battle.plan.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.RescaleMapListener;
 import net.alteiar.campaign.player.gui.battle.plan.listener.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
-import net.alteiar.client.shared.campaign.battle.character.ICharacterCombatClient;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 public class ToolMapListener extends Observable implements MapListener {
 
@@ -26,40 +25,39 @@ public class ToolMapListener extends Observable implements MapListener {
 	};
 
 	private final MapEditableInfo mapInfo;
-	private final IBattleClient battle;
+	private final BattleClient battle;
 	private final GlobalMapListener mapListener;
 	private Tools toolState;
 
 	public ToolMapListener(MapEditableInfo mapInfo,
-			GlobalMapListener mapListener, IBattleClient battle) {
+			GlobalMapListener mapListener, BattleClient battle) {
 		toolState = Tools.ADD_CHARACTER;
 		this.mapListener = mapListener;
 		this.mapInfo = mapInfo;
 		this.battle = battle;
 	}
 
-	private Boolean verifyBattleContainCharacter(ICharacterSheetClient src) {
+	private Boolean verifyBattleContainCharacter(CharacterClient src) {
 		Boolean contain = false;
-		for (ICharacterCombatClient characterCombat : battle.getAllCharacter()) {
-			if (characterCombat.getCharacter().equals(src)) {
-				contain = true;
-				break;
-			}
-		}
+		/*
+		 * for (ICharacterCombatClient characterCombat : battle.getCharacters())
+		 * { if (characterCombat.getCharacter().equals(src)) { contain = true;
+		 * break; } }
+		 */
 		return contain;
 	}
 
-	public ICharacterSheetClient[] getAvaibleCharacter() {
-		List<ICharacterSheetClient> lst = new ArrayList<ICharacterSheetClient>();
-		for (final ICharacterSheetClient character : CampaignClient.INSTANCE
-				.getAllCharacter()) {
+	public CharacterClient[] getAvaibleCharacter() {
+		List<CharacterClient> lst = new ArrayList<CharacterClient>();
+		for (final CharacterClient character : CampaignClient.getInstance()
+				.getCharacters()) {
 			final Boolean isInBattle = verifyBattleContainCharacter(character);
 			if (!isInBattle) {
 				lst.add(character);
 			}
 		}
 
-		ICharacterSheetClient[] res = new ICharacterSheetClient[lst.size()];
+		CharacterClient[] res = new CharacterClient[lst.size()];
 		lst.toArray(res);
 		return res;
 	}
@@ -84,10 +82,11 @@ public class ToolMapListener extends Observable implements MapListener {
 			mapListener.defaultListener();
 			break;
 		case ADD_MONSTER:
-			addCharacter(event.getMouseEvent(),
-					CampaignClient.INSTANCE.getAllMonster(),
-					event.getMapPosition());
-			mapListener.defaultListener();
+			/*
+			 * addCharacter(event.getMouseEvent(), CampaignClient.getInstance()
+			 * .getAllMonster(), event.getMapPosition());
+			 * mapListener.defaultListener();
+			 */
 			break;
 		case ADD_CIRCLE:
 		case ADD_CONE:
@@ -161,7 +160,7 @@ public class ToolMapListener extends Observable implements MapListener {
 		}
 	}
 
-	private void addCharacter(MouseEvent orgEvent, ICharacterSheetClient[] lst,
+	private void addCharacter(MouseEvent orgEvent, CharacterClient[] lst,
 			Point mapPosition) {
 		if (lst.length > 0) {
 			Boolean isMonster = toolState.equals(Tools.ADD_MONSTER);

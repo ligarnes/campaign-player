@@ -10,15 +10,15 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.battle.plan.details.MapEvent;
-import net.alteiar.client.shared.campaign.map.element.IMapElement;
+import net.alteiar.server.document.map.element.MapElementClient;
 
 public class RotateMapListener extends ActionMapListener {
 
 	private Point first;
-	private final IMapElement mapElement;
+	private final MapElementClient<?> mapElement;
 
 	public RotateMapListener(GlobalMapListener mapListener,
-			IMapElement mapElement, Point begin) {
+			MapElementClient<?> mapElement, Point begin) {
 		super(mapListener);
 		this.mapElement = mapElement;
 		this.first = begin;
@@ -28,7 +28,7 @@ public class RotateMapListener extends ActionMapListener {
 	public void mouseClicked(MapEvent event) {
 
 		if (SwingUtilities.isLeftMouseButton(event.getMouseEvent())) {
-			mapElement.applyRotate();
+			// TODO mapElement.applyRotate();
 			mapListener.defaultListener();
 		} else if (SwingUtilities.isRightMouseButton(event.getMouseEvent())) {
 			JPopupMenu popup = new JPopupMenu();
@@ -57,7 +57,7 @@ public class RotateMapListener extends ActionMapListener {
 		first = mapPosition;
 	}
 
-	private JMenuItem buildMenuRotate(final IMapElement element,
+	private JMenuItem buildMenuRotate(final MapElementClient<?> element,
 			final Double angle) {
 		JMenuItem menu45 = new JMenuItem(angle + " degres");
 		menu45.addActionListener(new ActionListener() {
@@ -69,21 +69,21 @@ public class RotateMapListener extends ActionMapListener {
 		return menu45;
 	}
 
-	private JMenuItem buildMenuRotate(final IMapElement element) {
+	private JMenuItem buildMenuRotate(final MapElementClient<?> element) {
 		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				element.setAngle(0.0);
-				element.applyRotate();
+				// TODO element.applyRotate();
 			}
 		});
 
 		return reset;
 	}
 
-	private void rotateMapElement(IMapElement rotate, Double angle) {
+	private void rotateMapElement(MapElementClient<?> rotate, Double angle) {
 		rotate.setAngle(rotate.getAngle() + angle);
-		rotate.applyRotate();
+		// TODO rotate.applyRotate();
 	}
 }

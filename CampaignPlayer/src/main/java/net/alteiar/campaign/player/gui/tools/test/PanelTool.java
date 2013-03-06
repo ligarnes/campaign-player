@@ -11,12 +11,12 @@ import net.alteiar.campaign.player.gui.battle.plan.MapEditableInfo;
 import net.alteiar.campaign.player.gui.battle.tools.PanelCharacterInfo;
 import net.alteiar.campaign.player.gui.chat.PanelChat;
 import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 public class PanelTool extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	public PanelTool(MapEditableInfo info, IBattleClient battle) {
+	public PanelTool(MapEditableInfo info, BattleClient battle) {
 		JPanel inside = new JPanel();
 		inside.setLayout(new BoxLayout(inside, BoxLayout.Y_AXIS));
 

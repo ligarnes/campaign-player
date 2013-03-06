@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.battle.plan.PanelGeneraBattle;
-import net.alteiar.client.shared.campaign.battle.IBattleClient;
+import net.alteiar.server.document.map.battle.BattleClient;
 
 public class PanelBattle extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +14,7 @@ public class PanelBattle extends JPanel {
 		this.setLayout(new BorderLayout());
 	}
 
-	public void setBattle(IBattleClient battle) {
+	public void setBattle(BattleClient battle) {
 		this.removeAll();
 		this.add(new PanelGeneraBattle(battle), BorderLayout.CENTER);
 	}

@@ -6,8 +6,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
-import net.alteiar.client.shared.campaign.CampaignClient;
-import net.alteiar.server.shared.campaign.ServerCampaign;
 
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecAdapter;
@@ -71,16 +69,16 @@ public class TestConnexion extends UISpecTestCase {
 
 			Boolean isServer = true;
 
-			if (isServer) {
-				ServerCampaign.startServer(address, Integer.valueOf(port));
-			}
-
-			CampaignClient.connect(localAdress, address, port, name, isMj);
-
-			MainFrame.FRAME.initComponent();
-			CampaignClient.createClientCampaign(5, MainFrame.FRAME);
-			// MainFrame.FRAME.setVisible(true);
-
+			/*
+			 * if (isServer) { ServerCampaign.startServer(address,
+			 * Integer.valueOf(port)); }
+			 * 
+			 * CampaignClient.connect(localAdress, address, port, name, isMj);
+			 * 
+			 * MainFrame.FRAME.initComponent();
+			 * CampaignClient.createClientCampaign(5, MainFrame.FRAME); //
+			 * MainFrame.FRAME.setVisible(true);
+			 */
 			return new Window(MainFrame.FRAME);
 		}
 

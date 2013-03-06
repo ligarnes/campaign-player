@@ -1,10 +1,10 @@
-#Property saved at 15-02-13 09h22
-#Fri Feb 15 09:22:33 EST 2013
+#Property saved at 06-03-13 12h13
+#Wed Mar 06 12:13:01 EST 2013
 port=1099
 characterPath=C\:\\Users\\ligarnes\\Desktop\\CampaignPlayer\\joueurs
 isServer=true
 pseudo=cody
-ipServer=25.8.100.179
-ipLocal=25.8.100.179
+ipServer=192.168.0.103
 isMj=true
-mapPath=C\:\\Users\\ligarnes\\Desktop\\Jeux de role\\cartes
+ipLocal=192.168.0.103
+mapPath=C\:\\Users\\ligarnes\\Desktop

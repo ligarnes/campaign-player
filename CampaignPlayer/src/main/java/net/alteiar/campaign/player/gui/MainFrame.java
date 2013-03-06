@@ -32,7 +32,7 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.client.shared.campaign.CampaignClient;
+import net.alteiar.client.CampaignClient;
 import net.alteiar.thread.TaskInfo;
 
 /**
@@ -139,7 +139,7 @@ public class MainFrame extends JFrame implements TaskInfo, WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		CampaignClient.INSTANCE.disconnect();
+		CampaignClient.getInstance().disconnect();
 
 	}
 

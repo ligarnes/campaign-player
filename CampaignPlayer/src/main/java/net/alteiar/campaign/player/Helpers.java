@@ -30,7 +30,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import net.alteiar.ExceptionTool;
+import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg

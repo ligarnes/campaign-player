@@ -5,13 +5,13 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
-import net.alteiar.client.shared.campaign.player.IPlayerClient;
+import net.alteiar.server.document.player.PlayerClient;
 
 public class PlayerTranferable implements Transferable {
 
-	private final IPlayerClient player;
+	private final PlayerClient player;
 
-	public PlayerTranferable(IPlayerClient player) {
+	public PlayerTranferable(PlayerClient player) {
 		this.player = player;
 
 	}
@@ -25,7 +25,7 @@ public class PlayerTranferable implements Transferable {
 	}
 
 	public static final DataFlavor PLAYER_FLAVOR = createConstant(
-			IPlayerClient.class, "Joueur");
+			PlayerClient.class, "Joueur");
 
 	@Override
 	public DataFlavor[] getTransferDataFlavors() {

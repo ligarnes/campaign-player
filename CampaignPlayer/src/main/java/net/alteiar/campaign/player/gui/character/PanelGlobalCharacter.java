@@ -20,17 +20,12 @@
 package net.alteiar.campaign.player.gui.character;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JToggleButton;
-import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
-import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
+import net.alteiar.server.document.character.CharacterClient;
 
 /**
  * @author Cody Stoutenburg
@@ -39,80 +34,22 @@ import net.alteiar.client.shared.campaign.character.ICharacterSheetClient;
 public class PanelGlobalCharacter extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final PanelHtmlCharacter panelHtml;
 	private final PanelCharacterLocal panelDefault;
 
-	private final JToggleButton simpleButton;
-	private final JToggleButton fullButton;
-
-	public PanelGlobalCharacter(ICharacterSheetClient client) {
+	public PanelGlobalCharacter(CharacterClient client) {
 		super(new BorderLayout());
 
 		this.add(PanelChatFactory.buildChatMedium(), BorderLayout.WEST);
 
-		panelHtml = new PanelHtmlCharacter(client);
-
 		panelDefault = new PanelCharacterLocal(client);
 
 		JPanel paneCharacterSheet = new JPanel(new BorderLayout());
-		paneCharacterSheet.add(panelHtml, BorderLayout.NORTH);
 		paneCharacterSheet.add(panelDefault, BorderLayout.CENTER);
 
-		JPanel panelButton = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		simpleButton = new JToggleButton("Simple");
-		simpleButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				simpleClick();
-			}
-		});
-		fullButton = new JToggleButton("Complète");
-		fullButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				fullClick();
-			}
-		});
-		panelButton.add(simpleButton);
-		panelButton.add(fullButton);
-
 		JPanel panelChoice = new JPanel(new BorderLayout());
-		panelChoice.add(panelButton, BorderLayout.NORTH);
 		panelChoice.add(paneCharacterSheet, BorderLayout.CENTER);
 
 		JScrollPane scroll = new JScrollPane(panelChoice);
 		this.add(scroll, BorderLayout.CENTER);
-
-		simpleClick();
-	}
-
-	public ICharacterSheetClient getCharacter() {
-		return panelHtml.getCharacter();
-	}
-
-	private void simpleClick() {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				simpleButton.setEnabled(false);
-				fullButton.setEnabled(true);
-
-				panelDefault.setVisible(true);
-				panelHtml.setVisible(false);
-			}
-		});
-	}
-
-	private void fullClick() {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				simpleButton.setEnabled(true);
-				fullButton.setEnabled(false);
-
-				panelDefault.setVisible(false);
-				panelHtml.setVisible(true);
-			}
-		});
 	}
 }
