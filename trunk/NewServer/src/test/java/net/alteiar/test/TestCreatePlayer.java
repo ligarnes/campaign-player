@@ -26,8 +26,6 @@ import net.alteiar.server.document.player.PlayerClient;
 import org.junit.Test;
 
 public class TestCreatePlayer extends BasicTest {
-	// TODO Test Player Equals
-
 	@Test
 	public void testCompareDocument() {
 		PlayerClient current = CampaignClient.getInstance().getCurrentPlayer();

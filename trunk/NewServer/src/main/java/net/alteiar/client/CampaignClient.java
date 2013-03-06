@@ -156,9 +156,25 @@ public class CampaignClient extends DocumentManagerClient {
 		} else if (client instanceof ChatRoomClient) {
 			this.chat = (ChatRoomClient) client;
 		} else if (client instanceof CharacterClient) {
-			characters.add((CharacterClient) client);
+			addCharacter((CharacterClient) client);
 		} else if (client instanceof BattleClient) {
 			addBattle((BattleClient) client);
+		}
+	}
+
+	protected void addCharacter(CharacterClient character) {
+		characters.add(character);
+		for (ICampaignListener listener : this
+				.getListener(ICampaignListener.class)) {
+			listener.characterAdded(character);
+		}
+	}
+
+	protected void removeCharacter(CharacterClient character) {
+		characters.remove(character);
+		for (ICampaignListener listener : this
+				.getListener(ICampaignListener.class)) {
+			listener.characterRemoved(character);
 		}
 	}
 

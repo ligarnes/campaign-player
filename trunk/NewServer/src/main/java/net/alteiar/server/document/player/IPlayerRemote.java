@@ -19,6 +19,7 @@
  */
 package net.alteiar.server.document.player;
 
+import java.awt.Color;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.document.IDocumentRemote;
@@ -31,4 +32,6 @@ public interface IPlayerRemote extends IDocumentRemote {
 	String getName() throws RemoteException;
 
 	Boolean getIsMj() throws RemoteException;
+
+	Color getColor() throws RemoteException;
 }
