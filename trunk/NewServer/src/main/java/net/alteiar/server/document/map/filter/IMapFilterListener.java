@@ -17,39 +17,13 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.map.element.colored.circle;
+package net.alteiar.server.document.map.filter;
 
-import java.awt.Color;
-import java.awt.Point;
-import java.rmi.RemoteException;
-
-import net.alteiar.server.document.DocumentClient;
-import net.alteiar.server.document.map.element.colored.MapElementColoredRemote;
-import net.alteiar.server.document.map.element.size.MapElementSize;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class MapElementCircleRemote extends MapElementColoredRemote implements
-		ICircleRemote {
-	private static final long serialVersionUID = 940613673212818094L;
-
-	private final MapElementSize radius;
-
-	public MapElementCircleRemote(Long map, Point position, Color color,
-			MapElementSize size) throws RemoteException {
-		super(map, position, color);
-		radius = size;
-	}
-
-	@Override
-	public MapElementSize getRadius() throws RemoteException {
-		return radius;
-	}
-
-	@Override
-	public DocumentClient<?> buildProxy() throws RemoteException {
-		return new CircleClient(this);
-	}
+public interface IMapFilterListener {
+	void filterChanged();
 }

@@ -5,25 +5,37 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.images.SerializableImage;
 import net.alteiar.server.document.images.TransfertImage;
+import net.alteiar.server.document.map.IMapListener;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.server.document.map.element.colored.rectangle.DocumentRectangleBuilder;
+import net.alteiar.server.document.map.element.size.MapElementSize;
+import net.alteiar.server.document.map.element.size.MapElementSizeMeter;
+import net.alteiar.server.document.map.element.size.MapElementSizeSquare;
 import net.alteiar.test.BasicTest;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestMap extends BasicTest {
+
+	public int verifyInnerClassCall;
 
 	public TransfertImage createTransfertImage(String path) {
 		TransfertImage battleImages = null;
@@ -57,6 +69,91 @@ public class TestMap extends BasicTest {
 		}
 
 		return CampaignClient.getInstance().getBattles().get(previousSize);
+	}
+
+	@Before
+	public void setup() {
+		verifyInnerClassCall = 0;
+	}
+
+	public synchronized void innerClassCall() {
+		verifyInnerClassCall++;
+	}
+
+	public synchronized void verifyInnerClassCall(int callCountExpected) {
+		assertEquals(callCountExpected, verifyInnerClassCall);
+	}
+
+	@Test(timeout = 10000)
+	public void testBattleWithMapElement() {
+		TransfertImage battleImage = createTransfertImage();
+		BattleClient battle = createBattle("test battle 10", battleImage);
+
+		IMapListener listener = new IMapListener() {
+			@Override
+			public void filterChanged() {
+				innerClassCall();
+			}
+
+			@Override
+			public void mapRescale(Scale scale) {
+				innerClassCall();
+			}
+
+			@Override
+			public void mapElementRemoved(MapElementClient<?> element) {
+				innerClassCall();
+			}
+
+			@Override
+			public void mapElementAdded(MapElementClient<?> element) {
+				innerClassCall();
+			}
+		};
+		battle.addMapListener(listener);
+
+		Point position = new Point(5, 5);
+		Color color = Color.GREEN;
+		MapElementSize width = new MapElementSizeMeter(1.5);
+		MapElementSize height = new MapElementSizeSquare(3);
+
+		CampaignClient.getInstance().createMapElement(
+				battle,
+				new DocumentRectangleBuilder(battle.getId(), position, color,
+						width, height));
+
+		Collection<MapElementClient<?>> elementsOnMap = battle.getElements();
+		while (elementsOnMap.isEmpty()) {
+			sleep(100);
+			elementsOnMap = battle.getElements();
+		}
+
+		assertTrue("The map should have at least 1 element",
+				!elementsOnMap.isEmpty());
+		assertTrue(
+				"The map should have at least 1 element at the position (6,6)",
+				!battle.getElementsAt(new Point(6, 6)).isEmpty());
+		assertTrue("The map should'nt have any element at the position (4,4)",
+				battle.getElementsAt(new Point(4, 4)).isEmpty());
+
+		battle.removeMapElement(elementsOnMap.iterator().next());
+		while (!elementsOnMap.isEmpty()) {
+			sleep(100);
+			elementsOnMap = battle.getElements();
+		}
+
+		assertTrue("The map should'nt have any element",
+				elementsOnMap.isEmpty());
+
+		battle.setScale(new Scale(25, 1.5));
+		battle.showRectangle(2, 2, 10, 10);
+
+		sleep(200);
+		// Should have 4 call
+		// (add element, remove element, scale change, filter change)
+		verifyInnerClassCall(4);
+
+		battle.removeMapListener(listener);
 	}
 
 	@Test(timeout = 10000)

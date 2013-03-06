@@ -35,7 +35,6 @@ public class SerializableFile implements Serializable {
 	protected byte[] file;
 
 	public SerializableFile() {
-
 	}
 
 	public byte[] getBytes() {

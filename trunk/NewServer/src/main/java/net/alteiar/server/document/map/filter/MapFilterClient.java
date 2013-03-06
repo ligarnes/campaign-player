@@ -68,49 +68,30 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 
 	private void computeCloud() {
 		/*
-		CampaignClient.SERVER_THREAD_POOL.addTask(new Task() {
-			@Override
-			public void run() {
-				int step = 1;
-				for (int i = 0; i < width; i += step) {
-					for (int j = 0; j < height; j += step) {
-						int col = FastNoise.noise(i / 128f, j / 128f, 7);
-
-						int red = col;
-						int green = col;
-						int blue = col;
-
-						int RGB = red;
-						RGB = (RGB << 8) + green;
-						RGB = (RGB << 8) + blue;
-
-						int widthMax = Math.min(width, i + step);
-						int heightMax = Math.min(height, j + step);
-
-						for (int x = i; x < widthMax; ++x) {
-							for (int y = j; y < heightMax; ++y) {
-								backgroundImg.setRGB(x, y, RGB);
-							}
-						}
-					}
-				}
-				try {
-					refreshShape(getRemote().getVisibleRectangle());
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
-			}
-
-			@Override
-			public String getStartText() {
-				return "creating fog of war";
-			}
-
-			@Override
-			public String getFinishText() {
-				return "fog of war generated";
-			}
-		});*/
+		 * CampaignClient.SERVER_THREAD_POOL.addTask(new Task() {
+		 * 
+		 * @Override public void run() { int step = 1; for (int i = 0; i <
+		 * width; i += step) { for (int j = 0; j < height; j += step) { int col
+		 * = FastNoise.noise(i / 128f, j / 128f, 7);
+		 * 
+		 * int red = col; int green = col; int blue = col;
+		 * 
+		 * int RGB = red; RGB = (RGB << 8) + green; RGB = (RGB << 8) + blue;
+		 * 
+		 * int widthMax = Math.min(width, i + step); int heightMax =
+		 * Math.min(height, j + step);
+		 * 
+		 * for (int x = i; x < widthMax; ++x) { for (int y = j; y < heightMax;
+		 * ++y) { backgroundImg.setRGB(x, y, RGB); } } } } try {
+		 * refreshShape(getRemote().getVisibleRectangle()); } catch
+		 * (RemoteException e) { e.printStackTrace(); } }
+		 * 
+		 * @Override public String getStartText() { return
+		 * "creating fog of war"; }
+		 * 
+		 * @Override public String getFinishText() { return
+		 * "fog of war generated"; } });
+		 */
 	}
 
 	private void drawHide(Graphics2D g2, Shape shape) {
@@ -143,9 +124,9 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 
 		/*
-		g2.setPaint(new TexturePaint(backgroundImg, new Rectangle2D.Float(0, 0,
-				width, height)));
-		*/
+		 * g2.setPaint(new TexturePaint(backgroundImg, new Rectangle2D.Float(0,
+		 * 0, width, height)));
+		 */
 		Shape shape = new Rectangle2D.Double(0, 0, realWidth, realHeight);
 		drawHide(g2, shape);
 		List<Polygon> internals = visible.getInternals();
@@ -165,6 +146,20 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 
 	public BufferedImage getShape() {
 		return shapeImage;
+	}
+
+	public void addFilterListener(IMapFilterListener listener) {
+		this.addListener(IMapFilterListener.class, listener);
+	}
+
+	public void removeFilterListener(IMapFilterListener listener) {
+		this.removeListener(IMapFilterListener.class, listener);
+	}
+
+	protected void notifyFilterChanged() {
+		for (IMapFilterListener listener : getListener(IMapFilterListener.class)) {
+			listener.filterChanged();
+		}
 	}
 
 	public void showPolygon(Point[] cwPts) {
@@ -187,7 +182,7 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 
 	private synchronized void setVisible(Polygon2D img) {
 		refreshShape(img);
-		// TODO this.notifyListeners();
+		notifyFilterChanged();
 	}
 
 	@Override
@@ -205,14 +200,12 @@ public class MapFilterClient extends DocumentClient<IMapFilterRemote> {
 		listener = new MapFilterListenerRemote(getRemote());
 
 		/*
-		backgroundImg = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_RGB);
-
-		Graphics g2 = backgroundImg.getGraphics();
-		g2.setColor(Color.GRAY);
-		g2.fillRect(0, 0, width, height);
-		g2.dispose();
-		*/
+		 * backgroundImg = new BufferedImage(width, height,
+		 * BufferedImage.TYPE_INT_RGB);
+		 * 
+		 * Graphics g2 = backgroundImg.getGraphics(); g2.setColor(Color.GRAY);
+		 * g2.fillRect(0, 0, width, height); g2.dispose();
+		 */
 
 		refreshShape(getRemote().getVisibleRectangle());
 		computeCloud();

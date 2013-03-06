@@ -20,17 +20,16 @@
 package net.alteiar.server.document.map;
 
 import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.server.document.map.filter.IMapFilterListener;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IMapListener {
+public interface IMapListener extends IMapFilterListener {
 	void mapElementAdded(MapElementClient<?> element);
 
 	void mapElementRemoved(MapElementClient<?> element);
 
 	void mapRescale(Scale scale);
-
-	void filterChanged();
 }

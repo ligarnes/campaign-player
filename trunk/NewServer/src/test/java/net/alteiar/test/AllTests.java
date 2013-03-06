@@ -4,6 +4,7 @@ import net.alteiar.client.CampaignClient;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.test.map.TestMap;
 import net.alteiar.test.map.TestMapElement;
+import net.alteiar.test.map.TestNoise;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -13,7 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestCreatePlayer.class, TestMap.class, TestChat.class,
-		TestMapElement.class,
+		TestMapElement.class, TestNoise.class,
 /* , TestBenchmark.class */})
 public class AllTests {
 

@@ -167,6 +167,10 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		}
 	}
 
+	public void removeMapElement(MapElementClient<?> map) {
+		removeMapElement(map.getId());
+	}
+
 	public void removeMapElement(Long mapElement) {
 		try {
 			getRemote().removeMapElement(mapElement);
@@ -210,19 +214,26 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 			elements.add(mapElementId);
 		}
 
-		// Notify when element is received only
-		CampaignClient.getInstance().addWaitForDocumentListener(
-				new IWaitForDocumentListener() {
-					@Override
-					public Long getDocument() {
-						return mapElementId;
-					}
+		MapElementClient<?> element = (MapElementClient<?>) CampaignClient
+				.getInstance().getDocument(mapElementId);
+		if (element != null) {
+			// the document already exist so notify now
+			notifyMapElementAdded(element);
+		} else {
+			// Notify when element is received only
+			CampaignClient.getInstance().addWaitForDocumentListener(
+					new IWaitForDocumentListener() {
+						@Override
+						public Long getDocument() {
+							return mapElementId;
+						}
 
-					@Override
-					public void documentReceived(DocumentClient<?> doc) {
-						notifyMapElementAdded((MapElementClient<?>) doc);
-					}
-				});
+						@Override
+						public void documentReceived(DocumentClient<?> doc) {
+							notifyMapElementAdded((MapElementClient<?>) doc);
+						}
+					});
+		}
 	}
 
 	public void removeLocalMapElement(final Long mapElementId) {
@@ -240,12 +251,35 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		this.notifyScaleChanged();
 	}
 
-	public void addMapListener(IMapListener listener) {
+	public void addMapListener(final IMapListener listener) {
 		this.addListener(IMapListener.class, listener);
+
+		MapFilterClient filter = getMapFilter();
+		if (filter != null) {
+			getMapFilter().addFilterListener(listener);
+		} else {
+			// add listener when element is received only
+			CampaignClient.getInstance().addWaitForDocumentListener(
+					new IWaitForDocumentListener() {
+						@Override
+						public Long getDocument() {
+							return MapClient.this.filter;
+						}
+
+						@Override
+						public void documentReceived(DocumentClient<?> doc) {
+							((MapFilterClient) doc).addFilterListener(listener);
+						}
+					});
+		}
 	}
 
 	public void removeMapListener(IMapListener listener) {
 		this.removeListener(IMapListener.class, listener);
+		MapFilterClient filter = getMapFilter();
+		if (filter != null) {
+			getMapFilter().removeFilterListener(listener);
+		}
 	}
 
 	protected void notifyMapElementAdded(MapElementClient<?> mapElement) {
