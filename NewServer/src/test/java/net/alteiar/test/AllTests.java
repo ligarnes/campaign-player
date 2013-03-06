@@ -14,7 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestCreatePlayer.class, TestMap.class, TestChat.class,
-		TestMapElement.class, TestNoise.class,
+		TestMapElement.class, TestNoise.class, TestImageUtils.class
 /* , TestBenchmark.class */})
 public class AllTests {
 

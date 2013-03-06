@@ -42,7 +42,7 @@ public class TestMap extends BasicTest {
 		try {
 			battleImages = new SerializableImage(new File(path));
 		} catch (IOException e) {
-			fail("cannot read file guerrier.jpg");
+			fail("cannot read file " + path);
 		}
 
 		return battleImages;

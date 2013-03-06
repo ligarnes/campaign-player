@@ -19,6 +19,7 @@
  */
 package net.alteiar.server.document.player;
 
+import java.awt.Color;
 import java.io.File;
 import java.rmi.RemoteException;
 
@@ -33,6 +34,7 @@ public class PlayerClient extends DocumentClient<IPlayerRemote> {
 
 	private final String name;
 	private final Boolean isMj;
+	private final Color color;
 
 	/**
 	 * @param remote
@@ -43,6 +45,7 @@ public class PlayerClient extends DocumentClient<IPlayerRemote> {
 
 		name = remote.getName();
 		isMj = remote.getIsMj();
+		color = remote.getColor();
 	}
 
 	public String getName() {
@@ -51,6 +54,10 @@ public class PlayerClient extends DocumentClient<IPlayerRemote> {
 
 	public Boolean isMj() {
 		return isMj;
+	}
+
+	public Color getColor() {
+		return color;
 	}
 
 	@Override

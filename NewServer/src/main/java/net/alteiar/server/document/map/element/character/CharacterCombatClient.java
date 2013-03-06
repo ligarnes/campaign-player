@@ -62,6 +62,8 @@ public class CharacterCombatClient extends
 		} else {
 			g2.fillRect(x, y, width, height);
 		}
+
+		// Draw life bar
 		g2.dispose();
 	}
 
