@@ -2,18 +2,16 @@ package net.alteiar.campaign.player.gui.dashboard;
 
 import javax.swing.JPanel;
 
-import net.alteiar.client.ICampaignListener;
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.client.CampaignAdapter;
 
-public class PanelListSimpleMonster extends PanelList implements
-		ICampaignListener {
+public class PanelListSimpleMonster extends PanelList {
 	private static final long serialVersionUID = 1L;
 
 	public PanelListSimpleMonster() {
 		super("Monstres");
 
 		net.alteiar.client.CampaignClient.getInstance().addCampaignListener(
-				this);
+				new CampaignListener());
 		/*
 		 * for (ICharacterSheetClient character :
 		 * CampaignClient.getInstance().getMonsters) { monsterAdded(character);
@@ -26,16 +24,9 @@ public class PanelListSimpleMonster extends PanelList implements
 		return new PanelCreateCharacter(true);
 	}
 
-	@Override
-	public void battleAdded(BattleClient battle) {
-		// do not care
-	}
+	private class CampaignListener extends CampaignAdapter {
 
-	@Override
-	public void battleRemoved(BattleClient battle) {
-		// do not care
 	}
-
 	/*
 	 * @Override public void monsterAdded(ICharacterSheetClient character) {
 	 * PanelSimpleCharacter panel = new PanelSimpleCharacter(character, true);

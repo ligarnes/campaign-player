@@ -16,8 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
-import net.alteiar.campaign.player.gui.tools.DialogOkCancel;
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
+import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.element.character.CharacterCombatClient;
