@@ -30,18 +30,18 @@ import net.alteiar.server.document.map.element.MapElementRemote;
  * @author Cody Stoutenburg
  * 
  */
-public class CharacterCombatRemote extends MapElementRemote implements
-		ICharacterElementRemote {
+public class MapElementCharacterRemote extends MapElementRemote implements
+		IMapElementCharacterRemote {
 	private static final long serialVersionUID = -3573905342323034939L;
 
 	private final Long characterClient;
 
-	public CharacterCombatRemote(MapClient<?> map, Point position,
+	public MapElementCharacterRemote(MapClient<?> map, Point position,
 			Long characterClient) throws RemoteException {
 		this(map.getId(), position, characterClient);
 	}
 
-	public CharacterCombatRemote(Long map, Point position, Long characterClient)
+	public MapElementCharacterRemote(Long map, Point position, Long characterClient)
 			throws RemoteException {
 		super(map, position);
 
@@ -55,6 +55,6 @@ public class CharacterCombatRemote extends MapElementRemote implements
 
 	@Override
 	public DocumentClient<?> buildProxy() throws RemoteException {
-		return new CharacterCombatClient(this);
+		return new MapElementCharacterClient(this);
 	}
 }

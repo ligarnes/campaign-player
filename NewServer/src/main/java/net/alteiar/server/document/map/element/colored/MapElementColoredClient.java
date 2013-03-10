@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.document.map.element.MapElementClient;
@@ -32,6 +33,19 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 
 	protected abstract Shape getShapeBorder(double zoomFactor, int strokeSize);
 
+	private Shape transform(Shape shape, double zoomFactor) {
+		// work fine for rotation but not ideal for the moment because the shape
+		// need to be drawn at (0, 0)
+		double angle = Math.toRadians(getAngle());
+
+		AffineTransform transform = AffineTransform.getTranslateInstance(getX()
+				* zoomFactor, getY() * zoomFactor);
+		transform.rotate(angle, (getWidth() * zoomFactor) / 2.0,
+				(getHeight() * zoomFactor) / 2.0);
+
+		return transform.createTransformedShape(shape);
+	}
+
 	@Override
 	public void draw(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
@@ -48,6 +62,7 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 		g2.setColor(getColor());
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.5f));
+
 		g2.fill(getShape(zoomFactor));
 
 		// Draw the border

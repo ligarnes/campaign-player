@@ -27,6 +27,6 @@ import net.alteiar.server.document.map.element.IMapElementRemote;
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterElementRemote extends IMapElementRemote {
+public interface IMapElementCharacterRemote extends IMapElementRemote {
 	Long getCharacterClient() throws RemoteException;
 }

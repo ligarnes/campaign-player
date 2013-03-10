@@ -24,6 +24,7 @@ import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.battle.DocumentBattleBuilder;
+import net.alteiar.server.document.map.battle.character.DocumentCharacterCombatBuilder;
 import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
 import net.alteiar.server.document.player.DocumentPlayerBuilder;
 import net.alteiar.server.document.player.PlayerClient;
@@ -146,6 +147,15 @@ public class CampaignClient extends DocumentManagerClient {
 
 		Long guid = this.createDocument(mapElement);
 		map.addMapElement(guid);
+	}
+
+	public void createCharacterCombat(BattleClient battle,
+			CharacterClient character, Integer initiative) {
+		DocumentCharacterCombatBuilder builder = new DocumentCharacterCombatBuilder(
+				character, initiative);
+
+		long characterId = createDocument(builder);
+		battle.addCharacterCombat(characterId);
 	}
 
 	@Override

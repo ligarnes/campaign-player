@@ -20,6 +20,7 @@
 package net.alteiar.server.document.map.battle;
 
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.map.MapRemote;
@@ -34,88 +35,54 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 
 	private Integer currentTurn;
 
-	// private final SynchronizedHashMap<Long, ICharacterCombatRemote>
-	// allCharacter;
+	private final HashSet<Long> characterCombat;
 
 	public BattleRemote(String battleName, int width, int height,
 			long background, long localFilter, Scale scale)
 			throws RemoteException {
 		super(battleName, width, height, background, localFilter, scale);
 
-		// this.allCharacter = new SynchronizedHashMap<Long,
-		// ICharacterCombatRemote>();
-
+		characterCombat = new HashSet<Long>();
 		currentTurn = 0;
 	}
 
-	/*
 	@Override
-	public synchronized void addCharacter(Long id, Integer init, Point position)
-			throws RemoteException {
-		ICharacterRemote found = ServerCampaign.SERVER_CAMPAIGN_REMOTE
-				.getCharater(id);
-		ICharacterCombatRemote combat = new CharacterCombatRemote(found);
-		combat.setPosition(position);
-		combat.setInitiative(init);
-		allCharacter.put(combat.getId(), combat);
-
-		this.notifyCharacterAdded(combat);
-	}
-
-	@Override
-	public synchronized void addMonster(Long id, Integer init, Point position,
-			Boolean isVisible) throws RemoteException {
-		ICharacterRemote found = ServerCampaign.SERVER_CAMPAIGN_REMOTE
-				.getMonster(id);
-
-		String orgName = found.getCharacterFacade().getName();
-		int idx = 1;
-		String name = orgName + idx;
-
-		Boolean characterChanged = true;
-		while (characterChanged) {
-			characterChanged = false;
-			for (ICharacterCombatRemote character : this.allCharacter.values()) {
-				if (character.getCharacterSheet().getCharacterFacade()
-						.getName().equals(name)) {
-					idx++;
-					name = orgName + idx;
-					characterChanged = true;
-					break;
-				}
-			}
+	public void addCharacterCombat(Long id) throws RemoteException {
+		boolean isAdded = false;
+		synchronized (characterCombat) {
+			isAdded = characterCombat.add(id);
 		}
-		ICharacterCombatRemote combat = new CharacterCombatRemote(
-				found.fastCopy(name));
-		combat.setVisibleForPlayer(isVisible);
-		combat.setPosition(position);
-		combat.setInitiative(init);
-		allCharacter.put(combat.getId(), combat);
-
-		this.notifyCharacterAdded(combat);
+		if (isAdded) {
+			notifyCharacterAdded(id);
+		}
 	}
 
 	@Override
-	public synchronized void removeCharacter(Long characterId)
-			throws RemoteException {
-		allCharacter.remove(characterId);
-		this.notifyCharacterRemoved(characterId);
+	public void removeCharacterCombat(Long id) throws RemoteException {
+		boolean isRemoved = false;
+		synchronized (characterCombat) {
+			isRemoved = characterCombat.remove(id);
+		}
+		if (isRemoved) {
+			notifyCharacterRemoved(id);
+		}
 	}
 
 	@Override
-	public ICharacterCombatRemote[] getAllCharacter() throws RemoteException {
-		allCharacter.incCounter();
-		ICharacterCombatRemote[] characters = new ICharacterCombatRemote[allCharacter
-				.size()];
-		allCharacter.values().toArray(characters);
-		allCharacter.decCounter();
+	public HashSet<Long> getCharacterCombats() {
+		HashSet<Long> charactersCopy = null;
+		synchronized (characterCombat) {
+			charactersCopy = (HashSet<Long>) characterCombat.clone();
+		}
 
-		return characters;
-	}*/
+		return charactersCopy;
+	}
 
 	@Override
-	public synchronized void nextTurn() throws RemoteException {
-		++currentTurn;
+	public void nextTurn() throws RemoteException {
+		synchronized (currentTurn) {
+			++currentTurn;
+		}
 		notifyNextTurn(currentTurn);
 	}
 
@@ -142,20 +109,23 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 		this.removeListener(IBattleListenerRemote.class, listener);
 	}
 
-	/*
-	protected void notifyCharacterAdded(ICharacterCombatRemote remote) {
-		for (Remote observer : this.getListener(BATTLE_LISTENER)) {
-			ServerCampaign.SERVER_THREAD_POOL.addTask(new CharacterAddedTask(
-					this, observer, remote, true));
+	protected void notifyCharacterAdded(Long remote) {
+		for (IBattleListenerRemote observer : this
+				.getListener(IBattleListenerRemote.class)) {
+			ServerDocuments.SERVER_THREAD_POOL
+					.addTask(new CharacterAddedRemovedTask(observer, remote,
+							true));
 		}
 	}
 
 	protected void notifyCharacterRemoved(Long characterId) {
-		for (Remote observer : this.getListener(BATTLE_LISTENER)) {
-			ServerCampaign.SERVER_THREAD_POOL.addTask(new CharacterRemovedTask(
-					this, observer, characterId));
+		for (IBattleListenerRemote observer : this
+				.getListener(IBattleListenerRemote.class)) {
+			ServerDocuments.SERVER_THREAD_POOL
+					.addTask(new CharacterAddedRemovedTask(observer,
+							characterId, false));
 		}
-	}*/
+	}
 
 	protected void notifyNextTurn(Integer currentTurn) {
 		for (IBattleListenerRemote observer : this
@@ -165,15 +135,15 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 		}
 	}
 
-	/*
-	private class CharacterAddedTask extends BaseNotify<IBattleListenerRemote> {
+	private class CharacterAddedRemovedTask extends
+			BaseNotify<IBattleListenerRemote> {
 		private final Boolean isAdded;
-		private final ICharacterCombatRemote character;
+		private final Long character;
 
-		public CharacterAddedTask(BattleRemote observable, Remote observer,
-				ICharacterCombatRemote access, Boolean isAdded) {
-			super(observable, IBattleListenerRemote.class, observer);
-			this.character = access;
+		public CharacterAddedRemovedTask(IBattleListenerRemote observer,
+				Long character, Boolean isAdded) {
+			super(BattleRemote.this, IBattleListenerRemote.class, observer);
+			this.character = character;
 			this.isAdded = isAdded;
 		}
 
@@ -182,46 +152,10 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 			if (isAdded) {
 				observer.characterAdded(character);
 			} else {
-				observer.characterRemoved(character.getId());
+				observer.characterRemoved(character);
 			}
 		}
-
-		@Override
-		public String getStartText() {
-			return "start notify character added";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify character added";
-		}
 	}
-
-	private class CharacterRemovedTask extends
-			BaseNotify<IBattleListenerRemote> {
-		private final Long characterId;
-
-		public CharacterRemovedTask(BattleRemote observable,
-				IBattleListenerRemote observer, Long characterId) {
-			super(observable, IBattleListenerRemote.class, observer);
-			this.characterId = characterId;
-		}
-
-		@Override
-		protected void doAction() throws RemoteException {
-			observer.characterRemoved(characterId);
-		}
-
-		@Override
-		public String getStartText() {
-			return "start notify character removed";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify character removed";
-		}
-	}*/
 
 	private class nextBattleTask extends BaseNotify<IBattleListenerRemote> {
 		private final Integer currentTurn;
@@ -236,16 +170,6 @@ public class BattleRemote extends MapRemote implements IBattleRemote {
 		protected void doAction() throws RemoteException {
 			observer.nextTurn(currentTurn);
 
-		}
-
-		@Override
-		public String getStartText() {
-			return "start notify next turn";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify next turn";
 		}
 	}
 }

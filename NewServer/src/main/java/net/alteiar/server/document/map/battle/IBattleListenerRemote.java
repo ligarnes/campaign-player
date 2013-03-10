@@ -27,11 +27,10 @@ import java.rmi.RemoteException;
  * 
  */
 public interface IBattleListenerRemote extends Remote {
-	/*
-	void characterAdded(ICharacterCombatRemote character)
-			throws RemoteException;
+
+	void characterAdded(Long characterId) throws RemoteException;
 
 	void characterRemoved(Long characterId) throws RemoteException;
-	*/
+
 	void nextTurn(Integer currentTurn) throws RemoteException;
 }

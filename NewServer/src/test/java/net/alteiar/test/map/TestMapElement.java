@@ -11,8 +11,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.images.TransfertImage;
 import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.server.document.map.element.character.DocumentMapElementCharacterBuilder;
+import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 import net.alteiar.server.document.map.element.colored.circle.CircleClient;
 import net.alteiar.server.document.map.element.colored.circle.DocumentCircleBuilder;
 import net.alteiar.server.document.map.element.colored.rectangle.DocumentRectangleBuilder;
@@ -135,6 +139,75 @@ public class TestMapElement extends TestMap {
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) imgExpected.getGraphics();
 		rectangleClient.draw(g2, 1.0);
+		g2.dispose();
+
+		try {
+			assertTrue("images should be same",
+					compareImage(imgExpected, imgGenerated));
+		} catch (IOException e) {
+			fail("fail to compare images");
+		}
+	}
+
+	protected MapElementClient<?> createMapElement(BattleClient battle,
+			DocumentMapElementCharacterBuilder mapElement) {
+
+		int previous = battle.getElements().size();
+		CampaignClient.getInstance().createMapElement(battle, mapElement);
+		int current = battle.getElements().size();
+		while (previous == current) {
+			sleep(50);
+			current = battle.getElements().size();
+		}
+		return battle.getElements().get(previous);
+	}
+
+	@Test(timeout = 5000)
+	public void testMapElementCharacter() {
+		TransfertImage battleImages = createTransfertImage();
+		BattleClient battle = createBattle("test map element character",
+				battleImages);
+
+		Point position = new Point(10, 10);
+		CharacterClient character = createCharacter();
+
+		DocumentMapElementCharacterBuilder mapElementCharacter = new DocumentMapElementCharacterBuilder(
+				battle.getId(), position, character);
+
+		MapElementCharacterClient mapElement = (MapElementCharacterClient) createMapElement(
+				battle, mapElementCharacter);
+
+		CampaignClient.getInstance().createMapElement(battle,
+				mapElementCharacter);
+
+		BufferedImage imgGenerated = new BufferedImage(1000, 1000,
+				BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = (Graphics2D) imgGenerated.getGraphics();
+		mapElement.draw(g2, 1.0);
+		g2.dispose();
+
+		BufferedImage imgExpected = new BufferedImage(1000, 1000,
+				BufferedImage.TYPE_INT_ARGB);
+		g2 = (Graphics2D) imgExpected.getGraphics();
+		mapElement.draw(g2, 1.0);
+		g2.dispose();
+
+		try {
+			assertTrue("images should be same",
+					compareImage(imgExpected, imgGenerated));
+		} catch (IOException e) {
+			fail("fail to compare images");
+		}
+
+		imgGenerated = new BufferedImage(1000, 1000,
+				BufferedImage.TYPE_INT_ARGB);
+		g2 = (Graphics2D) imgGenerated.getGraphics();
+		mapElement.draw(g2, 7.0);
+		g2.dispose();
+
+		imgExpected = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
+		g2 = (Graphics2D) imgExpected.getGraphics();
+		mapElement.draw(g2, 7.0);
 		g2.dispose();
 
 		try {

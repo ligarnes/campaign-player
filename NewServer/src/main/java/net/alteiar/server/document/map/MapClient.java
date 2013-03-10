@@ -28,6 +28,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.client.IWaitForDocumentListener;
@@ -185,7 +186,7 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 	 * 
 	 * @return
 	 */
-	public Collection<MapElementClient<?>> getElements() {
+	public List<MapElementClient<?>> getElements() {
 		ArrayList<MapElementClient<?>> elementsCopy = new ArrayList<MapElementClient<?>>();
 		synchronized (elements) {
 			for (Long element : elements) {

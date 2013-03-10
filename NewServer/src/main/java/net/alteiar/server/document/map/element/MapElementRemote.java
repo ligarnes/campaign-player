@@ -151,16 +151,6 @@ public abstract class MapElementRemote extends DocumentRemote implements
 		protected void doAction() throws RemoteException {
 			observer.elementMoved(newPoint);
 		}
-
-		@Override
-		public String getStartText() {
-			return "start notify map element moved)";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify map element moved";
-		}
 	}
 
 	private class MapElementHiddenTask extends
@@ -177,16 +167,6 @@ public abstract class MapElementRemote extends DocumentRemote implements
 		protected void doAction() throws RemoteException {
 			observer.elementHidden(isHidden);
 		}
-
-		@Override
-		public String getStartText() {
-			return "start notify map element moved)";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify map element moved";
-		}
 	}
 
 	private class MapElementRotateTask extends
@@ -202,16 +182,6 @@ public abstract class MapElementRemote extends DocumentRemote implements
 		@Override
 		protected void doAction() throws RemoteException {
 			observer.elementRotate(angle);
-		}
-
-		@Override
-		public String getStartText() {
-			return "start notify map element moved)";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify map element moved";
 		}
 	}
 }

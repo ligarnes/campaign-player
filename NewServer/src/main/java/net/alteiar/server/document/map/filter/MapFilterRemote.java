@@ -138,15 +138,5 @@ public class MapFilterRemote extends DocumentRemote implements IMapFilterRemote 
 		protected void doAction() throws RemoteException {
 			observer.filterChanged(newVisibleArea);
 		}
-
-		@Override
-		public String getStartText() {
-			return "start map filter change)";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish map filter changed";
-		}
 	}
 }
