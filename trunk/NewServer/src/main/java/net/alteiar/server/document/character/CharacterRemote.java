@@ -161,15 +161,5 @@ public class CharacterRemote extends DocumentRemote implements ICharacterRemote 
 		protected void doAction() throws RemoteException {
 			observer.currentHealthPointChanged(currentHp);
 		}
-
-		@Override
-		public String getStartText() {
-			return "start notify character changed";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify character changed";
-		}
 	}
 }

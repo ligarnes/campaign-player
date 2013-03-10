@@ -35,9 +35,9 @@ public class WorkerPool {
 
 	}
 
-	public void initWorkPool(int threadCount, TaskInfo output) {
+	public void initWorkPool(int threadCount) {
 		for (int i = 0; i < threadCount; ++i) {
-			Worker newWorker = new Worker(taskPool, output);
+			Worker newWorker = new Worker(taskPool);
 			Thread t = new Thread(newWorker);
 			t.start();
 			workers.push(newWorker);

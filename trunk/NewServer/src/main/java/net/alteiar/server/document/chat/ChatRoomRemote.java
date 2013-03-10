@@ -79,16 +79,6 @@ public class ChatRoomRemote extends DocumentRemote implements IChatRoomRemote {
 		protected void doAction() throws RemoteException {
 			observer.playerTalk(message);
 		}
-
-		@Override
-		public String getStartText() {
-			return "start notify player talk";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish notify player talk";
-		}
 	}
 
 	@Override

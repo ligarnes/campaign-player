@@ -23,8 +23,12 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.HashSet;
 
+import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.map.MapClient;
+import net.alteiar.server.document.map.battle.character.CharacterCombatClient;
 import net.alteiar.shared.ExceptionTool;
 
 /**
@@ -37,79 +41,45 @@ public class BattleClient extends MapClient<IBattleRemote> {
 	private transient BattleClientRemoteObserver battleListener;
 	private Integer currentTurn;
 
-	// private final SynchronizedHashMap<Long, ICharacterCombatClient>
-	// characters;
+	private final HashSet<Long> characters;
 
 	public BattleClient(IBattleRemote battle) throws RemoteException {
 		super(battle);
-		// characters = new SynchronizedHashMap<Long, ICharacterCombatClient>();
 		currentTurn = getRemote().getCurrentTurn();
 
-		/* 
-		// Load all current Character
-		for (ICharacterCombatRemote combat : remoteObject.getAllCharacter()) {
-			addCharacterRemote(combat);
-		}
-		new BattleClientRemoteObserver(remoteObject);
-		*/
+		characters = getRemote().getCharacterCombats();
 	}
 
-	/*
-	@Override
-	public void addCharacter(ICharacterSheetClient character, Integer init,
-			Point position) {
-		try {
-			remoteObject.addCharacter(character.getId(), init, position);
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
-	}
+	public ArrayList<CharacterCombatClient> getCharacterCombats() {
+		ArrayList<CharacterCombatClient> characters = new ArrayList<CharacterCombatClient>();
 
-	@Override
-	public void addMonster(ICharacterSheetClient character, Integer init,
-			Boolean isVisible, Point position) {
-		try {
-			remoteObject.addMonster(character.getId(), init, position,
-					isVisible);
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
-	}
-
-	@Override
-	public void removeCharacter(ICharacterCombatClient character) {
-		try {
-			remoteObject.removeCharacter(character.getId());
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
-	}
-
-	@Override
-	public ICharacterCombatClient[] getAllCharacter() {
-		characters.incCounter();
-		ICharacterCombatClient[] allCharacters = new ICharacterCombatClient[characters
-				.values().size()];
-		characters.values().toArray(allCharacters);
-		characters.decCounter();
-		return allCharacters;
-	}
-
-	@Override
-	public ICharacterCombatClient getCharacterCombat(Long guid) {
-		ICharacterCombatClient client = this.characters.get(guid);
-
-		while (client == null) {
-			try {
-				this.wait();
-			} catch (InterruptedException e) {
-				ExceptionTool.showError(e);
+		synchronized (this.characters) {
+			for (Long characterCombatId : this.characters) {
+				characters.add((CharacterCombatClient) CampaignClient
+						.getInstance().getDocument(characterCombatId));
 			}
-			client = this.characters.get(guid);
 		}
 
-		return client;
-	}*/
+		return characters;
+	}
+
+	public void addCharacterCombat(Long id) {
+		try {
+			this.getRemote().addCharacterCombat(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void removeCharacterCombat(Long id) {
+		try {
+			this.getRemote().removeCharacterCombat(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public void nextTurn() {
 		try {
@@ -123,78 +93,24 @@ public class BattleClient extends MapClient<IBattleRemote> {
 		return currentTurn;
 	}
 
-	/*
-	protected synchronized void addCharacterRemote(ICharacterCombatRemote combat) {
-		ICharacterCombatClient characterClient = new CharacterCombatClient(
-				this, combat);
-
-		characterClient
-				.addCharacterCombatListener(new ICharacterCombatObserver() {
-					@Override
-					public void visibilityChange(
-							ICharacterCombatClient character) {
-						notifyMapChanged();
-					}
-
-					@Override
-					public void rotationChanged(ICharacterCombatClient character) {
-						notifyMapChanged();
-					}
-
-					@Override
-					public void positionChanged(ICharacterCombatClient character) {
-						notifyMapChanged();
-					}
-
-					@Override
-					public void initiativeChange(
-							ICharacterCombatClient character) {
-					}
-
-					@Override
-					public void highLightChange(
-							ICharacterCombatClient character,
-							Boolean isHighlighted) {
-						notifyMapChanged();
-					}
-
-					@Override
-					public void characterChange(ICharacterCombatClient character) {
-						notifyMapChanged();
-					}
-				});
-
-		characters.put(characterClient.getId(), characterClient);
-
-		notifyCharacterAdded(this, characterClient);
-		notifyMapChanged();
-	}
-
-	protected void removeCharacterRemote(Long characterId) {
-		ICharacterCombatClient client = characters.remove(characterId);
-		notifyCharacterRemove(this, client);
-		notifyMapChanged();
-	}*/
-
 	protected void setLocalCurrentTurn(Integer currentTurn) {
 		this.currentTurn = currentTurn;
 		// TODO this.notifyTurnChanged(this);
 	}
 
-	/*
-	@Override
-	public ICharacterCombatClient getCharacterAt(Point location) {
-		characters.incCounter();
-		ICharacterCombatClient characterAt = null;
-		for (ICharacterCombatClient character : getAllCharacter()) {
-			if (character.isInside(location)) {
-				characterAt = character;
-				break;
-			}
+	protected void addLocalCharacterCombat(Long characterCombatId) {
+		synchronized (characters) {
+			characters.add(characterCombatId);
 		}
-		characters.decCounter();
-		return characterAt;
-	}*/
+		// TODO notify
+	}
+
+	protected void removeLocalCharacterCombat(Long characterCombatId) {
+		synchronized (characters) {
+			characters.remove(characterCombatId);
+		}
+		// TODO notify
+	}
 
 	@Override
 	protected void closeDocument() throws RemoteException {
@@ -214,7 +130,7 @@ public class BattleClient extends MapClient<IBattleRemote> {
 	}
 
 	/**
-	 * this class should be observer and will use the notify of the Map2DClient
+	 * this class should be observer and will use the notify of the Battle
 	 * 
 	 * @author Cody Stoutenburg
 	 * 
@@ -229,21 +145,19 @@ public class BattleClient extends MapClient<IBattleRemote> {
 			battle.addBattleListener(this);
 		}
 
-		/*
 		@Override
-		public void characterAdded(ICharacterCombatRemote character)
-				throws RemoteException {
-			addCharacterRemote(character);
+		public void nextTurn(Integer currentTurn) throws RemoteException {
+			setLocalCurrentTurn(currentTurn);
+		}
+
+		@Override
+		public void characterAdded(Long characterId) throws RemoteException {
+			addLocalCharacterCombat(characterId);
 		}
 
 		@Override
 		public void characterRemoved(Long characterId) throws RemoteException {
-			removeCharacterRemote(characterId);
-		}*/
-
-		@Override
-		public void nextTurn(Integer currentTurn) throws RemoteException {
-			setLocalCurrentTurn(currentTurn);
+			removeCharacterCombat(characterId);
 		}
 	}
 }

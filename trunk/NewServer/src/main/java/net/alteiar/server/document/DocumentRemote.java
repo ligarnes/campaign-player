@@ -80,16 +80,6 @@ public abstract class DocumentRemote extends BaseObservableRemote implements
 		}
 
 		@Override
-		public String getStartText() {
-			return "";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "";
-		}
-
-		@Override
 		protected void doAction() throws RemoteException {
 			this.observer.documentClosed();
 		}

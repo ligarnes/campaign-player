@@ -32,7 +32,6 @@ import net.alteiar.server.document.DocumentBuilder;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.server.document.chat.ChatRoomRemote;
 import net.alteiar.shared.ExceptionTool;
-import net.alteiar.thread.TaskInfoAdapter;
 import net.alteiar.thread.WorkerPool;
 
 /**
@@ -51,7 +50,7 @@ public class ServerDocuments extends BaseObservableRemote implements
 	public final static WorkerPool SERVER_THREAD_POOL = new WorkerPool();
 
 	public static void startServer(String addressIp, int port) {
-		SERVER_THREAD_POOL.initWorkPool(10, new TaskInfoAdapter());
+		SERVER_THREAD_POOL.initWorkPool(10);
 
 		try {
 			RmiRegistryProxy.startRmiRegistryProxy(addressIp, port);
@@ -164,16 +163,6 @@ public class ServerDocuments extends BaseObservableRemote implements
 		}
 
 		@Override
-		public String getStartText() {
-			return "addind document";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "document added";
-		}
-
-		@Override
 		protected void doAction() throws RemoteException {
 			this.observer.documentAdded(guid);
 		}
@@ -186,16 +175,6 @@ public class ServerDocuments extends BaseObservableRemote implements
 				ServerListener observer, Long guid) {
 			super(observable, ServerListener.class, observer);
 			this.guid = guid;
-		}
-
-		@Override
-		public String getStartText() {
-			return "removing document";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "document removed";
 		}
 
 		@Override

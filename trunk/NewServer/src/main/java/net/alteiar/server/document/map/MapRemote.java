@@ -192,16 +192,6 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 		}
 
 		@Override
-		public String getStartText() {
-			return "element added or removed";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "element added or removed";
-		}
-
-		@Override
 		protected void doAction() throws RemoteException {
 			if (isAdded) {
 				observer.mapElementAdded(elementId);
@@ -244,16 +234,6 @@ public abstract class MapRemote extends DocumentRemote implements IMapRemote {
 		@Override
 		protected void doAction() throws RemoteException {
 			observer.mapRescale(scale);
-		}
-
-		@Override
-		public String getStartText() {
-			return "start map rescale";
-		}
-
-		@Override
-		public String getFinishText() {
-			return "finish map rescale";
 		}
 	}
 }

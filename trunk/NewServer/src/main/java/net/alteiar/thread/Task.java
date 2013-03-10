@@ -24,6 +24,4 @@ package net.alteiar.thread;
  * 
  */
 public interface Task extends Runnable {
-	String getStartText();
-	String getFinishText();
 }

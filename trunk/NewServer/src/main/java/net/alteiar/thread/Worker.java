@@ -29,23 +29,18 @@ import java.util.logging.Logger;
 public class Worker implements Runnable {
 	private static final Logger WORKER_LOGGER = Logger.getLogger("Worker");
 
-	/* only for test and debug version
-	static {
-		try {
-			WORKER_LOGGER.addHandler(new FileHandler(
-					"./logs/SERVER_TASK_LOG.log", 50, 2, true));
-		} catch (SecurityException | IOException e) {
-			e.printStackTrace();
-		}
-	}*/
+	/*
+	 * only for test and debug version static { try {
+	 * WORKER_LOGGER.addHandler(new FileHandler( "./logs/SERVER_TASK_LOG.log",
+	 * 50, 2, true)); } catch (SecurityException | IOException e) {
+	 * e.printStackTrace(); } }
+	 */
 
-	private final TaskInfo output;
 	private final TaskPool allTask;
 	private boolean finish;
 
-	public Worker(TaskPool taskPool, TaskInfo output) {
+	public Worker(TaskPool taskPool) {
 		allTask = taskPool;
-		this.output = output;
 		finish = false;
 	}
 
@@ -56,17 +51,12 @@ public class Worker implements Runnable {
 			Task t = allTask.getTask();
 
 			long begin = System.currentTimeMillis();
-			this.output.setTaskName(t.getStartText());
-			this.output.taskStarted();
 			// do the task
 			t.run();
-			this.output.setTaskName(t.getFinishText());
-			this.output.taskFinished();
 			long end = System.currentTimeMillis();
 			long time = (end - begin) / 1000;
 			if (time > 1) {
-				WORKER_LOGGER.log(Level.INFO, t.getFinishText() + " take "
-						+ time + " second");
+				WORKER_LOGGER.log(Level.INFO, "task take " + time + " second");
 			}
 		}
 	}

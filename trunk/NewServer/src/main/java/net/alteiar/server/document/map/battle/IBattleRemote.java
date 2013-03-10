@@ -20,6 +20,7 @@
 package net.alteiar.server.document.map.battle;
 
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 import net.alteiar.server.document.map.IMapRemote;
 
@@ -35,17 +36,11 @@ public interface IBattleRemote extends IMapRemote {
 	void removeBattleListener(IBattleListenerRemote listener)
 			throws RemoteException;
 
-	/*
-	void addCharacter(Long id, Integer init, Point position)
-			throws RemoteException;
+	void addCharacterCombat(Long id) throws RemoteException;
 
-	void addMonster(Long id, Integer init, Point position, Boolean isVisible)
-			throws RemoteException;
+	void removeCharacterCombat(Long id) throws RemoteException;
 
-	void removeCharacter(Long guid) throws RemoteException;
-
-	ICharacterCombatRemote[] getAllCharacter() throws RemoteException;
-	*/
+	HashSet<Long> getCharacterCombats() throws RemoteException;
 
 	void nextTurn() throws RemoteException;
 
