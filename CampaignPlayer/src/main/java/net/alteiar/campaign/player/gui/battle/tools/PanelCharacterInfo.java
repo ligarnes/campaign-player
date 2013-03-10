@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
-import net.alteiar.server.document.map.element.character.CharacterCombatClient;
+import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 
 public class PanelCharacterInfo extends JPanel /*
 												 * implements
@@ -27,7 +27,7 @@ public class PanelCharacterInfo extends JPanel /*
 	private final JLabel labelInit;
 	private final JTextField textFieldInit;
 
-	private CharacterCombatClient current;
+	private MapElementCharacterClient current;
 
 	public PanelCharacterInfo(final BattleClient battle) {
 		GridBagLayout gridBagLayout = new GridBagLayout();

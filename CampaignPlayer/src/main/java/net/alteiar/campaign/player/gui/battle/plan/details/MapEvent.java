@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 
 import net.alteiar.server.document.map.element.MapElementClient;
-import net.alteiar.server.document.map.element.character.CharacterCombatClient;
+import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 
 public class MapEvent {
 	private final MouseEvent event;
@@ -31,10 +31,10 @@ public class MapEvent {
 		return mapPosition;
 	}
 
-	public CharacterCombatClient getCharacter() {
-		CharacterCombatClient character = null;
-		if (mapElement instanceof CharacterCombatClient) {
-			character = (CharacterCombatClient) mapElement;
+	public MapElementCharacterClient getCharacter() {
+		MapElementCharacterClient character = null;
+		if (mapElement instanceof MapElementCharacterClient) {
+			character = (MapElementCharacterClient) mapElement;
 		}
 		return character;
 	}

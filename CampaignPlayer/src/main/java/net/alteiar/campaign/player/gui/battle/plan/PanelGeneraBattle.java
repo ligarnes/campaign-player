@@ -42,7 +42,7 @@ import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.element.MapElementClient;
-import net.alteiar.server.document.map.element.character.DocumentCharacterCombatBuilder;
+import net.alteiar.server.document.map.element.character.DocumentMapElementCharacterBuilder;
 import net.alteiar.server.document.map.element.colored.circle.DocumentCircleBuilder;
 import net.alteiar.server.document.map.element.colored.rectangle.DocumentRectangleBuilder;
 import net.alteiar.server.document.map.element.size.MapElementSize;
@@ -170,7 +170,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 		CampaignClient.getInstance()
 				.createMapElement(
 						battle,
-						new DocumentCharacterCombatBuilder(battle, position,
+						new DocumentMapElementCharacterBuilder(battle, position,
 								character));
 	}
 

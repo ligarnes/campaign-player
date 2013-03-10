@@ -29,17 +29,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
-import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.client.CampaignClient;
-import net.alteiar.thread.TaskInfo;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class MainFrame extends JFrame implements TaskInfo, WindowListener {
+public class MainFrame extends JFrame implements WindowListener {
 	private static final long serialVersionUID = 7112970933851075952L;
 
 	public static final MainFrame FRAME = new MainFrame();
@@ -101,36 +99,6 @@ public class MainFrame extends JFrame implements TaskInfo, WindowListener {
 
 	public MainPanel getMainPanel() {
 		return this.centerPanel;
-	}
-
-	@Override
-	public void setTaskName(String name) {
-		currentTask.setText(name);
-	}
-
-	@Override
-	public void setDescription(String description) {
-		currentTask.setToolTipText(description);
-	}
-
-	@Override
-	public void taskStarted() {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				progressBar.setIndeterminate(true);
-			}
-		});
-	}
-
-	@Override
-	public void taskFinished() {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				progressBar.setIndeterminate(false);
-			}
-		});
 	}
 
 	@Override

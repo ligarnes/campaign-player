@@ -25,7 +25,7 @@ import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.element.MapElementClient;
-import net.alteiar.server.document.map.element.character.CharacterCombatClient;
+import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 
 public class DefaultMapListener extends ActionMapListener {
 
@@ -351,7 +351,7 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildMenuDamage(final MouseEvent orgEvent,
-			final CharacterCombatClient character, final Boolean isDamage) {
+			final MapElementCharacterClient character, final Boolean isDamage) {
 
 		String title = "Dégât";
 		if (!isDamage) {
@@ -395,7 +395,7 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private void doDamage(MouseEvent orgEvent,
-			CharacterCombatClient characterCombat, Boolean isDamage) {
+			MapElementCharacterClient characterCombat, Boolean isDamage) {
 		final JTextField textFieldDegat = new JTextField(5);
 
 		String builder = "dégâts";
