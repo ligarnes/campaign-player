@@ -20,7 +20,7 @@ import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
-import net.alteiar.server.document.map.element.character.CharacterCombatClient;
+import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 
 public class PanelBattleCharacter extends JPanel/*
 												 * implements
@@ -28,11 +28,11 @@ public class PanelBattleCharacter extends JPanel/*
 												 */{
 	private static final long serialVersionUID = 1L;
 
-	private final CharacterCombatClient character;
+	private final MapElementCharacterClient character;
 	private final BattleClient battle;
 
 	public PanelBattleCharacter(BattleClient battle,
-			CharacterCombatClient character) {
+			MapElementCharacterClient character) {
 		this.setPreferredSize(new Dimension(50, 50));
 
 		this.battle = battle;
@@ -51,7 +51,7 @@ public class PanelBattleCharacter extends JPanel/*
 		 */
 	}
 
-	public CharacterCombatClient getCharacter() {
+	public MapElementCharacterClient getCharacter() {
 		return character;
 	}
 
