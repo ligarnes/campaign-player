@@ -24,8 +24,8 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
-import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
 import net.alteiar.campaign.player.gui.dashboard.PanelListBattle;
 import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleCharacter;
 import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleMonster;
@@ -75,7 +75,8 @@ public class PanelDashboard extends MyPanel {
 		}
 		center.add(new PanelListBattle());
 
-		this.add(PanelChatFactory.buildChatLarge(), BorderLayout.WEST);
+		JScrollPane scroll = new JScrollPane(new PanelWest());
+		this.add(scroll, BorderLayout.WEST);
 		this.add(center, BorderLayout.CENTER);
 	}
 

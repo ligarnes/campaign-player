@@ -13,11 +13,11 @@ import javax.swing.border.LineBorder;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.character.ICharacterClientObserver;
+import net.alteiar.server.document.character.ICharacterClientListener;
 import net.alteiar.shared.ImageUtil;
 
 public class PanelSimpleCharacter extends JPanel implements
-		ICharacterClientObserver {
+		ICharacterClientListener {
 	private static final long serialVersionUID = 1L;
 
 	private final JLabel lblAvatar;
