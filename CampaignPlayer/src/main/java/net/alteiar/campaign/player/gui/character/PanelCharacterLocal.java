@@ -22,7 +22,7 @@ import javax.swing.border.TitledBorder;
 
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.character.ICharacterClientObserver;
+import net.alteiar.server.document.character.ICharacterClientListener;
 
 public class PanelCharacterLocal extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -235,7 +235,7 @@ public class PanelCharacterLocal extends JPanel {
 		gbc_spinnerContact.gridy = 2;
 		panelCa.add(spinnerAcTouch, gbc_spinnerContact);
 
-		this.character.addCharacterListener(new ICharacterClientObserver() {
+		this.character.addCharacterListener(new ICharacterClientListener() {
 
 			@Override
 			public void characterChanged(CharacterClient character) {

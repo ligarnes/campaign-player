@@ -44,10 +44,6 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("start main");
-
-		System.out.println("start again main");
-
 		System.setProperty("java.security.policy", "./ressources/security.txt");
 		// Create and install a security manager
 		if (System.getSecurityManager() == null) {
@@ -68,7 +64,7 @@ public class Main {
 		}
 
 		DialogOkCancel<PanelConnexion> dlg = new DialogOkCancel<PanelConnexion>(
-				null, "Connexion", true, new PanelConnexion());
+				MainFrame.FRAME, "Connexion", true, new PanelConnexion());
 
 		dlg.setLocationRelativeTo(null);
 		dlg.setOkText("Connexion");
@@ -102,11 +98,9 @@ public class Main {
 				ExceptionTool.showError(ex);
 			}
 
-			System.out.println("try to connect");
 			CampaignClient.connect(localAdress, address, port, "campaign path",
 					name, isMj);
 
-			System.out.println("run");
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
