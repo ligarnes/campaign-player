@@ -144,24 +144,24 @@ public class CharacterClient extends DocumentClient<ICharacterRemote> {
 	}
 
 	// LISTENER METHODS
-	public void addCharacterListener(ICharacterClientObserver listener) {
-		this.addListener(ICharacterClientObserver.class, listener);
+	public void addCharacterListener(ICharacterClientListener listener) {
+		this.addListener(ICharacterClientListener.class, listener);
 	}
 
-	public void removeCharacterListener(ICharacterClientObserver listener) {
-		this.removeListener(ICharacterClientObserver.class, listener);
+	public void removeCharacterListener(ICharacterClientListener listener) {
+		this.removeListener(ICharacterClientListener.class, listener);
 	}
 
 	protected void notifyCharacterModify(CharacterClient character) {
-		for (ICharacterClientObserver observer : this
-				.getListener(ICharacterClientObserver.class)) {
+		for (ICharacterClientListener observer : this
+				.getListener(ICharacterClientListener.class)) {
 			observer.characterChanged(character);
 		}
 	}
 
 	protected void notifyImageLoaded(CharacterClient character) {
-		for (ICharacterClientObserver observer : this
-				.getListener(ICharacterClientObserver.class)) {
+		for (ICharacterClientListener observer : this
+				.getListener(ICharacterClientListener.class)) {
 			observer.imageLoaded(character);
 		}
 	}

@@ -23,7 +23,7 @@ package net.alteiar.server.document.character;
  * @author Cody Stoutenburg
  * 
  */
-public interface ICharacterClientObserver {
+public interface ICharacterClientListener {
 
 	void characterChanged(CharacterClient character);
 
