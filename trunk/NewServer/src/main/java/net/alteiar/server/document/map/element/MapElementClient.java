@@ -40,7 +40,7 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 		return (MapClient<?>) CampaignClient.getInstance().getDocument(map);
 	}
 
-	protected Scale getScale() {
+	public Scale getScale() {
 		return getMap().getScale();
 	}
 
