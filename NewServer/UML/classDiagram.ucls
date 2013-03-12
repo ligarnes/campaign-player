@@ -4,12 +4,14 @@
   <package id="1" language="java" name="net.alteiar.client" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/client" binary="false" corner="BOTTOM_RIGHT">    
     <position height="348" width="595" x="801" y="170"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <package id="2" language="java" name="net.alteiar.server.document" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document" binary="false" corner="BOTTOM_RIGHT">    
     <position height="369" width="631" x="-477" y="209"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="3" language="java" name="net.alteiar.server.document.DocumentBuilder" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/DocumentBuilder.java" binary="false" 
@@ -130,7 +132,8 @@
   <package id="15" language="java" name="net.alteiar.server" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server" binary="false" corner="BOTTOM_RIGHT">    
     <position height="484" width="513" x="261" y="210"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="16" language="java" name="net.alteiar.server.BaseObservableRemote" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/BaseObservableRemote.java" binary="false" corner="BOTTOM_RIGHT">    
@@ -198,7 +201,8 @@
   <package id="23" language="java" name="net.alteiar.server.document.character" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/character" binary="false" corner="BOTTOM_RIGHT">    
     <position height="519" width="844" x="-641" y="868"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="24" language="java" name="net.alteiar.server.document.character.CharacterClient" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/character/CharacterClient.java" binary="false" 
@@ -271,9 +275,9 @@
       <operations public="false" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <interface id="31" language="java" name="net.alteiar.server.document.character.ICharacterClientObserver" 
+  <interface id="31" language="java" name="net.alteiar.server.document.character.ICharacterClientListener" 
     project="New-Server" 
-    file="/New-Server/src/main/java/net/alteiar/server/document/character/ICharacterClientObserver.java" binary="false" 
+    file="/New-Server/src/main/java/net/alteiar/server/document/character/ICharacterClientListener.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-535" y="1350"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" accessors="true" 
@@ -326,7 +330,8 @@
   <package id="36" language="java" name="net.alteiar.server.document.chat" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/chat" binary="false" corner="BOTTOM_RIGHT">    
     <position height="404" width="544" x="259" y="982"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="37" language="java" name="net.alteiar.server.document.chat.ChatRoomClient" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/chat/ChatRoomClient.java" binary="false" 
@@ -401,7 +406,8 @@
   <package id="44" language="java" name="net.alteiar.server.document.chat.message" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/chat/message" binary="false" corner="BOTTOM_RIGHT">    
     <position height="249" width="747" x="266" y="1394"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <interface id="45" language="java" name="net.alteiar.server.document.chat.message.ChatObject" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/chat/message/ChatObject.java" binary="false" 
@@ -456,7 +462,8 @@
   <package id="50" language="java" name="net.alteiar.server.document.files" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/files" binary="false" corner="BOTTOM_RIGHT">    
     <position height="359" width="553" x="-1218" y="602"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="51" language="java" name="net.alteiar.server.document.files.DocumentImageBuilder" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/files/DocumentImageBuilder.java" binary="false" 
@@ -511,7 +518,8 @@
   <package id="56" language="java" name="net.alteiar.server.document.images" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/images" binary="false" corner="BOTTOM_RIGHT">    
     <position height="408" width="560" x="-1219" y="974"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="57" language="java" name="net.alteiar.server.document.images.SerializableImage" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/images/SerializableImage.java" binary="false" 
@@ -546,7 +554,8 @@
   <package id="60" language="java" name="net.alteiar.server.document.map" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map" binary="false" corner="BOTTOM_RIGHT">    
     <position height="346" width="607" x="-1203" y="70"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="61" language="java" name="net.alteiar.server.document.map.DocumentMapBuilder" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/DocumentMapBuilder.java" binary="false" 
@@ -627,7 +636,8 @@
   <package id="69" language="java" name="net.alteiar.server.document.map.battle" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/battle" binary="false" corner="BOTTOM_RIGHT">    
     <position height="324" width="598" x="-1189" y="-268"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="70" language="java" name="net.alteiar.server.document.map.battle.BattleClient" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/battle/BattleClient.java" binary="false" 
@@ -704,7 +714,8 @@
   <package id="77" language="java" name="net.alteiar.server.document.map.element" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/element" binary="false" corner="BOTTOM_RIGHT">    
     <position height="330" width="927" x="-2190" y="88"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="78" language="java" name="net.alteiar.server.document.map.element.DocumentMapElementBuilder" 
     project="New-Server" 
@@ -792,7 +803,8 @@
     file="/New-Server/src/main/java/net/alteiar/server/document/map/element/colored" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="366" width="766" x="-2127" y="558"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="87" language="java" name="net.alteiar.server.document.map.element.colored.CircleClient" 
     project="New-Server" 
@@ -874,7 +886,8 @@
   <package id="94" language="java" name="net.alteiar.server.document.map.element.size" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/element/size" binary="false" corner="BOTTOM_RIGHT">    
     <position height="298" width="702" x="-2865" y="297"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="95" language="java" name="net.alteiar.server.document.map.element.size.MapElementSize" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/element/size/MapElementSize.java" binary="false" 
@@ -922,7 +935,8 @@
   <package id="99" language="java" name="net.alteiar.server.document.map.filter" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/map/filter" binary="false" corner="BOTTOM_RIGHT">    
     <position height="337" width="924" x="-2190" y="-261"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="100" language="java" name="net.alteiar.server.document.map.filter.DocumentMapFilterBuilder" 
     project="New-Server" 
@@ -1009,7 +1023,8 @@
   <package id="108" language="java" name="net.alteiar.server.document.player" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/player" binary="false" corner="BOTTOM_RIGHT">    
     <position height="276" width="644" x="-431" y="-408"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="109" language="java" name="net.alteiar.server.document.player.DocumentPlayerBuilder" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/server/document/player/DocumentPlayerBuilder.java" binary="false" 
@@ -1054,7 +1069,8 @@
   <package id="113" language="java" name="net.alteiar.shared" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/shared" binary="false" corner="BOTTOM_RIGHT">    
     <position height="208" width="648" x="-2247" y="-491"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <class id="114" language="java" name="net.alteiar.shared.ExceptionTool" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/shared/ExceptionTool.java" binary="false" corner="BOTTOM_RIGHT">    
@@ -1095,7 +1111,8 @@
   <package id="118" language="java" name="net.alteiar.thread" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/thread" binary="false" corner="BOTTOM_RIGHT">    
     <position height="320" width="540" x="333" y="-527"/>    
-    <display autosize="false" stereotype="true" accessors="true"/>  
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true"/>  
   </package>  
   <interface id="119" language="java" name="net.alteiar.thread.Task" project="New-Server" 
     file="/New-Server/src/main/java/net/alteiar/thread/Task.java" binary="false" corner="BOTTOM_RIGHT">    

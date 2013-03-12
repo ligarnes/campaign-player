@@ -9,7 +9,6 @@ import java.rmi.RemoteException;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.element.MapElementClient;
 
 public class MapElementCharacterClient extends
@@ -37,11 +36,6 @@ public class MapElementCharacterClient extends
 	 * TODO public ICharacter getCharacter() { return (ICharacter)
 	 * CampaignClient.getInstance().getDocument( characterClient); }
 	 */
-
-	@Override
-	protected Scale getScale() {
-		return super.getScale();
-	}
 
 	@Override
 	public Double getWidth() {
