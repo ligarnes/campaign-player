@@ -62,7 +62,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		this.setIconImage(Helpers.getImage(Helpers
 				.getPathIcons(Helpers.APP_ICON)));
 
-		this.setMinimumSize(new Dimension(300, 300));
+		this.setMinimumSize(new Dimension(800, 600));
 		westPanel = new JPanel();
 		southPanel = new JPanel();
 

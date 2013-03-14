@@ -125,7 +125,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public MapElementClient<?> getElementAt(Point position) {
+	public MapElementClient getElementAt(Point position) {
 		return mapPanel.getElementAt(position);
 	}
 
@@ -145,7 +145,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void drawPathToElement(Point first, MapElementClient<?> mapElement) {
+	public void drawPathToElement(Point first, MapElementClient mapElement) {
 		this.mapPanel.drawPathToElement(first, mapElement);
 	}
 
@@ -178,7 +178,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void addPointToLine(MapElementClient<?> currentElement, Point next) {
+	public void addPointToLine(MapElementClient currentElement, Point next) {
 		if (fixGrid) {
 			// modifyPositionToFixGrid(next);
 			// Point center = currentElement.getCenterOffset();
@@ -227,7 +227,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public Point getPositionOf(MapElementClient<?> currentElement) {
+	public Point getPositionOf(MapElementClient currentElement) {
 		Point position = currentElement.getCenterPosition();
 		// Point center = currentElement.getCenterOffset();
 		// position.x += center.x;
@@ -236,7 +236,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void moveElementAt(MapElementClient<?> currentElement, Point position) {
+	public void moveElementAt(MapElementClient currentElement, Point position) {
 		if (!fixGrid) {
 			// we move the character from the center
 			// Point center = currentElement.getCenterOffset();
@@ -351,7 +351,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void removeElement(MapElementClient<?> toRemove) {
+	public void removeElement(MapElementClient toRemove) {
 		// TODO Auto-generated method stub
 
 	}

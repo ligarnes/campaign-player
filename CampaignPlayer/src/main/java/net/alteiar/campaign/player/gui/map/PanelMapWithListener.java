@@ -38,7 +38,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mousePressed(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElementClient<?> mapElement = this.getElementAt(mapPosition);
+		MapElementClient mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {
@@ -49,7 +49,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElementClient<?> mapElement = this.getElementAt(mapPosition);
+		MapElementClient mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {
@@ -60,7 +60,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElementClient<?> mapElement = this.getElementAt(mapPosition);
+		MapElementClient mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {

@@ -46,7 +46,7 @@ public interface MapEditableInfo {
 
 	void setVisibleText(String text);
 
-	Point getPositionOf(MapElementClient<?> currentElement);
+	Point getPositionOf(MapElementClient currentElement);
 
 	/**
 	 * 
@@ -54,7 +54,7 @@ public interface MapEditableInfo {
 	 *            - the position where the element should be
 	 * @return the element at the position or null if nothing is here
 	 */
-	MapElementClient<?> getElementAt(Point position);
+	MapElementClient getElementAt(Point position);
 
 	Boolean getFixGrid();
 
@@ -70,9 +70,9 @@ public interface MapEditableInfo {
 
 	// TODO void removeCharacter(ICharacterCombatClient character);
 
-	void removeElement(MapElementClient<?> toRemove);
+	void removeElement(MapElementClient toRemove);
 
-	void moveElementAt(MapElementClient<?> currentElement, Point position);
+	void moveElementAt(MapElementClient currentElement, Point position);
 
 	int getPixelSquare();
 
@@ -82,7 +82,7 @@ public interface MapEditableInfo {
 
 	void setLineColor(Color lineColor);
 
-	void drawPathToElement(Point first, MapElementClient<?> mapElement);
+	void drawPathToElement(Point first, MapElementClient mapElement);
 
 	void addPointToPath(Point next);
 
@@ -96,7 +96,7 @@ public interface MapEditableInfo {
 
 	void addPointToLine(Point next);
 
-	void addPointToLine(MapElementClient<?> currentElement, Point next);
+	void addPointToLine(MapElementClient currentElement, Point next);
 
 	void stopDrawLineToMouse();
 

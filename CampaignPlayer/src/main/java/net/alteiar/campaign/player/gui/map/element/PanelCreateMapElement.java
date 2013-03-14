@@ -12,6 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -46,30 +47,47 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		}
 	}
 
-	/*
-	 * private final PanelMapElementBuilder[] panelBuilder = new
-	 * PanelMapElementBuilder[] { new PanelCircleBuilder(), new
-	 * PanelRectangleBuilder(), new PanelCharacterBuilder() };
-	 */
+	private static ClassLoader loader;
 
-	public static PanelMapElementBuilder[] getBuilders() {
-		PanelMapElementBuilder[] res = null;
-		ClassLoader loader;
+	private static ClassLoader getClassLoader() {
+		if (loader == null) {
+			try {
+				URL pluginJar = new File(
+						"./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar")
+						.toURI().toURL();
+				loader = URLClassLoader.newInstance(new URL[] { pluginJar },
+						PanelCreateMapElement.class.getClassLoader());
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return loader;
+	}
+
+	public static ArrayList<PanelMapElementBuilder> getBuilders() {
+		ArrayList<PanelMapElementBuilder> builders = new ArrayList<PanelMapElementBuilder>();
 		try {
-			loader = URLClassLoader.newInstance(new URL[] { new File(
-					"./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar")
-					.toURI().toURL() }, PanelCreateMapElement.class
-					.getClassLoader());
+
+			// pluginName.gui.mapElement.builder.PanelBuilder
 			Class<?> clazz = Class.forName(
-					"pathfinder.gui.builder.PanelBuilder", true, loader);
+					"pathfinder.gui.mapElement.builder.PanelBuilder", true,
+					getClassLoader());
 			Class<? extends IPanelBuilders> runClass = clazz
 					.asSubclass(IPanelBuilders.class);
 			// Avoid Class.newInstance, for it is evil.
 			Constructor<? extends IPanelBuilders> ctor = runClass
 					.getConstructor();
 			IPanelBuilders doRun = ctor.newInstance();
-			res = doRun.getBuilders();
-		} catch (MalformedURLException e) {
+			builders = doRun.getBuilders();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
@@ -84,18 +102,8 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-
-		return res;
+		return builders;
 	}
 
 	private final JPanel panelWest;
@@ -105,11 +113,11 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 	public PanelCreateMapElement() {
 		super(new BorderLayout());
 
-		panelWest = new JPanel(new GridLayout(getBuilders().length, 1));
+		panelWest = new JPanel(new GridLayout(getBuilders().size(), 1));
 
 		this.add(panelWest, BorderLayout.WEST);
 
-		builder = getBuilders()[0];
+		builder = getBuilders().get(0);
 		panelCenter = new JPanel();
 		panelCenter.add(builder);
 		this.add(panelCenter, BorderLayout.CENTER);

@@ -1,28 +1,23 @@
 package net.alteiar.campaign.player.gui.map.listener;
 
-import java.awt.FlowLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
-import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
 import net.alteiar.client.CampaignClient;
-import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.IAction;
 import net.alteiar.server.document.map.element.MapElementClient;
-import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 
 public class DefaultMapListener extends ActionMapListener {
 
@@ -50,13 +45,26 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildMoveElement(event.getMapPosition(),
 						event.getMapElement()));
 
-				if (event.getCharacter() != null) {
-					// add specifc to character
+				List<IAction> actionsAvaible = event.getMapElement()
+						.getActions();
+				if (actionsAvaible.size() > 0) {
 					popup.addSeparator();
-					popup.add(buildMenuDamage(event.getMouseEvent(),
-							event.getCharacter(), true));
-					popup.add(buildMenuDamage(event.getMouseEvent(),
-							event.getCharacter(), false));
+					for (final IAction action : actionsAvaible) {
+						JMenuItem menu = new JMenuItem(action.getName());
+						menu.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent arg0) {
+								try {
+									action.doAction();
+								} catch (Exception e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						});
+						menu.setEnabled(action.canDoAction());
+						popup.add(menu);
+					}
 				}
 				popup.addSeparator();
 				popup.add(buildShowHideElement(event.getMapElement()));
@@ -90,7 +98,7 @@ public class DefaultMapListener extends ActionMapListener {
 		}
 	}
 
-	private JMenuItem buildShowHideElement(final MapElementClient<?> mapElement) {
+	private JMenuItem buildShowHideElement(final MapElementClient mapElement) {
 
 		final JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
 				"Afficher le personnage aux joueurs");
@@ -193,7 +201,7 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildMoveElement(final Point mapPosition,
-			final MapElementClient<?> mapElement) {
+			final MapElementClient mapElement) {
 		JMenuItem menuItem = new JMenuItem("Deplacer");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
@@ -208,33 +216,21 @@ public class DefaultMapListener extends ActionMapListener {
 
 	private JMenuItem buildMenuRemoveElement(final MapEvent event) {
 		String title = "element";
-		if (event.getCharacter() != null) {
-			title = "personnage";
-		}
 
 		JMenuItem removeElement = new JMenuItem("Supprimer " + title);
 		removeElement.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (event.getCharacter() != null) {
-					// TODO fixme mapInfo.removeCharacter(event.getCharacter());
-				} else {
-					mapInfo.removeElement(event.getMapElementClient());
-				}
+				mapInfo.removeElement(event.getMapElement());
 			}
 		});
 
 		return removeElement;
 	}
 
-	private JMenuItem buildMenuRotate(final MapElementClient<?> element,
+	private JMenuItem buildMenuRotate(final MapElementClient element,
 			final Point mapPosition) {
-		String title = "element";
-		// if (MapElementUtils.isCharacter(element)) {
-		// title = "personnage";
-		// }
-
-		JMenu menu = new JMenu("Rotation " + title);
+		JMenu menu = new JMenu("Rotation");
 
 		JMenuItem rotate = new JMenuItem("Manuelle");
 		rotate.addActionListener(new ActionListener() {
@@ -285,77 +281,53 @@ public class DefaultMapListener extends ActionMapListener {
 		return menu;
 	}
 
-	private JMenuItem buildMenuDamage(final MouseEvent orgEvent,
-			final MapElementCharacterClient character, final Boolean isDamage) {
+	/*
+	 * private JMenuItem buildMenuDamage(final MouseEvent orgEvent, final
+	 * MapElementClient character, final Boolean isDamage) {
+	 * 
+	 * String title = "Dégât"; if (!isDamage) { title = "Soins"; }
+	 * 
+	 * JMenuItem menuItem = new JMenuItem(title); menuItem.addActionListener(new
+	 * ActionListener() {
+	 * 
+	 * @Override public void actionPerformed(ActionEvent e) { doDamage(orgEvent,
+	 * character, isDamage); } });
+	 * 
+	 * return menuItem; }
+	 * 
+	 * private void doDamage(MouseEvent orgEvent, MapElementClient
+	 * characterCombat, Boolean isDamage) { final JTextField textFieldDegat =
+	 * new JTextField(5);
+	 * 
+	 * String builder = "dégâts"; if (!isDamage) { builder = "soins"; } final
+	 * String title = builder.toString();
+	 * 
+	 * PanelAlwaysValidOkCancel panelDegat = new PanelAlwaysValidOkCancel() {
+	 * private static final long serialVersionUID = 1L;
+	 * 
+	 * @Override public Boolean isDataValid() { Boolean isValid = true; try {
+	 * Integer.valueOf(textFieldDegat.getText()); } catch (NumberFormatException
+	 * ex) { isValid = false; } return isValid; }
+	 * 
+	 * @Override public String getInvalidMessage() { return "les " + title +
+	 * " doivents être des chiffres"; } }; panelDegat.setLayout(new
+	 * FlowLayout()); panelDegat.add(textFieldDegat);
+	 * DialogOkCancel<PanelAlwaysValidOkCancel> dialog = new
+	 * DialogOkCancel<PanelAlwaysValidOkCancel>( null, title, true, panelDegat);
+	 * dialog.setLocation(orgEvent.getXOnScreen() - (dialog.getWidth() / 2),
+	 * orgEvent.getYOnScreen() - (dialog.getHeight() / 2));
+	 * dialog.setVisible(true);
+	 * 
+	 * if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) { Integer degat =
+	 * Integer.valueOf(textFieldDegat.getText());
+	 * 
+	 * CharacterClient characterSheet = characterCombat.getCharacter(); if
+	 * (isDamage) { characterSheet.setCurrentHp(characterSheet.getCurrentHp() -
+	 * degat); } else {
+	 * characterSheet.setCurrentHp(characterSheet.getCurrentHp() + degat); } } }
+	 */
 
-		String title = "Dégât";
-		if (!isDamage) {
-			title = "Soins";
-		}
-
-		JMenuItem menuItem = new JMenuItem(title);
-		menuItem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				doDamage(orgEvent, character, isDamage);
-			}
-		});
-
-		return menuItem;
-	}
-
-	private void doDamage(MouseEvent orgEvent,
-			MapElementCharacterClient characterCombat, Boolean isDamage) {
-		final JTextField textFieldDegat = new JTextField(5);
-
-		String builder = "dégâts";
-		if (!isDamage) {
-			builder = "soins";
-		}
-		final String title = builder.toString();
-
-		PanelAlwaysValidOkCancel panelDegat = new PanelAlwaysValidOkCancel() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public Boolean isDataValid() {
-				Boolean isValid = true;
-				try {
-					Integer.valueOf(textFieldDegat.getText());
-				} catch (NumberFormatException ex) {
-					isValid = false;
-				}
-				return isValid;
-			}
-
-			@Override
-			public String getInvalidMessage() {
-				return "les " + title + " doivents être des chiffres";
-			}
-		};
-		panelDegat.setLayout(new FlowLayout());
-		panelDegat.add(textFieldDegat);
-		DialogOkCancel<PanelAlwaysValidOkCancel> dialog = new DialogOkCancel<PanelAlwaysValidOkCancel>(
-				null, title, true, panelDegat);
-		dialog.setLocation(orgEvent.getXOnScreen() - (dialog.getWidth() / 2),
-				orgEvent.getYOnScreen() - (dialog.getHeight() / 2));
-		dialog.setVisible(true);
-
-		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
-			Integer degat = Integer.valueOf(textFieldDegat.getText());
-
-			CharacterClient characterSheet = characterCombat.getCharacter();
-			if (isDamage) {
-				characterSheet.setCurrentHp(characterSheet.getCurrentHp()
-						- degat);
-			} else {
-				characterSheet.setCurrentHp(characterSheet.getCurrentHp()
-						+ degat);
-			}
-		}
-	}
-
-	private void rotateMapElement(MapElementClient<?> rotate, Double angle) {
+	private void rotateMapElement(MapElementClient rotate, Double angle) {
 		rotate.setAngle(rotate.getAngle() + angle);
 		// TODO rotate.applyRotate();
 	}
