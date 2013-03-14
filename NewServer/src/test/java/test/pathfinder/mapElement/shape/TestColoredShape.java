@@ -1,4 +1,4 @@
-package net.alteiar.server.document.map.element.colored;
+package test.pathfinder.mapElement.shape;
 
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
@@ -7,21 +7,28 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.geom.AffineTransform;
-import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.server.document.map.element.IAction;
+import net.alteiar.server.document.map.element.MapElement;
 
-public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
-		extends MapElementClient<E> {
+public abstract class TestColoredShape extends MapElement {
 	private static final long serialVersionUID = 1L;
+
+	protected static final Integer STROKE_SIZE_LARGE = 4;
+	protected static final Integer STROKE_SIZE_SMALL = 2;
 
 	private final Color color;
 
-	public MapElementColoredClient(E remote) throws RemoteException {
-		super(remote);
+	public TestColoredShape(Color color) {
+		super();
+		this.color = color;
+	}
 
-		color = remote.getColor();
+	@Override
+	protected void load() {
+
 	}
 
 	public Color getColor() {
@@ -31,19 +38,6 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 	protected abstract Shape getShape(double zoomFactor);
 
 	protected abstract Shape getShapeBorder(double zoomFactor, int strokeSize);
-
-	private Shape transform(Shape shape, double zoomFactor) {
-		// work fine for rotation but not ideal for the moment because the shape
-		// need to be drawn at (0, 0)
-		double angle = Math.toRadians(getAngle());
-
-		AffineTransform transform = AffineTransform.getTranslateInstance(getX()
-				* zoomFactor, getY() * zoomFactor);
-		transform.rotate(angle, (getWidth() * zoomFactor) / 2.0,
-				(getHeight() * zoomFactor) / 2.0);
-
-		return transform.createTransformedShape(shape);
-	}
 
 	@Override
 	public void draw(Graphics2D g, double zoomFactor) {
@@ -61,10 +55,11 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 		g2.setColor(getColor());
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.5f));
-
 		g2.fill(getShape(zoomFactor));
 
 		// Draw the border
+		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+				1.0f));
 		g2.setColor(Color.BLACK);
 		g2.setStroke(new BasicStroke(strokeSize));
 		g2.draw(getShapeBorder(zoomFactor, strokeSize));
@@ -75,5 +70,10 @@ public abstract class MapElementColoredClient<E extends MapElementColoredRemote>
 	@Override
 	public Boolean contain(Point p) {
 		return getShape(1.0).contains(p);
+	}
+
+	@Override
+	public List<IAction> getActions() {
+		return new ArrayList<IAction>();
 	}
 }

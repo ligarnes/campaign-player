@@ -1,23 +1,48 @@
-package net.alteiar.server.document.map.element.character;
+package test.pathfinder.mapElement.character;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
+import net.alteiar.client.CampaignClient;
+import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.server.document.map.element.IAction;
+import net.alteiar.server.document.map.element.MapElement;
 import net.alteiar.server.document.map.element.size.MapElementSizeSquare;
 
-public class PathfinderCharacterMapSimple extends BasicCharacterMap {
+public class TestPathfinderCharacter extends MapElement {
 
 	private static final long serialVersionUID = 1L;
 
+	private final Long charactedId;
 	private final MapElementSizeSquare width;
 	private final MapElementSizeSquare height;
 
-	public PathfinderCharacterMapSimple(MapElementCharacterClient mapElement) {
-		super(mapElement);
+	public TestPathfinderCharacter(CharacterClient character) {
+		this(character.getId());
+	}
+
+	public TestPathfinderCharacter(Long characterId) {
+		super();
+
+		this.charactedId = characterId;
 		width = new MapElementSizeSquare(1);
 		height = new MapElementSizeSquare(1);
+	}
+
+	@Override
+	protected void load() {
+
+	}
+
+	private CharacterClient getCharacter() {
+		return (CharacterClient) CampaignClient.getInstance().getDocument(
+				charactedId);
 	}
 
 	@Override
@@ -35,8 +60,9 @@ public class PathfinderCharacterMapSimple extends BasicCharacterMap {
 		Graphics2D g2 = (Graphics2D) g.create();
 		BufferedImage background = getCharacter().getImage();
 
-		int x = (int) (getX() * zoomFactor);
-		int y = (int) (getY() * zoomFactor);
+		Point position = getPosition();
+		int x = (int) (position.getX() * zoomFactor);
+		int y = (int) (position.getY() * zoomFactor);
 		int width = (int) (getWidth() * zoomFactor);
 		int height = (int) (getHeight() * zoomFactor);
 
@@ -82,5 +108,17 @@ public class PathfinderCharacterMapSimple extends BasicCharacterMap {
 		 * height.intValue()); g2.setStroke(org); }
 		 */
 		g2.dispose();
+	}
+
+	@Override
+	public Boolean contain(Point p) {
+		Point position = getPosition();
+		return new Rectangle2D.Double(position.getX(), position.getY(),
+				getWidth(), getHeight()).contains(p);
+	}
+
+	@Override
+	public List<IAction> getActions() {
+		return new ArrayList<IAction>();
 	}
 }

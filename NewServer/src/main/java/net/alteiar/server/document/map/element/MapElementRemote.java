@@ -23,13 +23,14 @@ import java.awt.Point;
 import java.rmi.RemoteException;
 
 import net.alteiar.server.ServerDocuments;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.DocumentRemote;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public abstract class MapElementRemote extends DocumentRemote implements
+public class MapElementRemote extends DocumentRemote implements
 		IMapElementRemote {
 	private static final long serialVersionUID = -3573905342323034939L;
 
@@ -41,12 +42,15 @@ public abstract class MapElementRemote extends DocumentRemote implements
 
 	private final Long map;
 
+	private final MapElement object;
+
 	/**
 	 * @param position
 	 * @param color
 	 * @throws RemoteException
 	 */
-	public MapElementRemote(Long map, Point position) throws RemoteException {
+	public MapElementRemote(Long map, Point position, MapElement object)
+			throws RemoteException {
 		super();
 
 		this.position = position;
@@ -54,6 +58,8 @@ public abstract class MapElementRemote extends DocumentRemote implements
 		this.isHidden = false;
 
 		this.map = map;
+
+		this.object = object;
 	}
 
 	@Override
@@ -68,10 +74,8 @@ public abstract class MapElementRemote extends DocumentRemote implements
 
 	@Override
 	public void setPosition(Point position) throws RemoteException {
-		if (!this.position.equals(position)) {
-			this.position = position;
-			this.notifyElementMoved(position);
-		}
+		this.position = position;
+		this.notifyElementMoved(position);
 	}
 
 	@Override
@@ -81,10 +85,8 @@ public abstract class MapElementRemote extends DocumentRemote implements
 
 	@Override
 	public void setAngle(Double angle) throws RemoteException {
-		if (!this.angle.equals(angle)) {
-			this.angle = angle;
-			this.notifyElementRotate(angle);
-		}
+		this.angle = angle;
+		this.notifyElementRotate(angle);
 	}
 
 	@Override
@@ -94,10 +96,18 @@ public abstract class MapElementRemote extends DocumentRemote implements
 
 	@Override
 	public void setIsHidden(Boolean isHidden) throws RemoteException {
-		if (!this.isHidden.equals(isHidden)) {
-			this.isHidden = isHidden;
-			this.notifyElementHidden(isHidden);
-		}
+		this.isHidden = isHidden;
+		this.notifyElementHidden(isHidden);
+	}
+
+	@Override
+	public DocumentClient<?> buildProxy() throws RemoteException {
+		return new MapElementClient(this);
+	}
+
+	@Override
+	public MapElement getObject() throws RemoteException {
+		return object;
 	}
 
 	// //////// LISTENERS METHODS //////////

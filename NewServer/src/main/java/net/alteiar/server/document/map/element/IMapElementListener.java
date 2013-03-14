@@ -17,16 +17,12 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.map.element.character;
-
-import java.rmi.RemoteException;
-
-import net.alteiar.server.document.map.element.IMapElementRemote;
+package net.alteiar.server.document.map.element;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public interface IMapElementCharacterRemote extends IMapElementRemote {
-	Long getCharacterClient() throws RemoteException;
+public interface IMapElementListener {
+	void elementChanged();
 }

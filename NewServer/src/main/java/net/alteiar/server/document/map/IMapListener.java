@@ -27,9 +27,9 @@ import net.alteiar.server.document.map.filter.IMapFilterListener;
  * 
  */
 public interface IMapListener extends IMapFilterListener {
-	void mapElementAdded(MapElementClient<?> element);
+	void mapElementAdded(MapElementClient element);
 
-	void mapElementRemoved(MapElementClient<?> element);
+	void mapElementRemoved(MapElementClient element);
 
 	void mapRescale(Scale scale);
 }

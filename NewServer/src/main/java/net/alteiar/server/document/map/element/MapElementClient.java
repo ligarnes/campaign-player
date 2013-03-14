@@ -2,31 +2,38 @@ package net.alteiar.server.document.map.element;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.Scale;
 
-public abstract class MapElementClient<E extends IMapElementRemote> extends
-		DocumentClient<E> {
+public class MapElementClient extends DocumentClient<IMapElementRemote> {
 	private static final long serialVersionUID = 1L;
 
 	protected static final Integer STROKE_SIZE_LARGE = 4;
 	protected static final Integer STROKE_SIZE_SMALL = 2;
 
+	// Remote listener
 	private transient IMapElementListenerRemote listener;
 
+	// Plugin object
+	private final MapElement object;
+
+	// id of the map link
 	private final Long map;
+
 	// the position is the position of the upper left corner
 	private Point position;
 	private Double angle;
 	private Boolean isHidden;
 
-	public MapElementClient(E remote) throws RemoteException {
+	public MapElementClient(IMapElementRemote remote) throws RemoteException {
 		super(remote);
 
 		position = remote.getPosition();
@@ -34,6 +41,8 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 		isHidden = remote.getIsHidden();
 
 		map = remote.getMap();
+
+		this.object = remote.getObject();
 	}
 
 	protected MapClient<?> getMap() {
@@ -48,13 +57,17 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 	 * 
 	 * @return the width in pixel of the element
 	 */
-	public abstract Double getWidth();
+	public Double getWidth() {
+		return object.getWidth();
+	}
 
 	/**
 	 * 
 	 * @return the height in pixel
 	 */
-	public abstract Double getHeight();
+	public Double getHeight() {
+		return object.getHeight();
+	}
 
 	/**
 	 * 
@@ -80,6 +93,14 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 		int x = (int) (getX() + (getWidth() / 2));
 		int y = (int) (getY() + (getHeight() / 2));
 		return new Point(x, y);
+	}
+
+	public MapElement getElement() {
+		return object;
+	}
+
+	public List<IAction> getActions() {
+		return object.getActions();
 	}
 
 	/**
@@ -129,35 +150,65 @@ public abstract class MapElementClient<E extends IMapElementRemote> extends
 
 	protected void setLocalHidden(Boolean isHidden) {
 		this.isHidden = isHidden;
-		// TODO notify listeners
+		notifyMapElementChanged();
 	}
 
 	protected void setLocalPosition(Point newPosition) {
 		this.position = newPosition;
-		// TODO notify listeners
+		notifyMapElementChanged();
 	}
 
 	protected void setLocalAngle(Double angle) {
 		this.angle = angle;
-		// TODO notify listeners
+		notifyMapElementChanged();
 	}
 
 	public final void draw(Graphics2D g2) {
 		draw(g2, 1.0);
 	}
 
-	public abstract void draw(Graphics2D g2, double zoomFactor);
+	public void draw(Graphics2D g2, double zoomFactor) {
+		object.draw(g2, zoomFactor);
+	}
 
-	public abstract Boolean contain(Point p);
+	public Boolean contain(Point p) {
+		return object.contain(p);
+	}
 
 	@Override
 	protected void loadDocumentRemote() throws IOException {
 		listener = new MapElementListenerRemote(getRemote());
+
+		// initialize the plugin object
+		this.object.loadMapElement(this);
+	}
+
+	@Override
+	protected void loadDocumentLocal(File f) throws IOException {
 	}
 
 	@Override
 	protected void closeDocument() throws RemoteException {
 		getRemote().removeMapElementListener(listener);
+	}
+
+	// /////////LISTENERS///////////
+	/**
+	 * 
+	 * @param listener
+	 */
+	public void addMapElementListener(IMapElementListener listener) {
+		this.addListener(IMapElementListener.class, listener);
+	}
+
+	public void removeMapElementListener(IMapElementListener listener) {
+		this.addListener(IMapElementListener.class, listener);
+	}
+
+	protected void notifyMapElementChanged() {
+		for (IMapElementListener listener : getListener(IMapElementListener.class)) {
+			listener.elementChanged();
+		}
 	}
 
 	/**
