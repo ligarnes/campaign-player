@@ -7,7 +7,10 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Shape;
+import java.util.ArrayList;
+import java.util.List;
 
+import net.alteiar.server.document.map.element.IAction;
 import net.alteiar.server.document.map.element.MapElement;
 
 public abstract class ColoredShape extends MapElement {
@@ -21,6 +24,11 @@ public abstract class ColoredShape extends MapElement {
 	public ColoredShape(Color color) {
 		super();
 		this.color = color;
+	}
+
+	@Override
+	protected void load() {
+
 	}
 
 	public Color getColor() {
@@ -62,5 +70,10 @@ public abstract class ColoredShape extends MapElement {
 	@Override
 	public Boolean contain(Point p) {
 		return getShape(1.0).contains(p);
+	}
+
+	@Override
+	public List<IAction> getActions() {
+		return new ArrayList<IAction>();
 	}
 }

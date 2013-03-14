@@ -1,4 +1,4 @@
-package pathfinder.gui.builder;
+package pathfinder.gui.mapElement.builder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,15 +9,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pathfinder.mapElement.shape.Circle;
-
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelSelectColor;
 import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
-import net.alteiar.server.document.map.element.DocumentMyMapElementBuilder;
 import net.alteiar.server.document.map.element.size.MapElementSize;
+import pathfinder.mapElement.shape.Circle;
 
 public class PanelCircleBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
@@ -59,7 +57,7 @@ public class PanelCircleBuilder extends PanelMapElementBuilder {
 	public DocumentMapElementBuilder buildMapElement(MapClient<?> map,
 			Point position) {
 		Circle circle = new Circle(getSelectedColor(), getElementSize());
-		return new DocumentMyMapElementBuilder(map, position, circle);
+		return new DocumentMapElementBuilder(map, position, circle);
 	}
 
 	@Override
@@ -76,4 +74,5 @@ public class PanelCircleBuilder extends PanelMapElementBuilder {
 	public String getElementDescription() {
 		return "Dessine un cercle";
 	}
+
 }
