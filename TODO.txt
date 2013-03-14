@@ -1,0 +1,48 @@
+TODO list:
+
+Zone de modification a vérifier:
+- Faire différent mode pour les cartes: mode exploration (deplacement libre etc...), mode combat (tour par tour strict etc...)
+	-> projet Player (pour le gui)
+	-> projet New Server (pour la mécanique)
+	-> projet plugin (pour les actions spécifique)
+
+Projet Plugin (Pathfinder System)
+- Modifier le systeme d'actions pour que les actions soit accessible uniquement dans certaine situation.
+	( exemple: L'action attaquer ne devrait etre disponible que durant la phase de combat ...)
+
+- Extraire les personnes vers le system de plugin
+- Faire un gui pour créer un personnage
+- Faire un gui pour voir un personnage complet
+
+- Monstre
+- Faire un gui pour créer des monstres
+- Faire un gui pour voir des monstres
+- Faire un gui pour chercher des monstres ?
+
+- Systeme pour avoir des variables local et partager (coté plugin)
+	- etre capable de changer la valeur de certaine variable sans retransmettre tout l'information
+
+Projet NewServer:
+- Systeme pour avoir des variables local et partager (coté api)
+- System de gestion des monstres ? (grande quantité d'information potentiel donc il faudrai que chacun et l'ensemble des monstres en local (un peu comme les images) et charge les monstres uniquement sur demande)
+- Faire un systeme d'autorisation/propriete des elements
+	- les joueurs ont-ils acces au document ?
+	- une seule personne + Mj peu modifier un element, sinon demande permission (deplacement d'un personnage sur la carte)
+	- possibilité de donner la permission de modifier un element a une autre personne temporairement
+
+
+Projet Player:
+- Faire un "systeme de fichier" pour ouvrir et gerer les documents comme souhaité (ainsi que les proprietés de partage.
+
+- Faire une autre type de carte que battle qui permet de mettre des elements plus librements
+	(sorte de table libre)
+
+- Faire un système propre pour les plugins (charger proprement les jar externes, autoriser le chargement de plusieurs jar, standard de plugin)
+
+- Trouver les vues, elements, etc... qui pourrait, devrait etre amener dans les plugins
+
+A mon avis il faut voir les choses comme sa l'application comme une api pour le developpement des plugins pour cette raison il faudrait voir si il ne faudrai pas faire un autre projet qui utilise mais masque les projets reel que sont NewServer et Player.
+
+L'Api devrait fournir:
+- un certain nombre de document de base (images, cartes, etc...)
+- un certain nombre de composant graphique de base (fenetre modal type JDIalog, panel sur l'ecran, ...) 
