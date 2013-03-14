@@ -23,15 +23,17 @@ import net.alteiar.server.document.images.TransfertImage;
 import net.alteiar.server.document.map.IMapListener;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
 import net.alteiar.server.document.map.element.MapElementClient;
-import net.alteiar.server.document.map.element.colored.rectangle.DocumentRectangleBuilder;
 import net.alteiar.server.document.map.element.size.MapElementSize;
 import net.alteiar.server.document.map.element.size.MapElementSizeMeter;
-import net.alteiar.server.document.map.element.size.MapElementSizeSquare;
+import net.alteiar.server.document.map.element.size.MapElementSizePixel;
 import net.alteiar.test.BasicTest;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import test.pathfinder.mapElement.shape.TestRectangle;
 
 public class TestMap extends BasicTest {
 
@@ -101,12 +103,12 @@ public class TestMap extends BasicTest {
 			}
 
 			@Override
-			public void mapElementRemoved(MapElementClient<?> element) {
+			public void mapElementRemoved(MapElementClient element) {
 				innerClassCall();
 			}
 
 			@Override
-			public void mapElementAdded(MapElementClient<?> element) {
+			public void mapElementAdded(MapElementClient element) {
 				innerClassCall();
 			}
 		};
@@ -114,15 +116,16 @@ public class TestMap extends BasicTest {
 
 		Point position = new Point(5, 5);
 		Color color = Color.GREEN;
-		MapElementSize width = new MapElementSizeMeter(1.5);
-		MapElementSize height = new MapElementSizeSquare(3);
+		MapElementSize width = new MapElementSizeMeter(6.0);
+		MapElementSize height = new MapElementSizePixel(42.0);
 
-		CampaignClient.getInstance().createMapElement(
-				battle,
-				new DocumentRectangleBuilder(battle.getId(), position, color,
-						width, height));
+		DocumentMapElementBuilder documentBuilder = new DocumentMapElementBuilder(
+				battle.getId(), position, new TestRectangle(color, width,
+						height));
 
-		Collection<MapElementClient<?>> elementsOnMap = battle.getElements();
+		CampaignClient.getInstance().createMapElement(battle, documentBuilder);
+
+		Collection<MapElementClient> elementsOnMap = battle.getElements();
 		while (elementsOnMap.isEmpty()) {
 			sleep(100);
 			elementsOnMap = battle.getElements();
@@ -132,7 +135,7 @@ public class TestMap extends BasicTest {
 				!elementsOnMap.isEmpty());
 		assertTrue(
 				"The map should have at least 1 element at the position (6,6)",
-				!battle.getElementsAt(new Point(6, 6)).isEmpty());
+				!battle.getElementsAt(new Point(7, 7)).isEmpty());
 		assertTrue("The map should'nt have any element at the position (4,4)",
 				battle.getElementsAt(new Point(4, 4)).isEmpty());
 

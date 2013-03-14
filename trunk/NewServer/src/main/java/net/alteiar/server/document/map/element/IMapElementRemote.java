@@ -44,6 +44,8 @@ public interface IMapElementRemote extends IDocumentRemote {
 
 	void setIsHidden(Boolean isHidden) throws RemoteException;
 
+	MapElement getObject() throws RemoteException;
+
 	// Listeners methods
 	void addMapElementListener(IMapElementListenerRemote listener)
 			throws RemoteException;

@@ -168,7 +168,7 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		}
 	}
 
-	public void removeMapElement(MapElementClient<?> map) {
+	public void removeMapElement(MapElementClient map) {
 		removeMapElement(map.getId());
 	}
 
@@ -186,11 +186,11 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 	 * 
 	 * @return
 	 */
-	public List<MapElementClient<?>> getElements() {
-		ArrayList<MapElementClient<?>> elementsCopy = new ArrayList<MapElementClient<?>>();
+	public List<MapElementClient> getElements() {
+		ArrayList<MapElementClient> elementsCopy = new ArrayList<MapElementClient>();
 		synchronized (elements) {
 			for (Long element : elements) {
-				MapElementClient<?> mapElement = (MapElementClient<?>) CampaignClient
+				MapElementClient mapElement = (MapElementClient) CampaignClient
 						.getInstance().getDocument(element);
 				if (mapElement != null) {
 					elementsCopy.add(mapElement);
@@ -200,9 +200,9 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		return elementsCopy;
 	}
 
-	public Collection<MapElementClient<?>> getElementsAt(Point p) {
-		ArrayList<MapElementClient<?>> elementsCopy = new ArrayList<MapElementClient<?>>();
-		for (MapElementClient<?> element : getElements()) {
+	public Collection<MapElementClient> getElementsAt(Point p) {
+		ArrayList<MapElementClient> elementsCopy = new ArrayList<MapElementClient>();
+		for (MapElementClient element : getElements()) {
 			if (element.contain(p)) {
 				elementsCopy.add(element);
 			}
@@ -215,7 +215,7 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 			elements.add(mapElementId);
 		}
 
-		MapElementClient<?> element = (MapElementClient<?>) CampaignClient
+		MapElementClient element = (MapElementClient) CampaignClient
 				.getInstance().getDocument(mapElementId);
 		if (element != null) {
 			// the document already exist so notify now
@@ -231,7 +231,7 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 
 						@Override
 						public void documentReceived(DocumentClient<?> doc) {
-							notifyMapElementAdded((MapElementClient<?>) doc);
+							notifyMapElementAdded((MapElementClient) doc);
 						}
 					});
 		}
@@ -242,7 +242,7 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 			elements.remove(mapElementId);
 		}
 
-		MapElementClient<?> mapElement = (MapElementClient<?>) CampaignClient
+		MapElementClient mapElement = (MapElementClient) CampaignClient
 				.getInstance().getDocument(mapElementId);
 		this.notifyMapElementRemoved(mapElement);
 	}
@@ -283,13 +283,13 @@ public class MapClient<E extends IMapRemote> extends DocumentClient<E> {
 		}
 	}
 
-	protected void notifyMapElementAdded(MapElementClient<?> mapElement) {
+	protected void notifyMapElementAdded(MapElementClient mapElement) {
 		for (IMapListener listener : getListener(IMapListener.class)) {
 			listener.mapElementAdded(mapElement);
 		}
 	}
 
-	protected void notifyMapElementRemoved(MapElementClient<?> mapElement) {
+	protected void notifyMapElementRemoved(MapElementClient mapElement) {
 		for (IMapListener listener : getListener(IMapListener.class)) {
 			listener.mapElementRemoved(mapElement);
 		}
