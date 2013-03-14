@@ -1,4 +1,4 @@
-package pathfinder.gui.builder;
+package pathfinder.gui.mapElement.builder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,15 +9,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pathfinder.mapElement.shape.Rectangle;
-
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelSelectColor;
 import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
-import net.alteiar.server.document.map.element.DocumentMyMapElementBuilder;
 import net.alteiar.server.document.map.element.size.MapElementSize;
+import pathfinder.mapElement.shape.Rectangle;
 
 public class PanelRectangleBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
@@ -66,7 +64,7 @@ public class PanelRectangleBuilder extends PanelMapElementBuilder {
 			Point position) {
 		Rectangle rectangle = new Rectangle(getSelectedColor(),
 				getElementSizeWidth(), getElementSizeHeight());
-		return new DocumentMyMapElementBuilder(map, position, rectangle);
+		return new DocumentMapElementBuilder(map, position, rectangle);
 	}
 
 	@Override
