@@ -32,7 +32,7 @@ public class PanelMap extends PanelBasicMap {
 
 	@Override
 	protected void drawElements(Graphics2D g2) {
-		for (MapElementClient<?> element : map.getElements()) {
+		for (MapElementClient element : map.getElements()) {
 			element.draw(g2, getZoomFactor());
 		}
 	}
@@ -62,5 +62,4 @@ public class PanelMap extends PanelBasicMap {
 				(int) (img.getHeight() * getZoomFactor()), null);
 		g2.dispose();
 	}
-
 }

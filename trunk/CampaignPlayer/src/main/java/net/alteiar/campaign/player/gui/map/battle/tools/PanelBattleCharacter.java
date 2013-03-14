@@ -1,12 +1,10 @@
 package net.alteiar.campaign.player.gui.map.battle.tools;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -20,7 +18,6 @@ import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.map.battle.BattleClient;
-import net.alteiar.server.document.map.element.character.MapElementCharacterClient;
 
 public class PanelBattleCharacter extends JPanel/*
 												 * implements
@@ -28,11 +25,10 @@ public class PanelBattleCharacter extends JPanel/*
 												 */{
 	private static final long serialVersionUID = 1L;
 
-	private final MapElementCharacterClient character;
+	private final CharacterClient character;
 	private final BattleClient battle;
 
-	public PanelBattleCharacter(BattleClient battle,
-			MapElementCharacterClient character) {
+	public PanelBattleCharacter(BattleClient battle, CharacterClient character) {
 		this.setPreferredSize(new Dimension(50, 50));
 
 		this.battle = battle;
@@ -51,7 +47,7 @@ public class PanelBattleCharacter extends JPanel/*
 		 */
 	}
 
-	public MapElementCharacterClient getCharacter() {
+	public CharacterClient getCharacter() {
 		return character;
 	}
 
@@ -133,9 +129,7 @@ public class PanelBattleCharacter extends JPanel/*
 
 		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
 			Integer degat = Integer.valueOf(textFieldDegat.getText());
-			CharacterClient characterClient = this.character.getCharacter();
-			characterClient
-					.setCurrentHp(characterClient.getCurrentHp() - degat);
+			character.setCurrentHp(character.getCurrentHp() - degat);
 		}
 	}
 
@@ -152,8 +146,7 @@ public class PanelBattleCharacter extends JPanel/*
 
 		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
 			Integer heal = Integer.valueOf(textFieldDegat.getText());
-			CharacterClient characterClient = this.character.getCharacter();
-			characterClient.setCurrentHp(characterClient.getCurrentHp() + heal);
+			character.setCurrentHp(character.getCurrentHp() + heal);
 		}
 	}
 
@@ -162,16 +155,16 @@ public class PanelBattleCharacter extends JPanel/*
 		super.paint(g);
 
 		// Draw image
-		if (character.getIsHidden()) {
-			Graphics2D g2 = (Graphics2D) g;
-			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
-					0.7f));
-		}
+		/*
+		 * if (character.getIsHidden()) { Graphics2D g2 = (Graphics2D) g;
+		 * g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+		 * 0.7f)); }
+		 */
 
-		g.drawImage(character.getCharacter().getImage(), 5, 0, 45, 40, null);
+		g.drawImage(character.getImage(), 5, 0, 45, 40, null);
 
-		Integer currentHp = character.getCharacter().getCurrentHp();
-		Integer totalHp = character.getCharacter().getTotalHp();
+		Integer currentHp = character.getCurrentHp();
+		Integer totalHp = character.getTotalHp();
 
 		Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
 

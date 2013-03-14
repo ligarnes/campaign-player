@@ -47,6 +47,7 @@ import net.alteiar.campaign.player.gui.tools.Zoomable;
 import net.alteiar.server.document.map.IMapListener;
 import net.alteiar.server.document.map.MapClient;
 import net.alteiar.server.document.map.Scale;
+import net.alteiar.server.document.map.element.IMapElementListener;
 import net.alteiar.server.document.map.element.MapElementClient;
 
 /**
@@ -54,14 +55,14 @@ import net.alteiar.server.document.map.element.MapElementClient;
  * 
  */
 public abstract class PanelBasicMap extends JPanel implements IMapListener,
-		Zoomable, ActionListener {
+		IMapElementListener, Zoomable, ActionListener {
 	private static final long serialVersionUID = -5027864086357387475L;
 
 	protected final MapClient<?> map;
 	private Double zoomFactor;
 
 	private boolean drawPathToElement;
-	private MapElementClient<?> mapElement;
+	private MapElementClient mapElement;
 
 	private Color lineColor;
 
@@ -80,6 +81,10 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 
 		this.map = map;
 		this.map.addMapListener(this);
+
+		for (MapElementClient element : this.map.getElements()) {
+			element.addMapElementListener(this);
+		}
 
 		this.setOpaque(false);
 
@@ -116,7 +121,7 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 		drawLineToMouse(origin, Color.RED);
 	}
 
-	public void drawPathToElement(Point origin, MapElementClient<?> mapElement) {
+	public void drawPathToElement(Point origin, MapElementClient mapElement) {
 		drawPathToElement = true;
 		this.mapElement = mapElement;
 		refreshTime.start();
@@ -438,8 +443,8 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 	 *            - the position of the map element on the panel
 	 * @return the map element
 	 */
-	public MapElementClient<?> getElementAt(Point p) {
-		Collection<MapElementClient<?>> elements = map.getElementsAt(p);
+	public MapElementClient getElementAt(Point p) {
+		Collection<MapElementClient> elements = map.getElementsAt(p);
 		// return the first element of the list
 		return elements.size() > 0 ? elements.iterator().next() : null;
 	}
@@ -466,12 +471,14 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 	}
 
 	@Override
-	public void mapElementAdded(MapElementClient<?> element) {
+	public void mapElementAdded(MapElementClient element) {
+		element.addMapElementListener(this);
 		mapChanged();
 	}
 
 	@Override
-	public void mapElementRemoved(MapElementClient<?> element) {
+	public void mapElementRemoved(MapElementClient element) {
+		element.removeMapElementListener(this);
 		mapChanged();
 	}
 
@@ -482,6 +489,11 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 
 	@Override
 	public void filterChanged() {
+		mapChanged();
+	}
+
+	@Override
+	public void elementChanged() {
 		mapChanged();
 	}
 

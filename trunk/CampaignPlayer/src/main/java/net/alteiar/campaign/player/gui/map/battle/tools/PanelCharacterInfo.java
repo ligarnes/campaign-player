@@ -72,12 +72,10 @@ public class PanelCharacterInfo extends JPanel implements
 				Color hp = new Color(1.0f - ratio, ratio, 0);
 				g.setColor(hp);
 				g.fillRect(xLife, yLife, (int) (widthLife * ratio), heightLife);
-
-				g.setColor(Color.BLACK);
-				g.drawRect(xLife, yLife, widthLife - 1, heightLife - 1);
-
-				g.drawString(currentHp + "/" + totalHp, 40, 10);
 			}
+			g.setColor(Color.BLACK);
+			g.drawRect(xLife, yLife, widthLife - 1, heightLife - 1);
+			g.drawString(currentHp + "/" + totalHp, 40, 10);
 		}
 	}
 
