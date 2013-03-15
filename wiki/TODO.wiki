@@ -1,0 +1,12 @@
+= New Server et Plugin =
+  * Variable local et partager a partir du plugin 
+  * Propriété de partage des documents
+    * visibilité de partage
+    * propriété ou modification temporaire
+  * Extraire les personnages
+  * Système de Monstres
+ 
+= Projet Player = 
+  * faire un système de fichier
+  * faire un autre type de carte plus libre
+  * Faire un système de plugin plus propre
