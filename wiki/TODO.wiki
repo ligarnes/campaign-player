@@ -21,3 +21,24 @@ Donc on risque des problèmes si plusieurs personnes modifies la même variable.
 Second point on pourrai faire les appels distant comme maintenant mais sa implique que d'une certaine façon ceux qui vont utiliser notre api vont devoir eux même faire ces appels distant ce que l'on ne veux pas a mon avis. Du coup je pense qu'il est mieux de continuer comme on est maintenant mais par contre de fournir une mécanique de Bean pour les classes créer dans le "plugin"
 
 Enfin, je continue d'y penser mais j'ai pas trop d'espoir. 
+
+Finalement je pense avoir une piste, sa sera un peu agacent mais nos beans serait comme cela avec la solution que j'ai pensé:
+
+{{{
+public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		String oldValue = this.name;
+		propertyChangeSupport.firePropertyChange("name", oldValue, name);
+	}
+
+	public String getLocalname() {
+		return this.name;
+	}
+
+	public void setLocalname(String name) {
+		this.name = name;
+	}
+}}}
