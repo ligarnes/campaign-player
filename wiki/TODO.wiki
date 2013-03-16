@@ -25,7 +25,7 @@ Enfin, je continue d'y penser mais j'ai pas trop d'espoir.
 Finalement je pense avoir une piste, sa sera un peu agacent mais nos beans serait comme cela avec la solution que j'ai pensé:
 
 {{{
-public String getName() {
+        public String getName() {
 		return name;
 	}
 
