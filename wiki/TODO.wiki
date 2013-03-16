@@ -10,3 +10,14 @@
   * faire un système de fichier
   * faire un autre type de carte plus libre
   * Faire un système de plugin plus propre
+
+
+Comme discuter durant le cour je pense qu'en réalité on aura des problèmes si on veux tout faire en Bean. Principalement a cause de la distribution et des invocations distantes. 
+
+Le premier problème que je vois est les modifications. En théorie dans le système actuellement aucun changement est fait en local, tous les changements sont fait de façon distance et ce sont la notification des appels distant qui font mettre a jour l'information. 
+Or de la façon qu'on parler on va d'abord faire un appel vetoable, puis modifier la variable local, puis faire un appel de notification. 
+Donc on risque des problèmes si plusieurs personnes modifies la même variable. 
+
+Second point on pourrai faire les appels distant comme maintenant mais sa implique que d'une certaine façon ceux qui vont utiliser notre api vont devoir eux même faire ces appels distant ce que l'on ne veux pas a mon avis. Du coup je pense qu'il est mieux de continuer comme on est maintenant mais par contre de fournir une mécanique de Bean pour les classes créer dans le "plugin"
+
+Enfin, je continue d'y penser mais j'ai pas trop d'espoir. 
