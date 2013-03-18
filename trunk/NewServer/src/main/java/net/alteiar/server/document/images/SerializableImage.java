@@ -28,7 +28,6 @@ import javax.imageio.ImageIO;
 
 import net.alteiar.server.document.files.SerializableFile;
 
-
 /**
  * @author Cody Stoutenburg
  * 
@@ -36,6 +35,8 @@ import net.alteiar.server.document.files.SerializableFile;
 public class SerializableImage extends SerializableFile implements
 		TransfertImage {
 	private static final long serialVersionUID = 4786344613415239528L;
+
+	private transient BufferedImage image;
 
 	public SerializableImage() {
 		super();
@@ -51,6 +52,9 @@ public class SerializableImage extends SerializableFile implements
 
 	@Override
 	public BufferedImage restoreImage() throws IOException {
-		return ImageIO.read(new ByteArrayInputStream(file));
+		if (image == null) {
+			image = ImageIO.read(new ByteArrayInputStream(file));
+		}
+		return image;
 	}
 }
