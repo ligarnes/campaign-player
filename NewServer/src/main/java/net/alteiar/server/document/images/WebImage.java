@@ -25,7 +25,6 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-
 /**
  * @author Cody Stoutenburg
  * 
@@ -34,6 +33,7 @@ public class WebImage implements TransfertImage {
 	private static final long serialVersionUID = 4786344613415239528L;
 
 	private final String url;
+	private transient BufferedImage image;
 
 	public WebImage(String url) {
 		this.url = url;
@@ -41,6 +41,9 @@ public class WebImage implements TransfertImage {
 
 	@Override
 	public BufferedImage restoreImage() throws IOException {
-		return ImageIO.read(new URL(url));
+		if (image == null) {
+			image = ImageIO.read(new URL(url));
+		}
+		return image;
 	}
 }
