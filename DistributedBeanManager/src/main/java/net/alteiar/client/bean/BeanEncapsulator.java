@@ -71,7 +71,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 			}
 		} else {
 			propertyChangeSupportRemote.firePropertyChange(evt);
-			throw new PropertyVetoException("need remoteChange", evt);
+			throw new PropertyVetoException("remote change", evt);
 		}
 	}
 

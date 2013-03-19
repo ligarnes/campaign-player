@@ -31,6 +31,12 @@ import net.alteiar.server.document.IDocumentRemote;
  */
 public interface IServerDocument extends Remote {
 
+	void addServerListener(ServerListener listener)
+			throws RemoteException;
+
+	void removeServerListener(ServerListener listener)
+			throws RemoteException;
+
 	// Documents
 	Long createDocument(BeanEncapsulator documentBuilder)
 			throws RemoteException;

@@ -4,14 +4,17 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.server.document.IDocumentRemoteListener;
 
-public class DocumentClient implements PropertyChangeListener {
+public class DocumentClient implements Serializable, PropertyChangeListener {
+	private static final long serialVersionUID = 1L;
 
 	private final IDocumentRemote remote;
 	private transient IDocumentRemoteListener documentListener;
@@ -62,18 +65,7 @@ public class DocumentClient implements PropertyChangeListener {
 
 	public void loadDocument() {
 		try {
-			documentListener = new IDocumentRemoteListener() {
-				@Override
-				public void beanValueChanged(String propertyName,
-						Object newValue) throws RemoteException {
-					remoteValueChanged(propertyName, newValue);
-				}
-
-				@Override
-				public void documentClosed() {
-					remoteCloseDocument();
-				}
-			};
+			documentListener = new DocumentListener();
 
 			this.remote.addDocumentListener(documentListener);
 		} catch (RemoteException e) {
@@ -130,5 +122,25 @@ public class DocumentClient implements PropertyChangeListener {
 		} else if (!documentPath.equals(other.documentPath))
 			return false;
 		return true;
+	}
+
+	private class DocumentListener extends UnicastRemoteObject implements
+			IDocumentRemoteListener {
+		private static final long serialVersionUID = 1L;
+
+		protected DocumentListener() throws RemoteException {
+			super();
+		}
+
+		@Override
+		public void beanValueChanged(String propertyName, Object newValue)
+				throws RemoteException {
+			remoteValueChanged(propertyName, newValue);
+		}
+
+		@Override
+		public void documentClosed() throws RemoteException {
+			remoteCloseDocument();
+		}
 	}
 }

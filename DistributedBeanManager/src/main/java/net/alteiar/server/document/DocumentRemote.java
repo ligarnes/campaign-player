@@ -40,6 +40,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	protected void notifyBeanChanged(String propertyName, Object newValue) {
 		HashSet<IDocumentRemoteListener> copy = new HashSet<IDocumentRemoteListener>();
 		synchronized (listeners) {
