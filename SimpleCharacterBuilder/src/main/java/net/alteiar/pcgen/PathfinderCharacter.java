@@ -4,29 +4,49 @@ import java.io.File;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementArray;
+
 import net.alteiar.CharacterIO;
 import net.alteiar.ExceptionTool;
 
 @XmlRootElement
 public class PathfinderCharacter implements PathfinderCharacterFacade {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
+	@Element
 	private String name;
 
+	@Element
 	private Integer hp;
+	
+	@Element
 	private Integer currentHp;
 
+	@Element
 	private Float width;
+	
+	@Element
 	private Float height;
 
+	@Element
 	private Integer ac;
+	
+	@Element
 	private Integer acFlatFooted;
+	
+	@Element
 	private Integer acTouch;
 
+	@Element
 	private Integer initMod;
 
+	@ElementArray
 	private byte[] file;
 
+	@Element
 	private String htmlCharacterSheet;
 
 	public PathfinderCharacter() {

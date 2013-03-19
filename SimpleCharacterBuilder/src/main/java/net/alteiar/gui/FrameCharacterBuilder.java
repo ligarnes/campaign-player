@@ -127,9 +127,10 @@ public class FrameCharacterBuilder extends JFrame implements WindowListener {
 			} catch (FileNotFoundException e) {
 				ExceptionTool.showError(e,
 						"il y a eu un problème pour ouvrir le personnage");
-			} catch (JAXBException e) {
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				ExceptionTool.showError(e,
-						"il y a eu un problème pour ouvrir le personnage");
+						"il y a eu un problème pour ouvrir le personnage (Simple)");
 			}
 		}
 	}
@@ -143,14 +144,13 @@ public class FrameCharacterBuilder extends JFrame implements WindowListener {
 			if (f != null) {
 				try {
 					CharacterIO.writeFile(f, character.getCharacter());
-				} catch (JAXBException e) {
-					ExceptionTool
-							.showError(e,
-									"il y a eu un problème lors de la sauvegarde du personnage");
 				} catch (IOException e) {
 					ExceptionTool
-							.showError(e,
-									"il y a eu un problème lors de la sauvegarde du personnage");
+							.showError(e,"il y a eu un problème lors de la sauvegarde du personnage");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					ExceptionTool
+					.showError(e,"il y a eu un problème lors de la sauvegarde du personnage (Simple)");
 				}
 			} else {
 				saveCharacterAs();

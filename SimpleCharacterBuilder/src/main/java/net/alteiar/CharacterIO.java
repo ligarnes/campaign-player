@@ -10,10 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
 
 import net.alteiar.pcgen.PathfinderCharacter;
 
@@ -23,37 +22,16 @@ public class CharacterIO {
 
 	private final CharacterProperties characterProperties;
 
-	private Marshaller marshaller;
-	private Unmarshaller unmarshaller;
-	private JAXBException ex;
 
 	private CharacterIO() {
 		characterProperties = new CharacterProperties();
-		// Create a JAXB context passing in the class of the object we want
-		// to marshal/unmarshal
-		try {
-			JAXBContext context = JAXBContext
-					.newInstance(PathfinderCharacter.class);
-
-			// Create the marshaller, this is the nifty little thing that will
-			// actually transform the object into XML
-			marshaller = context.createMarshaller();
-			unmarshaller = context.createUnmarshaller();
-		} catch (JAXBException e) {
-			ex = e;
-			marshaller = null;
-			unmarshaller = null;
-		}
 	}
 
 	private PathfinderCharacter readRealFile(File file)
-			throws FileNotFoundException, JAXBException {
-		if (unmarshaller == null) {
-			throw ex;
-		}
-
-		return (PathfinderCharacter) unmarshaller
-				.unmarshal(new FileReader(file));
+			throws Exception{
+			Serializer serializer = new Persister();
+			PathfinderCharacter character= serializer.read(PathfinderCharacter.class, file);
+			return character;
 	}
 
 	private static void systemCall(String[] cmdarray, File dir,
@@ -97,17 +75,15 @@ public class CharacterIO {
 	}
 
 	private void realWriteToFile(File file, PathfinderCharacter character)
-			throws JAXBException, IOException {
-		if (marshaller == null) {
-			throw ex;
-		}
-
-		FileWriter writer = new FileWriter(file);
-		marshaller.marshal(character, writer);
+			throws Exception {
+		
+		Serializer serializer = new Persister();
+		serializer.write(character, file);
+		
 	}
 
 	public static PathfinderCharacter readFile(File file)
-			throws FileNotFoundException, JAXBException {
+			throws Exception{
 
 		PathfinderCharacter character = null;
 		if (file.getName().endsWith(".pcg")) {
@@ -134,7 +110,7 @@ public class CharacterIO {
 	}
 
 	public static void writeFile(File file, PathfinderCharacter character)
-			throws JAXBException, IOException {
+			throws Exception {
 		INSTANCE.realWriteToFile(file, character);
 	}
 

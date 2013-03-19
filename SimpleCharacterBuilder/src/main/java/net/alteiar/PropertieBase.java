@@ -60,8 +60,7 @@ public class PropertieBase implements Serializable {
 		File property = new File(propertiesFile);
 		if (!property.exists()) {
 			if (!property.createNewFile()) {
-				throw new IOException("Impossible de créer le fichier "
-						+ property.getCanonicalPath());
+				throw new IOException("Impossible de créer le fichier "+ property.getCanonicalPath());
 			}
 		}
 
