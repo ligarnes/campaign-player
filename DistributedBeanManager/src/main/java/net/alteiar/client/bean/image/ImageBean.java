@@ -1,8 +1,8 @@
-package net.alteiar.client.test.bean;
+package net.alteiar.client.bean.image;
 
 import java.beans.PropertyVetoException;
 
-import net.alteiar.server.document.images.TransfertImage;
+import net.alteiar.utils.images.TransfertImage;
 
 public class ImageBean extends BasicBeans {
 	private static final long serialVersionUID = 1L;

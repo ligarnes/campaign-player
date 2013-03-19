@@ -1,4 +1,4 @@
-package net.alteiar.client.test;
+package net.alteiar.client;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,8 +12,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import net.alteiar.client.test.bean.ImageBean;
-import net.alteiar.server.document.images.SerializableImage;
+import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.client.bean.image.ImageBean;
+import net.alteiar.server.document.DocumentRemote;
+import net.alteiar.utils.images.SerializableImage;
 
 public class MainTest {
 
@@ -25,10 +27,10 @@ public class MainTest {
 	public static void main(String[] args) throws PropertyVetoException,
 			IOException {
 		ImageBean imageBean = new ImageBean();
-		NewDocumentRemote remoteBeanImage = new NewDocumentRemote(
+		DocumentRemote remoteBeanImage = new DocumentRemote(
 				new BeanEncapsulator(imageBean));
 
-		NewDocumentClient clientImage = remoteBeanImage.buildProxy();
+		DocumentClient clientImage = remoteBeanImage.buildProxy();
 		clientImage.loadDocument();
 
 		ImageBean image = (ImageBean) clientImage.getBean().getBean();

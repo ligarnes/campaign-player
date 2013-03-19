@@ -1,30 +1,31 @@
-package net.alteiar.client.test;
+package net.alteiar.server.document;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashSet;
 
-import net.alteiar.server.document.DocumentPath;
+import net.alteiar.client.DocumentClient;
+import net.alteiar.client.bean.BeanEncapsulator;
 
-public class NewDocumentRemote extends UnicastRemoteObject implements
-		INewDocumentRemote {
+public class DocumentRemote extends UnicastRemoteObject implements
+		IDocumentRemote {
 	private static final long serialVersionUID = 1L;
 
 	private final DocumentPath path;
 	private final BeanEncapsulator bean;
 
-	private final HashSet<INewDocumentRemoteListener> listeners;
+	private final HashSet<IDocumentRemoteListener> listeners;
 
-	public NewDocumentRemote(BeanEncapsulator bean) throws RemoteException {
+	public DocumentRemote(BeanEncapsulator bean) throws RemoteException {
 		super();
 		this.path = new DocumentPath("", "");
 		this.bean = bean;
 
-		listeners = new HashSet<INewDocumentRemoteListener>();
+		listeners = new HashSet<IDocumentRemoteListener>();
 	}
 
 	@Override
-	public void addDocumentListener(INewDocumentRemoteListener listener)
+	public void addDocumentListener(IDocumentRemoteListener listener)
 			throws RemoteException {
 		synchronized (listeners) {
 			listeners.add(listener);
@@ -32,7 +33,7 @@ public class NewDocumentRemote extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public void removeDocumentListener(INewDocumentRemoteListener listener)
+	public void removeDocumentListener(IDocumentRemoteListener listener)
 			throws RemoteException {
 		synchronized (listeners) {
 			listeners.remove(listener);
@@ -40,12 +41,12 @@ public class NewDocumentRemote extends UnicastRemoteObject implements
 	}
 
 	protected void notifyBeanChanged(String propertyName, Object newValue) {
-		HashSet<INewDocumentRemoteListener> copy = new HashSet<INewDocumentRemoteListener>();
+		HashSet<IDocumentRemoteListener> copy = new HashSet<IDocumentRemoteListener>();
 		synchronized (listeners) {
-			copy = (HashSet<INewDocumentRemoteListener>) listeners.clone();
+			copy = (HashSet<IDocumentRemoteListener>) listeners.clone();
 		}
 
-		for (INewDocumentRemoteListener listener : copy) {
+		for (IDocumentRemoteListener listener : copy) {
 			// TODO need to multithread that
 			try {
 				listener.beanValueChanged(propertyName, newValue);
@@ -94,7 +95,7 @@ public class NewDocumentRemote extends UnicastRemoteObject implements
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		NewDocumentRemote other = (NewDocumentRemote) obj;
+		DocumentRemote other = (DocumentRemote) obj;
 		if (path == null) {
 			if (other.path != null)
 				return false;
@@ -104,7 +105,7 @@ public class NewDocumentRemote extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public NewDocumentClient buildProxy() throws RemoteException {
-		return new NewDocumentClient(this);
+	public DocumentClient buildProxy() throws RemoteException {
+		return new DocumentClient(this);
 	}
 }

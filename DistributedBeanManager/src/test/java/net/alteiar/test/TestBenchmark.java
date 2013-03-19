@@ -7,9 +7,9 @@ import java.io.IOException;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.DocumentClient;
-import net.alteiar.server.document.files.DocumentImageBuilder;
-import net.alteiar.server.document.images.SerializableImage;
-import net.alteiar.server.document.images.WebImage;
+import net.alteiar.utils.files.DocumentImageBuilder;
+import net.alteiar.utils.images.SerializableImage;
+import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 

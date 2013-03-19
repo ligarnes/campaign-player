@@ -1,8 +1,8 @@
-package net.alteiar.client.test.bean;
+package net.alteiar.client.bean.image;
 
 import java.beans.PropertyVetoException;
 
-import net.alteiar.server.document.map.Scale;
+import net.alteiar.utils.map.Scale;
 
 public class MapBean extends BasicBeans {
 	private static final long serialVersionUID = 1L;

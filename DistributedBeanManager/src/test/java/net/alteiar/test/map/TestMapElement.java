@@ -12,12 +12,12 @@ import java.io.IOException;
 
 import net.alteiar.client.CampaignClient;
 import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.images.TransfertImage;
 import net.alteiar.server.document.map.battle.BattleClient;
 import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
 import net.alteiar.server.document.map.element.MapElementClient;
 import net.alteiar.server.document.map.element.size.MapElementSize;
 import net.alteiar.server.document.map.element.size.MapElementSizePixel;
+import net.alteiar.utils.images.TransfertImage;
 
 import org.junit.Test;
 

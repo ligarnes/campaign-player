@@ -1,17 +1,18 @@
-package net.alteiar.client.test;
+package net.alteiar.server.document;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import net.alteiar.server.document.DocumentPath;
+import net.alteiar.client.DocumentClient;
+import net.alteiar.client.bean.BeanEncapsulator;
 
-public interface INewDocumentRemote extends Remote {
-	NewDocumentClient buildProxy() throws RemoteException;
+public interface IDocumentRemote extends Remote {
+	DocumentClient buildProxy() throws RemoteException;
 
-	void addDocumentListener(INewDocumentRemoteListener listener)
+	void addDocumentListener(IDocumentRemoteListener listener)
 			throws RemoteException;
 
-	void removeDocumentListener(INewDocumentRemoteListener listener)
+	void removeDocumentListener(IDocumentRemoteListener listener)
 			throws RemoteException;
 
 	DocumentPath getPath() throws RemoteException;

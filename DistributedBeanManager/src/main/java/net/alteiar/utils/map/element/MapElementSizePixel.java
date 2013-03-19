@@ -17,44 +17,45 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.images;
+package net.alteiar.utils.map.element;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
-import javax.imageio.ImageIO;
-
-import net.alteiar.server.document.files.SerializableFile;
+import net.alteiar.utils.map.Scale;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class SerializableImage extends SerializableFile implements
-		TransfertImage {
-	private static final long serialVersionUID = 4786344613415239528L;
+public class MapElementSizePixel extends MapElementSize {
+	private static final long serialVersionUID = -376388590241288668L;
 
-	private transient BufferedImage image;
+	private Double pixels;
 
-	public SerializableImage() {
-		super();
+	public MapElementSizePixel() {
+		this(0.0);
 	}
 
-	public SerializableImage(byte[] bytes) {
-		super(bytes);
-	}
-
-	public SerializableImage(File file) throws IOException {
-		super(file);
+	public MapElementSizePixel(Double pixels) {
+		this.pixels = pixels;
 	}
 
 	@Override
-	public BufferedImage restoreImage() throws IOException {
-		if (image == null) {
-			image = ImageIO.read(new ByteArrayInputStream(file));
-		}
-		return image;
+	public Double getPixels(Scale scale) {
+		return pixels;
 	}
+
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		out.writeDouble(pixels);
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException,
+			ClassNotFoundException {
+		pixels = in.readDouble();
+	}
+
 }

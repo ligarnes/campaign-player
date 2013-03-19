@@ -18,8 +18,6 @@ import java.util.Collection;
 import java.util.List;
 
 import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.images.SerializableImage;
-import net.alteiar.server.document.images.TransfertImage;
 import net.alteiar.server.document.map.IMapListener;
 import net.alteiar.server.document.map.Scale;
 import net.alteiar.server.document.map.battle.BattleClient;
@@ -29,6 +27,8 @@ import net.alteiar.server.document.map.element.size.MapElementSize;
 import net.alteiar.server.document.map.element.size.MapElementSizeMeter;
 import net.alteiar.server.document.map.element.size.MapElementSizePixel;
 import net.alteiar.test.BasicTest;
+import net.alteiar.utils.images.SerializableImage;
+import net.alteiar.utils.images.TransfertImage;
 
 import org.junit.Before;
 import org.junit.Test;

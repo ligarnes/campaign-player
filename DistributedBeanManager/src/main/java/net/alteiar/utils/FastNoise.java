@@ -1,4 +1,4 @@
-package net.alteiar.server.document.files;
+package net.alteiar.utils;
 
 import java.awt.image.BufferedImage;
 
