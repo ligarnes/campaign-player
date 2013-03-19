@@ -12,8 +12,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import net.alteiar.client.bean.image.BasicBeans;
-
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 	private static final long serialVersionUID = 1L;
 
@@ -21,6 +19,73 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 
 	private final BasicBeans bean;
 	private final ArrayList<BeanChange> changed;
+
+	public BeanEncapsulator(BasicBeans bean) {
+		this.bean = bean;
+		propertyChangeSupportRemote = new PropertyChangeSupport(this);
+
+		changed = new ArrayList<>();
+		this.bean.addVetoableChangeListener(this);
+	}
+
+	/**
+	 * this method is call when the server notify a value change
+	 * 
+	 * @param propertyName
+	 * @param newValue
+	 */
+	public void valueChange(String propertyName, Object newValue) {
+		synchronized (changed) {
+			changed.add(new BeanChange(propertyName, newValue));
+		}
+		Method setter;
+		try {
+			setter = new PropertyDescriptor(propertyName, bean.getClass())
+					.getWriteMethod();
+			setter.invoke(bean, newValue);
+		} catch (IntrospectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * this method is call when the bean we encapsulate change
+	 */
+	@Override
+	public void vetoableChange(PropertyChangeEvent evt)
+			throws PropertyVetoException {
+		BeanChange changeNotification = new BeanChange(evt);
+		if (changed.contains(changeNotification)) {
+			synchronized (changed) {
+				changed.remove(changeNotification);
+			}
+		} else {
+			propertyChangeSupportRemote.firePropertyChange(evt);
+			throw new PropertyVetoException("need remoteChange", evt);
+		}
+	}
+
+	public BasicBeans getBean() {
+		return this.bean;
+	}
+
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		propertyChangeSupportRemote.addPropertyChangeListener(listener);
+	}
+
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		propertyChangeSupportRemote.removePropertyChangeListener(listener);
+	}
 
 	private class BeanChange {
 		private final String method;
@@ -75,63 +140,5 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		private BeanEncapsulator getOuterType() {
 			return BeanEncapsulator.this;
 		}
-	}
-
-	public BeanEncapsulator(BasicBeans bean) {
-		this.bean = bean;
-		propertyChangeSupportRemote = new PropertyChangeSupport(this);
-
-		changed = new ArrayList<>();
-		this.bean.addVetoableChangeListener(this);
-	}
-
-	public void valueChange(String propertyName, Object newValue) {
-		synchronized (changed) {
-			changed.add(new BeanChange(propertyName, newValue));
-		}
-		Method setter;
-		try {
-			setter = new PropertyDescriptor(propertyName, bean.getClass())
-					.getWriteMethod();
-			setter.invoke(bean, newValue);
-		} catch (IntrospectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void vetoableChange(PropertyChangeEvent evt)
-			throws PropertyVetoException {
-		BeanChange changeNotification = new BeanChange(evt);
-		if (!changed.contains(changeNotification)) {
-			synchronized (changed) {
-				changed.remove(changeNotification);
-			}
-		} else {
-			propertyChangeSupportRemote.firePropertyChange(evt);
-			throw new PropertyVetoException("need remoteChange", evt);
-		}
-	}
-
-	public BasicBeans getBean() {
-		return this.bean;
-	}
-
-	public void addPropertyChangeListener(PropertyChangeListener listener) {
-		propertyChangeSupportRemote.addPropertyChangeListener(listener);
-	}
-
-	public void removePropertyChangeListener(PropertyChangeListener listener) {
-		propertyChangeSupportRemote.removePropertyChangeListener(listener);
 	}
 }
