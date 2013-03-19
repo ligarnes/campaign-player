@@ -7,5 +7,5 @@ public interface IDocumentRemoteListener extends Remote {
 	void beanValueChanged(String propertyName, Object newValue)
 			throws RemoteException;
 
-	void documentClosed();
+	void documentClosed() throws RemoteException;
 }

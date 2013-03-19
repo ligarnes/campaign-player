@@ -23,7 +23,9 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 
 import net.alteiar.client.bean.BeanEncapsulator;
@@ -75,6 +77,7 @@ public class ServerDocuments extends UnicastRemoteObject implements
 		}
 	}
 
+	private final ArrayList<ServerListener> listeners;
 	private final HashMap<Long, IDocumentRemote> documents;
 
 	/**
@@ -83,6 +86,32 @@ public class ServerDocuments extends UnicastRemoteObject implements
 	protected ServerDocuments() throws RemoteException {
 		super();
 		documents = new HashMap<Long, IDocumentRemote>();
+		listeners = new ArrayList<ServerListener>();
+	}
+
+	@Override
+	public void addServerListener(ServerListener listener)
+			throws RemoteException {
+		synchronized (listeners) {
+			this.listeners.add(listener);
+		}
+	}
+
+	@Override
+	public void removeServerListener(ServerListener listener)
+			throws RemoteException {
+		synchronized (listeners) {
+			this.listeners.remove(listener);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	protected List<ServerListener> getListeners() {
+		List<ServerListener> copy;
+		synchronized (listeners) {
+			copy = (List<ServerListener>) listeners.clone();
+		}
+		return copy;
 	}
 
 	@Override
@@ -92,6 +121,11 @@ public class ServerDocuments extends UnicastRemoteObject implements
 		Long id = remote.getPath().getId();
 		documents.put(id, remote);
 
+		// TODO notify in multithread
+		for (ServerListener listener : getListeners()) {
+			listener.documentAdded(id);
+		}
+
 		return id;
 	}
 
@@ -99,6 +133,11 @@ public class ServerDocuments extends UnicastRemoteObject implements
 	public synchronized void deleteDocument(Long guid) throws RemoteException {
 		IDocumentRemote remote = documents.remove(guid);
 		remote.closeDocument();
+
+		// TODO notify in multithread
+		for (ServerListener listener : getListeners()) {
+			listener.documentRemoved(guid);
+		}
 	}
 
 	@Override

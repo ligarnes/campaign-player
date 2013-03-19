@@ -1,20 +1,55 @@
 package net.alteiar.client;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.logger.LoggerConfig;
+import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
 import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.ExceptionTool;
 
-public abstract class DocumentManagerClient {
+public class DocumentManagerClient {
 
-	private static final long serialVersionUID = 1L;
+	public static DocumentManagerClient INSTANCE = null;
+
+	public static void connect(String localAddress, String serverAddress,
+			String port, String campaignPath, String name, Boolean isMj) {
+		IServerDocument campaign = null;
+
+		Remote remoteObject;
+		try {
+			System.setProperty("java.rmi.server.hostname", localAddress);
+			String[] allRemoteNames = RmiRegistry.list("//" + serverAddress
+					+ ":" + port);
+
+			for (String remoteName : allRemoteNames) {
+				try {
+					remoteObject = RmiRegistry.lookup(remoteName);
+					LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "RMI REGISTRY: "
+							+ remoteName);
+					if (remoteObject instanceof IServerDocument) {
+						campaign = (IServerDocument) remoteObject;
+						INSTANCE = new DocumentManagerClient(campaign,
+								campaignPath);
+						break;
+					}
+				} catch (RemoteException e) {
+					ExceptionTool.showError(e);
+				}
+			}
+		} catch (Exception e) {
+			ExceptionTool.showError(e);
+		}
+	}
 
 	// Use to notify when a document is received for blocking access
 	private static CountDownLatch counter = new CountDownLatch(0);
@@ -33,7 +68,7 @@ public abstract class DocumentManagerClient {
 	public DocumentManagerClient(IServerDocument server, String localPath)
 			throws RemoteException {
 		this.server = server;
-		// this.server.addServerListener(new CampaignClientObserver());
+		this.server.addServerListener(new CampaignClientObserver());
 
 		documents = new HashMap<Long, DocumentClient>();
 	}
@@ -81,8 +116,8 @@ public abstract class DocumentManagerClient {
 
 			this.documents.put(guid, client);
 
-			this.add(client);
-			notifyDocumentReceived(client);
+			// this.add(client);
+			// notifyDocumentReceived(client);
 			getCounterInstance().countDown();
 		} catch (RemoteException e) {
 			// TODO
@@ -90,7 +125,7 @@ public abstract class DocumentManagerClient {
 		}
 	}
 
-	protected abstract void add(DocumentClient client);
+	// protected abstract void add(DocumentClient client);
 
 	// TODO to change to protected
 	public long createDocument(BasicBeans bean) {
@@ -117,21 +152,20 @@ public abstract class DocumentManagerClient {
 		this.documents.remove(guid);
 	}
 
-	public void addWaitForDocumentListener(IWaitForDocumentListener listener) {
-		this.addListener(IWaitForDocumentListener.class, listener);
-	}
-
-	public void removeWaitForDocumentListener(IWaitForDocumentListener listener) {
-		this.removeListener(IWaitForDocumentListener.class, listener);
-	}
-
-	protected void notifyDocumentReceived(DocumentClient doc) {
-		for (IWaitForDocumentListener listener : getListener(IWaitForDocumentListener.class)) {
-			if (doc.getId().equals(listener.getDocument())) {
-				listener.documentReceived(doc);
-			}
-		}
-	}
+	/*
+	 * public void addWaitForDocumentListener(IWaitForDocumentListener listener)
+	 * { this.addListener(IWaitForDocumentListener.class, listener); }
+	 * 
+	 * public void removeWaitForDocumentListener(IWaitForDocumentListener
+	 * listener) { this.removeListener(IWaitForDocumentListener.class,
+	 * listener); }
+	 * 
+	 * protected void notifyDocumentReceived(DocumentClient doc) { for
+	 * (IWaitForDocumentListener listener :
+	 * getListener(IWaitForDocumentListener.class)) { if
+	 * (doc.getId().equals(listener.getDocument())) {
+	 * listener.documentReceived(doc); } } }
+	 */
 
 	private class CampaignClientObserver extends UnicastRemoteObject implements
 			ServerListener {
