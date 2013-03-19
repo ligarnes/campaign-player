@@ -4,8 +4,8 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 
-import net.alteiar.server.document.files.FastNoise;
 import net.alteiar.test.BasicTest;
+import net.alteiar.utils.FastNoise;
 
 import org.junit.Test;
 

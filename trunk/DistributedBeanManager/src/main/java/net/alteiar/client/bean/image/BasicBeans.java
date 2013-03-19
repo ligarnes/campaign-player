@@ -1,4 +1,4 @@
-package net.alteiar.client.test.bean;
+package net.alteiar.client.bean.image;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

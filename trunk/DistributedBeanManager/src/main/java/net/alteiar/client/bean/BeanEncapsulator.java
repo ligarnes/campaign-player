@@ -1,4 +1,4 @@
-package net.alteiar.client.test.bean;
+package net.alteiar.client.bean;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyChangeEvent;
@@ -12,12 +12,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import net.alteiar.client.bean.image.BasicBeans;
+
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
+	private static final long serialVersionUID = 1L;
 
 	private final PropertyChangeSupport propertyChangeSupportRemote;
 
 	private final BasicBeans bean;
-	private final ArrayList<BeanChange> changed; 
+	private final ArrayList<BeanChange> changed;
 
 	private class BeanChange {
 		private final String method;

@@ -1,4 +1,4 @@
-package net.alteiar.client.test;
+package net.alteiar.client;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -6,21 +6,23 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
+import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.server.document.DocumentPath;
+import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.server.document.IDocumentRemoteListener;
 
-public class NewDocumentClient implements PropertyChangeListener {
+public class DocumentClient implements PropertyChangeListener {
 
-	private final INewDocumentRemote remote;
-	private transient INewDocumentRemoteListener documentListener;
+	private final IDocumentRemote remote;
+	private transient IDocumentRemoteListener documentListener;
 
 	private final DocumentPath documentPath;
 
 	private BeanEncapsulator bean;
 
-	public NewDocumentClient(INewDocumentRemote remote) throws RemoteException {
+	public DocumentClient(IDocumentRemote remote) throws RemoteException {
 		this.remote = remote;
 		this.documentPath = this.remote.getPath();
-
 	}
 
 	public void remoteValueChanged(String propertyName, Object newValue) {
@@ -60,7 +62,7 @@ public class NewDocumentClient implements PropertyChangeListener {
 
 	public void loadDocument() {
 		try {
-			documentListener = new INewDocumentRemoteListener() {
+			documentListener = new IDocumentRemoteListener() {
 				@Override
 				public void beanValueChanged(String propertyName,
 						Object newValue) throws RemoteException {
@@ -121,7 +123,7 @@ public class NewDocumentClient implements PropertyChangeListener {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		NewDocumentClient other = (NewDocumentClient) obj;
+		DocumentClient other = (DocumentClient) obj;
 		if (documentPath == null) {
 			if (other.documentPath != null)
 				return false;

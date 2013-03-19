@@ -19,9 +19,9 @@ import net.alteiar.server.document.character.CharacterClient;
 import net.alteiar.server.document.character.CompleteCharacter;
 import net.alteiar.server.document.character.DocumentCharacterBuilder;
 import net.alteiar.server.document.chat.ChatRoomClient;
-import net.alteiar.server.document.files.DocumentImageBuilder;
-import net.alteiar.server.document.images.WebImage;
 import net.alteiar.server.document.player.PlayerClient;
+import net.alteiar.utils.files.DocumentImageBuilder;
+import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 

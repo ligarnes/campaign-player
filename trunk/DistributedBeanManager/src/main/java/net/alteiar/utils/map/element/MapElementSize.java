@@ -17,33 +17,19 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.server.document.images;
+package net.alteiar.utils.map.element;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
+import java.io.Externalizable;
 
-import javax.imageio.ImageIO;
+import net.alteiar.utils.map.Scale;
 
 /**
  * @author Cody Stoutenburg
  * 
+ *         this class represente a size that can be convert from scale
  */
-public class WebImage implements TransfertImage {
-	private static final long serialVersionUID = 4786344613415239528L;
+public abstract class MapElementSize implements Externalizable {
+	private static final long serialVersionUID = 7942889766046711297L;
 
-	private final String url;
-	private transient BufferedImage image;
-
-	public WebImage(String url) {
-		this.url = url;
-	}
-
-	@Override
-	public BufferedImage restoreImage() throws IOException {
-		if (image == null) {
-			image = ImageIO.read(new URL(url));
-		}
-		return image;
-	}
+	public abstract Double getPixels(Scale scale);
 }
