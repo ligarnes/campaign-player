@@ -1,10 +1,13 @@
 package net.alteiar.client;
 
-public class ClientId {
+import java.io.Serializable;
 
-	private int id;
+public class ClientId implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private long id;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -13,7 +16,7 @@ public class ClientId {
 	}
 	
 	public String toString() {
-		return Integer.toString(id);
+		return Long.toString(id);
 	}
 	
 }
