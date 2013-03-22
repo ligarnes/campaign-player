@@ -12,10 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import net.alteiar.client.DocumentClient;
-import net.alteiar.client.DocumentManagerClient;
 import net.alteiar.image.ImageBean;
-import net.alteiar.server.ServerDocuments;
 import net.alteiar.utils.images.SerializableImage;
 
 public class MainTest {
@@ -28,13 +25,13 @@ public class MainTest {
 	public static void main(String[] args) throws PropertyVetoException,
 			IOException {
 
-		ServerDocuments.startServer("127.0.0.1", 1099);
+		CampaignClient.startServer("127.0.0.1", "1099");
 
-		DocumentManagerClient.connect("127.0.0.1", "127.0.0.1", "1099", "", "",
+		CampaignClient.connect("127.0.0.1", "127.0.0.1", "1099", "", "pseudo",
 				true);
 
 		ImageBean imageBean = new ImageBean();
-		Long idDoc = DocumentManagerClient.INSTANCE.createDocument(imageBean);
+		Long idDoc = CampaignClient.getInstance().addBean(imageBean);
 		try {
 			Thread.sleep(300);
 		} catch (InterruptedException e) {
@@ -42,10 +39,7 @@ public class MainTest {
 			e.printStackTrace();
 		}
 
-		DocumentClient clientImage = DocumentManagerClient.INSTANCE
-				.getDocument(idDoc);
-
-		ImageBean image = (ImageBean) clientImage.getBean().getBean();
+		ImageBean image = CampaignClient.getInstance().getBean(idDoc);
 
 		System.out.println(image.getImage());
 		image.setImage(new SerializableImage(new File(
@@ -86,7 +80,7 @@ public class MainTest {
 		frm.setVisible(true);
 
 		try {
-			Thread.sleep(1000000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

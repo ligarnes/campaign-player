@@ -5,7 +5,7 @@ import java.beans.PropertyVetoException;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.utils.map.Scale;
 
-public class MapBean extends BasicBeans {
+public class Map extends BasicBeans {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
@@ -21,8 +21,9 @@ public class MapBean extends BasicBeans {
 
 	private Scale scale;
 
-	public MapBean() {
+	public Map() {
 		// elements = new HashSet<>();
+		scale = new Scale(70, 1.5);
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////
@@ -33,7 +34,8 @@ public class MapBean extends BasicBeans {
 	public void setName(String name) {
 		String oldValue = this.name;
 		try {
-			vetoableChangeSupport.fireVetoableChange("name", oldValue, name);
+			vetoableRemoteChangeSupport.fireVetoableChange("name", oldValue,
+					name);
 			this.name = name;
 			propertyChangeSupport.firePropertyChange("name", oldValue, name);
 		} catch (PropertyVetoException e) {
@@ -48,7 +50,8 @@ public class MapBean extends BasicBeans {
 	public void setWidth(int width) {
 		int oldValue = this.width;
 		try {
-			vetoableChangeSupport.fireVetoableChange("width", oldValue, width);
+			vetoableRemoteChangeSupport.fireVetoableChange("width", oldValue,
+					width);
 			this.width = width;
 			propertyChangeSupport.firePropertyChange("width", oldValue, width);
 		} catch (PropertyVetoException e) {
@@ -63,8 +66,8 @@ public class MapBean extends BasicBeans {
 	public void setHeight(int height) {
 		int oldValue = this.height;
 		try {
-			vetoableChangeSupport
-					.fireVetoableChange("height", oldValue, height);
+			vetoableRemoteChangeSupport.fireVetoableChange("height", oldValue,
+					height);
 			this.height = height;
 			propertyChangeSupport
 					.firePropertyChange("height", oldValue, height);
@@ -80,8 +83,8 @@ public class MapBean extends BasicBeans {
 	public void setBackground(Long background) {
 		int oldValue = this.height;
 		try {
-			vetoableChangeSupport.fireVetoableChange("background", oldValue,
-					background);
+			vetoableRemoteChangeSupport.fireVetoableChange("background",
+					oldValue, background);
 			this.background = background;
 			propertyChangeSupport.firePropertyChange("background", oldValue,
 					background);
@@ -97,8 +100,8 @@ public class MapBean extends BasicBeans {
 	public void setFilter(Long filter) {
 		int oldValue = this.height;
 		try {
-			vetoableChangeSupport
-					.fireVetoableChange("filter", oldValue, filter);
+			vetoableRemoteChangeSupport.fireVetoableChange("filter", oldValue,
+					filter);
 			this.filter = filter;
 			propertyChangeSupport
 					.firePropertyChange("filter", oldValue, filter);
@@ -114,7 +117,8 @@ public class MapBean extends BasicBeans {
 	public void setScale(Scale scale) {
 		int oldValue = this.height;
 		try {
-			vetoableChangeSupport.fireVetoableChange("scale", oldValue, scale);
+			vetoableRemoteChangeSupport.fireVetoableChange("scale", oldValue,
+					scale);
 			this.scale = scale;
 			propertyChangeSupport.firePropertyChange("scale", oldValue, scale);
 		} catch (PropertyVetoException e) {

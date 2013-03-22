@@ -19,8 +19,8 @@ public abstract class ColoredShape extends MapElement {
 
 	private Color color;
 
-	public ColoredShape(Color color) {
-		super();
+	public ColoredShape(Long mapId, Point position, Color color) {
+		super(mapId, position);
 		this.color = color;
 	}
 
@@ -31,7 +31,7 @@ public abstract class ColoredShape extends MapElement {
 	public void setColor(Color color) {
 		Color oldValue = this.color;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
+			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
 			this.color = color;
 			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,

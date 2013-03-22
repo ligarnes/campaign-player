@@ -45,8 +45,9 @@ public class Rectangle extends ColoredShape {
 	 * @param element
 	 * @throws RemoteException
 	 */
-	public Rectangle(Color color, MapElementSize width, MapElementSize height) {
-		super(color);
+	public Rectangle(Long mapId, Point position, Color color,
+			MapElementSize width, MapElementSize height) {
+		super(mapId, position, color);
 		this.width = width;
 		this.height = height;
 	}
@@ -88,7 +89,7 @@ public class Rectangle extends ColoredShape {
 	public void setWidth(MapElementSize width) {
 		MapElementSize oldValue = this.width;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_WIDTH_PROPERTY,
+			vetoableRemoteChangeSupport.fireVetoableChange(PROP_WIDTH_PROPERTY,
 					oldValue, width);
 			this.width = width;
 			propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
@@ -105,8 +106,8 @@ public class Rectangle extends ColoredShape {
 	public void setHeight(MapElementSize height) {
 		MapElementSize oldValue = this.height;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_HEIGHT_PROPERTY,
-					oldValue, height);
+			vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_HEIGHT_PROPERTY, oldValue, height);
 			this.height = height;
 			propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
 					oldValue, height);

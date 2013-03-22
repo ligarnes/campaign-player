@@ -15,6 +15,10 @@ public class ImageBean extends BasicBeans {
 	public ImageBean() {
 	}
 
+	public ImageBean(TransfertImage image) {
+		this.image = image;
+	}
+
 	public TransfertImage getImage() {
 		return image;
 	}
@@ -22,7 +26,7 @@ public class ImageBean extends BasicBeans {
 	public void setImage(TransfertImage image) {
 		TransfertImage oldValue = this.image;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_IMAGE_PROPERTY,
+			vetoableRemoteChangeSupport.fireVetoableChange(PROP_IMAGE_PROPERTY,
 					oldValue, image);
 			this.image = image;
 			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,

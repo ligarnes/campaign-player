@@ -15,8 +15,8 @@ public class Circle extends ColoredShape {
 
 	private MapElementSize radius;
 
-	public Circle(Color color, MapElementSize radius) {
-		super(color);
+	public Circle(Long mapId, Point position, Color color, MapElementSize radius) {
+		super(mapId, position, color);
 		this.radius = radius;
 	}
 
@@ -65,8 +65,8 @@ public class Circle extends ColoredShape {
 	public void setRadius(MapElementSize radius) {
 		MapElementSize oldValue = this.radius;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_RADIUS_PROPERTY,
-					oldValue, radius);
+			vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_RADIUS_PROPERTY, oldValue, radius);
 			this.radius = radius;
 			propertyChangeSupport.firePropertyChange(PROP_RADIUS_PROPERTY,
 					oldValue, radius);

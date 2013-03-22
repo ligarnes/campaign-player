@@ -4,8 +4,9 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.PropertyVetoException;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.map.MapBean;
+import net.alteiar.map.Map;
 import net.alteiar.utils.map.Scale;
 
 public abstract class MapElement extends BasicBeans {
@@ -25,6 +26,14 @@ public abstract class MapElement extends BasicBeans {
 	public MapElement() {
 	}
 
+	public MapElement(Long mapId, Point position) {
+		this.mapId = mapId;
+
+		this.position = position;
+		this.angle = 0.0;
+		this.hiddenForPlayer = true;
+	}
+
 	public abstract void draw(Graphics2D g, double zoomFactor);
 
 	public abstract Boolean contain(Point p);
@@ -33,8 +42,8 @@ public abstract class MapElement extends BasicBeans {
 
 	public abstract Double getHeightPixels();
 
-	protected MapBean getMap() {
-		return null;// Campaign.getDocument(mapId)
+	protected Map getMap() {
+		return CampaignClient.getInstance().getBean(mapId);
 	}
 
 	protected Scale getScale() {
@@ -64,8 +73,8 @@ public abstract class MapElement extends BasicBeans {
 	public final void setMapId(Long mapId) {
 		Long oldValue = this.mapId;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_POSITION_PROPERTY,
-					oldValue, mapId);
+			vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_POSITION_PROPERTY, oldValue, mapId);
 			this.mapId = mapId;
 			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
 					oldValue, mapId);
@@ -81,8 +90,8 @@ public abstract class MapElement extends BasicBeans {
 	public final void setPosition(Point position) {
 		Point oldValue = this.position;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_POSITION_PROPERTY,
-					oldValue, position);
+			vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_POSITION_PROPERTY, oldValue, position);
 			this.position = position;
 			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
 					oldValue, position);
@@ -98,7 +107,7 @@ public abstract class MapElement extends BasicBeans {
 	public final void setAngle(Double angle) {
 		Double oldValue = this.angle;
 		try {
-			vetoableChangeSupport.fireVetoableChange(PROP_ANGLE_PROPERTY,
+			vetoableRemoteChangeSupport.fireVetoableChange(PROP_ANGLE_PROPERTY,
 					oldValue, angle);
 			this.angle = angle;
 			propertyChangeSupport.firePropertyChange(PROP_ANGLE_PROPERTY,
@@ -115,7 +124,7 @@ public abstract class MapElement extends BasicBeans {
 	public final void setHiddenForPlayer(Boolean hiddenForPlayer) {
 		Boolean oldValue = this.hiddenForPlayer;
 		try {
-			vetoableChangeSupport.fireVetoableChange(
+			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue, hiddenForPlayer);
 			this.hiddenForPlayer = hiddenForPlayer;
 			propertyChangeSupport.firePropertyChange(
