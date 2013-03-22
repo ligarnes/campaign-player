@@ -1,54 +1,50 @@
 package net.alteiar.client;
 
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
 import net.alteiar.server.document.IDocumentRemote;
-import net.alteiar.shared.ExceptionTool;
 
-public class DocumentManagerClient {
+public class DocumentManager {
 
-	public static DocumentManagerClient INSTANCE = null;
+	public static DocumentManager connect(String localAddress,
+			String serverAddress, String port, String campaignPath,
+			String name, Boolean isMj) throws RemoteException,
+			MalformedURLException, NotBoundException {
+		DocumentManager documentManager = null;
 
-	public static void connect(String localAddress, String serverAddress,
-			String port, String campaignPath, String name, Boolean isMj) {
 		IServerDocument campaign = null;
 
 		Remote remoteObject;
-		try {
-			System.setProperty("java.rmi.server.hostname", localAddress);
-			String[] allRemoteNames = RmiRegistry.list("//" + serverAddress
-					+ ":" + port);
+		System.setProperty("java.rmi.server.hostname", localAddress);
+		String[] allRemoteNames = RmiRegistry.list("//" + serverAddress + ":"
+				+ port);
 
-			for (String remoteName : allRemoteNames) {
-				try {
-					remoteObject = RmiRegistry.lookup(remoteName);
-					LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "RMI REGISTRY: "
-							+ remoteName);
-					if (remoteObject instanceof IServerDocument) {
-						campaign = (IServerDocument) remoteObject;
-						INSTANCE = new DocumentManagerClient(campaign,
-								campaignPath);
-						break;
-					}
-				} catch (RemoteException e) {
-					ExceptionTool.showError(e);
-				}
+		for (String remoteName : allRemoteNames) {
+			remoteObject = RmiRegistry.lookup(remoteName);
+			LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "RMI REGISTRY: "
+					+ remoteName);
+			if (remoteObject instanceof IServerDocument) {
+				campaign = (IServerDocument) remoteObject;
+				documentManager = new DocumentManager(campaign, campaignPath);
+				break;
 			}
-		} catch (Exception e) {
-			ExceptionTool.showError(e);
 		}
+
+		return documentManager;
 	}
 
 	// Use to notify when a document is received for blocking access
@@ -63,17 +59,19 @@ public class DocumentManagerClient {
 
 	private final IServerDocument server;
 
+	private final HashSet<DocumentManagerListener> listeners;
 	private final HashMap<Long, DocumentClient> documents;
 
-	public DocumentManagerClient(IServerDocument server, String localPath)
+	public DocumentManager(IServerDocument server, String localPath)
 			throws RemoteException {
+		documents = new HashMap<Long, DocumentClient>();
+		listeners = new HashSet<>();
+
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
-
-		documents = new HashMap<Long, DocumentClient>();
 	}
 
-	protected void loadCampaign() {
+	public void loadDocuments() {
 		try {
 			for (Long doc : this.server.getDocuments()) {
 				addDocument(doc);
@@ -116,8 +114,9 @@ public class DocumentManagerClient {
 
 			this.documents.put(guid, client);
 
-			// this.add(client);
-			// notifyDocumentReceived(client);
+			for (DocumentManagerListener listener : getListeners()) {
+				listener.documentAdded(client);
+			}
 			getCounterInstance().countDown();
 		} catch (RemoteException e) {
 			// TODO
@@ -125,13 +124,10 @@ public class DocumentManagerClient {
 		}
 	}
 
-	// protected abstract void add(DocumentClient client);
-
-	// TODO to change to protected
-	public long createDocument(BasicBeans bean) {
+	public long createDocument(BeanEncapsulator bean) {
 		long guid = -1L;
 		try {
-			guid = this.server.createDocument(new BeanEncapsulator(bean));
+			guid = this.server.createDocument(bean);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -149,23 +145,32 @@ public class DocumentManagerClient {
 	}
 
 	private synchronized void removeDocument(Long guid) {
-		this.documents.remove(guid);
+		DocumentClient doc = this.documents.remove(guid);
+		for (DocumentManagerListener listener : getListeners()) {
+			listener.documentRemoved(doc);
+		}
 	}
 
-	/*
-	 * public void addWaitForDocumentListener(IWaitForDocumentListener listener)
-	 * { this.addListener(IWaitForDocumentListener.class, listener); }
-	 * 
-	 * public void removeWaitForDocumentListener(IWaitForDocumentListener
-	 * listener) { this.removeListener(IWaitForDocumentListener.class,
-	 * listener); }
-	 * 
-	 * protected void notifyDocumentReceived(DocumentClient doc) { for
-	 * (IWaitForDocumentListener listener :
-	 * getListener(IWaitForDocumentListener.class)) { if
-	 * (doc.getId().equals(listener.getDocument())) {
-	 * listener.documentReceived(doc); } } }
-	 */
+	public void addDocumentManagerClient(DocumentManagerListener listener) {
+		synchronized (listeners) {
+			listeners.add(listener);
+		}
+	}
+
+	public void removeDocumentManagerClient(DocumentManagerListener listener) {
+		synchronized (listeners) {
+			listeners.remove(listener);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	protected HashSet<DocumentManagerListener> getListeners() {
+		HashSet<DocumentManagerListener> copy;
+		synchronized (listeners) {
+			copy = (HashSet<DocumentManagerListener>) listeners.clone();
+		}
+		return copy;
+	}
 
 	private class CampaignClientObserver extends UnicastRemoteObject implements
 			ServerListener {

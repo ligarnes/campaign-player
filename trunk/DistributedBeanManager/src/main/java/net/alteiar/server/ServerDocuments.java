@@ -34,7 +34,6 @@ import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
-import net.alteiar.shared.ExceptionTool;
 import net.alteiar.thread.WorkerPool;
 
 /**
@@ -48,33 +47,28 @@ public class ServerDocuments extends UnicastRemoteObject implements
 
 	public static String CAMPAIGN_MANAGER = "Campaign-manager";
 
-	public static ServerDocuments SERVER_CAMPAIGN_REMOTE = null;
+	// public static ServerDocuments SERVER_CAMPAIGN_REMOTE = null;
 
 	public final static WorkerPool SERVER_THREAD_POOL = new WorkerPool();
 
-	public static void startServer(String addressIp, int port) {
+	public static ServerDocuments startServer(String addressIp, String port)
+			throws RemoteException, MalformedURLException, NotBoundException {
+		ServerDocuments server = new ServerDocuments();
+		RmiRegistryProxy
+				.startRmiRegistryProxy(addressIp, Integer.valueOf(port));
+
+		// Create chat once
+
+		LoggerConfig.SERVER_LOGGER.log(Level.INFO, "server adress = //"
+				+ addressIp + ":" + port + "/" + CAMPAIGN_MANAGER);
+
+		// Bind the server in the rmi registry
+		RmiRegistry.rebind("//" + addressIp + ":" + port + "/"
+				+ CAMPAIGN_MANAGER, server);
+
 		SERVER_THREAD_POOL.initWorkPool(10);
 
-		try {
-			RmiRegistryProxy.startRmiRegistryProxy(addressIp, port);
-
-			SERVER_CAMPAIGN_REMOTE = new ServerDocuments();
-			// Create chat once
-			// SERVER_CAMPAIGN_REMOTE.createDocument();
-
-			LoggerConfig.SERVER_LOGGER.log(Level.INFO, "server adress = //"
-					+ addressIp + ":" + port + "/" + CAMPAIGN_MANAGER);
-
-			// Bind the server in the rmi registry
-			RmiRegistry.rebind("//" + addressIp + ":" + port + "/"
-					+ CAMPAIGN_MANAGER, SERVER_CAMPAIGN_REMOTE);
-		} catch (MalformedURLException e) {
-			ExceptionTool.showError(e);
-		} catch (NotBoundException e) {
-			ExceptionTool.showError(e);
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
+		return server;
 	}
 
 	private final ArrayList<ServerListener> listeners;

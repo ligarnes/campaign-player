@@ -46,7 +46,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		return documentPath.getId();
 	}
 
-	public BeanEncapsulator getBean() {
+	public BeanEncapsulator getBeanEncapsulator() {
 		return this.bean;
 	}
 
