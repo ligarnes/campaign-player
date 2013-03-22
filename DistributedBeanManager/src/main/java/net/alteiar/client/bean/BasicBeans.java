@@ -9,11 +9,11 @@ import java.io.Serializable;
 public abstract class BasicBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	protected final VetoableChangeSupport vetoableChangeSupport;
+	protected final VetoableChangeSupport vetoableRemoteChangeSupport;
 	protected final PropertyChangeSupport propertyChangeSupport;
 
 	public BasicBeans() {
-		vetoableChangeSupport = new VetoableChangeSupport(this);
+		vetoableRemoteChangeSupport = new VetoableChangeSupport(this);
 
 		propertyChangeSupport = new PropertyChangeSupport(this);
 	}
@@ -27,10 +27,10 @@ public abstract class BasicBeans implements Serializable {
 	}
 
 	public void addVetoableChangeListener(VetoableChangeListener listener) {
-		vetoableChangeSupport.addVetoableChangeListener(listener);
+		vetoableRemoteChangeSupport.addVetoableChangeListener(listener);
 	}
 
 	public void removeVetoableChangeListener(VetoableChangeListener listener) {
-		vetoableChangeSupport.removeVetoableChangeListener(listener);
+		vetoableRemoteChangeSupport.removeVetoableChangeListener(listener);
 	}
 }
