@@ -3,6 +3,7 @@ package net.alteiar.test;
 import net.alteiar.CampaignClient;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.test.map.TestMapElement;
+import net.alteiar.test.map.TestNoise;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -12,8 +13,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestChat.class, TestPlayer.class, TestImageUtils.class,
-		TestMapElement.class
-/* TestBenchmark.class */})
+		TestMapElement.class, TestNoise.class, TestBenchmark.class })
 public class AllTests {
 
 	public static String getPlayerName() {

@@ -15,8 +15,9 @@ public class Battle extends Map {
 		super();
 	}
 
-	public Battle(String name, Long background, Integer width, Integer height) {
-		super(name, background, width, height);
+	public Battle(String name, Long mapFilter, Long background, Integer width,
+			Integer height) {
+		super(name, mapFilter, background, width, height);
 		turn = 0;
 	}
 
@@ -39,7 +40,7 @@ public class Battle extends Map {
 			propertyChangeSupport.firePropertyChange(PROP_TURN_PROPERTY,
 					oldValue, turn);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 }

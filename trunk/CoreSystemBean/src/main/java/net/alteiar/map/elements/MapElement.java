@@ -79,7 +79,8 @@ public abstract class MapElement extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
 					oldValue, mapId);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -96,7 +97,8 @@ public abstract class MapElement extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
 					oldValue, position);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -113,7 +115,8 @@ public abstract class MapElement extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_ANGLE_PROPERTY,
 					oldValue, angle);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -130,7 +133,8 @@ public abstract class MapElement extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(
 					PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue, hiddenForPlayer);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 }
