@@ -1,6 +1,8 @@
 package net.alteiar.map;
 
+import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
@@ -42,12 +44,14 @@ public class Map extends BasicBeans {
 	public Map() {
 	}
 
-	public Map(String name, Long background, Integer width, Integer height) {
+	public Map(String name, Long mapFilter, Long background, Integer width,
+			Integer height) {
 		elements = new HashSet<Long>();
 		scale = new Scale(70, 1.5);
 
 		this.name = name;
 		this.background = background;
+		this.filter = mapFilter;
 
 		this.width = width;
 		this.height = height;
@@ -80,6 +84,12 @@ public class Map extends BasicBeans {
 		return background;
 	}
 
+	public void draw(Graphics2D g2, double zoomFactor) {
+		AffineTransform transform = new AffineTransform();
+		transform.scale(zoomFactor, zoomFactor);
+		g2.drawImage(getBackgroundImage(), transform, null);
+	}
+
 	// ///////////////// BEAN METHODS ///////////////////////
 	public String getName() {
 		return name;
@@ -94,7 +104,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
 					oldValue, name);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -111,7 +122,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
 					oldValue, width);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -128,7 +140,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
 					oldValue, height);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -145,7 +158,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_BACKGROUND_PROPERTY,
 					oldValue, background);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -162,7 +176,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_FILTER_PROPERTY,
 					oldValue, filter);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -179,7 +194,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_SCALE_PROPERTY,
 					oldValue, scale);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -200,7 +216,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_ELEMENTS_PROPERTY,
 					oldValue, elements);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -214,7 +231,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(METH_ADD_ELEMENT_METHOD,
 					null, elementId);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -228,7 +246,8 @@ public class Map extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(
 					METH_REMOVE_ELEMENT_METHOD, null, elementId);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 }

@@ -4,13 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.RenderingHints;
-import java.awt.Shape;
-import java.awt.geom.Rectangle2D;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -21,6 +18,7 @@ import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.image.ImageBean;
+import net.alteiar.map.MapFilter;
 import net.alteiar.map.battle.Battle;
 import net.alteiar.map.elements.Rectangle;
 import net.alteiar.test.BasicTest;
@@ -64,9 +62,12 @@ public class TestMap extends BasicTest {
 		Integer width = image.getWidth();
 		Integer height = image.getHeight();
 
+		MapFilter filter = new MapFilter(width, height);
+		Long filterId = CampaignClient.getInstance().addBean(filter);
+
 		int previousSize = current.size();
 		Long battleId = CampaignClient.getInstance().addBean(
-				new Battle(battleName, imageId, width, height));
+				new Battle(battleName, filterId, imageId, width, height));
 
 		int currentSize = current.size();
 		while (previousSize == currentSize) {
@@ -206,25 +207,120 @@ public class TestMap extends BasicTest {
 			assertTrue("Images should be same",
 					compareImage(created.getBackgroundImage(), targetImages));
 
-			// FIXME FILTER DO NOT WORK
-			/*
-			 * assertTrue( "Images filter should be same",
-			 * compareImage(created.getFilter(), generateShape(width, height,
-			 * false)));
-			 * 
-			 * created.showRectangle(0, 0, width, height); sleep(200);
-			 * 
-			 * assertTrue( "Images filter should be same",
-			 * compareImage(created.getFilter(), generateShape(width, height,
-			 * true)));
-			 * 
-			 * created.hideRectangle(0, 0, width, height); sleep(200);
-			 * 
-			 * assertTrue( "Images filter should be same",
-			 * compareImage(created.getFilter(), generateShape(width, height,
-			 * false)));
-			 */
+			// Test filter
+			double compareZoomFactor = 2.75;
+			MapFilter filter = CampaignClient.getInstance().getBean(
+					created.getFilter());
 
+			BufferedImage filteredImage = new BufferedImage(
+					(int) (created.getWidth() * compareZoomFactor),
+					(int) (created.getHeight() * compareZoomFactor),
+					BufferedImage.TYPE_INT_ARGB);
+
+			BufferedImage targetFilteredImage = new BufferedImage(
+					(int) (created.getWidth() * 2.75),
+					(int) (created.getHeight() * 2.75),
+					BufferedImage.TYPE_INT_ARGB);
+
+			MapFilter targetFilter = new MapFilter(filteredImage.getWidth(),
+					filteredImage.getHeight());
+
+			Graphics2D g = (Graphics2D) filteredImage.getGraphics();
+			created.draw(g, 2.75);
+			filter.draw(g, 2.75);
+			g.dispose();
+
+			g = (Graphics2D) targetFilteredImage.getGraphics();
+			created.draw(g, 2.75);
+			targetFilter.draw(g, 2.75);
+			g.dispose();
+
+			assertTrue("Images filter should be same",
+					compareImage(filteredImage, targetFilteredImage));
+
+			// Change filter
+			Polygon showPolygon = new Polygon(new int[] { 15, 50, 50, 15 },
+					new int[] { 15, 15, 50, 50 }, 4);
+			filter.showPolygon(showPolygon);
+			targetFilter.showPolygon(showPolygon);
+
+			BufferedImage filteredShowImage = new BufferedImage(
+					(int) (created.getWidth() * 0.75),
+					(int) (created.getHeight() * 0.75),
+					BufferedImage.TYPE_INT_ARGB);
+
+			BufferedImage targetFilteredShowImage = new BufferedImage(
+					(int) (created.getWidth() * 0.75),
+					(int) (created.getHeight() * 0.75),
+					BufferedImage.TYPE_INT_ARGB);
+
+			g = (Graphics2D) filteredShowImage.getGraphics();
+			created.draw(g, 0.75);
+			filter.draw(g, 0.75);
+			g.dispose();
+
+			g = (Graphics2D) targetFilteredShowImage.getGraphics();
+			created.draw(g, 0.75);
+			targetFilter.draw(g, 0.75);
+			g.dispose();
+
+			assertTrue("Images filter should be same",
+					compareImage(filteredShowImage, targetFilteredShowImage));
+
+			// Compare with previous filter, should have changed
+			filteredShowImage = new BufferedImage(
+					(int) (created.getWidth() * compareZoomFactor),
+					(int) (created.getHeight() * compareZoomFactor),
+					BufferedImage.TYPE_INT_ARGB);
+
+			g = (Graphics2D) filteredShowImage.getGraphics();
+			created.draw(g, compareZoomFactor);
+			filter.draw(g, compareZoomFactor);
+			g.dispose();
+
+			assertTrue("Images filter should not be same",
+					!compareImage(filteredShowImage, filteredImage));
+
+			// Change filter
+			Polygon hidePolygon = new Polygon(new int[] { 15, 20, 20, 15 },
+					new int[] { 15, 15, 20, 20 }, 4);
+			filter.hidePolygon(hidePolygon);
+			targetFilter.hidePolygon(hidePolygon);
+
+			BufferedImage filteredShowHideImage = new BufferedImage(
+					created.getWidth() * 1, created.getHeight() * 1,
+					BufferedImage.TYPE_INT_ARGB);
+
+			BufferedImage targetFilteredShowHideImage = new BufferedImage(
+					created.getWidth() * 1, created.getHeight() * 1,
+					BufferedImage.TYPE_INT_ARGB);
+
+			g = (Graphics2D) filteredShowHideImage.getGraphics();
+			created.draw(g, 1);
+			filter.draw(g, 1);
+			g.dispose();
+
+			g = (Graphics2D) targetFilteredShowHideImage.getGraphics();
+			created.draw(g, 1);
+			targetFilter.draw(g, 1);
+			g.dispose();
+
+			assertTrue(
+					"Images filter should be same",
+					compareImage(filteredShowHideImage,
+							targetFilteredShowHideImage));
+
+			// Compare with previous filter, should have changed
+			filteredShowImage = new BufferedImage(
+					(int) (created.getWidth() * compareZoomFactor),
+					(int) (created.getHeight() * compareZoomFactor),
+					BufferedImage.TYPE_INT_ARGB);
+			g = (Graphics2D) filteredShowImage.getGraphics();
+			created.draw(g, compareZoomFactor);
+			filter.draw(g, compareZoomFactor);
+			g.dispose();
+			assertTrue("Images filter should not be same",
+					!compareImage(filteredShowHideImage, filteredShowImage));
 		} catch (IOException e) {
 			fail("cannot read file guerrier.jpg");
 		}
@@ -232,45 +328,5 @@ public class TestMap extends BasicTest {
 		// Remove the battle
 		CampaignClient.getInstance().removeBean(created);
 
-	}
-
-	private static final Float ALPHA_COMPOSITE_HIDE_PJ = 1.0f;
-	private static final Float ALPHA_COMPOSITE_HIDE_MJ = 0.7f;
-
-	private void drawVisible(Graphics2D g2, Shape shape) {
-		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN, 0.0f));
-
-		g2.fill(shape);
-	}
-
-	private void drawHide(Graphics2D g2, Shape shape) {
-		Float alpha = ALPHA_COMPOSITE_HIDE_PJ;
-		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
-			alpha = ALPHA_COMPOSITE_HIDE_MJ;
-		}
-		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
-				alpha));
-
-		g2.fill(shape);
-	}
-
-	private BufferedImage generateShape(int width, int height, boolean isVisible) {
-		// create an image from graphics
-		BufferedImage img = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
-
-		Graphics2D g2 = img.createGraphics();
-		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
-
-		Shape shape = new Rectangle2D.Double(0, 0, width, height);
-		if (isVisible) {
-			drawVisible(g2, shape);
-		} else {
-			drawHide(g2, shape);
-		}
-		g2.dispose();
-
-		return img;
 	}
 }

@@ -54,7 +54,6 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 			if (!isInvoke) {
 				for (MethodDescriptor descriptor : info.getMethodDescriptors()) {
 					if (descriptor.getName().equals(propertyName)) {
-						System.out.println("invoke methode");
 						descriptor.getMethod().invoke(bean, newValue);
 					}
 				}
