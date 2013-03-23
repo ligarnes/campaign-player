@@ -12,3 +12,6 @@ Coverage Report for New-Server:
 13/03/2013 - 10:22 -> 2104/2872 | 73,26%
 13/03/2013 - 13:11 -> 2076/2835 | 73,23%
 14/03/2013 - 11:07 -> 2039/2707 | 75,32% - commit
+
+Coverage Report for CoreSystemBean
+23/03/2013 - 11:26 -> 921/1851 | 49,76% - commit

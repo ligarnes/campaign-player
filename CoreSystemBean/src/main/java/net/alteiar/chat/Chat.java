@@ -12,15 +12,15 @@ public class Chat extends BasicBeans {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_MESSAGES_PROPERTY = "messages";
-	public static final String PROP_ADD_MESSAGE_PROPERTY = "message";
 	public static final String PROP_PSEUDO_PROPERTY = "pseudo";
+	public static final String PROP_ADD_MESSAGE_PROPERTY = "addMessage";
 
 	// pseudo is transient because it is not shared
 	private transient String pseudo;
-	private List<MessageRemote> messages;
+	private ArrayList<MessageRemote> messages;
 
 	public Chat() {
-		messages = new ArrayList<>();
+		messages = new ArrayList<MessageRemote>();
 	}
 
 	public void setPseudo(String pseudo) {
@@ -43,18 +43,16 @@ public class Chat extends BasicBeans {
 	}
 
 	public void talk(String message, String command) {
-		setMessage(new MessageRemote(pseudo, message, command));
+		addMessage(new MessageRemote(pseudo, message, command));
 	}
 
-	public MessageRemote getMessage() {
-		return null;
-	}
-
-	public void setMessage(MessageRemote message) {
+	public void addMessage(MessageRemote message) {
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_ADD_MESSAGE_PROPERTY, null, message);
-			this.messages.add(message);
+			synchronized (messages) {
+				this.messages.add(message);
+			}
 			propertyChangeSupport.firePropertyChange(PROP_ADD_MESSAGE_PROPERTY,
 					null, message);
 		} catch (PropertyVetoException e) {
@@ -64,12 +62,16 @@ public class Chat extends BasicBeans {
 	}
 
 	public List<MessageRemote> getMessages() {
-		return messages;
+		// add synchonisation
+		ArrayList<MessageRemote> copy = new ArrayList<MessageRemote>();
+		synchronized (messages) {
+			copy = (ArrayList<MessageRemote>) messages.clone();
+		}
+
+		return copy;
 	}
 
-	public void setMessages(List<MessageRemote> messages) {
-		this.messages = messages;
-
+	public void setMessages(ArrayList<MessageRemote> messages) {
 		List<MessageRemote> oldValue = this.messages;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(

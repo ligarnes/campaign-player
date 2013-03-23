@@ -103,6 +103,11 @@ public class CampaignClient implements DocumentManagerListener {
 		return manager.createDocument(new BeanEncapsulator(bean));
 	}
 
+	public void removeBean(BasicBeans bean) {
+		// TODO search document from bean
+		// TODO remove document
+	}
+
 	@SuppressWarnings("unchecked")
 	public <E extends BasicBeans> E getBean(long id) {
 		return (E) manager.getDocument(id).getBeanEncapsulator().getBean();

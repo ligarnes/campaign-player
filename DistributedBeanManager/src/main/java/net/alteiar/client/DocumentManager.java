@@ -65,7 +65,7 @@ public class DocumentManager {
 	public DocumentManager(IServerDocument server, String localPath)
 			throws RemoteException {
 		documents = new HashMap<Long, DocumentClient>();
-		listeners = new HashSet<>();
+		listeners = new HashSet<DocumentManagerListener>();
 
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
