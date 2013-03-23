@@ -23,8 +23,13 @@ public class TestMapElement extends TestMap {
 
 	@Test(timeout = 5000)
 	public void testCircle() {
-		TransfertImage battleImages = createTransfertImage();
-		Long battleId = createBattle("test battle", battleImages);
+		TransfertImage battleImage = createTransfertImage();
+		Long battleId = -1L;
+		try {
+			battleId = createBattle("test battle", battleImage);
+		} catch (IOException e) {
+			fail("fail to create battle");
+		}
 		Battle battle = CampaignClient.getInstance().getBean(battleId);
 
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
@@ -48,13 +53,13 @@ public class TestMapElement extends TestMap {
 		BufferedImage imgGenerated = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = (Graphics2D) imgGenerated.getGraphics();
-		// circleClient.draw(g2);
+		circleClient.draw(g2, 1.0);
 		g2.dispose();
 
 		BufferedImage imgExpected = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) imgExpected.getGraphics();
-		// circleClient.draw(g2);
+		circleClient.draw(g2, 1.0);
 		g2.dispose();
 
 		try {

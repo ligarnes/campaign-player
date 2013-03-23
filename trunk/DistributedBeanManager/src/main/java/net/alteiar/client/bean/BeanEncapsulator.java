@@ -1,6 +1,9 @@
 package net.alteiar.client.bean;
 
+import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
+import java.beans.Introspector;
+import java.beans.MethodDescriptor;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -9,7 +12,6 @@ import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
@@ -24,7 +26,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		this.bean = bean;
 		propertyChangeSupportRemote = new PropertyChangeSupport(this);
 
-		changed = new ArrayList<>();
+		changed = new ArrayList<BeanChange>();
 		this.bean.addVetoableChangeListener(this);
 	}
 
@@ -38,11 +40,25 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		synchronized (changed) {
 			changed.add(new BeanChange(propertyName, newValue));
 		}
-		Method setter;
+
 		try {
-			setter = new PropertyDescriptor(propertyName, bean.getClass())
-					.getWriteMethod();
-			setter.invoke(bean, newValue);
+			Boolean isInvoke = false;
+			BeanInfo info = Introspector.getBeanInfo(bean.getClass());
+			for (PropertyDescriptor descriptor : info.getPropertyDescriptors()) {
+				if (descriptor.getName().equals(propertyName)) {
+					descriptor.getWriteMethod().invoke(bean, newValue);
+					isInvoke = true;
+				}
+			}
+
+			if (!isInvoke) {
+				for (MethodDescriptor descriptor : info.getMethodDescriptors()) {
+					if (descriptor.getName().equals(propertyName)) {
+						System.out.println("invoke methode");
+						descriptor.getMethod().invoke(bean, newValue);
+					}
+				}
+			}
 		} catch (IntrospectionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
