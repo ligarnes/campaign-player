@@ -106,6 +106,7 @@ public class CampaignClient implements DocumentManagerListener {
 	public void removeBean(BasicBeans bean) {
 		// TODO search document from bean
 		// TODO remove document
+		// FIXME
 	}
 
 	@SuppressWarnings("unchecked")

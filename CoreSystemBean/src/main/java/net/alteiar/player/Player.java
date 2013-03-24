@@ -17,7 +17,6 @@ public class Player extends BasicBeans {
 	private Color color;
 
 	public Player() {
-		super();
 	}
 
 	public Player(String name, Boolean mj, Color color) {

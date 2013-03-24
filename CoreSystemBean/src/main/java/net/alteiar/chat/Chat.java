@@ -2,7 +2,6 @@ package net.alteiar.chat;
 
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
-import java.util.List;
 
 import net.alteiar.chat.message.ChatObject;
 import net.alteiar.chat.message.MessageRemote;
@@ -13,7 +12,8 @@ public class Chat extends BasicBeans {
 
 	public static final String PROP_MESSAGES_PROPERTY = "messages";
 	public static final String PROP_PSEUDO_PROPERTY = "pseudo";
-	public static final String PROP_ADD_MESSAGE_PROPERTY = "addMessage";
+
+	public static final String METH_ADD_MESSAGE_METHOD = "addMessage";
 
 	// pseudo is transient because it is not shared
 	private transient String pseudo;
@@ -49,11 +49,11 @@ public class Chat extends BasicBeans {
 	public void addMessage(MessageRemote message) {
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_ADD_MESSAGE_PROPERTY, null, message);
+					METH_ADD_MESSAGE_METHOD, null, message);
 			synchronized (messages) {
 				this.messages.add(message);
 			}
-			propertyChangeSupport.firePropertyChange(PROP_ADD_MESSAGE_PROPERTY,
+			propertyChangeSupport.firePropertyChange(METH_ADD_MESSAGE_METHOD,
 					null, message);
 		} catch (PropertyVetoException e) {
 			// TODO do not care
@@ -61,7 +61,7 @@ public class Chat extends BasicBeans {
 		}
 	}
 
-	public List<MessageRemote> getMessages() {
+	public ArrayList<MessageRemote> getMessages() {
 		// add synchonisation
 		ArrayList<MessageRemote> copy = new ArrayList<MessageRemote>();
 		synchronized (messages) {
@@ -72,15 +72,18 @@ public class Chat extends BasicBeans {
 	}
 
 	public void setMessages(ArrayList<MessageRemote> messages) {
-		List<MessageRemote> oldValue = this.messages;
+		ArrayList<MessageRemote> oldValue = this.messages;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_MESSAGES_PROPERTY, oldValue, messages);
-			this.messages = messages;
+			synchronized (messages) {
+				this.messages = messages;
+			}
 			propertyChangeSupport.firePropertyChange(PROP_MESSAGES_PROPERTY,
 					oldValue, messages);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 }

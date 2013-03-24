@@ -33,20 +33,20 @@ public class MessageRemote implements Serializable {
 	public static final String SYSTEM_CONNECT_MESSAGE = "system.connect";
 	public static final String SYSTEM_DISCONNECT_MESSAGE = "system.disconnect";
 
-	private final String expediteur;
+	private final String sender;
 	private final String message;
 	private final String command;
 
 	public MessageRemote(String expediteur, String message, String command) {
 		super();
 
-		this.expediteur = expediteur;
+		this.sender = expediteur;
 		this.message = message;
 		this.command = command;
 	}
 
-	public String getExpediteur() {
-		return expediteur;
+	public String getSender() {
+		return sender;
 	}
 
 	public String getMessage() {
@@ -57,19 +57,52 @@ public class MessageRemote implements Serializable {
 		return command;
 	}
 
-	/*
 	@Override
-	public void writeExternal(ObjectOutput out) throws IOException {
-		out.writeUTF(destinataire);
-		out.writeUTF(expediteur);
-		out.writeUTF(message);
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((command == null) ? 0 : command.hashCode());
+		result = prime * result
+				+ ((sender == null) ? 0 : sender.hashCode());
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		return result;
 	}
 
 	@Override
-	public void readExternal(ObjectInput in) throws IOException,
-			ClassNotFoundException {
-		destinataire = in.readUTF();
-		expediteur = in.readUTF();
-		message = in.readUTF();
-	}*/
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MessageRemote other = (MessageRemote) obj;
+		if (command == null) {
+			if (other.command != null)
+				return false;
+		} else if (!command.equals(other.command))
+			return false;
+		if (sender == null) {
+			if (other.sender != null)
+				return false;
+		} else if (!sender.equals(other.sender))
+			return false;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
+			return false;
+		return true;
+	}
+
+	/*
+	 * @Override public void writeExternal(ObjectOutput out) throws IOException
+	 * { out.writeUTF(destinataire); out.writeUTF(expediteur);
+	 * out.writeUTF(message); }
+	 * 
+	 * @Override public void readExternal(ObjectInput in) throws IOException,
+	 * ClassNotFoundException { destinataire = in.readUTF(); expediteur =
+	 * in.readUTF(); message = in.readUTF(); }
+	 */
+
 }

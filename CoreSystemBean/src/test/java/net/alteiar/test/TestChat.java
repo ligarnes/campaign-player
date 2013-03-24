@@ -3,11 +3,17 @@ package net.alteiar.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.message.DiceSender;
 import net.alteiar.chat.message.MessageRemote;
+import net.alteiar.chat.message.MjSender;
 import net.alteiar.chat.message.PrivateSender;
+import net.alteiar.player.Player;
 
 import org.junit.Test;
 
@@ -34,6 +40,55 @@ public class TestChat extends BasicTest {
 	}
 
 	@Test(timeout = 5000)
+	public void testMessageRemote() {
+		String tgtExp1 = "expediteur1";
+		String tgtExp2 = "expediteur2";
+		String tgtExp3 = null;
+		String tgtMsg1 = "msg1";
+		String tgtMsg2 = "msg2";
+		String tgtMsg3 = null;
+		String tgtCmd1 = "command1";
+		String tgtCmd2 = "command2";
+		String tgtCmd3 = null;
+		MessageRemote msg1 = new MessageRemote(tgtExp1, tgtMsg1, tgtCmd1);
+		MessageRemote msg2 = new MessageRemote(tgtExp1, tgtMsg1, tgtCmd1);
+		MessageRemote msg3 = new MessageRemote(tgtExp2, tgtMsg1, tgtCmd1);
+		MessageRemote msg4 = new MessageRemote(tgtExp1, tgtMsg2, tgtCmd1);
+		MessageRemote msg5 = new MessageRemote(tgtExp1, tgtMsg1, tgtCmd2);
+		MessageRemote msg6 = new MessageRemote(tgtExp3, tgtMsg1, tgtCmd1);
+		MessageRemote msg7 = new MessageRemote(tgtExp1, tgtMsg3, tgtCmd1);
+		MessageRemote msg8 = new MessageRemote(tgtExp1, tgtMsg1, tgtCmd3);
+
+		assertTrue("message should be different with null", !msg1.equals(null));
+		assertTrue("message should be different with different object",
+				!msg1.equals(""));
+		assertTrue("message should be same to itself", msg1.equals(msg1));
+		assertTrue("message should be same to another similar message",
+				msg1.equals(msg2));
+		assertTrue("message should be different if the sender is different",
+				!msg1.equals(msg3));
+		assertTrue("message should be different if the text is different",
+				!msg1.equals(msg4));
+		assertTrue("message should be different if the command is different",
+				!msg1.equals(msg5));
+		assertTrue("message should be different if the command is different",
+				!msg6.equals(msg1));
+		assertTrue("message should be different if the command is different",
+				!msg7.equals(msg2));
+		assertTrue("message should be different if the command is different",
+				!msg8.equals(msg3));
+
+		assertTrue("message should have the same hashcode to equal object",
+				msg1.hashCode() == msg2.hashCode());
+		assertTrue("message should have a different hashcode to other",
+				msg1.hashCode() != msg3.hashCode());
+
+		assertEquals("sender should be same", msg1.getSender(), tgtExp1);
+		assertEquals("message should be same", msg1.getMessage(), tgtMsg1);
+		assertEquals("command should be same", msg1.getCommand(), tgtCmd1);
+	}
+
+	@Test(timeout = 5000)
 	public void testChat() {
 		final String expectedMsg = "Salut";
 
@@ -46,6 +101,27 @@ public class TestChat extends BasicTest {
 
 		assertEquals("the message must be the same",
 				getLastMessage(sendTextMessage).getMessage(), expectedMsg);
+
+		assertEquals("Pseudo should be same as player name",
+				AllTests.getPlayerName(), getChat().getPseudo());
+
+		String pseudo = "my pseudo";
+		getChat().setPseudo(pseudo);
+		assertEquals("Pseudo should be same as new pseudo changed", pseudo,
+				getChat().getPseudo());
+
+		ArrayList<MessageRemote> allMsgExpected = new ArrayList<MessageRemote>();
+		allMsgExpected.add(new MessageRemote("expediteur", "my message",
+				"command"));
+
+		getChat().setMessages(allMsgExpected);
+		sleep(10);
+		List<MessageRemote> allMsg = getChat().getMessages();
+
+		for (int i = 0; i < allMsgExpected.size(); ++i) {
+			assertEquals("Message should be same", allMsgExpected.get(i),
+					allMsg.get(i));
+		}
 	}
 
 	@Test(timeout = 5000)
@@ -111,5 +187,62 @@ public class TestChat extends BasicTest {
 		PrivateSender resultMessage = new PrivateSender(msg.getMessage());
 		assertEquals("The message should be the same", expectedMessage,
 				resultMessage.getMessage());
+
+		assertTrue("The message is for us so we can access it",
+				resultMessage.canAccess());
+
+		sendPrivateMessage = new Runnable() {
+			@Override
+			public void run() {
+				getChat().talk(new PrivateSender("nobody", "msg"), "/to");
+			}
+		};
+
+		msg = getLastMessage(sendPrivateMessage);
+		resultMessage = new PrivateSender(msg.getMessage());
+		assertTrue("The message is not for us so we can't access it",
+				!resultMessage.canAccess());
+	}
+
+	@Test(timeout = 5000)
+	public void testChatMjSender() {
+		final String name = CampaignClient.getInstance().getCurrentPlayer()
+				.getName();
+		final String expectedMessage = "my message";
+
+		Runnable sendMjMessage = new Runnable() {
+			@Override
+			public void run() {
+				getChat().talk(new MjSender(name, expectedMessage), "/mj");
+			}
+		};
+
+		MessageRemote msg = getLastMessage(sendMjMessage);
+
+		MjSender resultMessage = new MjSender(msg.getMessage());
+		assertEquals("The message should be the same", expectedMessage,
+				resultMessage.getMessage());
+
+		assertTrue("The message is for us so we can access it",
+				resultMessage.canAccess());
+
+		sendMjMessage = new Runnable() {
+			@Override
+			public void run() {
+				getChat().talk(new MjSender("no-one", expectedMessage), "/mj");
+			}
+		};
+
+		msg = getLastMessage(sendMjMessage);
+
+		Player current = CampaignClient.getInstance().getCurrentPlayer();
+		current.setMj(false);
+
+		resultMessage = new MjSender(msg.getMessage());
+		assertTrue(
+				"The message is for the mj and we are not the mj so we cannot access it",
+				!resultMessage.canAccess());
+
+		current.setMj(true);
 	}
 }

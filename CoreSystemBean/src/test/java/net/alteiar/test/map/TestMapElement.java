@@ -13,23 +13,132 @@ import java.io.IOException;
 import net.alteiar.CampaignClient;
 import net.alteiar.map.battle.Battle;
 import net.alteiar.map.elements.Circle;
+import net.alteiar.map.elements.Rectangle;
 import net.alteiar.utils.images.TransfertImage;
 import net.alteiar.utils.map.element.MapElementSize;
+import net.alteiar.utils.map.element.MapElementSizeMeter;
 import net.alteiar.utils.map.element.MapElementSizePixel;
+import net.alteiar.utils.map.element.MapElementSizeSquare;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestMapElement extends TestMap {
 
-	@Test(timeout = 5000)
-	public void testCircle() {
+	private Long battleId = null;
+
+	@Override
+	@Before
+	public void setup() {
+		super.setup();
+
+		// create a battle
 		TransfertImage battleImage = createTransfertImage();
-		Long battleId = -1L;
+		if (battleId == null) {
+			try {
+				battleId = createBattle("test battle", battleImage);
+			} catch (IOException e) {
+				fail("fail to create battle");
+			}
+		}
+	}
+
+	@Test(timeout = 5000)
+	public void testMapElement() {
+		MapElementSize width = new MapElementSizePixel(20.0);
+		MapElementSize height = new MapElementSizePixel(20.0);
+		Point position = new Point(0, 0);
+
+		Rectangle targetRectangle = new Rectangle(battleId, position,
+				Color.RED, width, height);
+		Long id = CampaignClient.getInstance().addBean(targetRectangle);
+
+		Rectangle rectangle = CampaignClient.getInstance().getBean(id);
+
+		assertEquals("center should be at (10, 10)", new Point(10, 10),
+				rectangle.getCenterPosition());
+		assertEquals("The battle id should be the same as the map id",
+				battleId, rectangle.getMapId());
+
+		// Change battle link
+		TransfertImage battleImage = createTransfertImage();
+		Long newBattleId = 0L;
 		try {
-			battleId = createBattle("test battle", battleImage);
+			newBattleId = createBattle("new battle", battleImage);
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
+
+		rectangle.setMapId(newBattleId);
+		sleep(10);
+
+		assertEquals("The battle id should be the same as the map id",
+				newBattleId, rectangle.getMapId());
+
+	}
+
+	@Test(timeout = 5000)
+	public void testRectangle() {
+		Battle battle = CampaignClient.getInstance().getBean(battleId);
+
+		MapElementSize width = new MapElementSizePixel(20.0);
+		MapElementSize height = new MapElementSizePixel(20.0);
+		Point position = new Point(5, 5);
+
+		Rectangle targetRectangle = new Rectangle(battleId, position,
+				Color.RED, width, height);
+		Long id = CampaignClient.getInstance().addBean(targetRectangle);
+
+		Rectangle rectangle = CampaignClient.getInstance().getBean(id);
+
+		assertEquals("The position should be equals", position,
+				rectangle.getPosition());
+		assertEquals("The color should be equals", Color.RED,
+				rectangle.getColor());
+		assertEquals("The angle should be equals", Double.valueOf(0),
+				rectangle.getAngle());
+		assertEquals("The width should be equals", width.getPixels(battle
+				.getScale()), rectangle.getWidth().getPixels(battle.getScale()));
+		assertEquals("The height should be equals", height.getPixels(battle
+				.getScale()), rectangle.getHeight()
+				.getPixels(battle.getScale()));
+
+		MapElementSize newWidth = new MapElementSizeSquare(2.0);
+		MapElementSize newHeight = new MapElementSizeSquare(3.0);
+		rectangle.setWidth(newWidth);
+		rectangle.setHeight(newHeight);
+		sleep(5);
+		assertEquals("The width should be equals", newWidth.getPixels(battle
+				.getScale()), rectangle.getWidth().getPixels(battle.getScale()));
+		assertEquals("The height should be equals", newHeight.getPixels(battle
+				.getScale()), rectangle.getHeight()
+				.getPixels(battle.getScale()));
+
+		BufferedImage realImg = new BufferedImage(200, 200,
+				BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = realImg.createGraphics();
+		rectangle.draw(g2, 1.0);
+		g2.dispose();
+
+		targetRectangle.setWidth(newWidth);
+		targetRectangle.setHeight(newHeight);
+
+		BufferedImage targetImg = new BufferedImage(200, 200,
+				BufferedImage.TYPE_INT_ARGB);
+		g2 = targetImg.createGraphics();
+		rectangle.draw(g2, 1.0);
+		g2.dispose();
+
+		try {
+			assertTrue("images should be same",
+					compareImage(targetImg, realImg));
+		} catch (IOException e) {
+			fail("fail to compare images");
+		}
+	}
+
+	@Test(timeout = 5000)
+	public void testCircle() {
 		Battle battle = CampaignClient.getInstance().getBean(battleId);
 
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
@@ -49,6 +158,9 @@ public class TestMapElement extends TestMap {
 		assertEquals("The radius should be equals",
 				circleRadius.getPixels(battle.getScale()), circleClient
 						.getRadius().getPixels(battle.getScale()));
+
+		assertEquals("The width and the height should be equals",
+				circleClient.getWidthPixels(), circleClient.getHeightPixels());
 
 		BufferedImage imgGenerated = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
@@ -85,9 +197,22 @@ public class TestMapElement extends TestMap {
 		assertEquals("The angle should be equals", isHidden,
 				circleClient.isHiddenForPlayer());
 
-		assertTrue("", !circleClient.contain(new Point(5, 5)));
-		assertTrue("", circleClient.contain(new Point(15, 15)));
+		assertTrue("the circle not contain point (5,5)",
+				!circleClient.contain(new Point(5, 5)));
+		assertTrue("the circle contain point (15,15)",
+				circleClient.contain(new Point(15, 15)));
 
+		MapElementSize newCircleRadius = new MapElementSizeMeter(1.5);
+		circleClient.setRadius(newCircleRadius);
+		sleep(10);
+		assertEquals("radius should be equals",
+				newCircleRadius.getPixels(battle.getScale()), circleClient
+						.getRadius().getPixels(battle.getScale()));
+
+		Color color = Color.BLUE;
+		circleClient.setColor(color);
+		sleep(10);
+		assertEquals("radius should be equals", color, circleClient.getColor());
 	}
 	/*
 	 * @Test(timeout = 5000) public void testMapElementCharacter() {

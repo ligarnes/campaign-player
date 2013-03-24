@@ -37,7 +37,8 @@ public abstract class ColoredShape extends MapElement {
 			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
