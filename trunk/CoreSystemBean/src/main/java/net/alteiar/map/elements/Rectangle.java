@@ -95,7 +95,8 @@ public class Rectangle extends ColoredShape {
 			propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
 					oldValue, width);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 
@@ -112,7 +113,8 @@ public class Rectangle extends ColoredShape {
 			propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
 					oldValue, height);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 }

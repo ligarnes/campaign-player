@@ -1,5 +1,7 @@
 package net.alteiar.chat.message;
 
+import net.alteiar.CampaignClient;
+
 public class PrivateSender implements ChatObject {
 
 	private final String to;
@@ -27,10 +29,8 @@ public class PrivateSender implements ChatObject {
 	}
 
 	public Boolean canAccess() {
-		// String name =
-		// CampaignClient.getInstance().getCurrentPlayer().getName();
-		// return to.equalsIgnoreCase(name);
-		return true;
+		String name = CampaignClient.getInstance().getCurrentPlayer().getName();
+		return to.equalsIgnoreCase(name);
 	}
 
 	public String getMessage() {

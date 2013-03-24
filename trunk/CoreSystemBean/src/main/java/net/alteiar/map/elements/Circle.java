@@ -71,7 +71,8 @@ public class Circle extends ColoredShape {
 			propertyChangeSupport.firePropertyChange(PROP_RADIUS_PROPERTY,
 					oldValue, radius);
 		} catch (PropertyVetoException e) {
-			e.printStackTrace();
+			// TODO
+			// e.printStackTrace();
 		}
 	}
 }

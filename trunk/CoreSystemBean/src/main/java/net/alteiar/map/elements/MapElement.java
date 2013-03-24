@@ -74,9 +74,9 @@ public abstract class MapElement extends BasicBeans {
 		Long oldValue = this.mapId;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_POSITION_PROPERTY, oldValue, mapId);
+					PROP_MAP_ID_PROPERTY, oldValue, mapId);
 			this.mapId = mapId;
-			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
+			propertyChangeSupport.firePropertyChange(PROP_MAP_ID_PROPERTY,
 					oldValue, mapId);
 		} catch (PropertyVetoException e) {
 			// TODO

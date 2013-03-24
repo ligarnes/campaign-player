@@ -1,41 +1,20 @@
 package net.alteiar.chat.message;
 
-public class MjSender implements ChatObject {
+import net.alteiar.CampaignClient;
 
-	private final String command;
-	private final String message;
+public class MjSender extends PrivateSender {
 
-	public MjSender(String command, String message) {
-		this.command = command;
-		this.message = message;
+	public MjSender(String expediteur, String message) {
+		super(expediteur, message);
 	}
 
-	public MjSender(String message) {
-		String[] vals = message.split(";");
-		this.command = vals[0];
-
-		StringBuilder builder = new StringBuilder();
-		for (int i = 1; i < vals.length; ++i) {
-			builder.append(vals[i] + ";");
-		}
-		this.message = builder.toString();
+	public MjSender(String msg) {
+		super(msg);
 	}
 
 	@Override
-	public String stringFormat() {
-		return command + ";" + message;
-	}
-
-	public String getCommand() {
-		return this.command;
-	}
-
-	/*
-	 * public Boolean canAccess() { return
-	 * CampaignClient.getInstance().getCurrentPlayer().isMj(); }
-	 */
-
-	public String getMessage() {
-		return this.message;
+	public Boolean canAccess() {
+		return super.canAccess()
+				|| CampaignClient.getInstance().getCurrentPlayer().isMj();
 	}
 }
