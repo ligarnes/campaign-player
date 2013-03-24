@@ -1,44 +1,28 @@
-= New Server et Plugin =
-  * Variable local et partager a partir du plugin 
+= Tâche prioritaire =
+  * Système de sauvegarde
+    * sauvegarder des documents
+    * charger des documents
+    * sauvegarder des campagnes
+    * charger des campagnes
+  * relier ensemble le projet Player avec CoreSystemBean et DistributedBeanManager (enlever le projet NewServer des dépendance de Player)
+  * autoriser la fermeture de document proprement (avec des tests unitaires)
+  * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70%
+
+= CoreSystemBean et PathfinderSystem =
+  * Variable local et partager a partir du plugin (intégré dans le system de bean) 
   * Propriété de partage des documents
-    * visibilité de partage
-    * propriété ou modification temporaire
-  * Extraire les personnages
-  * Système de Monstres
+    * visibilité de partage (Sylvain doit refactoriser pour change les classes de projet et supprimer certaine classes :)
+    * propriété ou modification temporaire 
+  * Extraire les personnages (je pense qu'il faut faire une classe de base dans le core project qui sera étendu dans les plugin ??)
+  * Système de Monstres 
  
-= Projet Player = 
-  * faire un système de fichier
-  * faire un autre type de carte plus libre
+= Player = 
+  * Faire un système de fichier
+  * Faire un autre type de carte plus libre
   * Faire un système de plugin plus propre
 
+= DistributedBeanManager =
+Ce projet est sensé être stable et ne plus subir que des modifications mineurs
 
-Comme discuter durant le cour je pense qu'en réalité on aura des problèmes si on veux tout faire en Bean. Principalement a cause de la distribution et des invocations distantes. 
-
-Le premier problème que je vois est les modifications. En théorie dans le système actuellement aucun changement est fait en local, tous les changements sont fait de façon distance et ce sont la notification des appels distant qui font mettre a jour l'information. 
-Or de la façon qu'on parler on va d'abord faire un appel vetoable, puis modifier la variable local, puis faire un appel de notification. 
-Donc on risque des problèmes si plusieurs personnes modifies la même variable. 
-
-Second point on pourrai faire les appels distant comme maintenant mais sa implique que d'une certaine façon ceux qui vont utiliser notre api vont devoir eux même faire ces appels distant ce que l'on ne veux pas a mon avis. Du coup je pense qu'il est mieux de continuer comme on est maintenant mais par contre de fournir une mécanique de Bean pour les classes créer dans le "plugin"
-
-Enfin, je continue d'y penser mais j'ai pas trop d'espoir. 
-
-Finalement je pense avoir une piste, sa sera un peu agacent mais nos beans serait comme cela avec la solution que j'ai pensé:
-
-{{{
-        public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		String oldValue = this.name;
-		propertyChangeSupport.firePropertyChange("name", oldValue, name);
-	}
-
-	public String getLocalname() {
-		return this.name;
-	}
-
-	public void setLocalname(String name) {
-		this.name = name;
-	}
-}}}
+= NewServer =
+Ce projet devrait ne plus être utiliser pour finalement être supprimer.
