@@ -57,11 +57,11 @@ public class Scale implements Externalizable {
 		this.pixels = pixels;
 	}
 
-	public Double getMetre() {
+	public Double getMeter() {
 		return metre;
 	}
 
-	public void setMetre(Double metre) {
+	public void setMeter(Double metre) {
 		this.metre = metre;
 	}
 
@@ -76,5 +76,36 @@ public class Scale implements Externalizable {
 			ClassNotFoundException {
 		pixels = in.readInt();
 		metre = in.readDouble();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((metre == null) ? 0 : metre.hashCode());
+		result = prime * result + ((pixels == null) ? 0 : pixels.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Scale other = (Scale) obj;
+		if (metre == null) {
+			if (other.metre != null)
+				return false;
+		} else if (!metre.equals(other.metre))
+			return false;
+		if (pixels == null) {
+			if (other.pixels != null)
+				return false;
+		} else if (!pixels.equals(other.pixels))
+			return false;
+		return true;
 	}
 }

@@ -44,7 +44,7 @@ public class MapElementSizeMeter extends MapElementSize {
 
 	@Override
 	public Double getPixels(Scale scale) {
-		Double nbMetre = scale.getMetre();
+		Double nbMetre = scale.getMeter();
 		Integer nbPixel = scale.getPixels();
 
 		// calculate pixel/meter*size in meters

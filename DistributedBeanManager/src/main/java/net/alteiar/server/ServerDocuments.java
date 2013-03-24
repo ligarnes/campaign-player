@@ -34,22 +34,20 @@ import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
-import net.alteiar.thread.WorkerPool;
+import net.alteiar.thread.ThreadPool;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class ServerDocuments extends UnicastRemoteObject implements
+public final class ServerDocuments extends UnicastRemoteObject implements
 		IServerDocument {
 
 	private static final long serialVersionUID = 731240477472043798L;
 
 	public static String CAMPAIGN_MANAGER = "Campaign-manager";
 
-	// public static ServerDocuments SERVER_CAMPAIGN_REMOTE = null;
-
-	public final static WorkerPool SERVER_THREAD_POOL = new WorkerPool();
+	public static ThreadPool SERVER_THREAD_POOL = null;
 
 	public static ServerDocuments startServer(String addressIp, String port)
 			throws RemoteException, MalformedURLException, NotBoundException {
@@ -66,9 +64,13 @@ public class ServerDocuments extends UnicastRemoteObject implements
 		RmiRegistry.rebind("//" + addressIp + ":" + port + "/"
 				+ CAMPAIGN_MANAGER, server);
 
-		SERVER_THREAD_POOL.initWorkPool(10);
+		SERVER_THREAD_POOL = new ThreadPool(10);
 
 		return server;
+	}
+
+	public static void stopServer() {
+		SERVER_THREAD_POOL.shutdown();
 	}
 
 	private final ArrayList<ServerListener> listeners;
@@ -77,7 +79,7 @@ public class ServerDocuments extends UnicastRemoteObject implements
 	/**
 	 * @throws RemoteException
 	 */
-	protected ServerDocuments() throws RemoteException {
+	private ServerDocuments() throws RemoteException {
 		super();
 		documents = new HashMap<Long, IDocumentRemote>();
 		listeners = new ArrayList<ServerListener>();
