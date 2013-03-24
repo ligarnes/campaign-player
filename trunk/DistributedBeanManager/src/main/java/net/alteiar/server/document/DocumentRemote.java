@@ -6,6 +6,7 @@ import java.util.HashSet;
 
 import net.alteiar.client.DocumentClient;
 import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.server.ServerDocuments;
 
 public class DocumentRemote extends UnicastRemoteObject implements
 		IDocumentRemote {
@@ -22,40 +23,6 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		this.bean = bean;
 
 		listeners = new HashSet<IDocumentRemoteListener>();
-	}
-
-	@Override
-	public void addDocumentListener(IDocumentRemoteListener listener)
-			throws RemoteException {
-		synchronized (listeners) {
-			listeners.add(listener);
-		}
-	}
-
-	@Override
-	public void removeDocumentListener(IDocumentRemoteListener listener)
-			throws RemoteException {
-		synchronized (listeners) {
-			listeners.remove(listener);
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	protected void notifyBeanChanged(String propertyName, Object newValue) {
-		HashSet<IDocumentRemoteListener> copy = new HashSet<IDocumentRemoteListener>();
-		synchronized (listeners) {
-			copy = (HashSet<IDocumentRemoteListener>) listeners.clone();
-		}
-
-		for (IDocumentRemoteListener listener : copy) {
-			// TODO need to multithread that
-			try {
-				listener.beanValueChanged(propertyName, newValue);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 
 	@Override
@@ -77,9 +44,73 @@ public class DocumentRemote extends UnicastRemoteObject implements
 
 	@Override
 	public void closeDocument() throws RemoteException {
-
+		notifyDocumentClosed();
 	}
 
+	@Override
+	public DocumentClient buildProxy() throws RemoteException {
+		return new DocumentClient(this);
+	}
+
+	// ////////////////// DOCUMENT LISTENER METHODS ///////////////////////
+	@Override
+	public void addDocumentListener(IDocumentRemoteListener listener)
+			throws RemoteException {
+		synchronized (listeners) {
+			listeners.add(listener);
+		}
+	}
+
+	@Override
+	public void removeDocumentListener(IDocumentRemoteListener listener)
+			throws RemoteException {
+		synchronized (listeners) {
+			listeners.remove(listener);
+		}
+	}
+
+	protected HashSet<IDocumentRemoteListener> getDocumentListeners() {
+		HashSet<IDocumentRemoteListener> copy = new HashSet<IDocumentRemoteListener>();
+		synchronized (listeners) {
+			copy = (HashSet<IDocumentRemoteListener>) listeners.clone();
+		}
+		return copy;
+	}
+
+	protected void notifyBeanChanged(final String propertyName,
+			final Object newValue) {
+		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
+			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						listener.beanValueChanged(propertyName, newValue);
+					} catch (RemoteException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+	}
+
+	protected void notifyDocumentClosed() {
+		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
+			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						listener.documentClosed();
+					} catch (RemoteException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+	}
+
+	// ////////////// EQUALS AND HASHCODE ///////////////
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,10 +134,5 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		} else if (!path.equals(other.path))
 			return false;
 		return true;
-	}
-
-	@Override
-	public DocumentClient buildProxy() throws RemoteException {
-		return new DocumentClient(this);
 	}
 }

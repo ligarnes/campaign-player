@@ -19,15 +19,20 @@ import net.alteiar.map.battle.Battle;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 
-public class CampaignClient implements DocumentManagerListener {
+public final class CampaignClient implements DocumentManagerListener {
 	private static CampaignClient INSTANCE = null;
 
 	public static CampaignClient getInstance() {
 		return INSTANCE;
 	}
 
-	public static void connect(String localAdress, String serverAdress,
-			String port, String path, String pseudo, Boolean isMj) {
+	public static synchronized void connect(String localAdress,
+			String serverAdress, String port, String path, String pseudo,
+			Boolean isMj) {
+		if (INSTANCE != null) {
+			return;
+		}
+
 		DocumentManager manager = null;
 		try {
 			manager = DocumentManager.connect(localAdress, serverAdress, port,
@@ -73,7 +78,7 @@ public class CampaignClient implements DocumentManagerListener {
 
 	private final DocumentManager manager;
 
-	public CampaignClient(DocumentManager manager, String name, Boolean isMj) {
+	private CampaignClient(DocumentManager manager, String name, Boolean isMj) {
 		this.manager = manager;
 		this.manager.addDocumentManagerClient(this);
 

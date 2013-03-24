@@ -72,14 +72,14 @@ public class Map extends BasicBeans {
 		return elementsAt;
 	}
 
-	public BufferedImage getBackgroundImage() {
+	private BufferedImage getBackgroundImage() {
 		BufferedImage background = null;
 		ImageBean image = CampaignClient.getInstance().getBean(getBackground());
 		try {
 			background = image.getImage().restoreImage();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		return background;
 	}

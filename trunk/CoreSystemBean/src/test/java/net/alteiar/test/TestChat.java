@@ -33,7 +33,7 @@ public class TestChat extends BasicTest {
 
 		while (previousCount == currentCount) {
 			currentCount = getChat().getMessages().size();
-			sleep(50);
+			sleep(10);
 		}
 
 		return getChat().getMessages().get(previousCount);
@@ -237,6 +237,7 @@ public class TestChat extends BasicTest {
 
 		Player current = CampaignClient.getInstance().getCurrentPlayer();
 		current.setMj(false);
+		sleep(10);
 
 		resultMessage = new MjSender(msg.getMessage());
 		assertTrue(

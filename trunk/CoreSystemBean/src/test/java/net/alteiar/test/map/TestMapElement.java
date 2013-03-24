@@ -14,6 +14,7 @@ import net.alteiar.CampaignClient;
 import net.alteiar.map.battle.Battle;
 import net.alteiar.map.elements.Circle;
 import net.alteiar.map.elements.Rectangle;
+import net.alteiar.test.BasicTest;
 import net.alteiar.utils.images.TransfertImage;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeMeter;
@@ -23,20 +24,17 @@ import net.alteiar.utils.map.element.MapElementSizeSquare;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestMapElement extends TestMap {
+public class TestMapElement extends BasicTest {
 
 	private Long battleId = null;
 
-	@Override
 	@Before
 	public void setup() {
-		super.setup();
-
 		// create a battle
-		TransfertImage battleImage = createTransfertImage();
+		TransfertImage battleImage = TestMap.createTransfertImage();
 		if (battleId == null) {
 			try {
-				battleId = createBattle("test battle", battleImage);
+				battleId = TestMap.createBattle("test battle", battleImage);
 			} catch (IOException e) {
 				fail("fail to create battle");
 			}
@@ -61,10 +59,10 @@ public class TestMapElement extends TestMap {
 				battleId, rectangle.getMapId());
 
 		// Change battle link
-		TransfertImage battleImage = createTransfertImage();
+		TransfertImage battleImage = TestMap.createTransfertImage();
 		Long newBattleId = 0L;
 		try {
-			newBattleId = createBattle("new battle", battleImage);
+			newBattleId = TestMap.createBattle("new battle", battleImage);
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
@@ -188,7 +186,7 @@ public class TestMapElement extends TestMap {
 		circleClient.setPosition(newPosition);
 		circleClient.setAngle(angle);
 
-		sleep(200);
+		sleep(10);
 
 		assertEquals("The position should be equals", newPosition,
 				circleClient.getPosition());
