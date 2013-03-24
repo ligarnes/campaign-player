@@ -5,26 +5,12 @@ import java.io.Serializable;
 public class DocumentPath implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private static Long currentGUID = 0L;
-
-	private static final Long generateNextGUID() {
-		long guid = currentGUID;
-		currentGUID++;
-		return guid;
-	}
-
-	private final Long id;
 	private final String name;
 	private final String path;
 
 	public DocumentPath(String path, String name) {
-		this.id = generateNextGUID();
 		this.path = path;
 		this.name = name;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public String getName() {
@@ -42,8 +28,9 @@ public class DocumentPath implements Serializable {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((path == null) ? 0 : path.hashCode());
 		return result;
 	}
 
@@ -51,15 +38,20 @@ public class DocumentPath implements Serializable {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		DocumentPath other = (DocumentPath) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!name.equals(other.name))
+			return false;
+		if (path == null) {
+			if (other.path != null)
+				return false;
+		} else if (!path.equals(other.path))
 			return false;
 		return true;
 	}

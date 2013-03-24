@@ -114,7 +114,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	public synchronized Long createDocument(BeanEncapsulator bean)
 			throws RemoteException {
 		IDocumentRemote remote = new DocumentRemote(bean);
-		Long id = remote.getPath().getId();
+		Long id = bean.getId();
 		documents.put(id, remote);
 
 		// TODO notify in multithread

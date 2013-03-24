@@ -61,8 +61,8 @@ public class Chat extends BasicBeans {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<MessageRemote> getMessages() {
-		// add synchonisation
 		ArrayList<MessageRemote> copy = new ArrayList<MessageRemote>();
 		synchronized (messages) {
 			copy = (ArrayList<MessageRemote>) messages.clone();

@@ -11,6 +11,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
@@ -112,7 +113,9 @@ public class DocumentManager {
 			DocumentClient client = doc.buildProxy();
 			client.loadDocument();
 
-			this.documents.put(guid, client);
+			synchronized (documents) {
+				this.documents.put(guid, client);
+			}
 
 			for (DocumentManagerListener listener : getListeners()) {
 				listener.documentAdded(client);
@@ -135,9 +138,9 @@ public class DocumentManager {
 		return guid;
 	}
 
-	public void removeDocument(DocumentClient document) {
+	public void removeDocument(BasicBeans bean) {
 		try {
-			this.server.deleteDocument(document.getId());
+			this.server.deleteDocument(bean.getId());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,7 +148,10 @@ public class DocumentManager {
 	}
 
 	private synchronized void removeDocument(Long guid) {
-		DocumentClient doc = this.documents.remove(guid);
+		DocumentClient doc;
+		synchronized (documents) {
+			doc = this.documents.remove(guid);
+		}
 		for (DocumentManagerListener listener : getListeners()) {
 			listener.documentRemoved(doc);
 		}
