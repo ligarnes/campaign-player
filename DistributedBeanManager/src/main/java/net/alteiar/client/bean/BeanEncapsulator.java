@@ -14,8 +14,6 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-import net.alteiar.server.document.DocumentPath;
-
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 	private static final long serialVersionUID = 1L;
 
@@ -34,10 +32,6 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 
 	public Long getId() {
 		return this.bean.getId();
-	}
-
-	public DocumentPath getDocumentPath() {
-		return this.bean.getDocumentPath();
 	}
 
 	/**

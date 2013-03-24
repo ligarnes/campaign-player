@@ -23,6 +23,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
 
 /**
@@ -31,14 +32,12 @@ import net.alteiar.server.document.IDocumentRemote;
  */
 public interface IServerDocument extends Remote {
 
-	void addServerListener(ServerListener listener)
-			throws RemoteException;
+	void addServerListener(ServerListener listener) throws RemoteException;
 
-	void removeServerListener(ServerListener listener)
-			throws RemoteException;
+	void removeServerListener(ServerListener listener) throws RemoteException;
 
 	// Documents
-	Long createDocument(BeanEncapsulator documentBuilder)
+	Long createDocument(DocumentPath path, BeanEncapsulator documentBuilder)
 			throws RemoteException;
 
 	void deleteDocument(Long guid) throws RemoteException;

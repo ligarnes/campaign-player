@@ -13,12 +13,15 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	private static final long serialVersionUID = 1L;
 
 	private final BeanEncapsulator bean;
+	private final DocumentPath path;
 
 	private final HashSet<IDocumentRemoteListener> listeners;
 
-	public DocumentRemote(BeanEncapsulator bean) throws RemoteException {
+	public DocumentRemote(DocumentPath path, BeanEncapsulator bean)
+			throws RemoteException {
 		super();
 		this.bean = bean;
+		this.path = path;
 
 		listeners = new HashSet<IDocumentRemoteListener>();
 	}
@@ -30,7 +33,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 
 	@Override
 	public DocumentPath getPath() {
-		return bean.getDocumentPath();
+		return path;
 	}
 
 	@Override
