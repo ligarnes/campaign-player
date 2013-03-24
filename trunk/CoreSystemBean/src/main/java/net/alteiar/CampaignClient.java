@@ -104,19 +104,25 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
+	public void disconnect() {
+
+	}
+
 	public Long addBean(BasicBeans bean) {
 		return manager.createDocument(new BeanEncapsulator(bean));
 	}
 
 	public void removeBean(BasicBeans bean) {
-		// TODO search document from bean
-		// TODO remove document
-		// FIXME
+		manager.removeDocument(bean);
 	}
 
 	@SuppressWarnings("unchecked")
 	public <E extends BasicBeans> E getBean(long id) {
-		return (E) manager.getDocument(id).getBeanEncapsulator().getBean();
+		DocumentClient document = manager.getDocument(id);
+		if (document == null) {
+			return null;
+		}
+		return (E) document.getBeanEncapsulator().getBean();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -148,11 +154,15 @@ public final class CampaignClient implements DocumentManagerListener {
 		// System.out.println("document added: " + bean.getClass());
 
 		if (Beans.isInstanceOf(bean, Player.class)) {
-			this.players.add((Player) Beans.getInstanceOf(bean, Player.class));
+			synchronized (players) {
+				players.add((Player) Beans.getInstanceOf(bean, Player.class));
+			}
 		} else if (Beans.isInstanceOf(bean, Chat.class)) {
 			chat = (Chat) Beans.getInstanceOf(bean, Chat.class);
 		} else if (Beans.isInstanceOf(bean, Battle.class)) {
-			battles.add((Battle) Beans.getInstanceOf(bean, Battle.class));
+			synchronized (battles) {
+				battles.add((Battle) Beans.getInstanceOf(bean, Battle.class));
+			}
 		}
 
 	}
@@ -162,7 +172,13 @@ public final class CampaignClient implements DocumentManagerListener {
 		BasicBeans bean = document.getBeanEncapsulator().getBean();
 
 		if (Beans.isInstanceOf(bean, Player.class)) {
-			this.players.remove(Beans.getInstanceOf(bean, Player.class));
+			synchronized (players) {
+				players.remove(Beans.getInstanceOf(bean, Player.class));
+			}
+		} else if (Beans.isInstanceOf(bean, Battle.class)) {
+			synchronized (battles) {
+				battles.remove(Beans.getInstanceOf(bean, Battle.class));
+			}
 		}
 	}
 }

@@ -19,8 +19,8 @@ public abstract class ColoredShape extends MapElement {
 
 	private Color color;
 
-	public ColoredShape(Long mapId, Point position, Color color) {
-		super(mapId, position);
+	public ColoredShape(Point position, Color color) {
+		super(position);
 		this.color = color;
 	}
 

@@ -8,15 +8,15 @@ import java.beans.PropertyVetoException;
 
 import net.alteiar.utils.map.element.MapElementSize;
 
-public class Circle extends ColoredShape {
+public class CircleElement extends ColoredShape {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_RADIUS_PROPERTY = "radius";
 
 	private MapElementSize radius;
 
-	public Circle(Long mapId, Point position, Color color, MapElementSize radius) {
-		super(mapId, position, color);
+	public CircleElement(Point position, Color color, MapElementSize radius) {
+		super(position, color);
 		this.radius = radius;
 	}
 

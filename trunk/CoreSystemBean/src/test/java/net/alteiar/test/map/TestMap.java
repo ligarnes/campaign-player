@@ -22,7 +22,8 @@ import net.alteiar.image.ImageBean;
 import net.alteiar.map.Map;
 import net.alteiar.map.MapFilter;
 import net.alteiar.map.battle.Battle;
-import net.alteiar.map.elements.Rectangle;
+import net.alteiar.map.elements.MapElementFactory;
+import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.test.BasicTest;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
@@ -126,16 +127,14 @@ public class TestMap extends BasicTest {
 		MapElementSize width = new MapElementSizeMeter(6.0);
 		MapElementSize height = new MapElementSizePixel(42.0);
 
-		Rectangle rectangle = new Rectangle(battleId, position, color, width,
-				height);
-
-		Long rectangleId = CampaignClient.getInstance().addBean(rectangle);
+		RectangleElement rectangle = new RectangleElement(position, color,
+				width, height);
 
 		Collection<Long> elementsOnMap = battle.getElements();
 		assertTrue("The map shouldn't have any element",
 				elementsOnMap.isEmpty());
 
-		battle.addElement(rectangleId);
+		Long rectangleId = MapElementFactory.buildMapElement(rectangle, battle);
 
 		while (elementsOnMap.isEmpty()) {
 			sleep(10);

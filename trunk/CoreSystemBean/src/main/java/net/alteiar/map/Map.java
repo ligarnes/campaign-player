@@ -199,6 +199,7 @@ public class Map extends BasicBeans {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public HashSet<Long> getElements() {
 		HashSet<Long> copy = new HashSet<Long>();
 		synchronized (elements) {

@@ -31,11 +31,9 @@ public class TestImageUtils extends BasicTest {
 
 			compareImage(target, image.getImage().restoreImage());
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail("problem with the url");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail("fail to read images");
 		}
 	}
 

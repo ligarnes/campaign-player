@@ -32,7 +32,7 @@ import net.alteiar.utils.map.element.MapElementSize;
  * @author Cody Stoutenburg
  * 
  */
-public class Rectangle extends ColoredShape {
+public class RectangleElement extends ColoredShape {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_WIDTH_PROPERTY = "width";
@@ -45,9 +45,9 @@ public class Rectangle extends ColoredShape {
 	 * @param element
 	 * @throws RemoteException
 	 */
-	public Rectangle(Long mapId, Point position, Color color,
-			MapElementSize width, MapElementSize height) {
-		super(mapId, position, color);
+	public RectangleElement(Point position, Color color, MapElementSize width,
+			MapElementSize height) {
+		super(position, color);
 		this.width = width;
 		this.height = height;
 	}

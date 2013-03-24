@@ -19,13 +19,10 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	private final IDocumentRemote remote;
 	private transient IDocumentRemoteListener documentListener;
 
-	private final DocumentPath documentPath;
-
 	private BeanEncapsulator bean;
 
 	public DocumentClient(IDocumentRemote remote) throws RemoteException {
 		this.remote = remote;
-		this.documentPath = this.remote.getPath();
 	}
 
 	public void remoteValueChanged(String propertyName, Object newValue) {
@@ -43,7 +40,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	public Long getId() {
-		return documentPath.getId();
+		return bean.getId();
 	}
 
 	public BeanEncapsulator getBeanEncapsulator() {
@@ -51,11 +48,12 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	protected DocumentPath getDocumentPath() {
-		return this.documentPath;
+		return this.bean.getDocumentPath();
 	}
 
 	private final void remoteCloseDocument() {
 		try {
+			this.bean.removePropertyChangeListener(this);
 			this.remote.removeDocumentListener(documentListener);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -64,10 +62,12 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	public void loadDocument() {
+		DocumentPath documentPath = null;
 		try {
 			documentListener = new DocumentListener();
 
 			this.remote.addDocumentListener(documentListener);
+			documentPath = remote.getPath();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,14 +75,14 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 
 		// localPath = the local scenario directory
 		// path = localPath + getDocumentPath().getCompletePath();
-		File localFile = new File(getDocumentPath().getCompletePath());
+
+		File localFile = new File(documentPath.getCompletePath());
 		try {
 			if (localFile.exists()) {
 				// load local bean
 				loadDocumentLocal(localFile);
 			} else {
-				// load remote bean
-				bean = this.remote.getBean();
+				loadDocumentRemote();
 			}
 			bean.addPropertyChangeListener(this);
 		} catch (IOException e) {
@@ -96,14 +96,14 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	protected void loadDocumentRemote() throws IOException {
+		bean = this.remote.getBean();
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((documentPath == null) ? 0 : documentPath.hashCode());
+		result = prime * result + ((bean == null) ? 0 : bean.hashCode());
 		return result;
 	}
 
@@ -116,10 +116,10 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		if (getClass() != obj.getClass())
 			return false;
 		DocumentClient other = (DocumentClient) obj;
-		if (documentPath == null) {
-			if (other.documentPath != null)
+		if (bean == null) {
+			if (other.bean != null)
 				return false;
-		} else if (!documentPath.equals(other.documentPath))
+		} else if (!bean.equals(other.bean))
 			return false;
 		return true;
 	}

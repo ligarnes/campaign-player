@@ -12,14 +12,12 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		IDocumentRemote {
 	private static final long serialVersionUID = 1L;
 
-	private final DocumentPath path;
 	private final BeanEncapsulator bean;
 
 	private final HashSet<IDocumentRemoteListener> listeners;
 
 	public DocumentRemote(BeanEncapsulator bean) throws RemoteException {
 		super();
-		this.path = new DocumentPath("", "");
 		this.bean = bean;
 
 		listeners = new HashSet<IDocumentRemoteListener>();
@@ -32,7 +30,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 
 	@Override
 	public DocumentPath getPath() {
-		return path;
+		return bean.getDocumentPath();
 	}
 
 	@Override
@@ -69,6 +67,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	protected HashSet<IDocumentRemoteListener> getDocumentListeners() {
 		HashSet<IDocumentRemoteListener> copy = new HashSet<IDocumentRemoteListener>();
 		synchronized (listeners) {
@@ -115,7 +114,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((path == null) ? 0 : path.hashCode());
+		result = prime * result + ((bean == null) ? 0 : bean.hashCode());
 		return result;
 	}
 
@@ -128,10 +127,10 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		if (getClass() != obj.getClass())
 			return false;
 		DocumentRemote other = (DocumentRemote) obj;
-		if (path == null) {
-			if (other.path != null)
+		if (bean == null) {
+			if (other.bean != null)
 				return false;
-		} else if (!path.equals(other.path))
+		} else if (!bean.equals(other.bean))
 			return false;
 		return true;
 	}

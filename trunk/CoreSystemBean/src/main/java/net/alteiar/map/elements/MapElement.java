@@ -23,9 +23,7 @@ public abstract class MapElement extends BasicBeans {
 	private Double angle;
 	private Boolean hiddenForPlayer;
 
-	public MapElement(Long mapId, Point position) {
-		this.mapId = mapId;
-
+	public MapElement(Point position) {
 		this.position = position;
 		this.angle = 0.0;
 		this.hiddenForPlayer = true;
