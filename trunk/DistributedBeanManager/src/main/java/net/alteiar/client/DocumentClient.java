@@ -20,6 +20,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	private transient IDocumentRemoteListener documentListener;
 
 	private BeanEncapsulator bean;
+	private DocumentPath path;
 
 	public DocumentClient(IDocumentRemote remote) throws RemoteException {
 		this.remote = remote;
@@ -48,7 +49,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	protected DocumentPath getDocumentPath() {
-		return this.bean.getDocumentPath();
+		return this.path;
 	}
 
 	private final void remoteCloseDocument() {

@@ -17,6 +17,7 @@ import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
+import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
 
 public class DocumentManager {
@@ -130,7 +131,7 @@ public class DocumentManager {
 	public long createDocument(BeanEncapsulator bean) {
 		long guid = -1L;
 		try {
-			guid = this.server.createDocument(bean);
+			guid = this.server.createDocument(new DocumentPath("", ""), bean);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

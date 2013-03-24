@@ -18,6 +18,7 @@ import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.map.battle.Battle;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
+import net.alteiar.server.document.DocumentPath;
 
 public final class CampaignClient implements DocumentManagerListener {
 	private static CampaignClient INSTANCE = null;
@@ -54,7 +55,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		ServerDocuments server;
 		try {
 			server = ServerDocuments.startServer(addressIp, port);
-			server.createDocument(new BeanEncapsulator(new Chat()));
+			server.createDocument(new DocumentPath("", ""),
+					new BeanEncapsulator(new Chat()));
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

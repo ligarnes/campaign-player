@@ -32,6 +32,7 @@ import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
+import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.thread.ThreadPool;
@@ -111,9 +112,9 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public synchronized Long createDocument(BeanEncapsulator bean)
-			throws RemoteException {
-		IDocumentRemote remote = new DocumentRemote(bean);
+	public synchronized Long createDocument(DocumentPath path,
+			BeanEncapsulator bean) throws RemoteException {
+		IDocumentRemote remote = new DocumentRemote(path, bean);
 		Long id = bean.getId();
 		documents.put(id, remote);
 
