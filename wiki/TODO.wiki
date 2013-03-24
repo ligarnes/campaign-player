@@ -5,7 +5,6 @@
     * sauvegarder des campagnes
     * charger des campagnes
   * relier ensemble le projet Player avec CoreSystemBean et DistributedBeanManager (enlever le projet NewServer des dépendance de Player)
-  * autoriser la fermeture de document proprement (avec des tests unitaires)
   * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70% (taux actuelle: 78%)
 
 = CoreSystemBean et PathfinderSystem =
