@@ -6,10 +6,42 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 
 import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
+import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 
-public class PluginSystem {
+public class PluginSystem implements IPluginSystemGui {
+
+	private final ArrayList<IPluginSystemGui> plugins;
+
+	private final static PluginSystem INSTANCE = new PluginSystem();
+
+	public static PluginSystem getInstance() {
+		return INSTANCE;
+	}
+
+	private PluginSystem() {
+		plugins = new ArrayList<IPluginSystemGui>();
+
+		plugins.add(getPluginSystemGui());
+	}
+
+	@Override
+	public PanelCharacterFactory getGuiCharacterFactory() {
+		return plugins.get(0).getGuiCharacterFactory();
+	}
+
+	@Override
+	public ArrayList<PanelMapElementBuilder> getGuiMapElementFactory() {
+		ArrayList<PanelMapElementBuilder> mapElementBuilders = new ArrayList<PanelMapElementBuilder>();
+
+		for (IPluginSystemGui plugin : plugins) {
+			mapElementBuilders.addAll(plugin.getGuiMapElementFactory());
+		}
+
+		return mapElementBuilders;
+	}
 
 	private static ClassLoader loader;
 
@@ -33,8 +65,7 @@ public class PluginSystem {
 	public static IPluginSystemGui getPluginSystemGui() {
 		IPluginSystemGui pluginSystemGui = null;
 		try {
-			Class<?> clazz = Class.forName(
-					"plugin.gui.PathfinderPluginSystemGui", true,
+			Class<?> clazz = Class.forName("plugin.gui.PluginSystemGui", true,
 					getClassLoader());
 
 			Class<? extends IPluginSystemGui> runClass = clazz
@@ -67,4 +98,5 @@ public class PluginSystem {
 		}
 		return pluginSystemGui;
 	}
+
 }

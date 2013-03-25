@@ -46,7 +46,9 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.player.gui.tools.Zoomable;
+import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.map.Map;
 import net.alteiar.map.MapFilter;
 import net.alteiar.map.elements.MapElement;
@@ -468,11 +470,29 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (Map.METH_ADD_ELEMENT_METHOD.equals(evt.getPropertyName())) {
-			((MapElement) evt.getNewValue()).addPropertyChangeListener(this);
-		} else if (Map.METH_REMOVE_ELEMENT_METHOD.equals(evt.getPropertyName())) {
-			((MapElement) evt.getNewValue()).removePropertyChangeListener(this);
-		}
+			final Long mapElementId = ((Long) evt.getNewValue());
 
-		mapChanged();
+			CampaignClient.getInstance().addWaitBeanListener(
+					new WaitBeanListener() {
+						@Override
+						public Long getBeanId() {
+							return mapElementId;
+						}
+
+						@Override
+						public void beanReceived(BasicBeans bean) {
+							bean.addPropertyChangeListener(PanelBasicMap.this);
+							mapChanged();
+						}
+					});
+		} else if (Map.METH_REMOVE_ELEMENT_METHOD.equals(evt.getPropertyName())) {
+			Long mapElementId = ((Long) evt.getNewValue());
+			MapElement mapElement = CampaignClient.getInstance().getBean(
+					mapElementId);
+			mapElement.removePropertyChangeListener(this);
+			mapChanged();
+		} else {
+			mapChanged();
+		}
 	}
 }

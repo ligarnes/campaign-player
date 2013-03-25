@@ -6,17 +6,12 @@ import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
@@ -47,63 +42,8 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		}
 	}
 
-	private static ClassLoader loader;
-
-	private static ClassLoader getClassLoader() {
-		if (loader == null) {
-			try {
-				URL pluginJar = new File(
-						"./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar")
-						.toURI().toURL();
-				loader = URLClassLoader.newInstance(new URL[] { pluginJar },
-						PanelCreateMapElement.class.getClassLoader());
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-		return loader;
-	}
-
 	public static ArrayList<PanelMapElementBuilder> getBuilders() {
-		ArrayList<PanelMapElementBuilder> builders = new ArrayList<PanelMapElementBuilder>();
-		try {
-
-			// pluginName.gui.mapElement.builder.PanelBuilder
-			Class<?> clazz = Class.forName(
-					"pathfinder.gui.mapElement.builder.PanelBuilder", true,
-					getClassLoader());
-			Class<? extends IPanelBuilders> runClass = clazz
-					.asSubclass(IPanelBuilders.class);
-			// Avoid Class.newInstance, for it is evil.
-			Constructor<? extends IPanelBuilders> ctor = runClass
-					.getConstructor();
-			IPanelBuilders doRun = ctor.newInstance();
-			builders = doRun.getBuilders();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return builders;
+		return PluginSystem.getInstance().getGuiMapElementFactory();
 	}
 
 	private final JPanel panelWest;
