@@ -16,7 +16,7 @@
   * Système de Monstres 
  
 = Player = 
-  * Faire un système de fichier
+  * Faire un système de fichier (cody)
   * Faire un autre type de carte plus libre
   * Faire un système de plugin plus propre
 
