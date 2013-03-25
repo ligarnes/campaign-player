@@ -27,7 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.server.document.character.ICharacterRemote;
+import net.alteiar.character.CharacterBean;
 
 public class PanelCreateCharacterSheet extends JPanel {
 	private static final long serialVersionUID = -2286637648122082031L;
@@ -72,7 +72,7 @@ public class PanelCreateCharacterSheet extends JPanel {
 		m_labelCa = new JLabel("CA");
 		m_textCa = new JTextField();
 
-		m_labelCaDepourvu = new JLabel("CA D�pourvu");
+		m_labelCaDepourvu = new JLabel("CA Dépourvu");
 		m_textCaDepourvu = new JTextField();
 
 		m_labelCaContact = new JLabel("CA Contact");
@@ -106,7 +106,7 @@ public class PanelCreateCharacterSheet extends JPanel {
 		this.add(m_boxCache);
 	}
 
-	public ICharacterRemote getCharacter() throws NumberFormatException,
+	public CharacterBean getCharacter() throws NumberFormatException,
 			RemoteException {
 		return null;// CampaignClient.INSTANCE.createCharacter(m_textNom.getText());
 	}

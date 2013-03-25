@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.map.battle.Battle;
 
 public class PanelBattleCharacterList extends JPanel /*
 													 * implements
@@ -19,7 +19,7 @@ public class PanelBattleCharacterList extends JPanel /*
 
 	private final PanelBattleNextTurn nextTurnPanel;
 
-	public PanelBattleCharacterList(BattleClient battle) {
+	public PanelBattleCharacterList(Battle battle) {
 		super();
 		this.setPreferredSize(new Dimension(60, 60));
 

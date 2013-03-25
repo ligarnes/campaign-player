@@ -26,11 +26,26 @@
 	</dependency>
 	
 	<dependency>
+		<groupId>net.alteiar</groupId>
+		<artifactId>CoreSystemBean</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>net.alteiar</groupId>
+		<artifactId>DistributedBeanManager</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<!-- 
+	<dependency>
 		<groupId>net.alteiar.campaign.player</groupId>
 		<artifactId>New-Server</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<scope>compile</scope>
-	</dependency>
+	</dependency>-->
 	
 	<dependency>
 		<groupId>net.alteiar.campaign.player</groupId>

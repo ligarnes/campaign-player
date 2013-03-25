@@ -11,23 +11,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.MainPanel;
-import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.map.battle.Battle;
 
 public class PanelSimpleBattle extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private final JLabel lblAvatar;
-	private final BattleClient battle;
+	private final Battle battle;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelSimpleBattle(BattleClient battle) {
+	public PanelSimpleBattle(Battle battle) {
 		this.battle = battle;
 		// this.battle.addObserver(this);
 
@@ -96,6 +96,6 @@ public class PanelSimpleBattle extends JPanel {
 	}
 
 	protected void deleteBattle() {
-		CampaignClient.getInstance().removeDocument(battle);
+		CampaignClient.getInstance().removeBean(battle);
 	}
 }

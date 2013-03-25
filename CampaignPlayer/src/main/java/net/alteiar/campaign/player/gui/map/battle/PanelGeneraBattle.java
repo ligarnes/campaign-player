@@ -22,6 +22,7 @@ package net.alteiar.campaign.player.gui.map.battle;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.Polygon;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
@@ -31,15 +32,17 @@ import java.util.Observer;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.PanelWest;
 import net.alteiar.campaign.player.gui.map.PanelMapWithListener;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelBattleCharacterList;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelTools;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.tools.PanelMoveZoom;
-import net.alteiar.server.document.map.Scale;
-import net.alteiar.server.document.map.battle.BattleClient;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.MapFilter;
+import net.alteiar.map.battle.Battle;
+import net.alteiar.map.elements.MapElement;
+import net.alteiar.utils.map.Scale;
 
 /**
  * @author Cody Stoutenburg
@@ -48,7 +51,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 		Observer {
 	private static final long serialVersionUID = 5502995543807006460L;
 
-	private final BattleClient battle;
+	private final Battle battle;
 
 	private final PanelBattleCharacterList toolbarCharacterList;
 
@@ -58,7 +61,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	private Boolean fixGrid;
 	private Boolean showDistance;
 
-	public PanelGeneraBattle(final BattleClient battle) {
+	public PanelGeneraBattle(final Battle battle) {
 		this.battle = battle;
 
 		fixGrid = true;
@@ -125,7 +128,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public MapElementClient getElementAt(Point position) {
+	public MapElement getElementAt(Point position) {
 		return mapPanel.getElementAt(position);
 	}
 
@@ -145,7 +148,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void drawPathToElement(Point first, MapElementClient mapElement) {
+	public void drawPathToElement(Point first, MapElement mapElement) {
 		this.mapPanel.drawPathToElement(first, mapElement);
 	}
 
@@ -178,7 +181,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void addPointToLine(MapElementClient currentElement, Point next) {
+	public void addPointToLine(MapElement currentElement, Point next) {
 		if (fixGrid) {
 			// modifyPositionToFixGrid(next);
 			// Point center = currentElement.getCenterOffset();
@@ -227,7 +230,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public Point getPositionOf(MapElementClient currentElement) {
+	public Point getPositionOf(MapElement currentElement) {
 		Point position = currentElement.getCenterPosition();
 		// Point center = currentElement.getCenterOffset();
 		// position.x += center.x;
@@ -236,7 +239,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void moveElementAt(MapElementClient currentElement, Point position) {
+	public void moveElementAt(MapElement currentElement, Point position) {
 		if (!fixGrid) {
 			// we move the character from the center
 			// Point center = currentElement.getCenterOffset();
@@ -296,28 +299,62 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 		movePanel.zoom(center, zoomFactor);
 	}
 
+	public MapFilter getMapFilter() {
+		return CampaignClient.getInstance().getBean(this.battle.getFilter());
+	}
+
 	@Override
 	public void showRectangle(Point position, Integer width, Integer height) {
-		this.battle.showRectangle(position.x, position.y, width, height);
+		MapFilter filter = getMapFilter();
+
+		int x1 = position.x;
+		int x2 = position.x + width;
+		int y1 = position.y;
+		int y2 = position.y + height;
+
+		filter.showPolygon(new Polygon(new int[] { x1, x2, x2, x1 }, new int[] {
+				y1, y1, y2, y2 }, 4));
 	}
 
 	@Override
 	public void showPolygon(List<Point> cwPts) {
-		Point[] pts = new Point[cwPts.size()];
-		cwPts.toArray(pts);
-		this.battle.showPolygon(pts);
+		MapFilter filter = getMapFilter();
+		int[] x = new int[cwPts.size()];
+		int[] y = new int[cwPts.size()];
+
+		for (int i = 0; i < cwPts.size(); i++) {
+			x[i] = cwPts.get(i).x;
+			y[i] = cwPts.get(i).y;
+		}
+
+		filter.showPolygon(new Polygon(x, y, cwPts.size()));
 	}
 
 	@Override
 	public void hidePolygon(List<Point> cwPts) {
-		Point[] pts = new Point[cwPts.size()];
-		cwPts.toArray(pts);
-		this.battle.hidePolygon(pts);
+		MapFilter filter = getMapFilter();
+		int[] x = new int[cwPts.size()];
+		int[] y = new int[cwPts.size()];
+
+		for (int i = 0; i < cwPts.size(); i++) {
+			x[i] = cwPts.get(i).x;
+			y[i] = cwPts.get(i).y;
+		}
+
+		filter.hidePolygon(new Polygon(x, y, cwPts.size()));
 	}
 
 	@Override
 	public void hideRectangle(Point position, Integer width, Integer height) {
-		this.battle.hideRectangle(position.x, position.y, width, height);
+		MapFilter filter = getMapFilter();
+
+		int x1 = position.x;
+		int x2 = position.x + width;
+		int y1 = position.y;
+		int y2 = position.y + height;
+
+		filter.hidePolygon(new Polygon(new int[] { x1, x2, x2, x1 }, new int[] {
+				y1, y1, y2, y2 }, 4));
 	}
 
 	@Override
@@ -351,7 +388,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void removeElement(MapElementClient toRemove) {
+	public void removeElement(MapElement toRemove) {
 		// TODO Auto-generated method stub
 
 	}

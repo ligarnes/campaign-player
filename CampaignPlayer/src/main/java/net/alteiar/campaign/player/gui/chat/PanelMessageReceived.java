@@ -15,9 +15,8 @@ import net.alteiar.campaign.player.gui.chat.message.PanelEnterMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelLeaveMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelPrivateTextMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelTextMessage;
-import net.alteiar.server.document.chat.message.MessageRemote;
-import net.alteiar.server.document.chat.message.MjSender;
-import net.alteiar.server.document.chat.message.PrivateSender;
+import net.alteiar.chat.message.MessageRemote;
+import net.alteiar.chat.message.PrivateSender;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelMessageReceived extends JPanel {
@@ -106,14 +105,16 @@ public class PanelMessageReceived extends JPanel {
 			}
 
 		} else if (command.equals("/mj")) {
-			MjSender mjSender = new MjSender(msg.getMessage());
-
-			if (mjSender.canAccess()) {
-				MessageRemote newMsg = new MessageRemote(msg.getExpediteur(),
-						mjSender.getMessage(), mjSender.getCommand());
-
-				appendMessage(newMsg);
-			}
+			// FIXME TODO
+			/*
+			 * MjSender mjSender = new MjSender(msg.getMessage());
+			 * 
+			 * if (mjSender.canAccess()) { MessageRemote newMsg = new
+			 * MessageRemote(msg.getSender(), mjSender.getMessage(),
+			 * mjSender.getCommand());
+			 * 
+			 * appendMessage(newMsg); }
+			 */
 		} else {
 			System.out.println("unrecognized command: " + command);
 		}

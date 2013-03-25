@@ -18,18 +18,18 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
-import net.alteiar.client.CampaignClient;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
-import net.alteiar.server.document.map.MapClient;
-import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
+import net.alteiar.map.Map;
+import net.alteiar.map.elements.MapElement;
+import net.alteiar.map.elements.MapElementFactory;
 
 public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 	private static final long serialVersionUID = 1L;
 
 	private static PanelCreateMapElement mapElement = new PanelCreateMapElement();
 
-	public static void createMapElement(MapClient<?> map, MapEvent event) {
+	public static void createMapElement(Map map, MapEvent event) {
 		DialogOkCancel<PanelCreateMapElement> dlg = new DialogOkCancel<PanelCreateMapElement>(
 				null, "Créer un element", true, mapElement);
 
@@ -41,9 +41,9 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		dlg.setVisible(true);
 
 		if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {
-			DocumentMapElementBuilder builder = dlg.getMainPanel()
-					.buildElement(map, event.getMapPosition());
-			CampaignClient.getInstance().createMapElement(map, builder);
+			MapElement element = dlg.getMainPanel().buildElement(
+					event.getMapPosition());
+			MapElementFactory.buildMapElement(element, map);
 		}
 	}
 
@@ -155,9 +155,8 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		this.repaint();
 	}
 
-	public DocumentMapElementBuilder buildElement(MapClient<?> map,
-			Point position) {
-		return builder.buildMapElement(map, position);
+	public MapElement buildElement(Point position) {
+		return builder.buildMapElement(position);
 	}
 
 	@Override

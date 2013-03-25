@@ -27,9 +27,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.alteiar.campaign.player.gui.dashboard.PanelListBattle;
-import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleCharacter;
-import net.alteiar.campaign.player.gui.dashboard.PanelListSimpleMonster;
-import net.alteiar.client.CampaignClient;
 
 /**
  * @author Cody Stoutenburg
@@ -68,11 +65,13 @@ public class PanelDashboard extends MyPanel {
 
 		JPanel center = new JPanel();
 		center.setOpaque(false);
-		center.add(new PanelListSimpleCharacter());
 
-		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
-			center.add(new PanelListSimpleMonster());
-		}
+		/*
+		 * center.add(new PanelListSimpleCharacter());
+		 * 
+		 * if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+		 * center.add(new PanelListSimpleMonster()); }
+		 */
 		center.add(new PanelListBattle());
 
 		JScrollPane scroll = new JScrollPane(new PanelWest());

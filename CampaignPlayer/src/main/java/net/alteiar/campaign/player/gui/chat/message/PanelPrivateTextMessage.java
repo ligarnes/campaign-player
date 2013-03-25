@@ -5,8 +5,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.server.document.chat.message.MessageRemote;
-import net.alteiar.server.document.chat.message.PrivateSender;
+import net.alteiar.chat.message.MessageRemote;
+import net.alteiar.chat.message.PrivateSender;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelPrivateTextMessage extends JPanel {
@@ -21,7 +21,7 @@ public class PanelPrivateTextMessage extends JPanel {
 		lblSub.setFont(lblSub.getFont().deriveFont(8f));
 		add(lblSub, "aligny top");
 
-		JLabel lblName = new JLabel(msg.getExpediteur() + ":");
+		JLabel lblName = new JLabel(msg.getSender() + ":");
 		lblName.setFont(lblName.getFont().deriveFont(Font.BOLD));
 		add(lblName, "aligny top");
 

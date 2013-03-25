@@ -6,10 +6,10 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.server.document.map.element.size.MapElementSize;
-import net.alteiar.server.document.map.element.size.MapElementSizeMeter;
-import net.alteiar.server.document.map.element.size.MapElementSizePixel;
-import net.alteiar.server.document.map.element.size.MapElementSizeSquare;
+import net.alteiar.utils.map.element.MapElementSize;
+import net.alteiar.utils.map.element.MapElementSizeMeter;
+import net.alteiar.utils.map.element.MapElementSizePixel;
+import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 public class PanelElementSize extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -25,6 +25,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,26 +34,25 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.chat.ChatRoomClient;
-import net.alteiar.server.document.chat.IChatRoomObserver;
-import net.alteiar.server.document.chat.message.ChatObject;
-import net.alteiar.server.document.chat.message.DiceSender;
-import net.alteiar.server.document.chat.message.MessageRemote;
-import net.alteiar.server.document.chat.message.MjSender;
-import net.alteiar.server.document.chat.message.PrivateSender;
+import net.alteiar.CampaignClient;
+import net.alteiar.chat.Chat;
+import net.alteiar.chat.message.ChatObject;
+import net.alteiar.chat.message.DiceSender;
+import net.alteiar.chat.message.MessageRemote;
+import net.alteiar.chat.message.MjSender;
+import net.alteiar.chat.message.PrivateSender;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class PanelChat extends JPanel implements IChatRoomObserver {
+public class PanelChat extends JPanel implements PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private final PanelMessageReceived receive;
 	private final JTextArea textSend;
 
-	private final ChatRoomClient chatRoom;
+	private final Chat chatRoom;
 
 	public PanelChat(Dimension dimRec, Dimension dimSend) {
 		super();
@@ -91,11 +92,11 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 		chatRoom = CampaignClient.getInstance().getChat();
 
 		List<MessageRemote> allMsg = CampaignClient.getInstance().getChat()
-				.getAllMessage();
+				.getMessages();
 		for (MessageRemote msg : allMsg) {
-			this.talk(msg);
+			receive.appendMessage(msg);
 		}
-		chatRoom.addChatRoomListener(this);
+		chatRoom.addPropertyChangeListener(this);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
@@ -204,7 +205,10 @@ public class PanelChat extends JPanel implements IChatRoomObserver {
 	}
 
 	@Override
-	public void talk(MessageRemote message) {
-		receive.appendMessage(message);
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (evt.getPropertyName()
+				.equalsIgnoreCase(Chat.METH_ADD_MESSAGE_METHOD)) {
+			receive.appendMessage((MessageRemote) evt.getNewValue());
+		}
 	}
 }

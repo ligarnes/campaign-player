@@ -5,7 +5,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.server.document.chat.message.MessageRemote;
+import net.alteiar.chat.message.MessageRemote;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelTextMessage extends JPanel {
@@ -15,7 +15,7 @@ public class PanelTextMessage extends JPanel {
 		this.setLayout(new MigLayout("insets 0 0 0 0, wmax " + maxWidth,
 				"[][grow]", "[]"));
 
-		JLabel lblName = new JLabel(msg.getExpediteur() + ":");
+		JLabel lblName = new JLabel(msg.getSender() + ":");
 		lblName.setFont(lblName.getFont().deriveFont(Font.BOLD));
 		add(lblName, "aligny top");
 

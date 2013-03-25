@@ -3,14 +3,14 @@ package net.alteiar.campaign.player.gui.map.event;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.elements.MapElement;
 
 public class MapEvent {
 	private final MouseEvent event;
-	private final MapElementClient mapElement;
+	private final MapElement mapElement;
 	private final Point mapPosition;
 
-	public MapEvent(MouseEvent e, MapElementClient mapElement, Point mapPosition) {
+	public MapEvent(MouseEvent e, MapElement mapElement, Point mapPosition) {
 		super();
 		this.event = e;
 		this.mapElement = mapElement;
@@ -21,7 +21,7 @@ public class MapEvent {
 		return event;
 	}
 
-	public MapElementClient getMapElement() {
+	public MapElement getMapElement() {
 		return mapElement;
 	}
 

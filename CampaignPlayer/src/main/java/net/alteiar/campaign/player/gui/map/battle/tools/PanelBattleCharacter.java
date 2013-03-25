@@ -15,9 +15,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
+import net.alteiar.character.CharacterBean;
 import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.map.battle.Battle;
 
 public class PanelBattleCharacter extends JPanel/*
 												 * implements
@@ -25,10 +25,10 @@ public class PanelBattleCharacter extends JPanel/*
 												 */{
 	private static final long serialVersionUID = 1L;
 
-	private final CharacterClient character;
-	private final BattleClient battle;
+	private final CharacterBean character;
+	private final Battle battle;
 
-	public PanelBattleCharacter(BattleClient battle, CharacterClient character) {
+	public PanelBattleCharacter(Battle battle, CharacterBean character) {
 		this.setPreferredSize(new Dimension(50, 50));
 
 		this.battle = battle;
@@ -47,7 +47,7 @@ public class PanelBattleCharacter extends JPanel/*
 		 */
 	}
 
-	public CharacterClient getCharacter() {
+	public CharacterBean getCharacter() {
 		return character;
 	}
 

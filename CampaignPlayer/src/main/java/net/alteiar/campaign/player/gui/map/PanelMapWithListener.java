@@ -9,14 +9,14 @@ import java.awt.event.MouseWheelListener;
 
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
-import net.alteiar.server.document.map.battle.BattleClient;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.battle.Battle;
+import net.alteiar.map.elements.MapElement;
 
-public class PanelMapWithListener extends PanelMap implements MouseListener,
-		MouseMotionListener, MouseWheelListener {
+public class PanelMapWithListener extends PanelBasicMap implements
+		MouseListener, MouseMotionListener, MouseWheelListener {
 	private static final long serialVersionUID = 1L;
 
-	public PanelMapWithListener(BattleClient map) {
+	public PanelMapWithListener(Battle map) {
 		super(map);
 
 		this.addMouseListener(this);
@@ -38,7 +38,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mousePressed(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElementClient mapElement = this.getElementAt(mapPosition);
+		MapElement mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {
@@ -49,7 +49,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElementClient mapElement = this.getElementAt(mapPosition);
+		MapElement mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {
@@ -60,7 +60,7 @@ public class PanelMapWithListener extends PanelMap implements MouseListener,
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElementClient mapElement = this.getElementAt(mapPosition);
+		MapElement mapElement = this.getElementAt(mapPosition);
 
 		MapEvent event = new MapEvent(e, mapElement, mapPosition);
 		for (MapListener listener : getMapListener()) {

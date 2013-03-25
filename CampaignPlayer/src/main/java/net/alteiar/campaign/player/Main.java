@@ -27,11 +27,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.PanelConnexion;
-import net.alteiar.client.CampaignClient;
 import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.server.ServerDocuments;
 import net.alteiar.shared.ExceptionTool;
 
 /**
@@ -83,7 +82,7 @@ public class Main {
 			Boolean isServer = dlg.getMainPanel().isServer();
 
 			if (isServer) {
-				ServerDocuments.startServer(address, Integer.valueOf(port));
+				net.alteiar.CampaignClient.startServer(address, port);
 			}
 
 			globalProp.setPseudo(name);

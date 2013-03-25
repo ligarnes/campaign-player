@@ -11,16 +11,16 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.map.battle.Battle;
 
 public class PanelBattleNextTurn extends JPanel /* implements IBattleObserver */{
 	private static final long serialVersionUID = 1L;
 
-	private final BattleClient battle;
+	private final Battle battle;
 
 	private final JLabel lblTour;
 
-	public PanelBattleNextTurn(BattleClient battle) {
+	public PanelBattleNextTurn(Battle battle) {
 		this.setPreferredSize(new Dimension(70, 50));
 
 		this.battle = battle;
@@ -33,7 +33,7 @@ public class PanelBattleNextTurn extends JPanel /* implements IBattleObserver */
 		setLayout(gridBagLayout);
 
 		lblTour = new JLabel();
-		lblTour.setText("Tour " + this.battle.getCurrentTurn());
+		lblTour.setText("Tour " + this.battle.getTurn());
 		GridBagConstraints gbc_lblTour = new GridBagConstraints();
 		gbc_lblTour.insets = new Insets(0, 0, 5, 0);
 		gbc_lblTour.gridx = 0;
@@ -45,8 +45,6 @@ public class PanelBattleNextTurn extends JPanel /* implements IBattleObserver */
 		gbc_btnTourSuivant.gridx = 0;
 		gbc_btnTourSuivant.gridy = 1;
 		add(btnTourSuivant, gbc_btnTourSuivant);
-
-		this.battle.getCurrentTurn();
 
 		btnTourSuivant.addActionListener(new ActionListener() {
 			@Override

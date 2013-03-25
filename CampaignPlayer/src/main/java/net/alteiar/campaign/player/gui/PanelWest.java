@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.chat.PanelChat;
 import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
-import net.alteiar.campaign.player.gui.map.battle.tools.PanelCharacterInfo;
+import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.panel.PanelShowHide;
 
 public class PanelWest extends JPanel {
@@ -17,7 +17,8 @@ public class PanelWest extends JPanel {
 		inside.setLayout(new BoxLayout(inside, BoxLayout.Y_AXIS));
 
 		PanelChat chat = PanelChatFactory.buildChatSmall();
-		PanelCharacterInfo infoCharacter = new PanelCharacterInfo();
+		JPanel infoCharacter = PluginSystem.getPluginSystemGui()
+				.getGuiCharacterFactory().buildSmallCharacterSheet();
 
 		inside.add(new PanelShowHide("Chat", chat, width));
 		inside.add(new PanelShowHide("Personnages", infoCharacter, width));
