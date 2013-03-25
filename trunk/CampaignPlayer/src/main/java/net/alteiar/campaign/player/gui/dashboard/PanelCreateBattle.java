@@ -18,7 +18,7 @@ import javax.swing.border.LineBorder;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
-import net.alteiar.map.MapFactory;
+import net.alteiar.factory.MapFactory;
 import net.alteiar.map.battle.Battle;
 import net.alteiar.shared.ExceptionTool;
 

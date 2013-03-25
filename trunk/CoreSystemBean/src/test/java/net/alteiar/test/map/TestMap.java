@@ -18,12 +18,15 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
 import net.alteiar.CampaignClient;
+import net.alteiar.factory.MapElementFactory;
+import net.alteiar.factory.MapFactory;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.Map;
 import net.alteiar.map.MapFilter;
 import net.alteiar.map.battle.Battle;
-import net.alteiar.map.elements.MapElementFactory;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.test.BasicTest;
 import net.alteiar.utils.images.SerializableImage;
@@ -55,31 +58,24 @@ public class TestMap extends BasicTest {
 		return createTransfertImage("./test/ressources/guerrier.jpg");
 	}
 
+	public static File getDefaultImage() {
+		return new File("./test/ressources/guerrier.jpg");
+	}
+
 	public static ImageBean createBeanImage() {
 		return new ImageBean(
 				createTransfertImage("./test/ressources/guerrier.jpg"));
 	}
 
-	public static Long createBattle(String battleName,
-			TransfertImage battleImage) throws IOException {
+	public static Long createBattle(String battleName, File image)
+			throws IOException {
 		List<Battle> current = CampaignClient.getInstance().getBattles();
 
-		ImageBean imageBean = new ImageBean(battleImage);
-		CampaignClient.getInstance().addBean(imageBean);
-		Long imageId = imageBean.getId();
-
-		BufferedImage image = battleImage.restoreImage();
-		Integer width = image.getWidth();
-		Integer height = image.getHeight();
-
-		MapFilter filter = new MapFilter(width, height);
-		CampaignClient.getInstance().addBean(filter);
-		Long filterId = filter.getId();
-
 		int previousSize = current.size();
-		Battle battleBean = new Battle(battleName, filterId, imageId, width,
-				height);
-		CampaignClient.getInstance().addBean(battleBean);
+		Battle battleBean = new Battle(battleName);
+
+		MapFactory.createMap(battleBean, image);
+
 		Long battleId = battleBean.getId();
 
 		int currentSize = current.size();
@@ -115,10 +111,9 @@ public class TestMap extends BasicTest {
 		Battle emptyBattle = new Battle();
 		assertEquals("verify emptyBattle", emptyBattle, emptyBattle);
 
-		TransfertImage battleImage = createTransfertImage();
 		Long battleId = -1L;
 		try {
-			battleId = createBattle("test battle 10", battleImage);
+			battleId = createBattle("test battle 10", getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
@@ -144,7 +139,7 @@ public class TestMap extends BasicTest {
 		assertTrue("The map shouldn't have any element",
 				elementsOnMap.isEmpty());
 
-		Long rectangleId = MapElementFactory.buildMapElement(rectangle, battle);
+		MapElementFactory.buildMapElement(rectangle, battle);
 
 		while (elementsOnMap.isEmpty()) {
 			sleep(10);
@@ -152,7 +147,7 @@ public class TestMap extends BasicTest {
 		}
 
 		assertEquals("The map should have 1 element", 1, elementsOnMap.size());
-		assertEquals("The rectangle id should be the same", rectangleId,
+		assertEquals("The rectangle id should be the same", rectangle.getId(),
 				elementsOnMap.iterator().next());
 
 		assertEquals(
@@ -241,10 +236,9 @@ public class TestMap extends BasicTest {
 
 		String targetName = "test battle";
 
-		TransfertImage battleImage = createTransfertImage();
 		Long battleId = -1L;
 		try {
-			battleId = createBattle(targetName, battleImage);
+			battleId = createBattle(targetName, getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
@@ -293,10 +287,9 @@ public class TestMap extends BasicTest {
 	public void testBattle() {
 		String targetName = "test battle";
 
-		TransfertImage battleImage = createTransfertImage();
 		Long battleId = -1L;
 		try {
-			battleId = createBattle(targetName, battleImage);
+			battleId = createBattle(targetName, getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
@@ -321,10 +314,10 @@ public class TestMap extends BasicTest {
 
 	@Test
 	public void testMapFilter() {
-		TransfertImage battleImage = createTransfertImage();
+		File battleImageFile = getDefaultImage();
 		Long battleId = -1L;
 		try {
-			battleId = createBattle("new battle", battleImage);
+			battleId = createBattle("new battle", battleImageFile);
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
@@ -334,22 +327,11 @@ public class TestMap extends BasicTest {
 		int height = mapFiltered.getHeight();
 
 		try {
-			BufferedImage targetImages = battleImage.restoreImage();
+			BufferedImage targetImages = ImageIO.read(battleImageFile);
 			int expectedWidth = targetImages.getWidth();
 			int expectedHeight = targetImages.getHeight();
 			assertEquals("width should be same", width, expectedWidth);
 			assertEquals("height should be same", height, expectedHeight);
-
-			/*
-			 * BufferedImage image = new BufferedImage(mapFiltered.getWidth(),
-			 * mapFiltered.getHeight(), targetImages.getType());
-			 * 
-			 * Graphics2D g = (Graphics2D) image.getGraphics();
-			 * mapFiltered.draw(g, 1.0); g.dispose();
-			 * 
-			 * assertTrue("Images should be same", compareImage(image,
-			 * targetImages));
-			 */
 
 			// Test filter
 			double compareZoomFactor = 2.75;

@@ -1,7 +1,8 @@
-package net.alteiar.map.elements;
+package net.alteiar.factory;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.map.Map;
+import net.alteiar.map.elements.MapElement;
 
 public class MapElementFactory {
 
@@ -11,10 +12,9 @@ public class MapElementFactory {
 	 * @param element
 	 * @return the element added id
 	 */
-	public static Long buildMapElement(MapElement element, Map map) {
+	public static void buildMapElement(MapElement element, Map map) {
 		element.setMapId(map.getId());
 		map.addElement(element.getId());
 		CampaignClient.getInstance().addBean(element);
-		return element.getId();
 	}
 }

@@ -1,5 +1,6 @@
 package net.alteiar.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -30,6 +31,9 @@ public class TestImageUtils extends BasicTest {
 							"http://www.alteiar.net/wiki/lib/exe/fetch.php?cache=&media=applications:chat.jpg"));
 
 			compareImage(target, image.getImage().restoreImage());
+
+			assertEquals("get image must return null if no bean are found",
+					null, ImageBean.getImage(-1L));
 		} catch (MalformedURLException e) {
 			fail("problem with the url");
 		} catch (IOException e) {
