@@ -25,7 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
-import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.character.CharacterBean;
 
 /**
  * @author Cody Stoutenburg
@@ -34,9 +34,9 @@ import net.alteiar.server.document.character.CharacterClient;
 public class PanelGlobalCharacter extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final PanelCharacterLocal panelDefault;
+	private final JPanel panelDefault;
 
-	public PanelGlobalCharacter(CharacterClient client) {
+	public PanelGlobalCharacter(CharacterBean client) {
 		super(new BorderLayout());
 
 		this.add(PanelChatFactory.buildChatMedium(), BorderLayout.WEST);

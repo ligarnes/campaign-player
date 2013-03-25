@@ -3,7 +3,6 @@ package net.alteiar.campaign.player.gui.map.listener;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
@@ -11,21 +10,20 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
-import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.map.battle.BattleClient;
-import net.alteiar.server.document.map.element.IAction;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.battle.Battle;
+import net.alteiar.map.elements.MapElement;
 
 public class DefaultMapListener extends ActionMapListener {
 
-	private final BattleClient battle;
+	private final Battle battle;
 	private final MapEditableInfo mapInfo;
 
-	public DefaultMapListener(GlobalMapListener mapListener,
-			BattleClient battle, MapEditableInfo mapInfo) {
+	public DefaultMapListener(GlobalMapListener mapListener, Battle battle,
+			MapEditableInfo mapInfo) {
 		super(mapListener);
 		this.battle = battle;
 		this.mapInfo = mapInfo;
@@ -45,27 +43,20 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildMoveElement(event.getMapPosition(),
 						event.getMapElement()));
 
-				List<IAction> actionsAvaible = event.getMapElement()
-						.getActions();
-				if (actionsAvaible.size() > 0) {
-					popup.addSeparator();
-					for (final IAction action : actionsAvaible) {
-						JMenuItem menu = new JMenuItem(action.getName());
-						menu.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent arg0) {
-								try {
-									action.doAction();
-								} catch (Exception e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							}
-						});
-						menu.setEnabled(action.canDoAction());
-						popup.add(menu);
-					}
-				}
+				/*
+				 * List<IAction> actionsAvaible = event.getMapElement()
+				 * .getActions(); if (actionsAvaible.size() > 0) {
+				 * popup.addSeparator(); for (final IAction action :
+				 * actionsAvaible) { JMenuItem menu = new
+				 * JMenuItem(action.getName()); menu.addActionListener(new
+				 * ActionListener() {
+				 * 
+				 * @Override public void actionPerformed(ActionEvent arg0) { try
+				 * { action.doAction(); } catch (Exception e) { // TODO
+				 * Auto-generated catch block e.printStackTrace(); } } });
+				 * menu.setEnabled(action.canDoAction()); popup.add(menu); } }
+				 */
+
 				popup.addSeparator();
 				popup.add(buildShowHideElement(event.getMapElement()));
 				popup.addSeparator();
@@ -98,19 +89,19 @@ public class DefaultMapListener extends ActionMapListener {
 		}
 	}
 
-	private JMenuItem buildShowHideElement(final MapElementClient mapElement) {
+	private JMenuItem buildShowHideElement(final MapElement mapElement) {
 
 		final JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
 				"Afficher le personnage aux joueurs");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapElement.setIsHidden(!mapElement.getIsHidden());
-				menuItem.setSelected(mapElement.getIsHidden());
+				mapElement.setHiddenForPlayer(!mapElement.isHiddenForPlayer());
+				menuItem.setSelected(mapElement.isHiddenForPlayer());
 			}
 		});
 
-		menuItem.setSelected(mapElement.getIsHidden());
+		menuItem.setSelected(mapElement.isHiddenForPlayer());
 		return menuItem;
 	}
 
@@ -201,7 +192,7 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildMoveElement(final Point mapPosition,
-			final MapElementClient mapElement) {
+			final MapElement mapElement) {
 		JMenuItem menuItem = new JMenuItem("Deplacer");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
@@ -228,7 +219,7 @@ public class DefaultMapListener extends ActionMapListener {
 		return removeElement;
 	}
 
-	private JMenuItem buildMenuRotate(final MapElementClient element,
+	private JMenuItem buildMenuRotate(final MapElement element,
 			final Point mapPosition) {
 		JMenu menu = new JMenu("Rotation");
 
@@ -327,7 +318,7 @@ public class DefaultMapListener extends ActionMapListener {
 	 * characterSheet.setCurrentHp(characterSheet.getCurrentHp() + degat); } } }
 	 */
 
-	private void rotateMapElement(MapElementClient rotate, Double angle) {
+	private void rotateMapElement(MapElement rotate, Double angle) {
 		rotate.setAngle(rotate.getAngle() + angle);
 		// TODO rotate.applyRotate();
 	}

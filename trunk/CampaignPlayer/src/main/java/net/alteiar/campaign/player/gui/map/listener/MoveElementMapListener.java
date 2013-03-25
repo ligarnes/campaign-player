@@ -11,14 +11,14 @@ import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.elements.MapElement;
 
 public class MoveElementMapListener extends ActionMapListener {
-	private final MapElementClient mapElement;
+	private final MapElement mapElement;
 	private final MapEditableInfo mapInfo;
 
 	public MoveElementMapListener(GlobalMapListener mapListener,
-			MapEditableInfo mapInfo, Point first, MapElementClient mapElement) {
+			MapEditableInfo mapInfo, Point first, MapElement mapElement) {
 		super(mapListener);
 		this.mapElement = mapElement;
 

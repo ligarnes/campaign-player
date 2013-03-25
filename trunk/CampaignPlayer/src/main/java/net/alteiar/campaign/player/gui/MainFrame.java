@@ -30,8 +30,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.client.CampaignClient;
 
 /**
  * @author Cody Stoutenburg
@@ -108,7 +108,6 @@ public class MainFrame extends JFrame implements WindowListener {
 	@Override
 	public void windowClosing(WindowEvent e) {
 		CampaignClient.getInstance().disconnect();
-
 	}
 
 	@Override

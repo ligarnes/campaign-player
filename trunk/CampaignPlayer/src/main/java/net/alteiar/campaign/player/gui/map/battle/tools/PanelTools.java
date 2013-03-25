@@ -9,6 +9,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.battle.tools.ToolMapListener.Tools;
@@ -16,8 +17,7 @@ import net.alteiar.campaign.player.gui.map.event.MapListener;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.tools.test.PanelZoom;
-import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.map.battle.Battle;
 
 public class PanelTools extends JToolBar implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -36,7 +36,7 @@ public class PanelTools extends JToolBar implements Observer {
 	private final ButtonGroup group;
 
 	public PanelTools(GlobalMapListener globalListener,
-			final MapEditableInfo mapInfo, BattleClient battle) {
+			final MapEditableInfo mapInfo, Battle battle) {
 		this.mapListener = globalListener;
 
 		toolListener = new ToolMapListener(mapInfo, globalListener, battle);

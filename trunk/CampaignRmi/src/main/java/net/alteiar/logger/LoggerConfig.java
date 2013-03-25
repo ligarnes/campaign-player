@@ -37,7 +37,7 @@ public class LoggerConfig {
 		// Do not need to add console handler because it is a default
 		// SERVER_LOGGER.addHandler(new ConsoleHandler());
 		// CLIENT_LOGGER.addHandler(new ConsoleHandler());
-	}// void SETUP()
+	}
 
 	public static void showStat() {
 		Runtime runtime = Runtime.getRuntime();

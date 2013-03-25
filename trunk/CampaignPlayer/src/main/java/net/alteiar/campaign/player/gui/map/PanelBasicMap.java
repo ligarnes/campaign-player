@@ -34,6 +34,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -43,26 +45,25 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.tools.Zoomable;
-import net.alteiar.server.document.map.IMapListener;
-import net.alteiar.server.document.map.MapClient;
-import net.alteiar.server.document.map.Scale;
-import net.alteiar.server.document.map.element.IMapElementListener;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.Map;
+import net.alteiar.map.MapFilter;
+import net.alteiar.map.elements.MapElement;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public abstract class PanelBasicMap extends JPanel implements IMapListener,
-		IMapElementListener, Zoomable, ActionListener {
+public class PanelBasicMap extends JPanel implements PropertyChangeListener,
+		Zoomable, ActionListener {
 	private static final long serialVersionUID = -5027864086357387475L;
 
-	protected final MapClient<?> map;
+	protected final Map map;
 	private Double zoomFactor;
 
 	private boolean drawPathToElement;
-	private MapElementClient mapElement;
+	private MapElement mapElement;
 
 	private Color lineColor;
 
@@ -76,14 +77,18 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 
 	private final Timer refreshTime;
 
-	public PanelBasicMap(MapClient<?> map) {
+	public PanelBasicMap(Map map) {
 		super();
 
 		this.map = map;
-		this.map.addMapListener(this);
+		this.map.addPropertyChangeListener(this);
+		MapFilter filter = CampaignClient.getInstance().getBean(
+				this.map.getFilter());
+		filter.addPropertyChangeListener(this);
 
-		for (MapElementClient element : this.map.getElements()) {
-			element.addMapElementListener(this);
+		for (Long elementId : this.map.getElements()) {
+			CampaignClient.getInstance().getBean(elementId)
+					.addPropertyChangeListener(this);
 		}
 
 		this.setOpaque(false);
@@ -121,7 +126,7 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 		drawLineToMouse(origin, Color.RED);
 	}
 
-	public void drawPathToElement(Point origin, MapElementClient mapElement) {
+	public void drawPathToElement(Point origin, MapElement mapElement) {
 		drawPathToElement = true;
 		this.mapElement = mapElement;
 		refreshTime.start();
@@ -257,14 +262,6 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 		this.repaint();
 	}
 
-	protected abstract void drawBackground(Graphics2D g2);
-
-	protected abstract void drawElements(Graphics2D g2);
-
-	protected abstract void drawGrid(Graphics2D g2);
-
-	protected abstract void drawFilter(Graphics2D g2);
-
 	private List<Point> removeDuplicate(List<Point> pts) {
 		Collections.reverse(pts);
 		HashSet<Point> sets = new HashSet<Point>();
@@ -330,96 +327,86 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 
 	@Override
 	public void paint(Graphics g) {
-		if (map.getBackground() != null) {
-			Graphics2D g2 = (Graphics2D) g;
+		Graphics2D g2 = (Graphics2D) g;
 
-			// Anti-alias!
-			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-					RenderingHints.VALUE_ANTIALIAS_ON);
-			g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-					RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		// Anti-alias!
+		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
+		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+				RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 
-			Composite defaultComp = g2.getComposite();
+		Composite defaultComp = g2.getComposite();
 
-			// draw background
-			this.drawBackground(g2);
+		// draw background
+		map.drawBackground(g2, zoomFactor);
+		map.drawElements(g2, zoomFactor);
+		if (showGrid) {
+			map.drawGrid(g2, zoomFactor);
+		}
+		map.drawFilter(g2, zoomFactor);
 
-			// Draw all elements on map (monstre, characters, spell area, ...)
-			this.drawElements(g2);
-
-			// Draw grid
-			if (showGrid) {
-				this.drawGrid(g2);
+		// Draw other info
+		g2.setComposite(defaultComp);
+		if (drawPathToElement) {
+			// compute last line
+			List<Point> pts = new ArrayList<Point>();
+			for (int i = 0; i < lstOrigin.size() - 1; ++i) {
+				pts.addAll(computeLine(lstOrigin.get(i), lstOrigin.get(i + 1)));
 			}
 
-			// Draw the filter
-			this.drawFilter(g2);
+			pts.addAll(computeLine(lstOrigin.get(lstOrigin.size() - 1),
+					convertPointToSquare(mapElement.getCenterPosition())));
+			drawPath(g2, pts);
+		}
 
-			// Draw other info
-			g2.setComposite(defaultComp);
-			if (drawPathToElement) {
-				// compute last line
-				List<Point> pts = new ArrayList<Point>();
-				for (int i = 0; i < lstOrigin.size() - 1; ++i) {
-					pts.addAll(computeLine(lstOrigin.get(i),
-							lstOrigin.get(i + 1)));
-				}
+		if (drawLineToMouse || drawRectangleToMouse || drawPolygonToMouse) {
+			g2.setColor(lineColor);
+			g2.setStroke(new BasicStroke(3));
+			Point second = this.getMousePosition();
+			if (second != null) {
+				if (drawLineToMouse || drawPolygonToMouse) {
+					for (int i = 0; i < lstOrigin.size() - 1; ++i) {
+						Point2D.Double first = convertPointStandardToPanel(lstOrigin
+								.get(i));
+						Point2D.Double next = convertPointStandardToPanel(lstOrigin
+								.get(i + 1));
 
-				pts.addAll(computeLine(lstOrigin.get(lstOrigin.size() - 1),
-						convertPointToSquare(mapElement.getCenterPosition())));
-				drawPath(g2, pts);
-			}
+						g2.drawLine((int) first.x, (int) first.y, (int) next.x,
+								(int) next.y);
+					}
 
-			if (drawLineToMouse || drawRectangleToMouse || drawPolygonToMouse) {
-				g2.setColor(lineColor);
-				g2.setStroke(new BasicStroke(3));
-				Point second = this.getMousePosition();
-				if (second != null) {
-					if (drawLineToMouse || drawPolygonToMouse) {
-						for (int i = 0; i < lstOrigin.size() - 1; ++i) {
-							Point2D.Double first = convertPointStandardToPanel(lstOrigin
-									.get(i));
-							Point2D.Double next = convertPointStandardToPanel(lstOrigin
-									.get(i + 1));
+					Point2D.Double org = convertPointStandardToPanel(lstOrigin
+							.get(lstOrigin.size() - 1));
+					g2.drawLine((int) org.x, (int) org.y, second.x, second.y);
 
-							g2.drawLine((int) first.x, (int) first.y,
-									(int) next.x, (int) next.y);
-						}
-
-						Point2D.Double org = convertPointStandardToPanel(lstOrigin
-								.get(lstOrigin.size() - 1));
+					if (drawPolygonToMouse) {
+						org = convertPointStandardToPanel(lstOrigin.get(0));
+						second = this.getMousePosition();
 						g2.drawLine((int) org.x, (int) org.y, second.x,
 								second.y);
-
-						if (drawPolygonToMouse) {
-							org = convertPointStandardToPanel(lstOrigin.get(0));
-							second = this.getMousePosition();
-							g2.drawLine((int) org.x, (int) org.y, second.x,
-									second.y);
-						}
-
-					} else if (drawRectangleToMouse) {
-						Point2D.Double org = convertPointStandardToPanel(origin);
-						int x = (int) Math.min(org.x, second.x);
-						int y = (int) Math.min(org.y, second.y);
-						int width = (int) (org.x - second.x);
-						int height = (int) (org.y - second.y);
-						if (width < 0)
-							width = -width;
-						if (height < 0)
-							height = -height;
-
-						g2.drawRect(x, y, width, height);
 					}
-					if (text != null) {
-						g2.setColor(Color.BLACK);
-						g2.drawString(text, second.x, second.y);
-					}
+
+				} else if (drawRectangleToMouse) {
+					Point2D.Double org = convertPointStandardToPanel(origin);
+					int x = (int) Math.min(org.x, second.x);
+					int y = (int) Math.min(org.y, second.y);
+					int width = (int) (org.x - second.x);
+					int height = (int) (org.y - second.y);
+					if (width < 0)
+						width = -width;
+					if (height < 0)
+						height = -height;
+
+					g2.drawRect(x, y, width, height);
+				}
+				if (text != null) {
+					g2.setColor(Color.BLACK);
+					g2.drawString(text, second.x, second.y);
 				}
 			}
-
-			g2.dispose();
 		}
+
+		g2.dispose();
 	}
 
 	public Point2D.Double convertPointStandardToPanel(Point position) {
@@ -443,8 +430,8 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 	 *            - the position of the map element on the panel
 	 * @return the map element
 	 */
-	public MapElementClient getElementAt(Point p) {
-		Collection<MapElementClient> elements = map.getElementsAt(p);
+	public MapElement getElementAt(Point p) {
+		Collection<MapElement> elements = map.getElementsAt(p);
 		// return the first element of the list
 		return elements.size() > 0 ? elements.iterator().next() : null;
 	}
@@ -470,33 +457,6 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 		this.repaint();
 	}
 
-	@Override
-	public void mapElementAdded(MapElementClient element) {
-		element.addMapElementListener(this);
-		mapChanged();
-	}
-
-	@Override
-	public void mapElementRemoved(MapElementClient element) {
-		element.removeMapElementListener(this);
-		mapChanged();
-	}
-
-	@Override
-	public void mapRescale(Scale scale) {
-		mapChanged();
-	}
-
-	@Override
-	public void filterChanged() {
-		mapChanged();
-	}
-
-	@Override
-	public void elementChanged() {
-		mapChanged();
-	}
-
 	private void mapChanged() {
 		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
 				(int) (map.getHeight() * zoomFactor));
@@ -505,4 +465,14 @@ public abstract class PanelBasicMap extends JPanel implements IMapListener,
 		this.repaint();
 	}
 
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (Map.METH_ADD_ELEMENT_METHOD.equals(evt.getPropertyName())) {
+			((MapElement) evt.getNewValue()).addPropertyChangeListener(this);
+		} else if (Map.METH_REMOVE_ELEMENT_METHOD.equals(evt.getPropertyName())) {
+			((MapElement) evt.getNewValue()).removePropertyChangeListener(this);
+		}
+
+		mapChanged();
+	}
 }

@@ -23,8 +23,8 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
 
-import net.alteiar.server.document.map.Scale;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.elements.MapElement;
+import net.alteiar.utils.map.Scale;
 
 /**
  * @author Cody Stoutenburg
@@ -46,7 +46,7 @@ public interface MapEditableInfo {
 
 	void setVisibleText(String text);
 
-	Point getPositionOf(MapElementClient currentElement);
+	Point getPositionOf(MapElement currentElement);
 
 	/**
 	 * 
@@ -54,7 +54,7 @@ public interface MapEditableInfo {
 	 *            - the position where the element should be
 	 * @return the element at the position or null if nothing is here
 	 */
-	MapElementClient getElementAt(Point position);
+	MapElement getElementAt(Point position);
 
 	Boolean getFixGrid();
 
@@ -70,9 +70,9 @@ public interface MapEditableInfo {
 
 	// TODO void removeCharacter(ICharacterCombatClient character);
 
-	void removeElement(MapElementClient toRemove);
+	void removeElement(MapElement toRemove);
 
-	void moveElementAt(MapElementClient currentElement, Point position);
+	void moveElementAt(MapElement currentElement, Point position);
 
 	int getPixelSquare();
 
@@ -82,7 +82,7 @@ public interface MapEditableInfo {
 
 	void setLineColor(Color lineColor);
 
-	void drawPathToElement(Point first, MapElementClient mapElement);
+	void drawPathToElement(Point first, MapElement mapElement);
 
 	void addPointToPath(Point next);
 
@@ -96,7 +96,7 @@ public interface MapEditableInfo {
 
 	void addPointToLine(Point next);
 
-	void addPointToLine(MapElementClient currentElement, Point next);
+	void addPointToLine(MapElement currentElement, Point next);
 
 	void stopDrawLineToMouse();
 

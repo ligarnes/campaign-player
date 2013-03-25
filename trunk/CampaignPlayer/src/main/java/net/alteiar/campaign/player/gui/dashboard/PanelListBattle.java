@@ -2,9 +2,9 @@ package net.alteiar.campaign.player.gui.dashboard;
 
 import javax.swing.JPanel;
 
-import net.alteiar.client.CampaignAdapter;
-import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.map.battle.BattleClient;
+import net.alteiar.CampaignAdapter;
+import net.alteiar.CampaignClient;
+import net.alteiar.map.battle.Battle;
 
 public class PanelListBattle extends PanelList {
 	private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ public class PanelListBattle extends PanelList {
 		CampaignClient.getInstance()
 				.addCampaignListener(new CampaignListener());
 
-		for (BattleClient battle : CampaignClient.getInstance().getBattles()) {
+		for (Battle battle : CampaignClient.getInstance().getBattles()) {
 			addBattle(battle);
 		}
 	}
@@ -25,19 +25,19 @@ public class PanelListBattle extends PanelList {
 		return new PanelCreateBattle();
 	}
 
-	private void addBattle(BattleClient battle) {
+	private void addBattle(Battle battle) {
 		PanelSimpleBattle panel = new PanelSimpleBattle(battle);
 		addElement(battle, panel);
 	}
 
 	private class CampaignListener extends CampaignAdapter {
 		@Override
-		public void battleAdded(BattleClient battle) {
+		public void battleAdded(Battle battle) {
 			addBattle(battle);
 		}
 
 		@Override
-		public void battleRemoved(BattleClient battle) {
+		public void battleRemoved(Battle battle) {
 			removeElement(battle);
 		}
 	}

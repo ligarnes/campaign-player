@@ -14,7 +14,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
-import net.alteiar.server.document.character.CharacterClient;
+import net.alteiar.character.CharacterBean;
 
 public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;
@@ -27,26 +27,26 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private final JCheckBox chckbxVisible;
 
 	private class CharacterAdapter {
-		private final CharacterClient character;
+		private final CharacterBean character;
 
-		public CharacterAdapter(CharacterClient character) {
+		public CharacterAdapter(CharacterBean character) {
 			this.character = character;
 		}
 
-		public CharacterClient getCharacter() {
+		public CharacterBean getCharacter() {
 			return this.character;
 		}
 
 		@Override
 		public String toString() {
-			return this.character.getName();
+			return this.character.getVisibleName();
 		}
 	}
 
-	public PanelAddCharacter(CharacterClient[] lstCharacter, Boolean isMonster) {
+	public PanelAddCharacter(CharacterBean[] lstCharacter, Boolean isMonster) {
 		CharacterAdapter[] lst = new CharacterAdapter[lstCharacter.length];
 		int i = 0;
-		for (CharacterClient character : lstCharacter) {
+		for (CharacterBean character : lstCharacter) {
 			lst[i] = new CharacterAdapter(character);
 			++i;
 		}
@@ -104,7 +104,7 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 		this.lblTotal.setText(total.toString());
 	}
 
-	public CharacterClient getCharacter() {
+	public CharacterBean getCharacter() {
 		return ((CharacterAdapter) this.comboBoxCharacter.getSelectedItem())
 				.getCharacter();
 	}

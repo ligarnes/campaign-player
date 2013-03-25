@@ -10,15 +10,15 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
-import net.alteiar.server.document.map.element.MapElementClient;
+import net.alteiar.map.elements.MapElement;
 
 public class RotateMapListener extends ActionMapListener {
 
 	private Point first;
-	private final MapElementClient mapElement;
+	private final MapElement mapElement;
 
 	public RotateMapListener(GlobalMapListener mapListener,
-			MapElementClient mapElement, Point begin) {
+			MapElement mapElement, Point begin) {
 		super(mapListener);
 		this.mapElement = mapElement;
 		this.first = begin;
@@ -57,7 +57,7 @@ public class RotateMapListener extends ActionMapListener {
 		first = mapPosition;
 	}
 
-	private JMenuItem buildMenuRotate(final MapElementClient element,
+	private JMenuItem buildMenuRotate(final MapElement element,
 			final Double angle) {
 		JMenuItem menu45 = new JMenuItem(angle + " degres");
 		menu45.addActionListener(new ActionListener() {
@@ -69,7 +69,7 @@ public class RotateMapListener extends ActionMapListener {
 		return menu45;
 	}
 
-	private JMenuItem buildMenuRotate(final MapElementClient element) {
+	private JMenuItem buildMenuRotate(final MapElement element) {
 		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ActionListener() {
 			@Override
@@ -82,7 +82,7 @@ public class RotateMapListener extends ActionMapListener {
 		return reset;
 	}
 
-	private void rotateMapElement(MapElementClient rotate, Double angle) {
+	private void rotateMapElement(MapElement rotate, Double angle) {
 		rotate.setAngle(rotate.getAngle() + angle);
 		// TODO rotate.applyRotate();
 	}
