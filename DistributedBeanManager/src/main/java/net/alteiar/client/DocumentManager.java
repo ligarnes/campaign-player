@@ -128,15 +128,15 @@ public class DocumentManager {
 		}
 	}
 
-	public long createDocument(BeanEncapsulator bean) {
-		long guid = -1L;
+	public void createDocument(BeanEncapsulator bean) {
+		// long guid = -1L;
 		try {
-			guid = this.server.createDocument(new DocumentPath("", ""), bean);
+			this.server.createDocument(new DocumentPath("", ""), bean);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return guid;
+		// return guid;
 	}
 
 	public void removeDocument(BasicBeans bean) {

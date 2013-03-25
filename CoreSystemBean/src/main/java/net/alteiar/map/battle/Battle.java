@@ -1,5 +1,6 @@
 package net.alteiar.map.battle;
 
+import java.awt.Graphics2D;
 import java.beans.PropertyVetoException;
 
 import net.alteiar.map.Map;
@@ -21,9 +22,31 @@ public class Battle extends Map {
 		turn = 0;
 	}
 
+	public Battle(String name) {
+		super(name);
+		turn = 0;
+	}
+
 	// ///////////////// LOCAL METHODS ///////////////////////
 	public void nextTurn() {
 		this.setTurn(getTurn() + 1);
+	}
+
+	@Override
+	public void drawGrid(Graphics2D g, double zoomFactor) {
+		Graphics2D g2 = (Graphics2D) g.create();
+		Double squareSize = this.getScale().getPixels() * zoomFactor;
+
+		Double width = this.getWidth() * zoomFactor;
+		Double height = this.getHeight() * zoomFactor;
+
+		for (double i = 0; i < width; i += squareSize) {
+			g2.drawLine((int) i, 0, (int) i, height.intValue());
+		}
+		for (double i = 0; i < height; i += squareSize) {
+			g2.drawLine(0, (int) i, width.intValue(), (int) i);
+		}
+		g2.dispose();
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////
