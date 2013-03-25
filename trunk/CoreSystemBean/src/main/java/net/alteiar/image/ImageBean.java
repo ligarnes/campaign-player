@@ -1,7 +1,10 @@
 package net.alteiar.image;
 
+import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.utils.images.TransfertImage;
 
@@ -35,5 +38,20 @@ public class ImageBean extends BasicBeans {
 			// TODO do nothing, the veto is cause by the framework
 			// e.printStackTrace();
 		}
+	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return the buffered image or null if the document is not found
+	 * @throws IOException
+	 *             if we are not able to read the image
+	 */
+	public static BufferedImage getImage(Long id) throws IOException {
+		ImageBean imageBean = CampaignClient.getInstance().getBean(id);
+		if (imageBean == null) {
+			return null;
+		}
+		return imageBean.getImage().restoreImage();
 	}
 }

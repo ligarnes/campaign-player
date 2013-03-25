@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.alteiar.character.CharacterBean;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.DocumentClient;
@@ -72,7 +73,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final Player currentPlayer;
 	private final ArrayList<Player> players;
 
-	// private final ArrayList<CharacterClient> characters;
+	private final ArrayList<CharacterBean> characters;
 
 	private final ArrayList<Battle> battles;
 
@@ -80,23 +81,27 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	private final DocumentManager manager;
 
+	private final ArrayList<CampaignListener> listeners;
+
 	private CampaignClient(DocumentManager manager, String name, Boolean isMj) {
 		this.manager = manager;
 		this.manager.addDocumentManagerClient(this);
 
 		// First create all local variable
 		players = new ArrayList<Player>();
-		// characters = new ArrayList<CharacterClient>();
+		characters = new ArrayList<CharacterBean>();
 		battles = new ArrayList<Battle>();
+		listeners = new ArrayList<CampaignListener>();
 
 		// Load all existing documents
 		this.manager.loadDocuments();
-		// need to check all documents loaded
 
 		// create current player
 		Long connectTimeout30second = 30000L;
-		currentPlayer = getBean(addBean(new Player(name, isMj, Color.BLUE)),
-				connectTimeout30second);
+
+		Player current = new Player(name, isMj, Color.BLUE);
+		addBean(current);
+		currentPlayer = getBean(current.getId(), connectTimeout30second);
 
 		// The server should already contain a chat
 		if (chat != null) {
@@ -110,8 +115,8 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
-	public Long addBean(BasicBeans bean) {
-		return manager.createDocument(new BeanEncapsulator(bean));
+	public void addBean(BasicBeans bean) {
+		manager.createDocument(new BeanEncapsulator(bean));
 	}
 
 	public void removeBean(BasicBeans bean) {
@@ -137,12 +142,31 @@ public final class CampaignClient implements DocumentManagerListener {
 		return currentPlayer;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Player> getPlayers() {
-		return this.players;
+		List<Player> copy;
+		synchronized (players) {
+			copy = (List<Player>) players.clone();
+		}
+		return copy;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Battle> getBattles() {
-		return this.battles;
+		List<Battle> copy;
+		synchronized (battles) {
+			copy = (List<Battle>) battles.clone();
+		}
+		return copy;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<CharacterBean> getCharacters() {
+		List<CharacterBean> copy;
+		synchronized (characters) {
+			copy = (List<CharacterBean>) characters.clone();
+		}
+		return copy;
 	}
 
 	public Chat getChat() {
@@ -162,9 +186,18 @@ public final class CampaignClient implements DocumentManagerListener {
 		} else if (Beans.isInstanceOf(bean, Chat.class)) {
 			chat = (Chat) Beans.getInstanceOf(bean, Chat.class);
 		} else if (Beans.isInstanceOf(bean, Battle.class)) {
+			Battle battle = (Battle) Beans.getInstanceOf(bean, Battle.class);
 			synchronized (battles) {
-				battles.add((Battle) Beans.getInstanceOf(bean, Battle.class));
+				battles.add(battle);
 			}
+			notifyBattleAdded(battle);
+		} else if (Beans.isInstanceOf(bean, CharacterBean.class)) {
+			CharacterBean character = (CharacterBean) Beans.getInstanceOf(bean,
+					CharacterBean.class);
+			synchronized (characters) {
+				characters.add(character);
+			}
+			notifyCharacterAdded(character);
 		}
 
 	}
@@ -178,9 +211,64 @@ public final class CampaignClient implements DocumentManagerListener {
 				players.remove(Beans.getInstanceOf(bean, Player.class));
 			}
 		} else if (Beans.isInstanceOf(bean, Battle.class)) {
+			Battle battle = (Battle) Beans.getInstanceOf(bean, Battle.class);
 			synchronized (battles) {
-				battles.remove(Beans.getInstanceOf(bean, Battle.class));
+				battles.remove(battle);
 			}
+			notifyBattleRemoved(battle);
+		} else if (Beans.isInstanceOf(bean, CharacterBean.class)) {
+			CharacterBean character = (CharacterBean) Beans.getInstanceOf(bean,
+					CharacterBean.class);
+			synchronized (characters) {
+				characters.remove(character);
+			}
+			notifyCharacterRemoved(character);
+		}
+	}
+
+	// /////////////// LISTENERS METHODS /////////////////
+	public void addCampaignListener(CampaignListener listener) {
+		synchronized (listeners) {
+			listeners.add(listener);
+		}
+	}
+
+	public void removeCampaignListener(CampaignListener listener) {
+		synchronized (listeners) {
+			listeners.remove(listener);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	protected ArrayList<CampaignListener> getListeners() {
+		ArrayList<CampaignListener> copy;
+		synchronized (listeners) {
+			copy = (ArrayList<CampaignListener>) listeners.clone();
+		}
+		return copy;
+	}
+
+	protected void notifyCharacterAdded(CharacterBean character) {
+		for (CampaignListener listener : getListeners()) {
+			listener.characterAdded(character);
+		}
+	}
+
+	protected void notifyCharacterRemoved(CharacterBean character) {
+		for (CampaignListener listener : getListeners()) {
+			listener.characterRemoved(character);
+		}
+	}
+
+	protected void notifyBattleAdded(Battle battle) {
+		for (CampaignListener listener : getListeners()) {
+			listener.battleAdded(battle);
+		}
+	}
+
+	protected void notifyBattleRemoved(Battle battle) {
+		for (CampaignListener listener : getListeners()) {
+			listener.battleRemoved(battle);
 		}
 	}
 }

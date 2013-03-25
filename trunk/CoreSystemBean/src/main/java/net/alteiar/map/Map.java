@@ -19,16 +19,16 @@ import net.alteiar.utils.map.Scale;
 public class Map extends BasicBeans {
 	private static final long serialVersionUID = 1L;
 
-	private static final String PROP_NAME_PROPERTY = "name";
+	public static final String PROP_NAME_PROPERTY = "name";
 	private static final String PROP_WIDTH_PROPERTY = "width";
 	private static final String PROP_HEIGHT_PROPERTY = "height";
 	private static final String PROP_BACKGROUND_PROPERTY = "background";
 	private static final String PROP_FILTER_PROPERTY = "filter";
-	private static final String PROP_SCALE_PROPERTY = "scale";
+	public static final String PROP_SCALE_PROPERTY = "scale";
 	private static final String PROP_ELEMENTS_PROPERTY = "elements";
 
-	private static final String METH_ADD_ELEMENT_METHOD = "addElement";
-	private static final String METH_REMOVE_ELEMENT_METHOD = "removeElement";
+	public static final String METH_ADD_ELEMENT_METHOD = "addElement";
+	public static final String METH_REMOVE_ELEMENT_METHOD = "removeElement";
 
 	private String name;
 	private Integer width;
@@ -36,12 +36,19 @@ public class Map extends BasicBeans {
 
 	private HashSet<Long> elements;
 
-	private Long background;
-	private Long filter;
+	private Long backgroundId;
+	private Long filterId;
 
 	private Scale scale;
 
 	public Map() {
+	}
+
+	public Map(String name) {
+		elements = new HashSet<Long>();
+		scale = new Scale(70, 1.5);
+
+		this.name = name;
 	}
 
 	public Map(String name, Long mapFilter, Long background, Integer width,
@@ -50,8 +57,8 @@ public class Map extends BasicBeans {
 		scale = new Scale(70, 1.5);
 
 		this.name = name;
-		this.background = background;
-		this.filter = mapFilter;
+		this.backgroundId = background;
+		this.filterId = mapFilter;
 
 		this.width = width;
 		this.height = height;
@@ -72,22 +79,38 @@ public class Map extends BasicBeans {
 		return elementsAt;
 	}
 
-	private BufferedImage getBackgroundImage() {
-		BufferedImage background = null;
-		ImageBean image = CampaignClient.getInstance().getBean(getBackground());
+	public void drawBackground(Graphics2D g2, double zoomFactor) {
+		Graphics2D g = (Graphics2D) g2.create();
+		AffineTransform transform = new AffineTransform();
+		transform.scale(zoomFactor, zoomFactor);
+
+		BufferedImage backgroundImage = null;
 		try {
-			background = image.getImage().restoreImage();
+			backgroundImage = ImageBean.getImage(backgroundId);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		return background;
+		if (backgroundImage != null) {
+			g.drawImage(backgroundImage, transform, null);
+		}// else draw other stuff
+		g.dispose();
 	}
 
-	public void draw(Graphics2D g2, double zoomFactor) {
-		AffineTransform transform = new AffineTransform();
-		transform.scale(zoomFactor, zoomFactor);
-		g2.drawImage(getBackgroundImage(), transform, null);
+	public void drawElements(Graphics2D g2, double zoomFactor) {
+		for (Long mapElementId : getElements()) {
+			MapElement mapElement = CampaignClient.getInstance().getBean(
+					mapElementId);
+			mapElement.draw(g2, zoomFactor);
+		}
+	}
+
+	public void drawFilter(Graphics2D g2, double zoomFactor) {
+		MapFilter filter = CampaignClient.getInstance().getBean(filterId);
+		filter.draw(g2, zoomFactor);
+	}
+
+	public void drawGrid(Graphics2D g2, double zoomFactor) {
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////
@@ -146,15 +169,15 @@ public class Map extends BasicBeans {
 	}
 
 	public Long getBackground() {
-		return this.background;
+		return this.backgroundId;
 	}
 
 	public void setBackground(Long background) {
-		Long oldValue = this.background;
+		Long oldValue = this.backgroundId;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_BACKGROUND_PROPERTY, oldValue, background);
-			this.background = background;
+			this.backgroundId = background;
 			propertyChangeSupport.firePropertyChange(PROP_BACKGROUND_PROPERTY,
 					oldValue, background);
 		} catch (PropertyVetoException e) {
@@ -164,15 +187,15 @@ public class Map extends BasicBeans {
 	}
 
 	public Long getFilter() {
-		return filter;
+		return filterId;
 	}
 
 	public void setFilter(Long filter) {
-		Long oldValue = this.filter;
+		Long oldValue = this.filterId;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_FILTER_PROPERTY, oldValue, filter);
-			this.filter = filter;
+			this.filterId = filter;
 			propertyChangeSupport.firePropertyChange(PROP_FILTER_PROPERTY,
 					oldValue, filter);
 		} catch (PropertyVetoException e) {

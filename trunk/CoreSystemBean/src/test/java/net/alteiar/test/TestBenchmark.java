@@ -35,15 +35,13 @@ public class TestBenchmark {
 		try {
 			Timer t = new Timer();
 			t.start();
-			Long id = CampaignClient
-					.getInstance()
-					.addBean(
-							new ImageBean(
-									new WebImage(
-											"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg")));
+			ImageBean bean = new ImageBean(new WebImage(
+					"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg"));
+			Long id = bean.getId();
+
+			CampaignClient.getInstance().addBean(bean);
 			t.end("server sended");
-			ImageBean bean = CampaignClient.getInstance().getBean(id,
-					time10second);
+			bean = CampaignClient.getInstance().getBean(id, time10second);
 			if (bean != null) {
 				BufferedImage img = bean.getImage().restoreImage();
 				t.end("server received  3.81 Mo (" + img.getWidth() + "x"
@@ -83,12 +81,13 @@ public class TestBenchmark {
 		try {
 			Timer t = new Timer();
 			t.start();
-			Long id = CampaignClient.getInstance().addBean(
-					new ImageBean(new WebImage(
-							"http://www.alteiar.net/MyUpload/large.jpg")));
+			ImageBean bean = new ImageBean(new WebImage(
+					"http://www.alteiar.net/MyUpload/large.jpg"));
+			Long id = bean.getId();
+
+			CampaignClient.getInstance().addBean(bean);
 			t.end("server sended");
-			ImageBean bean = CampaignClient.getInstance().getBean(id,
-					time30second);
+			bean = CampaignClient.getInstance().getBean(id, time30second);
 			if (bean != null) {
 				BufferedImage img = bean.getImage().restoreImage();
 				t.end("server received 11.8 Mo (" + img.getWidth() + "x"
