@@ -12,10 +12,8 @@ import javax.swing.JPanel;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelSelectColor;
-import net.alteiar.server.document.map.MapClient;
-import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
-import net.alteiar.server.document.map.element.size.MapElementSize;
-import pathfinder.mapElement.shape.Circle;
+import net.alteiar.map.elements.CircleElement;
+import net.alteiar.utils.map.element.MapElementSize;
 
 public class PanelCircleBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
@@ -54,10 +52,8 @@ public class PanelCircleBuilder extends PanelMapElementBuilder {
 	}
 
 	@Override
-	public DocumentMapElementBuilder buildMapElement(MapClient<?> map,
-			Point position) {
-		Circle circle = new Circle(getSelectedColor(), getElementSize());
-		return new DocumentMapElementBuilder(map, position, circle);
+	public CircleElement buildMapElement(Point position) {
+		return new CircleElement(position, getSelectedColor(), getElementSize());
 	}
 
 	@Override

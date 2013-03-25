@@ -12,10 +12,8 @@ import javax.swing.JPanel;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelSelectColor;
-import net.alteiar.server.document.map.MapClient;
-import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
-import net.alteiar.server.document.map.element.size.MapElementSize;
-import pathfinder.mapElement.shape.Rectangle;
+import net.alteiar.map.elements.RectangleElement;
+import net.alteiar.utils.map.element.MapElementSize;
 
 public class PanelRectangleBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
@@ -60,11 +58,9 @@ public class PanelRectangleBuilder extends PanelMapElementBuilder {
 	}
 
 	@Override
-	public DocumentMapElementBuilder buildMapElement(MapClient<?> map,
-			Point position) {
-		Rectangle rectangle = new Rectangle(getSelectedColor(),
+	public RectangleElement buildMapElement(Point position) {
+		return new RectangleElement(position, getSelectedColor(),
 				getElementSizeWidth(), getElementSizeHeight());
-		return new DocumentMapElementBuilder(map, position, rectangle);
 	}
 
 	@Override

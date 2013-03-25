@@ -8,13 +8,10 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pathfinder.mapElement.character.PathfinderCharacter;
-
-import net.alteiar.campaign.player.gui.adapter.CharacterAdapter;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.map.MapClient;
-import net.alteiar.server.document.map.element.DocumentMapElementBuilder;
+import pathfinder.character.PathfinderCharacter;
+import pathfinder.gui.adapter.CharacterAdapter;
+import pathfinder.mapElement.character.PathfinderCharacterElement;
 
 public class PanelCharacterBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
@@ -35,7 +32,7 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 		this.add(panelCenter, BorderLayout.CENTER);
 	}
 
-	private CharacterClient getCharacter() {
+	private PathfinderCharacter getCharacter() {
 		return ((CharacterAdapter) characters.getSelectedItem()).getCharacter();
 	}
 
@@ -50,10 +47,8 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 	}
 
 	@Override
-	public DocumentMapElementBuilder buildMapElement(MapClient<?> map,
-			Point position) {
-		return new DocumentMapElementBuilder(map, position,
-				new PathfinderCharacter(getCharacter()));
+	public PathfinderCharacterElement buildMapElement(Point position) {
+		return new PathfinderCharacterElement(position, getCharacter());
 	}
 
 	@Override
