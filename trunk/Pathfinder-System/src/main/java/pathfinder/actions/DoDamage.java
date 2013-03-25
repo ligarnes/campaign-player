@@ -1,10 +1,10 @@
 package pathfinder.actions;
 
-import net.alteiar.server.document.character.CharacterClient;
+import pathfinder.character.PathfinderCharacter;
 
 public class DoDamage extends ChangeHealthPoint {
 
-	public DoDamage(CharacterClient character) {
+	public DoDamage(PathfinderCharacter character) {
 		super(character);
 	}
 
@@ -15,8 +15,8 @@ public class DoDamage extends ChangeHealthPoint {
 
 	@Override
 	protected void changeHealPoint(Integer healthPointModifier) {
-		getCharacter()
-				.setCurrentHp(getCharacter().getCurrentHp() - healthPointModifier);
+		getCharacter().setCurrentHp(
+				getCharacter().getCurrentHp() - healthPointModifier);
 	}
 
 }

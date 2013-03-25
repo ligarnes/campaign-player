@@ -1,10 +1,10 @@
 package pathfinder.actions;
 
-import net.alteiar.server.document.character.CharacterClient;
+import pathfinder.character.PathfinderCharacter;
 
 public class DoHeal extends ChangeHealthPoint {
 
-	public DoHeal(CharacterClient character) {
+	public DoHeal(PathfinderCharacter character) {
 		super(character);
 	}
 

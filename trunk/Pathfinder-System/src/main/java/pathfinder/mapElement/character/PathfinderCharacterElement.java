@@ -6,19 +6,14 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-import net.alteiar.client.CampaignClient;
-import net.alteiar.server.document.character.CharacterClient;
-import net.alteiar.server.document.character.ICharacterClientListener;
-import net.alteiar.server.document.map.element.IAction;
-import net.alteiar.server.document.map.element.MapElement;
-import net.alteiar.server.document.map.element.size.MapElementSizeSquare;
-import pathfinder.actions.DoDamage;
-import pathfinder.actions.DoHeal;
+import net.alteiar.CampaignClient;
+import net.alteiar.map.elements.MapElement;
+import net.alteiar.utils.map.element.MapElementSizeSquare;
+import pathfinder.character.PathfinderCharacter;
 
-public class PathfinderCharacter extends MapElement {
+public class PathfinderCharacterElement extends MapElement {
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,12 +21,12 @@ public class PathfinderCharacter extends MapElement {
 	private final MapElementSizeSquare width;
 	private final MapElementSizeSquare height;
 
-	public PathfinderCharacter(CharacterClient character) {
-		this(character.getId());
+	public PathfinderCharacterElement(Point point, PathfinderCharacter character) {
+		this(point, character.getId());
 	}
 
-	public PathfinderCharacter(Long characterId) {
-		super();
+	public PathfinderCharacterElement(Point point, Long characterId) {
+		super(point);
 
 		this.charactedId = characterId;
 		width = new MapElementSizeSquare(1);
@@ -39,46 +34,36 @@ public class PathfinderCharacter extends MapElement {
 
 	}
 
-	@Override
-	protected void load() {
-		getCharacter().addCharacterListener(new ICharacterClientListener() {
-			@Override
-			public void imageLoaded(CharacterClient character) {
-				notifyMapElementChanged();
-			}
-
-			@Override
-			public void characterChanged(CharacterClient character) {
-				notifyMapElementChanged();
-			}
-		});
-	}
-
-	private CharacterClient getCharacter() {
-		return (CharacterClient) CampaignClient.getInstance().getDocument(
-				charactedId);
+	public PathfinderCharacter getCharacter() {
+		return CampaignClient.getInstance().getBean(charactedId);
 	}
 
 	@Override
-	public Double getWidth() {
+	public Double getWidthPixels() {
 		return width.getPixels(getScale());
 	}
 
 	@Override
-	public Double getHeight() {
+	public Double getHeightPixels() {
 		return height.getPixels(getScale());
 	}
 
 	@Override
 	public void draw(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		BufferedImage background = getCharacter().getImage();
+		BufferedImage background = null;
+		try {
+			background = getCharacter().getCharacterImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		Point position = getPosition();
 		int x = (int) (position.getX() * zoomFactor);
 		int y = (int) (position.getY() * zoomFactor);
-		int width = (int) (getWidth() * zoomFactor);
-		int height = (int) (getHeight() * zoomFactor);
+		int width = (int) (getWidthPixels() * zoomFactor);
+		int height = (int) (getHeightPixels() * zoomFactor);
 
 		if (background != null) {
 			g2.drawImage(background, x, y, width, height, null);
@@ -126,14 +111,12 @@ public class PathfinderCharacter extends MapElement {
 	public Boolean contain(Point p) {
 		Point position = getPosition();
 		return new Rectangle2D.Double(position.getX(), position.getY(),
-				getWidth(), getHeight()).contains(p);
+				getWidthPixels(), getHeightPixels()).contains(p);
 	}
 
-	@Override
-	public List<IAction> getActions() {
-		List<IAction> actions = new ArrayList<IAction>();
-		actions.add(new DoDamage(getCharacter()));
-		actions.add(new DoHeal(getCharacter()));
-		return actions;
-	}
+	/*
+	 * @Override public List<IAction> getActions() { List<IAction> actions = new
+	 * ArrayList<IAction>(); actions.add(new DoDamage(getCharacter()));
+	 * actions.add(new DoHeal(getCharacter())); return actions; }
+	 */
 }
