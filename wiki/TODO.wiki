@@ -4,19 +4,19 @@
     * charger des documents
     * sauvegarder des campagnes
     * charger des campagnes
-  * relier ensemble le projet Player avec CoreSystemBean et DistributedBeanManager (enlever le projet NewServer des dépendance de Player)
-  * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70% (taux actuelle: 78%)
+  * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70% (taux actuelle: 79%)
 
 = CoreSystemBean et PathfinderSystem =
   * Variable local et partager a partir du plugin (intégré dans le system de bean) 
   * Propriété de partage des documents
-    * visibilité de partage (Sylvain doit refactoriser pour change les classes de projet et supprimer certaine classes :)
+    * visibilité de partage (fait par Sylvain, mis à jour par cody)
     * propriété ou modification temporaire 
   * Extraire les personnages (je pense qu'il faut faire une classe de base dans le core project qui sera étendu dans les plugin ??)
   * Système de Monstres 
  
 = Player = 
   * Faire un système de fichier (cody)
+    * ajout d'un type de bean (les document beans qui représente les documents)
   * Faire un autre type de carte plus libre
   * Faire un système de plugin plus propre
 
