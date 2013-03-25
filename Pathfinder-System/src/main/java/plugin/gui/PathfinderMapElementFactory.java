@@ -1,11 +1,13 @@
-package pathfinder.gui.mapElement.builder;
+package plugin.gui;
 
 import java.util.ArrayList;
 
-import net.alteiar.campaign.player.gui.map.element.IPanelBuilders;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
+import pathfinder.gui.mapElement.builder.PanelCharacterBuilder;
+import pathfinder.gui.mapElement.builder.PanelCircleBuilder;
+import pathfinder.gui.mapElement.builder.PanelRectangleBuilder;
 
-public class PanelBuilder implements IPanelBuilders {
+public class PathfinderMapElementFactory {
 
 	private static final ArrayList<PanelMapElementBuilder> panelBuilder = new ArrayList<PanelMapElementBuilder>();
 
@@ -15,7 +17,6 @@ public class PanelBuilder implements IPanelBuilders {
 		panelBuilder.add(new PanelCharacterBuilder());
 	}
 
-	@Override
 	public ArrayList<PanelMapElementBuilder> getBuilders() {
 		return panelBuilder;
 	}

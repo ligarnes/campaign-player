@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import net.alteiar.character.CharacterBean;
@@ -82,16 +83,19 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final DocumentManager manager;
 
 	private final ArrayList<CampaignListener> listeners;
+	private final HashMap<Long, ArrayList<WaitBeanListener>> waitBeanListeners;
 
 	private CampaignClient(DocumentManager manager, String name, Boolean isMj) {
 		this.manager = manager;
 		this.manager.addDocumentManagerClient(this);
 
+		listeners = new ArrayList<CampaignListener>();
+		waitBeanListeners = new HashMap<Long, ArrayList<WaitBeanListener>>();
+
 		// First create all local variable
 		players = new ArrayList<Player>();
 		characters = new ArrayList<CharacterBean>();
 		battles = new ArrayList<Battle>();
-		listeners = new ArrayList<CampaignListener>();
 
 		// Load all existing documents
 		this.manager.loadDocuments();
@@ -130,6 +134,41 @@ public final class CampaignClient implements DocumentManagerListener {
 			return null;
 		}
 		return (E) document.getBeanEncapsulator().getBean();
+	}
+
+	public void addWaitBeanListener(WaitBeanListener listener) {
+		BasicBeans bean = getBean(listener.getBeanId());
+		if (bean != null) {
+			listener.beanReceived(bean);
+			return;
+		}
+
+		ArrayList<WaitBeanListener> listenersList = waitBeanListeners
+				.get(listener);
+		if (listenersList == null) {
+			listenersList = new ArrayList<WaitBeanListener>();
+			synchronized (waitBeanListeners) {
+				waitBeanListeners.put(listener.getBeanId(), listenersList);
+			}
+		}
+		listenersList.add(listener);
+	}
+
+	protected void removeWaitBeanListener(BasicBeans listener) {
+		synchronized (waitBeanListeners) {
+			waitBeanListeners.remove(listener.getId());
+		}
+	}
+
+	protected ArrayList<WaitBeanListener> getWaitBeanListener(Long beanId) {
+		ArrayList<WaitBeanListener> listeners;
+		synchronized (waitBeanListeners) {
+			listeners = waitBeanListeners.get(beanId);
+		}
+		if (listeners == null) {
+			listeners = new ArrayList<WaitBeanListener>();
+		}
+		return listeners;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -200,6 +239,12 @@ public final class CampaignClient implements DocumentManagerListener {
 			notifyCharacterAdded(character);
 		}
 
+		ArrayList<WaitBeanListener> waitListeners = getWaitBeanListener(bean
+				.getId());
+		for (WaitBeanListener waitBeanListener : waitListeners) {
+			waitBeanListener.beanReceived(bean);
+		}
+		removeWaitBeanListener(bean);
 	}
 
 	@Override
