@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.map.element;
+package net.alteiar.campaign.player.gui.documents;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -19,14 +19,14 @@ import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.Map;
 import net.alteiar.map.elements.MapElement;
 
-public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
+public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 	private static final long serialVersionUID = 1L;
 
-	private static PanelCreateMapElement mapElement = new PanelCreateMapElement();
+	private static PanelCreateDocument documentBuilder = new PanelCreateDocument();
 
 	public static void createMapElement(Map map, MapEvent event) {
-		DialogOkCancel<PanelCreateMapElement> dlg = new DialogOkCancel<PanelCreateMapElement>(
-				null, "Créer un element", true, mapElement);
+		DialogOkCancel<PanelCreateDocument> dlg = new DialogOkCancel<PanelCreateDocument>(
+				null, "Créer un document", true, documentBuilder);
 
 		dlg.getMainPanel().refreshElements();
 		dlg.setOkText("Créer");
@@ -42,15 +42,15 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		}
 	}
 
-	public static ArrayList<PanelMapElementBuilder> getBuilders() {
-		return PluginSystem.getInstance().getGuiMapElementFactory();
+	public static ArrayList<PanelDocumentBuilder> getBuilders() {
+		return PluginSystem.getInstance().getGuiDocumentFactory();
 	}
 
 	private final JPanel panelWest;
 	private final JPanel panelCenter;
-	private PanelMapElementBuilder builder;
+	private PanelDocumentBuilder builder;
 
-	public PanelCreateMapElement() {
+	public PanelCreateDocument() {
 		super(new BorderLayout());
 
 		panelWest = new JPanel(new GridLayout(getBuilders().size(), 1));
@@ -67,7 +67,7 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		panelWest.removeAll();
 		int maxWidth = 50;
 		int maxHeight = 50;
-		for (final PanelMapElementBuilder panel : getBuilders()) {
+		for (final PanelDocumentBuilder panel : getBuilders()) {
 			Dimension dim = panel.getPreferredSize();
 
 			maxWidth = Math.max(maxWidth, dim.width);
@@ -80,14 +80,14 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 					selectBuilder(panel);
 				}
 			});
-			select.setEnabled(panel.isAvailable());
+			// select.setEnabled(panel.isAvailable());
 			panelWest.add(select);
 		}
 
 		this.setPreferredSize(new Dimension(maxWidth, maxHeight));
 	}
 
-	private void selectBuilder(PanelMapElementBuilder builder) {
+	private void selectBuilder(PanelDocumentBuilder builder) {
 		panelCenter.removeAll();
 		this.builder = builder;
 		panelCenter.add(this.builder);

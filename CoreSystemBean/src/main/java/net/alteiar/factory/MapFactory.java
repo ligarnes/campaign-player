@@ -1,11 +1,12 @@
-package net.alteiar.map;
+package net.alteiar.factory;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.image.ImageBean;
+import net.alteiar.map.Map;
+import net.alteiar.map.MapFilter;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.WebImage;
 
@@ -15,14 +16,16 @@ public class MapFactory {
 			throws IOException {
 		ImageBean background = new ImageBean(new SerializableImage(
 				backgroundImage));
-		CampaignClient.getInstance().addBean(background);
+		BeanFactory
+				.createBean("map-image_" + map.getName(), background);
 		createMap(map, background);
 	}
 
 	public static void createMap(Map map, String backgroundUrl)
 			throws IOException {
 		ImageBean background = new ImageBean(new WebImage(backgroundUrl));
-		CampaignClient.getInstance().addBean(background);
+		BeanFactory
+				.createBean("map-image_" + map.getName(), background);
 		createMap(map, background);
 	}
 
@@ -36,7 +39,7 @@ public class MapFactory {
 		map.setFilter(filter.getId());
 		map.setBackground(background.getId());
 
-		CampaignClient.getInstance().addBean(filter);
-		CampaignClient.getInstance().addBean(map);
+		BeanFactory.createBean(filter);
+		BeanFactory.createBean(map.getName(), map);
 	}
 }

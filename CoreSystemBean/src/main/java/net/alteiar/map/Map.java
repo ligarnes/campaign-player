@@ -11,12 +11,12 @@ import java.util.HashSet;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.sharedDocuments.SharedDocumentBasicBeans;
 import net.alteiar.utils.map.Scale;
 
-public class Map extends BasicBeans {
+public class Map extends SharedDocumentBasicBeans {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_NAME_PROPERTY = "name";

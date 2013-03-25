@@ -11,12 +11,11 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.battle.Battle;
 import net.alteiar.map.elements.CircleElement;
-import net.alteiar.map.elements.MapElementFactory;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.test.BasicTest;
-import net.alteiar.utils.images.TransfertImage;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeMeter;
 import net.alteiar.utils.map.element.MapElementSizePixel;
@@ -32,10 +31,10 @@ public class TestMapElement extends BasicTest {
 	@Before
 	public void setup() {
 		// create a battle
-		TransfertImage battleImage = TestMap.createTransfertImage();
 		if (battleId == null) {
 			try {
-				battleId = TestMap.createBattle("test battle", battleImage);
+				battleId = TestMap.createBattle("test battle",
+						TestMap.getDefaultImage());
 			} catch (IOException e) {
 				fail("fail to create battle");
 			}
@@ -55,10 +54,10 @@ public class TestMapElement extends BasicTest {
 		RectangleElement targetRectangle = new RectangleElement(position,
 				Color.RED, width, height);
 
-		Long id = MapElementFactory.buildMapElement(targetRectangle,
-				getBattle());
+		MapElementFactory.buildMapElement(targetRectangle, getBattle());
 
-		RectangleElement rectangle = CampaignClient.getInstance().getBean(id);
+		RectangleElement rectangle = CampaignClient.getInstance().getBean(
+				targetRectangle.getId());
 
 		assertEquals("center should be at (10, 10)", new Point(10, 10),
 				rectangle.getCenterPosition());
@@ -66,10 +65,10 @@ public class TestMapElement extends BasicTest {
 				battleId, rectangle.getMapId());
 
 		// Change battle link
-		TransfertImage battleImage = TestMap.createTransfertImage();
 		Long newBattleId = 0L;
 		try {
-			newBattleId = TestMap.createBattle("new battle", battleImage);
+			newBattleId = TestMap.createBattle("new battle",
+					TestMap.getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
@@ -82,7 +81,7 @@ public class TestMapElement extends BasicTest {
 
 		CampaignClient.getInstance().removeBean(rectangle);
 		assertEquals("the bean should have been removed", null, CampaignClient
-				.getInstance().getBean(id));
+				.getInstance().getBean(targetRectangle.getId()));
 	}
 
 	@Test(timeout = 5000)
@@ -95,9 +94,10 @@ public class TestMapElement extends BasicTest {
 
 		RectangleElement targetRectangle = new RectangleElement(position,
 				Color.RED, width, height);
-		Long id = MapElementFactory.buildMapElement(targetRectangle, battle);
+		MapElementFactory.buildMapElement(targetRectangle, battle);
 
-		RectangleElement rectangle = CampaignClient.getInstance().getBean(id);
+		RectangleElement rectangle = CampaignClient.getInstance().getBean(
+				targetRectangle.getId(), 300L);
 
 		assertEquals("The position should be equals", position,
 				rectangle.getPosition());
@@ -152,11 +152,12 @@ public class TestMapElement extends BasicTest {
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
 		Point position = new Point(5, 5);
 
-		Long id = MapElementFactory.buildMapElement(new CircleElement(position,
-				Color.RED, circleRadius), battle);
+		CircleElement circleClient = new CircleElement(position, Color.RED,
+				circleRadius);
+		MapElementFactory.buildMapElement(circleClient, battle);
 
-		CircleElement circleClient = CampaignClient.getInstance().getBean(id,
-				1000L);
+		circleClient = CampaignClient.getInstance().getBean(
+				circleClient.getId(), 300L);
 
 		assertEquals("The position should be equals", position,
 				circleClient.getPosition());
