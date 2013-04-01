@@ -3,8 +3,10 @@ package net.alteiar.server;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ServerListener extends Remote {
-	void documentAdded(Long guid) throws RemoteException;
+import net.alteiar.shared.UniqueID;
 
-	void documentRemoved(Long guid) throws RemoteException;
+public interface ServerListener extends Remote {
+	void documentAdded(UniqueID guid) throws RemoteException;
+
+	void documentRemoved(UniqueID guid) throws RemoteException;
 }

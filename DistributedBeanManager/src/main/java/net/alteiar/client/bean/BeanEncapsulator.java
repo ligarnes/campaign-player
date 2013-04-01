@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import net.alteiar.shared.UniqueID;
+
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +32,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		this.bean.addVetoableChangeListener(this);
 	}
 
-	public Long getId() {
+	public UniqueID getId() {
 		return this.bean.getId();
 	}
 

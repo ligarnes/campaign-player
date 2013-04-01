@@ -6,7 +6,8 @@ import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.map.Map;
+import net.alteiar.documents.map.Map;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.Scale;
 
 public abstract class MapElement extends BasicBeans {
@@ -17,7 +18,7 @@ public abstract class MapElement extends BasicBeans {
 	public static final String PROP_ANGLE_PROPERTY = "angle";
 	public static final String PROP_HIDDEN_FOR_PLAYER_PROPERTY = "hiddenForPlayer";
 
-	private Long mapId;
+	private UniqueID mapId;
 
 	private Point position;
 	private Double angle;
@@ -61,12 +62,12 @@ public abstract class MapElement extends BasicBeans {
 	 * 
 	 * @return
 	 */
-	public final Long getMapId() {
+	public final UniqueID getMapId() {
 		return this.mapId;
 	}
 
-	public final void setMapId(Long mapId) {
-		Long oldValue = this.mapId;
+	public final void setMapId(UniqueID mapId) {
+		UniqueID oldValue = this.mapId;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_MAP_ID_PROPERTY, oldValue, mapId);

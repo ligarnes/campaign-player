@@ -11,10 +11,11 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.factory.MapElementFactory;
-import net.alteiar.map.battle.Battle;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.RectangleElement;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.test.BasicTest;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeMeter;
@@ -26,7 +27,7 @@ import org.junit.Test;
 
 public class TestMapElement extends BasicTest {
 
-	private Long battleId = null;
+	private UniqueID battleId = null;
 
 	@Before
 	public void setup() {
@@ -65,7 +66,7 @@ public class TestMapElement extends BasicTest {
 				battleId, rectangle.getMapId());
 
 		// Change battle link
-		Long newBattleId = 0L;
+		UniqueID newBattleId = null;
 		try {
 			newBattleId = TestMap.createBattle("new battle",
 					TestMap.getDefaultImage());

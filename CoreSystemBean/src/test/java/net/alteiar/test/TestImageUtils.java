@@ -14,6 +14,7 @@ import javax.imageio.ImageIO;
 
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ImageUtil;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
@@ -33,7 +34,7 @@ public class TestImageUtils extends BasicTest {
 			compareImage(target, image.getImage().restoreImage());
 
 			assertEquals("get image must return null if no bean are found",
-					null, ImageBean.getImage(-1L));
+					null, ImageBean.getImage(new UniqueID()));
 		} catch (MalformedURLException e) {
 			fail("problem with the url");
 		} catch (IOException e) {

@@ -1,7 +1,7 @@
 package net.alteiar;
 
-import net.alteiar.character.CharacterBean;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.map.battle.Battle;
 
 public class CampaignAdapter implements CampaignListener {
 	@Override

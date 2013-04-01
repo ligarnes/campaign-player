@@ -35,6 +35,7 @@ import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.ThreadPool;
 
 /**
@@ -75,14 +76,14 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	private final ArrayList<ServerListener> listeners;
-	private final HashMap<Long, IDocumentRemote> documents;
+	private final HashMap<UniqueID, IDocumentRemote> documents;
 
 	/**
 	 * @throws RemoteException
 	 */
 	private ServerDocuments() throws RemoteException {
 		super();
-		documents = new HashMap<Long, IDocumentRemote>();
+		documents = new HashMap<UniqueID, IDocumentRemote>();
 		listeners = new ArrayList<ServerListener>();
 	}
 
@@ -112,22 +113,21 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public synchronized Long createDocument(DocumentPath path,
+	public synchronized void createDocument(DocumentPath path,
 			BeanEncapsulator bean) throws RemoteException {
 		IDocumentRemote remote = new DocumentRemote(path, bean);
-		Long id = bean.getId();
+		UniqueID id = bean.getId();
 		documents.put(id, remote);
 
 		// TODO notify in multithread
 		for (ServerListener listener : getListeners()) {
 			listener.documentAdded(id);
 		}
-
-		return id;
 	}
 
 	@Override
-	public synchronized void deleteDocument(Long guid) throws RemoteException {
+	public synchronized void deleteDocument(UniqueID guid)
+			throws RemoteException {
 		IDocumentRemote remote = documents.remove(guid);
 		remote.closeDocument();
 
@@ -138,13 +138,13 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public IDocumentRemote getDocument(Long guid) throws RemoteException {
+	public IDocumentRemote getDocument(UniqueID guid) throws RemoteException {
 		return documents.get(guid);
 	}
 
 	@Override
-	public Long[] getDocuments() throws RemoteException {
-		Long[] docs = new Long[this.documents.size()];
+	public UniqueID[] getDocuments() throws RemoteException {
+		UniqueID[] docs = new UniqueID[this.documents.size()];
 		this.documents.keySet().toArray(docs);
 		return docs;
 	}

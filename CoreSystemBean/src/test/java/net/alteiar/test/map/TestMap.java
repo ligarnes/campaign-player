@@ -1,6 +1,7 @@
 package net.alteiar.test.map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -16,18 +17,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.documents.map.Map;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.image.ImageBean;
-import net.alteiar.map.Map;
-import net.alteiar.map.MapFilter;
-import net.alteiar.map.battle.Battle;
 import net.alteiar.map.elements.RectangleElement;
+import net.alteiar.map.filter.MapFilter;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.test.BasicTest;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
@@ -67,30 +68,11 @@ public class TestMap extends BasicTest {
 				createTransfertImage("./test/ressources/guerrier.jpg"));
 	}
 
-	public static Long createBattle(String battleName, File image)
+	public static UniqueID createBattle(String battleName, File image)
 			throws IOException {
-		List<Battle> current = CampaignClient.getInstance().getBattles();
-
-		int previousSize = current.size();
 		Battle battleBean = new Battle(battleName);
-
-		MapFactory.createMap(battleBean, image);
-
-		Long battleId = battleBean.getId();
-
-		int currentSize = current.size();
-		while (previousSize == currentSize) {
-			current = CampaignClient.getInstance().getBattles();
-			currentSize = current.size();
-
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-				fail("not able to sleep");
-			}
-		}
-
-		return battleId;
+		MapFactory.createMap(battleName, battleBean, image);
+		return battleBean.getId();
 	}
 
 	@Before
@@ -108,15 +90,16 @@ public class TestMap extends BasicTest {
 
 	@Test(timeout = 10000)
 	public void testBattleWithMapElement() {
-		Battle emptyBattle = new Battle();
+		Battle emptyBattle = new Battle("");
 		assertEquals("verify emptyBattle", emptyBattle, emptyBattle);
 
-		Long battleId = -1L;
+		UniqueID battleId = null;
 		try {
 			battleId = createBattle("test battle 10", getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
+		assertNotNull("the battle id must'nt be null", battleId);
 		Battle battle = CampaignClient.getInstance().getBean(battleId);
 
 		PropertyChangeListener listener = new PropertyChangeListener() {
@@ -135,7 +118,7 @@ public class TestMap extends BasicTest {
 		RectangleElement rectangle = new RectangleElement(position, color,
 				width, height);
 
-		Collection<Long> elementsOnMap = battle.getElements();
+		Collection<UniqueID> elementsOnMap = battle.getElements();
 		assertTrue("The map shouldn't have any element",
 				elementsOnMap.isEmpty());
 
@@ -167,7 +150,7 @@ public class TestMap extends BasicTest {
 				elementsOnMap.isEmpty());
 
 		battle.setScale(new Scale(25, 1.5));
-		battle.setFilter(0L);
+		battle.setFilter(new UniqueID());
 
 		sleep(5);
 		// Should have 4 call
@@ -231,12 +214,12 @@ public class TestMap extends BasicTest {
 
 	@Test(timeout = 10000)
 	public void testMap() {
-		Map emptyMap = new Map();
+		Map emptyMap = new Map("");
 		assertEquals("verify emptyMap", emptyMap, emptyMap);
 
 		String targetName = "test battle";
 
-		Long battleId = -1L;
+		UniqueID battleId = null;
 		try {
 			battleId = createBattle(targetName, getDefaultImage());
 		} catch (IOException e) {
@@ -260,16 +243,16 @@ public class TestMap extends BasicTest {
 
 		ImageBean imageBean = createBeanImage();
 		CampaignClient.getInstance().addBean(imageBean);
-		Long newImage = imageBean.getId();
+		UniqueID newImage = imageBean.getId();
 
 		map.setBackground(newImage);
 
-		Long newFilter = -1L;
+		UniqueID newFilter = null;
 		map.setFilter(newFilter);
 
-		HashSet<Long> set = new HashSet<Long>();
-		set.add(12L);
-		set.add(13L);
+		HashSet<UniqueID> set = new HashSet<UniqueID>();
+		set.add(new UniqueID());
+		set.add(new UniqueID());
 		map.setElements(set);
 
 		sleep(10);
@@ -287,13 +270,13 @@ public class TestMap extends BasicTest {
 	public void testBattle() {
 		String targetName = "test battle";
 
-		Long battleId = -1L;
+		UniqueID battleId = null;
 		try {
 			battleId = createBattle(targetName, getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Battle created = CampaignClient.getInstance().getBean(battleId);
+		Battle created = CampaignClient.getInstance().getBean(battleId, 300);
 		assertEquals("Battle name have a wrong name", targetName,
 				created.getName());
 
@@ -315,7 +298,7 @@ public class TestMap extends BasicTest {
 	@Test
 	public void testMapFilter() {
 		File battleImageFile = getDefaultImage();
-		Long battleId = -1L;
+		UniqueID battleId = null;
 		try {
 			battleId = createBattle("new battle", battleImageFile);
 		} catch (IOException e) {
@@ -343,7 +326,7 @@ public class TestMap extends BasicTest {
 					new int[] { 5, 5, 25, 25 }, 4));
 
 			CampaignClient.getInstance().addBean(filter);
-			Long filterId = filter.getId();
+			UniqueID filterId = filter.getId();
 
 			mapFiltered.setFilter(filterId);
 			filter = CampaignClient.getInstance().getBean(filterId);

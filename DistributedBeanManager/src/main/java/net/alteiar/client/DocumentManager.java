@@ -19,6 +19,7 @@ import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.UniqueID;
 
 public class DocumentManager {
 
@@ -62,11 +63,11 @@ public class DocumentManager {
 	private final IServerDocument server;
 
 	private final HashSet<DocumentManagerListener> listeners;
-	private final HashMap<Long, DocumentClient> documents;
+	private final HashMap<UniqueID, DocumentClient> documents;
 
 	public DocumentManager(IServerDocument server, String localPath)
 			throws RemoteException {
-		documents = new HashMap<Long, DocumentClient>();
+		documents = new HashMap<UniqueID, DocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
 
 		this.server = server;
@@ -75,7 +76,7 @@ public class DocumentManager {
 
 	public void loadDocuments() {
 		try {
-			for (Long doc : this.server.getDocuments()) {
+			for (UniqueID doc : this.server.getDocuments()) {
 				addDocument(doc);
 			}
 		} catch (RemoteException e) {
@@ -84,11 +85,11 @@ public class DocumentManager {
 		}
 	}
 
-	public DocumentClient getDocument(Long id) {
+	public DocumentClient getDocument(UniqueID id) {
 		return documents.get(id);
 	}
 
-	public DocumentClient getDocument(Long id, Long timeout) {
+	public DocumentClient getDocument(UniqueID id, Long timeout) {
 		Long begin = System.currentTimeMillis();
 
 		DocumentClient value = documents.get(id);
@@ -107,7 +108,7 @@ public class DocumentManager {
 		return value;
 	}
 
-	private synchronized void addDocument(Long guid) {
+	private synchronized void addDocument(UniqueID guid) {
 		IDocumentRemote doc;
 		try {
 			doc = server.getDocument(guid);
@@ -128,10 +129,10 @@ public class DocumentManager {
 		}
 	}
 
-	public void createDocument(BeanEncapsulator bean) {
+	public void createDocument(DocumentPath path, BeanEncapsulator bean) {
 		// long guid = -1L;
 		try {
-			this.server.createDocument(new DocumentPath("", ""), bean);
+			this.server.createDocument(path, bean);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -148,7 +149,7 @@ public class DocumentManager {
 		}
 	}
 
-	private synchronized void removeDocument(Long guid) {
+	private synchronized void removeDocument(UniqueID guid) {
 		DocumentClient doc;
 		synchronized (documents) {
 			doc = this.documents.remove(guid);
@@ -188,12 +189,12 @@ public class DocumentManager {
 		}
 
 		@Override
-		public void documentAdded(Long guid) throws RemoteException {
+		public void documentAdded(UniqueID guid) throws RemoteException {
 			addDocument(guid);
 		}
 
 		@Override
-		public void documentRemoved(Long guid) throws RemoteException {
+		public void documentRemoved(UniqueID guid) throws RemoteException {
 			removeDocument(guid);
 		}
 	}
