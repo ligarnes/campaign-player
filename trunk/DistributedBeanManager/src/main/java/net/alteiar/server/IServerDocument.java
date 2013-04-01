@@ -25,6 +25,7 @@ import java.rmi.RemoteException;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.UniqueID;
 
 /**
  * @author Cody Stoutenburg
@@ -37,12 +38,12 @@ public interface IServerDocument extends Remote {
 	void removeServerListener(ServerListener listener) throws RemoteException;
 
 	// Documents
-	Long createDocument(DocumentPath path, BeanEncapsulator documentBuilder)
+	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder)
 			throws RemoteException;
 
-	void deleteDocument(Long guid) throws RemoteException;
+	void deleteDocument(UniqueID guid) throws RemoteException;
 
-	IDocumentRemote getDocument(Long guid) throws RemoteException;
+	IDocumentRemote getDocument(UniqueID guid) throws RemoteException;
 
-	Long[] getDocuments() throws RemoteException;
+	UniqueID[] getDocuments() throws RemoteException;
 }

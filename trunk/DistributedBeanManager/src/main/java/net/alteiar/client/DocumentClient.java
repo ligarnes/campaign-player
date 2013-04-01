@@ -12,6 +12,7 @@ import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.server.document.IDocumentRemoteListener;
+import net.alteiar.shared.UniqueID;
 
 public class DocumentClient implements Serializable, PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
@@ -40,7 +41,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 	}
 
-	public Long getId() {
+	public UniqueID getId() {
 		return bean.getId();
 	}
 
@@ -48,7 +49,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		return this.bean;
 	}
 
-	protected DocumentPath getDocumentPath() {
+	public DocumentPath getDocumentPath() {
 		return this.path;
 	}
 

@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.image.ImageBean;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.WebImage;
 
@@ -37,7 +38,7 @@ public class TestBenchmark {
 			t.start();
 			ImageBean bean = new ImageBean(new WebImage(
 					"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg"));
-			Long id = bean.getId();
+			UniqueID id = bean.getId();
 
 			CampaignClient.getInstance().addBean(bean);
 			t.end("server sended");
@@ -83,7 +84,7 @@ public class TestBenchmark {
 			t.start();
 			ImageBean bean = new ImageBean(new WebImage(
 					"http://www.alteiar.net/MyUpload/large.jpg"));
-			Long id = bean.getId();
+			UniqueID id = bean.getId();
 
 			CampaignClient.getInstance().addBean(bean);
 			t.end("server sended");

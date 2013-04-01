@@ -7,6 +7,8 @@ import java.beans.VetoableChangeListener;
 import java.beans.VetoableChangeSupport;
 import java.io.Serializable;
 
+import net.alteiar.shared.UniqueID;
+
 public abstract class BasicBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -16,29 +18,21 @@ public abstract class BasicBeans implements Serializable {
 	protected final VetoableChangeSupport vetoableRemoteChangeSupport;
 	protected final PropertyChangeSupport propertyChangeSupport;
 
-	private static Long currentGUID = 0L;
-
-	private static final Long generateNextGUID() {
-		long guid = currentGUID;
-		currentGUID++;
-		return guid;
-	}
-
-	private Long id;
+	private UniqueID id;
 
 	public BasicBeans() {
-		this.id = generateNextGUID();
+		this.id = new UniqueID();
 
 		vetoableRemoteChangeSupport = new VetoableChangeSupport(this);
 		propertyChangeSupport = new PropertyChangeSupport(this);
 	}
 
-	public Long getId() {
+	public UniqueID getId() {
 		return this.id;
 	}
 
-	public void setId(Long id) {
-		Long oldValue = this.id;
+	public void setId(UniqueID id) {
+		UniqueID oldValue = this.id;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(PROP_ID_PROPERTY,
 					oldValue, id);

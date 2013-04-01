@@ -5,21 +5,22 @@ import java.beans.PropertyVetoException;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.sharedDocuments.SharedDocumentBasicBeans;
+import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.TransfertImage;
 
-public class ImageBean extends SharedDocumentBasicBeans {
+public class ImageBean extends BasicBeans {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_IMAGE_PROPERTY = "image";
 
 	private TransfertImage image;
 
-	public ImageBean() {
-	}
-
 	public ImageBean(TransfertImage image) {
 		this.image = image;
+	}
+
+	public ImageBean() {
 	}
 
 	public TransfertImage getImage() {
@@ -47,7 +48,7 @@ public class ImageBean extends SharedDocumentBasicBeans {
 	 * @throws IOException
 	 *             if we are not able to read the image
 	 */
-	public static BufferedImage getImage(Long id) throws IOException {
+	public static BufferedImage getImage(UniqueID id) throws IOException {
 		ImageBean imageBean = CampaignClient.getInstance().getBean(id);
 		if (imageBean == null) {
 			return null;

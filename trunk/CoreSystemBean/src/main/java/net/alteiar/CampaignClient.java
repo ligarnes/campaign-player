@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import net.alteiar.character.CharacterBean;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.DocumentClient;
@@ -17,10 +16,13 @@ import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentPath;
+import net.alteiar.shared.UniqueID;
 
 public final class CampaignClient implements DocumentManagerListener {
 	private static CampaignClient INSTANCE = null;
@@ -83,14 +85,14 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final DocumentManager manager;
 
 	private final ArrayList<CampaignListener> listeners;
-	private final HashMap<Long, ArrayList<WaitBeanListener>> waitBeanListeners;
+	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 
 	private CampaignClient(DocumentManager manager, String name, Boolean isMj) {
 		this.manager = manager;
 		this.manager.addDocumentManagerClient(this);
 
 		listeners = new ArrayList<CampaignListener>();
-		waitBeanListeners = new HashMap<Long, ArrayList<WaitBeanListener>>();
+		waitBeanListeners = new HashMap<UniqueID, ArrayList<WaitBeanListener>>();
 
 		// First create all local variable
 		players = new ArrayList<Player>();
@@ -119,8 +121,24 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
+	public void addBean(AuthorizationBean bean) {
+		addBean("", bean);
+	}
+
 	public void addBean(BasicBeans bean) {
-		manager.createDocument(new BeanEncapsulator(bean));
+		addBean("", bean);
+	}
+
+	public void addBean(String name, AuthorizationBean bean) {
+		bean.addOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
+
+		manager.createDocument(new DocumentPath("", name),
+				new BeanEncapsulator(bean));
+	}
+
+	public void addBean(String name, BasicBeans bean) {
+		manager.createDocument(new DocumentPath("", name),
+				new BeanEncapsulator(bean));
 	}
 
 	public void removeBean(BasicBeans bean) {
@@ -128,7 +146,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <E extends BasicBeans> E getBean(long id) {
+	public <E extends BasicBeans> E getBean(UniqueID id) {
 		DocumentClient document = manager.getDocument(id);
 		if (document == null) {
 			return null;
@@ -160,7 +178,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
-	protected ArrayList<WaitBeanListener> getWaitBeanListener(Long beanId) {
+	protected ArrayList<WaitBeanListener> getWaitBeanListener(UniqueID beanId) {
 		ArrayList<WaitBeanListener> listeners;
 		synchronized (waitBeanListeners) {
 			listeners = waitBeanListeners.get(beanId);
@@ -172,7 +190,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <E extends BasicBeans> E getBean(long id, long timeout) {
+	public <E extends BasicBeans> E getBean(UniqueID id, long timeout) {
 		return (E) manager.getDocument(id, timeout).getBeanEncapsulator()
 				.getBean();
 	}
@@ -269,6 +287,7 @@ public final class CampaignClient implements DocumentManagerListener {
 			}
 			notifyCharacterRemoved(character);
 		}
+
 	}
 
 	// /////////////// LISTENERS METHODS /////////////////
@@ -316,4 +335,5 @@ public final class CampaignClient implements DocumentManagerListener {
 			listener.battleRemoved(battle);
 		}
 	}
+
 }
