@@ -1,5 +1,6 @@
 package net.alteiar;
 
+import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.documents.map.battle.Battle;
 
@@ -11,4 +12,8 @@ public interface CampaignListener {
 	void characterAdded(CharacterBean character);
 
 	void characterRemoved(CharacterBean character);
+
+	void beanAdded(AuthorizationBean bean);
+
+	void beanRemoved(AuthorizationBean bean);
 }

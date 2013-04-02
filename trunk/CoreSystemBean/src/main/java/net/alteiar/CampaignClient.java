@@ -80,6 +80,8 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	private final ArrayList<Battle> battles;
 
+	private final ArrayList<AuthorizationBean> documentsBean;
+
 	private Chat chat;
 
 	private final DocumentManager manager;
@@ -99,6 +101,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		characters = new ArrayList<CharacterBean>();
 		battles = new ArrayList<Battle>();
 
+		documentsBean = new ArrayList<AuthorizationBean>();
+
 		// Load all existing documents
 		this.manager.loadDocuments();
 
@@ -115,6 +119,15 @@ public final class CampaignClient implements DocumentManagerListener {
 			chat.talk(currentPlayer.getName(),
 					MessageRemote.SYSTEM_CONNECT_MESSAGE);
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<AuthorizationBean> getDocuments() {
+		ArrayList<AuthorizationBean> copy;
+		synchronized (documentsBean) {
+			copy = (ArrayList<AuthorizationBean>) documentsBean.clone();
+		}
+		return copy;
 	}
 
 	public void disconnect() {
@@ -257,6 +270,15 @@ public final class CampaignClient implements DocumentManagerListener {
 			notifyCharacterAdded(character);
 		}
 
+		if (Beans.isInstanceOf(bean, AuthorizationBean.class)) {
+			AuthorizationBean doc = (AuthorizationBean) Beans.getInstanceOf(
+					bean, AuthorizationBean.class);
+			synchronized (documentsBean) {
+				documentsBean.add(doc);
+			}
+			notifyBeanAdded(doc);
+		}
+
 		ArrayList<WaitBeanListener> waitListeners = getWaitBeanListener(bean
 				.getId());
 		for (WaitBeanListener waitBeanListener : waitListeners) {
@@ -288,6 +310,15 @@ public final class CampaignClient implements DocumentManagerListener {
 			notifyCharacterRemoved(character);
 		}
 
+		if (Beans.isInstanceOf(bean, AuthorizationBean.class)) {
+			AuthorizationBean doc = (AuthorizationBean) Beans.getInstanceOf(
+					bean, AuthorizationBean.class);
+			synchronized (documentsBean) {
+				documentsBean.remove(doc);
+			}
+			notifyBeanRemoved(doc);
+		}
+
 	}
 
 	// /////////////// LISTENERS METHODS /////////////////
@@ -310,6 +341,18 @@ public final class CampaignClient implements DocumentManagerListener {
 			copy = (ArrayList<CampaignListener>) listeners.clone();
 		}
 		return copy;
+	}
+
+	protected void notifyBeanAdded(AuthorizationBean authBean) {
+		for (CampaignListener listener : getListeners()) {
+			listener.beanAdded(authBean);
+		}
+	}
+
+	protected void notifyBeanRemoved(AuthorizationBean authBean) {
+		for (CampaignListener listener : getListeners()) {
+			listener.beanRemoved(authBean);
+		}
 	}
 
 	protected void notifyCharacterAdded(CharacterBean character) {

@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 
 public class PanelBattleNextTurn extends JPanel /* implements IBattleObserver */{
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.dashboard;
+package net.alteiar.campaign.player.gui.documents;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -11,26 +11,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
-import net.alteiar.campaign.player.gui.MainFrame;
-import net.alteiar.campaign.player.gui.MainPanel;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.client.bean.BasicBeans;
 
-public class PanelSimpleBattle extends JPanel {
+public class PanelDocumentDescription extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private final JLabel lblAvatar;
-	private final Battle battle;
 
-	/**
-	 * Create the panel.
-	 */
-	public PanelSimpleBattle(Battle battle) {
-		this.battle = battle;
-		// this.battle.addObserver(this);
-
+	public PanelDocumentDescription(BasicBeans bean) {
 		this.setBackground(UiHelper.BACKGROUND_COLOR);
 
 		setMinimumSize(new Dimension(250, 35));
@@ -47,26 +37,16 @@ public class PanelSimpleBattle extends JPanel {
 
 		lblAvatar = new JLabel();
 
-		/*
-		 * lblAvatar.setIcon(new ImageIcon(ImageUtil.resizeImage(battle
-		 * .getBattleMap().getBackground(), 50, 50)));
-		 */
 		GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
 		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
 		gbc_lblAvatar.gridx = 0;
 		gbc_lblAvatar.gridy = 0;
 		add(lblAvatar, gbc_lblAvatar);
 
-		JLabel lblName = new JLabel(battle.getName());
+		JLabel lblName = new JLabel(bean.getId().toString());
 		lblName.setForeground(UiHelper.TEXT_COLOR);
 
 		lblName.setFont(UiHelper.FONT);
-		lblName.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				showBattle();
-			}
-		});
 
 		GridBagConstraints gbc_lblName = new GridBagConstraints();
 		gbc_lblName.insets = new Insets(0, 0, 0, 5);
@@ -89,13 +69,7 @@ public class PanelSimpleBattle extends JPanel {
 		});
 	}
 
-	private void showBattle() {
-		MainFrame.FRAME.getMainPanel().getPanelBattle()
-				.setSelectedBattle(battle);
-		MainFrame.FRAME.getMainPanel().setSelectedIndex(MainPanel.TAB_BATTLE);
-	}
-
 	protected void deleteBattle() {
-		CampaignClient.getInstance().removeBean(battle);
+		// CampaignClient.getInstance().removeBean(battle);
 	}
 }

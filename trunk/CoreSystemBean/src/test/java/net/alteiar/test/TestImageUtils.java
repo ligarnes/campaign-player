@@ -24,9 +24,11 @@ public class TestImageUtils extends BasicTest {
 	@Test
 	public void testImage() {
 		ImageBean image = new ImageBean();
-		image.setImage(new WebImage(
-				"http://www.alteiar.net/wiki/lib/exe/fetch.php?cache=&media=applications:chat.jpg"));
 		try {
+			image.setImage(new WebImage(
+					new URL(
+							"http://www.alteiar.net/wiki/lib/exe/fetch.php?cache=&media=applications:chat.jpg")));
+
 			BufferedImage target = ImageIO
 					.read(new URL(
 							"http://www.alteiar.net/wiki/lib/exe/fetch.php?cache=&media=applications:chat.jpg"));

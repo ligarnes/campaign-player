@@ -49,9 +49,10 @@ import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.player.gui.tools.Zoomable;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.map.Map;
-import net.alteiar.map.MapFilter;
+import net.alteiar.documents.map.Map;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.map.filter.MapFilter;
+import net.alteiar.shared.UniqueID;
 
 /**
  * @author Cody Stoutenburg
@@ -88,7 +89,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 				this.map.getFilter());
 		filter.addPropertyChangeListener(this);
 
-		for (Long elementId : this.map.getElements()) {
+		for (UniqueID elementId : this.map.getElements()) {
 			CampaignClient.getInstance().getBean(elementId)
 					.addPropertyChangeListener(this);
 		}
@@ -470,12 +471,12 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (Map.METH_ADD_ELEMENT_METHOD.equals(evt.getPropertyName())) {
-			final Long mapElementId = ((Long) evt.getNewValue());
+			final UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 
 			CampaignClient.getInstance().addWaitBeanListener(
 					new WaitBeanListener() {
 						@Override
-						public Long getBeanId() {
+						public UniqueID getBeanId() {
 							return mapElementId;
 						}
 
@@ -486,7 +487,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 						}
 					});
 		} else if (Map.METH_REMOVE_ELEMENT_METHOD.equals(evt.getPropertyName())) {
-			Long mapElementId = ((Long) evt.getNewValue());
+			UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 			MapElement mapElement = CampaignClient.getInstance().getBean(
 					mapElementId);
 			mapElement.removePropertyChangeListener(this);

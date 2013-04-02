@@ -12,4 +12,5 @@ public interface IPluginSystemGui {
 	ArrayList<PanelMapElementBuilder> getGuiMapElementFactory();
 
 	ArrayList<PanelDocumentBuilder> getGuiDocumentFactory();
+
 }

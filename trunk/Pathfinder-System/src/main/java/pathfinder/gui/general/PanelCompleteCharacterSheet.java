@@ -22,7 +22,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.character.PathfinderCharacter;
 

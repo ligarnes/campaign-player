@@ -9,7 +9,7 @@ import java.awt.event.MouseWheelListener;
 
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.map.elements.MapElement;
 
 public class PanelMapWithListener extends PanelBasicMap implements

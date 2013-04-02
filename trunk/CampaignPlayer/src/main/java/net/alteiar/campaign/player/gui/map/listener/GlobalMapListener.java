@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 
 public class GlobalMapListener implements MapListener {
 

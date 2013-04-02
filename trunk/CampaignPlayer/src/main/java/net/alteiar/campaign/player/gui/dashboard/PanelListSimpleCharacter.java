@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.CampaignListener;
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 
 public class PanelListSimpleCharacter extends PanelList {
 	private static final long serialVersionUID = 1L;

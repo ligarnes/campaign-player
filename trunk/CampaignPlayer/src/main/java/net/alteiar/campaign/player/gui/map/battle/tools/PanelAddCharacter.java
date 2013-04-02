@@ -14,7 +14,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 
 public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;

@@ -25,7 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.alteiar.campaign.player.gui.chat.PanelChatFactory;
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 
 /**
  * @author Cody Stoutenburg

@@ -1,16 +1,16 @@
 package net.alteiar.campaign.player.gui.tools.adapter;
 
-import net.alteiar.sharedDocuments.SharedDocumentBasicBeans;
+import net.alteiar.client.DocumentClient;
 
-public class DocumentAdapter extends BasicAdapter<SharedDocumentBasicBeans> {
+public class DocumentAdapter extends BasicAdapter<DocumentClient> {
 
-	public DocumentAdapter(SharedDocumentBasicBeans src) {
+	public DocumentAdapter(DocumentClient src) {
 		super(src);
 	}
 
 	@Override
 	public String toString() {
-		return getObject().getId().toString();
+		return getObject().getDocumentPath().getName().toString();
 	}
 
 }

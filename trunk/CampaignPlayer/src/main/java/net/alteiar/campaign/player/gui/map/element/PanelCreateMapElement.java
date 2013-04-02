@@ -15,8 +15,8 @@ import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
+import net.alteiar.documents.map.Map;
 import net.alteiar.factory.MapElementFactory;
-import net.alteiar.map.Map;
 import net.alteiar.map.elements.MapElement;
 
 public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
@@ -50,7 +50,7 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 	private final JPanel panelCenter;
 	private PanelMapElementBuilder builder;
 
-	public PanelCreateMapElement() {
+	private PanelCreateMapElement() {
 		super(new BorderLayout());
 
 		panelWest = new JPanel(new GridLayout(getBuilders().size(), 1));
