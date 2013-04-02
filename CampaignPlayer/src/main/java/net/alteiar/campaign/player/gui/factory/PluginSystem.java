@@ -1,14 +1,11 @@
 package net.alteiar.campaign.player.gui.factory;
 
-import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.ArrayList;
 
-import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
+import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 
 public class PluginSystem implements IPluginSystemGui {
@@ -28,6 +25,11 @@ public class PluginSystem implements IPluginSystemGui {
 	}
 
 	@Override
+	public ArrayList<PanelDocumentBuilder> getGuiDocumentFactory() {
+		return plugins.get(0).getGuiDocumentFactory();
+	}
+
+	@Override
 	public PanelCharacterFactory getGuiCharacterFactory() {
 		return plugins.get(0).getGuiCharacterFactory();
 	}
@@ -43,23 +45,15 @@ public class PluginSystem implements IPluginSystemGui {
 		return mapElementBuilders;
 	}
 
-	private static ClassLoader loader;
-
 	private static ClassLoader getClassLoader() {
-		if (loader == null) {
-			try {
-				URL pluginJar = new File(
-						"./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar")
-						.toURI().toURL();
-				loader = URLClassLoader.newInstance(new URL[] { pluginJar },
-						PanelCreateMapElement.class.getClassLoader());
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			ClassLoaderUtil
+					.addFile("./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
-		return loader;
+		return ClassLoader.getSystemClassLoader();// loader;
 	}
 
 	public static IPluginSystemGui getPluginSystemGui() {
@@ -98,5 +92,4 @@ public class PluginSystem implements IPluginSystemGui {
 		}
 		return pluginSystemGui;
 	}
-
 }

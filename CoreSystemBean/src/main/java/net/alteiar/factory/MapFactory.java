@@ -3,6 +3,7 @@ package net.alteiar.factory;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.map.Map;
@@ -21,7 +22,7 @@ public class MapFactory {
 		createMap(name, map, background);
 	}
 
-	public static void createMap(String name, Map map, String backgroundUrl)
+	public static void createMap(String name, Map map, URL backgroundUrl)
 			throws IOException {
 		ImageBean background = new ImageBean(new WebImage(backgroundUrl));
 		CampaignClient.getInstance().addBean(background);

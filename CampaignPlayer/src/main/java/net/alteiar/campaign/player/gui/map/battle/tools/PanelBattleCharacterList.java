@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 
 public class PanelBattleCharacterList extends JPanel /*
 													 * implements

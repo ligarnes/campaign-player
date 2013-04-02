@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.alteiar.campaign.player.gui.dashboard.PanelListBattle;
+import net.alteiar.campaign.player.gui.documents.PanelDocumentManager;
 
 /**
  * @author Cody Stoutenburg
@@ -73,6 +74,7 @@ public class PanelDashboard extends MyPanel {
 		 * center.add(new PanelListSimpleMonster()); }
 		 */
 		center.add(new PanelListBattle());
+		center.add(new PanelDocumentManager());
 
 		JScrollPane scroll = new JScrollPane(new PanelWest());
 		this.add(scroll, BorderLayout.WEST);

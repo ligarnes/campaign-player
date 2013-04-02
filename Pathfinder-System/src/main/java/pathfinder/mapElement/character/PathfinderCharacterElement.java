@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.element.MapElementSizeSquare;
 import pathfinder.character.PathfinderCharacter;
 
@@ -17,7 +18,7 @@ public class PathfinderCharacterElement extends MapElement {
 
 	private static final long serialVersionUID = 1L;
 
-	private final Long charactedId;
+	private final UniqueID charactedId;
 	private final MapElementSizeSquare width;
 	private final MapElementSizeSquare height;
 
@@ -25,7 +26,7 @@ public class PathfinderCharacterElement extends MapElement {
 		this(point, character.getId());
 	}
 
-	public PathfinderCharacterElement(Point point, Long characterId) {
+	public PathfinderCharacterElement(Point point, UniqueID characterId) {
 		super(point);
 
 		this.charactedId = characterId;

@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 
 public class PanelListBattle extends PanelList {
 	private static final long serialVersionUID = 1L;

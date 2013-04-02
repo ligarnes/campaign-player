@@ -23,7 +23,7 @@ import javax.swing.JTabbedPane;
 
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 
 /**
  * @author Cody Stoutenburg

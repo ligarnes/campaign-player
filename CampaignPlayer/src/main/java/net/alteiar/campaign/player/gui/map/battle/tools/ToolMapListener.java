@@ -12,7 +12,7 @@ import net.alteiar.campaign.player.gui.map.event.MapListener;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.map.listener.RescaleMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 
 public class ToolMapListener extends Observable implements MapListener {
 

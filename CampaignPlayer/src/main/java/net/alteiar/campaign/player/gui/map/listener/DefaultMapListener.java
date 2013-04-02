@@ -14,7 +14,7 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.map.elements.MapElement;
 
 public class DefaultMapListener extends ActionMapListener {

@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.image.ImageBean;
@@ -36,8 +37,8 @@ public class TestBenchmark {
 		try {
 			Timer t = new Timer();
 			t.start();
-			ImageBean bean = new ImageBean(new WebImage(
-					"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg"));
+			ImageBean bean = new ImageBean(new WebImage(new URL(
+					"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg")));
 			UniqueID id = bean.getId();
 
 			CampaignClient.getInstance().addBean(bean);
@@ -82,8 +83,8 @@ public class TestBenchmark {
 		try {
 			Timer t = new Timer();
 			t.start();
-			ImageBean bean = new ImageBean(new WebImage(
-					"http://www.alteiar.net/MyUpload/large.jpg"));
+			ImageBean bean = new ImageBean(new WebImage(new URL(
+					"http://www.alteiar.net/MyUpload/large.jpg")));
 			UniqueID id = bean.getId();
 
 			CampaignClient.getInstance().addBean(bean);

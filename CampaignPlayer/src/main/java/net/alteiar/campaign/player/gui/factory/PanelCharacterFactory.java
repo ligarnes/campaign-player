@@ -2,7 +2,7 @@ package net.alteiar.campaign.player.gui.factory;
 
 import javax.swing.JPanel;
 
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 
 public abstract class PanelCharacterFactory {
 

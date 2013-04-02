@@ -32,17 +32,17 @@ import javax.imageio.ImageIO;
 public class WebImage implements TransfertImage {
 	private static final long serialVersionUID = 4786344613415239528L;
 
-	private final String url;
+	private final URL url;
 	private transient BufferedImage image;
 
-	public WebImage(String url) {
+	public WebImage(URL url) {
 		this.url = url;
 	}
 
 	@Override
 	public BufferedImage restoreImage() throws IOException {
 		if (image == null) {
-			image = ImageIO.read(new URL(url));
+			image = ImageIO.read(url);
 		}
 		return image;
 	}

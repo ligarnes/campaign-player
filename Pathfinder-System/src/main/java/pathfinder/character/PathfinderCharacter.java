@@ -4,8 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.image.ImageBean;
+import net.alteiar.shared.UniqueID;
 
 public class PathfinderCharacter extends CharacterBean {
 	private static final long serialVersionUID = 1L;
@@ -13,7 +14,12 @@ public class PathfinderCharacter extends CharacterBean {
 	private String name;
 	private Integer totalHp;
 	private Integer currentHp;
-	private Long image;
+	private UniqueID image;
+
+	public PathfinderCharacter() {
+		totalHp = 0;
+		currentHp = 0;
+	}
 
 	// ////////////// METHODS /////////////////
 	public BufferedImage getCharacterImage() throws IOException {
@@ -54,11 +60,11 @@ public class PathfinderCharacter extends CharacterBean {
 		this.currentHp = currentHp;
 	}
 
-	public Long getImage() {
+	public UniqueID getImage() {
 		return image;
 	}
 
-	public void setImage(Long image) {
+	public void setImage(UniqueID image) {
 		this.image = image;
 	}
 }

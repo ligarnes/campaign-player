@@ -5,7 +5,7 @@ import java.beans.Beans;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.factory.PanelCharacterFactory;
-import net.alteiar.character.CharacterBean;
+import net.alteiar.documents.character.CharacterBean;
 import pathfinder.character.PathfinderCharacter;
 import pathfinder.gui.general.PanelCharacterInfo;
 import pathfinder.gui.general.PanelCompleteCharacterSheet;

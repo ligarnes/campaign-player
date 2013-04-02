@@ -1,10 +1,6 @@
 package net.alteiar.campaign.player.gui.documents;
 
-import java.awt.Point;
-
 import javax.swing.JPanel;
-
-import net.alteiar.map.elements.MapElement;
 
 public abstract class PanelDocumentBuilder extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -13,9 +9,17 @@ public abstract class PanelDocumentBuilder extends JPanel {
 		super();
 	}
 
-	public abstract String getElementName();
+	public abstract String getDocumentName();
 
-	public abstract String getElementDescription();
+	public abstract String getDocumentDescription();
 
-	public abstract MapElement buildMapElement(Point position);
+	public abstract void buildDocument();
+
+	public Boolean isDataValid() {
+		return true;
+	}
+
+	public String getInvalidMessage() {
+		return "";
+	}
 }

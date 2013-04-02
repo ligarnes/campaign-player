@@ -15,9 +15,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
-import net.alteiar.character.CharacterBean;
 import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.map.battle.Battle;
 
 public class PanelBattleCharacter extends JPanel/*
 												 * implements

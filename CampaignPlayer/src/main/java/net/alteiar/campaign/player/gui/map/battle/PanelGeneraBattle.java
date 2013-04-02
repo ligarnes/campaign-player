@@ -39,9 +39,9 @@ import net.alteiar.campaign.player.gui.map.battle.tools.PanelBattleCharacterList
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelTools;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.tools.PanelMoveZoom;
-import net.alteiar.map.MapFilter;
-import net.alteiar.map.battle.Battle;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.map.filter.MapFilter;
 import net.alteiar.utils.map.Scale;
 
 /**

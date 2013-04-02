@@ -18,8 +18,8 @@ import javax.swing.border.LineBorder;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
+import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.factory.MapFactory;
-import net.alteiar.map.battle.Battle;
 import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateBattle extends JPanel {
@@ -83,7 +83,8 @@ public class PanelCreateBattle extends JPanel {
 						.getSelectedImageFile(PanelCreateBattle.this);
 				if (f != null) {
 					try {
-						MapFactory.createMap(new Battle(txtName.getText()), f);
+						MapFactory.createMap(txtName.getText(), new Battle(
+								txtName.getText()), f);
 					} catch (IOException e1) {
 						ExceptionTool.showError(e1);
 					}
