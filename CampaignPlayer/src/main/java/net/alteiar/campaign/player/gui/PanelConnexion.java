@@ -42,7 +42,7 @@ import javax.swing.JTextField;
 
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
+import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import net.alteiar.shared.ExceptionTool;
 
 public class PanelConnexion extends PanelAlwaysValidOkCancel {

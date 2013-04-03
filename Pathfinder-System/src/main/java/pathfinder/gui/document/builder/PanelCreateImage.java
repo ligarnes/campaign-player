@@ -1,4 +1,4 @@
-package pathfinder.gui.document;
+package pathfinder.gui.document.builder;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -155,6 +155,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		CampaignClient.getInstance().addBean(
 				new DocumentImageBean(transfertImage));
 		transfertImage = null;
+		revalidateImage();
 	}
 
 	@Override

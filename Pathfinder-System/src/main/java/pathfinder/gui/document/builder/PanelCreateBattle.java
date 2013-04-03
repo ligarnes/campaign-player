@@ -1,4 +1,4 @@
-package pathfinder.gui.document;
+package pathfinder.gui.document.builder;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

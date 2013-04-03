@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.tools.adapter.PlayerAdapter;
+import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 
 public class PanelPlayerAccess extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;

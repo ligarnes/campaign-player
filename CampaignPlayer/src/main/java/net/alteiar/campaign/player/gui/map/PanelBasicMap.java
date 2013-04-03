@@ -47,12 +47,12 @@ import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
-import net.alteiar.campaign.player.gui.tools.Zoomable;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.documents.map.Map;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.zoom.Zoomable;
 
 /**
  * @author Cody Stoutenburg

@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.image.ImageBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.TransfertImage;
 
@@ -49,8 +48,9 @@ public class DocumentImageBean extends AuthorizationBean {
 	 * @throws IOException
 	 *             if we are not able to read the image
 	 */
-	public static BufferedImage getImage(UniqueID id) throws IOException {
-		ImageBean imageBean = CampaignClient.getInstance().getBean(id);
+	public static BufferedImage getDocumentImage(UniqueID id)
+			throws IOException {
+		DocumentImageBean imageBean = CampaignClient.getInstance().getBean(id);
 		if (imageBean == null) {
 			return null;
 		}

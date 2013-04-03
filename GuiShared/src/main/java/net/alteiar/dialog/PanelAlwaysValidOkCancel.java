@@ -1,8 +1,7 @@
-package net.alteiar.campaign.player.gui.tools;
+package net.alteiar.dialog;
 
 import javax.swing.JPanel;
 
-import net.alteiar.dialog.PanelOkCancel;
 
 public class PanelAlwaysValidOkCancel extends JPanel implements PanelOkCancel {
 	private static final long serialVersionUID = 1L;

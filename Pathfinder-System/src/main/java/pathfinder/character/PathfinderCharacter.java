@@ -35,6 +35,11 @@ public class PathfinderCharacter extends CharacterBean {
 		return getName();
 	}
 
+	@Override
+	public String toString() {
+		return getName();
+	}
+
 	// ////////////// BEANS METHODS /////////////////
 	public String getName() {
 		return name;

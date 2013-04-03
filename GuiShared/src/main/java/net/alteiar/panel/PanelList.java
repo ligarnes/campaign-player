@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.dashboard;
+package net.alteiar.panel;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -10,10 +10,10 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-public abstract class PanelList extends JPanel {
+public abstract class PanelList<E> extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final HashMap<Object, JPanel> panels;
+	private final HashMap<E, JPanel> panels;
 	private final JPanel panelCreate;
 
 	public PanelList(String title) {
@@ -22,7 +22,7 @@ public abstract class PanelList extends JPanel {
 
 		this.setBorder(BorderFactory.createTitledBorder(title));
 
-		panels = new HashMap<Object, JPanel>();
+		panels = new HashMap<E, JPanel>();
 
 		panelCreate = createPanelCreate();
 		this.add(panelCreate);
@@ -32,24 +32,26 @@ public abstract class PanelList extends JPanel {
 
 	protected abstract JPanel createPanelCreate();
 
-	protected void addElement(Object obj, JPanel panel) {
-		panels.put(obj, panel);
-		this.remove(panelCreate);
-		if (this.getComponentCount() > 0) {
-			this.remove(this.getComponentCount() - 1);
+	protected void addElement(E obj, JPanel panel) {
+		if (!panels.containsKey(obj)) {
+			panels.put(obj, panel);
+			this.remove(panelCreate);
+			if (this.getComponentCount() > 0) {
+				this.remove(this.getComponentCount() - 1);
+			}
+
+			Dimension dim = new Dimension(10, 2);
+			this.add(new Box.Filler(dim, dim, dim));
+			this.add(panel);
+			this.add(new Box.Filler(dim, dim, dim));
+
+			this.add(panelCreate);
+			this.revalidate();
+			this.repaint();
 		}
-
-		Dimension dim = new Dimension(10, 2);
-		this.add(new Box.Filler(dim, dim, dim));
-		this.add(panel);
-		this.add(new Box.Filler(dim, dim, dim));
-
-		this.add(panelCreate);
-		this.revalidate();
-		this.repaint();
 	}
 
-	protected void removeElement(Object obj) {
+	protected void removeElement(E obj) {
 		JPanel panel = panels.remove(obj);
 
 		int i = this.getComponentIndex(panel);

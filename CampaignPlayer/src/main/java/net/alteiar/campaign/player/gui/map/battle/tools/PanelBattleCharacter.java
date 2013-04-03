@@ -1,9 +1,7 @@
 package net.alteiar.campaign.player.gui.map.battle.tools;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,11 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
-import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
 import net.alteiar.dialog.DialogOkCancel;
+import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.documents.map.battle.Battle;
 
+// TODO should be removed
+@Deprecated
 public class PanelBattleCharacter extends JPanel/*
 												 * implements
 												 * ICharacterCombatObserver
@@ -129,7 +129,7 @@ public class PanelBattleCharacter extends JPanel/*
 
 		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
 			Integer degat = Integer.valueOf(textFieldDegat.getText());
-			character.setCurrentHp(character.getCurrentHp() - degat);
+			// character.setCurrentHp(character.getCurrentHp() - degat);
 		}
 	}
 
@@ -146,7 +146,7 @@ public class PanelBattleCharacter extends JPanel/*
 
 		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
 			Integer heal = Integer.valueOf(textFieldDegat.getText());
-			character.setCurrentHp(character.getCurrentHp() + heal);
+			// character.setCurrentHp(character.getCurrentHp() + heal);
 		}
 	}
 
@@ -161,36 +161,30 @@ public class PanelBattleCharacter extends JPanel/*
 		 * 0.7f)); }
 		 */
 
-		g.drawImage(character.getImage(), 5, 0, 45, 40, null);
-
-		Integer currentHp = character.getCurrentHp();
-		Integer totalHp = character.getTotalHp();
-
-		Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
-
-		Color hp = Color.RED;
-		if (currentHp > 0) {
-			hp = new Color(1.0F - ratio.floatValue(), ratio.floatValue(), 0);
-		}
-
-		// Draw life
-		g.setColor(hp);
-		g.fillRect(0, 40, (int) (50 * ratio), 10);
-		g.setColor(Color.BLACK);
-
-		FontMetrics metrics = g.getFontMetrics();
-		String text = currentHp + "/" + totalHp;
-
-		int textWidth = metrics.stringWidth(text);
-		g.setColor(Color.BLACK);
-		g.drawRect(0, 40, 49, 9);
-
-		// TODO fixme
-		// if (CampaignClient.getInstance().canAccess(
-		// this.character.getCharacter())) {
-		g.drawString(text, (50 - textWidth) / 2, 49);
-		// }
-
+		/*
+		 * g.drawImage(character.getImage(), 5, 0, 45, 40, null);
+		 * 
+		 * Integer currentHp = character.getCurrentHp(); Integer totalHp =
+		 * character.getTotalHp();
+		 * 
+		 * Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
+		 * 
+		 * Color hp = Color.RED; if (currentHp > 0) { hp = new Color(1.0F -
+		 * ratio.floatValue(), ratio.floatValue(), 0); }
+		 * 
+		 * // Draw life g.setColor(hp); g.fillRect(0, 40, (int) (50 * ratio),
+		 * 10); g.setColor(Color.BLACK);
+		 * 
+		 * FontMetrics metrics = g.getFontMetrics(); String text = currentHp +
+		 * "/" + totalHp;
+		 * 
+		 * int textWidth = metrics.stringWidth(text); g.setColor(Color.BLACK);
+		 * g.drawRect(0, 40, 49, 9);
+		 * 
+		 * // TODO fixme // if (CampaignClient.getInstance().canAccess( //
+		 * this.character.getCharacter())) { g.drawString(text, (50 - textWidth)
+		 * / 2, 49); // }
+		 */
 		// draw highlight TODO
 		/*
 		 * if (character.isHighlighted()) { Graphics2D g2 = (Graphics2D) g;

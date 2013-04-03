@@ -1,5 +1,6 @@
-package pathfinder.gui.document;
+package pathfinder.gui.document.builder;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
@@ -31,6 +33,8 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 
 	private final JLabel lblAvatar;
 	private final JTextField textFieldName;
+	private final JLabel lblHp;
+	private final JTextField textFieldHp;
 
 	public PanelCreateCharacter() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -43,6 +47,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		setLayout(gridBagLayout);
 
 		lblAvatar = new JLabel("");
+		lblAvatar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		lblAvatar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -54,9 +59,9 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		lblAvatar.setPreferredSize(new Dimension(64, 64));
 		GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
 		gbc_lblAvatar.fill = GridBagConstraints.BOTH;
-		gbc_lblAvatar.gridheight = 2;
+		gbc_lblAvatar.gridheight = 3;
 		gbc_lblAvatar.gridwidth = 2;
-		gbc_lblAvatar.insets = new Insets(0, 0, 5, 5);
+		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
 		gbc_lblAvatar.gridx = 0;
 		gbc_lblAvatar.gridy = 0;
 		add(lblAvatar, gbc_lblAvatar);
@@ -77,6 +82,23 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		gbc_textFieldName.gridy = 0;
 		add(textFieldName, gbc_textFieldName);
 		textFieldName.setColumns(10);
+
+		lblHp = new JLabel("PV:");
+		GridBagConstraints gbc_lblHp = new GridBagConstraints();
+		gbc_lblHp.anchor = GridBagConstraints.EAST;
+		gbc_lblHp.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHp.gridx = 2;
+		gbc_lblHp.gridy = 1;
+		add(lblHp, gbc_lblHp);
+
+		textFieldHp = new JTextField();
+		GridBagConstraints gbc_textFieldHp = new GridBagConstraints();
+		gbc_textFieldHp.insets = new Insets(0, 0, 5, 0);
+		gbc_textFieldHp.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldHp.gridx = 3;
+		gbc_textFieldHp.gridy = 1;
+		add(textFieldHp, gbc_textFieldHp);
+		textFieldHp.setColumns(10);
 	}
 
 	private void selectAvatar() {
@@ -124,6 +146,10 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		PathfinderCharacter character = new PathfinderCharacter();
 		character.setName(textFieldName.getText());
 		character.setImage(image.getId());
+
+		Integer hp = Integer.valueOf(textFieldHp.getText());
+		character.setTotalHp(hp);
+		character.setCurrentHp(hp);
 
 		CampaignClient.getInstance().addBean(character);
 		transfertImage = null;
