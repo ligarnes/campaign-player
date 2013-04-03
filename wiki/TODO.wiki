@@ -4,7 +4,7 @@
     * charger des documents
     * sauvegarder des campagnes
     * charger des campagnes
-  * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70% (taux actuelle: 79%)
+  * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70% (taux actuelle: 81%)
 
 = CoreSystemBean et PathfinderSystem =
   * Variable local et partager a partir du plugin (intégré dans le system de bean) 
