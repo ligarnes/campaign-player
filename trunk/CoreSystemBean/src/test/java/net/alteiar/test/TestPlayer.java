@@ -7,6 +7,7 @@ import java.awt.Color;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
+import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.player.Player;
 
 import org.junit.Test;
@@ -21,6 +22,24 @@ public class TestPlayer extends BasicTest {
 
 		Chat chat = CampaignClient.getInstance().getChat();
 		assertTrue("Documents should not be equals", !current.equals(chat));
+
+		Player newBean = new Player();
+		newBean.setId(null);
+
+		assertTrue("Documents should not be equals", !newBean.equals(current));
+
+		newBean.setId(current.getId());
+		assertTrue("Documents should not be equals", newBean.equals(current));
+
+		assertEquals("Documents should not be equals", newBean.hashCode(),
+				current.hashCode());
+	}
+
+	@Test
+	public void testBeanEncapsulator() {
+		Player current = CampaignClient.getInstance().getCurrentPlayer();
+		BeanEncapsulator playerEncapsulator = new BeanEncapsulator(current);
+		playerEncapsulator.beanRemoved();
 	}
 
 	@Test
@@ -34,7 +53,7 @@ public class TestPlayer extends BasicTest {
 
 		String targetName = "test-new-name";
 		current.setName(targetName);
-		sleep(5);
+		sleep(10);
 		assertEquals("player name should be same", targetName,
 				current.getName());
 

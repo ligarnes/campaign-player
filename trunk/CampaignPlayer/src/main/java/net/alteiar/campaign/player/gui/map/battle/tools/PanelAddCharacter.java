@@ -13,9 +13,11 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
+import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import net.alteiar.documents.character.CharacterBean;
 
+//TODO should be removed
+@Deprecated
 public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private static final long serialVersionUID = 1L;
 	private static Random RANDOM = new Random(new Date().getTime());
@@ -98,10 +100,10 @@ public class PanelAddCharacter extends PanelAlwaysValidOkCancel {
 	private void setInitiative() {
 		CharacterAdapter character = (CharacterAdapter) comboBoxCharacter
 				.getSelectedItem();
-		Integer initMod = character.getCharacter().getInitModifier();
-		Integer total = (Integer) spinnerDice.getValue() + initMod;
-		this.lblInitValue.setText(initMod.toString());
-		this.lblTotal.setText(total.toString());
+		// Integer initMod = character.getCharacter().getInitModifier();
+		// Integer total = (Integer) spinnerDice.getValue() + initMod;
+		// this.lblInitValue.setText(initMod.toString());
+		// this.lblTotal.setText(total.toString());
 	}
 
 	public CharacterBean getCharacter() {

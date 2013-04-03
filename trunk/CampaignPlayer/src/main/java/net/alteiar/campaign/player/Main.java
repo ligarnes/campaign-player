@@ -108,6 +108,8 @@ public class Main {
 					MainFrame.FRAME.setVisible(true);
 				}
 			});
+		} else {
+			System.exit(0);
 		}
 	}
 }

@@ -296,6 +296,51 @@ public class TestMap extends BasicTest {
 	}
 
 	@Test
+	public void testBattleGrid() {
+		File battleImageFile = getDefaultImage();
+		UniqueID battleId1 = null;
+		UniqueID battleId2 = null;
+		try {
+			battleId1 = createBattle("new battle1", battleImageFile);
+			battleId2 = createBattle("new battle2", battleImageFile);
+		} catch (IOException e) {
+			fail("fail to create battle");
+		}
+		Battle battle1 = CampaignClient.getInstance().getBean(battleId1);
+		Battle battle2 = CampaignClient.getInstance().getBean(battleId2);
+
+		double compareZoomFactor = 2.5;
+		BufferedImage image1 = new BufferedImage(
+				(int) (battle1.getWidth() * compareZoomFactor),
+				(int) (battle1.getHeight() * compareZoomFactor),
+				BufferedImage.TYPE_INT_ARGB);
+
+		BufferedImage image2 = new BufferedImage(
+				(int) (battle2.getWidth() * compareZoomFactor),
+				(int) (battle2.getHeight() * compareZoomFactor),
+				BufferedImage.TYPE_INT_ARGB);
+
+		Graphics2D g = (Graphics2D) image1.getGraphics();
+		battle1.drawBackground(g, compareZoomFactor);
+		battle1.drawFilter(g, compareZoomFactor);
+		battle1.drawGrid(g, compareZoomFactor);
+		g.dispose();
+
+		g = (Graphics2D) image2.getGraphics();
+		battle2.drawBackground(g, compareZoomFactor);
+		battle2.drawFilter(g, compareZoomFactor);
+		battle2.drawGrid(g, compareZoomFactor);
+		g.dispose();
+
+		try {
+			assertTrue("Images should be same", compareImage(image1, image2));
+		} catch (IOException e) {
+			fail("not able to compare image");
+		}
+
+	}
+
+	@Test
 	public void testMapFilter() {
 		File battleImageFile = getDefaultImage();
 		UniqueID battleId = null;

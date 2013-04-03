@@ -6,22 +6,36 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.campaign.player.gui.MainFrame;
+import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.documents.AuthorizationAdapter;
+import net.alteiar.documents.AuthorizationBean;
 
 public class PanelDocumentDescription extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	private static String IMAGE_SHARED = "share-32.png";
+	private static String IMAGE_NO_SHARED = "no-share-32.png";
+	private static String IMAGE_PARTIALLY_SHARED = "share-someone-32.png";
+
 	private final JLabel lblAvatar;
 
-	public PanelDocumentDescription(BasicBeans bean) {
+	private final AuthorizationBean bean;
+
+	public PanelDocumentDescription(AuthorizationBean bean) {
 		this.setBackground(UiHelper.BACKGROUND_COLOR);
+		this.bean = bean;
 
 		setMinimumSize(new Dimension(250, 35));
 		setPreferredSize(new Dimension(250, 35));
@@ -36,6 +50,10 @@ public class PanelDocumentDescription extends JPanel {
 		setLayout(gridBagLayout);
 
 		lblAvatar = new JLabel();
+		ImageIcon icon = PluginSystem.getInstance().getDocumentIcon(bean);
+		if (icon != null) {
+			lblAvatar.setIcon(icon);
+		}
 
 		GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
 		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
@@ -43,7 +61,7 @@ public class PanelDocumentDescription extends JPanel {
 		gbc_lblAvatar.gridy = 0;
 		add(lblAvatar, gbc_lblAvatar);
 
-		JLabel lblName = new JLabel(bean.getId().toString());
+		JLabel lblName = new JLabel(bean.toString());
 		lblName.setForeground(UiHelper.TEXT_COLOR);
 
 		lblName.setFont(UiHelper.FONT);
@@ -54,22 +72,87 @@ public class PanelDocumentDescription extends JPanel {
 		gbc_lblName.gridy = 0;
 		add(lblName, gbc_lblName);
 
+		final JLabel btnShared = new JLabel();
+		btnShared.setPreferredSize(new Dimension(32, 32));
+		btnShared.setMinimumSize(new Dimension(32, 32));
+		btnShared.setMaximumSize(new Dimension(32, 32));
+		btnShared.setIcon(getCurrentState());
+		GridBagConstraints gbc_btnShared = new GridBagConstraints();
+		gbc_btnShared.insets = new Insets(0, 0, 0, 5);
+		gbc_btnShared.gridx = 2;
+		gbc_btnShared.gridy = 0;
+		add(btnShared, gbc_btnShared);
+
 		JLabel btnDelete = new JLabel();
-		btnDelete.setIcon(Helpers.getIcon("delete.png", 40, 40));
+		btnDelete.setMaximumSize(new Dimension(32, 32));
+		btnDelete.setMinimumSize(new Dimension(32, 32));
+		btnDelete.setPreferredSize(new Dimension(32, 32));
+		btnDelete.setIcon(Helpers.getIcon("delete.png", 32, 32));
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
 		gbc_btnDelete.gridx = 3;
 		gbc_btnDelete.gridy = 0;
 		add(btnDelete, gbc_btnDelete);
 
+		lblName.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				showDocument();
+			}
+		});
+
 		btnDelete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				deleteBattle();
+				removeBean();
+			}
+		});
+
+		btnShared.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				changeState();
+			}
+		});
+
+		this.bean.addPropertyChangeListener(new AuthorizationAdapter() {
+			@Override
+			public void authorizationChanged(PropertyChangeEvent evt) {
+				btnShared.setIcon(getCurrentState());
 			}
 		});
 	}
 
-	protected void deleteBattle() {
-		// CampaignClient.getInstance().removeBean(battle);
+	protected void showDocument() {
+		PanelViewDocument<?> comp = PluginSystem.getInstance().getViewPanel(
+				bean);
+		if (comp != null) {
+			JDialog dlg = new JDialog(MainFrame.FRAME, bean.toString(), false);
+			dlg.add(comp);
+			dlg.setLocationRelativeTo(null);
+			dlg.setPreferredSize(new Dimension(800, 600));
+			dlg.pack();
+			dlg.setVisible(true);
+		}
+	}
+
+	protected void changeState() {
+		if (this.bean.isAllowedToApplyChange(CampaignClient.getInstance()
+				.getCurrentPlayer())) {
+			this.bean.setPublic(!this.bean.getPublic());
+		}
+	}
+
+	protected ImageIcon getCurrentState() {
+		ImageIcon currentStateIcon = Helpers.getIcon(IMAGE_NO_SHARED);
+		if (this.bean.getPublic()) {
+			currentStateIcon = Helpers.getIcon(IMAGE_SHARED);
+		} else if (!this.bean.getUsers().isEmpty()) {
+			currentStateIcon = Helpers.getIcon(IMAGE_PARTIALLY_SHARED);
+		}
+		return currentStateIcon;
+	}
+
+	protected void removeBean() {
+		CampaignClient.getInstance().removeBean(bean);
 	}
 }

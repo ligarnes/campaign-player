@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 import java.beans.PropertyVetoException;
 
 import net.alteiar.documents.map.Map;
-import net.alteiar.shared.UniqueID;
 
 public class Battle extends Map {
 	private static final long serialVersionUID = 1L;
@@ -15,12 +14,6 @@ public class Battle extends Map {
 
 	public Battle(String name) {
 		super(name);
-		turn = 0;
-	}
-
-	public Battle(String name, UniqueID mapFilter, UniqueID background,
-			Integer width, Integer height) {
-		super(name, mapFilter, background, width, height);
 		turn = 0;
 	}
 

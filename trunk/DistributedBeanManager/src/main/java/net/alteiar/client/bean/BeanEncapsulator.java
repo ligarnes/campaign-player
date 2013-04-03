@@ -108,6 +108,10 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		propertyChangeSupportRemote.removePropertyChangeListener(listener);
 	}
 
+	public void beanRemoved() {
+		bean.removeVetoableChangeListener(this);
+	}
+
 	private class BeanChange {
 		private final String method;
 		private final Object newValue;

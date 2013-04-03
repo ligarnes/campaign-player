@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.test.roleplay;
+package net.alteiar.zoom;
 
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -6,8 +6,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
 import javax.swing.SwingUtilities;
-
-import net.alteiar.campaign.player.gui.tools.PanelMoveZoom;
 
 public class MoveZoomListener extends MouseAdapter {
 	private final PanelMoveZoom<?> panel;

@@ -12,6 +12,7 @@ public abstract class AuthorizationBean extends BasicBeans {
 
 	public static final String PROP_OWNERS_PROPERTY = "owners";
 	public static final String PROP_USERS_PROPERTY = "users";
+	public static final String PROP_PUBLIC_PROPERTY = "public";
 
 	public static final String METH_ADD_OWNER_METHOD = "addOwner";
 	public static final String METH_REMOVE_OWNER_METHOD = "removeOwner";
@@ -20,11 +21,14 @@ public abstract class AuthorizationBean extends BasicBeans {
 
 	private HashSet<UniqueID> owners;
 	private HashSet<UniqueID> users;
+	// public enable view by every one but not modify
+	private Boolean isPublic;
 
 	public AuthorizationBean() {
 		super();
 		owners = new HashSet<UniqueID>();
 		users = new HashSet<UniqueID>();
+		isPublic = false;
 	}
 
 	public HashSet<UniqueID> getOwners() {
@@ -76,7 +80,8 @@ public abstract class AuthorizationBean extends BasicBeans {
 	}
 
 	public boolean isAllowedToSee(UniqueID cliendId) {
-		return (users.contains(cliendId) || owners.contains(cliendId));
+		return (isPublic || users.contains(cliendId) || owners
+				.contains(cliendId));
 	}
 
 	public void addOwner(UniqueID playerId) {
@@ -147,23 +152,29 @@ public abstract class AuthorizationBean extends BasicBeans {
 		}
 	}
 
+	public Boolean getPublic() {
+		return isPublic;
+	}
+
+	public void setPublic(Boolean isPublic) {
+		Boolean oldValue = this.isPublic;
+		try {
+			vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_PUBLIC_PROPERTY, oldValue, isPublic);
+			this.isPublic = isPublic;
+			propertyChangeSupport.firePropertyChange(PROP_PUBLIC_PROPERTY,
+					oldValue, isPublic);
+		} catch (PropertyVetoException e) {
+			// TODO Remote refuse
+			// e.printStackTrace();
+		}
+	}
+
 	public class AuthorizationManagerException extends Exception {
 		private static final long serialVersionUID = 1L;
 
-		public AuthorizationManagerException() {
-			super();
-		}
-
 		public AuthorizationManagerException(String message) {
 			super(message);
-		}
-
-		public AuthorizationManagerException(String message, Throwable cause) {
-			super(message, cause);
-		}
-
-		public AuthorizationManagerException(Throwable cause) {
-			super(cause);
 		}
 	}
 

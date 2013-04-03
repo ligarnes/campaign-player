@@ -4,8 +4,8 @@ import java.awt.FlowLayout;
 
 import javax.swing.JTextField;
 
-import net.alteiar.campaign.player.gui.tools.PanelAlwaysValidOkCancel;
 import net.alteiar.dialog.DialogOkCancel;
+import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import pathfinder.character.PathfinderCharacter;
 
 public abstract class ChangeHealthPoint extends IAction {

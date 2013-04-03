@@ -62,7 +62,6 @@ public class PanelZoom extends JPanel implements Observer {
 	}
 
 	private void setupAction() {
-
 		btnZoomOut.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

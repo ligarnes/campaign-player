@@ -5,8 +5,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
+import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
+import net.alteiar.documents.AuthorizationBean;
 
 public class PluginSystem implements IPluginSystemGui {
 
@@ -22,6 +26,17 @@ public class PluginSystem implements IPluginSystemGui {
 		plugins = new ArrayList<IPluginSystemGui>();
 
 		plugins.add(getPluginSystemGui());
+	}
+
+	@Override
+	public <E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(
+			E bean) {
+		return plugins.get(0).getViewPanel(bean);
+	}
+
+	@Override
+	public <E extends AuthorizationBean> ImageIcon getDocumentIcon(E bean) {
+		return plugins.get(0).getDocumentIcon(bean);
 	}
 
 	@Override

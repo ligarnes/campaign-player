@@ -50,18 +50,6 @@ public class Map extends AuthorizationBean {
 		scale = new Scale(70, 1.5);
 	}
 
-	public Map(String name, UniqueID mapFilter, UniqueID background,
-			Integer width, Integer height) {
-		elements = new HashSet<UniqueID>();
-		scale = new Scale(70, 1.5);
-
-		this.backgroundId = background;
-		this.filterId = mapFilter;
-
-		this.width = width;
-		this.height = height;
-	}
-
 	// ///////////////// LOCAL METHODS ///////////////////////
 	public List<MapElement> getElementsAt(Point position) {
 		ArrayList<MapElement> elementsAt = new ArrayList<MapElement>();

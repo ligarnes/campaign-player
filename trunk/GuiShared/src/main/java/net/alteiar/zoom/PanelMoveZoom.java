@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.tools;
+package net.alteiar.zoom;
 
 import java.awt.BorderLayout;
 import java.awt.Point;

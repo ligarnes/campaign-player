@@ -42,10 +42,6 @@ public class SerializableImage extends SerializableFile implements
 		super();
 	}
 
-	public SerializableImage(byte[] bytes) {
-		super(bytes);
-	}
-
 	public SerializableImage(File file) throws IOException {
 		super(file);
 	}

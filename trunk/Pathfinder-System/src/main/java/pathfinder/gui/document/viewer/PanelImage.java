@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.test.roleplay;
+package pathfinder.gui.document.viewer;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.gui.tools.Zoomable;
+import net.alteiar.zoom.Zoomable;
 
 public class PanelImage extends JPanel implements Zoomable {
 	private static final long serialVersionUID = 1L;
@@ -18,6 +18,7 @@ public class PanelImage extends JPanel implements Zoomable {
 
 	public PanelImage(BufferedImage img) {
 		this.img = img;
+
 		zoomFactor = 1.0;
 
 		this.setPreferredSize(computeDimension());

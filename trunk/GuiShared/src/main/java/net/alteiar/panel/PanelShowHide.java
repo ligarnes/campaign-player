@@ -30,12 +30,10 @@ public class PanelShowHide extends JPanel {
 	public PanelShowHide(String title, JPanel panel) {
 		if (arrowHide == null && arrowShow == null) {
 			arrowHide = new ImageIcon(
-					PanelShowHide.class
-							.getResource("/net/alteiar/panel/Arrow_down.png"));
+					PanelShowHide.class.getResource("/icons/Arrow_down.png"));
 
 			arrowShow = new ImageIcon(
-					PanelShowHide.class
-							.getResource("/net/alteiar/panel/Arrow_left.png"));
+					PanelShowHide.class.getResource("/icons/Arrow_left.png"));
 		}
 
 		this.setLayout(new BorderLayout());
