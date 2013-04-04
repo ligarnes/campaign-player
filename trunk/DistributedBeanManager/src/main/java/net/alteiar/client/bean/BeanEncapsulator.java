@@ -14,18 +14,30 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
 import net.alteiar.shared.UniqueID;
 
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	private final PropertyChangeSupport propertyChangeSupportRemote;
-
+	@Element
 	private final BasicBeans bean;
 	private final ArrayList<BeanChange> changed;
 
 	public BeanEncapsulator(BasicBeans bean) {
 		this.bean = bean;
+		propertyChangeSupportRemote = new PropertyChangeSupport(this);
+
+		changed = new ArrayList<BeanChange>();
+		this.bean.addVetoableChangeListener(this);
+	}
+	
+	public BeanEncapsulator() {
+		this.bean = null;
 		propertyChangeSupportRemote = new PropertyChangeSupport(this);
 
 		changed = new ArrayList<BeanChange>();
