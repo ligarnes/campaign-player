@@ -91,8 +91,4 @@ public abstract class BasicBeans implements Serializable {
 		return true;
 	}
 	
-	public abstract void save(File f) throws Exception;
-	public abstract void loadDocument(File f) throws IOException,Exception;
-	
-	
 }

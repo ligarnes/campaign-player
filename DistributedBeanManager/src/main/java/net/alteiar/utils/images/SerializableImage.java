@@ -26,6 +26,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import org.simpleframework.xml.Element;
+
 import net.alteiar.utils.files.SerializableFile;
 
 /**
@@ -35,7 +37,7 @@ import net.alteiar.utils.files.SerializableFile;
 public class SerializableImage extends SerializableFile implements
 		TransfertImage {
 	private static final long serialVersionUID = 4786344613415239528L;
-
+	@Element
 	private transient BufferedImage image;
 
 	public SerializableImage() {
