@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import org.simpleframework.xml.Element;
+
 /**
  * @author Cody Stoutenburg
  * 
@@ -31,8 +33,9 @@ import java.io.ObjectOutput;
  *         the scale represent the number of pixel and of meter for 1 square
  */
 public class Scale implements Externalizable {
-
+	@Element
 	private Integer pixels;
+	@Element
 	private Double metre;
 
 	public Scale() {

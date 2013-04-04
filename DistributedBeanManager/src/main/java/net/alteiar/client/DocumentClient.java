@@ -64,7 +64,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 	}
 
-	public void loadDocument() {
+	public void loadDocument() throws Exception {
 		DocumentPath documentPath = null;
 		try {
 			documentListener = new DocumentListener();
@@ -94,10 +94,14 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 	}
 
-	protected void loadDocumentLocal(File f) throws IOException {
-
+	protected void loadDocumentLocal(File f) throws Exception {
+		this.bean.getBean().loadDocument(f);
 	}
-
+	
+	protected void SaveDocument(File f) throws Exception {
+		this.bean.getBean().save(f);
+	}
+	
 	protected void loadDocumentRemote() throws IOException {
 		bean = this.remote.getBean();
 	}

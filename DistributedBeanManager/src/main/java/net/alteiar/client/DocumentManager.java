@@ -129,6 +129,9 @@ public class DocumentManager {
 		} catch (RemoteException e) {
 			// TODO
 			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
