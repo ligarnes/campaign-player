@@ -34,6 +34,7 @@ public class LoggerConfig {
 		for (Handler handler : SERVER_LOGGER.getHandlers()) {
 			SERVER_LOGGER.removeHandler(handler);
 		}
+
 		// Do not need to add console handler because it is a default
 		// SERVER_LOGGER.addHandler(new ConsoleHandler());
 		// CLIENT_LOGGER.addHandler(new ConsoleHandler());

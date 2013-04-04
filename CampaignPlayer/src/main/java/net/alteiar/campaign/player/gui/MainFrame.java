@@ -22,9 +22,12 @@ package net.alteiar.campaign.player.gui;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,6 +35,7 @@ import javax.swing.JProgressBar;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.logger.LoggerConfig;
 
 /**
  * @author Cody Stoutenburg
@@ -55,6 +59,9 @@ public class MainFrame extends JFrame implements WindowListener {
 	private JLabel currentTask;
 	private JProgressBar progressBar;
 
+	//
+	private final KeyListener listeners;
+
 	private MainFrame() {
 		super();
 
@@ -66,6 +73,40 @@ public class MainFrame extends JFrame implements WindowListener {
 		westPanel = new JPanel();
 		southPanel = new JPanel();
 
+		final PanelLog logsClient = new PanelLog(LoggerConfig.CLIENT_LOGGER);
+		final PanelLog logsServer = new PanelLog(LoggerConfig.SERVER_LOGGER);
+
+		listeners = new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (e.getKeyChar() == 'A') {
+					JDialog dlg = new JDialog(MainFrame.FRAME);
+					dlg.setTitle("Log du client");
+					dlg.add(logsClient);
+					dlg.pack();
+					dlg.setVisible(true);
+				}
+
+				if (e.getKeyChar() == 'B') {
+					JDialog dlg = new JDialog(MainFrame.FRAME);
+					dlg.setTitle("Log du server");
+					dlg.add(logsServer);
+					dlg.pack();
+					dlg.setVisible(true);
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+			}
+		};
+
 		// initComponent();
 	}
 
@@ -76,6 +117,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
 		// center setup
 		centerPanel = new MainPanel();
+		centerPanel.addKeyListener(listeners);
 
 		// frame setup
 		this.setTitle("Campaign Player");
