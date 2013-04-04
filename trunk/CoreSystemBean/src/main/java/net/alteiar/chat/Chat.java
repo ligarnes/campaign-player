@@ -1,15 +1,11 @@
 package net.alteiar.chat;
 
 import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.chat.message.ChatObject;
 import net.alteiar.chat.message.MessageRemote;
@@ -97,20 +93,5 @@ public class Chat extends BasicBeans {
 			// TODO
 			// e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void save(File f) throws Exception {
-		Serializer serializer = new Persister();
-		serializer.write(this, f);
-	}
-
-	@Override
-	public void loadDocument(File f) throws IOException, Exception {
-		Serializer serializer = new Persister();
-		Chat temp= serializer.read(Chat.class, f);
-		this.setId(temp.getId());
-		this.pseudo=temp.getPseudo();
-		this.messages=temp.getMessages();
 	}
 }

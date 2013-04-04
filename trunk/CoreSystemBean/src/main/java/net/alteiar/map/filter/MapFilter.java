@@ -7,7 +7,6 @@ import java.awt.Polygon;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,12 +14,9 @@ import java.util.ArrayList;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.map.elements.CircleElement;
 
 public class MapFilter extends BasicBeans {
 	@Attribute
@@ -52,26 +48,6 @@ public class MapFilter extends BasicBeans {
 		polygons = new ArrayList<MapFilter.MyPolygonFilter>();
 		this.width = 0;
 		this.height = 0;
-	}
-	
-	private Integer getHeight()
-	{
-		return height;
-	}
-	
-	private Integer getWidth()
-	{
-		return width;
-	}
-	
-	private ArrayList<MyPolygonFilter> getPolygons()
-	{
-		return polygons;
-	}
-	
-	private Area getHiddenArea()
-	{
-		return hiddenArea;
 	}
 
 	public void showPolygon(Polygon polygon) {
@@ -171,21 +147,4 @@ public class MapFilter extends BasicBeans {
 		}
 	}
 
-	@Override
-	public void save(File f) throws Exception {
-		Serializer serializer = new Persister();
-		serializer.write(this, f);
-	}
-
-	@Override
-	public void loadDocument(File f) throws IOException, Exception {
-		Serializer serializer = new Persister();
-		MapFilter temp= serializer.read(MapFilter.class, f);
-		this.setId(temp.getId());
-		this.height=temp.getHeight();
-		this.width=temp.getWidth();
-		this.hiddenArea=temp.getHiddenArea();
-		this.polygons=temp.getPolygons();
-		
-	}
 }

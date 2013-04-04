@@ -2,13 +2,9 @@ package net.alteiar.documents.map.battle;
 
 import java.awt.Graphics2D;
 import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.IOException;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.documents.map.Map;
 
@@ -66,27 +62,4 @@ public class Battle extends Map {
 		}
 	}
 	
-	@Override
-	public void save(File f) throws Exception {
-		Serializer serializer = new Persister();
-		serializer.write(this, f);
-	}
-
-	@Override
-	public void loadDocument(File f) throws IOException, Exception {
-		Serializer serializer = new Persister();
-		Battle temp= serializer.read(Battle.class, f);
-		this.setId(temp.getId());
-		this.setOwners(temp.getOwners());
-		this.setPublic(temp.getPublic());
-		this.setUsers(temp.getUsers());
-		this.setName(temp.getName());
-		this.setBackground(temp.getBackground());
-		this.setElements(temp.getElements());
-		this.setFilter(temp.getFilter());
-		this.setHeight(temp.getHeight());
-		this.setScale(temp.getScale());
-		this.setWidth(temp.getWidth());
-		this.turn=temp.getTurn();
-	}
 }

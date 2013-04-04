@@ -2,16 +2,11 @@ package net.alteiar.player;
 
 import java.awt.Color;
 import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.IOException;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.shared.MyColor;
 
 public class Player extends BasicBeans {
@@ -93,20 +88,4 @@ public class Player extends BasicBeans {
 		}
 	}
 
-	@Override
-	public void save(File f) throws Exception {
-		Serializer serializer = new Persister();
-		serializer.write(this, f);
-	}
-
-	@Override
-	public void loadDocument(File f) throws IOException, Exception {
-		Serializer serializer = new Persister();
-		Player temp= serializer.read(Player.class, f);
-		this.setId(temp.getId());
-		this.setColor(temp.getColor());
-		this.setName(temp.getName());
-		this.setMj(temp.isMj());
-		
-	}
 }
