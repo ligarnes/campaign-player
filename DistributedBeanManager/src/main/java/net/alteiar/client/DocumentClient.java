@@ -11,7 +11,9 @@ import java.rmi.server.UnicastRemoteObject;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
+import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.server.document.DocumentLoader;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.server.document.IDocumentRemoteListener;
@@ -86,7 +88,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		try {
 			if (localFile.exists()) {
 				// load local bean
-				loadDocumentLocal(localFile);
+				DocumentLoader.loadDocumentLocal(localFile);
 			} else {
 				loadDocumentRemote();
 			}
@@ -95,16 +97,6 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	protected void loadDocumentLocal(File f) throws Exception {
-		Serializer serializer = new Persister();
-		bean= serializer.read(BeanEncapsulator.class,f);
-	}
-	
-	protected void SaveDocument(File f) throws Exception {
-			Serializer serializer = new Persister();
-			serializer.write(bean, f);
 	}
 	
 	protected void loadDocumentRemote() throws IOException {
