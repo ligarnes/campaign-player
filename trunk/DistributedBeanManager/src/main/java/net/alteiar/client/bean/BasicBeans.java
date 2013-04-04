@@ -5,7 +5,12 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
 import java.beans.VetoableChangeSupport;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
 import java.io.Serializable;
+
+import org.simpleframework.xml.Element;
 
 import net.alteiar.shared.UniqueID;
 
@@ -17,7 +22,7 @@ public abstract class BasicBeans implements Serializable {
 
 	protected final VetoableChangeSupport vetoableRemoteChangeSupport;
 	protected final PropertyChangeSupport propertyChangeSupport;
-
+	@Element
 	private UniqueID id;
 
 	public BasicBeans() {
@@ -85,4 +90,9 @@ public abstract class BasicBeans implements Serializable {
 			return false;
 		return true;
 	}
+	
+	public abstract void save(File f) throws Exception;
+	public abstract void loadDocument(File f) throws IOException,Exception;
+	
+	
 }
