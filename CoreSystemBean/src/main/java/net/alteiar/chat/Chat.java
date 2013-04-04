@@ -1,13 +1,23 @@
 package net.alteiar.chat;
 
 import java.beans.PropertyVetoException;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.chat.message.ChatObject;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.bean.BasicBeans;
 
+
 public class Chat extends BasicBeans {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_MESSAGES_PROPERTY = "messages";
@@ -16,7 +26,9 @@ public class Chat extends BasicBeans {
 	public static final String METH_ADD_MESSAGE_METHOD = "addMessage";
 
 	// pseudo is transient because it is not shared
+	@Element
 	private transient String pseudo;
+	@ElementList
 	private ArrayList<MessageRemote> messages;
 
 	public Chat() {
@@ -85,5 +97,20 @@ public class Chat extends BasicBeans {
 			// TODO
 			// e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void save(File f) throws Exception {
+		Serializer serializer = new Persister();
+		serializer.write(this, f);
+	}
+
+	@Override
+	public void loadDocument(File f) throws IOException, Exception {
+		Serializer serializer = new Persister();
+		Chat temp= serializer.read(Chat.class, f);
+		this.setId(temp.getId());
+		this.pseudo=temp.getPseudo();
+		this.messages=temp.getMessages();
 	}
 }

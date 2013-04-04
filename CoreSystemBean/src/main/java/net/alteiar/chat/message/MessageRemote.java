@@ -21,20 +21,26 @@ package net.alteiar.chat.message;
 
 import java.io.Serializable;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
 /**
  * @author Cody Stoutenburg
  * 
  */
 public class MessageRemote implements Serializable {
-
+	@Attribute
 	private static final long serialVersionUID = -2669560462857993375L;
 
 	public static final String TEXT_MESSAGE = "text";
 	public static final String SYSTEM_CONNECT_MESSAGE = "system.connect";
 	public static final String SYSTEM_DISCONNECT_MESSAGE = "system.disconnect";
 
+	@Element
 	private final String sender;
+	@Element
 	private final String message;
+	@Element
 	private final String command;
 
 	public MessageRemote(String expediteur, String message, String command) {

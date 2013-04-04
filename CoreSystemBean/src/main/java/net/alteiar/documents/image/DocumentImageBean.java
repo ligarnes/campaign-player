@@ -2,12 +2,20 @@ package net.alteiar.documents.image;
 
 import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
+import java.io.File;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
+
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
 import net.alteiar.CampaignClient;
+import net.alteiar.chat.Chat;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.TransfertImage;
+import net.alteiar.utils.images.SerializableImage;
 
 public class DocumentImageBean extends AuthorizationBean {
 	private static final long serialVersionUID = 1L;
@@ -55,5 +63,22 @@ public class DocumentImageBean extends AuthorizationBean {
 			return null;
 		}
 		return imageBean.getImage().restoreImage();
+	}
+
+	@Override
+	public void save(File f) throws Exception {
+	    ImageIO.write(image.restoreImage(), "png", f);
+	    File ImageIDSave=new File(f.getAbsolutePath()+".xml");
+	    Serializer serializer = new Persister();
+		serializer.write(this, ImageIDSave);
+	}
+
+	@Override
+	public void loadDocument(File f) throws IOException, Exception {
+		image =new SerializableImage(f);
+		File ImageIDSave=new File(f.getAbsolutePath()+".xml");
+	    Serializer serializer = new Persister();
+	    DocumentImageBean temp= serializer.read(DocumentImageBean.class, ImageIDSave);
+	    this.setId(temp.getId());
 	}
 }

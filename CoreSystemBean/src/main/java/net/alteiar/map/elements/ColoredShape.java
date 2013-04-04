@@ -9,19 +9,26 @@ import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.beans.PropertyVetoException;
 
+import net.alteiar.shared.MyColor;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
 public abstract class ColoredShape extends MapElement {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_COLOR_PROPERTY = "color";
 
 	protected static final Integer STROKE_SIZE_LARGE = 4;
 	protected static final Integer STROKE_SIZE_SMALL = 2;
-
-	private Color color;
+	
+	@Element
+	private MyColor color;
 
 	public ColoredShape(Point position, Color color) {
 		super(position);
-		this.color = color;
+		this.color = new MyColor(color);
 	}
 
 	public Color getColor() {
@@ -33,7 +40,7 @@ public abstract class ColoredShape extends MapElement {
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
-			this.color = color;
+			this.color = new MyColor(color);
 			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
 		} catch (PropertyVetoException e) {

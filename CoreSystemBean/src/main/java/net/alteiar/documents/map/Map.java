@@ -5,10 +5,17 @@ import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.AuthorizationBean;
@@ -19,6 +26,7 @@ import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.Scale;
 
 public class Map extends AuthorizationBean {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	private static final String PROP_NAME_PROPERTY = "name";
@@ -32,15 +40,19 @@ public class Map extends AuthorizationBean {
 	public static final String METH_ADD_ELEMENT_METHOD = "addElement";
 	public static final String METH_REMOVE_ELEMENT_METHOD = "removeElement";
 
+	@Element
 	private String name;
+	@Element
 	private Integer width;
+	@Element
 	private Integer height;
-
+	@ElementList
 	private HashSet<UniqueID> elements;
-
+	@Element
 	private UniqueID backgroundId;
+	@Element
 	private UniqueID filterId;
-
+	@Element
 	private Scale scale;
 
 	public Map(String name) {
@@ -259,5 +271,28 @@ public class Map extends AuthorizationBean {
 			// TODO
 			// e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void save(File f) throws Exception {
+		Serializer serializer = new Persister();
+		serializer.write(this, f);
+	}
+
+	@Override
+	public void loadDocument(File f) throws IOException, Exception {
+		Serializer serializer = new Persister();
+		Map temp= serializer.read(Map.class, f);
+		this.setId(temp.getId());
+		this.setOwners(temp.getOwners());
+		this.setPublic(temp.getPublic());
+		this.setUsers(temp.getUsers());
+		this.backgroundId=temp.getBackground();
+		this.elements=temp.getElements();
+		this.filterId=temp.getFilter();
+		this.height=temp.getHeight();
+		this.name=temp.getName();
+		this.scale=temp.getScale();
+		this.width=temp.getWidth();
 	}
 }
