@@ -5,14 +5,23 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.beans.PropertyVetoException;
+import java.io.File;
+import java.io.IOException;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
+import net.alteiar.chat.Chat;
 import net.alteiar.utils.map.element.MapElementSize;
 
 public class CircleElement extends ColoredShape {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_RADIUS_PROPERTY = "radius";
-
+	@Element
 	private MapElementSize radius;
 
 	public CircleElement(Point position, Color color, MapElementSize radius) {
@@ -74,5 +83,24 @@ public class CircleElement extends ColoredShape {
 			// TODO
 			// e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void save(File f) throws Exception {
+		Serializer serializer = new Persister();
+		serializer.write(this, f);
+	}
+
+	@Override
+	public void loadDocument(File f) throws IOException, Exception {
+		Serializer serializer = new Persister();
+		CircleElement temp= serializer.read(CircleElement.class, f);
+		this.setId(temp.getId());
+		this.setMapId(temp.getMapId());
+		this.setAngle(temp.getAngle());
+		this.setColor(temp.getColor());
+		this.setHiddenForPlayer(temp.isHiddenForPlayer());
+		this.setPosition(temp.getPosition());
+		this.radius=temp.getRadius();
 	}
 }

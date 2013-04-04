@@ -3,11 +3,16 @@ package net.alteiar.documents;
 import java.beans.PropertyVetoException;
 import java.util.HashSet;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 
 public abstract class AuthorizationBean extends BasicBeans {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_OWNERS_PROPERTY = "owners";
@@ -19,9 +24,12 @@ public abstract class AuthorizationBean extends BasicBeans {
 	public static final String METH_ADD_USER_METHOD = "addUser";
 	public static final String METH_REMOVE_USER_METHOD = "removeUser";
 
+	@ElementList
 	private HashSet<UniqueID> owners;
+	@ElementList
 	private HashSet<UniqueID> users;
 	// public enable view by every one but not modify
+	@Element
 	private Boolean isPublic;
 
 	public AuthorizationBean() {

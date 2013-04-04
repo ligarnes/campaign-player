@@ -7,24 +7,36 @@ import java.awt.Polygon;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.map.elements.CircleElement;
 
 public class MapFilter extends BasicBeans {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String METH_SHOW_POLYGON_METHOD = "showPolygon";
 	public static final String METH_HIDE_POLYGON_METHOD = "hidePolygon";
-
+	
+	@Element
 	private transient Area hiddenArea;
-	private final Integer width;
-	private final Integer height;
-
-	private final ArrayList<MyPolygonFilter> polygons;
+	@Element
+	private Integer width;
+	@Element
+	private Integer height;
+	@ElementList
+	private ArrayList<MyPolygonFilter> polygons;
 
 	public MapFilter(Integer width, Integer height) {
 		hiddenArea = new Area(new Rectangle2D.Double(0, 0, width, height));
@@ -32,6 +44,34 @@ public class MapFilter extends BasicBeans {
 		polygons = new ArrayList<MapFilter.MyPolygonFilter>();
 		this.width = width;
 		this.height = height;
+	}
+	
+	public MapFilter() {
+		hiddenArea = new Area();
+
+		polygons = new ArrayList<MapFilter.MyPolygonFilter>();
+		this.width = 0;
+		this.height = 0;
+	}
+	
+	private Integer getHeight()
+	{
+		return height;
+	}
+	
+	private Integer getWidth()
+	{
+		return width;
+	}
+	
+	private ArrayList<MyPolygonFilter> getPolygons()
+	{
+		return polygons;
+	}
+	
+	private Area getHiddenArea()
+	{
+		return hiddenArea;
 	}
 
 	public void showPolygon(Polygon polygon) {
@@ -102,15 +142,24 @@ public class MapFilter extends BasicBeans {
 	}
 
 	private class MyPolygonFilter implements Serializable {
+		@Attribute
 		private static final long serialVersionUID = 1L;
 
-		private final Polygon polygon;
-		private final Boolean hide;
+		@Element
+		private Polygon polygon;
+		@Element
+		private Boolean hide;
 
 		public MyPolygonFilter(Polygon polygon, Boolean isHide) {
 			super();
 			this.polygon = polygon;
 			this.hide = isHide;
+		}
+		
+		public MyPolygonFilter() {
+			super();
+			this.polygon = new Polygon();
+			this.hide = false;
 		}
 
 		public Polygon getPolygon() {
@@ -120,5 +169,23 @@ public class MapFilter extends BasicBeans {
 		public Boolean getHide() {
 			return hide;
 		}
+	}
+
+	@Override
+	public void save(File f) throws Exception {
+		Serializer serializer = new Persister();
+		serializer.write(this, f);
+	}
+
+	@Override
+	public void loadDocument(File f) throws IOException, Exception {
+		Serializer serializer = new Persister();
+		MapFilter temp= serializer.read(MapFilter.class, f);
+		this.setId(temp.getId());
+		this.height=temp.getHeight();
+		this.width=temp.getWidth();
+		this.hiddenArea=temp.getHiddenArea();
+		this.polygons=temp.getPolygons();
+		
 	}
 }

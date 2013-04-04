@@ -2,19 +2,32 @@ package net.alteiar.player;
 
 import java.awt.Color;
 import java.beans.PropertyVetoException;
+import java.io.File;
+import java.io.IOException;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.map.elements.RectangleElement;
+import net.alteiar.shared.MyColor;
 
 public class Player extends BasicBeans {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_NAME_PROPERTY = "name";
 	public static final String PROP_MJ_PROPERTY = "mj";
 	public static final String PROP_COLOR_PROPERTY = "color";
 
+	@Element
 	private String name;
+	@Element
 	private Boolean mj;
-	private Color color;
+	@Element
+	private MyColor color;
 
 	public Player() {
 	}
@@ -23,7 +36,7 @@ public class Player extends BasicBeans {
 		super();
 		this.name = name;
 		this.mj = mj;
-		this.color = color;
+		this.color = new MyColor(color);
 	}
 
 	public String getName() {
@@ -71,12 +84,29 @@ public class Player extends BasicBeans {
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
-			this.color = color;
+			this.color = new MyColor(color);
 			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
 		} catch (PropertyVetoException e) {
 			// TODO do nothing, the veto is cause by the framework
 			// e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void save(File f) throws Exception {
+		Serializer serializer = new Persister();
+		serializer.write(this, f);
+	}
+
+	@Override
+	public void loadDocument(File f) throws IOException, Exception {
+		Serializer serializer = new Persister();
+		Player temp= serializer.read(Player.class, f);
+		this.setId(temp.getId());
+		this.setColor(temp.getColor());
+		this.setName(temp.getName());
+		this.setMj(temp.isMj());
+		
 	}
 }

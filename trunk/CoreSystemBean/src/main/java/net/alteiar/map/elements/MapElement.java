@@ -4,6 +4,9 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.PropertyVetoException;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.documents.map.Map;
@@ -11,17 +14,22 @@ import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.Scale;
 
 public abstract class MapElement extends BasicBeans {
+	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_MAP_ID_PROPERTY = "mapId";
 	public static final String PROP_POSITION_PROPERTY = "position";
 	public static final String PROP_ANGLE_PROPERTY = "angle";
 	public static final String PROP_HIDDEN_FOR_PLAYER_PROPERTY = "hiddenForPlayer";
-
+	
+	@Element
 	private UniqueID mapId;
 
+	@Element
 	private Point position;
+	@Element
 	private Double angle;
+	@Element
 	private Boolean hiddenForPlayer;
 
 	public MapElement(Point position) {
