@@ -24,14 +24,10 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.IOException;
 import java.rmi.RemoteException;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import net.alteiar.utils.map.element.MapElementSize;
 
@@ -128,23 +124,4 @@ public class RectangleElement extends ColoredShape {
 		}
 	}
 
-	@Override
-	public void save(File f) throws Exception {
-		Serializer serializer = new Persister();
-		serializer.write(this, f);
-	}
-
-	@Override
-	public void loadDocument(File f) throws IOException, Exception {
-		Serializer serializer = new Persister();
-		RectangleElement temp= serializer.read(RectangleElement.class, f);
-		this.setId(temp.getId());
-		this.setMapId(temp.getMapId());
-		this.setAngle(temp.getAngle());
-		this.setColor(temp.getColor());
-		this.setHiddenForPlayer(temp.isHiddenForPlayer());
-		this.setPosition(temp.getPosition());
-		this.height=temp.getHeight();
-		this.width=temp.getWidth();
-	}
 }

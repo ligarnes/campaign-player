@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
@@ -21,7 +22,7 @@ public class DocumentImageBean extends AuthorizationBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_IMAGE_PROPERTY = "image";
-
+	@Element
 	private TransfertImage image;
 
 	public DocumentImageBean(TransfertImage image) {
@@ -63,22 +64,5 @@ public class DocumentImageBean extends AuthorizationBean {
 			return null;
 		}
 		return imageBean.getImage().restoreImage();
-	}
-
-	@Override
-	public void save(File f) throws Exception {
-	    ImageIO.write(image.restoreImage(), "png", f);
-	    File ImageIDSave=new File(f.getAbsolutePath()+".xml");
-	    Serializer serializer = new Persister();
-		serializer.write(this, ImageIDSave);
-	}
-
-	@Override
-	public void loadDocument(File f) throws IOException, Exception {
-		image =new SerializableImage(f);
-		File ImageIDSave=new File(f.getAbsolutePath()+".xml");
-	    Serializer serializer = new Persister();
-	    DocumentImageBean temp= serializer.read(DocumentImageBean.class, ImageIDSave);
-	    this.setId(temp.getId());
 	}
 }
