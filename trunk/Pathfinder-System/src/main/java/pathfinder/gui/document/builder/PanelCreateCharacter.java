@@ -47,7 +47,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		setLayout(gridBagLayout);
 
 		lblAvatar = new JLabel("");
-		lblAvatar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblAvatar.setBorder(new LineBorder(Color.BLACK, 2));
 		lblAvatar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

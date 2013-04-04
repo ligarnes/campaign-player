@@ -1,14 +1,19 @@
 package net.alteiar.campaign.player.gui.documents;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
@@ -27,7 +32,10 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		dlg.setOkText("Créer");
 		dlg.setCancelText("Annuler");
 		dlg.setLocationRelativeTo(null);
-		dlg.pack();
+		// dlg.pack();
+		dlg.setMaximumSize(new Dimension(600, 450));
+		dlg.setMinimumSize(new Dimension(600, 450));
+		dlg.setPreferredSize(new Dimension(600, 450));
 		dlg.setVisible(true);
 
 		if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {
@@ -46,14 +54,41 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 	private PanelCreateDocument() {
 		super(new BorderLayout());
 
-		panelWest = new JPanel(new GridLayout(getBuilders().size(), 1));
+		panelWest = new JPanel();
+		panelWest.setLayout(new BoxLayout(panelWest, BoxLayout.PAGE_AXIS));
 
 		this.add(panelWest, BorderLayout.WEST);
 
 		builder = getBuilders().get(0);
+
 		panelCenter = new JPanel();
 		panelCenter.add(builder);
 		this.add(panelCenter, BorderLayout.CENTER);
+	}
+
+	private class ElementBuilder extends JPanel {
+		private static final long serialVersionUID = 1L;
+
+		private final JLabel lblTitle;
+
+		public ElementBuilder(String title) {
+			this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+			GridBagLayout gridBagLayout = new GridBagLayout();
+			gridBagLayout.columnWidths = new int[] { 0, 0 };
+			gridBagLayout.rowHeights = new int[] { 0, 0 };
+			gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
+			gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
+			setLayout(gridBagLayout);
+
+			lblTitle = new JLabel(title);
+			lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+			GridBagConstraints gbc_lblTitle = new GridBagConstraints();
+			gbc_lblTitle.fill = GridBagConstraints.BOTH;
+			gbc_lblTitle.gridx = 0;
+			gbc_lblTitle.gridy = 0;
+			add(lblTitle, gbc_lblTitle);
+		}
 	}
 
 	private void refreshElements() {
@@ -66,13 +101,16 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 			maxWidth = Math.max(maxWidth, dim.width);
 			maxHeight = Math.max(maxHeight, dim.height);
 
-			JButton select = new JButton(panel.getDocumentName());
-			select.addActionListener(new ActionListener() {
+			ElementBuilder select = new ElementBuilder(panel.getDocumentName());
+			select.addMouseListener(new MouseAdapter() {
 				@Override
-				public void actionPerformed(ActionEvent arg0) {
+				public void mouseClicked(MouseEvent e) {
 					selectBuilder(panel);
 				}
 			});
+			select.setPreferredSize(new Dimension(80, 80));
+			select.setMaximumSize(new Dimension(80, 80));
+			select.setMinimumSize(new Dimension(80, 80));
 			panelWest.add(select);
 		}
 

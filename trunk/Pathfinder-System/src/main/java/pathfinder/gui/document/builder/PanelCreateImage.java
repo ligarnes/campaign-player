@@ -1,5 +1,6 @@
 package pathfinder.gui.document.builder;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -7,24 +8,22 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
-import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.dialog.UrlOkCancel;
+import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
+import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
+import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.documents.image.DocumentImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
-import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
-import net.alteiar.utils.images.WebImage;
 
 public class PanelCreateImage extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;
@@ -54,7 +53,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		btnLocal.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				selectFile();
+				selectImage(new LocalImageSelector());
 			}
 		});
 		GridBagConstraints gbc_btnLocal = new GridBagConstraints();
@@ -67,7 +66,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		btnInternet.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				selectUrl();
+				selectImage(new WebImageSelector());
 			}
 		});
 		GridBagConstraints gbc_btnInternet = new GridBagConstraints();
@@ -78,15 +77,17 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 
 		JLabel lblApercu = new JLabel("Apercu:");
 		GridBagConstraints gbc_lblApercu = new GridBagConstraints();
+		gbc_lblApercu.anchor = GridBagConstraints.WEST;
 		gbc_lblApercu.insets = new Insets(0, 0, 5, 5);
 		gbc_lblApercu.gridx = 0;
 		gbc_lblApercu.gridy = 1;
 		add(lblApercu, gbc_lblApercu);
 
-		lblPreview = new JLabel("");
+		lblPreview = new JLabel();
 		lblPreview.setPreferredSize(new Dimension(300, 300));
 		lblPreview.setMinimumSize(new Dimension(300, 300));
 		lblPreview.setMaximumSize(new Dimension(300, 300));
+		lblPreview.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		GridBagConstraints gbc_lblPreview = new GridBagConstraints();
 		gbc_lblPreview.insets = new Insets(0, 0, 0, 5);
 		gbc_lblPreview.fill = GridBagConstraints.BOTH;
@@ -96,30 +97,8 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		add(lblPreview, gbc_lblPreview);
 	}
 
-	private void selectUrl() {
-		DialogOkCancel<UrlOkCancel> dialogUrl = new DialogOkCancel<UrlOkCancel>(
-				null, "Choisir une image sur internet", true, new UrlOkCancel());
-
-		dialogUrl.setOkText("Choisir");
-		dialogUrl.setCancelText("Annuler");
-		dialogUrl.setLocationRelativeTo(null);
-		dialogUrl.pack();
-		dialogUrl.setVisible(true);
-
-		if (dialogUrl.getReturnStatus() == DialogOkCancel.RET_OK) {
-			transfertImage = new WebImage(dialogUrl.getMainPanel().getUrl());
-		}
-		revalidateImage();
-	}
-
-	private void selectFile() {
-		File imageFile = StaticDialog.getSelectedImageFile(this);
-		try {
-			transfertImage = new SerializableImage(imageFile);
-		} catch (IOException e) {
-			ExceptionTool.showError(e);
-		}
-
+	private void selectImage(ImageSelectorStrategy selector) {
+		transfertImage = selector.selectImage();
 		revalidateImage();
 	}
 

@@ -102,18 +102,6 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		bean = this.remote.getBean();
 	}
 
-	/*
-	 * @Override public int hashCode() { final int prime = 31; int result = 1;
-	 * result = prime * result + ((bean == null) ? 0 : bean.hashCode()); return
-	 * result; }
-	 * 
-	 * @Override public boolean equals(Object obj) { if (this == obj) return
-	 * true; if (obj == null) return false; if (getClass() != obj.getClass())
-	 * return false; DocumentClient other = (DocumentClient) obj; if (bean ==
-	 * null) { if (other.bean != null) return false; } else if
-	 * (!bean.equals(other.bean)) return false; return true; }
-	 */
-
 	private class DocumentListener extends UnicastRemoteObject implements
 			IDocumentRemoteListener {
 		private static final long serialVersionUID = 1L;

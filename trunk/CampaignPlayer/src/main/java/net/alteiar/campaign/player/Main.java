@@ -81,10 +81,6 @@ public class Main {
 
 			Boolean isServer = dlg.getMainPanel().isServer();
 
-			if (isServer) {
-				net.alteiar.CampaignClient.startServer(address, port);
-			}
-
 			globalProp.setPseudo(name);
 			globalProp.setIsMj(isMj);
 			globalProp.setIpLocal(localAdress);
@@ -95,6 +91,10 @@ public class Main {
 				globalProp.save();
 			} catch (IOException ex) {
 				ExceptionTool.showError(ex);
+			}
+
+			if (isServer) {
+				net.alteiar.CampaignClient.startServer(address, port);
 			}
 
 			CampaignClient.connect(localAdress, address, port, "campaign path",

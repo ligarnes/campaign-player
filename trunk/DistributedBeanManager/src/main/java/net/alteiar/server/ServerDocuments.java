@@ -53,14 +53,17 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 
 	public static ServerDocuments startServer(String addressIp, String port)
 			throws RemoteException, MalformedURLException, NotBoundException {
+
+		LoggerConfig.SERVER_LOGGER.log(Level.INFO, "start server at ip: "
+				+ addressIp + ", port: " + port);
+
 		ServerDocuments server = new ServerDocuments();
 		RmiRegistryProxy
 				.startRmiRegistryProxy(addressIp, Integer.valueOf(port));
 
-		// Create chat once
-
-		LoggerConfig.SERVER_LOGGER.log(Level.INFO, "server adress = //"
-				+ addressIp + ":" + port + "/" + CAMPAIGN_MANAGER);
+		LoggerConfig.SERVER_LOGGER.log(Level.INFO,
+				"create an object at adress = //" + addressIp + ":" + port
+						+ "/" + CAMPAIGN_MANAGER);
 
 		// Bind the server in the rmi registry
 		RmiRegistry.rebind("//" + addressIp + ":" + port + "/"

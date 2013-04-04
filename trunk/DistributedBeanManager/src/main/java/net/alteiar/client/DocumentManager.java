@@ -25,10 +25,13 @@ public class DocumentManager {
 
 	public static DocumentManager connect(String localAddress,
 			String serverAddress, String port, String campaignPath,
-			String name, Boolean isMj) throws RemoteException,
+			String name, Boolean isGm) throws RemoteException,
 			MalformedURLException, NotBoundException {
-		DocumentManager documentManager = null;
+		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
+				+ localAddress + " to " + serverAddress + " at " + port
+				+ " with pseudo " + name + ", is Game Master: " + isGm);
 
+		DocumentManager documentManager = null;
 		IServerDocument campaign = null;
 
 		Remote remoteObject;
@@ -38,8 +41,8 @@ public class DocumentManager {
 
 		for (String remoteName : allRemoteNames) {
 			remoteObject = RmiRegistry.lookup(remoteName);
-			LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "RMI REGISTRY: "
-					+ remoteName);
+			LoggerConfig.CLIENT_LOGGER.log(Level.INFO,
+					"Find an rmi registry object: " + remoteName);
 			if (remoteObject instanceof IServerDocument) {
 				campaign = (IServerDocument) remoteObject;
 				documentManager = new DocumentManager(campaign, campaignPath);
