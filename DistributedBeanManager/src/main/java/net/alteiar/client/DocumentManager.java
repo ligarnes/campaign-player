@@ -1,15 +1,25 @@
 package net.alteiar.client;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
+
 
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
@@ -67,12 +77,12 @@ public class DocumentManager {
 
 	private final HashSet<DocumentManagerListener> listeners;
 	private final HashMap<UniqueID, DocumentClient> documents;
-
+	private final String campaignPath;
 	public DocumentManager(IServerDocument server, String localPath)
 			throws RemoteException {
+		campaignPath=localPath;
 		documents = new HashMap<UniqueID, DocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
-
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
 	}
@@ -135,15 +145,24 @@ public class DocumentManager {
 		}
 	}
 
-	public void createDocument(DocumentPath path, BeanEncapsulator bean) {
+	public void createDocument(DocumentPath path, BeanEncapsulator bean, Boolean perma) {
 		// long guid = -1L;
 		try {
-			this.server.createDocument(path, bean);
+			this.server.createDocument(path, bean,perma);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// return guid;
+	}
+	
+	public ArrayList<DocumentClient> getDocuments() {
+		System.out.println("tailleMap="+this.documents.size());
+		return new ArrayList<DocumentClient>(documents.values());
+	}
+	
+	public String getCampaignPath() {
+		return campaignPath;
 	}
 
 	public void removeDocument(BasicBeans bean) {
@@ -185,6 +204,7 @@ public class DocumentManager {
 		}
 		return copy;
 	}
+	
 
 	private class CampaignClientObserver extends UnicastRemoteObject implements
 			ServerListener {

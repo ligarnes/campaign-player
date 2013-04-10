@@ -20,6 +20,10 @@ public interface IDocumentRemote extends Remote {
 	void closeDocument() throws RemoteException;
 
 	BeanEncapsulator getBean() throws RemoteException;
+	
+	Boolean isPerma() throws RemoteException;
+	
+	void savePerma(DocumentPath path) throws RemoteException;
 
 	public void setBeanValue(String propertyName, Object newValue)
 			throws RemoteException;

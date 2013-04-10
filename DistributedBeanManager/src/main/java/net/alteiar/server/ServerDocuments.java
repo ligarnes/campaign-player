@@ -117,8 +117,8 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 
 	@Override
 	public synchronized void createDocument(DocumentPath path,
-			BeanEncapsulator bean) throws RemoteException {
-		IDocumentRemote remote = new DocumentRemote(path, bean);
+			BeanEncapsulator bean, Boolean perma) throws RemoteException {
+		IDocumentRemote remote = new DocumentRemote(path, bean,perma);
 		UniqueID id = bean.getId();
 		documents.put(id, remote);
 

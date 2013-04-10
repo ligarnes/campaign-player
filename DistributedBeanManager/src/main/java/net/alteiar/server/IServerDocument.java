@@ -38,7 +38,7 @@ public interface IServerDocument extends Remote {
 	void removeServerListener(ServerListener listener) throws RemoteException;
 
 	// Documents
-	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder)
+	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder, Boolean isPerma)
 			throws RemoteException;
 
 	void deleteDocument(UniqueID guid) throws RemoteException;
