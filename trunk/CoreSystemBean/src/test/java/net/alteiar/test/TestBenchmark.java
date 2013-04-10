@@ -41,7 +41,7 @@ public class TestBenchmark {
 					"http://www.alteiar.net/images/cartes/Carte_du_monde.jpg")));
 			UniqueID id = bean.getId();
 
-			CampaignClient.getInstance().addBean(bean);
+			CampaignClient.getInstance().addNotPermaBean(bean);
 			t.end("server sended");
 			bean = CampaignClient.getInstance().getBean(id, time10second);
 			if (bean != null) {
@@ -61,7 +61,7 @@ public class TestBenchmark {
 			 */
 
 			t.start();
-			CampaignClient.getInstance().addBean(
+			CampaignClient.getInstance().addNotPermaBean(
 					new ImageBean(new SerializableImage(new File(
 							"./test/ressources/medium.jpg"))));
 			t.end("transfert sended");
@@ -87,7 +87,7 @@ public class TestBenchmark {
 					"http://www.alteiar.net/MyUpload/large.jpg")));
 			UniqueID id = bean.getId();
 
-			CampaignClient.getInstance().addBean(bean);
+			CampaignClient.getInstance().addNotPermaBean(bean);
 			t.end("server sended");
 			bean = CampaignClient.getInstance().getBean(id, time30second);
 			if (bean != null) {
@@ -108,7 +108,7 @@ public class TestBenchmark {
 			 */
 
 			t.start();
-			CampaignClient.getInstance().addBean(
+			CampaignClient.getInstance().addNotPermaBean(
 					new ImageBean(new SerializableImage(new File(
 							"./test/ressources/large.jpg"))));
 			t.end("transfert sended");

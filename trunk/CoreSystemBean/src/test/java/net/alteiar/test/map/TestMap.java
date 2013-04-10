@@ -242,7 +242,7 @@ public class TestMap extends BasicTest {
 		map.setHeight(newHeight);
 
 		ImageBean imageBean = createBeanImage();
-		CampaignClient.getInstance().addBean(imageBean);
+		CampaignClient.getInstance().addNotPermaBean(imageBean);
 		UniqueID newImage = imageBean.getId();
 
 		map.setBackground(newImage);
@@ -370,7 +370,7 @@ public class TestMap extends BasicTest {
 			filter.hidePolygon(new Polygon(new int[] { 5, 25, 25, 5 },
 					new int[] { 5, 5, 25, 25 }, 4));
 
-			CampaignClient.getInstance().addBean(filter);
+			CampaignClient.getInstance().addNotPermaBean(filter);
 			UniqueID filterId = filter.getId();
 
 			mapFiltered.setFilter(filterId);

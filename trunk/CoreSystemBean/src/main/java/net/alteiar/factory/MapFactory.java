@@ -18,14 +18,14 @@ public class MapFactory {
 			throws IOException {
 		ImageBean background = new ImageBean(new SerializableImage(
 				backgroundImage));
-		CampaignClient.getInstance().addBean(background);
+		CampaignClient.getInstance().addNotPermaBean(background);
 		createMap(name, map, background);
 	}
 
 	public static void createMap(String name, Map map, URL backgroundUrl)
 			throws IOException {
 		ImageBean background = new ImageBean(new WebImage(backgroundUrl));
-		CampaignClient.getInstance().addBean(background);
+		CampaignClient.getInstance().addNotPermaBean(background);
 		createMap(name, map, background);
 	}
 
@@ -39,7 +39,7 @@ public class MapFactory {
 		map.setFilter(filter.getId());
 		map.setBackground(background.getId());
 
-		CampaignClient.getInstance().addBean(filter);
-		CampaignClient.getInstance().addBean(name, map);
+		CampaignClient.getInstance().addNotPermaBean(filter);
+		CampaignClient.getInstance().addNotPermaBean(name, map);
 	}
 }

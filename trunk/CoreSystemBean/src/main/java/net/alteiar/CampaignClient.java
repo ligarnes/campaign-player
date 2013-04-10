@@ -2,11 +2,20 @@ package net.alteiar;
 
 import java.awt.Color;
 import java.beans.Beans;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import net.alteiar.chat.Chat;
@@ -21,6 +30,7 @@ import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
+import net.alteiar.server.document.DocumentLoader;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.shared.UniqueID;
 
@@ -60,7 +70,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		try {
 			server = ServerDocuments.startServer(addressIp, port);
 			server.createDocument(new DocumentPath("", ""),
-					new BeanEncapsulator(new Chat()));
+					new BeanEncapsulator(new Chat()),false);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,7 +120,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		Long connectTimeout30second = 30000L;
 
 		Player current = new Player(name, isMj, Color.BLUE);
-		addBean(current);
+		addNotPermaBean(current);
 		currentPlayer = getBean(current.getId(), connectTimeout30second);
 
 		// The server should already contain a chat
@@ -134,24 +144,59 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
-	public void addBean(AuthorizationBean bean) {
-		addBean("", bean);
+	public void addBean(AuthorizationBean bean,Boolean perma) {
+		addBean("", bean,perma);
 	}
 
-	public void addBean(BasicBeans bean) {
-		addBean("", bean);
+	public void addBean(BasicBeans bean, Boolean perma) {
+		addBean("", bean,perma);
 	}
 
-	public void addBean(String name, AuthorizationBean bean) {
+	public void addBean(String name, AuthorizationBean bean,Boolean perma) {
 		bean.addOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
 
-		manager.createDocument(new DocumentPath("", name),
-				new BeanEncapsulator(bean));
+		manager.createDocument(new DocumentPath(manager.getCampaignPath(), name),
+				new BeanEncapsulator(bean),perma);
 	}
 
-	public void addBean(String name, BasicBeans bean) {
-		manager.createDocument(new DocumentPath("", name),
-				new BeanEncapsulator(bean));
+	public void addBean(String name, BasicBeans bean,Boolean perma) {
+		manager.createDocument(new DocumentPath(manager.getCampaignPath(), name),
+				new BeanEncapsulator(bean),perma);
+		
+	}
+	
+	
+	public void addNotPermaBean(AuthorizationBean bean) {
+		this.addBean(bean, false);
+	}
+
+	public void addNotPermaBean(BasicBeans bean) {
+		this.addBean(bean, false);
+	}
+
+	public void addNotPermaBean(String name, AuthorizationBean bean) {
+		this.addBean(name, bean, false);
+	}
+
+	public void addNotPermaBean(String name, BasicBeans bean) {
+		this.addBean(name, bean, false);
+	}	
+	
+	public void addPermaBean(AuthorizationBean bean) {
+		this.addBean(bean, true);
+	}
+
+	public void addPermaBean(BasicBeans bean) {
+		System.out.println("Dans not perma");
+		this.addBean(bean, true);
+	}
+
+	public void addPermaBean(String name, AuthorizationBean bean) {
+		this.addBean(name, bean, true);
+	}
+
+	public void addPermaBean(String name, BasicBeans bean) {
+		this.addBean(name, bean, true);
 	}
 
 	public void removeBean(BasicBeans bean) {
@@ -319,6 +364,78 @@ public final class CampaignClient implements DocumentManagerListener {
 			notifyBeanRemoved(doc);
 		}
 
+	}
+	
+	
+	public ArrayList<DocumentClient> getDocumentClients()
+	{
+		return manager.getDocuments();
+	
+	}
+	
+	public void saveGame()
+	{
+		try {
+			ArrayList<DocumentClient> docs=manager.getDocuments();
+			System.out.println("ArrayList Size="+docs.size());
+			HashSet<String> list=new HashSet<String>();
+			
+			for(DocumentClient doc:docs)
+			{
+				if(!doc.isPerma())
+				{
+					doc.saveLocal();
+				}else
+				{
+					list.add(doc.getDocumentPath().getCompletePath());
+				}
+			}
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(manager.getCampaignPath()+"/permaList.txt"));
+			oos.writeObject(list);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadGame(String campaignName)
+	{
+		ObjectInputStream ois;
+		try {
+			ois = new ObjectInputStream(new FileInputStream(manager.getCampaignPath()+"/permaList.txt"));
+			HashSet<String> list = (HashSet<String>) ois.readObject();
+			File f=null;
+			for(String path:list)
+			{
+				f=new File(path);
+				addPermaBean(path.substring(path.lastIndexOf("/"), path.length()-1),DocumentLoader.loadBeanLocal(f));
+			}
+			File baseDir=new File(manager.getCampaignPath());
+				if (baseDir.exists()) {
+						File[] contenu	= baseDir.listFiles();
+						for(File dir:contenu) {
+							if(dir.isDirectory())
+							{
+								File[] files= baseDir.listFiles();
+								for(File fi:files) {
+									if(fi.isFile())
+									{
+										addNotPermaBean(DocumentLoader.loadBeanLocal(f));
+									}
+								}
+							}
+						}
+					}
+		} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
 	}
 
 	// /////////////// LISTENERS METHODS /////////////////

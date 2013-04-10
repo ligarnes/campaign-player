@@ -12,7 +12,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestChat.class, TestPlayer.class, TestImageUtils.class,
+@SuiteClasses({ /*TestChat.class,*/ TestPlayer.class/*, TestImageUtils.class,
 		TestMap.class, TestMapElement.class, TestNoise.class,
 		TestAuthorizableBasicBeans.class, TestUniqueId.class,
 /* TestBenchmark.class */})
@@ -36,6 +36,7 @@ public class AllTests {
 
 	@AfterClass
 	public static void tearDown() {
+		CampaignClient.getInstance().saveGame();
 		System.out.println("tearing down");
 	}
 }

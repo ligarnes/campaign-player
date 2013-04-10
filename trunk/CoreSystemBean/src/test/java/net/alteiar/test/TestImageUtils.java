@@ -75,4 +75,5 @@ public class TestImageUtils extends BasicTest {
 			fail("fail to resize image");
 		}
 	}
+	
 }

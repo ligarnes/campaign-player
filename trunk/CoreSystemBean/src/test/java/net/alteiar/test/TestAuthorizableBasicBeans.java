@@ -27,7 +27,7 @@ public class TestAuthorizableBasicBeans extends BasicTest {
 	public void testAuthorizableBasicBeans() {
 		DocumentImageBean autorizableBean = new DocumentImageBean();
 
-		CampaignClient.getInstance().addBean(autorizableBean);
+		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
 
 		DocumentImageBean bean = CampaignClient.getInstance().getBean(
 				autorizableBean.getId(), 200);
@@ -91,7 +91,7 @@ public class TestAuthorizableBasicBeans extends BasicTest {
 
 		DocumentImageBean autorizableBean = new DocumentImageBean();
 
-		CampaignClient.getInstance().addBean(autorizableBean);
+		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
 
 		DocumentImageBean bean = CampaignClient.getInstance().getBean(
 				autorizableBean.getId(), 200);
