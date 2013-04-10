@@ -4,9 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
+import java.util.Collection;
+import java.util.HashSet;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
+import net.alteiar.client.DocumentClient;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.player.Player;
 
@@ -16,7 +19,7 @@ public class TestPlayer extends BasicTest {
 	@Test
 	public void testCompareDocument() {
 		Player current = CampaignClient.getInstance().getCurrentPlayer();
-
+		
 		assertTrue("Documents should be equals", current.equals(current));
 		assertTrue("Documents should be equals", !current.equals(null));
 
@@ -50,7 +53,7 @@ public class TestPlayer extends BasicTest {
 		Player current = CampaignClient.getInstance().getCurrentPlayer();
 		assertEquals("player name should be same", AllTests.getPlayerName(),
 				current.getName());
-
+		
 		String targetName = "test-new-name";
 		current.setName(targetName);
 		sleep(10);
@@ -70,5 +73,11 @@ public class TestPlayer extends BasicTest {
 		current.setMj(!current.isMj());
 		current.setName(AllTests.getPlayerName());
 		sleep(5);
+	}
+
+	@Test
+	public void testDocument() {
+		
+		
 	}
 }
