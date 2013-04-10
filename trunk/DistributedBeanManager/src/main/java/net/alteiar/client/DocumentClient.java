@@ -8,10 +8,6 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
-
-import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.server.document.DocumentLoader;
 import net.alteiar.server.document.DocumentPath;
@@ -27,7 +23,8 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 
 	private BeanEncapsulator bean;
 	private DocumentPath path;
-
+	private Boolean perma=false; 
+	
 	public DocumentClient(IDocumentRemote remote) throws RemoteException {
 		this.remote = remote;
 	}
@@ -99,10 +96,38 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 	}
 	
-	protected void loadDocumentRemote() throws IOException {
+	protected void loadDocumentRemote() throws Exception {
 		bean = this.remote.getBean();
+		if(this.remote.isPerma())
+		{
+			this.savePerma(remote.getPath().getName());
+		}
+	}
+	
+	public void saveLocal() throws Exception
+	{
+		System.out.println("bean="+bean.getBean());
+		System.out.println("documentPath="+path);
+		System.out.println("documentPath name="+path.getName());
+		System.out.println("documentPath path="+path.getPath());
+		String path=DocumentLoader.SaveDocument(bean.getBean(),this.path.getPath(),this.path.getName()+bean.getBean().getId().toString()+".xml");
+		this.path.setPath(path);
 	}
 
+	public void savePerma(String name) throws Exception
+	{
+			String path=DocumentLoader.SaveDocument(bean.getBean(),DocumentPath.permaPath,name);
+			this.path.setName(name);
+			this.path.setPath(path);
+			perma=true;
+			
+	}
+	
+	public Boolean isPerma()
+	{
+		return perma;
+	}
+	
 	private class DocumentListener extends UnicastRemoteObject implements
 			IDocumentRemoteListener {
 		private static final long serialVersionUID = 1L;
@@ -115,6 +140,16 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		public void beanValueChanged(String propertyName, Object newValue)
 				throws RemoteException {
 			remoteValueChanged(propertyName, newValue);
+		}
+		
+		public void savePermaListener(String name)
+				throws RemoteException {
+			try {
+				savePerma(name);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		@Override

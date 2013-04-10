@@ -2,15 +2,24 @@ package net.alteiar.server.document;
 
 import java.io.Serializable;
 
+import org.simpleframework.xml.Element;
+
 public class DocumentPath implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private final String name;
-	private final String path;
+	private String name;
+	private String path;
+	
+	static public String permaPath="./ressource/standard_obj/";
 
 	public DocumentPath(String path, String name) {
 		this.path = path;
 		this.name = name;
+	}
+	
+	public DocumentPath() {
+		this.path = null;
+		this.name = null;
 	}
 
 	public String getName() {
@@ -19,6 +28,14 @@ public class DocumentPath implements Serializable {
 
 	public String getPath() {
 		return path;
+	}
+	
+	public void setName(String name) {
+		this.name=name;
+	}
+
+	public void setPath(String path) {
+		this.path=path;
 	}
 
 	public String getCompletePath() {
