@@ -22,11 +22,12 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	private transient IDocumentRemoteListener documentListener;
 
 	private BeanEncapsulator bean;
-	private DocumentPath path;
-	private Boolean perma=false; 
-	
+	private final DocumentPath path;
+	private Boolean perma = false;
+
 	public DocumentClient(IDocumentRemote remote) throws RemoteException {
 		this.remote = remote;
+		this.path = remote.getPath();
 	}
 
 	public void remoteValueChanged(String propertyName, Object newValue) {
@@ -78,12 +79,12 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 			e.printStackTrace();
 		}
 
-		// localPath = the local scenario directory
-		// path = localPath + getDocumentPath().getCompletePath();
-
 		File localFile = new File(documentPath.getCompletePath());
 		try {
 			if (localFile.exists()) {
+				System.out.println("complete Path: "
+						+ documentPath.getCompletePath() + " - "
+						+ this.remote.getBean().getBean().getClass());
 				// load local bean
 				DocumentLoader.loadDocumentLocal(localFile);
 			} else {
@@ -95,39 +96,37 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void loadDocumentRemote() throws Exception {
 		bean = this.remote.getBean();
-		if(this.remote.isPerma())
-		{
+		if (this.remote.isPerma()) {
 			this.savePerma(remote.getPath().getName());
 		}
 	}
-	
-	public void saveLocal() throws Exception
-	{
-		System.out.println("bean="+bean.getBean());
-		System.out.println("documentPath="+path);
-		System.out.println("documentPath name="+path.getName());
-		System.out.println("documentPath path="+path.getPath());
-		String path=DocumentLoader.SaveDocument(bean.getBean(),this.path.getPath(),this.path.getName()+bean.getBean().getId().toString()+".xml");
-		this.path.setPath(path);
+
+	public void saveLocal() throws Exception {
+		System.out.println("bean=" + bean.getBean());
+		System.out.println("documentPath=" + path);
+		System.out.println("documentPath name=" + path.getName());
+		System.out.println("documentPath path=" + path.getPath());
+		File path = DocumentLoader.SaveDocument(bean.getBean(),
+				this.path.getPath(), this.path.getName()
+				/* + bean.getBean().getId().toString() */+ ".xml");
+		// this.path.setPath(path.get);
 	}
 
-	public void savePerma(String name) throws Exception
-	{
-			String path=DocumentLoader.SaveDocument(bean.getBean(),DocumentPath.permaPath,name);
-			this.path.setName(name);
-			this.path.setPath(path);
-			perma=true;
-			
+	public void savePerma(String name) throws Exception {
+		File path = DocumentLoader.SaveDocument(bean.getBean(),
+				DocumentPath.permaPath, name);
+		this.path.setName(name);
+		// this.path.setPath(path);
+		perma = true;
 	}
-	
-	public Boolean isPerma()
-	{
+
+	public Boolean isPerma() {
 		return perma;
 	}
-	
+
 	private class DocumentListener extends UnicastRemoteObject implements
 			IDocumentRemoteListener {
 		private static final long serialVersionUID = 1L;
@@ -141,9 +140,9 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 				throws RemoteException {
 			remoteValueChanged(propertyName, newValue);
 		}
-		
-		public void savePermaListener(String name)
-				throws RemoteException {
+
+		@Override
+		public void savePermaListener(String name) throws RemoteException {
 			try {
 				savePerma(name);
 			} catch (Exception e) {
