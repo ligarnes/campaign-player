@@ -40,6 +40,6 @@ public class MapFactory {
 		map.setBackground(background.getId());
 
 		CampaignClient.getInstance().addNotPermaBean(filter);
-		CampaignClient.getInstance().addNotPermaBean(name, map);
+		CampaignClient.getInstance().addNotPermaBean(map);
 	}
 }

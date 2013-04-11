@@ -2,21 +2,37 @@ package net.alteiar.server.document;
 
 import java.io.Serializable;
 
-import org.simpleframework.xml.Element;
-
 public class DocumentPath implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private String path;
-	
-	static public String permaPath="./ressource/standard_obj/";
+
+	public static String INVALID_FILE_CHARACTER_REPLACEMENT = "---";
+	public static String permaPath = "./ressource/standard_obj/";
+
+	private static String validateFileName(String name) {
+		String validFileName = name;
+
+		validFileName = validFileName.replaceAll(":",
+				INVALID_FILE_CHARACTER_REPLACEMENT);
+		validFileName = validFileName.replaceAll("<",
+				INVALID_FILE_CHARACTER_REPLACEMENT);
+		validFileName = validFileName.replaceAll(">",
+				INVALID_FILE_CHARACTER_REPLACEMENT);
+
+		return validFileName;
+	}
 
 	public DocumentPath(String path, String name) {
 		this.path = path;
-		this.name = name;
+
+		this.name = validateFileName(name);
+
+		System.out.println("new path: " + getCompletePath() + " | " + path
+				+ " | " + name);
 	}
-	
+
 	public DocumentPath() {
 		this.path = null;
 		this.name = null;
@@ -29,13 +45,13 @@ public class DocumentPath implements Serializable {
 	public String getPath() {
 		return path;
 	}
-	
+
 	public void setName(String name) {
-		this.name=name;
+		this.name = validateFileName(name);
 	}
 
 	public void setPath(String path) {
-		this.path=path;
+		this.path = path;
 	}
 
 	public String getCompletePath() {

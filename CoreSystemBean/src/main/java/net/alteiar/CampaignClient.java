@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.beans.Beans;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -13,7 +12,6 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,12 +63,14 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
-	public static void startServer(String addressIp, String port) {
+	public static void startServer(String addressIp, String port, String path) {
 		ServerDocuments server;
 		try {
 			server = ServerDocuments.startServer(addressIp, port);
-			server.createDocument(new DocumentPath("", ""),
-					new BeanEncapsulator(new Chat()),false);
+
+			Chat chat = new Chat();
+			server.createDocument(new DocumentPath(path, chat.getId()
+					.toString()), new BeanEncapsulator(chat), false);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -144,28 +144,20 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
-	public void addBean(AuthorizationBean bean,Boolean perma) {
-		addBean("", bean,perma);
+	public void addBean(AuthorizationBean bean, Boolean perma) {
+		bean.addOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
+
+		// replace name by guid, we are sure of the unicity
+		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
+				.getId().toString()), new BeanEncapsulator(bean), perma);
 	}
 
 	public void addBean(BasicBeans bean, Boolean perma) {
-		addBean("", bean,perma);
+		// replace name by guid, we are sure of the unicity
+		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
+				.getId().toString()), new BeanEncapsulator(bean), perma);
 	}
 
-	public void addBean(String name, AuthorizationBean bean,Boolean perma) {
-		bean.addOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
-
-		manager.createDocument(new DocumentPath(manager.getCampaignPath(), name),
-				new BeanEncapsulator(bean),perma);
-	}
-
-	public void addBean(String name, BasicBeans bean,Boolean perma) {
-		manager.createDocument(new DocumentPath(manager.getCampaignPath(), name),
-				new BeanEncapsulator(bean),perma);
-		
-	}
-	
-	
 	public void addNotPermaBean(AuthorizationBean bean) {
 		this.addBean(bean, false);
 	}
@@ -174,14 +166,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		this.addBean(bean, false);
 	}
 
-	public void addNotPermaBean(String name, AuthorizationBean bean) {
-		this.addBean(name, bean, false);
-	}
-
-	public void addNotPermaBean(String name, BasicBeans bean) {
-		this.addBean(name, bean, false);
-	}	
-	
 	public void addPermaBean(AuthorizationBean bean) {
 		this.addBean(bean, true);
 	}
@@ -189,14 +173,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	public void addPermaBean(BasicBeans bean) {
 		System.out.println("Dans not perma");
 		this.addBean(bean, true);
-	}
-
-	public void addPermaBean(String name, AuthorizationBean bean) {
-		this.addBean(name, bean, true);
-	}
-
-	public void addPermaBean(String name, BasicBeans bean) {
-		this.addBean(name, bean, true);
 	}
 
 	public void removeBean(BasicBeans bean) {
@@ -365,77 +341,74 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 
 	}
-	
-	
-	public ArrayList<DocumentClient> getDocumentClients()
-	{
-		return manager.getDocuments();
-	
-	}
-	
-	public void saveGame()
-	{
+
+	public void saveGame() {
+		ObjectOutputStream oos = null;
 		try {
-			ArrayList<DocumentClient> docs=manager.getDocuments();
-			System.out.println("ArrayList Size="+docs.size());
-			HashSet<String> list=new HashSet<String>();
-			
-			for(DocumentClient doc:docs)
-			{
-				if(!doc.isPerma())
-				{
+			ArrayList<DocumentClient> docs = manager.getDocuments();
+			System.out.println("ArrayList Size=" + docs.size());
+			HashSet<String> list = new HashSet<String>();
+
+			for (DocumentClient doc : docs) {
+				if (!doc.isPerma()) {
 					doc.saveLocal();
-				}else
-				{
+				} else {
 					list.add(doc.getDocumentPath().getCompletePath());
 				}
 			}
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(manager.getCampaignPath()+"/permaList.txt"));
+			oos = new ObjectOutputStream(new FileOutputStream(
+					manager.getCampaignPath() + "/permaList.txt"));
 			oos.writeObject(list);
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (oos != null) {
+				try {
+					oos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
+
 	}
-	
-	public void loadGame(String campaignName)
-	{
+
+	// TODO test
+	private void loadGame(String campaignName) {
 		ObjectInputStream ois;
 		try {
-			ois = new ObjectInputStream(new FileInputStream(manager.getCampaignPath()+"/permaList.txt"));
+			ois = new ObjectInputStream(new FileInputStream(
+					manager.getCampaignPath() + "/permaList.txt"));
 			HashSet<String> list = (HashSet<String>) ois.readObject();
-			File f=null;
-			for(String path:list)
-			{
-				f=new File(path);
-				addPermaBean(path.substring(path.lastIndexOf("/"), path.length()-1),DocumentLoader.loadBeanLocal(f));
+			File f = null;
+			for (String path : list) {
+				f = new File(path);
+				addPermaBean(DocumentLoader.loadBeanLocal(f));
 			}
-			File baseDir=new File(manager.getCampaignPath());
-				if (baseDir.exists()) {
-						File[] contenu	= baseDir.listFiles();
-						for(File dir:contenu) {
-							if(dir.isDirectory())
-							{
-								File[] files= baseDir.listFiles();
-								for(File fi:files) {
-									if(fi.isFile())
-									{
-										addNotPermaBean(DocumentLoader.loadBeanLocal(f));
-									}
-								}
+			File baseDir = new File(manager.getCampaignPath());
+			if (baseDir.exists()) {
+				File[] contenu = baseDir.listFiles();
+				for (File dir : contenu) {
+					if (dir.isDirectory()) {
+						File[] files = baseDir.listFiles();
+						for (File fi : files) {
+							if (fi.isFile()) {
+								addNotPermaBean(DocumentLoader.loadBeanLocal(f));
 							}
 						}
 					}
+				}
+			}
 		} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		
+
 	}
 
 	// /////////////// LISTENERS METHODS /////////////////
