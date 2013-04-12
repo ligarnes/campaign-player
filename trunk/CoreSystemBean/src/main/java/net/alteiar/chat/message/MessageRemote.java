@@ -37,11 +37,16 @@ public class MessageRemote implements Serializable {
 	public static final String SYSTEM_DISCONNECT_MESSAGE = "system.disconnect";
 
 	@Element
-	private final String sender;
+	private String sender;
 	@Element
-	private final String message;
+	private String message;
 	@Element
-	private final String command;
+	private String command;
+
+	// Needed for save/load api
+	protected MessageRemote() {
+
+	}
 
 	public MessageRemote(String expediteur, String message, String command) {
 		super();
@@ -55,12 +60,24 @@ public class MessageRemote implements Serializable {
 		return sender;
 	}
 
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+
 	public String getMessage() {
 		return message;
 	}
 
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public String getCommand() {
 		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
 	}
 
 	@Override
@@ -68,8 +85,7 @@ public class MessageRemote implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((command == null) ? 0 : command.hashCode());
-		result = prime * result
-				+ ((sender == null) ? 0 : sender.hashCode());
+		result = prime * result + ((sender == null) ? 0 : sender.hashCode());
 		result = prime * result + ((message == null) ? 0 : message.hashCode());
 		return result;
 	}

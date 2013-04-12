@@ -39,18 +39,40 @@ public final class CampaignClient implements DocumentManagerListener {
 		return INSTANCE;
 	}
 
-	public static synchronized void connect(String localAdress,
-			String serverAdress, String port, String path, String pseudo,
-			Boolean isMj) {
+	public static synchronized void loadCampaignServer(String localAdress,
+			String serverAdress, String port, String campaignPath) {
+		startServer(serverAdress, port, campaignPath);
+		connectToServer(localAdress, serverAdress, port, campaignPath);
+		CampaignClient.getInstance().loadGame(campaignPath);
+	}
+
+	public static synchronized void startNewCampaignServer(String localAdress,
+			String serverAdress, String port, String campaignPath) {
+
+		ServerDocuments server = startServer(serverAdress, port, campaignPath);
+		Chat chat = new Chat();
+		try {
+			server.createDocument(new DocumentPath(campaignPath, chat),
+					new BeanEncapsulator(chat), false);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
+		connectToServer(localAdress, serverAdress, port, campaignPath);
+	}
+
+	public static synchronized void connectToServer(String localAdress,
+			String serverAdress, String port, String path) {
 		if (INSTANCE != null) {
 			return;
 		}
 
 		DocumentManager manager = null;
 		try {
+			// TODO do not care about perma path for the moment
 			manager = DocumentManager.connect(localAdress, serverAdress, port,
-					path, pseudo, isMj);
-			INSTANCE = new CampaignClient(manager, pseudo, isMj);
+					path, "");
+			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,14 +85,11 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
-	public static void startServer(String addressIp, String port, String path) {
-		ServerDocuments server;
+	private static synchronized ServerDocuments startServer(String addressIp,
+			String port, String path) {
+		ServerDocuments server = null;
 		try {
 			server = ServerDocuments.startServer(addressIp, port);
-
-			Chat chat = new Chat();
-			server.createDocument(new DocumentPath(path, chat.getId()
-					.toString()), new BeanEncapsulator(chat), false);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,9 +100,10 @@ public final class CampaignClient implements DocumentManagerListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return server;
 	}
 
-	private final Player currentPlayer;
+	private Player currentPlayer;
 	private final ArrayList<Player> players;
 
 	private final ArrayList<CharacterBean> characters;
@@ -99,7 +119,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final ArrayList<CampaignListener> listeners;
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 
-	private CampaignClient(DocumentManager manager, String name, Boolean isMj) {
+	private CampaignClient(DocumentManager manager) {
 		this.manager = manager;
 		this.manager.addDocumentManagerClient(this);
 
@@ -116,19 +136,33 @@ public final class CampaignClient implements DocumentManagerListener {
 		// Load all existing documents
 		this.manager.loadDocuments();
 
-		// create current player
-		Long connectTimeout30second = 30000L;
+	}
 
-		Player current = new Player(name, isMj, Color.BLUE);
-		addNotPermaBean(current);
-		currentPlayer = getBean(current.getId(), connectTimeout30second);
+	public void createPlayer(String name, Boolean isMj) {
+		if (currentPlayer == null) {
+			// create current player
+			Long connectTimeout30second = 30000L;
 
-		// The server should already contain a chat
-		if (chat != null) {
-			chat.setPseudo(currentPlayer.getName());
-			chat.talk(currentPlayer.getName(),
-					MessageRemote.SYSTEM_CONNECT_MESSAGE);
+			Player current = new Player(name, isMj, Color.BLUE);
+			addNotPermaBean(current);
+			currentPlayer = getBean(current.getId(), connectTimeout30second);
+
+			// The server should already contain a chat
+			if (chat != null) {
+				chat.setPseudo(currentPlayer.getName());
+				chat.talk(currentPlayer.getName(),
+						MessageRemote.SYSTEM_CONNECT_MESSAGE);
+			}
 		}
+	}
+
+	public Boolean selectPlayer(Player player) {
+		Boolean select = false;
+		if (currentPlayer == null && players.contains(player)) {
+			this.currentPlayer = player;
+			select = true;
+		}
+		return select;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -150,6 +184,14 @@ public final class CampaignClient implements DocumentManagerListener {
 		// replace name by guid, we are sure of the unicity
 		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
 				.getId().toString()), new BeanEncapsulator(bean), perma);
+	}
+
+	public void addBean(BasicBeans bean) {
+		addBean(bean, false);
+	}
+
+	public void addBean(AuthorizationBean bean) {
+		addBean(bean, false);
 	}
 
 	public void addBean(BasicBeans bean, Boolean perma) {
@@ -346,7 +388,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		ObjectOutputStream oos = null;
 		try {
 			ArrayList<DocumentClient> docs = manager.getDocuments();
-			System.out.println("ArrayList Size=" + docs.size());
 			HashSet<String> list = new HashSet<String>();
 
 			for (DocumentClient doc : docs) {
@@ -375,27 +416,24 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
-	// TODO test
-	private void loadGame(String campaignName) {
+	public void loadGame(String campaignName) {
 		ObjectInputStream ois;
 		try {
 			ois = new ObjectInputStream(new FileInputStream(
 					manager.getCampaignPath() + "/permaList.txt"));
 			HashSet<String> list = (HashSet<String>) ois.readObject();
-			File f = null;
 			for (String path : list) {
-				f = new File(path);
+				File f = new File(path);
 				addPermaBean(DocumentLoader.loadBeanLocal(f));
 			}
 			File baseDir = new File(manager.getCampaignPath());
 			if (baseDir.exists()) {
-				File[] contenu = baseDir.listFiles();
-				for (File dir : contenu) {
+				for (File dir : baseDir.listFiles()) {
 					if (dir.isDirectory()) {
-						File[] files = baseDir.listFiles();
-						for (File fi : files) {
+						for (File fi : dir.listFiles()) {
 							if (fi.isFile()) {
-								addNotPermaBean(DocumentLoader.loadBeanLocal(f));
+								addNotPermaBean(DocumentLoader
+										.loadBeanLocal(fi));
 							}
 						}
 					}

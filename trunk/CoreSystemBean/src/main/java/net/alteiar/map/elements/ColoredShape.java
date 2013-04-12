@@ -11,18 +11,16 @@ import java.beans.PropertyVetoException;
 
 import net.alteiar.shared.MyColor;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
 public abstract class ColoredShape extends MapElement {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_COLOR_PROPERTY = "color";
 
 	protected static final Integer STROKE_SIZE_LARGE = 4;
 	protected static final Integer STROKE_SIZE_SMALL = 2;
-	
+
 	@Element
 	private MyColor color;
 

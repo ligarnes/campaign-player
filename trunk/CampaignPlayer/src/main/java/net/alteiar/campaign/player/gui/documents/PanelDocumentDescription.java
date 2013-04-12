@@ -61,7 +61,7 @@ public class PanelDocumentDescription extends JPanel {
 		gbc_lblAvatar.gridy = 0;
 		add(lblAvatar, gbc_lblAvatar);
 
-		JLabel lblName = new JLabel(bean.toString());
+		JLabel lblName = new JLabel(bean.getDocumentName());
 		lblName.setForeground(UiHelper.TEXT_COLOR);
 
 		lblName.setFont(UiHelper.FONT);

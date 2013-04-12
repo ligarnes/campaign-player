@@ -41,14 +41,14 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 
 		// Add existing battles
 		for (Battle battle : CampaignClient.getInstance().getBattles()) {
-			this.addTab(battle.getName(), new PanelGeneraBattle(battle));
+			this.addTab(battle.getDocumentName(), new PanelGeneraBattle(battle));
 		}
 	}
 
 	private class CampaignListener extends CampaignAdapter {
 		@Override
 		public void battleAdded(Battle battle) {
-			addTab(battle.getName(), new PanelGeneraBattle(battle));
+			addTab(battle.getDocumentName(), new PanelGeneraBattle(battle));
 		}
 
 		@Override
@@ -76,7 +76,7 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 	private Battle findBattleFromName(String name) {
 		Battle finded = null;
 		for (Battle battle : CampaignClient.getInstance().getBattles()) {
-			if (battle.getName().equals(name)) {
+			if (battle.getDocumentName().equals(name)) {
 				finded = battle;
 				break;
 			}
@@ -86,7 +86,7 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 
 	private int indexOf(Battle battle) {
 		int idx = -1;
-		String battleName = battle.getName();
+		String battleName = battle.getDocumentName();
 		for (int i = 0; i < this.getTabCount(); ++i) {
 			if (battleName.equals(this.getTitleAt(i))) {
 				idx = i;

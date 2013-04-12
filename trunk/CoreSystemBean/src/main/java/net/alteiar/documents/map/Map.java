@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.image.ImageBean;
@@ -22,11 +18,12 @@ import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.Scale;
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+
 public class Map extends AuthorizationBean {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
-	private static final String PROP_NAME_PROPERTY = "name";
 	private static final String PROP_WIDTH_PROPERTY = "width";
 	private static final String PROP_HEIGHT_PROPERTY = "height";
 	private static final String PROP_BACKGROUND_PROPERTY = "background";
@@ -37,8 +34,6 @@ public class Map extends AuthorizationBean {
 	public static final String METH_ADD_ELEMENT_METHOD = "addElement";
 	public static final String METH_REMOVE_ELEMENT_METHOD = "removeElement";
 
-	@Element
-	private String name;
 	@Element
 	private Integer width;
 	@Element
@@ -52,9 +47,12 @@ public class Map extends AuthorizationBean {
 	@Element
 	private Scale scale;
 
+	protected Map() {
+
+	}
+
 	public Map(String name) {
-		super();
-		this.name = name;
+		super(name);
 		elements = new HashSet<UniqueID>();
 		scale = new Scale(70, 1.5);
 	}
@@ -109,24 +107,6 @@ public class Map extends AuthorizationBean {
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		String oldValue = this.name;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_NAME_PROPERTY,
-					oldValue, name);
-			this.name = name;
-			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
-					oldValue, name);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
-		}
-	}
-
 	public Integer getWidth() {
 		return this.width;
 	}

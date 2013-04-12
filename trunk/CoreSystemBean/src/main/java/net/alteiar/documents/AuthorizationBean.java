@@ -3,18 +3,19 @@ package net.alteiar.documents;
 import java.beans.PropertyVetoException;
 import java.util.HashSet;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 public abstract class AuthorizationBean extends BasicBeans {
 	@Attribute
 	private static final long serialVersionUID = 1L;
 
+	public static final String PROP_NAME_PROPERTY = "name";
 	public static final String PROP_OWNERS_PROPERTY = "owners";
 	public static final String PROP_USERS_PROPERTY = "users";
 	public static final String PROP_PUBLIC_PROPERTY = "public";
@@ -24,6 +25,9 @@ public abstract class AuthorizationBean extends BasicBeans {
 	public static final String METH_ADD_USER_METHOD = "addUser";
 	public static final String METH_REMOVE_USER_METHOD = "removeUser";
 
+	@Element
+	private String documentName;
+
 	@ElementList
 	private HashSet<UniqueID> owners;
 	@ElementList
@@ -32,11 +36,38 @@ public abstract class AuthorizationBean extends BasicBeans {
 	@Element
 	private Boolean isPublic;
 
-	public AuthorizationBean() {
+	protected AuthorizationBean() {
 		super();
+		documentName = getId().toString();
 		owners = new HashSet<UniqueID>();
 		users = new HashSet<UniqueID>();
 		isPublic = false;
+	}
+
+	public AuthorizationBean(String name) {
+		super();
+		documentName = name;
+		owners = new HashSet<UniqueID>();
+		users = new HashSet<UniqueID>();
+		isPublic = false;
+	}
+
+	public String getDocumentName() {
+		return documentName;
+	}
+
+	public void setDocumentName(String documentName) {
+		String oldDocumentName = documentName;
+		try {
+			vetoableRemoteChangeSupport.fireVetoableChange(PROP_NAME_PROPERTY,
+					oldDocumentName, documentName);
+			this.documentName = documentName;
+			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
+					oldDocumentName, documentName);
+		} catch (PropertyVetoException e) {
+			// TODO Remote refuse
+			// e.printStackTrace();
+		}
 	}
 
 	public HashSet<UniqueID> getOwners() {

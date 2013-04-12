@@ -141,7 +141,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	@Override
 	public void buildDocument() {
 		ImageBean image = new ImageBean(transfertImage);
-		CampaignClient.getInstance().addBean(image);
+		CampaignClient.getInstance().addBean(image, false);
 
 		PathfinderCharacter character = new PathfinderCharacter();
 		character.setName(textFieldName.getText());
@@ -151,7 +151,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		character.setTotalHp(hp);
 		character.setCurrentHp(hp);
 
-		CampaignClient.getInstance().addBean(character);
+		CampaignClient.getInstance().addBean(character, false);
 		transfertImage = null;
 		textFieldName.setText("");
 	}

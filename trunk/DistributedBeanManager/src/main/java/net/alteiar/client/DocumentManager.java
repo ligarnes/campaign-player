@@ -26,11 +26,10 @@ public class DocumentManager {
 
 	public static DocumentManager connect(String localAddress,
 			String serverAddress, String port, String campaignPath,
-			String name, Boolean isGm) throws RemoteException,
-			MalformedURLException, NotBoundException {
+			String permaPath) throws RemoteException, MalformedURLException,
+			NotBoundException {
 		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
-				+ localAddress + " to " + serverAddress + " at " + port
-				+ " with pseudo " + name + ", is Game Master: " + isGm);
+				+ localAddress + " to " + serverAddress + " at " + port);
 
 		DocumentManager documentManager = null;
 		IServerDocument campaign = null;
@@ -46,7 +45,8 @@ public class DocumentManager {
 					"Find an rmi registry object: " + remoteName);
 			if (remoteObject instanceof IServerDocument) {
 				campaign = (IServerDocument) remoteObject;
-				documentManager = new DocumentManager(campaign, campaignPath);
+				documentManager = new DocumentManager(campaign, campaignPath,
+						permaPath);
 				break;
 			}
 		}
@@ -69,10 +69,12 @@ public class DocumentManager {
 	private final HashSet<DocumentManagerListener> listeners;
 	private final HashMap<UniqueID, DocumentClient> documents;
 	private final String campaignPath;
+	private final String permaPath;
 
-	private DocumentManager(IServerDocument server, String localPath)
-			throws RemoteException {
+	private DocumentManager(IServerDocument server, String localPath,
+			String permaPath) throws RemoteException {
 		campaignPath = localPath;
+		this.permaPath = permaPath;
 		documents = new HashMap<UniqueID, DocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
 		this.server = server;
@@ -150,12 +152,15 @@ public class DocumentManager {
 	}
 
 	public ArrayList<DocumentClient> getDocuments() {
-		System.out.println("tailleMap=" + this.documents.size());
 		return new ArrayList<DocumentClient>(documents.values());
 	}
 
 	public String getCampaignPath() {
 		return campaignPath;
+	}
+
+	public String getPermaPath() {
+		return permaPath;
 	}
 
 	public void removeDocument(BasicBeans bean) {

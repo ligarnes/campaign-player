@@ -226,10 +226,11 @@ public class TestMap extends BasicTest {
 			fail("fail to create battle");
 		}
 		Map map = CampaignClient.getInstance().getBean(battleId);
-		assertEquals("Map name have a wrong name", targetName, map.getName());
+		assertEquals("Map name have a wrong name", targetName,
+				map.getDocumentName());
 
 		String newName = "new map name";
-		map.setName(newName);
+		map.setDocumentName(newName);
 
 		Scale newScale = new Scale(map.getScale().getPixels() + 5, map
 				.getScale().getMeter());
@@ -256,7 +257,8 @@ public class TestMap extends BasicTest {
 		map.setElements(set);
 
 		sleep(10);
-		assertEquals("Map name have a wrong name", newName, map.getName());
+		assertEquals("Map name have a wrong name", newName,
+				map.getDocumentName());
 		assertEquals("Map scale should be changed", newScale, map.getScale());
 		assertEquals("Map width should be changed", newWidth, map.getWidth());
 		assertEquals("Map height should be changed", newHeight, map.getHeight());
@@ -264,6 +266,9 @@ public class TestMap extends BasicTest {
 				map.getBackground());
 		assertEquals("Map image should be changed", newFilter, map.getFilter());
 		assertEquals("Map elements should be changed", set, map.getElements());
+
+		// Remove the battle
+		CampaignClient.getInstance().removeBean(map);
 	}
 
 	@Test(timeout = 10000)
@@ -278,7 +283,7 @@ public class TestMap extends BasicTest {
 		}
 		Battle created = CampaignClient.getInstance().getBean(battleId, 300);
 		assertEquals("Battle name have a wrong name", targetName,
-				created.getName());
+				created.getDocumentName());
 
 		// Change turn
 		int previousTurn = created.getTurn();

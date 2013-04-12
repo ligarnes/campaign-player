@@ -3,19 +3,20 @@ package net.alteiar.documents.map.battle;
 import java.awt.Graphics2D;
 import java.beans.PropertyVetoException;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-
 import net.alteiar.documents.map.Map;
 
+import org.simpleframework.xml.Element;
+
 public class Battle extends Map {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	private static final String PROP_TURN_PROPERTY = "turn";
-	
+
 	@Element
 	private Integer turn;
+
+	protected Battle() {
+	}
 
 	public Battle(String name) {
 		super(name);
@@ -61,5 +62,5 @@ public class Battle extends Map {
 			// e.printStackTrace();
 		}
 	}
-	
+
 }
