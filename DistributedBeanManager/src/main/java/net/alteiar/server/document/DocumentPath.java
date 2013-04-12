@@ -2,6 +2,8 @@ package net.alteiar.server.document;
 
 import java.io.Serializable;
 
+import net.alteiar.client.bean.BasicBeans;
+
 public class DocumentPath implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -9,7 +11,6 @@ public class DocumentPath implements Serializable {
 	private String path;
 
 	public static String INVALID_FILE_CHARACTER_REPLACEMENT = "---";
-	public static String permaPath = "./ressource/standard_obj/";
 
 	private static String validateFileName(String name) {
 		String validFileName = name;
@@ -24,13 +25,14 @@ public class DocumentPath implements Serializable {
 		return validFileName;
 	}
 
+	public DocumentPath(String path, BasicBeans bean) {
+		this(path, bean.getId().toString());
+	}
+
 	public DocumentPath(String path, String name) {
 		this.path = path;
 
 		this.name = validateFileName(name);
-
-		System.out.println("new path: " + getCompletePath() + " | " + path
-				+ " | " + name);
 	}
 
 	public DocumentPath() {

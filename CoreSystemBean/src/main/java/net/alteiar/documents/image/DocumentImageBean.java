@@ -2,27 +2,18 @@ package net.alteiar.documents.image;
 
 import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
-import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
-
 import net.alteiar.CampaignClient;
-import net.alteiar.chat.Chat;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.TransfertImage;
-import net.alteiar.utils.images.SerializableImage;
 
 public class DocumentImageBean extends AuthorizationBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_IMAGE_PROPERTY = "image";
-	@Element
+
 	private TransfertImage image;
 
 	public DocumentImageBean(TransfertImage image) {

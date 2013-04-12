@@ -21,8 +21,6 @@ package net.alteiar.utils.map.element;
 
 import java.io.Externalizable;
 
-import org.simpleframework.xml.Attribute;
-
 import net.alteiar.utils.map.Scale;
 
 /**
@@ -31,8 +29,7 @@ import net.alteiar.utils.map.Scale;
  *         this class represente a size that can be convert from scale
  */
 public abstract class MapElementSize implements Externalizable {
-	@Attribute
 	private static final long serialVersionUID = 7942889766046711297L;
-	
+
 	public abstract Double getPixels(Scale scale);
 }

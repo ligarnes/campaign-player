@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class BasicTest {
+public abstract class BasicTest {
 
 	protected Boolean compareImage(BufferedImage img1, BufferedImage img2)
 			throws IOException {

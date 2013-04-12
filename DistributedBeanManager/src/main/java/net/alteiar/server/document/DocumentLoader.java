@@ -1,7 +1,6 @@
 package net.alteiar.server.document;
 
 import java.io.File;
-import java.util.Arrays;
 
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
@@ -20,12 +19,8 @@ public class DocumentLoader {
 	public static BasicBeans loadBeanLocal(File f) throws Exception {
 		String path = f.getPath();
 
-		// String[] chaines = path.split("\\.?\\");
 		String[] chaines = path.split("\\\\");
-		String classe = chaines[chaines.length - 1].substring(1,
-				chaines[chaines.length - 1].length() - 2);
-
-		System.out.println(Arrays.toString(chaines));
+		String classe = chaines[chaines.length - 2];
 
 		Class<? extends BasicBeans> c = (Class<? extends BasicBeans>) Class
 				.forName(classe);
@@ -36,7 +31,7 @@ public class DocumentLoader {
 
 	public static File SaveDocument(BasicBeans objet, String path, String name)
 			throws Exception {
-		File dir = new File(path, objet.getClass().getSimpleName());
+		File dir = new File(path, objet.getClass().getCanonicalName());
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
@@ -44,8 +39,6 @@ public class DocumentLoader {
 		File f = new File(dir, name);
 		// create file only if exist
 		f.createNewFile();
-
-		System.out.println("create file: " + f.getCanonicalPath());
 
 		Serializer serializer = new Persister();
 		serializer.write(objet, f);

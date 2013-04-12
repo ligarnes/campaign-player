@@ -94,12 +94,14 @@ public class Main {
 			}
 
 			if (isServer) {
-				net.alteiar.CampaignClient.startServer(address, port);
+				CampaignClient.startNewCampaignServer(localAdress, address,
+						port, "campaign path");
 			}
-
-			CampaignClient.connect(localAdress, address, port, "campaign path",
-					name, isMj);
-
+			CampaignClient.getInstance().createPlayer(name, isMj);
+			/*
+			 * CampaignClient.connect(localAdress, address, port,
+			 * "campaign path", name, isMj);
+			 */
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {

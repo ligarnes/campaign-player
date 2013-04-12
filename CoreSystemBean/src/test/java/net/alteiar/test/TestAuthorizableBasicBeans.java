@@ -145,5 +145,7 @@ public class TestAuthorizableBasicBeans extends BasicTest {
 		assertEquals("The authorization have not changed", 8,
 				COUNT_AUTHORIZATION_CHANGED);
 		assertEquals("The bean have changed", 9, COUNT_BEAN_CHANGED);
+
+		CampaignClient.getInstance().removeBean(bean);
 	}
 }

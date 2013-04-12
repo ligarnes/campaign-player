@@ -26,10 +26,10 @@ import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
 import java.rmi.RemoteException;
 
+import net.alteiar.utils.map.element.MapElementSize;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-
-import net.alteiar.utils.map.element.MapElementSize;
 
 /**
  * @author Cody Stoutenburg

@@ -132,7 +132,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	@Override
 	public void buildDocument() {
 		CampaignClient.getInstance().addBean(
-				new DocumentImageBean(transfertImage));
+				new DocumentImageBean(transfertImage), false);
 		transfertImage = null;
 		revalidateImage();
 	}

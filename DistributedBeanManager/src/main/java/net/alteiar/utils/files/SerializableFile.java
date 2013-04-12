@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 
+import org.simpleframework.xml.Element;
+
 /**
  * @author Cody Stoutenburg
  * 
@@ -32,6 +34,7 @@ import java.io.Serializable;
 public class SerializableFile implements Serializable {
 	private static final long serialVersionUID = 4786344613415239528L;
 
+	@Element
 	protected byte[] file;
 
 	public SerializableFile() {

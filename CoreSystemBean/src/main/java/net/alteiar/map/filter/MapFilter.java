@@ -8,15 +8,14 @@ import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
+
+import net.alteiar.CampaignClient;
+import net.alteiar.client.bean.BasicBeans;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
-
-import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
 
 public class MapFilter extends BasicBeans {
 	@Attribute
@@ -24,8 +23,8 @@ public class MapFilter extends BasicBeans {
 
 	public static final String METH_SHOW_POLYGON_METHOD = "showPolygon";
 	public static final String METH_HIDE_POLYGON_METHOD = "hidePolygon";
-	
-	@Element
+
+	// @Element
 	private transient Area hiddenArea;
 	@Element
 	private Integer width;
@@ -37,15 +36,15 @@ public class MapFilter extends BasicBeans {
 	public MapFilter(Integer width, Integer height) {
 		hiddenArea = new Area(new Rectangle2D.Double(0, 0, width, height));
 
-		polygons = new ArrayList<MapFilter.MyPolygonFilter>();
+		polygons = new ArrayList<MyPolygonFilter>();
 		this.width = width;
 		this.height = height;
 	}
-	
+
 	public MapFilter() {
 		hiddenArea = new Area();
 
-		polygons = new ArrayList<MapFilter.MyPolygonFilter>();
+		polygons = new ArrayList<MyPolygonFilter>();
 		this.width = 0;
 		this.height = 0;
 	}
@@ -103,9 +102,29 @@ public class MapFilter extends BasicBeans {
 		g2.dispose();
 	}
 
-	private void readObject(java.io.ObjectInputStream in) throws IOException,
-			ClassNotFoundException {
-		in.defaultReadObject();
+	// GETTERS AND SETTERS
+	public Integer getWidth() {
+		return width;
+	}
+
+	public void setWidth(Integer width) {
+		this.width = width;
+	}
+
+	public Integer getHeight() {
+		return height;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
+
+	public ArrayList<MyPolygonFilter> getPolygons() {
+		return polygons;
+	}
+
+	public void setPolygons(ArrayList<MyPolygonFilter> polygons) {
+		this.polygons = polygons;
 		hiddenArea = new Area(new Rectangle2D.Double(0, 0, width, height));
 
 		for (MyPolygonFilter polygon : polygons) {
@@ -117,33 +136,17 @@ public class MapFilter extends BasicBeans {
 		}
 	}
 
-	private class MyPolygonFilter implements Serializable {
-		@Attribute
-		private static final long serialVersionUID = 1L;
+	private void readObject(java.io.ObjectInputStream in) throws IOException,
+			ClassNotFoundException {
+		in.defaultReadObject();
+		hiddenArea = new Area(new Rectangle2D.Double(0, 0, width, height));
 
-		@Element
-		private Polygon polygon;
-		@Element
-		private Boolean hide;
-
-		public MyPolygonFilter(Polygon polygon, Boolean isHide) {
-			super();
-			this.polygon = polygon;
-			this.hide = isHide;
-		}
-		
-		public MyPolygonFilter() {
-			super();
-			this.polygon = new Polygon();
-			this.hide = false;
-		}
-
-		public Polygon getPolygon() {
-			return polygon;
-		}
-
-		public Boolean getHide() {
-			return hide;
+		for (MyPolygonFilter polygon : polygons) {
+			if (polygon.getHide()) {
+				hiddenArea.add(new Area(polygon.getPolygon()));
+			} else {
+				hiddenArea.subtract(new Area(polygon.getPolygon()));
+			}
 		}
 	}
 
