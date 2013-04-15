@@ -48,7 +48,8 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 	private class CampaignListener extends CampaignAdapter {
 		@Override
 		public void battleAdded(Battle battle) {
-			addTab(battle.getDocumentName(), new PanelGeneraBattle(battle));
+			addTab(battle.getDocumentName(),
+					new PanelGeneraBattle(battle));
 		}
 
 		@Override

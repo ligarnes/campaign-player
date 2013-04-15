@@ -10,6 +10,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.campaign.player.gui.map.drawable.Drawable;
+import net.alteiar.campaign.player.gui.map.drawable.LineToMouse;
+import net.alteiar.campaign.player.gui.map.drawable.PathToMouse;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.map.elements.MapElement;
 
@@ -17,17 +20,21 @@ public class MoveElementMapListener extends ActionMapListener {
 	private final MapElement mapElement;
 	private final MapEditableInfo mapInfo;
 
+	private final Drawable draw;
+
 	public MoveElementMapListener(GlobalMapListener mapListener,
 			MapEditableInfo mapInfo, Point first, MapElement mapElement) {
 		super(mapListener);
 		this.mapElement = mapElement;
 
 		this.mapInfo = mapInfo;
+
 		if (mapInfo.getFixGrid()) {
-			mapInfo.drawPathToElement(first, mapElement);
+			draw = new PathToMouse(mapInfo, first);
 		} else {
-			mapInfo.drawLineToMouse(first);
+			draw = new LineToMouse(mapInfo, first);
 		}
+		mapInfo.addDrawable(draw);
 	}
 
 	@Override
@@ -79,13 +86,15 @@ public class MoveElementMapListener extends ActionMapListener {
 	private void cancelPoint() {
 		// TODO mapElement.revertPosition();
 		mapListener.defaultListener();
-		mapInfo.stopDrawPathToMouse();
+
+		mapInfo.removeDrawable(draw);
 
 		finish();
 	}
 
 	private void addPoint(Point mapPosition) {
-		mapInfo.addPointToPath(mapPosition);
+		// TODO
+		// mapInfo.addPointToPath(mapPosition);
 	}
 
 	private void finishMove(Point mapPosition) {
@@ -98,12 +107,11 @@ public class MoveElementMapListener extends ActionMapListener {
 
 	private void finish() {
 		mapListener.defaultListener();
-		mapInfo.stopDrawPathToMouse();
+		mapInfo.removeDrawable(draw);
 
-		if (mapInfo.getFixGrid()) {
-			mapInfo.stopDrawPathToMouse();
-		} else {
-			mapInfo.stopDrawLineToMouse();
-		}
+		/*
+		 * if (mapInfo.getFixGrid()) { mapInfo.stopDrawPathToMouse(); } else {
+		 * mapInfo.stopDrawLineToMouse(); }
+		 */
 	}
 }

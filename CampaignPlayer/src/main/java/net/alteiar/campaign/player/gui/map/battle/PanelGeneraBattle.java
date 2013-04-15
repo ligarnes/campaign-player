@@ -20,11 +20,9 @@
 package net.alteiar.campaign.player.gui.map.battle;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Point;
 import java.awt.Polygon;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
+import java.awt.geom.Point2D;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -34,9 +32,11 @@ import javax.swing.JScrollPane;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.PanelWest;
+import net.alteiar.campaign.player.gui.map.PanelBasicMap;
 import net.alteiar.campaign.player.gui.map.PanelMapWithListener;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelBattleCharacterList;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelTools;
+import net.alteiar.campaign.player.gui.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.map.elements.MapElement;
@@ -93,6 +93,49 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
+	public Point2D.Double convertPointStandardToPanel(Point2D position) {
+		return this.mapPanel.convertPointStandardToPanel(position);
+	}
+
+	@Override
+	public Point convertPointPanelToStandard(Point click) {
+		return this.mapPanel.convertPointPanelToStandard(click);
+	}
+
+	@Override
+	public Point convertPointToSquare(Point position) {
+		Integer squareSize = getScale().getPixels();
+		Point square = new Point();
+		square.x = (int) Math.floor(position.x / squareSize.floatValue());
+		square.y = (int) Math.floor(position.y / squareSize.floatValue());
+
+		return square;
+	}
+
+	@Override
+	public Point2D.Double convertSquareToPoint(Point position) {
+		double zoomFactor = getZoom();
+		Double squareSize = getScale().getPixels() * zoomFactor;
+		return new Point2D.Double(squareSize * position.x, squareSize
+				* position.y);
+	}
+
+	@Override
+	public PanelBasicMap getPanelMap() {
+		return mapPanel;
+	}
+
+	@Override
+	public void addDrawable(Drawable draw) {
+		mapPanel.addDrawable(draw);
+	}
+
+	@Override
+	public void removeDrawable(Drawable draw) {
+		mapPanel.removeDrawable(draw);
+	}
+
+	@Override
 	public Boolean getFixGrid() {
 		return this.fixGrid;
 	}
@@ -123,98 +166,13 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void setVisibleText(String text) {
-		this.mapPanel.setShowText(text);
-	}
-
-	@Override
 	public MapElement getElementAt(Point position) {
 		return mapPanel.getElementAt(position);
 	}
 
-	/*
-	 * @Override public void removeCharacter(CharacterClient character) {
-	 * this.battle.removeCharacter(character); }
-	 */
-
-	/*
-	 * @Override public void removeElement(CharacterClient toRemove) {
-	 * battle.removeMapElement(toRemove); }
-	 */
-
 	@Override
 	public void changeScale(Scale echelle) {
 		battle.setScale(echelle);
-	}
-
-	@Override
-	public void drawPathToElement(Point first, MapElement mapElement) {
-		this.mapPanel.drawPathToElement(first, mapElement);
-	}
-
-	@Override
-	public void addPointToPath(Point next) {
-		this.mapPanel.addPointToPath(next);
-	}
-
-	@Override
-	public void stopDrawPathToMouse() {
-		this.mapPanel.stopDrawPathToMouse();
-	}
-
-	@Override
-	public void setLineColor(Color lineColor) {
-		this.mapPanel.setLineColor(lineColor);
-	}
-
-	@Override
-	public void drawLineToMouse(Point first) {
-		this.mapPanel.drawLineToMouse(first);
-	}
-
-	@Override
-	public void addPointToLine(Point next) {
-		// if (fixGrid) {
-		// modifyPositionToFixGrid(next);
-		// }
-		this.mapPanel.addPointToLine(next);
-	}
-
-	@Override
-	public void addPointToLine(MapElement currentElement, Point next) {
-		if (fixGrid) {
-			// modifyPositionToFixGrid(next);
-			// Point center = currentElement.getCenterOffset();
-			// next.x += center.x;
-			// next.y += center.y;
-		}
-
-		this.mapPanel.addPointToLine(next);
-	}
-
-	@Override
-	public void stopDrawLineToMouse() {
-		this.mapPanel.stopDrawLineToMouse();
-	}
-
-	@Override
-	public void drawPolygonToMouse(Point first) {
-		this.mapPanel.drawPolygonToMouse(first, Color.RED);
-	}
-
-	@Override
-	public void stopDrawPolygon() {
-		this.mapPanel.stopDrawPolygonToMouse();
-	}
-
-	@Override
-	public void drawRectangleToMouse(Point origin) {
-		this.mapPanel.drawRectangleToMouse(origin, Color.RED);
-	}
-
-	@Override
-	public void stopDrawRectangle() {
-		this.mapPanel.stopDrawRectangleToMouse();
 	}
 
 	@Override
@@ -359,32 +317,24 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if (showDistance) {
-			List<Point> lstOrigin = this.mapPanel.getTrajet();
-			if (lstOrigin.size() > 0) {
-				double distance = 0;
-				for (int i = 0; i < lstOrigin.size() - 1; ++i) {
-					Point first = lstOrigin.get(i);
-					Point next = lstOrigin.get(i + 1);
-
-					distance += first.distance(next);
-				}
-				Point last = this.mapPanel
-						.convertPointPanelToStandard(this.mapPanel
-								.getMousePosition());
-				distance += lstOrigin.get(lstOrigin.size() - 1).distance(last);
-
-				double distCase = distance / this.battle.getScale().getPixels();
-
-				NumberFormat nf = new DecimalFormat("0.0");
-				this.mapPanel.setShowText(nf.format(distCase) + " cases");
-			}
-		} else {
-			this.mapPanel.setShowText(null);
-		}
-
-		this.mapPanel.repaint();
-		this.mapPanel.revalidate();
+		/*
+		 * if (showDistance) { List<Point> lstOrigin =
+		 * this.mapPanel.getTrajet(); if (lstOrigin.size() > 0) { double
+		 * distance = 0; for (int i = 0; i < lstOrigin.size() - 1; ++i) { Point
+		 * first = lstOrigin.get(i); Point next = lstOrigin.get(i + 1);
+		 * 
+		 * distance += first.distance(next); } Point last = this.mapPanel
+		 * .convertPointPanelToStandard(this.mapPanel .getMousePosition());
+		 * distance += lstOrigin.get(lstOrigin.size() - 1).distance(last);
+		 * 
+		 * double distCase = distance / this.battle.getScale().getPixels();
+		 * 
+		 * NumberFormat nf = new DecimalFormat("0.0");
+		 * this.mapPanel.setShowText(nf.format(distCase) + " cases"); } } else {
+		 * this.mapPanel.setShowText(null); }
+		 * 
+		 * this.mapPanel.repaint(); this.mapPanel.revalidate();
+		 */
 	}
 
 	@Override

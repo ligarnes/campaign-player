@@ -24,7 +24,6 @@ import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.factory.MapFactory;
-import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.TransfertImage;
@@ -151,7 +150,7 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 	public void buildDocument() {
 		try {
 			MapFactory.createMap(textFieldMapName.getText(), new Battle(
-					textFieldMapName.getText()), new ImageBean(transfertImage));
+					textFieldMapName.getText()), transfertImage);
 		} catch (IOException e) {
 			ExceptionTool.showError(e);
 		}
