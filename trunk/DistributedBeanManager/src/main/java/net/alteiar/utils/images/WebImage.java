@@ -35,7 +35,7 @@ public class WebImage implements TransfertImage {
 	private static final long serialVersionUID = 4786344613415239528L;
 	@Element
 	private final URL url;
-	@Element
+
 	private transient BufferedImage image;
 
 	public WebImage(URL url) {

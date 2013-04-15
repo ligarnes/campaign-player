@@ -1,4 +1,4 @@
-package net.alteiar.test;
+package net.alteiar.test.beans;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,10 +14,11 @@ import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.chat.message.MjSender;
 import net.alteiar.chat.message.PrivateSender;
 import net.alteiar.player.Player;
+import net.alteiar.test.NewCampaignTest;
 
 import org.junit.Test;
 
-public class TestChat extends BasicTest {
+public class TestChat extends NewCampaignTest {
 
 	public Chat getChat() {
 		Chat chat = CampaignClient.getInstance().getChat();
@@ -98,12 +99,16 @@ public class TestChat extends BasicTest {
 				getChat().talk(expectedMsg);
 			}
 		};
+		MessageRemote msg = getLastMessage(sendTextMessage);
 
-		assertEquals("the message must be the same",
-				getLastMessage(sendTextMessage).getMessage(), expectedMsg);
+		assertEquals("the message must be the same", getPlayerName(),
+				msg.getSender());
 
-		assertEquals("Pseudo should be same as player name",
-				AllTests.getPlayerName(), getChat().getPseudo());
+		assertEquals("the message must be the same", expectedMsg,
+				msg.getMessage());
+
+		assertEquals("Pseudo should be same as player name", getPlayerName(),
+				getChat().getPseudo());
 
 		String pseudo = "my pseudo";
 		getChat().setPseudo(pseudo);
@@ -177,8 +182,8 @@ public class TestChat extends BasicTest {
 			@Override
 			public void run() {
 				getChat().talk(
-						new PrivateSender(AllTests.getPlayerName(),
-								expectedMessage), "/to");
+						new PrivateSender(getPlayerName(), expectedMessage),
+						"/to");
 			}
 		};
 

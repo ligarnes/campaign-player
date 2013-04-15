@@ -14,6 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
@@ -31,22 +32,41 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	private final JLabel lblPreview;
 
 	private TransfertImage transfertImage;
+	private final JTextField textFieldName;
 
 	public PanelCreateImage() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 1.0,
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0,
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
+
+		JLabel lblName = new JLabel("Nom:");
+		GridBagConstraints gbc_lblName = new GridBagConstraints();
+		gbc_lblName.anchor = GridBagConstraints.EAST;
+		gbc_lblName.insets = new Insets(0, 0, 5, 5);
+		gbc_lblName.gridx = 0;
+		gbc_lblName.gridy = 0;
+		add(lblName, gbc_lblName);
+
+		textFieldName = new JTextField();
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.gridwidth = 3;
+		gbc_textField.insets = new Insets(0, 0, 5, 5);
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.gridx = 1;
+		gbc_textField.gridy = 0;
+		add(textFieldName, gbc_textField);
+		textFieldName.setColumns(10);
 
 		JLabel lblChoisirUneImage = new JLabel("Choisir une image:");
 		GridBagConstraints gbc_lblChoisirUneImage = new GridBagConstraints();
 		gbc_lblChoisirUneImage.insets = new Insets(0, 0, 5, 5);
 		gbc_lblChoisirUneImage.gridx = 0;
-		gbc_lblChoisirUneImage.gridy = 0;
+		gbc_lblChoisirUneImage.gridy = 1;
 		add(lblChoisirUneImage, gbc_lblChoisirUneImage);
 
 		JButton btnLocal = new JButton("Local");
@@ -59,7 +79,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		GridBagConstraints gbc_btnLocal = new GridBagConstraints();
 		gbc_btnLocal.insets = new Insets(0, 0, 5, 5);
 		gbc_btnLocal.gridx = 1;
-		gbc_btnLocal.gridy = 0;
+		gbc_btnLocal.gridy = 1;
 		add(btnLocal, gbc_btnLocal);
 
 		JButton btnInternet = new JButton("Internet");
@@ -72,7 +92,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		GridBagConstraints gbc_btnInternet = new GridBagConstraints();
 		gbc_btnInternet.insets = new Insets(0, 0, 5, 5);
 		gbc_btnInternet.gridx = 2;
-		gbc_btnInternet.gridy = 0;
+		gbc_btnInternet.gridy = 1;
 		add(btnInternet, gbc_btnInternet);
 
 		JLabel lblApercu = new JLabel("Apercu:");
@@ -80,7 +100,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		gbc_lblApercu.anchor = GridBagConstraints.WEST;
 		gbc_lblApercu.insets = new Insets(0, 0, 5, 5);
 		gbc_lblApercu.gridx = 0;
-		gbc_lblApercu.gridy = 1;
+		gbc_lblApercu.gridy = 2;
 		add(lblApercu, gbc_lblApercu);
 
 		lblPreview = new JLabel();
@@ -89,11 +109,10 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		lblPreview.setMaximumSize(new Dimension(300, 300));
 		lblPreview.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		GridBagConstraints gbc_lblPreview = new GridBagConstraints();
-		gbc_lblPreview.insets = new Insets(0, 0, 0, 5);
 		gbc_lblPreview.fill = GridBagConstraints.BOTH;
 		gbc_lblPreview.gridwidth = 4;
 		gbc_lblPreview.gridx = 0;
-		gbc_lblPreview.gridy = 2;
+		gbc_lblPreview.gridy = 3;
 		add(lblPreview, gbc_lblPreview);
 	}
 
@@ -132,14 +151,15 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	@Override
 	public void buildDocument() {
 		CampaignClient.getInstance().addBean(
-				new DocumentImageBean(transfertImage), false);
+				new DocumentImageBean(textFieldName.getText(), transfertImage),
+				false);
 		transfertImage = null;
 		revalidateImage();
 	}
 
 	@Override
 	public Boolean isDataValid() {
-		return transfertImage != null;
+		return transfertImage != null && !textFieldName.getText().isEmpty();
 	}
 
 	@Override

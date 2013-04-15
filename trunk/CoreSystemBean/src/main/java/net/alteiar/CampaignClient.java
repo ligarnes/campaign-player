@@ -34,6 +34,7 @@ import net.alteiar.shared.UniqueID;
 
 public final class CampaignClient implements DocumentManagerListener {
 	private static CampaignClient INSTANCE = null;
+	private static Boolean IS_SERVER = false;
 
 	public static CampaignClient getInstance() {
 		return INSTANCE;
@@ -90,6 +91,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		ServerDocuments server = null;
 		try {
 			server = ServerDocuments.startServer(addressIp, port);
+			IS_SERVER = true;
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,6 +103,14 @@ public final class CampaignClient implements DocumentManagerListener {
 			e.printStackTrace();
 		}
 		return server;
+	}
+
+	public static synchronized void leaveGame() {
+		INSTANCE.disconnect();
+		INSTANCE = null;
+		if (IS_SERVER) {
+			ServerDocuments.stopServer();
+		}
 	}
 
 	private Player currentPlayer;
@@ -146,13 +156,7 @@ public final class CampaignClient implements DocumentManagerListener {
 			Player current = new Player(name, isMj, Color.BLUE);
 			addNotPermaBean(current);
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
-
-			// The server should already contain a chat
-			if (chat != null) {
-				chat.setPseudo(currentPlayer.getName());
-				chat.talk(currentPlayer.getName(),
-						MessageRemote.SYSTEM_CONNECT_MESSAGE);
-			}
+			connectPlayer();
 		}
 	}
 
@@ -160,9 +164,19 @@ public final class CampaignClient implements DocumentManagerListener {
 		Boolean select = false;
 		if (currentPlayer == null && players.contains(player)) {
 			this.currentPlayer = player;
+			connectPlayer();
 			select = true;
 		}
 		return select;
+	}
+
+	private void connectPlayer() {
+		// The server should already contain a chat
+		if (chat != null) {
+			chat.setPseudo(currentPlayer.getName());
+			chat.talk(currentPlayer.getName(),
+					MessageRemote.SYSTEM_CONNECT_MESSAGE);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -174,8 +188,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		return copy;
 	}
 
-	public void disconnect() {
-
+	private void disconnect() {
 	}
 
 	public void addBean(AuthorizationBean bean, Boolean perma) {
@@ -219,6 +232,10 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public void removeBean(BasicBeans bean) {
 		manager.removeDocument(bean);
+	}
+
+	public void removeBean(UniqueID beanId) {
+		manager.removeDocument(beanId);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -384,7 +401,22 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
+	private static void deleteRecursive(File base) {
+		if (base.listFiles() != null) {
+			for (File f : base.listFiles()) {
+				deleteRecursive(f);
+			}
+		}
+		base.delete();
+	}
+
 	public void saveGame() {
+
+		File dir = new File(manager.getCampaignPath());
+		if (dir.exists()) {
+			deleteRecursive(dir);
+		}
+
 		ObjectOutputStream oos = null;
 		try {
 			ArrayList<DocumentClient> docs = manager.getDocuments();

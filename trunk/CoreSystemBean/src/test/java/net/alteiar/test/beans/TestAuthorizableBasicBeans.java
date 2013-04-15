@@ -1,4 +1,4 @@
-package net.alteiar.test;
+package net.alteiar.test.beans;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -14,18 +14,21 @@ import net.alteiar.documents.AuthorizationBean.AuthorizationManagerException;
 import net.alteiar.documents.image.DocumentImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.test.map.TestMap;
+import net.alteiar.test.NewCampaignTest;
+import net.alteiar.test.beans.map.TestMap;
 
 import org.junit.Test;
 
-public class TestAuthorizableBasicBeans extends BasicTest {
+public class TestAuthorizableBasicBeans extends NewCampaignTest {
 
 	private static int COUNT_AUTHORIZATION_CHANGED = 0;
 	private static int COUNT_BEAN_CHANGED = 0;
 
 	@Test(timeout = 5000)
 	public void testAuthorizableBasicBeans() {
-		DocumentImageBean autorizableBean = new DocumentImageBean();
+		String expName = "test-document-name";
+		String newExpName = "test-document-name-new";
+		DocumentImageBean autorizableBean = new DocumentImageBean(expName, null);
 
 		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
 
@@ -53,6 +56,10 @@ public class TestAuthorizableBasicBeans extends BasicTest {
 		assertTrue("Should contain the owner", bean.getOwners().contains(guid));
 		assertTrue("Should contain the user", bean.getUsers().contains(guid));
 		assertTrue("the bean should be public", bean.getPublic());
+		assertTrue("the bean name should be same to original name",
+				expName.equals(bean.getDocumentName()));
+		assertTrue("the bean name should'nt be same to new name",
+				!newExpName.equals(bean.getDocumentName()));
 
 		try {
 			bean.removeOwner(guid);
@@ -62,12 +69,17 @@ public class TestAuthorizableBasicBeans extends BasicTest {
 		}
 		bean.removeUser(guid);
 		bean.setPublic(false);
+		bean.setDocumentName(newExpName);
 		sleep(5);
 		assertTrue("Should'nt contain the owner",
 				!bean.getOwners().contains(guid));
 		assertTrue("Should'nt contain the user", !bean.getUsers()
 				.contains(guid));
 		assertTrue("the bean should'nt be public", !bean.getPublic());
+		assertTrue("the bean name should'nt be same to original name",
+				!expName.equals(bean.getDocumentName()));
+		assertTrue("the bean name should be same to new name",
+				newExpName.equals(bean.getDocumentName()));
 
 		HashSet<UniqueID> guids = new HashSet<UniqueID>();
 		for (int i = 0; i < 100; ++i) {
@@ -76,7 +88,7 @@ public class TestAuthorizableBasicBeans extends BasicTest {
 		bean.setOwners(guids);
 		bean.setUsers(guids);
 
-		sleep(10);
+		sleep(20);
 
 		assertTrue("the owners must have been set",
 				bean.getOwners().equals(guids));

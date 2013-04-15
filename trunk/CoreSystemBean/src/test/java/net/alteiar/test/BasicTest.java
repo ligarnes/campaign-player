@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -61,5 +62,26 @@ public abstract class BasicTest {
 		} catch (InterruptedException e) {
 			fail("not able to sleep");
 		}
+	}
+
+	public String getCampaignName() {
+		return "general-test";
+	}
+
+	public final String getCampaignDirectory() {
+		return "./test/ressources/campaign/" + getCampaignName();
+	}
+
+	public String getPlayerName() {
+		return "player-name";
+	}
+
+	public static void deleteRecursive(File base) {
+		if (base.listFiles() != null) {
+			for (File f : base.listFiles()) {
+				deleteRecursive(f);
+			}
+		}
+		base.delete();
 	}
 }

@@ -48,7 +48,6 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	private static final long serialVersionUID = 731240477472043798L;
 
 	public static String CAMPAIGN_MANAGER = "Campaign-manager";
-
 	public static ThreadPool SERVER_THREAD_POOL = null;
 
 	public static ServerDocuments startServer(String addressIp, String port)
@@ -76,6 +75,12 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 
 	public static void stopServer() {
 		SERVER_THREAD_POOL.shutdown();
+		try {
+			RmiRegistryProxy.INSTANCE.unbind(CAMPAIGN_MANAGER);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private final ArrayList<ServerListener> listeners;
@@ -118,7 +123,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	@Override
 	public synchronized void createDocument(DocumentPath path,
 			BeanEncapsulator bean, Boolean perma) throws RemoteException {
-		IDocumentRemote remote = new DocumentRemote(path, bean,perma);
+		IDocumentRemote remote = new DocumentRemote(path, bean, perma);
 		UniqueID id = bean.getId();
 		documents.put(id, remote);
 
@@ -132,11 +137,14 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	public synchronized void deleteDocument(UniqueID guid)
 			throws RemoteException {
 		IDocumentRemote remote = documents.remove(guid);
-		remote.closeDocument();
+		// we may try to delete a document that do not exist
+		if (remote != null) {
+			remote.closeDocument();
 
-		// TODO notify in multithread
-		for (ServerListener listener : getListeners()) {
-			listener.documentRemoved(guid);
+			// TODO notify in multithread
+			for (ServerListener listener : getListeners()) {
+				listener.documentRemoved(guid);
+			}
 		}
 	}
 

@@ -1,4 +1,4 @@
-package net.alteiar.test.map;
+package net.alteiar.test.beans.map;
 
 
 public class TestCharacterCombat extends TestMap {

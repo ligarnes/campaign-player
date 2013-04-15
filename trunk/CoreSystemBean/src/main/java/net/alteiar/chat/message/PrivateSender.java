@@ -2,10 +2,14 @@ package net.alteiar.chat.message;
 
 import net.alteiar.CampaignClient;
 
+import org.simpleframework.xml.Element;
+
 public class PrivateSender implements ChatObject {
 
-	private final String to;
-	private final String message;
+	@Element
+	private String to;
+	@Element
+	private String message;
 
 	public PrivateSender(String to, String message) {
 		this.to = to;
@@ -14,8 +18,10 @@ public class PrivateSender implements ChatObject {
 
 	public PrivateSender(String msg) {
 		String[] vals = msg.split(";");
-		to = vals[0];
-		message = vals[1];
+		if (vals.length == 2) {
+			to = vals[0];
+			message = vals[1];
+		}
 	}
 
 	@Override

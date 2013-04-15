@@ -17,7 +17,7 @@ import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 
-public class TestSave extends TestSaveAndLoad {
+public class TestDeleteBeans extends TestSaveAndLoad {
 
 	@Test
 	public void testSave() {
