@@ -1,4 +1,4 @@
-package net.alteiar.test.map;
+package net.alteiar.test.beans.map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -29,7 +29,7 @@ import net.alteiar.image.ImageBean;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.test.BasicTest;
+import net.alteiar.test.NewCampaignTest;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
 import net.alteiar.utils.map.Scale;
@@ -40,7 +40,7 @@ import net.alteiar.utils.map.element.MapElementSizePixel;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestMap extends BasicTest {
+public class TestMap extends NewCampaignTest {
 
 	public int verifyInnerClassCall;
 
@@ -273,17 +273,13 @@ public class TestMap extends BasicTest {
 
 	@Test(timeout = 10000)
 	public void testBattle() {
-		String targetName = "test battle";
-
 		UniqueID battleId = null;
 		try {
-			battleId = createBattle(targetName, getDefaultImage());
+			battleId = createBattle("test battle", getDefaultImage());
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
 		Battle created = CampaignClient.getInstance().getBean(battleId, 300);
-		assertEquals("Battle name have a wrong name", targetName,
-				created.getDocumentName());
 
 		// Change turn
 		int previousTurn = created.getTurn();

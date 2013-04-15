@@ -1,4 +1,4 @@
-package net.alteiar.test;
+package net.alteiar.test.beans;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -9,10 +9,11 @@ import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.player.Player;
+import net.alteiar.test.NewCampaignTest;
 
 import org.junit.Test;
 
-public class TestPlayer extends BasicTest {
+public class TestPlayer extends NewCampaignTest {
 	@Test
 	public void testCompareDocument() {
 		Player current = CampaignClient.getInstance().getCurrentPlayer();
@@ -48,7 +49,7 @@ public class TestPlayer extends BasicTest {
 		assertEquals("verify empty player equals", emptyPlayer, emptyPlayer);
 
 		Player current = CampaignClient.getInstance().getCurrentPlayer();
-		assertEquals("player name should be same", AllTests.getPlayerName(),
+		assertEquals("player name should be same", getPlayerName(),
 				current.getName());
 
 		String targetName = "test-new-name";
@@ -68,7 +69,7 @@ public class TestPlayer extends BasicTest {
 		assertEquals("player color should be same", color, current.getColor());
 
 		current.setMj(!current.isMj());
-		current.setName(AllTests.getPlayerName());
+		current.setName(getPlayerName());
 		sleep(5);
 	}
 

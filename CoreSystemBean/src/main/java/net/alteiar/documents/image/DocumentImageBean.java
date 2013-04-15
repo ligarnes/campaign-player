@@ -16,7 +16,8 @@ public class DocumentImageBean extends AuthorizationBean {
 
 	private TransfertImage image;
 
-	public DocumentImageBean(TransfertImage image) {
+	public DocumentImageBean(String name, TransfertImage image) {
+		super(name);
 		this.image = image;
 	}
 

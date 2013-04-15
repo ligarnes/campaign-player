@@ -8,6 +8,7 @@ import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
@@ -55,6 +56,19 @@ public class Map extends AuthorizationBean {
 		super(name);
 		elements = new HashSet<UniqueID>();
 		scale = new Scale(70, 1.5);
+	}
+
+	@Override
+	public void beanRemoved() {
+		super.beanRemoved();
+
+		CampaignClient.getInstance().removeBean(backgroundId);
+		CampaignClient.getInstance().removeBean(filterId);
+
+		Iterator<UniqueID> itt = elements.iterator();
+		while (itt.hasNext()) {
+			CampaignClient.getInstance().removeBean(itt.next());
+		}
 	}
 
 	// ///////////////// LOCAL METHODS ///////////////////////

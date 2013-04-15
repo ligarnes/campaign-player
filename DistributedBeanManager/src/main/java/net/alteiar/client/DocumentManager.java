@@ -163,6 +163,15 @@ public class DocumentManager {
 		return permaPath;
 	}
 
+	public void removeDocument(UniqueID beanId) {
+		try {
+			this.server.deleteDocument(beanId);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public void removeDocument(BasicBeans bean) {
 		try {
 			this.server.deleteDocument(bean.getId());
@@ -172,7 +181,7 @@ public class DocumentManager {
 		}
 	}
 
-	private synchronized void removeDocument(UniqueID guid) {
+	private synchronized void removeRemoteDocument(UniqueID guid) {
 		DocumentClient doc;
 		synchronized (documents) {
 			doc = this.documents.remove(guid);
@@ -218,7 +227,7 @@ public class DocumentManager {
 
 		@Override
 		public void documentRemoved(UniqueID guid) throws RemoteException {
-			removeDocument(guid);
+			removeRemoteDocument(guid);
 		}
 	}
 }

@@ -6,7 +6,7 @@ import net.alteiar.shared.UniqueID;
 
 import org.junit.Test;
 
-public class TestUniqueId extends BasicTest {
+public class TestUniqueId extends NewCampaignTest {
 
 	@Test
 	public void testUniqueIdEquals() {

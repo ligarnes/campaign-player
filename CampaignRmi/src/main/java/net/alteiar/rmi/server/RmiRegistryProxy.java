@@ -39,22 +39,25 @@ public class RmiRegistryProxy extends UnicastRemoteObject implements
 
 	private static final long serialVersionUID = -8432259884228815800L;
 
+	public static RmiRegistryProxy INSTANCE;
 	private final String bindName;
 
-	public static void startRmiRegistryProxy(String adressIp, int port)
-			throws RemoteException, MalformedURLException {
-		LocateRegistry.createRegistry(port);
+	public static synchronized void startRmiRegistryProxy(String adressIp,
+			int port) throws RemoteException, MalformedURLException {
+		if (INSTANCE == null) {
+			LocateRegistry.createRegistry(port);
 
-		System.setProperty("java.rmi.server.hostname", adressIp);
-		RmiRegistryProxy proxy = new RmiRegistryProxy("//" + adressIp + ":"
-				+ port + "/" + IRmiRegistryProxy.RMI_NAME);
-		Naming.rebind(proxy.getName(), proxy);
+			System.setProperty("java.rmi.server.hostname", adressIp);
+			INSTANCE = new RmiRegistryProxy("//" + adressIp + ":" + port + "/"
+					+ IRmiRegistryProxy.RMI_NAME);
+			Naming.rebind(INSTANCE.getName(), INSTANCE);
+		}
 	}
 
 	/**
 	 * @throws RemoteException
 	 */
-	protected RmiRegistryProxy(String bindName) throws RemoteException {
+	private RmiRegistryProxy(String bindName) throws RemoteException {
 		super();
 		this.bindName = bindName;
 	}

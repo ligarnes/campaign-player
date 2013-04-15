@@ -149,7 +149,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		CampaignClient.getInstance().disconnect();
+		CampaignClient.leaveGame();
 	}
 
 	@Override

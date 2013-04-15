@@ -13,17 +13,17 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	private static final long serialVersionUID = 1L;
 
 	private final BeanEncapsulator bean;
-	private  DocumentPath path;
-	private  Boolean perma;
+	private DocumentPath path;
+	private Boolean perma;
 
 	private final HashSet<IDocumentRemoteListener> listeners;
 
-	public DocumentRemote(DocumentPath path, BeanEncapsulator bean,Boolean perma)
-			throws RemoteException {
+	public DocumentRemote(DocumentPath path, BeanEncapsulator bean,
+			Boolean perma) throws RemoteException {
 		super();
 		this.bean = bean;
 		this.path = path;
-		this.perma=perma;
+		this.perma = perma;
 		listeners = new HashSet<IDocumentRemoteListener>();
 	}
 
@@ -36,14 +36,16 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	public DocumentPath getPath() {
 		return path;
 	}
-	
+
+	@Override
 	public Boolean isPerma() {
 		return perma;
 	}
-	
+
+	@Override
 	public void savePerma(DocumentPath path) {
-		this.path=path;
-		perma=true;
+		this.path = path;
+		perma = true;
 		this.notifysavePerma(path.getName());
 	}
 
@@ -106,7 +108,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 			});
 		}
 	}
-	
+
 	protected void notifysavePerma(final String name) {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
 			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
@@ -129,6 +131,10 @@ public class DocumentRemote extends UnicastRemoteObject implements
 				@Override
 				public void run() {
 					try {
+						if (listener == null) {
+							System.out.println(getBean().getBean().getClass()
+									.getSimpleName());
+						}
 						listener.documentClosed();
 					} catch (RemoteException e) {
 						// TODO Auto-generated catch block

@@ -19,7 +19,7 @@ import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 
-public class TestImageUtils extends BasicTest {
+public class TestImageUtils extends NewCampaignTest {
 
 	@Test
 	public void testImage() {
@@ -75,5 +75,5 @@ public class TestImageUtils extends BasicTest {
 			fail("fail to resize image");
 		}
 	}
-	
+
 }

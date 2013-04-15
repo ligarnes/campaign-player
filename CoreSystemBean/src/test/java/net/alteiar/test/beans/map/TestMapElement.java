@@ -1,4 +1,4 @@
-package net.alteiar.test.map;
+package net.alteiar.test.beans.map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +16,7 @@ import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.test.BasicTest;
+import net.alteiar.test.NewCampaignTest;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeMeter;
 import net.alteiar.utils.map.element.MapElementSizePixel;
@@ -25,7 +25,7 @@ import net.alteiar.utils.map.element.MapElementSizeSquare;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestMapElement extends BasicTest {
+public class TestMapElement extends NewCampaignTest {
 
 	private UniqueID battleId = null;
 

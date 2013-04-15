@@ -5,14 +5,11 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
 import java.beans.VetoableChangeSupport;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
 import java.io.Serializable;
 
-import org.simpleframework.xml.Element;
-
 import net.alteiar.shared.UniqueID;
+
+import org.simpleframework.xml.Element;
 
 public abstract class BasicBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -48,6 +45,10 @@ public abstract class BasicBeans implements Serializable {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
+	}
+
+	public void beanRemoved() {
+
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -90,5 +91,5 @@ public abstract class BasicBeans implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 }

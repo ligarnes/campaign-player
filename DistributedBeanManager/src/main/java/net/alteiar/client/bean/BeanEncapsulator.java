@@ -14,10 +14,10 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import net.alteiar.shared.UniqueID;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-
-import net.alteiar.shared.UniqueID;
 
 public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 	@Attribute
@@ -35,7 +35,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		changed = new ArrayList<BeanChange>();
 		this.bean.addVetoableChangeListener(this);
 	}
-	
+
 	public BeanEncapsulator() {
 		this.bean = null;
 		propertyChangeSupportRemote = new PropertyChangeSupport(this);
@@ -122,6 +122,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 
 	public void beanRemoved() {
 		bean.removeVetoableChangeListener(this);
+		bean.beanRemoved();
 	}
 
 	private class BeanChange {
