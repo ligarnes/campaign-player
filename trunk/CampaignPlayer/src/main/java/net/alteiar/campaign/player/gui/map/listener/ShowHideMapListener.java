@@ -5,6 +5,8 @@ import java.awt.Point;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.campaign.player.gui.map.drawable.Drawable;
+import net.alteiar.campaign.player.gui.map.drawable.RectangleToMouse;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 
 public class ShowHideMapListener extends ActionMapListener {
@@ -12,13 +14,17 @@ public class ShowHideMapListener extends ActionMapListener {
 	private final Point begin;
 	private final MapEditableInfo mapInfo;
 	private final Boolean isShow;
+	private final Drawable draw;
 
 	public ShowHideMapListener(GlobalMapListener mapListener,
 			MapEditableInfo mapInfo, Point begin, Boolean isShow) {
 		super(mapListener);
 		this.mapInfo = mapInfo;
 		this.begin = begin;
-		this.mapInfo.drawRectangleToMouse(begin);
+
+		draw = new RectangleToMouse(mapInfo, begin);
+		this.mapInfo.addDrawable(draw);
+
 		this.isShow = isShow;
 	}
 
@@ -41,7 +47,8 @@ public class ShowHideMapListener extends ActionMapListener {
 			} else {
 				mapInfo.hideRectangle(new Point(x, y), width, height);
 			}
-			this.mapInfo.stopDrawRectangle();
+			// this.mapInfo.stopDrawRectangle();
+			this.mapInfo.removeDrawable(draw);
 			mapListener.defaultListener();
 		}
 	}

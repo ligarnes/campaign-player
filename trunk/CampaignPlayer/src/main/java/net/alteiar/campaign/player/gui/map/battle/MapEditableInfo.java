@@ -19,10 +19,12 @@
  */
 package net.alteiar.campaign.player.gui.map.battle;
 
-import java.awt.Color;
 import java.awt.Point;
+import java.awt.geom.Point2D;
 import java.util.List;
 
+import net.alteiar.campaign.player.gui.map.PanelBasicMap;
+import net.alteiar.campaign.player.gui.map.drawable.Drawable;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.utils.map.Scale;
 
@@ -31,6 +33,22 @@ import net.alteiar.utils.map.Scale;
  * 
  */
 public interface MapEditableInfo {
+
+	Point convertPointPanelToStandard(Point click);
+
+	Point2D.Double convertPointStandardToPanel(Point2D position);
+
+	/**
+	 * 
+	 * @param position
+	 *            - in the map (no zoom)
+	 * @return
+	 */
+	Point convertPointToSquare(Point position);
+
+	Point2D.Double convertSquareToPoint(Point position);
+
+	PanelBasicMap getPanelMap();
 
 	Scale getScale();
 
@@ -43,8 +61,6 @@ public interface MapEditableInfo {
 	void zoom(Point center, int zoomFactor);
 
 	void move(int moveX, int moveY);
-
-	void setVisibleText(String text);
 
 	Point getPositionOf(MapElement currentElement);
 
@@ -80,29 +96,9 @@ public interface MapEditableInfo {
 
 	void changeScale(Scale echelle);
 
-	void setLineColor(Color lineColor);
+	void addDrawable(Drawable draw);
 
-	void drawPathToElement(Point first, MapElement mapElement);
-
-	void addPointToPath(Point next);
-
-	void stopDrawPathToMouse();
-
-	void drawLineToMouse(Point first);
-
-	void drawPolygonToMouse(Point first);
-
-	void stopDrawPolygon();
-
-	void addPointToLine(Point next);
-
-	void addPointToLine(MapElement currentElement, Point next);
-
-	void stopDrawLineToMouse();
-
-	void drawRectangleToMouse(Point origin);
-
-	void stopDrawRectangle();
+	void removeDrawable(Drawable draw);
 
 	void showPolygon(List<Point> cwPts);
 

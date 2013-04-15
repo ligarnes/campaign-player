@@ -10,6 +10,7 @@ import net.alteiar.documents.map.Map;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.utils.images.SerializableImage;
+import net.alteiar.utils.images.TransfertImage;
 import net.alteiar.utils.images.WebImage;
 
 public class MapFactory {
@@ -27,6 +28,13 @@ public class MapFactory {
 		ImageBean background = new ImageBean(new WebImage(backgroundUrl));
 		CampaignClient.getInstance().addNotPermaBean(background);
 		createMap(name, map, background);
+	}
+
+	public static void createMap(String name, Map map, TransfertImage background)
+			throws IOException {
+		ImageBean image = new ImageBean(background);
+		CampaignClient.getInstance().addNotPermaBean(image);
+		createMap(name, map, image);
 	}
 
 	public static void createMap(String name, Map map, ImageBean background)
