@@ -96,12 +96,12 @@ public class Main {
 			if (isServer) {
 				CampaignClient.startNewCampaignServer(localAdress, address,
 						port, "campaign path");
+			} else {
+				CampaignClient.connectToServer(localAdress, address, port,
+						"campaign path");
 			}
 			CampaignClient.getInstance().createPlayer(name, isMj);
-			/*
-			 * CampaignClient.connect(localAdress, address, port,
-			 * "campaign path", name, isMj);
-			 */
+
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
