@@ -1,10 +1,10 @@
-#Property saved at 15-04-13 05h34
-#Mon Apr 15 17:34:43 EDT 2013
+#Property saved at 15-04-13 07h27
+#Mon Apr 15 19:27:13 EDT 2013
 port=1099
 characterPath=C\:\\Users\\ligarnes\\CompletePathfinderApp\\CampaignPlayer\\NewServer\\test\\ressources
 isServer=true
 pseudo=cody
 ipServer=192.168.0.103
-ipLocal=192.168.0.103
 isMj=true
+ipLocal=192.168.0.103
 mapPath=C\:\\Users\\ligarnes\\Desktop

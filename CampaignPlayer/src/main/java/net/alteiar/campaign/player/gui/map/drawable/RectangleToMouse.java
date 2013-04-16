@@ -16,7 +16,7 @@ public class RectangleToMouse extends Drawable {
 	}
 
 	@Override
-	public void draw(Graphics2D g2, Point mouse) {
+	protected void realDraw(Graphics2D g2, Point mouse) {
 		Point2D org = this.getMapEditor().convertPointStandardToPanel(origin);
 
 		int x = (int) Math.min(org.getX(), mouse.getX());

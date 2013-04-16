@@ -35,7 +35,7 @@ public class PathToMouse extends Drawable {
 	}
 
 	@Override
-	public void draw(Graphics2D g2, Point mouse) {
+	protected void realDraw(Graphics2D g2, Point mouse) {
 		// compute last line
 		List<Point> pts = new ArrayList<Point>();
 		for (int i = 0; i < ptsPath.size() - 1; ++i) {

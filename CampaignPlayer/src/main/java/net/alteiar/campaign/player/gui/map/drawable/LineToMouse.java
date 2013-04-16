@@ -10,7 +10,6 @@ import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 public class LineToMouse extends Drawable {
 
 	private final ArrayList<Point> pts;
-	private Point last;
 
 	public LineToMouse(MapEditableInfo map, Point origin) {
 		super(map);
@@ -27,11 +26,7 @@ public class LineToMouse extends Drawable {
 	}
 
 	@Override
-	public void draw(Graphics2D g2, Point mouse) {
-		if (mouse != last && mouse != null) {
-			last = mouse;
-		}
-
+	protected void realDraw(Graphics2D g2, Point mouse) {
 		for (int i = 0; i < pts.size() - 1; ++i) {
 			Point2D.Double first = getMapEditor().convertPointStandardToPanel(
 					pts.get(i));
@@ -44,6 +39,6 @@ public class LineToMouse extends Drawable {
 
 		Point2D.Double org = getMapEditor().convertPointStandardToPanel(
 				pts.get(pts.size() - 1));
-		g2.drawLine((int) org.x, (int) org.y, last.x, last.y);
+		g2.drawLine((int) org.x, (int) org.y, mouse.x, mouse.y);
 	}
 }
