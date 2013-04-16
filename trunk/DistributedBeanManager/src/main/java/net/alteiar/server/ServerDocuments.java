@@ -56,6 +56,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		LoggerConfig.SERVER_LOGGER.log(Level.INFO, "start server at ip: "
 				+ addressIp + ", port: " + port);
 
+		System.setProperty("java.rmi.server.hostname", addressIp);
 		ServerDocuments server = new ServerDocuments();
 		RmiRegistryProxy
 				.startRmiRegistryProxy(addressIp, Integer.valueOf(port));

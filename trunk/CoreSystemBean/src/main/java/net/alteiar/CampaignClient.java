@@ -64,6 +64,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public static synchronized void connectToServer(String localAdress,
 			String serverAdress, String port, String path) {
+
 		if (INSTANCE != null) {
 			return;
 		}
