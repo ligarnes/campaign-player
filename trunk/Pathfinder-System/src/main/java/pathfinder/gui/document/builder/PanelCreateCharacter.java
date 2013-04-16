@@ -143,13 +143,12 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		ImageBean image = new ImageBean(transfertImage);
 		CampaignClient.getInstance().addBean(image, false);
 
-		PathfinderCharacter character = new PathfinderCharacter();
-		character.setName(textFieldName.getText());
-		character.setImage(image.getId());
-
+		String name = textFieldName.getText();
 		Integer hp = Integer.valueOf(textFieldHp.getText());
-		character.setTotalHp(hp);
-		character.setCurrentHp(hp);
+
+		PathfinderCharacter character = new PathfinderCharacter(name, hp, hp,
+				image.getId());
+		character.setImage(image.getId());
 
 		CampaignClient.getInstance().addBean(character, false);
 		transfertImage = null;

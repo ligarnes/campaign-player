@@ -11,14 +11,22 @@ import net.alteiar.shared.UniqueID;
 public class PathfinderCharacter extends CharacterBean {
 	private static final long serialVersionUID = 1L;
 
-	private String name;
 	private Integer totalHp;
 	private Integer currentHp;
 	private UniqueID image;
 
-	public PathfinderCharacter() {
+	protected PathfinderCharacter() {
+		super();
 		totalHp = 0;
 		currentHp = 0;
+	}
+
+	public PathfinderCharacter(String name, Integer totalHp, Integer currentHp,
+			UniqueID image) {
+		super(name);
+		this.totalHp = totalHp;
+		this.currentHp = currentHp;
+		this.image = image;
 	}
 
 	// ////////////// METHODS /////////////////
@@ -31,22 +39,17 @@ public class PathfinderCharacter extends CharacterBean {
 	}
 
 	@Override
-	public String getVisibleName() {
-		return getName();
-	}
-
-	@Override
 	public String toString() {
 		return getName();
 	}
 
 	// ////////////// BEANS METHODS /////////////////
 	public String getName() {
-		return name;
+		return getDocumentName();
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.setDocumentName(name);
 	}
 
 	public Integer getTotalHp() {
@@ -71,5 +74,10 @@ public class PathfinderCharacter extends CharacterBean {
 
 	public void setImage(UniqueID image) {
 		this.image = image;
+	}
+
+	@Override
+	public void beanRemoved() {
+		CampaignClient.getInstance().removeBean(image);
 	}
 }

@@ -13,10 +13,10 @@ public class PolygonToMouse extends LineToMouse {
 	}
 
 	@Override
-	public void draw(Graphics2D g2, Point mouse) {
+	protected void realDraw(Graphics2D g2, Point mouse) {
 		super.draw(g2, mouse);
-		Point2D org = getMapEditor()
-				.convertPointStandardToPanel(getPts().get(0));
+		Point2D org = getMapEditor().convertPointStandardToPanel(
+				getPts().get(0));
 		g2.drawLine((int) org.getX(), (int) org.getY(), mouse.x, mouse.y);
 	}
 }
