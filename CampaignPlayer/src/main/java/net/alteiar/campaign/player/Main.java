@@ -81,6 +81,15 @@ public class Main {
 
 			Boolean isServer = dlg.getMainPanel().isServer();
 
+			if (isServer) {
+				CampaignClient.startNewCampaignServer(localAdress, address,
+						port, "campaign path");
+			} else {
+				CampaignClient.connectToServer(localAdress, address, port,
+						"campaign path");
+			}
+			CampaignClient.getInstance().createPlayer(name, isMj);
+
 			globalProp.setPseudo(name);
 			globalProp.setIsMj(isMj);
 			globalProp.setIpLocal(localAdress);
@@ -92,15 +101,6 @@ public class Main {
 			} catch (IOException ex) {
 				ExceptionTool.showError(ex);
 			}
-
-			if (isServer) {
-				CampaignClient.startNewCampaignServer(localAdress, address,
-						port, "campaign path");
-			} else {
-				CampaignClient.connectToServer(localAdress, address, port,
-						"campaign path");
-			}
-			CampaignClient.getInstance().createPlayer(name, isMj);
 
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override

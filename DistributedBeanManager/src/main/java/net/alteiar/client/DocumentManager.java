@@ -31,11 +31,13 @@ public class DocumentManager {
 		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
 				+ localAddress + " to " + serverAddress + " at " + port);
 
+		// System.setProperty("java.rmi.server.useLocalHostname", "true");
+		System.setProperty("java.rmi.server.hostname", localAddress);
+
 		DocumentManager documentManager = null;
 		IServerDocument campaign = null;
-
 		Remote remoteObject;
-		System.setProperty("java.rmi.server.hostname", localAddress);
+
 		String[] allRemoteNames = RmiRegistry.list("//" + serverAddress + ":"
 				+ port);
 
