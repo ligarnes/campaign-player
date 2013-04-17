@@ -69,5 +69,16 @@ public abstract class Effect extends MapElement{
 		super.setMapId(mapId);
 		shape.setMapId(mapId);
 	}
+	
+	public Boolean isOneUse()
+	{
+		return oneUse;
+	}
+	
+	public void setOneUse(Boolean oneUse)
+	{
+		this.oneUse=oneUse;
+	}
+	
 	public abstract void activate(PathfinderCharacter c);
 }
