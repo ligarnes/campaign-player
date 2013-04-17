@@ -6,9 +6,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
+import java.util.List;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.ColoredShape;
+import net.alteiar.player.Player;
 import net.alteiar.shared.MyColor;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeSquare;
@@ -35,8 +38,12 @@ public class BasicEffect extends Effect{
 
 	@Override
 	public void activate(PathfinderCharacter c) {
-	
-		System.out.println("Basic effect activated");
+		System.out.println("Basic Effect Activated");
+		if(this.isOneUse())
+		{
+			EffectManager.getInstance().removeEffect(this.getId());
+			CampaignClient.getInstance().removeBean(this);
+		}
 	}
 
 	
