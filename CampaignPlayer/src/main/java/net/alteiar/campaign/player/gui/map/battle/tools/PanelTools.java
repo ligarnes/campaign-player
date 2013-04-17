@@ -2,10 +2,12 @@ package net.alteiar.campaign.player.gui.map.battle.tools;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
@@ -28,12 +30,18 @@ public class PanelTools extends JToolBar implements Observer {
 	private static String ICON_HIDE = "EyeHide_16.png";
 
 	private static String ICON_SHOW_GRID = "show-grid.jpg";
+	
+	private static String ICON_20_FACES_DIE = "die-20-faces.png";
+	private static String ICON_12_FACES_DIE = "die-12-faces.png";
+	private static String ICON_6_FACES_DIE = "die-6-faces.png";
 
 	private final GlobalMapListener mapListener;
 
 	private final ToolMapListener toolListener;
 
 	private final ButtonGroup group;
+	
+	private ArrayList<Die> dice;
 
 	public PanelTools(GlobalMapListener globalListener,
 			final MapEditableInfo mapInfo, Battle battle) {
@@ -43,6 +51,7 @@ public class PanelTools extends JToolBar implements Observer {
 		toolListener.addObserver(this);
 
 		group = new ButtonGroup();
+		dice = new ArrayList<Die>();
 
 		JToggleButton addCircle = new JToggleButton(Helpers.getIcon(
 				ICON_CIRCLE, 30, 30));
@@ -105,6 +114,39 @@ public class PanelTools extends JToolBar implements Observer {
 			group.add(hideMap);
 		}
 		this.addSeparator();
+		
+		Die twentyDie = new Die(20);
+		JToggleButton dieTwentyFaces = new JToggleButton(Helpers.getIcon(
+				ICON_20_FACES_DIE, 30, 30));
+		dieTwentyFaces.addActionListener(twentyDie);
+		this.dice.add(twentyDie);
+		this.add(dieTwentyFaces);
+		
+		Die twelveDie = new Die(12);
+		JToggleButton dieTwelveFaces = new JToggleButton(Helpers.getIcon(
+				ICON_12_FACES_DIE, 30, 30));
+		dieTwelveFaces.addActionListener(twelveDie);
+		this.dice.add(twelveDie);
+		this.add(dieTwelveFaces);
+		
+		Die sixDie = new Die(6);
+		JToggleButton dieSixFaces = new JToggleButton(Helpers.getIcon(
+				ICON_6_FACES_DIE, 30, 30));
+		dieSixFaces.addActionListener(sixDie);
+		this.dice.add(sixDie);
+		this.add(dieSixFaces);
+		
+		JButton rollButton = new JButton("Roll");
+		rollButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				rollDice();
+				showDice();
+			}
+		});
+		this.add(rollButton);
+		
+		this.addSeparator();
 
 		JToggleButton showGrid = new JToggleButton(Helpers.getIcon(
 				ICON_SHOW_GRID, 30, 30));
@@ -137,6 +179,23 @@ public class PanelTools extends JToolBar implements Observer {
 	private void changeTool(Tools tool) {
 		toolListener.setToolState(tool);
 		mapListener.setCurrentListener(toolListener);
+	}
+	
+	private void rollDice(){
+		for (Die die : this.dice){
+			if (die.isSelected()){
+				die.roll();
+			}
+		}
+	}
+	
+	private void showDice(){
+		for (Die die : this.dice){
+			if (die.isSelected()){
+				// TODO : send the result to the chat. Good idea?
+				System.out.println(die);
+			}
+		}
 	}
 
 	@Override
