@@ -10,7 +10,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.map.drawable.LineToMouse;
 import net.alteiar.campaign.player.gui.map.drawable.PathToMouse;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
@@ -18,16 +17,13 @@ import net.alteiar.map.elements.MapElement;
 
 public class MoveElementMapListener extends ActionMapListener {
 	private final MapElement mapElement;
-	private final MapEditableInfo mapInfo;
 
-	private final Drawable draw;
+	private final LineToMouse draw;
 
-	public MoveElementMapListener(GlobalMapListener mapListener,
-			MapEditableInfo mapInfo, Point first, MapElement mapElement) {
-		super(mapListener);
+	public MoveElementMapListener(MapEditableInfo mapInfo,
+			GlobalMapListener mapListener, Point first, MapElement mapElement) {
+		super(mapInfo, mapListener);
 		this.mapElement = mapElement;
-
-		this.mapInfo = mapInfo;
 
 		if (mapInfo.getFixGrid()) {
 			draw = new PathToMouse(mapInfo, first);
@@ -54,7 +50,7 @@ public class MoveElementMapListener extends ActionMapListener {
 
 	@Override
 	public void mouseMove(MouseEvent e, Point mapPosition) {
-		mapInfo.moveElementAt(mapElement, mapPosition);
+		getMapEditableInfo().moveElementAt(mapElement, mapPosition);
 	}
 
 	private JMenuItem buildAddPoint(final Point mapPosition) {
@@ -87,18 +83,17 @@ public class MoveElementMapListener extends ActionMapListener {
 		// TODO mapElement.revertPosition();
 		mapListener.defaultListener();
 
-		mapInfo.removeDrawable(draw);
+		getMapEditableInfo().removeDrawable(draw);
 
 		finish();
 	}
 
 	private void addPoint(Point mapPosition) {
-		// TODO
-		// mapInfo.addPointToPath(mapPosition);
+		draw.addPoint(mapPosition);
 	}
 
 	private void finishMove(Point mapPosition) {
-		mapInfo.moveElementAt(mapElement, mapPosition);
+		getMapEditableInfo().moveElementAt(mapElement, mapPosition);
 		// TODO mapElement.applyPosition();
 		mapListener.defaultListener();
 
@@ -107,7 +102,7 @@ public class MoveElementMapListener extends ActionMapListener {
 
 	private void finish() {
 		mapListener.defaultListener();
-		mapInfo.removeDrawable(draw);
+		getMapEditableInfo().removeDrawable(draw);
 
 		/*
 		 * if (mapInfo.getFixGrid()) { mapInfo.stopDrawPathToMouse(); } else {

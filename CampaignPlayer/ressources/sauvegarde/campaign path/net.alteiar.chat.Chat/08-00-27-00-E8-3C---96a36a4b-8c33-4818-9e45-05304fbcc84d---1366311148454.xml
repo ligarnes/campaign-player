@@ -1,0 +1,58 @@
+<chat serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:96a36a4b-8c33-4818-9e45-05304fbcc84d:1366311148454</guid>
+   </id>
+   <pseudo>cody</pseudo>
+   <messages>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>test</message>
+         <command>text</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>test</message>
+         <command>text</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>1;20;2;4;2;</message>
+         <command>/dice</command>
+      </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+   </messages>
+</chat>

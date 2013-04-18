@@ -10,18 +10,16 @@ import net.alteiar.campaign.player.gui.map.event.MapEvent;
 
 public class ShowHidePolygonMapListener extends ActionMapListener {
 
-	private final MapEditableInfo mapInfo;
 	private final Boolean isShow;
 
 	private final PolygonToMouse draw;
 
-	public ShowHidePolygonMapListener(GlobalMapListener mapListener,
-			MapEditableInfo mapInfo, Point begin, Boolean isShow) {
-		super(mapListener);
-		this.mapInfo = mapInfo;
+	public ShowHidePolygonMapListener(MapEditableInfo mapInfo,
+			GlobalMapListener mapListener, Point begin, Boolean isShow) {
+		super(mapInfo, mapListener);
 
 		draw = new PolygonToMouse(mapInfo, begin);
-		this.mapInfo.addDrawable(draw);
+		mapInfo.addDrawable(draw);
 		this.isShow = isShow;
 	}
 
@@ -37,11 +35,11 @@ public class ShowHidePolygonMapListener extends ActionMapListener {
 
 	public void finishShowHide() {
 		if (isShow) {
-			mapInfo.showPolygon(draw.getPts());
+			getMapEditableInfo().showPolygon(draw.getPts());
 		} else {
-			mapInfo.hidePolygon(draw.getPts());
+			getMapEditableInfo().hidePolygon(draw.getPts());
 		}
-		mapInfo.removeDrawable(draw);
+		getMapEditableInfo().removeDrawable(draw);
 		mapListener.defaultListener();
 	}
 }

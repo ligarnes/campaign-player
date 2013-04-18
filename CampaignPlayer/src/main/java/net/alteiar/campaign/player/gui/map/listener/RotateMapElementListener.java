@@ -9,17 +9,18 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.map.elements.MapElement;
 
-public class RotateMapListener extends ActionMapListener {
+public class RotateMapElementListener extends ActionMapListener {
 
 	private Point first;
 	private final MapElement mapElement;
 
-	public RotateMapListener(GlobalMapListener mapListener,
-			MapElement mapElement, Point begin) {
-		super(mapListener);
+	public RotateMapElementListener(MapEditableInfo mapInfo,
+			GlobalMapListener mapListener, MapElement mapElement, Point begin) {
+		super(mapInfo, mapListener);
 		this.mapElement = mapElement;
 		this.first = begin;
 	}

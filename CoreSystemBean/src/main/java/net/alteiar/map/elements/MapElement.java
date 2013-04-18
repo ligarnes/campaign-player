@@ -30,6 +30,10 @@ public abstract class MapElement extends BasicBeans {
 	@Element
 	private Boolean hiddenForPlayer;
 
+	protected MapElement() {
+
+	}
+
 	public MapElement(Point position) {
 		this.position = position;
 		this.angle = 0.0;

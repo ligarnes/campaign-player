@@ -41,7 +41,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
@@ -50,13 +49,13 @@ import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreate extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	JPanel previous;
-	
+
 	MainPanelStartGame mainPanelStartGame;
 
-	//TODO: ajouter un text field pour le nom
-	
+	// TODO: ajouter un text field pour le nom
+
 	private final JTextField pseudoTextField;
 	private final JCheckBox isMj;
 
@@ -67,7 +66,7 @@ public class PanelCreate extends JPanel {
 	public PanelCreate(MainPanelStartGame mainPanelStartGame, JPanel previous) {
 		this.previous = previous;
 		this.mainPanelStartGame = mainPanelStartGame;
-		
+
 		pseudoTextField = new JTextField(10);
 
 		model = new DefaultComboBoxModel<String>();
@@ -155,17 +154,17 @@ public class PanelCreate extends JPanel {
 
 		this.add(identite);
 		this.add(server);
-		
+
 		JButton createButton = new JButton("Connexion");
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				create();
-				
+
 			}
 		});
 		this.add(createButton);
-		
+
 		JButton loadButton = new JButton("Annuler");
 		loadButton.addActionListener(new ActionListener() {
 			@Override
@@ -195,42 +194,33 @@ public class PanelCreate extends JPanel {
 	public Boolean isMj() {
 		return isMj.isSelected();
 	}
-	
-	public void create(){
-		
-			GlobalProperties globalProp = Helpers.getGlobalProperties();
-			String localAdress = getLocalAdressIP();
-			String address = getServerAddressIp();
-			String port = getPort();
 
-			String name = getPseudo();
-			Boolean isMj = isMj();
+	public void create() {
+		GlobalProperties globalProp = Helpers.getGlobalProperties();
+		String localAdress = getLocalAdressIP();
+		String address = getServerAddressIp();
+		String port = getPort();
 
+		String name = getPseudo();
+		Boolean isMj = isMj();
 
-			CampaignClient.startNewCampaignServer(localAdress, address,
-						port, "campaign path");
+		CampaignClient.startNewCampaignServer(localAdress, address, port,
+				"campaign path");
 
-			CampaignClient.getInstance().createPlayer(name, isMj);
+		CampaignClient.getInstance().createPlayer(name, isMj);
 
-			globalProp.setPseudo(name);
-			globalProp.setIsMj(isMj);
-			globalProp.setIpLocal(localAdress);
-			globalProp.setPort(port);
-			globalProp.setIpServer(address);
-			globalProp.setIsServer(true);
-			try {
-				globalProp.save();
-			} catch (IOException ex) {
-				ExceptionTool.showError(ex);
-			}
+		globalProp.setPseudo(name);
+		globalProp.setIsMj(isMj);
+		globalProp.setIpLocal(localAdress);
+		globalProp.setPort(port);
+		globalProp.setIpServer(address);
+		globalProp.setIsServer(true);
+		try {
+			globalProp.save();
+		} catch (IOException ex) {
+			ExceptionTool.showError(ex);
+		}
 
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override
-				public void run() {
-					MainFrame.FRAME.initComponent();
-					// CampaignClient.createClientCampaign(5, MainFrame.FRAME);
-					MainFrame.FRAME.setVisible(true);
-				}
-			});
+		mainPanelStartGame.startApplication();
 	}
 }

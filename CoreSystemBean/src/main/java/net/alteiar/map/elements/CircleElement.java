@@ -6,10 +6,10 @@ import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.beans.PropertyVetoException;
 
+import net.alteiar.utils.map.element.MapElementSize;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-
-import net.alteiar.utils.map.element.MapElementSize;
 
 public class CircleElement extends ColoredShape {
 	@Attribute
@@ -18,6 +18,10 @@ public class CircleElement extends ColoredShape {
 	public static final String PROP_RADIUS_PROPERTY = "radius";
 	@Element
 	private MapElementSize radius;
+
+	protected CircleElement() {
+
+	}
 
 	public CircleElement(Point position, Color color, MapElementSize radius) {
 		super(position, color);

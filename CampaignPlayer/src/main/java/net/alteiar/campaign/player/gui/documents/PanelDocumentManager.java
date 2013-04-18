@@ -5,10 +5,12 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.CampaignListener;
+import net.alteiar.campaign.player.Helpers;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
@@ -18,6 +20,8 @@ import net.alteiar.panel.PanelList;
 public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		implements CampaignListener {
 	private static final long serialVersionUID = 1L;
+
+	private static final String ICON_SAVE = "save.png";
 
 	private final AuthorizationChangeListener beanListener;
 
@@ -36,14 +40,27 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 	@Override
 	protected JPanel createPanelCreate() {
 		JPanel pane = new JPanel();
-		JButton button = new JButton("Ajouter");
-		button.addActionListener(new ActionListener() {
+		JButton btnAdd = new JButton("Ajouter");
+		btnAdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PanelCreateDocument.createDocument();
 			}
 		});
-		pane.add(button);
+
+		JButton btnSave = new JButton(Helpers.getIcon(ICON_SAVE, 24, 24));
+		btnSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CampaignClient.getInstance().saveGame();
+				JOptionPane.showMessageDialog(null,
+						"La campagne à bien été sauvegardé", "Sauvegarde",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+
+		pane.add(btnSave);
+		pane.add(btnAdd);
 		return pane;
 	}
 

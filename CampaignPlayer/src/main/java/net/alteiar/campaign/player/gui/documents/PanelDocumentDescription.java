@@ -126,11 +126,12 @@ public class PanelDocumentDescription extends JPanel {
 		PanelViewDocument<?> comp = PluginSystem.getInstance().getViewPanel(
 				bean);
 		if (comp != null) {
-			JDialog dlg = new JDialog(MainFrame.FRAME, bean.toString(), false);
+			JDialog dlg = new JDialog(MainFrame.FRAME, bean.getDocumentName(),
+					false);
 			dlg.add(comp);
-			dlg.setLocationRelativeTo(null);
 			dlg.setPreferredSize(new Dimension(800, 600));
 			dlg.pack();
+			dlg.setLocationRelativeTo(null);
 			dlg.setVisible(true);
 		}
 	}
