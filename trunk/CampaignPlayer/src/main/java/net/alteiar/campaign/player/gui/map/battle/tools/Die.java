@@ -7,43 +7,53 @@ import java.util.Random;
 public class Die implements ActionListener{
 
 	private int numFaces;
+	private int upFace;
+	private int lowestValue;
+	
 	private boolean selected;
-	private int upperFace;
 		
-	public Die(int numFaces) {
+	public Die(int numFaces, int lowestValue) {
 		//Pour l'instant, le dé est considéré comme
-		// donnant des valeurs de 1 à numFaces.
+		// donnant des valeurs de lowestValue à lowestValue + numFaces.
 		this.numFaces = numFaces;
-		this.upperFace = 1;
+		this.lowestValue = lowestValue;
+		this.upFace = lowestValue;
 		this.selected = false;
 	}
 
-	public int getUpperFace() {
-		return upperFace;
-	}
-
-	
-
 	@Override
 	public String toString() {
-		return "Die [numFaces=" + numFaces + ", selected=" + selected
-				+ ", upperFace=" + upperFace + "]";
+		return "Die [numFaces=" + numFaces + ", upFace=" + upFace
+				+ ", lowestValue=" + lowestValue + ", selected=" + selected
+				+ "]";
 	}
 
-	public void roll(){
-		setUpperFace((new Random()).nextInt(numFaces) + 1);
+	public int getNumFaces() {
+		return numFaces;
 	}
 	
-	private void setUpperFace(int i) {
-		this.upperFace = i;
+	public int getUpFace() {
+		return upFace;
 	}
-
-	public void setSelected(boolean selected){
-		this.selected = selected;
+	
+	public int getLowestValue() {
+		return lowestValue;
 	}
 	
 	public boolean isSelected(){
 		return selected;
+	}
+
+	public void roll(){
+		setUpFace((new Random()).nextInt(numFaces) + getLowestValue());
+	}
+	
+	private void setUpFace(int i) {
+		this.upFace = i;
+	}
+
+	private void setSelected(boolean selected){
+		this.selected = selected;
 	}
 
 	@Override
