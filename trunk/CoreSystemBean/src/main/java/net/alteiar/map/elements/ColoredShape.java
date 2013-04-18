@@ -24,17 +24,21 @@ public abstract class ColoredShape extends MapElement {
 	@Element
 	private MyColor color;
 
+	protected ColoredShape() {
+	}
+
 	public ColoredShape(Point position, Color color) {
 		super(position);
 		this.color = new MyColor(color);
 	}
 
 	public Color getColor() {
-		return color;
+		return color.getColor();
 	}
 
 	public void setColor(Color color) {
-		Color oldValue = this.color;
+		System.out.println("set color");
+		Color oldValue = this.color.getColor();
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
 					oldValue, color);

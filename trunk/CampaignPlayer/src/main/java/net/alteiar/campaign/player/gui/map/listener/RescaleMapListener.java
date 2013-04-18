@@ -8,12 +8,9 @@ import net.alteiar.campaign.player.gui.map.event.MapEvent;
 
 public class RescaleMapListener extends ActionMapListener {
 
-	private final MapEditableInfo mapInfo;
-
-	public RescaleMapListener(GlobalMapListener mapListener,
-			MapEditableInfo mapInfo) {
-		super(mapListener);
-		this.mapInfo = mapInfo;
+	public RescaleMapListener(MapEditableInfo mapInfo,
+			GlobalMapListener mapListener) {
+		super(mapInfo, mapListener);
 	}
 
 	@Override
@@ -25,6 +22,7 @@ public class RescaleMapListener extends ActionMapListener {
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent event, Point mapPosition) {
 		int amount = event.getWheelRotation();
-		mapInfo.rescaleMap(mapInfo.getPixelSquare() + amount);
+		getMapEditableInfo().rescaleMap(
+				getMapEditableInfo().getPixelSquare() + amount);
 	}
 }

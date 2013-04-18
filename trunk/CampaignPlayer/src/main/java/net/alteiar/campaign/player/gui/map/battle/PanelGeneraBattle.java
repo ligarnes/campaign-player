@@ -24,8 +24,6 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.geom.Point2D;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -35,10 +33,11 @@ import net.alteiar.campaign.player.gui.PanelWest;
 import net.alteiar.campaign.player.gui.map.PanelBasicMap;
 import net.alteiar.campaign.player.gui.map.PanelMapWithListener;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelBattleCharacterList;
-import net.alteiar.campaign.player.gui.map.battle.tools.PanelTools;
+import net.alteiar.campaign.player.gui.map.battle.tools.PanelToolsAdventure;
 import net.alteiar.campaign.player.gui.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.utils.map.Scale;
@@ -47,8 +46,7 @@ import net.alteiar.zoom.PanelMoveZoom;
 /**
  * @author Cody Stoutenburg
  */
-public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
-		Observer {
+public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	private static final long serialVersionUID = 5502995543807006460L;
 
 	private final Battle battle;
@@ -82,7 +80,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 
 		JPanel panelCenter1 = new JPanel(new BorderLayout());
 		panelCenter1.add(panelCenter, BorderLayout.CENTER);
-		panelCenter1.add(new PanelTools(mapListener, this, this.battle),
+		panelCenter1.add(new PanelToolsAdventure(mapListener, this, this.battle),
 				BorderLayout.NORTH);
 
 		this.setLayout(new BorderLayout());
@@ -316,30 +314,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo,
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
-		/*
-		 * if (showDistance) { List<Point> lstOrigin =
-		 * this.mapPanel.getTrajet(); if (lstOrigin.size() > 0) { double
-		 * distance = 0; for (int i = 0; i < lstOrigin.size() - 1; ++i) { Point
-		 * first = lstOrigin.get(i); Point next = lstOrigin.get(i + 1);
-		 * 
-		 * distance += first.distance(next); } Point last = this.mapPanel
-		 * .convertPointPanelToStandard(this.mapPanel .getMousePosition());
-		 * distance += lstOrigin.get(lstOrigin.size() - 1).distance(last);
-		 * 
-		 * double distCase = distance / this.battle.getScale().getPixels();
-		 * 
-		 * NumberFormat nf = new DecimalFormat("0.0");
-		 * this.mapPanel.setShowText(nf.format(distCase) + " cases"); } } else {
-		 * this.mapPanel.setShowText(null); }
-		 * 
-		 * this.mapPanel.repaint(); this.mapPanel.revalidate();
-		 */
-	}
-
-	@Override
 	public void removeElement(MapElement toRemove) {
-		// TODO Auto-generated method stub
-
+		MapElementFactory.removeMapElement(toRemove, battle);
 	}
 }

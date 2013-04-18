@@ -1,0 +1,23 @@
+<circleElement serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:d62e6a94-eea9-4358-a92d-c9aced8dec7f:1366312993893</guid>
+   </id>
+   <mapId serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:058012d1-c388-4432-91e8-57b9f5643f3e:1366312025879</guid>
+   </mapId>
+   <position>
+      <x>257</x>
+      <y>535</y>
+   </position>
+   <angle>0.0</angle>
+   <hiddenForPlayer>true</hiddenForPlayer>
+   <color serialVersionUID="1">
+      <r>0</r>
+      <g>0</g>
+      <b>255</b>
+      <a>255</a>
+   </color>
+   <radius class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>3.0</squareSize>
+   </radius>
+</circleElement>

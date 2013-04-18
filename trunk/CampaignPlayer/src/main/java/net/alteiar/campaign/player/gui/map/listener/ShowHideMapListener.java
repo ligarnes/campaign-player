@@ -12,18 +12,16 @@ import net.alteiar.campaign.player.gui.map.event.MapEvent;
 public class ShowHideMapListener extends ActionMapListener {
 
 	private final Point begin;
-	private final MapEditableInfo mapInfo;
 	private final Boolean isShow;
 	private final Drawable draw;
 
-	public ShowHideMapListener(GlobalMapListener mapListener,
-			MapEditableInfo mapInfo, Point begin, Boolean isShow) {
-		super(mapListener);
-		this.mapInfo = mapInfo;
+	public ShowHideMapListener(MapEditableInfo mapInfo,
+			GlobalMapListener mapListener, Point begin, Boolean isShow) {
+		super(mapInfo, mapListener);
 		this.begin = begin;
 
 		draw = new RectangleToMouse(mapInfo, begin);
-		this.mapInfo.addDrawable(draw);
+		mapInfo.addDrawable(draw);
 
 		this.isShow = isShow;
 	}
@@ -43,12 +41,14 @@ public class ShowHideMapListener extends ActionMapListener {
 				height = -height;
 
 			if (isShow) {
-				mapInfo.showRectangle(new Point(x, y), width, height);
+				getMapEditableInfo().showRectangle(new Point(x, y), width,
+						height);
 			} else {
-				mapInfo.hideRectangle(new Point(x, y), width, height);
+				getMapEditableInfo().hideRectangle(new Point(x, y), width,
+						height);
 			}
 			// this.mapInfo.stopDrawRectangle();
-			this.mapInfo.removeDrawable(draw);
+			getMapEditableInfo().removeDrawable(draw);
 			mapListener.defaultListener();
 		}
 	}

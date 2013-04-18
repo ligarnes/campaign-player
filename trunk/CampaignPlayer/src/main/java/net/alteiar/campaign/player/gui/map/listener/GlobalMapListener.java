@@ -4,8 +4,6 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
-import javax.swing.SwingUtilities;
-
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
@@ -13,48 +11,12 @@ import net.alteiar.documents.map.battle.Battle;
 
 public class GlobalMapListener implements MapListener {
 
-	private class MoveMapListener extends MapAdapter {
-		private final MapEditableInfo mapInfo;
-		private Point first;
-
-		public MoveMapListener(MapEditableInfo mapInfo) {
-			this.mapInfo = mapInfo;
-			first = null;
-		}
-
-		@Override
-		public void mousePressed(MapEvent event) {
-
-			if (SwingUtilities.isLeftMouseButton(event.getMouseEvent())) {
-				first = event.getMapPosition();
-			}
-		}
-
-		@Override
-		public void mouseDragged(MouseEvent e, Point mapPosition) {
-			if (SwingUtilities.isLeftMouseButton(e)) {
-				if (first != null) {
-					int moveX = first.x - mapPosition.x;
-					int moveY = first.y - mapPosition.y;
-					mapInfo.move(moveX, moveY);
-				}
-			}
-		}
-
-		@Override
-		public void mouseWheelMoved(MouseWheelEvent event, Point mapPosition) {
-			mapInfo.zoom(mapPosition, event.getWheelRotation());
-		}
-	}
-
-	private final MoveMapListener moveMapListener;
 	private final DefaultMapListener defaultListener;
 
 	private MapListener currentListener;
 
 	public GlobalMapListener(Battle battle, MapEditableInfo mapInfo) {
-		moveMapListener = new MoveMapListener(mapInfo);
-		defaultListener = new DefaultMapListener(this, battle, mapInfo);
+		defaultListener = new DefaultMapListener(mapInfo, this, battle);
 		currentListener = defaultListener;
 	}
 
@@ -77,7 +39,6 @@ public class GlobalMapListener implements MapListener {
 
 	@Override
 	public void mousePressed(MapEvent event) {
-		moveMapListener.mousePressed(event);
 		currentListener.mousePressed(event);
 	}
 
@@ -97,14 +58,12 @@ public class GlobalMapListener implements MapListener {
 
 	@Override
 	public void mouseDragged(MouseEvent e, Point mapPosition) {
-		moveMapListener.mouseDragged(e, mapPosition);
+		currentListener.mouseDragged(e, mapPosition);
 	}
 
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent event, Point mapPosition) {
-		// should do in another way, do not want to zoom and do other stuff
 		currentListener.mouseWheelMoved(event, mapPosition);
-		moveMapListener.mouseWheelMoved(event, mapPosition);
 	}
 
 	@Override

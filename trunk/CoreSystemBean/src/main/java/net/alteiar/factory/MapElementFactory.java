@@ -10,11 +10,20 @@ public class MapElementFactory {
 	 * 
 	 * @param map
 	 * @param element
-	 * @return the element added id
 	 */
 	public static void buildMapElement(MapElement element, Map map) {
 		element.setMapId(map.getId());
 		map.addElement(element.getId());
 		CampaignClient.getInstance().addNotPermaBean(element);
+	}
+
+	/**
+	 * 
+	 * @param map
+	 * @param element
+	 */
+	public static void removeMapElement(MapElement element, Map map) {
+		map.removeElement(element.getId());
+		CampaignClient.getInstance().removeBean(element);
 	}
 }

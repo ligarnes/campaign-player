@@ -14,7 +14,7 @@ import net.alteiar.campaign.player.gui.map.listener.RescaleMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
 import net.alteiar.documents.map.battle.Battle;
 
-public class ToolMapListener extends Observable implements MapListener {
+public class ToolMapAdventureListener extends Observable implements MapListener {
 
 	public enum Tools {
 		ADD_ELEMENT, CHANGE_SCALE, SHOW, HIDE, DO_NOTHING
@@ -25,7 +25,7 @@ public class ToolMapListener extends Observable implements MapListener {
 	private final GlobalMapListener mapListener;
 	private Tools toolState;
 
-	public ToolMapListener(MapEditableInfo mapInfo,
+	public ToolMapAdventureListener(MapEditableInfo mapInfo,
 			GlobalMapListener mapListener, Battle battle) {
 		toolState = Tools.ADD_ELEMENT;
 		this.mapListener = mapListener;
@@ -52,16 +52,16 @@ public class ToolMapListener extends Observable implements MapListener {
 			mapListener.defaultListener();
 			break;
 		case CHANGE_SCALE:
-			mapListener.setCurrentListener(new RescaleMapListener(mapListener,
-					mapInfo));
+			mapListener.setCurrentListener(new RescaleMapListener(mapInfo,
+					mapListener));
 			break;
 		case SHOW:
 			mapListener.setCurrentListener(new ShowHidePolygonMapListener(
-					mapListener, mapInfo, event.getMapPosition(), true));
+					mapInfo, mapListener, event.getMapPosition(), true));
 			break;
 		case HIDE:
 			mapListener.setCurrentListener(new ShowHidePolygonMapListener(
-					mapListener, mapInfo, event.getMapPosition(), false));
+					mapInfo, mapListener, event.getMapPosition(), false));
 			break;
 		case DO_NOTHING:
 			break;

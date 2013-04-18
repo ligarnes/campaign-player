@@ -103,10 +103,12 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 
 	private void selectAvatar() {
 		File imageFile = StaticDialog.getSelectedImageFile(this);
-		try {
-			transfertImage = new SerializableImage(imageFile);
-		} catch (IOException e) {
-			ExceptionTool.showError(e);
+		if (imageFile != null) {
+			try {
+				transfertImage = new SerializableImage(imageFile);
+			} catch (IOException e) {
+				ExceptionTool.showError(e);
+			}
 		}
 		revalidateImage();
 	}

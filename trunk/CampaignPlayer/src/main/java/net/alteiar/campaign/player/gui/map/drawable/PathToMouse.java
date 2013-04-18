@@ -16,27 +16,21 @@ import java.util.List;
 import net.alteiar.campaign.player.gui.map.Map2DUtils;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 
-public class PathToMouse extends Drawable {
-
-	private final ArrayList<Point> ptsPath;
+public class PathToMouse extends LineToMouse {
 
 	public PathToMouse(MapEditableInfo map, Point origin) {
-		super(map);
-		ptsPath = new ArrayList<Point>();
-		ptsPath.add(getMapEditor().convertPointToSquare(origin));
+		super(map, map.convertPointToSquare(origin));
 	}
 
+	@Override
 	public void addPoint(Point pt) {
-		ptsPath.add(getMapEditor().convertPointToSquare(pt));
-	}
-
-	protected ArrayList<Point> getPts() {
-		return ptsPath;
+		super.addPoint(getMapEditor().convertPointToSquare(pt));
 	}
 
 	@Override
 	protected void realDraw(Graphics2D g2, Point mouse) {
 		// compute last line
+		List<Point> ptsPath = getPts();
 		List<Point> pts = new ArrayList<Point>();
 		for (int i = 0; i < ptsPath.size() - 1; ++i) {
 			pts.addAll(computeLine(ptsPath.get(i), ptsPath.get(i + 1)));

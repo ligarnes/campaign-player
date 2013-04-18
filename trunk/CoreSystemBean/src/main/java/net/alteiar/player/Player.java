@@ -3,11 +3,11 @@ package net.alteiar.player;
 import java.awt.Color;
 import java.beans.PropertyVetoException;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.shared.MyColor;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 
 public class Player extends BasicBeans {
 	@Attribute
@@ -71,11 +71,11 @@ public class Player extends BasicBeans {
 	}
 
 	public Color getColor() {
-		return color;
+		return color.getColor();
 	}
 
 	public void setColor(Color color) {
-		Color oldValue = this.color;
+		Color oldValue = this.color.getColor();
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
 					oldValue, color);

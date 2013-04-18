@@ -96,8 +96,8 @@ public class PanelCharacterInfo extends JPanel implements
 		comboBox = new JComboBox<CharacterAdapter>(
 				CharacterAdapter.getCharacters());
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 0;
 		add(comboBox, gbc_comboBox);

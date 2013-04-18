@@ -20,13 +20,11 @@ import net.alteiar.map.elements.MapElement;
 public class DefaultMapListener extends ActionMapListener {
 
 	private final Battle battle;
-	private final MapEditableInfo mapInfo;
 
-	public DefaultMapListener(GlobalMapListener mapListener, Battle battle,
-			MapEditableInfo mapInfo) {
-		super(mapListener);
+	public DefaultMapListener(MapEditableInfo mapInfo,
+			GlobalMapListener mapListener, Battle battle) {
+		super(mapInfo, mapListener);
 		this.battle = battle;
-		this.mapInfo = mapInfo;
 	}
 
 	@Override
@@ -34,8 +32,9 @@ public class DefaultMapListener extends ActionMapListener {
 		if (SwingUtilities.isLeftMouseButton(event.getMouseEvent())) {
 			if (event.getMapElement() != null) {
 				mapListener.setCurrentListener(new MoveElementMapListener(
-						mapListener, mapInfo, event.getMapElement()
-								.getCenterPosition(), event.getMapElement()));
+						getMapEditableInfo(), mapListener, event
+								.getMapElement().getCenterPosition(), event
+								.getMapElement()));
 			}
 		} else if (SwingUtilities.isRightMouseButton(event.getMouseEvent())) {
 			JPopupMenu popup = new JPopupMenu();
@@ -111,11 +110,12 @@ public class DefaultMapListener extends ActionMapListener {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapInfo.showGrid(!mapInfo.getShowGrid());
-				menuItem.setSelected(mapInfo.getShowGrid());
+				getMapEditableInfo().showGrid(
+						!getMapEditableInfo().getShowGrid());
+				menuItem.setSelected(getMapEditableInfo().getShowGrid());
 			}
 		});
-		menuItem.setSelected(mapInfo.getShowGrid());
+		menuItem.setSelected(getMapEditableInfo().getShowGrid());
 		return menuItem;
 	}
 
@@ -125,11 +125,12 @@ public class DefaultMapListener extends ActionMapListener {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapInfo.showDistance(!mapInfo.getShowDistance());
-				menuItem.setSelected(mapInfo.getShowDistance());
+				getMapEditableInfo().showDistance(
+						!getMapEditableInfo().getShowDistance());
+				menuItem.setSelected(getMapEditableInfo().getShowDistance());
 			}
 		});
-		menuItem.setSelected(mapInfo.getShowDistance());
+		menuItem.setSelected(getMapEditableInfo().getShowDistance());
 		return menuItem;
 	}
 
@@ -139,11 +140,12 @@ public class DefaultMapListener extends ActionMapListener {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapInfo.fixGrid(!mapInfo.getFixGrid());
-				menuItem.setSelected(mapInfo.getFixGrid());
+				getMapEditableInfo()
+						.fixGrid(!getMapEditableInfo().getFixGrid());
+				menuItem.setSelected(getMapEditableInfo().getFixGrid());
 			}
 		});
-		menuItem.setSelected(mapInfo.getFixGrid());
+		menuItem.setSelected(getMapEditableInfo().getFixGrid());
 		return menuItem;
 	}
 
@@ -153,7 +155,7 @@ public class DefaultMapListener extends ActionMapListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mapListener.setCurrentListener(new RescaleMapListener(
-						mapListener, mapInfo));
+						getMapEditableInfo(), mapListener));
 			}
 		});
 		return menuItem;
@@ -170,8 +172,10 @@ public class DefaultMapListener extends ActionMapListener {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapListener.setCurrentListener(new ShowHidePolygonMapListener(
-						mapListener, mapInfo, mapPosition, isShow));
+				mapListener
+						.setCurrentListener(new ShowHidePolygonMapListener(
+								getMapEditableInfo(), mapListener, mapPosition,
+								isShow));
 			}
 		});
 
@@ -198,8 +202,8 @@ public class DefaultMapListener extends ActionMapListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mapListener.setCurrentListener(new MoveElementMapListener(
-						mapListener, mapInfo, mapElement.getCenterPosition(),
-						mapElement));
+						getMapEditableInfo(), mapListener, mapElement
+								.getCenterPosition(), mapElement));
 			}
 		});
 		return menuItem;
@@ -212,7 +216,7 @@ public class DefaultMapListener extends ActionMapListener {
 		removeElement.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapInfo.removeElement(event.getMapElement());
+				getMapEditableInfo().removeElement(event.getMapElement());
 			}
 		});
 
@@ -227,8 +231,10 @@ public class DefaultMapListener extends ActionMapListener {
 		rotate.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mapListener.setCurrentListener(new RotateMapListener(
-						mapListener, element, mapPosition));
+				mapListener
+						.setCurrentListener(new RotateMapElementListener(
+								getMapEditableInfo(), mapListener, element,
+								mapPosition));
 			}
 		});
 

@@ -2,29 +2,30 @@ package net.alteiar.campaign.player.gui.map.battle.tools;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.battle.tools.ToolMapListener.Tools;
+import net.alteiar.campaign.player.gui.map.battle.tools.ToolMapAdventureListener.Tools;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.tools.test.PanelZoom;
 import net.alteiar.documents.map.battle.Battle;
 
-public class PanelTools extends JToolBar implements Observer {
+public class PanelToolsAdventure extends JToolBar implements Observer {
 	private static final long serialVersionUID = 1L;
 
-	private static String ICON_CIRCLE = "Circle.png";
+	private static String ICON_CONSTRUCT = "travaux.png";
+	private static String ICON_ADVENTURE = "aventure.png";
+
+	private static String ICON_ADD_ELEMENT = "add.png";
 
 	private static String ICON_SHOW = "Eye_16.png";
 	private static String ICON_HIDE = "EyeHide_16.png";
@@ -33,28 +34,50 @@ public class PanelTools extends JToolBar implements Observer {
 
 	private final GlobalMapListener mapListener;
 
-	private final ToolMapListener toolListener;
+	private final ToolMapAdventureListener toolListener;
 
 	private final ButtonGroup group;
 
-	public PanelTools(GlobalMapListener globalListener,
+	public PanelToolsAdventure(GlobalMapListener globalListener,
 			final MapEditableInfo mapInfo, Battle battle) {
 		this.mapListener = globalListener;
 
-		toolListener = new ToolMapListener(mapInfo, globalListener, battle);
+		ButtonGroup mapState = new ButtonGroup();
+		JToggleButton construct = new JToggleButton(Helpers.getIcon(
+				ICON_CONSTRUCT, 30, 30));
+		construct.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		JToggleButton adventure = new JToggleButton(Helpers.getIcon(
+				ICON_ADVENTURE, 30, 30));
+
+		mapState.add(construct);
+		mapState.add(adventure);
+		adventure.setSelected(true);
+		this.add(construct);
+		this.add(adventure);
+		this.addSeparator();
+
+		toolListener = new ToolMapAdventureListener(mapInfo, globalListener,
+				battle);
 		toolListener.addObserver(this);
 
 		group = new ButtonGroup();
 
-		JToggleButton addCircle = new JToggleButton(Helpers.getIcon(
-				ICON_CIRCLE, 30, 30));
-		addCircle.addActionListener(new ActionListener() {
+		JToggleButton addElement = new JToggleButton(Helpers.getIcon(
+				ICON_ADD_ELEMENT, 30, 30));
+		addElement.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				changeTool(Tools.ADD_ELEMENT);
 			}
 		});
-		this.add(addCircle);
+		group.add(addElement);
+		this.add(addElement);
 
 		// For Mj only
 		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
@@ -107,9 +130,9 @@ public class PanelTools extends JToolBar implements Observer {
 			group.add(hideMap);
 		}
 		this.addSeparator();
-		
+
 		this.add(new DiceToolBar());
-		
+
 		this.addSeparator();
 
 		JToggleButton showGrid = new JToggleButton(Helpers.getIcon(
@@ -136,9 +159,6 @@ public class PanelTools extends JToolBar implements Observer {
 			showGrid.setSelected(true);
 		}
 		this.add(fixGrid);
-		
-		// TODO: Vérifier avec Cody so ce add était nécessaire
-		//group.add(addCircle);
 	}
 
 	private void changeTool(Tools tool) {

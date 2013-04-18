@@ -1,0 +1,31 @@
+<battle serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:058012d1-c388-4432-91e8-57b9f5643f3e:1366312025879</guid>
+   </id>
+   <documentName>test</documentName>
+   <owners>
+      <uniqueID serialVersionUID="1">
+         <guid>08-00-27-00-E8-3C:08c6b520-6b6b-4de6-bf0e-f3373a364b06:1366311148628</guid>
+      </uniqueID>
+   </owners>
+   <users/>
+   <isPublic>true</isPublic>
+   <width>785</width>
+   <height>1017</height>
+   <elements>
+      <uniqueID serialVersionUID="1">
+         <guid>08-00-27-00-E8-3C:d62e6a94-eea9-4358-a92d-c9aced8dec7f:1366312993893</guid>
+      </uniqueID>
+   </elements>
+   <backgroundId serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:e354e225-f182-4add-86e4-d33ac13ada4c:1366312025895</guid>
+   </backgroundId>
+   <filterId serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:7ec51966-51e5-4f88-a1c0-159a4b25be12:1366312025918</guid>
+   </filterId>
+   <scale>
+      <pixels>70</pixels>
+      <metre>1.5</metre>
+   </scale>
+   <turn>0</turn>
+</battle>
