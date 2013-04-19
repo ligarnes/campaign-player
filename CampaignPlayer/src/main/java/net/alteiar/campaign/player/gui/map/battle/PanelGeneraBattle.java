@@ -32,7 +32,6 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.PanelWest;
 import net.alteiar.campaign.player.gui.map.PanelBasicMap;
 import net.alteiar.campaign.player.gui.map.PanelMapWithListener;
-import net.alteiar.campaign.player.gui.map.battle.tools.PanelBattleCharacterList;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelToolsAdventure;
 import net.alteiar.campaign.player.gui.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
@@ -50,8 +49,6 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	private static final long serialVersionUID = 5502995543807006460L;
 
 	private final Battle battle;
-
-	private final PanelBattleCharacterList toolbarCharacterList;
 
 	private final PanelMapWithListener mapPanel;
 	private final PanelMoveZoom<PanelMapWithListener> movePanel;
@@ -72,15 +69,14 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 
 		movePanel = new PanelMoveZoom<PanelMapWithListener>(mapPanel);
 
-		toolbarCharacterList = new PanelBattleCharacterList(this.battle);
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BorderLayout());
-		panelCenter.add(toolbarCharacterList, BorderLayout.NORTH);
 		panelCenter.add(movePanel, BorderLayout.CENTER);
 
 		JPanel panelCenter1 = new JPanel(new BorderLayout());
 		panelCenter1.add(panelCenter, BorderLayout.CENTER);
-		panelCenter1.add(new PanelToolsAdventure(mapListener, this, this.battle),
+		panelCenter1.add(
+				new PanelToolsAdventure(mapListener, this, this.battle),
 				BorderLayout.NORTH);
 
 		this.setLayout(new BorderLayout());

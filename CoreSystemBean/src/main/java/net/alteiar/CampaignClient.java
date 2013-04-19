@@ -193,11 +193,12 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void addBean(AuthorizationBean bean, Boolean perma) {
-		bean.addOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
+		bean.setOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
 
 		// replace name by guid, we are sure of the unicity
-		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
-				.getId().toString()), new BeanEncapsulator(bean), perma);
+		manager.createDocument(
+				new DocumentPath(manager.getCampaignPath(), bean),
+				new BeanEncapsulator(bean), perma);
 	}
 
 	public void addBean(BasicBeans bean) {
@@ -209,7 +210,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void addBean(BasicBeans bean, Boolean perma) {
-		// replace name by guid, we are sure of the unicity
 		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
 				.getId().toString()), new BeanEncapsulator(bean), perma);
 	}
