@@ -143,14 +143,12 @@ public class DocumentManager {
 
 	public void createDocument(DocumentPath path, BeanEncapsulator bean,
 			Boolean perma) {
-		// long guid = -1L;
 		try {
 			this.server.createDocument(path, bean, perma);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// return guid;
 	}
 
 	public ArrayList<DocumentClient> getDocuments() {
