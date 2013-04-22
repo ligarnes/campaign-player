@@ -17,7 +17,7 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.campaign.player.gui;
+package net.alteiar.campaign.player.gui.connection;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -48,25 +48,37 @@ import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreate extends JPanel {
+
 	private static final long serialVersionUID = 1L;
 
 	JPanel previous;
+	StartGameDialog startGameDialog;
+	
+	private JTextField gameNameTextField;
 
-	MainPanelStartGame mainPanelStartGame;
+	private JTextField pseudoTextField;
+	private JCheckBox isMj;
 
-	// TODO: ajouter un text field pour le nom
+	private DefaultComboBoxModel<String> model;
+	private JComboBox<String> comboboxLocalIp;
+	private JTextField port;
 
-	private final JTextField pseudoTextField;
-	private final JCheckBox isMj;
-
-	private final DefaultComboBoxModel<String> model;
-	private final JComboBox<String> comboboxLocalIp;
-	private final JTextField port;
-
-	public PanelCreate(MainPanelStartGame mainPanelStartGame, JPanel previous) {
+	public PanelCreate(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
-		this.mainPanelStartGame = mainPanelStartGame;
+		this.startGameDialog = startGameDialog;
 
+		initGui();
+	}
+
+	private final void initGui() {
+		
+		GlobalProperties globalProp = Helpers.getGlobalProperties();
+		
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		// Initialize all the component of the panel
+		gameNameTextField = new JTextField(10);
+		
 		pseudoTextField = new JTextField(10);
 
 		model = new DefaultComboBoxModel<String>();
@@ -74,25 +86,27 @@ public class PanelCreate extends JPanel {
 		port = new JTextField(5);
 
 		isMj = new JCheckBox("MJ");
-		initGui();
-
-	}
-
-	private final void initGui() {
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		GlobalProperties globalProp = Helpers.getGlobalProperties();
+		
+		// Set some values to the values stocked in global properties
+		
 		pseudoTextField.setText(globalProp.getPseudo());
-
 		port.setText(globalProp.getPort());
-
 		isMj.setSelected(globalProp.isMj());
-
-		// pseudo
+		
+		// Build inner panel
+		
+		JPanel gamePanel = new JPanel(new FlowLayout());
+		gamePanel.setBorder(BorderFactory.createTitledBorder("Nouvelle partie"));
+		JPanel gameNamePanel = new JPanel(new FlowLayout());
+		gameNamePanel.add(new JLabel("Nom de la partie:"));
+		gameNamePanel.add(gameNameTextField);
+		gamePanel.add(gameNamePanel);
+		
 		JPanel identite = new JPanel(new FlowLayout());
 		identite.setBorder(BorderFactory.createTitledBorder("Votre identité"));
 
 		JPanel pseudo = new JPanel(new FlowLayout());
-		pseudo.add(new JLabel("votre pseudo:"));
+		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
 
 		identite.add(pseudo);
@@ -151,10 +165,13 @@ public class PanelCreate extends JPanel {
 
 		server.add(localAddressIpPanel);
 		server.add(portLabel);
-
+		
+		this.add(gamePanel);
 		this.add(identite);
 		this.add(server);
-
+		
+		JPanel buttonPanel = new JPanel(new FlowLayout());
+		
 		JButton createButton = new JButton("Connexion");
 		createButton.addActionListener(new ActionListener() {
 			@Override
@@ -163,20 +180,26 @@ public class PanelCreate extends JPanel {
 
 			}
 		});
-		this.add(createButton);
+		buttonPanel.add(createButton);
 
-		JButton loadButton = new JButton("Annuler");
-		loadButton.addActionListener(new ActionListener() {
+		JButton cancelButton = new JButton("Annuler");
+		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				PanelCreate.this.mainPanelStartGame.changeState(previous);
+				PanelCreate.this.startGameDialog.changeState(previous);
 			}
 		});
-		this.add(loadButton);
+		buttonPanel.add(cancelButton);
+		
+		this.add(buttonPanel);
 	}
 
 	public String getPseudo() {
 		return pseudoTextField.getText();
+	}
+	
+	public String getGameName() {
+		return gameNameTextField.getText();
 	}
 
 	public String getLocalAdressIP() {
@@ -201,12 +224,14 @@ public class PanelCreate extends JPanel {
 		String address = getServerAddressIp();
 		String port = getPort();
 
+		String gameName = getGameName();
 		String name = getPseudo();
 		Boolean isMj = isMj();
 
-		CampaignClient.startNewCampaignServer(localAdress, address, port,
-				"campaign path");
+		// Create the game
+		CampaignClient.startNewCampaignServer(localAdress, address, port, gameName);
 
+		// Create one player
 		CampaignClient.getInstance().createPlayer(name, isMj);
 
 		globalProp.setPseudo(name);
@@ -221,6 +246,6 @@ public class PanelCreate extends JPanel {
 			ExceptionTool.showError(ex);
 		}
 
-		mainPanelStartGame.startApplication();
+		startGameDialog.startApplication();
 	}
 }

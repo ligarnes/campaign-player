@@ -17,9 +17,10 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.campaign.player.gui;
+package net.alteiar.campaign.player.gui.connection;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -37,18 +38,14 @@ import net.alteiar.player.Player;
 public class PanelChoosePlayer extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private static final String PATH = "./ressources/sauvegarde/";
-
 	JPanel previous;
-
-	MainPanelStartGame mainPanelStartGame;
+	StartGameDialog startGameDialog;
 
 	JList<Object> playerList;
 
-	public PanelChoosePlayer(MainPanelStartGame mainPanelStartGame,
-			JPanel previous) {
+	public PanelChoosePlayer(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
-		this.mainPanelStartGame = mainPanelStartGame;
+		this.startGameDialog = startGameDialog;
 
 		initGui();
 
@@ -57,47 +54,51 @@ public class PanelChoosePlayer extends JPanel {
 	private final void initGui() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		List<Player> playersName = getPlayersName();
+		List<Player> playersName = getPlayers();
 
 		playerList = new JList<Object>(playersName.toArray());
 
-		playerList
-				.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		playerList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-		playerList.setVisibleRowCount(-1);
+		playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		playerList.setLayoutOrientation(JList.VERTICAL);
+		//playerList.setVisibleRowCount(-1);
+		playerList.setSelectedIndex(0);
 
 		JScrollPane listScroller = new JScrollPane(playerList);
 		listScroller.setPreferredSize(new Dimension(250, 80));
 
 		this.add(listScroller);
-
-		JButton createButton = new JButton("Sélectionner");
-		createButton.addActionListener(new ActionListener() {
+		
+		JPanel buttonPanel = new JPanel(new FlowLayout());
+		
+		JButton chooseButton = new JButton("Sélectionner");
+		chooseButton.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent event) {
 				choosePlayer();
 			}
 
 		});
-		this.add(createButton);
+		buttonPanel.add(chooseButton);
 
-		JButton loadButton = new JButton("Annuler");
-		loadButton.addActionListener(new ActionListener() {
+		JButton cancelButton = new JButton("Annuler");
+		cancelButton.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				PanelChoosePlayer.this.mainPanelStartGame.changeState(previous);
+			public void actionPerformed(ActionEvent event) {
+				PanelChoosePlayer.this.startGameDialog.changeState(previous);
 			}
 		});
-		this.add(loadButton);
+		buttonPanel.add(cancelButton);
+		
+		this.add(buttonPanel);
 	}
 
-	public List<Player> getPlayersName() {
+	public List<Player> getPlayers() {
 		return CampaignClient.getInstance().getPlayers();
 	}
 
 	private void choosePlayer() {
 		CampaignClient.getInstance().selectPlayer(
 				(Player) playerList.getSelectedValue());
-		mainPanelStartGame.startApplication();
+		startGameDialog.startApplication();
 	}
 }

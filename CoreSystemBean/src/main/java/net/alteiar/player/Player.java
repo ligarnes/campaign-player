@@ -88,4 +88,11 @@ public class Player extends BasicBeans {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Player [name=" + name + ", mj=" + mj + ", color=" + color + "]";
+	}
+	
+	
+
 }

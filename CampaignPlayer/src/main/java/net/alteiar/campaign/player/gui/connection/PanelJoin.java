@@ -17,7 +17,7 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.campaign.player.gui;
+package net.alteiar.campaign.player.gui.connection;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -34,72 +34,50 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import net.alteiar.shared.ExceptionTool;
 
 public class PanelJoin extends JPanel {
 	private static final long serialVersionUID = 1L;
+	
+	JPanel previous;
+	StartGameDialog startGameDialog;
 
-	private final JTextField pseudoTextField;
-	private final JCheckBox isMj;
+	private DefaultComboBoxModel<String> model;
+	private JComboBox<String> comboboxLocalIp;
+	private JTextField addressIpServer;
+	private JTextField port;
 
-	private final DefaultComboBoxModel<String> model;
-	private final JComboBox<String> comboboxLocalIp;
-	private final JTextField addressIpServer;
-	private final JTextField port;
+	public PanelJoin(StartGameDialog startGameDialog, JPanel previous) {
+		
+		this.startGameDialog = startGameDialog;
+		this.previous = previous;
 
-	private final JCheckBox isServer;
-
-	public PanelJoin() {
-		pseudoTextField = new JTextField(10);
-
-		model = new DefaultComboBoxModel<String>();
-		comboboxLocalIp = new JComboBox<String>(model);
-		addressIpServer = new JTextField(10);
-		port = new JTextField(5);
-
-		isServer = new JCheckBox("créer le serveur ?");
-
-		isMj = new JCheckBox("MJ");
 		initGui();
 
 	}
 
 	private final void initGui() {
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		pseudoTextField.setText(globalProp.getPseudo());
+		
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		model = new DefaultComboBoxModel<String>();
+		comboboxLocalIp = new JComboBox<String>(model);
+		addressIpServer = new JTextField(10);
+		port = new JTextField(5);
 
 		addressIpServer.setText(globalProp.getIpServer());
 		port.setText(globalProp.getPort());
-
-		isMj.setSelected(globalProp.isMj());
-		isServer.setSelected(globalProp.isServer());
-		isServer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				isServerChanged();
-			}
-		});
-
-		// pseudo
-		JPanel identite = new JPanel(new FlowLayout());
-		identite.setBorder(BorderFactory.createTitledBorder("Votre identité"));
-
-		JPanel pseudo = new JPanel(new FlowLayout());
-		pseudo.add(new JLabel("votre pseudo:"));
-		pseudo.add(pseudoTextField);
-
-		identite.add(pseudo);
-		identite.add(isMj);
 
 		JPanel server = new JPanel();
 		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
@@ -160,20 +138,30 @@ public class PanelJoin extends JPanel {
 		server.add(addressIpPanel);
 		server.add(portLabel);
 
-		this.add(identite);
 		this.add(server);
-		this.add(isServer);
+		
+		JPanel buttonPanel = new JPanel(new FlowLayout());
+		
+		JButton joinButton = new JButton("Join");
+		joinButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				join();
+			}
+		});
+		buttonPanel.add(joinButton);
 
-		isServerChanged();
-	}
-
-	private void isServerChanged() {
-		addressIpServer.setEnabled(!isServer());
-		this.revalidate();
-	}
-
-	public String getPseudo() {
-		return pseudoTextField.getText();
+		JButton cancelButton = new JButton("Annuler");
+		cancelButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				PanelJoin.this.startGameDialog.changeState(previous);
+			}
+		});
+		buttonPanel.add(cancelButton);
+		
+		this.add(buttonPanel);
+		
 	}
 
 	public String getLocalAdressIP() {
@@ -181,22 +169,27 @@ public class PanelJoin extends JPanel {
 	}
 
 	public String getServerAddressIp() {
-		String address = addressIpServer.getText();
-		if (isServer()) {
-			address = getLocalAdressIP();
-		}
-		return address;
+		return addressIpServer.getText();
 	}
 
 	public String getPort() {
 		return port.getText();
 	}
-
-	public Boolean isServer() {
-		return isServer.isSelected();
+	
+	public void join(){
+		
+		String localAdress = getLocalAdressIP();
+		String serverAdress = getServerAddressIp();
+		String port = getPort();
+		
+		//TODO: What path should I enter here.
+		
+		String path = "";
+		
+		CampaignClient.connectToServer(localAdress, serverAdress, port, path);
+		
+		PanelJoin.this.startGameDialog.changeState(new PanelCreateOrChoosePlayer(
+				startGameDialog, this));
 	}
 
-	public Boolean isMj() {
-		return isMj.isSelected();
-	}
 }
