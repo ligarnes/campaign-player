@@ -17,7 +17,7 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.campaign.player.gui;
+package net.alteiar.campaign.player.gui.connection;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -57,30 +57,31 @@ public class PanelLoad extends JPanel {
 	private static final String PATH = "./ressources/sauvegarde/";
 
 	JPanel previous;
-
-	MainPanelStartGame mainPanelStartGame;
+	StartGameDialog startGameDialog;
 
 	JList<String> savedGameList;
 
-	private final DefaultComboBoxModel<String> model;
-	private final JComboBox<String> comboboxServerIp;
-	private final JTextField port;
+	private DefaultComboBoxModel<String> model;
+	private JComboBox<String> comboboxServerIp;
+	private JTextField port;
 
-	public PanelLoad(MainPanelStartGame mainPanelStartGame, JPanel previous) {
+	public PanelLoad(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
-		this.mainPanelStartGame = mainPanelStartGame;
-
-		model = new DefaultComboBoxModel<String>();
-		comboboxServerIp = new JComboBox<String>(model);
-		port = new JTextField(5);
+		this.startGameDialog = startGameDialog;
 
 		initGui();
 
 	}
 
 	private final void initGui() {
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
+		
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+		model = new DefaultComboBoxModel<String>();
+		comboboxServerIp = new JComboBox<String>(model);
+		port = new JTextField(5);
 
 		port.setText(globalProp.getPort());
 
@@ -145,15 +146,17 @@ public class PanelLoad extends JPanel {
 		savedGameList = new JList<String>(savedGames);
 
 		savedGameList
-				.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		savedGameList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+				.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		savedGameList.setLayoutOrientation(JList.VERTICAL);
 		savedGameList.setVisibleRowCount(-1);
 
 		JScrollPane listScroller = new JScrollPane(savedGameList);
 		listScroller.setPreferredSize(new Dimension(250, 80));
 
 		this.add(listScroller);
-
+		
+		JPanel buttonPanel = new JPanel(new FlowLayout());
+		
 		JButton createButton = new JButton("Charger");
 		createButton.addActionListener(new ActionListener() {
 			@Override
@@ -162,16 +165,18 @@ public class PanelLoad extends JPanel {
 
 			}
 		});
-		this.add(createButton);
+		buttonPanel.add(createButton);
 
-		JButton loadButton = new JButton("Annuler");
-		loadButton.addActionListener(new ActionListener() {
+		JButton cancelButton = new JButton("Annuler");
+		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				PanelLoad.this.mainPanelStartGame.changeState(previous);
+				PanelLoad.this.startGameDialog.changeState(previous);
 			}
 		});
-		this.add(loadButton);
+		buttonPanel.add(cancelButton);
+		
+		this.add(buttonPanel);
 	}
 
 	public String getServerAddressIp() {
@@ -189,8 +194,8 @@ public class PanelLoad extends JPanel {
 
 		CampaignClient.loadCampaignServer(address, address, port, campaign);
 
-		PanelLoad.this.mainPanelStartGame.changeState(new PanelChoosePlayer(
-				mainPanelStartGame, this));
+		PanelLoad.this.startGameDialog.changeState(new PanelChoosePlayer(
+				startGameDialog, this));
 	}
 
 	public Vector<String> getSavedGames() {

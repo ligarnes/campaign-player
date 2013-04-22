@@ -27,7 +27,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
-import net.alteiar.campaign.player.gui.MainPanelStartGame;
+import net.alteiar.campaign.player.gui.connection.StartGameDialog;
 
 /**
  * @author Cody Stoutenburg
@@ -58,13 +58,13 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		MainPanelStartGame enterDialog = new MainPanelStartGame(
+		StartGameDialog enterDialog = new StartGameDialog(
 				MainFrame.FRAME, "Choix de la partie", true);
 
 		// enterDialog.getContentPane().add(new MainPanelStartGame());
 
 		// TODO : ajuster la taille du panel
-		enterDialog.setPreferredSize(new Dimension(800, 600));
+		enterDialog.setPreferredSize(new Dimension(400, 400));
 		enterDialog.pack();
 		enterDialog.setLocationRelativeTo(null);
 		enterDialog.setVisible(true);
