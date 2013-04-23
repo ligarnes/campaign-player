@@ -5,7 +5,7 @@ import java.awt.Point;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.PolygonToMouse;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.PolygonToMouse;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 
 public class ShowHidePolygonMapListener extends ActionMapListener {

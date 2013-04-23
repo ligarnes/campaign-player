@@ -17,8 +17,8 @@ public class LoadCampaignTest extends BasicTest {
 		String address = "127.0.0.1";
 		String port = "1099";
 
-		CampaignClient.loadCampaignServer(address, address, port,
-				getCampaignDirectory());
+		CampaignClient
+				.loadCampaignServer(address, port, getCampaignDirectory());
 
 		List<Player> players = CampaignClient.getInstance().getPlayers();
 		CampaignClient.getInstance().selectPlayer(players.get(0));

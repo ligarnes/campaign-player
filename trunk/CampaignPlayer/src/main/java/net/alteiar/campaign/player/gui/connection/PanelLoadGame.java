@@ -76,9 +76,9 @@ public class PanelLoadGame extends JPanel {
 	}
 
 	private final void initGui() {
-		
+
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		model = new DefaultComboBoxModel<String>();
@@ -147,17 +147,17 @@ public class PanelLoadGame extends JPanel {
 
 		savedGameList = new JList<String>(savedGames);
 
-		savedGameList
-				.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		savedGameList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		savedGameList.setLayoutOrientation(JList.VERTICAL);
 		savedGameList.setSelectedIndex(0);
-		
+
 		JScrollPane listScroller = new JScrollPane(savedGameList);
-		listScroller.setPreferredSize(new Dimension(PREFERED_GAME_LIST_WIDTH, PREFERED_GAME_LIST_HEIGHT));
+		listScroller.setPreferredSize(new Dimension(PREFERED_GAME_LIST_WIDTH,
+				PREFERED_GAME_LIST_HEIGHT));
 		this.add(listScroller);
-		
+
 		JPanel buttonPanel = new JPanel(new FlowLayout());
-		
+
 		JButton createButton = new JButton("Charger");
 		createButton.addActionListener(new ActionListener() {
 			@Override
@@ -165,9 +165,9 @@ public class PanelLoadGame extends JPanel {
 				// TODO : is it the correct way to do this check
 				// Je veux faire cette vérification dans le cas ou
 				// un player a cliquer sur load, puis sur annuler dans
-				// le panel PanelChoosePlayer et finalement sur 
+				// le panel PanelChoosePlayer et finalement sur
 				// annuler ici
-				if (CampaignClient.getInstance() != null){
+				if (CampaignClient.getInstance() != null) {
 					System.out.println("Leaving the game");
 					CampaignClient.leaveGame();
 				}
@@ -183,9 +183,9 @@ public class PanelLoadGame extends JPanel {
 				// TODO : is it the correct way to do this check
 				// Je veux faire cette vérification dans le cas ou
 				// un player a cliquer sur load, puis sur annuler dans
-				// le panel PanelChoosePlayer et finalement sur 
+				// le panel PanelChoosePlayer et finalement sur
 				// annuler ici
-				if (CampaignClient.getInstance() != null){
+				if (CampaignClient.getInstance() != null) {
 					System.out.println("Leaving the game");
 					CampaignClient.leaveGame();
 				}
@@ -193,7 +193,7 @@ public class PanelLoadGame extends JPanel {
 			}
 		});
 		buttonPanel.add(cancelButton);
-		
+
 		this.add(buttonPanel);
 	}
 
@@ -206,11 +206,10 @@ public class PanelLoadGame extends JPanel {
 	}
 
 	public void load(String campaign) {
-
 		String address = getServerAddressIp();
 		String port = getPort();
 
-		CampaignClient.loadCampaignServer(address, address, port, campaign);
+		CampaignClient.loadCampaignServer(address, port, campaign);
 
 		PanelLoadGame.this.startGameDialog.changeState(new PanelChoosePlayer(
 				startGameDialog, this));

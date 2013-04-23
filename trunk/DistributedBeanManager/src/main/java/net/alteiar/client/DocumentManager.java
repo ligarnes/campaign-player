@@ -25,9 +25,8 @@ import net.alteiar.shared.UniqueID;
 public class DocumentManager {
 
 	public static DocumentManager connect(String localAddress,
-			String serverAddress, String port, String campaignPath,
-			String permaPath) throws RemoteException, MalformedURLException,
-			NotBoundException {
+			String serverAddress, String port, String permaPath)
+			throws RemoteException, MalformedURLException, NotBoundException {
 		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
 				+ localAddress + " to " + serverAddress + " at " + port);
 
@@ -47,8 +46,7 @@ public class DocumentManager {
 					"Find an rmi registry object: " + remoteName);
 			if (remoteObject instanceof IServerDocument) {
 				campaign = (IServerDocument) remoteObject;
-				documentManager = new DocumentManager(campaign, campaignPath,
-						permaPath);
+				documentManager = new DocumentManager(campaign, permaPath);
 				break;
 			}
 		}
@@ -73,14 +71,15 @@ public class DocumentManager {
 	private final String campaignPath;
 	private final String permaPath;
 
-	private DocumentManager(IServerDocument server, String localPath,
-			String permaPath) throws RemoteException {
-		campaignPath = localPath;
+	private DocumentManager(IServerDocument server, String permaPath)
+			throws RemoteException {
 		this.permaPath = permaPath;
 		documents = new HashMap<UniqueID, DocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
+
+		campaignPath = server.getCampaignPath();
 	}
 
 	public void loadDocuments() {
@@ -106,8 +105,10 @@ public class DocumentManager {
 		Long current = System.currentTimeMillis();
 		while (value == null && (current - begin) < timeout) {
 			try {
-				getCounterInstance().await((timeout - (current - begin)),
-						TimeUnit.MILLISECONDS);
+				if (getCounterInstance().await((timeout - (current - begin)),
+						TimeUnit.MILLISECONDS)) {
+					return null;
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

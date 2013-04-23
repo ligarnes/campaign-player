@@ -30,10 +30,12 @@ import javax.swing.JScrollPane;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.PanelWest;
+import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.map.PanelBasicMap;
 import net.alteiar.campaign.player.gui.map.PanelMapWithListener;
 import net.alteiar.campaign.player.gui.map.battle.tools.PanelToolsAdventure;
-import net.alteiar.campaign.player.gui.map.drawable.Drawable;
+import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.factory.MapElementFactory;
@@ -61,8 +63,9 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 
 		fixGrid = true;
 		showDistance = true;
-
-		mapPanel = new PanelMapWithListener(battle);
+ 
+		DrawInfo drawInfo = PluginSystem.getInstance().getDrawInfo(this);
+		mapPanel = new PanelMapWithListener(battle, drawInfo);
 
 		GlobalMapListener mapListener = new GlobalMapListener(battle, this);
 		mapPanel.addMapListener(mapListener);
@@ -84,6 +87,11 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 		JScrollPane scroll = new JScrollPane(new PanelWest());
 		this.add(scroll, BorderLayout.WEST);
 		this.add(panelCenter1, BorderLayout.CENTER);
+	}
+
+	@Override
+	public Point getViewPosition() {
+		return movePanel.getViewPosition();
 	}
 
 	@Override
@@ -120,12 +128,12 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	}
 
 	@Override
-	public void addDrawable(Drawable draw) {
+	public void addDrawable(MouseDrawable draw) {
 		mapPanel.addDrawable(draw);
 	}
 
 	@Override
-	public void removeDrawable(Drawable draw) {
+	public void removeDrawable(MouseDrawable draw) {
 		mapPanel.removeDrawable(draw);
 	}
 

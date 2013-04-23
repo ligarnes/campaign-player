@@ -27,6 +27,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.connection.StartGameDialog;
+import net.alteiar.campaign.player.gui.factory.PluginSystem;
 
 /**
  * @author Cody Stoutenburg
@@ -57,8 +58,11 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		StartGameDialog startGameDialog = new StartGameDialog(
-				MainFrame.FRAME, "Campaign Player", true);
+		// Touch to load plugin class
+		PluginSystem.getInstance();
+
+		StartGameDialog startGameDialog = new StartGameDialog(MainFrame.FRAME,
+				"Campaign Player", true);
 
 		startGameDialog.setVisible(true);
 

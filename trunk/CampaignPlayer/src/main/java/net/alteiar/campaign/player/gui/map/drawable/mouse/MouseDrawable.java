@@ -1,15 +1,15 @@
-package net.alteiar.campaign.player.gui.map.drawable;
+package net.alteiar.campaign.player.gui.map.drawable.mouse;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 
-public abstract class Drawable {
+public abstract class MouseDrawable {
 	private final MapEditableInfo mapPanel;
 	private Point last;
 
-	public Drawable(MapEditableInfo mapPanel) {
+	public MouseDrawable(MapEditableInfo mapPanel) {
 		this.mapPanel = mapPanel;
 	}
 

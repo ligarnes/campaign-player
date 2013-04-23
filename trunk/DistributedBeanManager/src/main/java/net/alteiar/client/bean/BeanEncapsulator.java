@@ -39,9 +39,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 	public BeanEncapsulator() {
 		this.bean = null;
 		propertyChangeSupportRemote = new PropertyChangeSupport(this);
-
 		changed = new ArrayList<BeanChange>();
-		this.bean.addVetoableChangeListener(this);
 	}
 
 	public UniqueID getId() {

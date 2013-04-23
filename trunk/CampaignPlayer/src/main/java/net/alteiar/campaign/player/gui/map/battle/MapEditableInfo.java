@@ -24,7 +24,7 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 import net.alteiar.campaign.player.gui.map.PanelBasicMap;
-import net.alteiar.campaign.player.gui.map.drawable.Drawable;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.utils.map.Scale;
 
@@ -33,6 +33,8 @@ import net.alteiar.utils.map.Scale;
  * 
  */
 public interface MapEditableInfo {
+
+	Point getViewPosition();
 
 	Point convertPointPanelToStandard(Point click);
 
@@ -96,9 +98,9 @@ public interface MapEditableInfo {
 
 	void changeScale(Scale echelle);
 
-	void addDrawable(Drawable draw);
+	void addDrawable(MouseDrawable draw);
 
-	void removeDrawable(Drawable draw);
+	void removeDrawable(MouseDrawable draw);
 
 	void showPolygon(List<Point> cwPts);
 

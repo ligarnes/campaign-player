@@ -120,7 +120,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 				img = transfertImage.restoreImage();
 				if (img != null) {
 					this.lblAvatar.setIcon(new ImageIcon(ImageUtil.resizeImage(
-							img, 300, 300)));
+							img, 64, 64)));
 				}
 			} catch (IOException e) {
 				ExceptionTool.showError(e);

@@ -53,10 +53,10 @@ public class PanelCreateGame extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
-	
+
 	JPanel previous;
 	StartGameDialog startGameDialog;
-	
+
 	private JTextField gameNameTextField;
 
 	private JTextField pseudoTextField;
@@ -77,14 +77,14 @@ public class PanelCreateGame extends JPanel {
 	}
 
 	private final void initGui() {
-		
+
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
+
 		// Initialize all the component of the panel
 		gameNameTextField = new JTextField(10);
-		
+
 		pseudoTextField = new JTextField(10);
 
 		localIpComboBoxModel = new DefaultComboBoxModel<String>();
@@ -92,41 +92,43 @@ public class PanelCreateGame extends JPanel {
 		portTextField = new JTextField(5);
 
 		isMj = new JCheckBox("MJ");
-		
+
 		// Set some values to the values stocked in global properties
-		
+
 		pseudoTextField.setText(globalProp.getPseudo());
 		portTextField.setText(globalProp.getPort());
 		isMj.setSelected(globalProp.isMj());
-		
+
 		// Build inner panel
-		
+
 		// Game Info Panel
 		JPanel gamePanel = new JPanel(new FlowLayout());
-		gamePanel.setBorder(BorderFactory.createTitledBorder("Nouvelle partie"));
+		gamePanel
+				.setBorder(BorderFactory.createTitledBorder("Nouvelle partie"));
 		JPanel gameNamePanel = new JPanel(new FlowLayout());
 		gameNamePanel.add(new JLabel("Nom de la partie:"));
 		gameNamePanel.add(gameNameTextField);
 		gamePanel.add(gameNamePanel);
-		
+
 		// Player Info Panel
 		JPanel identityPanel = new JPanel(new FlowLayout());
-		identityPanel.setBorder(BorderFactory.createTitledBorder("Votre identité"));
+		identityPanel.setBorder(BorderFactory
+				.createTitledBorder("Votre identité"));
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
 		playerColorButton = new JButton("Couleur");
-		//playerColorButton.setForeground(Color.BLUE);
+		// playerColorButton.setForeground(Color.BLUE);
 		playerColorButton.setBackground(playerColor);
-		playerColorButton.addActionListener(new ActionListener(){
+		playerColorButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				Color chosenColor = JColorChooser.showDialog(
-						PanelCreateGame.this,
-                        "Choisissez la couleur de votre personnage",
-                        Color.BLUE);
+				Color chosenColor = JColorChooser
+						.showDialog(PanelCreateGame.this,
+								"Choisissez la couleur de votre personnage",
+								Color.BLUE);
 				if (chosenColor != null) {
-					//playerColorButton.setForeground(playerColor);
+					// playerColorButton.setForeground(playerColor);
 					playerColor = chosenColor;
 					playerColorButton.setBackground(chosenColor);
 				}
@@ -135,7 +137,7 @@ public class PanelCreateGame extends JPanel {
 		identityPanel.add(pseudo);
 		identityPanel.add(playerColorButton);
 		identityPanel.add(isMj);
-		
+
 		// Server Info Panel
 		JPanel serverPanel = new JPanel();
 		serverPanel.setLayout(new BoxLayout(serverPanel, BoxLayout.Y_AXIS));
@@ -190,10 +192,10 @@ public class PanelCreateGame extends JPanel {
 
 		serverPanel.add(localAddressIpPanel);
 		serverPanel.add(portLabel);
-		
+
 		// Button Panel
 		JPanel buttonPanel = new JPanel(new FlowLayout());
-		
+
 		JButton createButton = new JButton("Connection");
 		createButton.addActionListener(new ActionListener() {
 			@Override
@@ -201,7 +203,7 @@ public class PanelCreateGame extends JPanel {
 				create();
 			}
 		});
-		
+
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
@@ -209,10 +211,10 @@ public class PanelCreateGame extends JPanel {
 				PanelCreateGame.this.startGameDialog.changeState(previous);
 			}
 		});
-		
+
 		buttonPanel.add(createButton);
 		buttonPanel.add(cancelButton);
-		
+
 		// Add all the panel to this panel
 		this.add(gamePanel);
 		this.add(identityPanel);
@@ -223,11 +225,11 @@ public class PanelCreateGame extends JPanel {
 	public String getPseudo() {
 		return pseudoTextField.getText();
 	}
-	
+
 	public Color getPlayerColor() {
 		return playerColor;
 	}
-	
+
 	public String getGameName() {
 		return gameNameTextField.getText();
 	}
@@ -252,12 +254,14 @@ public class PanelCreateGame extends JPanel {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 
 		// Create the game
-		CampaignClient.startNewCampaignServer(getLocalAdressIP(), getServerAddressIp(), getPort(), getGameName());
+		CampaignClient.startNewCampaignServer(getServerAddressIp(), getPort(),
+				getGameName());
 
 		// Create one player
-		CampaignClient.getInstance().createPlayer(getPseudo(), isMj(), getPlayerColor());
+		CampaignClient.getInstance().createPlayer(getPseudo(), isMj(),
+				getPlayerColor());
 
-		//TODO : add color to the properties?
+		// TODO : add color to the properties?
 		globalProp.setPseudo(getPseudo());
 		globalProp.setIsMj(isMj());
 		globalProp.setIpLocal(getLocalAdressIP());

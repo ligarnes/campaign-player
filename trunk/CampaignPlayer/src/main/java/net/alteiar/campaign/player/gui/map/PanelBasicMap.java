@@ -19,7 +19,6 @@
  */
 package net.alteiar.campaign.player.gui.map;
 
-import java.awt.Composite;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -39,7 +38,8 @@ import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
-import net.alteiar.campaign.player.gui.map.drawable.Drawable;
+import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.documents.map.Map;
 import net.alteiar.map.elements.MapElement;
@@ -56,17 +56,19 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	private static final long serialVersionUID = -5027864086357387475L;
 
 	protected final Map map;
-	private final List<Drawable> drawables;
+	private final List<MouseDrawable> drawables;
+	private final DrawInfo playerDraw;
 	private Double zoomFactor;
 	private Boolean showGrid;
 
 	private final Timer refreshTime;
 
-	public PanelBasicMap(Map map) {
+	public PanelBasicMap(Map map, DrawInfo draw) {
 		super();
+		this.playerDraw = draw;
 
 		showGrid = true;
-		drawables = new ArrayList<Drawable>();
+		drawables = new ArrayList<MouseDrawable>();
 
 		this.map = map;
 		this.map.addPropertyChangeListener(this);
@@ -90,7 +92,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		this.setPreferredSize(dim);
 	}
 
-	public void addDrawable(Drawable draw) {
+	public void addDrawable(MouseDrawable draw) {
 		drawables.add(draw);
 		refreshTime.start();
 
@@ -98,7 +100,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		this.repaint();
 	}
 
-	public void removeDrawable(Drawable draw) {
+	public void removeDrawable(MouseDrawable draw) {
 		drawables.remove(draw);
 		if (drawables.isEmpty()) {
 			refreshTime.stop();
@@ -150,8 +152,6 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
 				RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 
-		Composite defaultComp = g2.getComposite();
-
 		// draw background
 		map.drawBackground(g2, zoomFactor);
 		map.drawElements(g2, zoomFactor);
@@ -161,11 +161,11 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		map.drawFilter(g2, zoomFactor);
 
 		// Draw other info
-		g2.setComposite(defaultComp);
-
-		for (Drawable draw : drawables) {
+		for (MouseDrawable draw : drawables) {
 			draw.draw(g2, getMousePosition());
 		}
+
+		playerDraw.draw(g2);
 		g2.dispose();
 	}
 

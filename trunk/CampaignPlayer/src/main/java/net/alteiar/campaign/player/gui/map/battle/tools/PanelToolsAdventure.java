@@ -22,9 +22,6 @@ import net.alteiar.documents.map.battle.Battle;
 public class PanelToolsAdventure extends JToolBar implements Observer {
 	private static final long serialVersionUID = 1L;
 
-	private static String ICON_CONSTRUCT = "travaux.png";
-	private static String ICON_ADVENTURE = "aventure.png";
-
 	private static String ICON_ADD_ELEMENT = "add.png";
 
 	private static String ICON_SHOW = "Eye_16.png";
@@ -41,26 +38,6 @@ public class PanelToolsAdventure extends JToolBar implements Observer {
 	public PanelToolsAdventure(GlobalMapListener globalListener,
 			final MapEditableInfo mapInfo, Battle battle) {
 		this.mapListener = globalListener;
-
-		ButtonGroup mapState = new ButtonGroup();
-		JToggleButton construct = new JToggleButton(Helpers.getIcon(
-				ICON_CONSTRUCT, 30, 30));
-		construct.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-		});
-		JToggleButton adventure = new JToggleButton(Helpers.getIcon(
-				ICON_ADVENTURE, 30, 30));
-
-		mapState.add(construct);
-		mapState.add(adventure);
-		adventure.setSelected(true);
-		this.add(construct);
-		this.add(adventure);
-		this.addSeparator();
 
 		toolListener = new ToolMapAdventureListener(mapInfo, globalListener,
 				battle);

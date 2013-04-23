@@ -21,6 +21,9 @@ package net.alteiar.chat.message;
 
 import java.io.Serializable;
 
+import net.alteiar.CampaignClient;
+import net.alteiar.shared.UniqueID;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
@@ -37,6 +40,9 @@ public class MessageRemote implements Serializable {
 	public static final String SYSTEM_DISCONNECT_MESSAGE = "system.disconnect";
 
 	@Element
+	private UniqueID playerId;
+
+	@Element
 	private String sender;
 	@Element
 	private String message;
@@ -45,11 +51,12 @@ public class MessageRemote implements Serializable {
 
 	// Needed for save/load api
 	protected MessageRemote() {
-
 	}
 
 	public MessageRemote(String expediteur, String message, String command) {
 		super();
+
+		playerId = CampaignClient.getInstance().getCurrentPlayer().getId();
 
 		this.sender = expediteur;
 		this.message = message;
@@ -78,6 +85,14 @@ public class MessageRemote implements Serializable {
 
 	public void setCommand(String command) {
 		this.command = command;
+	}
+
+	public UniqueID getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(UniqueID playerId) {
+		this.playerId = playerId;
 	}
 
 	@Override

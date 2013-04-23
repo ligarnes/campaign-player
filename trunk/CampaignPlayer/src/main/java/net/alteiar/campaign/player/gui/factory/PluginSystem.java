@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
+import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.documents.AuthorizationBean;
 
@@ -26,6 +28,11 @@ public class PluginSystem implements IPluginSystemGui {
 		plugins = new ArrayList<IPluginSystemGui>();
 
 		plugins.add(getPluginSystemGui());
+	}
+
+	@Override
+	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
+		return plugins.get(0).getDrawInfo(mapInfo);
 	}
 
 	@Override

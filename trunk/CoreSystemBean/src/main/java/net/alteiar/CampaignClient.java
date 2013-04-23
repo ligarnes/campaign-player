@@ -23,6 +23,7 @@ import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.documents.map.battle.Battle;
@@ -40,30 +41,33 @@ public final class CampaignClient implements DocumentManagerListener {
 		return INSTANCE;
 	}
 
-	public static synchronized void loadCampaignServer(String localAdress,
-			String serverAdress, String port, String campaignPath) {
+	public static synchronized void loadCampaignServer(String serverAdress,
+			String port, String campaignPath) {
 		startServer(serverAdress, port, campaignPath);
-		connectToServer(localAdress, serverAdress, port, campaignPath);
+		connectToServer(serverAdress, serverAdress, port);
 		CampaignClient.getInstance().loadGame(campaignPath);
 	}
 
-	public static synchronized void startNewCampaignServer(String localAdress,
-			String serverAdress, String port, String campaignPath) {
+	public static synchronized void startNewCampaignServer(String serverAdress,
+			String port, String campaignPath) {
 
 		ServerDocuments server = startServer(serverAdress, port, campaignPath);
 		Chat chat = new Chat();
+		DiceRoller diceRoller = new DiceRoller();
 		try {
 			server.createDocument(new DocumentPath(campaignPath, chat),
 					new BeanEncapsulator(chat), false);
+			server.createDocument(new DocumentPath(campaignPath, diceRoller),
+					new BeanEncapsulator(diceRoller), false);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		connectToServer(localAdress, serverAdress, port, campaignPath);
+		connectToServer(serverAdress, serverAdress, port);
 	}
 
 	public static synchronized void connectToServer(String localAdress,
-			String serverAdress, String port, String path) {
+			String serverAdress, String port) {
 
 		if (INSTANCE != null) {
 			return;
@@ -73,7 +77,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		try {
 			// TODO do not care about perma path for the moment
 			manager = DocumentManager.connect(localAdress, serverAdress, port,
-					path, "");
+					"");
 			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +95,7 @@ public final class CampaignClient implements DocumentManagerListener {
 			String port, String path) {
 		ServerDocuments server = null;
 		try {
-			server = ServerDocuments.startServer(addressIp, port);
+			server = ServerDocuments.startServer(addressIp, port, path);
 			IS_SERVER = true;
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -124,6 +128,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final ArrayList<AuthorizationBean> documentsBean;
 
 	private Chat chat;
+	private DiceRoller diceRoller;
 
 	private final DocumentManager manager;
 
@@ -239,7 +244,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void addPermaBean(BasicBeans bean) {
-		System.out.println("Dans not perma");
 		this.addBean(bean, true);
 	}
 
@@ -268,7 +272,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 
 		ArrayList<WaitBeanListener> listenersList = waitBeanListeners
-				.get(listener);
+				.get(listener.getBeanId());
 		if (listenersList == null) {
 			listenersList = new ArrayList<WaitBeanListener>();
 			synchronized (waitBeanListeners) {
@@ -340,8 +344,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	public void documentAdded(DocumentClient document) {
 		BasicBeans bean = document.getBeanEncapsulator().getBean();
 
-		// System.out.println("document added: " + bean.getClass());
-
 		if (Beans.isInstanceOf(bean, Player.class)) {
 			synchronized (players) {
 				players.add((Player) Beans.getInstanceOf(bean, Player.class));
@@ -361,6 +363,9 @@ public final class CampaignClient implements DocumentManagerListener {
 				characters.add(character);
 			}
 			notifyCharacterAdded(character);
+		} else if (Beans.isInstanceOf(bean, DiceRoller.class)) {
+			diceRoller = (DiceRoller) Beans.getInstanceOf(bean,
+					DiceRoller.class);
 		}
 
 		if (Beans.isInstanceOf(bean, AuthorizationBean.class)) {

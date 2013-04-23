@@ -5,53 +5,19 @@
    <pseudo>cody</pseudo>
    <messages>
       <messageRemote serialVersionUID="-2669560462857993375">
+         <playerId serialVersionUID="1">
+            <guid>08-00-27-00-E8-3C:08c6b520-6b6b-4de6-bf0e-f3373a364b06:1366311148628</guid>
+         </playerId>
          <sender>cody</sender>
          <message>cody</message>
          <command>system.connect</command>
       </messageRemote>
       <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>cody</message>
-         <command>system.connect</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>cody</message>
-         <command>system.connect</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>cody</message>
-         <command>system.connect</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>cody</message>
-         <command>system.connect</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>cody</message>
-         <command>system.connect</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>test</message>
-         <command>text</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>test</message>
-         <command>text</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>1;20;2;4;2;</message>
-         <command>/dice</command>
-      </messageRemote>
-      <messageRemote serialVersionUID="-2669560462857993375">
-         <sender>cody</sender>
-         <message>cody</message>
+         <playerId serialVersionUID="1">
+            <guid>08-00-27-00-E8-3C:a2da68fc-698c-4ea8-9132-c80f54e9f1a4:1366721104064</guid>
+         </playerId>
+         <sender>hugo</sender>
+         <message>hugo</message>
          <command>system.connect</command>
       </messageRemote>
    </messages>

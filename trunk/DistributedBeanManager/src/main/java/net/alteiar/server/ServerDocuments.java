@@ -50,14 +50,15 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	public static String CAMPAIGN_MANAGER = "Campaign-manager";
 	public static ThreadPool SERVER_THREAD_POOL = null;
 
-	public static ServerDocuments startServer(String addressIp, String port)
-			throws RemoteException, MalformedURLException, NotBoundException {
+	public static ServerDocuments startServer(String addressIp, String port,
+			String campaignPath) throws RemoteException, MalformedURLException,
+			NotBoundException {
 
 		LoggerConfig.SERVER_LOGGER.log(Level.INFO, "start server at ip: "
 				+ addressIp + ", port: " + port);
 
 		System.setProperty("java.rmi.server.hostname", addressIp);
-		ServerDocuments server = new ServerDocuments();
+		ServerDocuments server = new ServerDocuments(campaignPath);
 		RmiRegistryProxy
 				.startRmiRegistryProxy(addressIp, Integer.valueOf(port));
 
@@ -84,16 +85,22 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		}
 	}
 
+	private final String campaignPath;
 	private final ArrayList<ServerListener> listeners;
 	private final HashMap<UniqueID, IDocumentRemote> documents;
 
 	/**
 	 * @throws RemoteException
 	 */
-	private ServerDocuments() throws RemoteException {
+	private ServerDocuments(String campaignPath) throws RemoteException {
 		super();
+		this.campaignPath = campaignPath;
 		documents = new HashMap<UniqueID, IDocumentRemote>();
 		listeners = new ArrayList<ServerListener>();
+	}
+
+	public String getCampaignPath() throws RemoteException {
+		return campaignPath;
 	}
 
 	@Override
