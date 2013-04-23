@@ -19,7 +19,6 @@
  */
 package net.alteiar.campaign.player;
 
-import java.awt.Dimension;
 import java.rmi.RMISecurityManager;
 
 import javax.swing.SwingUtilities;
@@ -58,18 +57,12 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		StartGameDialog enterDialog = new StartGameDialog(
-				MainFrame.FRAME, "Choix de la partie", true);
+		StartGameDialog startGameDialog = new StartGameDialog(
+				MainFrame.FRAME, "Campaign Player", true);
 
-		// enterDialog.getContentPane().add(new MainPanelStartGame());
+		startGameDialog.setVisible(true);
 
-		// TODO : ajuster la taille du panel
-		enterDialog.setPreferredSize(new Dimension(400, 400));
-		enterDialog.pack();
-		enterDialog.setLocationRelativeTo(null);
-		enterDialog.setVisible(true);
-
-		if (enterDialog.getStartApplication()) {
+		if (startGameDialog.isReadyToStart()) {
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {

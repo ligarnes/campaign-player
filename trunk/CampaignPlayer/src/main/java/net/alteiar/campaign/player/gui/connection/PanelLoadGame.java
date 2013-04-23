@@ -51,8 +51,10 @@ import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
-public class PanelLoad extends JPanel {
+public class PanelLoadGame extends JPanel {
 	private static final long serialVersionUID = 1L;
+	private static final int PREFERED_GAME_LIST_HEIGHT = 100;
+	private static final int PREFERED_GAME_LIST_WIDTH = 200;
 
 	private static final String PATH = "./ressources/sauvegarde/";
 
@@ -65,7 +67,7 @@ public class PanelLoad extends JPanel {
 	private JComboBox<String> comboboxServerIp;
 	private JTextField port;
 
-	public PanelLoad(StartGameDialog startGameDialog, JPanel previous) {
+	public PanelLoadGame(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
 		this.startGameDialog = startGameDialog;
 
@@ -148,11 +150,10 @@ public class PanelLoad extends JPanel {
 		savedGameList
 				.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		savedGameList.setLayoutOrientation(JList.VERTICAL);
-		savedGameList.setVisibleRowCount(-1);
-
+		savedGameList.setSelectedIndex(0);
+		
 		JScrollPane listScroller = new JScrollPane(savedGameList);
-		listScroller.setPreferredSize(new Dimension(250, 80));
-
+		listScroller.setPreferredSize(new Dimension(PREFERED_GAME_LIST_WIDTH, PREFERED_GAME_LIST_HEIGHT));
 		this.add(listScroller);
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -161,8 +162,16 @@ public class PanelLoad extends JPanel {
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				load(PATH + PanelLoad.this.savedGameList.getSelectedValue());
-
+				// TODO : is it the correct way to do this check
+				// Je veux faire cette vérification dans le cas ou
+				// un player a cliquer sur load, puis sur annuler dans
+				// le panel PanelChoosePlayer et finalement sur 
+				// annuler ici
+				if (CampaignClient.getInstance() != null){
+					System.out.println("Leaving the game");
+					CampaignClient.leaveGame();
+				}
+				load(PATH + PanelLoadGame.this.savedGameList.getSelectedValue());
 			}
 		});
 		buttonPanel.add(createButton);
@@ -170,8 +179,17 @@ public class PanelLoad extends JPanel {
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				PanelLoad.this.startGameDialog.changeState(previous);
+			public void actionPerformed(ActionEvent event) {
+				// TODO : is it the correct way to do this check
+				// Je veux faire cette vérification dans le cas ou
+				// un player a cliquer sur load, puis sur annuler dans
+				// le panel PanelChoosePlayer et finalement sur 
+				// annuler ici
+				if (CampaignClient.getInstance() != null){
+					System.out.println("Leaving the game");
+					CampaignClient.leaveGame();
+				}
+				PanelLoadGame.this.startGameDialog.changeState(previous);
 			}
 		});
 		buttonPanel.add(cancelButton);
@@ -194,7 +212,7 @@ public class PanelLoad extends JPanel {
 
 		CampaignClient.loadCampaignServer(address, address, port, campaign);
 
-		PanelLoad.this.startGameDialog.changeState(new PanelChoosePlayer(
+		PanelLoadGame.this.startGameDialog.changeState(new PanelChoosePlayer(
 				startGameDialog, this));
 	}
 

@@ -19,6 +19,7 @@
  */
 package net.alteiar.campaign.player.gui.connection;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +38,7 @@ import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -47,25 +49,29 @@ import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
-public class PanelCreate extends JPanel {
+public class PanelCreateGame extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-
+	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
+	
 	JPanel previous;
 	StartGameDialog startGameDialog;
 	
 	private JTextField gameNameTextField;
 
 	private JTextField pseudoTextField;
+	private JButton playerColorButton;
+	private Color playerColor;
 	private JCheckBox isMj;
 
-	private DefaultComboBoxModel<String> model;
-	private JComboBox<String> comboboxLocalIp;
-	private JTextField port;
+	private DefaultComboBoxModel<String> localIpComboBoxModel;
+	private JComboBox<String> localIpComboBox;
+	private JTextField portTextField;
 
-	public PanelCreate(StartGameDialog startGameDialog, JPanel previous) {
+	public PanelCreateGame(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
 		this.startGameDialog = startGameDialog;
+		this.playerColor = DEFAULT_PLAYER_COLOR;
 
 		initGui();
 	}
@@ -81,20 +87,21 @@ public class PanelCreate extends JPanel {
 		
 		pseudoTextField = new JTextField(10);
 
-		model = new DefaultComboBoxModel<String>();
-		comboboxLocalIp = new JComboBox<String>(model);
-		port = new JTextField(5);
+		localIpComboBoxModel = new DefaultComboBoxModel<String>();
+		localIpComboBox = new JComboBox<String>(localIpComboBoxModel);
+		portTextField = new JTextField(5);
 
 		isMj = new JCheckBox("MJ");
 		
 		// Set some values to the values stocked in global properties
 		
 		pseudoTextField.setText(globalProp.getPseudo());
-		port.setText(globalProp.getPort());
+		portTextField.setText(globalProp.getPort());
 		isMj.setSelected(globalProp.isMj());
 		
 		// Build inner panel
 		
+		// Game Info Panel
 		JPanel gamePanel = new JPanel(new FlowLayout());
 		gamePanel.setBorder(BorderFactory.createTitledBorder("Nouvelle partie"));
 		JPanel gameNamePanel = new JPanel(new FlowLayout());
@@ -102,19 +109,37 @@ public class PanelCreate extends JPanel {
 		gameNamePanel.add(gameNameTextField);
 		gamePanel.add(gameNamePanel);
 		
-		JPanel identite = new JPanel(new FlowLayout());
-		identite.setBorder(BorderFactory.createTitledBorder("Votre identité"));
-
+		// Player Info Panel
+		JPanel identityPanel = new JPanel(new FlowLayout());
+		identityPanel.setBorder(BorderFactory.createTitledBorder("Votre identité"));
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
-
-		identite.add(pseudo);
-		identite.add(isMj);
-
-		JPanel server = new JPanel();
-		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
-		server.setBorder(BorderFactory.createTitledBorder("Connection"));
+		playerColorButton = new JButton("Couleur");
+		//playerColorButton.setForeground(Color.BLUE);
+		playerColorButton.setBackground(playerColor);
+		playerColorButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				Color chosenColor = JColorChooser.showDialog(
+						PanelCreateGame.this,
+                        "Choisissez la couleur de votre personnage",
+                        Color.BLUE);
+				if (chosenColor != null) {
+					//playerColorButton.setForeground(playerColor);
+					playerColor = chosenColor;
+					playerColorButton.setBackground(chosenColor);
+				}
+			}
+		});
+		identityPanel.add(pseudo);
+		identityPanel.add(playerColorButton);
+		identityPanel.add(isMj);
+		
+		// Server Info Panel
+		JPanel serverPanel = new JPanel();
+		serverPanel.setLayout(new BoxLayout(serverPanel, BoxLayout.Y_AXIS));
+		serverPanel.setBorder(BorderFactory.createTitledBorder("Connection"));
 
 		List<String> allAdresses = new ArrayList<String>();
 
@@ -136,7 +161,7 @@ public class PanelCreate extends JPanel {
 								String address = inet.getHostAddress();
 								if (!allAdresses.contains(address)) {
 									allAdresses.add(address);
-									model.addElement(address);
+									localIpComboBoxModel.addElement(address);
 								}
 							} else if (inet instanceof Inet6Address) {
 								// for ipV6 in futur version
@@ -152,45 +177,46 @@ public class PanelCreate extends JPanel {
 		}
 
 		if (allAdresses.contains(globalProp.getIpLocal())) {
-			model.setSelectedItem(globalProp.getIpLocal());
+			localIpComboBoxModel.setSelectedItem(globalProp.getIpLocal());
 		}
 
 		JPanel localAddressIpPanel = new JPanel(new FlowLayout());
 		localAddressIpPanel.add(new JLabel("Adresse ip local"));
-		localAddressIpPanel.add(comboboxLocalIp);
+		localAddressIpPanel.add(localIpComboBox);
 
 		JPanel portLabel = new JPanel(new FlowLayout());
 		portLabel.add(new JLabel("Port"));
-		portLabel.add(port);
+		portLabel.add(portTextField);
 
-		server.add(localAddressIpPanel);
-		server.add(portLabel);
+		serverPanel.add(localAddressIpPanel);
+		serverPanel.add(portLabel);
 		
-		this.add(gamePanel);
-		this.add(identite);
-		this.add(server);
-		
+		// Button Panel
 		JPanel buttonPanel = new JPanel(new FlowLayout());
 		
-		JButton createButton = new JButton("Connexion");
+		JButton createButton = new JButton("Connection");
 		createButton.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent event) {
 				create();
-
 			}
 		});
-		buttonPanel.add(createButton);
-
+		
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				PanelCreate.this.startGameDialog.changeState(previous);
+			public void actionPerformed(ActionEvent event) {
+				PanelCreateGame.this.startGameDialog.changeState(previous);
 			}
 		});
+		
+		buttonPanel.add(createButton);
 		buttonPanel.add(cancelButton);
 		
+		// Add all the panel to this panel
+		this.add(gamePanel);
+		this.add(identityPanel);
+		this.add(serverPanel);
 		this.add(buttonPanel);
 	}
 
@@ -198,12 +224,16 @@ public class PanelCreate extends JPanel {
 		return pseudoTextField.getText();
 	}
 	
+	public Color getPlayerColor() {
+		return playerColor;
+	}
+	
 	public String getGameName() {
 		return gameNameTextField.getText();
 	}
 
 	public String getLocalAdressIP() {
-		return (String) comboboxLocalIp.getSelectedItem();
+		return (String) localIpComboBox.getSelectedItem();
 	}
 
 	public String getServerAddressIp() {
@@ -211,7 +241,7 @@ public class PanelCreate extends JPanel {
 	}
 
 	public String getPort() {
-		return port.getText();
+		return portTextField.getText();
 	}
 
 	public Boolean isMj() {
@@ -220,25 +250,19 @@ public class PanelCreate extends JPanel {
 
 	public void create() {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		String localAdress = getLocalAdressIP();
-		String address = getServerAddressIp();
-		String port = getPort();
-
-		String gameName = getGameName();
-		String name = getPseudo();
-		Boolean isMj = isMj();
 
 		// Create the game
-		CampaignClient.startNewCampaignServer(localAdress, address, port, gameName);
+		CampaignClient.startNewCampaignServer(getLocalAdressIP(), getServerAddressIp(), getPort(), getGameName());
 
 		// Create one player
-		CampaignClient.getInstance().createPlayer(name, isMj);
+		CampaignClient.getInstance().createPlayer(getPseudo(), isMj(), getPlayerColor());
 
-		globalProp.setPseudo(name);
-		globalProp.setIsMj(isMj);
-		globalProp.setIpLocal(localAdress);
-		globalProp.setPort(port);
-		globalProp.setIpServer(address);
+		//TODO : add color to the properties?
+		globalProp.setPseudo(getPseudo());
+		globalProp.setIsMj(isMj());
+		globalProp.setIpLocal(getLocalAdressIP());
+		globalProp.setPort(getPort());
+		globalProp.setIpServer(getServerAddressIp());
 		globalProp.setIsServer(true);
 		try {
 			globalProp.save();

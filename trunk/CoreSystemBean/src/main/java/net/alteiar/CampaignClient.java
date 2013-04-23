@@ -160,6 +160,18 @@ public final class CampaignClient implements DocumentManagerListener {
 			connectPlayer();
 		}
 	}
+	
+	public void createPlayer(String name, Boolean isMj, Color color) {
+		if (currentPlayer == null) {
+			// create current player
+			Long connectTimeout30second = 30000L;
+
+			Player current = new Player(name, isMj, color);
+			addNotPermaBean(current);
+			currentPlayer = getBean(current.getId(), connectTimeout30second);
+			connectPlayer();
+		}
+	}
 
 	public Boolean selectPlayer(Player player) {
 		Boolean select = false;
