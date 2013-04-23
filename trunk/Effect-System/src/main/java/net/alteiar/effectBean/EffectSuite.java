@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.shared.UniqueID;
 
 import pathfinder.character.PathfinderCharacter;
@@ -21,13 +23,8 @@ public class EffectSuite extends Effect{
 	protected ArrayList<Effect> effects;
 	
 
-	public EffectSuite(Point position, Boolean oneUse) {
-		super(position, oneUse);
-		effects=new ArrayList<Effect>();
-	}
-	
-	public EffectSuite(Point position, Color color, Boolean oneUse) {
-		super(position, color, oneUse);
+	public EffectSuite(ColoredShape shape, Boolean oneUse, Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
+		super(shape, oneUse,typeBean);
 		effects=new ArrayList<Effect>();
 	}
 	
@@ -50,10 +47,10 @@ public class EffectSuite extends Effect{
 		}
 	}
 	@Override
-	public void activate(PathfinderCharacter c) {
+	public void activate() {
 		for(Effect effect:effects)
 		{
-			effect.activate(c);
+			effect.activate();
 			if(effect.isOneUse())
 			{
 					effects.remove(effect);

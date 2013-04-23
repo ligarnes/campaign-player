@@ -9,6 +9,7 @@ import java.awt.RenderingHints;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.player.Player;
@@ -26,22 +27,16 @@ public class BasicEffect extends Effect{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public BasicEffect(Point position, Boolean oneUse) {
-		super(position, oneUse);
+	public BasicEffect(ColoredShape shape, Boolean oneUse, Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
+		super(shape, oneUse,typeBean);
 		// TODO Auto-generated constructor stub
-	}
-	
-	public BasicEffect(Point position,Color color, Boolean oneUse) {
-		super(position, color,oneUse);
-		
 	}
 
 	@Override
-	public void activate(PathfinderCharacter c) {
+	public void activate() {
 		System.out.println("Basic Effect Activated");
 		if(this.isOneUse())
 		{
-			EffectManager.getInstance().removeEffect(this.getId());
 			CampaignClient.getInstance().removeBean(this);
 		}
 	}

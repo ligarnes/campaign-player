@@ -6,6 +6,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.map.elements.ColoredShape;
+
 
 import pathfinder.character.PathfinderCharacter;
 
@@ -14,30 +17,24 @@ public class ConditionalEffect extends EffectSuite implements PropertyChangeList
 
 	private static final long serialVersionUID = 1L;
 	
-	public ConditionalEffect(Point position, Boolean oneUse) {
-		super(position, oneUse);
+	public ConditionalEffect(ColoredShape shape, Boolean oneUse, Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
+		super(shape, oneUse,typeBean);
 	}
 	
-	public ConditionalEffect(Point position, Color color, Boolean oneUse) {
-		super(position, color, oneUse);
-	}
-	
-	public void activate(PathfinderCharacter c,Boolean isFullfilled)
+	public void activate(Boolean isFullfilled)
 	{
 		if(isFullfilled)
 		{
-			effects.get(0).activate(c);
+			effects.get(0).activate();
 		}else
 		{
-			effects.get(1).activate(c);
+			effects.get(1).activate();
 		}
 	}
 
 	public void propertyChange(PropertyChangeEvent arg0) {
-		ArrayList<Object> b=(ArrayList<Object>)arg0.getNewValue();
-		PathfinderCharacter c=(PathfinderCharacter) b.get(0);
-		Boolean fullfillment=(Boolean) b.get(1);
-		this.activate(c,fullfillment);
+		Boolean fullfillment=(Boolean) arg0.getNewValue();
+		this.activate(fullfillment);
 	}
 
 }
