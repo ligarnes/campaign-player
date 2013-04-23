@@ -1,9 +1,10 @@
 package net.alteiar.campaign.player.gui.connection;
 
-import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -11,6 +12,10 @@ import javax.swing.JPanel;
 public class PanelEnterGame extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
+	private static final int MINIMUM_BUTTON_WIDTH = 10;
+	private static final int MINIMUM_BUTTON_HEIGHT = 10;
+	private static final int MAXIMUM_BUTTON_WIDTH = 200;
+	private static final int MAXIMUM_BUTTON_HEIGHT = 50;
 
 	StartGameDialog startGameDialog;
 	
@@ -21,28 +26,30 @@ public class PanelEnterGame extends JPanel implements ActionListener{
 
 	public PanelEnterGame(StartGameDialog startGameDialog) {
 		this.startGameDialog = startGameDialog;
-		initUI();
+		initGui();
 	}
 	
-	public void initUI(){
+	public void initGui(){
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
-		createButton = new JButton("Créer un partie");
-		createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(createButton);
-
-		loadButton = new JButton("Charger un partie");
-		loadButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(loadButton);
-
-		joinButton = new JButton("Joindre un partie");
-		joinButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(joinButton);
+		
+		
+		createButton = createInitializeButton("Créer une partie");
+		loadButton = createInitializeButton("Charger un partie");
+		joinButton = createInitializeButton("Joindre un partie");
+		
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+		buttonPanel.setBorder(BorderFactory.createTitledBorder("Choix d'initialisation"));
+		buttonPanel.add(createButton);
+		buttonPanel.add(joinButton);
+		buttonPanel.add(loadButton);
 
 		quitButton = new JButton("Quitter");
-		quitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(quitButton);
+		quitButton.setAlignmentX(CENTER_ALIGNMENT);
+		
+		this.add(buttonPanel);
+		this.add(quitButton);
 		
 		// Add action listener to buttons
 		createButton.addActionListener(this);
@@ -55,17 +62,25 @@ public class PanelEnterGame extends JPanel implements ActionListener{
 	public void changeState(JPanel newPanel) {
 		this.startGameDialog.changeState(newPanel);
 	}
+	
+	private JButton createInitializeButton(String name){
+		JButton initializeButton = new JButton(name);
+		initializeButton.setAlignmentX(CENTER_ALIGNMENT);
+		initializeButton.setMinimumSize(new Dimension(MINIMUM_BUTTON_WIDTH, MINIMUM_BUTTON_HEIGHT));
+		initializeButton.setMaximumSize(new Dimension(MAXIMUM_BUTTON_WIDTH, MAXIMUM_BUTTON_HEIGHT));
+		return initializeButton;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == createButton){
-			changeState(new PanelCreate(this.startGameDialog, this));
+			changeState(new PanelCreateGame(this.startGameDialog, this));
 		}
 		else if (event.getSource() == loadButton){
-			changeState(new PanelLoad(this.startGameDialog, this));
+			changeState(new PanelLoadGame(this.startGameDialog, this));
 		}
 		else if (event.getSource() == joinButton){
-			changeState(new PanelJoin(this.startGameDialog, this));
+			changeState(new PanelJoinGame(this.startGameDialog, this));
 		}
 		else if (event.getSource() == quitButton){
 			this.startGameDialog.quitApplication();

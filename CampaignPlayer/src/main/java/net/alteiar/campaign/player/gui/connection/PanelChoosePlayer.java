@@ -19,6 +19,8 @@
  */
 package net.alteiar.campaign.player.gui.connection;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -27,9 +29,11 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
 import net.alteiar.CampaignClient;
@@ -37,34 +41,37 @@ import net.alteiar.player.Player;
 
 public class PanelChoosePlayer extends JPanel {
 	private static final long serialVersionUID = 1L;
+	private static final int PREFERED_PLAYER_LIST_HEIGHT = 100;
+	private static final int PREFERED_PLAYER_LIST_WIDTH = 200;
 
 	JPanel previous;
 	StartGameDialog startGameDialog;
 
-	JList<Object> playerList;
+	JList<Player> playerList;
 
 	public PanelChoosePlayer(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
 		this.startGameDialog = startGameDialog;
 
 		initGui();
-
 	}
 
 	private final void initGui() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		List<Player> playersName = getPlayers();
-
-		playerList = new JList<Object>(playersName.toArray());
+		// TODO : Here we should check whether the player is already
+		// controlled by someone or not
+		
+		playerList = new JList<Player>(playersName.toArray(new Player[0]));
 
 		playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		playerList.setLayoutOrientation(JList.VERTICAL);
-		//playerList.setVisibleRowCount(-1);
+		playerList.setCellRenderer(new PlayerCellRenderer());
 		playerList.setSelectedIndex(0);
 
 		JScrollPane listScroller = new JScrollPane(playerList);
-		listScroller.setPreferredSize(new Dimension(250, 80));
+		listScroller.setPreferredSize(new Dimension(PREFERED_PLAYER_LIST_WIDTH, PREFERED_PLAYER_LIST_HEIGHT));
 
 		this.add(listScroller);
 		
@@ -100,5 +107,37 @@ public class PanelChoosePlayer extends JPanel {
 		CampaignClient.getInstance().selectPlayer(
 				(Player) playerList.getSelectedValue());
 		startGameDialog.startApplication();
+	}
+	
+	static class PlayerCellRenderer extends JLabel implements ListCellRenderer<Player> {
+
+		private static final long serialVersionUID = 1L;
+		private static final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
+
+		  public PlayerCellRenderer() {
+		    setOpaque(true);
+		  }
+
+		public Component getListCellRendererComponent(JList<? extends Player> list, Player player,
+		      int index, boolean isSelected, boolean cellHasFocus) {
+		    
+			String cellText = "";
+			
+			cellText += player.getName();
+		    if (player.isMj()) {
+		    	cellText += " (Maître du jeu)";
+		    }
+		    
+		    setText(cellText);
+		    if (isSelected) {
+		      setBackground(HIGHLIGHT_COLOR);
+		      setForeground(Color.white);
+		    } else {
+		      setBackground(Color.white);
+		      setForeground(Color.black);
+		    }
+		    return this;
+		}
+
 	}
 }

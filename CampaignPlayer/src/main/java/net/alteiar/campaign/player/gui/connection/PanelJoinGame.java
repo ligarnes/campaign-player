@@ -45,7 +45,7 @@ import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
-public class PanelJoin extends JPanel {
+public class PanelJoinGame extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	JPanel previous;
@@ -56,7 +56,7 @@ public class PanelJoin extends JPanel {
 	private JTextField addressIpServer;
 	private JTextField port;
 
-	public PanelJoin(StartGameDialog startGameDialog, JPanel previous) {
+	public PanelJoinGame(StartGameDialog startGameDialog, JPanel previous) {
 		
 		this.startGameDialog = startGameDialog;
 		this.previous = previous;
@@ -155,7 +155,7 @@ public class PanelJoin extends JPanel {
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				PanelJoin.this.startGameDialog.changeState(previous);
+				PanelJoinGame.this.startGameDialog.changeState(previous);
 			}
 		});
 		buttonPanel.add(cancelButton);
@@ -188,7 +188,7 @@ public class PanelJoin extends JPanel {
 		
 		CampaignClient.connectToServer(localAdress, serverAdress, port, path);
 		
-		PanelJoin.this.startGameDialog.changeState(new PanelCreateOrChoosePlayer(
+		PanelJoinGame.this.startGameDialog.changeState(new PanelCreateOrChoosePlayer(
 				startGameDialog, this));
 	}
 

@@ -9,33 +9,37 @@ public class StartGameDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
-	private Boolean startApplication;
+	private Boolean readyToStart;
 
 	public StartGameDialog(Frame owner, String title, Boolean modal) {
 		super(owner, title, modal);
-		getContentPane().add(new PanelEnterGame(this));
-		startApplication = false;
+		this.readyToStart = false;
+		this.getContentPane().add(new PanelEnterGame(this));
+		this.pack();
+		this.setLocationRelativeTo(null);
 	}
 
 	public void changeState(JPanel newPanel) {
 		getContentPane().removeAll();
 		getContentPane().add(newPanel);
+		this.pack();
+		this.setLocationRelativeTo(null);
 		this.revalidate();
 		this.repaint();
 	}
 
 	public void startApplication() {
-		startApplication = true;
+		readyToStart = true;
 		this.dispose();
 	}
 
 	public void quitApplication() {
-		startApplication = false;
+		readyToStart = false;
 		this.dispose();
 	}
-
-	public Boolean getStartApplication() {
-		return startApplication;
+	
+	public Boolean isReadyToStart() {
+		return readyToStart;
 	}
 
 }
