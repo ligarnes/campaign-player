@@ -8,11 +8,16 @@ import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.UniqueID;
 
+import org.simpleframework.xml.Element;
+
 public class PathfinderCharacter extends CharacterBean {
 	private static final long serialVersionUID = 1L;
 
+	@Element
 	private Integer totalHp;
+	@Element
 	private Integer currentHp;
+	@Element
 	private UniqueID image;
 
 	protected PathfinderCharacter() {

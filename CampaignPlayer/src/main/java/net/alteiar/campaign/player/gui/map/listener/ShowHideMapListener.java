@@ -5,15 +5,15 @@ import java.awt.Point;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.Drawable;
-import net.alteiar.campaign.player.gui.map.drawable.RectangleToMouse;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.RectangleToMouse;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 
 public class ShowHideMapListener extends ActionMapListener {
 
 	private final Point begin;
 	private final Boolean isShow;
-	private final Drawable draw;
+	private final MouseDrawable draw;
 
 	public ShowHideMapListener(MapEditableInfo mapInfo,
 			GlobalMapListener mapListener, Point begin, Boolean isShow) {

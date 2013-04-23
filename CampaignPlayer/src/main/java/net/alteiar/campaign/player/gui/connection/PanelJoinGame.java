@@ -47,7 +47,7 @@ import net.alteiar.shared.ExceptionTool;
 
 public class PanelJoinGame extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	JPanel previous;
 	StartGameDialog startGameDialog;
 
@@ -57,7 +57,7 @@ public class PanelJoinGame extends JPanel {
 	private JTextField port;
 
 	public PanelJoinGame(StartGameDialog startGameDialog, JPanel previous) {
-		
+
 		this.startGameDialog = startGameDialog;
 		this.previous = previous;
 
@@ -66,11 +66,11 @@ public class PanelJoinGame extends JPanel {
 	}
 
 	private final void initGui() {
-		
+
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
+
 		model = new DefaultComboBoxModel<String>();
 		comboboxLocalIp = new JComboBox<String>(model);
 		addressIpServer = new JTextField(10);
@@ -139,9 +139,9 @@ public class PanelJoinGame extends JPanel {
 		server.add(portLabel);
 
 		this.add(server);
-		
+
 		JPanel buttonPanel = new JPanel(new FlowLayout());
-		
+
 		JButton joinButton = new JButton("Join");
 		joinButton.addActionListener(new ActionListener() {
 			@Override
@@ -159,9 +159,9 @@ public class PanelJoinGame extends JPanel {
 			}
 		});
 		buttonPanel.add(cancelButton);
-		
+
 		this.add(buttonPanel);
-		
+
 	}
 
 	public String getLocalAdressIP() {
@@ -175,21 +175,18 @@ public class PanelJoinGame extends JPanel {
 	public String getPort() {
 		return port.getText();
 	}
-	
-	public void join(){
-		
+
+	public void join() {
+
 		String localAdress = getLocalAdressIP();
 		String serverAdress = getServerAddressIp();
 		String port = getPort();
-		
-		//TODO: What path should I enter here.
-		
-		String path = "";
-		
-		CampaignClient.connectToServer(localAdress, serverAdress, port, path);
-		
-		PanelJoinGame.this.startGameDialog.changeState(new PanelCreateOrChoosePlayer(
-				startGameDialog, this));
+
+		CampaignClient.connectToServer(localAdress, serverAdress, port);
+
+		PanelJoinGame.this.startGameDialog
+				.changeState(new PanelCreateOrChoosePlayer(startGameDialog,
+						this));
 	}
 
 }

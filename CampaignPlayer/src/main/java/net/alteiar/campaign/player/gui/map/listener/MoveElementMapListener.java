@@ -10,8 +10,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.LineToMouse;
-import net.alteiar.campaign.player.gui.map.drawable.PathToMouse;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.LineToMouse;
+import net.alteiar.campaign.player.gui.map.drawable.mouse.PathToMouse;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.map.elements.MapElement;
 

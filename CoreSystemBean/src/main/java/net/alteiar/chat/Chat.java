@@ -3,14 +3,13 @@ package net.alteiar.chat;
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-
 import net.alteiar.chat.message.ChatObject;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.bean.BasicBeans;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 public class Chat extends BasicBeans {
 	@Attribute

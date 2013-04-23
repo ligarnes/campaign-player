@@ -22,6 +22,10 @@ public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel {
 		this.add(scroll, BorderLayout.CENTER);
 	}
 
+	public Point getViewPosition() {
+		return scroll.getViewport().getViewPosition();
+	}
+
 	public void setVerticalScrollPolicy(int policy) {
 		scroll.setVerticalScrollBarPolicy(policy);
 	}

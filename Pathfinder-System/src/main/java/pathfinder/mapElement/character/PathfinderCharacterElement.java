@@ -12,15 +12,25 @@ import net.alteiar.CampaignClient;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.element.MapElementSizeSquare;
+
+import org.simpleframework.xml.Element;
+
 import pathfinder.character.PathfinderCharacter;
 
 public class PathfinderCharacterElement extends MapElement {
 
 	private static final long serialVersionUID = 1L;
 
-	private final UniqueID charactedId;
-	private final MapElementSizeSquare width;
-	private final MapElementSizeSquare height;
+	@Element
+	private UniqueID charactedId;
+	@Element
+	private MapElementSizeSquare width;
+	@Element
+	private MapElementSizeSquare height;
+
+	public PathfinderCharacterElement() {
+
+	}
 
 	public PathfinderCharacterElement(Point point, PathfinderCharacter character) {
 		this(point, character.getId());
@@ -120,4 +130,28 @@ public class PathfinderCharacterElement extends MapElement {
 	 * ArrayList<IAction>(); actions.add(new DoDamage(getCharacter()));
 	 * actions.add(new DoHeal(getCharacter())); return actions; }
 	 */
+
+	public UniqueID getCharactedId() {
+		return charactedId;
+	}
+
+	public void setCharactedId(UniqueID charactedId) {
+		this.charactedId = charactedId;
+	}
+
+	public MapElementSizeSquare getWidth() {
+		return width;
+	}
+
+	public void setWidth(MapElementSizeSquare width) {
+		this.width = width;
+	}
+
+	public MapElementSizeSquare getHeight() {
+		return height;
+	}
+
+	public void setHeight(MapElementSizeSquare height) {
+		this.height = height;
+	}
 }

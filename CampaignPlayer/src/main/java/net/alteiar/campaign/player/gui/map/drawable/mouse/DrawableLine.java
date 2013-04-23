@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.map.drawable;
+package net.alteiar.campaign.player.gui.map.drawable.mouse;
 
 import java.awt.Point;
 

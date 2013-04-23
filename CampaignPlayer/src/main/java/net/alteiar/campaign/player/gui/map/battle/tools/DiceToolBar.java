@@ -48,6 +48,14 @@ public class DiceToolBar extends JToolBar {
 		});
 		this.add(rollButton);
 
+		addDie(new Die(4, 1));
+		addDie(new Die(6, 1));
+		addDie(new Die(8, 1));
+		addDie(new Die(10, 1));
+		addDie(new Die(12, 1));
+		addDie(new Die(20, 1));
+		addDie(new Die(100, 1));
+
 		JButton addDieButton = new JButton("Ajouter un dé");
 		addDieButton.addActionListener(new ActionListener() {
 			@Override

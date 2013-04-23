@@ -127,21 +127,19 @@ public class DocumentRemote extends UnicastRemoteObject implements
 
 	protected void notifyDocumentClosed() {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
-			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						if (listener == null) {
-							System.out.println(getBean().getBean().getClass()
-									.getSimpleName());
+			if (listener != null) {
+				ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							listener.documentClosed();
+						} catch (RemoteException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
-						listener.documentClosed();
-					} catch (RemoteException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
 					}
-				}
-			});
+				});
+			}
 		}
 	}
 

@@ -76,21 +76,21 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 
 			this.remote.addDocumentListener(documentListener);
 			documentPath = remote.getPath();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-		File localFile = new File(documentPath.getCompletePath());
-		try {
-			if (localFile.exists()) {
-				// load local bean
-				DocumentLoader.loadDocumentLocal(localFile);
-			} else {
-				loadDocumentRemote();
+			File localFile = new File(documentPath.getCompletePath());
+			try {
+				if (localFile.exists()) {
+					// load local bean
+					DocumentLoader.loadDocumentLocal(localFile);
+				} else {
+					loadDocumentRemote();
+				}
+				bean.addPropertyChangeListener(this);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			bean.addPropertyChangeListener(this);
-		} catch (IOException e) {
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

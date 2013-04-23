@@ -216,10 +216,12 @@ public class PanelCharacterInfo extends JPanel implements
 		if (this.character != null) {
 			this.character.removePropertyChangeListener(this);
 		}
-		character = ((CharacterAdapter) comboBox.getSelectedItem())
-				.getCharacter();
-		this.character.addPropertyChangeListener(this);
-		updateCharacterView();
+		if (comboBox.getItemCount() > 0) {
+			character = ((CharacterAdapter) comboBox.getSelectedItem())
+					.getCharacter();
+			this.character.addPropertyChangeListener(this);
+			updateCharacterView();
+		}
 	}
 
 	public void updateCharacterView() {

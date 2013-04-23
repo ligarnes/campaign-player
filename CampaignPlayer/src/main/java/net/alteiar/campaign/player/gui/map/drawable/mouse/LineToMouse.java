@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.map.drawable;
+package net.alteiar.campaign.player.gui.map.drawable.mouse;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 
-public class LineToMouse extends Drawable {
+public class LineToMouse extends MouseDrawable {
 
 	private final ArrayList<Point> pts;
 
