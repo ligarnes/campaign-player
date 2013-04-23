@@ -6,6 +6,9 @@ import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.map.elements.ColoredShape;
+
 import pathfinder.character.PathfinderCharacter;
 
 public class DelayedEffect extends EffectSuite{
@@ -17,30 +20,22 @@ public class DelayedEffect extends EffectSuite{
 	
 	private long time;
 	
-	public DelayedEffect(Point position, Boolean oneUse) {
-		super(position, oneUse);
-		time=0;
-		// TODO Auto-generated constructor stub
-	}
-	
-	public DelayedEffect(Point position, Color color, Boolean oneUse) {
-		super(position, color, oneUse);
-		time=0;
-		// TODO Auto-generated constructor stub
-	}
-	
-	public DelayedEffect(Point position, Color color, Boolean oneUse,long time) {
-		super(position, color, oneUse);
+	public DelayedEffect(ColoredShape shape, Boolean oneUse, Class<? extends BasicBeans> typeBean,long time) throws ClassNotFoundException  {
+		super(shape, oneUse,typeBean);
 		this.time=time;
-		// TODO Auto-generated constructor stub
-	}
-
-	public DelayedEffect(Point position, Color color, Boolean oneUse,Time time) {
-		super(position, color, oneUse);
-		this.time=time.getTime();
 	}
 	
-	public void activate(final PathfinderCharacter c)
+	public long getTime()
+	{
+		return time;
+	}
+	
+	public void setTime(long time)
+	{
+		this.time=time;
+	}
+	
+	public void activate()
 	{
 		final Timer t=new Timer();
 		t.schedule(new TimerTask(){
@@ -48,7 +43,7 @@ public class DelayedEffect extends EffectSuite{
             {
             	for(Effect effect:effects)
         		{
-        			effect.activate(c);
+        			effect.activate();
         			if(effect.isOneUse())
         			{
         					effects.remove(effect);
