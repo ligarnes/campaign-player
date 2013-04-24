@@ -47,6 +47,9 @@ public class RectangleElement extends ColoredShape {
 	@Element
 	protected MapElementSize height;
 
+	public RectangleElement() {
+	}
+
 	/**
 	 * @param element
 	 * @throws RemoteException

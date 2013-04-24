@@ -108,6 +108,7 @@ public class Map extends AuthorizationBean {
 		for (UniqueID mapElementId : getElements()) {
 			MapElement mapElement = CampaignClient.getInstance().getBean(
 					mapElementId);
+
 			mapElement.draw(g2, zoomFactor);
 		}
 	}

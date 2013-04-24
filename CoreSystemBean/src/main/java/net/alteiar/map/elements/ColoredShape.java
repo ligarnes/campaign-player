@@ -56,7 +56,7 @@ public abstract class ColoredShape extends MapElement {
 	protected abstract Shape getShapeBorder(double zoomFactor, int strokeSize);
 
 	@Override
-	public void draw(Graphics2D g, double zoomFactor) {
+	protected void drawElement(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		// Compute the size of the stroke
 		Integer strokeSize = STROKE_SIZE_LARGE;
