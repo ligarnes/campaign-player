@@ -52,5 +52,13 @@
          <message>cody</message>
          <command>system.connect</command>
       </messageRemote>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <playerId serialVersionUID="1">
+            <guid>08-00-27-00-E8-3C:08c6b520-6b6b-4de6-bf0e-f3373a364b06:1366311148628</guid>
+         </playerId>
+         <sender>cody</sender>
+         <message>cody</message>
+         <command>system.connect</command>
+      </messageRemote>
    </messages>
 </chat>

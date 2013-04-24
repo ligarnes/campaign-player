@@ -64,7 +64,7 @@ public class PathfinderCharacterElement extends MapElement {
 	}
 
 	@Override
-	public void draw(Graphics2D g, double zoomFactor) {
+	protected void drawElement(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		BufferedImage background = getCharacter().getCharacterImage();
 
