@@ -1,11 +1,14 @@
 package net.alteiar.campaign.player.gui.documents;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 
 import javax.swing.ImageIcon;
@@ -21,6 +24,8 @@ import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.player.Player;
+import net.alteiar.shared.ImageUtil;
 
 public class PanelDocumentDescription extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -50,9 +55,16 @@ public class PanelDocumentDescription extends JPanel {
 		setLayout(gridBagLayout);
 
 		lblAvatar = new JLabel();
-		ImageIcon icon = PluginSystem.getInstance().getDocumentIcon(bean);
+
+		BufferedImage icon = ImageUtil.resizeImage(PluginSystem.getInstance()
+				.getDocumentIcon(bean), 30, 30);
 		if (icon != null) {
-			lblAvatar.setIcon(icon);
+			// add the color to each icons
+			Graphics2D g2 = (Graphics2D) icon.getGraphics();
+			drawPlayerColor(g2, bean);
+			g2.dispose();
+
+			lblAvatar.setIcon(new ImageIcon(icon));
 		}
 
 		GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
@@ -120,6 +132,29 @@ public class PanelDocumentDescription extends JPanel {
 				btnShared.setIcon(getCurrentState());
 			}
 		});
+	}
+
+	protected void drawDocumentIcon() {
+		BufferedImage icon = PluginSystem.getInstance().getDocumentIcon(bean);
+		if (icon != null) {
+			// resize
+			icon = ImageUtil.resizeImage(icon, 30, 30);
+			// add the color to each icons
+			Graphics2D g2 = (Graphics2D) icon.getGraphics();
+			drawPlayerColor(g2, bean);
+			g2.dispose();
+
+			lblAvatar.setIcon(new ImageIcon(icon));
+		}
+	}
+
+	protected void drawPlayerColor(Graphics2D g2, AuthorizationBean bean) {
+		Player player = CampaignClient.getInstance().getBean(bean.getOwner());
+		g2.setColor(player.getColor());
+		g2.fillOval(19, 19, 9, 9);
+
+		g2.setColor(Color.BLACK);
+		g2.drawOval(19, 19, 9, 9);
 	}
 
 	protected void showDocument() {

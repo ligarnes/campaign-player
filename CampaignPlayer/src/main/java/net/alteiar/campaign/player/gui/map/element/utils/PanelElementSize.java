@@ -38,6 +38,22 @@ public class PanelElementSize extends JPanel {
 	private final JComboBox<UnityType> comboBoxUnite;
 	private final JTextField[] textFields;
 
+	public void setElementSizeAt(int i, MapElementSize elementSize) {
+		if (elementSize instanceof MapElementSizeSquare) {
+			comboBoxUnite.setSelectedItem(UnityType.CASES);
+			textFields[i].setText(((MapElementSizeSquare) elementSize)
+					.getSquareSize().toString());
+		} else if (elementSize instanceof MapElementSizePixel) {
+			comboBoxUnite.setSelectedItem(UnityType.CASES);
+			textFields[i].setText(((MapElementSizePixel) elementSize)
+					.getPixels().toString());
+		} else if (elementSize instanceof MapElementSizeMeter) {
+			comboBoxUnite.setSelectedItem(UnityType.CASES);
+			textFields[i].setText(((MapElementSizeMeter) elementSize)
+					.getMeter().toString());
+		}
+	}
+
 	public PanelElementSize(int sizeCount) {
 		super(new FlowLayout());
 		comboBoxUnite = new JComboBox<UnityType>(UnityType.values());

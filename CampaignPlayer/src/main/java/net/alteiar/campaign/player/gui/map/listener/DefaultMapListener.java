@@ -3,6 +3,7 @@ package net.alteiar.campaign.player.gui.map.listener;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
@@ -11,9 +12,12 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
+import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
+import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.map.elements.MapElement;
 
@@ -42,6 +46,8 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildMoveElement(event.getMapPosition(),
 						event.getMapElement()));
 
+				popup.add(buildEditElement(event.getMouseEvent(),
+						event.getMapElement()));
 				/*
 				 * List<IAction> actionsAvaible = event.getMapElement()
 				 * .getActions(); if (actionsAvaible.size() > 0) {
@@ -197,7 +203,7 @@ public class DefaultMapListener extends ActionMapListener {
 
 	private JMenuItem buildMoveElement(final Point mapPosition,
 			final MapElement mapElement) {
-		JMenuItem menuItem = new JMenuItem("Deplacer");
+		JMenuItem menuItem = new JMenuItem("Déplacer");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -278,51 +284,39 @@ public class DefaultMapListener extends ActionMapListener {
 		return menu;
 	}
 
-	/*
-	 * private JMenuItem buildMenuDamage(final MouseEvent orgEvent, final
-	 * MapElementClient character, final Boolean isDamage) {
-	 * 
-	 * String title = "Dégât"; if (!isDamage) { title = "Soins"; }
-	 * 
-	 * JMenuItem menuItem = new JMenuItem(title); menuItem.addActionListener(new
-	 * ActionListener() {
-	 * 
-	 * @Override public void actionPerformed(ActionEvent e) { doDamage(orgEvent,
-	 * character, isDamage); } });
-	 * 
-	 * return menuItem; }
-	 * 
-	 * private void doDamage(MouseEvent orgEvent, MapElementClient
-	 * characterCombat, Boolean isDamage) { final JTextField textFieldDegat =
-	 * new JTextField(5);
-	 * 
-	 * String builder = "dégâts"; if (!isDamage) { builder = "soins"; } final
-	 * String title = builder.toString();
-	 * 
-	 * PanelAlwaysValidOkCancel panelDegat = new PanelAlwaysValidOkCancel() {
-	 * private static final long serialVersionUID = 1L;
-	 * 
-	 * @Override public Boolean isDataValid() { Boolean isValid = true; try {
-	 * Integer.valueOf(textFieldDegat.getText()); } catch (NumberFormatException
-	 * ex) { isValid = false; } return isValid; }
-	 * 
-	 * @Override public String getInvalidMessage() { return "les " + title +
-	 * " doivents être des chiffres"; } }; panelDegat.setLayout(new
-	 * FlowLayout()); panelDegat.add(textFieldDegat);
-	 * DialogOkCancel<PanelAlwaysValidOkCancel> dialog = new
-	 * DialogOkCancel<PanelAlwaysValidOkCancel>( null, title, true, panelDegat);
-	 * dialog.setLocation(orgEvent.getXOnScreen() - (dialog.getWidth() / 2),
-	 * orgEvent.getYOnScreen() - (dialog.getHeight() / 2));
-	 * dialog.setVisible(true);
-	 * 
-	 * if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) { Integer degat =
-	 * Integer.valueOf(textFieldDegat.getText());
-	 * 
-	 * CharacterClient characterSheet = characterCombat.getCharacter(); if
-	 * (isDamage) { characterSheet.setCurrentHp(characterSheet.getCurrentHp() -
-	 * degat); } else {
-	 * characterSheet.setCurrentHp(characterSheet.getCurrentHp() + degat); } } }
-	 */
+	public <E extends MapElement> JMenuItem buildEditElement(
+			final MouseEvent event, final E mapElement) {
+		JMenuItem menuItem = new JMenuItem("Editer");
+
+		final PanelMapElementEditor<E> pane = PluginSystem.getInstance()
+				.getMapElementEditor(mapElement);
+
+		menuItem.setEnabled(false);
+		if (pane != null) {
+			menuItem.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					DialogOkCancel<PanelMapElementEditor<E>> dlg = new DialogOkCancel<PanelMapElementEditor<E>>(
+							null, "Editer", true, pane);
+					dlg.setOkText("Editer");
+					dlg.setCancelText("Annuler");
+
+					dlg.pack();
+					dlg.setLocationRelativeTo(null);
+					dlg.setLocation(event.getLocationOnScreen());
+					dlg.setVisible(true);
+
+					if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {
+						dlg.getMainPanel().applyModification();
+					}
+				}
+			});
+
+			menuItem.setEnabled(true);
+		}
+		return menuItem;
+	}
 
 	private void rotateMapElement(MapElement rotate, Double angle) {
 		rotate.setAngle(rotate.getAngle() + angle);

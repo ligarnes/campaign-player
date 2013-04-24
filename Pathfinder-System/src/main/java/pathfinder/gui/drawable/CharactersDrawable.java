@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
@@ -36,32 +35,31 @@ public class CharactersDrawable {
 		}
 	}
 
+	public static int WIDTH = 50;
+	public static int HEIGHT = 50;
+	public static int HEIGHT_HEALTH_BAR = 10;
+
 	protected void drawCharacter(Graphics2D g, PathfinderCharacter character) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		BufferedImage background = null;
-		try {
-			background = character.getCharacterImage();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BufferedImage background = character.getCharacterImage();
 
-		int x = 0;
-		int y = 0;
-		int width = 50;
-		int height = 50;
 		if (background != null) {
-			g2.drawImage(background, x, y, width, height, null);
+			g2.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
 		} else {
 			g2.fillRect(0, 0, 50, 50);
 		}
 
-		// 5% of the character height
+		drawHealthBar(g2, character);
+		drawPlayerColor(g2, character);
+	}
+
+	protected void drawHealthBar(Graphics2D g, PathfinderCharacter character) {
+		Graphics2D g2 = (Graphics2D) g.create();
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.7f));
 		int heightLife = 10;
-		int yLife = y + height - heightLife;
-		int widthLife = width;
+		int yLife = HEIGHT - HEIGHT_HEALTH_BAR;
+		int widthLife = WIDTH;
 
 		Integer currentHp = character.getCurrentHp();
 		Integer totalHp = character.getTotalHp();
@@ -70,15 +68,15 @@ public class CharactersDrawable {
 		if (currentHp > 0) {
 			Color hp = new Color(1.0f - ratio, ratio, 0);
 			g2.setColor(hp);
-			g2.fillRect(x, yLife, (int) (widthLife * ratio), heightLife);
+			g2.fillRect(0, yLife, (int) (widthLife * ratio), heightLife);
 		}
 
 		g2.setColor(Color.BLACK);
-		g2.drawRect(x, yLife, widthLife - 1, heightLife - 1);
+		g2.drawRect(0, yLife, widthLife - 1, heightLife - 1);
+		g2.dispose();
+	}
 
-		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
-				1.0f));
-
+	protected void drawPlayerColor(Graphics2D g2, PathfinderCharacter character) {
 		Player player = CampaignClient.getInstance().getBean(
 				character.getOwner());
 		g2.setColor(player.getColor());

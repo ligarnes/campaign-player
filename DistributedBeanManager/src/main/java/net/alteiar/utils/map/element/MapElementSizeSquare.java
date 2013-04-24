@@ -46,6 +46,10 @@ public class MapElementSizeSquare extends MapElementSize {
 		this.squareSize = squareSize;
 	}
 
+	public Double getSquareSize() {
+		return squareSize;
+	}
+
 	@Override
 	public Double getPixels(Scale scale) {
 		return (double) (scale.getPixels() * squareSize);

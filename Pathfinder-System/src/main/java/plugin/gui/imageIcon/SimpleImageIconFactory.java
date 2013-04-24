@@ -1,15 +1,15 @@
 package plugin.gui.imageIcon;
 
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
 
 import net.alteiar.documents.AuthorizationBean;
 
 public class SimpleImageIconFactory<E extends AuthorizationBean> extends
 		ImageIconFactory<E> {
 	private final Class<E> classes;
-	private final ImageIcon image;
+	private final BufferedImage image;
 
-	public SimpleImageIconFactory(Class<E> classes, ImageIcon image) {
+	public SimpleImageIconFactory(Class<E> classes, BufferedImage image) {
 		this.classes = classes;
 		this.image = image;
 	}
@@ -20,7 +20,7 @@ public class SimpleImageIconFactory<E extends AuthorizationBean> extends
 	}
 
 	@Override
-	public ImageIcon getImage(E bean) {
+	public BufferedImage getImage(E bean) {
 		return image;
 	}
 

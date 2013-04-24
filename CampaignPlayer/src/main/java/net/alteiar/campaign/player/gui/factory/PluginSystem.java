@@ -1,18 +1,19 @@
 package net.alteiar.campaign.player.gui.factory;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
+import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.map.elements.MapElement;
 
 public class PluginSystem implements IPluginSystemGui {
 
@@ -42,7 +43,7 @@ public class PluginSystem implements IPluginSystemGui {
 	}
 
 	@Override
-	public <E extends AuthorizationBean> ImageIcon getDocumentIcon(E bean) {
+	public <E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean) {
 		return plugins.get(0).getDocumentIcon(bean);
 	}
 
@@ -65,6 +66,12 @@ public class PluginSystem implements IPluginSystemGui {
 		}
 
 		return mapElementBuilders;
+	}
+
+	@Override
+	public <E extends MapElement> PanelMapElementEditor<E> getMapElementEditor(
+			E bean) {
+		return plugins.get(0).getMapElementEditor(bean);
 	}
 
 	private static ClassLoader getClassLoader() {
