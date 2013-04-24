@@ -1,5 +1,6 @@
 package net.alteiar.map.elements;
 
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.PropertyVetoException;
@@ -30,17 +31,36 @@ public abstract class MapElement extends BasicBeans {
 	@Element
 	private Boolean hiddenForPlayer;
 
-	protected MapElement() {
+	private Boolean selected;
 
+	protected MapElement() {
+		selected = false;
 	}
 
 	public MapElement(Point position) {
 		this.position = position;
 		this.angle = 0.0;
 		this.hiddenForPlayer = true;
+		this.selected = false;
 	}
 
-	public abstract void draw(Graphics2D g, double zoomFactor);
+	public final void draw(Graphics2D g, double zoomFactor) {
+		if (isHiddenForPlayer()) {
+			Boolean isMj = CampaignClient.getInstance().getCurrentPlayer()
+					.isMj();
+			if (isMj) {
+				Graphics2D g2 = (Graphics2D) g.create();
+				g2.setComposite(AlphaComposite.getInstance(
+						AlphaComposite.SRC_OVER, 0.5f));
+				drawElement(g2, zoomFactor);
+				g2.dispose();
+			}
+		} else {
+			drawElement(g, zoomFactor);
+		}
+	}
+
+	protected abstract void drawElement(Graphics2D g, double zoomFactor);
 
 	public abstract Boolean contain(Point p);
 
@@ -65,6 +85,14 @@ public abstract class MapElement extends BasicBeans {
 		int x = (int) (p.getX() + (getWidthPixels() / 2));
 		int y = (int) (p.getY() + (getHeightPixels() / 2));
 		return new Point(x, y);
+	}
+
+	public Boolean getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Boolean selected) {
+		this.selected = selected;
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////
