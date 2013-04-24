@@ -106,7 +106,7 @@ public class DefaultMapListener extends ActionMapListener {
 			}
 		});
 
-		menuItem.setSelected(mapElement.isHiddenForPlayer());
+		menuItem.setSelected(!mapElement.isHiddenForPlayer());
 		return menuItem;
 	}
 

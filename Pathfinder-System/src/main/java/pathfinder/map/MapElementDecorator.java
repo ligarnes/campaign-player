@@ -15,7 +15,7 @@ public class MapElementDecorator extends MapElement {
 	}
 
 	@Override
-	public void draw(Graphics2D g, double zoomFactor) {
+	public void drawElement(Graphics2D g, double zoomFactor) {
 		decorateur.draw(g, zoomFactor);
 	}
 
