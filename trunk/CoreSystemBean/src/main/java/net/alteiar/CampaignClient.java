@@ -157,26 +157,14 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	}
 
-	public void createPlayer(String name, Boolean isMj) {
-		if (currentPlayer == null) {
-			// create current player
-			Long connectTimeout30second = 30000L;
-
-			Player current = new Player(name, isMj, Color.BLUE);
-			addNotPermaBean(current);
-			currentPlayer = getBean(current.getId(), connectTimeout30second);
-			connectPlayer();
-		}
-	}
-
 	public void createPlayer(String name, Boolean isMj, Color color) {
 		if (currentPlayer == null) {
 			// create current player
 			Long connectTimeout30second = 30000L;
 
 			Player current = new Player(name, isMj, color);
-			addNotPermaBean(current);
 			current.setConnected(true);
+			addNotPermaBean(current);
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
 			connectPlayer();
 		}
@@ -453,8 +441,9 @@ public final class CampaignClient implements DocumentManagerListener {
 					list.add(doc.getDocumentPath().getCompletePath());
 				}
 			}
-			oos = new ObjectOutputStream(new FileOutputStream(
-					manager.getCampaignPath() + "/permaList.txt"));
+			File f = new File(manager.getCampaignPath(), "permaList.txt");
+			f.createNewFile();
+			oos = new ObjectOutputStream(new FileOutputStream(f));
 			oos.writeObject(list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

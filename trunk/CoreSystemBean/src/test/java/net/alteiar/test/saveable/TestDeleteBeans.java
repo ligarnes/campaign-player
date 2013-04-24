@@ -1,6 +1,7 @@
 package net.alteiar.test.saveable;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -21,6 +22,10 @@ public class TestDeleteBeans extends TestSaveAndLoad {
 
 	@Test
 	public void testSave() {
+
+		assertEquals(1, CampaignClient.getInstance().getPlayers().size());
+		assertTrue(CampaignClient.getInstance().getChat() != null);
+
 		CampaignClient.getInstance().saveGame();
 
 		assertEquals(1, countObjectFile(Chat.class));

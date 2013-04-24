@@ -80,7 +80,7 @@ public class MoveElementMapListener extends ActionMapListener {
 	}
 
 	private void cancelPoint() {
-		// TODO mapElement.revertPosition();
+		mapElement.undoMove();
 		mapListener.defaultListener();
 
 		getMapEditableInfo().removeDrawable(draw);
@@ -94,7 +94,7 @@ public class MoveElementMapListener extends ActionMapListener {
 
 	private void finishMove(Point mapPosition) {
 		getMapEditableInfo().moveElementAt(mapElement, mapPosition);
-		// TODO mapElement.applyPosition();
+		mapElement.applyMove();
 		mapListener.defaultListener();
 
 		finish();
@@ -103,10 +103,5 @@ public class MoveElementMapListener extends ActionMapListener {
 	private void finish() {
 		mapListener.defaultListener();
 		getMapEditableInfo().removeDrawable(draw);
-
-		/*
-		 * if (mapInfo.getFixGrid()) { mapInfo.stopDrawPathToMouse(); } else {
-		 * mapInfo.stopDrawLineToMouse(); }
-		 */
 	}
 }

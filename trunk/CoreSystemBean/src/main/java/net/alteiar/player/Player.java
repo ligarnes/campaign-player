@@ -24,10 +24,11 @@ public class Player extends BasicBeans {
 	private Boolean mj;
 	@Element
 	private MyColor color;
-	@Element
+
 	private Boolean connected;
 
 	public Player() {
+		this.connected = false;
 	}
 
 	public Player(String name, Boolean mj, Color color) {
@@ -35,6 +36,7 @@ public class Player extends BasicBeans {
 		this.name = name;
 		this.mj = mj;
 		this.color = new MyColor(color);
+		this.connected = false;
 	}
 
 	public String getName() {

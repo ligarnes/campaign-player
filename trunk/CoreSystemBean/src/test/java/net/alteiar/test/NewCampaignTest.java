@@ -1,5 +1,6 @@
 package net.alteiar.test;
 
+import java.awt.Color;
 import java.io.File;
 
 import net.alteiar.CampaignClient;
@@ -22,7 +23,8 @@ public class NewCampaignTest extends BasicTest {
 		CampaignClient
 				.startNewCampaignServer(address, port, localDirectoryPath);
 
-		CampaignClient.getInstance().createPlayer(getPlayerName(), true);
+		CampaignClient.getInstance().createPlayer(getPlayerName(), true,
+				Color.BLUE);
 	}
 
 	@After
