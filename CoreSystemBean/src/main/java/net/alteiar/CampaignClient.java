@@ -46,6 +46,9 @@ public final class CampaignClient implements DocumentManagerListener {
 		startServer(serverAdress, port, campaignPath);
 		connectToServer(serverAdress, serverAdress, port);
 		CampaignClient.getInstance().loadGame(campaignPath);
+		for (Player player : CampaignClient.getInstance().getPlayers()) {
+			player.setConnected(false);
+		}
 	}
 
 	public static synchronized void startNewCampaignServer(String serverAdress,
@@ -165,7 +168,7 @@ public final class CampaignClient implements DocumentManagerListener {
 			connectPlayer();
 		}
 	}
-	
+
 	public void createPlayer(String name, Boolean isMj, Color color) {
 		if (currentPlayer == null) {
 			// create current player
@@ -173,6 +176,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 			Player current = new Player(name, isMj, color);
 			addNotPermaBean(current);
+			current.setConnected(true);
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
 			connectPlayer();
 		}
@@ -182,6 +186,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		Boolean select = false;
 		if (currentPlayer == null && players.contains(player)) {
 			this.currentPlayer = player;
+			this.currentPlayer.setConnected(true);
 			connectPlayer();
 			select = true;
 		}
@@ -207,6 +212,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	private void disconnect() {
+		this.currentPlayer.setConnected(false);
 	}
 
 	public void addBean(AuthorizationBean bean, Boolean perma) {
