@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import pathfinder.character.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
-import pathfinder.mapElement.character.PathfinderCharacterElement;
+import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
 public class PanelCharacterBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;

@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -253,14 +252,9 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		// this.spinnerAcFlatFooted.setValue(character.getAcFlatFooted());
 		// this.spinnerAcTouch.setValue(character.getAcTouch());
 
-		try {
-			BufferedImage img = ImageUtil.resizeImage(
-					character.getCharacterImage(), 120, 120);
-			this.btnIcon.setIcon(new ImageIcon(img));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BufferedImage img = ImageUtil.resizeImage(
+				character.getCharacterImage(), 120, 120);
+		this.btnIcon.setIcon(new ImageIcon(img));
 	}
 
 	protected void editPlayerAccess() {

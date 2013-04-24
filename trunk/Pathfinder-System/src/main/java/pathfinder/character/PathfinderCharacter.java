@@ -35,12 +35,17 @@ public class PathfinderCharacter extends CharacterBean {
 	}
 
 	// ////////////// METHODS /////////////////
-	public BufferedImage getCharacterImage() throws IOException {
+	public BufferedImage getCharacterImage() {
 		ImageBean image = CampaignClient.getInstance().getBean(this.image);
 		if (image == null) {
 			return null;
 		}
-		return image.getImage().restoreImage();
+		try {
+			return image.getImage().restoreImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override

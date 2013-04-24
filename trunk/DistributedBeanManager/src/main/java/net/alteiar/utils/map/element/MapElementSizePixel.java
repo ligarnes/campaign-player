@@ -23,10 +23,10 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import net.alteiar.utils.map.Scale;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-
-import net.alteiar.utils.map.Scale;
 
 /**
  * @author Cody Stoutenburg
@@ -44,6 +44,10 @@ public class MapElementSizePixel extends MapElementSize {
 
 	public MapElementSizePixel(Double pixels) {
 		this.pixels = pixels;
+	}
+
+	public Double getPixels() {
+		return pixels;
 	}
 
 	@Override

@@ -4,11 +4,11 @@
    </id>
    <name>cody</name>
    <mj>true</mj>
-   <connected>false</connected>
    <color serialVersionUID="1">
       <r>255</r>
       <g>0</g>
       <b>0</b>
       <a>255</a>
    </color>
+   <connected>true</connected>
 </player>

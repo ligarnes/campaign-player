@@ -1,9 +1,9 @@
 package plugin.gui.imageIcon;
 
-import java.io.IOException;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
-
+import net.alteiar.shared.ImageUtil;
 import pathfinder.character.PathfinderCharacter;
 
 public class CharacterImageIconFactory extends
@@ -18,13 +18,12 @@ public class CharacterImageIconFactory extends
 	}
 
 	@Override
-	public ImageIcon getImage(PathfinderCharacter bean) {
-		try {
-			return new ImageIcon(bean.getCharacterImage());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
-		}
-		return null;
+	public BufferedImage getImage(PathfinderCharacter bean) {
+		BufferedImage img = ImageUtil.resizeImage(bean.getCharacterImage(), 50,
+				50);
+		Graphics2D g2 = (Graphics2D) img.getGraphics();
+		g2.dispose();
+		return img;
 	}
+
 }

@@ -1,23 +1,23 @@
 <pathfinderCharacterElement>
    <id serialVersionUID="1">
-      <guid>08-00-27-00-E8-3C:5471f60b-e983-4efe-a89b-a7f03c8703cd:1366717225916</guid>
+      <guid>08-00-27-00-E8-3C:8330f664-7a90-43e6-adc7-037759c51c55:1366815862319</guid>
    </id>
    <mapId serialVersionUID="1">
       <guid>08-00-27-00-E8-3C:058012d1-c388-4432-91e8-57b9f5643f3e:1366312025879</guid>
    </mapId>
    <position>
-      <x>280</x>
-      <y>630</y>
+      <x>420</x>
+      <y>420</y>
    </position>
    <angle>0.0</angle>
    <hiddenForPlayer>true</hiddenForPlayer>
    <charactedId serialVersionUID="1">
-      <guid>08-00-27-00-E8-3C:38381d98-ca3c-4a06-8573-bd068e0e652e:1366715225955</guid>
+      <guid>08-00-27-00-E8-3C:1c9a4ff1-b7d0-4ed1-8dbd-239f61dba110:1366746962953</guid>
    </charactedId>
-   <width serialVersionUID="-9152421144887148374">
+   <width class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
       <squareSize>1.0</squareSize>
    </width>
-   <height serialVersionUID="-9152421144887148374">
+   <height class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
       <squareSize>1.0</squareSize>
    </height>
 </pathfinderCharacterElement>

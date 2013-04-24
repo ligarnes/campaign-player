@@ -1,4 +1,4 @@
-package pathfinder.mapElement.character;
+package pathfinder.gui.mapElement;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -6,11 +6,12 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
@@ -21,12 +22,15 @@ public class PathfinderCharacterElement extends MapElement {
 
 	private static final long serialVersionUID = 1L;
 
+	public static final String PROP_WIDTH_PROPERTY = "width";
+	public static final String PROP_HEIGHT_PROPERTY = "height";
+
 	@Element
 	private UniqueID charactedId;
 	@Element
-	private MapElementSizeSquare width;
+	private MapElementSize width;
 	@Element
-	private MapElementSizeSquare height;
+	private MapElementSize height;
 
 	public PathfinderCharacterElement() {
 
@@ -62,13 +66,7 @@ public class PathfinderCharacterElement extends MapElement {
 	@Override
 	public void draw(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		BufferedImage background = null;
-		try {
-			background = getCharacter().getCharacterImage();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BufferedImage background = getCharacter().getCharacterImage();
 
 		Point position = getPosition();
 		int x = (int) (position.getX() * zoomFactor);
@@ -139,19 +137,39 @@ public class PathfinderCharacterElement extends MapElement {
 		this.charactedId = charactedId;
 	}
 
-	public MapElementSizeSquare getWidth() {
+	public MapElementSize getWidth() {
 		return width;
 	}
 
-	public void setWidth(MapElementSizeSquare width) {
-		this.width = width;
+	public void setWidth(MapElementSize width) {
+		MapElementSize oldValue = this.width;
+		try {
+			this.vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_WIDTH_PROPERTY, oldValue, width);
+			this.width = width;
+			this.propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
+					oldValue, width);
+		} catch (PropertyVetoException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
 	}
 
-	public MapElementSizeSquare getHeight() {
+	public MapElementSize getHeight() {
 		return height;
 	}
 
-	public void setHeight(MapElementSizeSquare height) {
-		this.height = height;
+	public void setHeight(MapElementSize height) {
+		MapElementSize oldValue = this.height;
+		try {
+			this.vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_HEIGHT_PROPERTY, oldValue, height);
+			this.height = height;
+			this.propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
+					oldValue, height);
+		} catch (PropertyVetoException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
 	}
 }

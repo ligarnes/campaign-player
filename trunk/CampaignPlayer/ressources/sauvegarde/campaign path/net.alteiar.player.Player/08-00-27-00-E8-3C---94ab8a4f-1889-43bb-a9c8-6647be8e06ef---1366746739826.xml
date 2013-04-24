@@ -4,11 +4,11 @@
    </id>
    <name>sylvain</name>
    <mj>false</mj>
-   <connected>false</connected>
    <color serialVersionUID="1">
       <r>204</r>
       <g>204</g>
       <b>0</b>
       <a>255</a>
    </color>
+   <connected>false</connected>
 </player>
