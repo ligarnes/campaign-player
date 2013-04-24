@@ -22,44 +22,45 @@ public class PanelCreatePlayer extends JPanel {
 
 	JPanel previous;
 	StartGameDialog startGameDialog;
-	
+
 	private JTextField pseudoTextField;
 	private JButton playerColorButton;
 	private Color playerColor;
-	
+
 	public PanelCreatePlayer(StartGameDialog startGameDialog, JPanel previous) {
 		this.previous = previous;
 		this.startGameDialog = startGameDialog;
 		this.playerColor = DEFAULT_PLAYER_COLOR;
-		
+
 		initUI();
-	
+
 	}
-	
-	public final void initUI(){
-		
+
+	public final void initUI() {
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
+
 		pseudoTextField = new JTextField(10);
-		
+
 		// Player Info Panel
 		JPanel identityPanel = new JPanel(new FlowLayout());
-		identityPanel.setBorder(BorderFactory.createTitledBorder("Votre identité"));
+		identityPanel.setBorder(BorderFactory
+				.createTitledBorder("Votre identité"));
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
 		playerColorButton = new JButton("Couleur");
-		//playerColorButton.setForeground(Color.BLUE);
+		// playerColorButton.setForeground(Color.BLUE);
 		playerColorButton.setBackground(playerColor);
-		playerColorButton.addActionListener(new ActionListener(){
+		playerColorButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				Color chosenColor = JColorChooser.showDialog(
-						PanelCreatePlayer.this,
-                        "Choisissez la couleur de votre personnage",
-                        Color.BLUE);
+				Color chosenColor = JColorChooser
+						.showDialog(PanelCreatePlayer.this,
+								"Choisissez la couleur de votre personnage",
+								Color.BLUE);
 				if (chosenColor != null) {
-					//playerColorButton.setForeground(playerColor);
+					// playerColorButton.setForeground(playerColor);
 					playerColor = chosenColor;
 					playerColorButton.setBackground(chosenColor);
 				}
@@ -67,11 +68,11 @@ public class PanelCreatePlayer extends JPanel {
 		});
 		identityPanel.add(pseudo);
 		identityPanel.add(playerColorButton);
-		
+
 		this.add(identityPanel);
-		
+
 		JPanel buttonPanel = new JPanel(new FlowLayout());
-		
+
 		JButton createButton = new JButton("Créer");
 		createButton.addActionListener(new ActionListener() {
 			@Override
@@ -89,27 +90,25 @@ public class PanelCreatePlayer extends JPanel {
 			}
 		});
 		buttonPanel.add(cancelButton);
-		
+
 		this.add(buttonPanel);
-		
+
 	}
-	
+
 	public String getPseudo() {
 		return pseudoTextField.getText();
 	}
-	
+
 	private Color getPlayerColor() {
 		return playerColor;
 	}
-	
-	public void createPlayer(){
-		
+
+	public void createPlayer() {
 		// Create a non-MJ player
-		CampaignClient.getInstance().createPlayer(getPseudo(), false, getPlayerColor());
-		
+		CampaignClient.getInstance().createPlayer(getPseudo(), false,
+				getPlayerColor());
+
 		startGameDialog.startApplication();
 	}
-
-
 
 }

@@ -1,14 +1,14 @@
 <player serialVersionUID="1">
    <id serialVersionUID="1">
-      <guid>08-00-27-00-E8-3C:a2da68fc-698c-4ea8-9132-c80f54e9f1a4:1366721104064</guid>
+      <guid>08-00-27-00-E8-3C:94ab8a4f-1889-43bb-a9c8-6647be8e06ef:1366746739826</guid>
    </id>
-   <name>hugo</name>
+   <name>sylvain</name>
    <mj>false</mj>
    <connected>false</connected>
    <color serialVersionUID="1">
-      <r>0</r>
-      <g>0</g>
-      <b>255</b>
+      <r>204</r>
+      <g>204</g>
+      <b>0</b>
       <a>255</a>
    </color>
 </player>

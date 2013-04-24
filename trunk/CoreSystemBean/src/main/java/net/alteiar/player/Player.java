@@ -16,6 +16,7 @@ public class Player extends BasicBeans {
 	public static final String PROP_NAME_PROPERTY = "name";
 	public static final String PROP_MJ_PROPERTY = "mj";
 	public static final String PROP_COLOR_PROPERTY = "color";
+	public static final String PROP_CONNECTED_PROPERTY = "connected";
 
 	@Element
 	private String name;
@@ -23,6 +24,8 @@ public class Player extends BasicBeans {
 	private Boolean mj;
 	@Element
 	private MyColor color;
+	@Element
+	private Boolean connected;
 
 	public Player() {
 	}
@@ -88,11 +91,27 @@ public class Player extends BasicBeans {
 		}
 	}
 
+	public Boolean getConnected() {
+		return connected;
+	}
+
+	public void setConnected(Boolean connected) {
+		Boolean oldValue = this.connected;
+		try {
+			vetoableRemoteChangeSupport.fireVetoableChange(
+					PROP_CONNECTED_PROPERTY, oldValue, connected);
+			this.connected = connected;
+			propertyChangeSupport.firePropertyChange(PROP_CONNECTED_PROPERTY,
+					oldValue, connected);
+		} catch (PropertyVetoException e) {
+			// TODO do nothing, the veto is cause by the framework
+			// e.printStackTrace();
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "Player [name=" + name + ", mj=" + mj + ", color=" + color + "]";
 	}
-	
-	
 
 }
