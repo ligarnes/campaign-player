@@ -65,12 +65,17 @@ public class TestPlayer extends NewCampaignTest {
 
 		Color color = Color.RED;
 		current.setColor(color);
-		sleep(5);
+		sleep(10);
 		assertEquals("player color should be same", color, current.getColor());
 
 		current.setMj(!current.isMj());
 		current.setName(getPlayerName());
 		sleep(5);
+
+		assertTrue("player should be connected", current.getConnected());
+		current.setConnected(false);
+		sleep(5);
+		assertTrue("player should'nt be connected", !current.getConnected());
 	}
 
 	@Test

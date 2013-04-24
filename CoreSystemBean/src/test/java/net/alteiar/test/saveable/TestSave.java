@@ -21,6 +21,7 @@ public class TestSave extends TestSaveAndLoad {
 
 	@Test
 	public void testSave() {
+
 		CampaignClient.getInstance().saveGame();
 
 		assertEquals(1, countObjectFile(Chat.class));

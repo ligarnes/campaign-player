@@ -31,6 +31,7 @@ public abstract class MapElement extends BasicBeans {
 	@Element
 	private Boolean hiddenForPlayer;
 
+	private Point lastPosition;
 	private Boolean selected;
 
 	protected MapElement() {
@@ -39,6 +40,7 @@ public abstract class MapElement extends BasicBeans {
 
 	public MapElement(Point position) {
 		this.position = position;
+		this.lastPosition = position;
 		this.angle = 0.0;
 		this.hiddenForPlayer = true;
 		this.selected = false;
@@ -95,6 +97,29 @@ public abstract class MapElement extends BasicBeans {
 		this.selected = selected;
 	}
 
+	public void moveTo(Point position) {
+		if (lastPosition == null) {
+			this.lastPosition = this.position;
+		}
+		Point oldValue = this.position;
+		this.position = position;
+		propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
+				oldValue, position);
+	}
+
+	public void applyMove() {
+		if (lastPosition == null) {
+			this.lastPosition = this.position;
+		}
+		Point newPosition = this.position;
+		this.position = lastPosition;
+		setPosition(newPosition);
+	}
+
+	public void undoMove() {
+		this.position = lastPosition;
+	}
+
 	// ///////////////// BEAN METHODS ///////////////////////
 	/**
 	 * 
@@ -127,6 +152,7 @@ public abstract class MapElement extends BasicBeans {
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
 					PROP_POSITION_PROPERTY, oldValue, position);
+			this.lastPosition = position;
 			this.position = position;
 			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
 					oldValue, position);

@@ -63,7 +63,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 
 		fixGrid = true;
 		showDistance = true;
- 
+
 		DrawInfo drawInfo = PluginSystem.getInstance().getDrawInfo(this);
 		mapPanel = new PanelMapWithListener(battle, drawInfo);
 
@@ -191,34 +191,19 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 
 	@Override
 	public Point getPositionOf(MapElement currentElement) {
-		Point position = currentElement.getCenterPosition();
-		// Point center = currentElement.getCenterOffset();
-		// position.x += center.x;
-		// position.y += center.y;
-		return position;
+		return currentElement.getCenterPosition();
 	}
 
 	@Override
 	public void moveElementAt(MapElement currentElement, Point position) {
-		if (!fixGrid) {
-			// we move the character from the center
-			// Point center = currentElement.getCenterOffset();
-			// position.x -= center.x;
-			// position.y -= center.y;
-		}
-
 		position.x = Math.max(0, position.x);
 		position.y = Math.max(0, position.y);
-		// position.x = Math.min(battle.getWidth() - currentElement.getWidth(),
-		// position.x);
-		// position.y = Math.min(battle.getHeight() -
-		// currentElement.getHeight(),
-		// position.y);
 
 		if (fixGrid) {
 			modifyPositionToFixGrid(position);
 		}
-		currentElement.setPosition(position);
+		currentElement.moveTo(position);
+		// setPosition(position);
 	}
 
 	private void modifyPositionToFixGrid(Point position) {

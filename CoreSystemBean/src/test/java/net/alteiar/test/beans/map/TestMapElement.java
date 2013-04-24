@@ -210,8 +210,8 @@ public class TestMapElement extends NewCampaignTest {
 
 		assertTrue("the circle not contain point (5,5)",
 				!circleClient.contain(new Point(5, 5)));
-		assertTrue("the circle contain point (15,15)",
-				circleClient.contain(new Point(15, 15)));
+		assertTrue("the circle contain point (17,17)",
+				circleClient.contain(new Point(17, 17)));
 
 		MapElementSize newCircleRadius = new MapElementSizeMeter(1.5);
 		circleClient.setRadius(newCircleRadius);

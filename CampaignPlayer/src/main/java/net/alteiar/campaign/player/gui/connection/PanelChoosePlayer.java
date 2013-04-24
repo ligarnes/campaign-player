@@ -25,6 +25,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -60,9 +61,7 @@ public class PanelChoosePlayer extends JPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		List<Player> playersName = getPlayers();
-		// TODO : Here we should check whether the player is already
-		// controlled by someone or not
-		
+
 		playerList = new JList<Player>(playersName.toArray(new Player[0]));
 
 		playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -71,12 +70,13 @@ public class PanelChoosePlayer extends JPanel {
 		playerList.setSelectedIndex(0);
 
 		JScrollPane listScroller = new JScrollPane(playerList);
-		listScroller.setPreferredSize(new Dimension(PREFERED_PLAYER_LIST_WIDTH, PREFERED_PLAYER_LIST_HEIGHT));
+		listScroller.setPreferredSize(new Dimension(PREFERED_PLAYER_LIST_WIDTH,
+				PREFERED_PLAYER_LIST_HEIGHT));
 
 		this.add(listScroller);
-		
+
 		JPanel buttonPanel = new JPanel(new FlowLayout());
-		
+
 		JButton chooseButton = new JButton("Sélectionner");
 		chooseButton.addActionListener(new ActionListener() {
 			@Override
@@ -95,48 +95,58 @@ public class PanelChoosePlayer extends JPanel {
 			}
 		});
 		buttonPanel.add(cancelButton);
-		
+
 		this.add(buttonPanel);
 	}
 
 	public List<Player> getPlayers() {
-		return CampaignClient.getInstance().getPlayers();
+		List<Player> allPlayers = CampaignClient.getInstance().getPlayers();
+		Iterator<Player> itt = allPlayers.iterator();
+		while (itt.hasNext()) {
+			if (itt.next().getConnected()) {
+				itt.remove();
+			}
+		}
+		return allPlayers;
 	}
 
 	private void choosePlayer() {
-		CampaignClient.getInstance().selectPlayer(
-				(Player) playerList.getSelectedValue());
+		CampaignClient.getInstance()
+				.selectPlayer(playerList.getSelectedValue());
 		startGameDialog.startApplication();
 	}
-	
-	static class PlayerCellRenderer extends JLabel implements ListCellRenderer<Player> {
+
+	static class PlayerCellRenderer extends JLabel implements
+			ListCellRenderer<Player> {
 
 		private static final long serialVersionUID = 1L;
 		private static final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
 
-		  public PlayerCellRenderer() {
-		    setOpaque(true);
-		  }
+		public PlayerCellRenderer() {
+			setOpaque(true);
+		}
 
-		public Component getListCellRendererComponent(JList<? extends Player> list, Player player,
-		      int index, boolean isSelected, boolean cellHasFocus) {
-		    
+		@Override
+		public Component getListCellRendererComponent(
+				JList<? extends Player> list, Player player, int index,
+				boolean isSelected, boolean cellHasFocus) {
+
 			String cellText = "";
-			
+
 			cellText += player.getName();
-		    if (player.isMj()) {
-		    	cellText += " (Maître du jeu)";
-		    }
-		    
-		    setText(cellText);
-		    if (isSelected) {
-		      setBackground(HIGHLIGHT_COLOR);
-		      setForeground(Color.white);
-		    } else {
-		      setBackground(Color.white);
-		      setForeground(Color.black);
-		    }
-		    return this;
+			if (player.isMj()) {
+				cellText += " (Maître du jeu)";
+			}
+
+			setText(cellText);
+			if (isSelected) {
+				setBackground(HIGHLIGHT_COLOR);
+				setForeground(Color.white);
+			} else {
+				setBackground(Color.white);
+				setForeground(Color.black);
+			}
+			return this;
 		}
 
 	}
