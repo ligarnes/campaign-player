@@ -19,8 +19,8 @@ public class NewCampaignTest extends BasicTest {
 
 		deleteRecursive(new File(localDirectoryPath));
 
-		CampaignClient.startNewCampaignServer(address, address, port,
-				localDirectoryPath);
+		CampaignClient
+				.startNewCampaignServer(address, port, localDirectoryPath);
 
 		CampaignClient.getInstance().createPlayer(getPlayerName(), true);
 	}
@@ -35,7 +35,7 @@ public class NewCampaignTest extends BasicTest {
 			e.printStackTrace();
 		}
 
-		//CampaignClient.getInstance().saveGame();
+		CampaignClient.getInstance().saveGame();
 		CampaignClient.leaveGame();
 		System.out.println("tearing down");
 	}

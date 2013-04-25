@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EffectAndElement>
+	<EffectTypes>
+		<Effect name="IdleEffect">net.alteiar.effectBean.IdleEffect</Effect>
+		<Effect name="BasicEffect">net.alteiar.effectBean.BasicEffect</Effect>
+		<Effect name="SuiteEffect">net.alteiar.effectBean.SuiteEffect</Effect>
+		<Effect name="DelayedEffect">net.alteiar.effectBean.DelayedEffect</Effect>
+	</EffectTypes>
+	<EffectAssociation>
+		<Effect name="BasicEffect">
+			<class name="pathfinder character">pathfinder.character.PathfinderCharacter</class>
+		</Effect>
+		<Effect name="IdleEffect">
+			<class name="pathfinder character">pathfinder.mapElement.character.PathfinderCharacterElement</class>
+			<class name="Circle element">net.alteiar.map.elements.CircleElement</class>
+			<class name="Rectangle element">net.alteiar.map.elements.RectangleElement</class>
+		</Effect>
+	</EffectAssociation>
+</EffectAndElement>
