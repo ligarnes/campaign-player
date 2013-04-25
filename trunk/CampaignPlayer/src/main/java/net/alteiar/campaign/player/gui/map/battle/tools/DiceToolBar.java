@@ -41,7 +41,7 @@ public class DiceToolBar extends JToolBar {
 	public DiceToolBar() {
 		dice = new ArrayList<Die>();
 
-		JButton rollButton = new JButton("Lancer les dés");
+		JButton rollButton = new JButton("Lancer les d\u00E9s");
 		rollButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -58,7 +58,7 @@ public class DiceToolBar extends JToolBar {
 		addDie(new Die(20, 1));
 		addDie(new Die(100, 1));
 
-		JButton addDieButton = new JButton("Ajouter un dé");
+		JButton addDieButton = new JButton("Ajouter un d\u00E9");
 		addDieButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,10 +101,10 @@ public class DiceToolBar extends JToolBar {
 					.talk("le total est: " + totalDice);
 		} else {
 			// TODO : ne pas /crire ceci dans le chat,
-			// mais bien dans un pop up window qui sera montré
+			// mais bien dans un pop up window qui sera montr\u00E9
 			// uniquement à l'utilisateur.
 			CampaignClient.getInstance().getChat()
-					.talk("Aucun dé sélectionné.");
+					.talk("Aucun d\u00E9 s\u00E9lectionn\u00E9.");
 		}
 		return atLeastOneDieSelected;
 	}
@@ -113,7 +113,7 @@ public class DiceToolBar extends JToolBar {
 		PanelDiceSelection panelDiceSelection = new PanelDiceSelection();
 
 		int result = JOptionPane.showConfirmDialog(null, panelDiceSelection,
-				"Création d'un nouveau dé", JOptionPane.OK_CANCEL_OPTION);
+				"Cr\u00E9ation d'un nouveau d\u00E9", JOptionPane.OK_CANCEL_OPTION);
 
 		if (result == JOptionPane.OK_OPTION) {
 

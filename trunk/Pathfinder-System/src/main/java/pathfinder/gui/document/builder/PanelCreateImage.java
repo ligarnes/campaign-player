@@ -145,7 +145,7 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 
 	@Override
 	public String getDocumentDescription() {
-		return "Créer une image";
+		return "Cr\u00E9er une image";
 	}
 
 	@Override
@@ -164,6 +164,6 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 
 	@Override
 	public String getInvalidMessage() {
-		return "Aucune image selectionnée";
+		return "Aucune image selectionn\u00E9e";
 	}
 }

@@ -10,7 +10,7 @@ public class DoDamage extends ChangeHealthPoint {
 
 	@Override
 	public String getName() {
-		return "Dégat";
+		return "D\u00E9gat";
 	}
 
 	@Override

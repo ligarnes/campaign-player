@@ -137,7 +137,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 
 	@Override
 	public String getDocumentDescription() {
-		return "Créer un personnage";
+		return "Cr\u00E9er un personnage";
 	}
 
 	@Override
@@ -164,6 +164,6 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 
 	@Override
 	public String getInvalidMessage() {
-		return "Aucun avatar selectionnée";
+		return "Aucun avatar selectionn\u00E9e";
 	}
 }

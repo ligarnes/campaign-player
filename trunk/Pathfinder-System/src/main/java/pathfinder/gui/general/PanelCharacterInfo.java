@@ -176,7 +176,7 @@ public class PanelCharacterInfo extends JPanel implements
 		add(textFieldAc, gbc_textFieldCa);
 		textFieldAc.setColumns(10);
 
-		JLabel lblCaDpourvu = new JLabel("CA Dépourvu:");
+		JLabel lblCaDpourvu = new JLabel("CA D\u00E9pourvu:");
 		GridBagConstraints gbc_lblCaDpourvu = new GridBagConstraints();
 		gbc_lblCaDpourvu.anchor = GridBagConstraints.EAST;
 		gbc_lblCaDpourvu.insets = new Insets(0, 0, 5, 5);

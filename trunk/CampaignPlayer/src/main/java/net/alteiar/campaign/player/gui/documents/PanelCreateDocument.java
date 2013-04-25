@@ -26,10 +26,10 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 
 	public static void createDocument() {
 		DialogOkCancel<PanelCreateDocument> dlg = new DialogOkCancel<PanelCreateDocument>(
-				null, "Créer un document", true, documentBuilder);
+				null, "Cr\u00E9er un document", true, documentBuilder);
 
 		dlg.getMainPanel().refreshElements();
-		dlg.setOkText("Créer");
+		dlg.setOkText("Cr\u00E9er");
 		dlg.setCancelText("Annuler");
 		dlg.setLocationRelativeTo(null);
 		// dlg.pack();

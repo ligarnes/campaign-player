@@ -31,6 +31,7 @@ import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentLoader;
 import net.alteiar.server.document.DocumentPath;
+import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
 public final class CampaignClient implements DocumentManagerListener {
@@ -83,8 +84,7 @@ public final class CampaignClient implements DocumentManagerListener {
 					"");
 			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e, "Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

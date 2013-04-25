@@ -1,5 +1,6 @@
 package net.alteiar.campaign.player;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -14,12 +15,27 @@ import net.alteiar.shared.ExceptionTool;
 public class GlobalProperties implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private static final String KEY_PSEUDO = "pseudo";
-	private static final String KEY_IS_MJ = "isMj";
-	private static final String KEY_IP_LOCAL = "ipLocal";
-	private static final String KEY_IP_SERVER = "ipServer";
-	private static final String KEY_PORT = "port";
-	private static final String KEY_IS_SERVER = "isServer";
+	private static final String KEY_CREATE_PSEUDO = "create.pseudo";
+	private static final String KEY_CREATE_COLOR_RED = "create.color.red";
+	private static final String KEY_CREATE_COLOR_GREEN = "create.color.green";
+	private static final String KEY_CREATE_COLOR_BLUE = "create.color.blue";
+	private static final String KEY_CREATE_IP_LOCAL = "create.ipLocal";
+	private static final String KEY_CREATE_IP_SERVER = "create.ipServer";
+	private static final String KEY_CREATE_PORT = "create.port";
+	
+	private static final String KEY_JOIN_IP_LOCAL = "join.ipLocal";
+	private static final String KEY_JOIN_IP_SERVER = "join.ipServer";
+	private static final String KEY_JOIN_PORT = "join.port";
+	
+	private static final String KEY_LOAD_IP_LOCAL = "load.ipLocal";
+	private static final String KEY_LOAD_IP_SERVER = "load.ipServer";
+	private static final String KEY_LOAD_PORT = "load.port";
+	
+//	private static final String KEY_IS_MJ = "isMj";
+//	private static final String KEY_IP_LOCAL = "ipLocal";
+//	private static final String KEY_IP_SERVER = "ipServer";
+//	private static final String KEY_PORT = "port";
+//	private static final String KEY_IS_SERVER = "isServer";
 
 	private static final String KEY_MAP_PATH = "mapPath";
 	private static final String KEY_CHARACTER_PATH = "characterPath";
@@ -41,52 +57,114 @@ public class GlobalProperties implements Serializable {
 		property.save();
 	}
 
-	public String getPseudo() {
-		return property.getValue(KEY_PSEUDO, "pseudo");
+	public String getCreatePseudo() {
+		return property.getValue(KEY_CREATE_PSEUDO, "votre pseudo");
+	}
+	
+	public void setCreatePseudo(String pseudo) {
+		property.setValue(KEY_CREATE_PSEUDO, pseudo);
+	}
+	
+	public Color getCreateColor() {
+		int red = property.getIntegerValue(KEY_CREATE_COLOR_RED, 0);
+		int green = property.getIntegerValue(KEY_CREATE_COLOR_GREEN, 0);
+		int blue = property.getIntegerValue(KEY_CREATE_COLOR_BLUE, 255);
+		return new Color(red, green, blue);
+	}
+	
+	public void setCreateColor(Color color) {
+		property.setValue(KEY_CREATE_COLOR_RED, String.valueOf(color.getRed()));
+		property.setValue(KEY_CREATE_COLOR_GREEN, String.valueOf(color.getGreen()));
+		property.setValue(KEY_CREATE_COLOR_BLUE, String.valueOf(color.getBlue()));
 	}
 
-	public void setPseudo(String pseudo) {
-		property.setValue(KEY_PSEUDO, pseudo);
+
+//	public Boolean isMj() {
+//		return property.getBooleanValue(KEY_IS_MJ);
+//	}
+//
+//	public void setIsMj(Boolean isMj) {
+//		property.setValue(KEY_IS_MJ, isMj.toString());
+//	}
+
+	public String getCreateIpLocal() {
+		return property.getValue(KEY_CREATE_IP_LOCAL, "127.0.0.1");
 	}
 
-	public Boolean isMj() {
-		return property.getBooleanValue(KEY_IS_MJ);
+	public void setCreateIpLocal(String ipLocal) {
+		property.setValue(KEY_CREATE_IP_LOCAL, ipLocal);
 	}
 
-	public void setIsMj(Boolean isMj) {
-		property.setValue(KEY_IS_MJ, isMj.toString());
+	public String getCreateIpServer() {
+		return property.getValue(KEY_CREATE_IP_SERVER, "127.0.0.1");
 	}
 
-	public String getIpLocal() {
-		return property.getValue(KEY_IP_LOCAL, "127.0.0.1");
+	public void setCreateIpServer(String ipServer) {
+		property.setValue(KEY_CREATE_IP_SERVER, ipServer);
 	}
 
-	public void setIpLocal(String ipLocal) {
-		property.setValue(KEY_IP_LOCAL, ipLocal);
+	public String getCreatePort() {
+		return property.getValue(KEY_CREATE_PORT, "1099");
 	}
 
-	public String getIpServer() {
-		return property.getValue(KEY_IP_SERVER, "127.0.0.1");
+	public void setCreatePort(String port) {
+		property.setValue(KEY_CREATE_PORT, port);
 	}
 
-	public void setIpServer(String ipServer) {
-		property.setValue(KEY_IP_SERVER, ipServer);
+//	public Boolean isServer() {
+//		return property.getBooleanValue(KEY_IS_SERVER);
+//	}
+//
+//	public void setIsServer(Boolean isServer) {
+//		property.setValue(KEY_IS_SERVER, isServer.toString());
+//	}
+	
+	public String getJoinIpLocal() {
+		return property.getValue(KEY_JOIN_IP_LOCAL, "127.0.0.1");
 	}
 
-	public String getPort() {
-		return property.getValue(KEY_PORT, "1099");
+	public void setJoinIpLocal(String ipLocal) {
+		property.setValue(KEY_JOIN_IP_LOCAL, ipLocal);
 	}
 
-	public void setPort(String port) {
-		property.setValue(KEY_PORT, port);
+	public String getJoinIpServer() {
+		return property.getValue(KEY_JOIN_IP_SERVER, "127.0.0.1");
 	}
 
-	public Boolean isServer() {
-		return property.getBooleanValue(KEY_IS_SERVER);
+	public void setJoinIpServer(String ipServer) {
+		property.setValue(KEY_JOIN_IP_SERVER, ipServer);
 	}
 
-	public void setIsServer(Boolean isServer) {
-		property.setValue(KEY_IS_SERVER, isServer.toString());
+	public String getJoinPort() {
+		return property.getValue(KEY_JOIN_PORT, "1099");
+	}
+
+	public void setJoinPort(String port) {
+		property.setValue(KEY_JOIN_PORT, port);
+	}
+	
+	public String getLoadIpLocal() {
+		return property.getValue(KEY_LOAD_IP_LOCAL, "127.0.0.1");
+	}
+
+	public void setLoadIpLocal(String ipLocal) {
+		property.setValue(KEY_LOAD_IP_LOCAL, ipLocal);
+	}
+
+	public String getLoadIpServer() {
+		return property.getValue(KEY_LOAD_IP_SERVER, "127.0.0.1");
+	}
+
+	public void setLoadIpServer(String ipServer) {
+		property.setValue(KEY_LOAD_IP_SERVER, ipServer);
+	}
+
+	public String getLoadPort() {
+		return property.getValue(KEY_LOAD_PORT, "1099");
+	}
+
+	public void setLoadPort(String port) {
+		property.setValue(KEY_LOAD_PORT, port);
 	}
 
 	public String getMapPath() {

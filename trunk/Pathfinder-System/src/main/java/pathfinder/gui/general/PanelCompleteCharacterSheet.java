@@ -203,7 +203,7 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		gbc_spinnerCa.gridy = 0;
 		panelCa.add(spinnerAc, gbc_spinnerCa);
 
-		JLabel lblDpourvu = new JLabel("Dépourvu:");
+		JLabel lblDpourvu = new JLabel("D\u00E9pourvu:");
 		GridBagConstraints gbc_lblDpourvu = new GridBagConstraints();
 		gbc_lblDpourvu.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDpourvu.gridx = 0;

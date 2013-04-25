@@ -87,7 +87,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		comboboxServerIp = new JComboBox<String>(model);
 		port = new JTextField(5);
 
-		port.setText(globalProp.getPort());
+		port.setText(globalProp.getLoadPort());
 
 		JPanel server = new JPanel();
 		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
@@ -123,13 +123,13 @@ public class PanelLoadGame extends PanelStartGameDialog {
 				}
 			}
 		} catch (SocketException ex) {
-			ExceptionTool.showError(ex, "Problème d'acces à la carte réseaux");
+			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		} catch (Exception ex) {
-			ExceptionTool.showError(ex, "Problème d'acces à la carte réseaux");
+			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		}
 
-		if (allAdresses.contains(globalProp.getIpLocal())) {
-			model.setSelectedItem(globalProp.getIpLocal());
+		if (allAdresses.contains(globalProp.getLoadIpLocal())) {
+			model.setSelectedItem(globalProp.getLoadIpLocal());
 		}
 
 		JPanel serverAddressIpPanel = new JPanel(new FlowLayout());
@@ -165,7 +165,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO : is it the correct way to do this check
-				// Je veux faire cette vérification dans le cas ou
+				// Je veux faire cette v\u00E9rification dans le cas ou
 				// un player a cliquer sur load, puis sur annuler dans
 				// le panel PanelChoosePlayer et finalement sur
 				// annuler ici
@@ -176,14 +176,14 @@ public class PanelLoadGame extends PanelStartGameDialog {
 				load(PATH + PanelLoadGame.this.savedGameList.getSelectedValue());
 			}
 		});
-		buttonPanel.add(createButton);
+		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				// TODO : is it the correct way to do this check
-				// Je veux faire cette vérification dans le cas ou
+				// Je veux faire cette v\u00E9rification dans le cas ou
 				// un player a cliquer sur load, puis sur annuler dans
 				// le panel PanelChoosePlayer et finalement sur
 				// annuler ici
@@ -195,6 +195,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 			}
 		});
 		buttonPanel.add(cancelButton);
+		buttonPanel.add(createButton);
 
 		this.add(buttonPanel);
 	}
@@ -208,6 +209,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 	}
 
 	public void load(final String campaign) {
+		GlobalProperties globalProp = Helpers.getGlobalProperties();
 		final String address = getServerAddressIp();
 		final String port = getPort();
 
@@ -217,6 +219,9 @@ public class PanelLoadGame extends PanelStartGameDialog {
 				CampaignClient.loadCampaignServer(address, port, campaign);
 			}
 		};
+		
+		globalProp.setLoadPort(getPort());
+		globalProp.setLoadIpServer(getServerAddressIp());
 
 		Thread tr = new Thread(run);
 

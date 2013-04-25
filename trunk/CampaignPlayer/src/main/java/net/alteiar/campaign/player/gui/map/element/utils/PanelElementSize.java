@@ -28,7 +28,7 @@ public class PanelElementSize extends JPanel {
 				m = "Pixel";
 				break;
 			case METER:
-				m = "Mètre";
+				m = "M\u00E8tre";
 				break;
 			}
 			return m;

@@ -50,7 +50,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	public PanelChoosePlayer(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
-
+		
 		initGui();
 	}
 
@@ -79,7 +79,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 
 		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-		JButton chooseButton = new JButton("Sélectionner");
+		JButton chooseButton = new JButton("S\u00E9lectionner");
 		chooseButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
@@ -87,7 +87,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 			}
 
 		});
-		buttonPanel.add(chooseButton);
+		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
@@ -97,6 +97,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 			}
 		});
 		buttonPanel.add(cancelButton);
+		buttonPanel.add(chooseButton);
 
 		this.add(buttonPanel);
 	}

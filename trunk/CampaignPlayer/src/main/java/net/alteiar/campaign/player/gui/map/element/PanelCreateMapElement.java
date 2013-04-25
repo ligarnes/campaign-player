@@ -26,10 +26,10 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 
 	public static void createMapElement(Map map, MapEvent event) {
 		DialogOkCancel<PanelCreateMapElement> dlg = new DialogOkCancel<PanelCreateMapElement>(
-				null, "Créer un element", true, mapElement);
+				null, "Cr\u00E9er un element", true, mapElement);
 
 		dlg.getMainPanel().refreshElements();
-		dlg.setOkText("Créer");
+		dlg.setOkText("Cr\u00E9er");
 		dlg.setCancelText("Annuler");
 		dlg.setLocation(event.getMouseEvent().getLocationOnScreen());
 		dlg.pack();

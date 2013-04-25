@@ -72,7 +72,7 @@ public class PanelCreateCharacterSheet extends JPanel {
 		m_labelCa = new JLabel("CA");
 		m_textCa = new JTextField();
 
-		m_labelCaDepourvu = new JLabel("CA Dépourvu");
+		m_labelCaDepourvu = new JLabel("CA D\u00E9pourvu");
 		m_textCaDepourvu = new JTextField();
 
 		m_labelCaContact = new JLabel("CA Contact");

@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.map.element.utils;
+package net.alteiar.panel;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -9,17 +9,17 @@ import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.Helpers;
-
 public class PanelSelectColor extends JPanel {
 	private static final long serialVersionUID = 1L;
+	
+	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
 
 	private final JButton btnColorSelector;
 	private Color currentColor;
 
 	public PanelSelectColor() {
 		super();
-		currentColor = Color.BLUE;
+		currentColor = DEFAULT_PLAYER_COLOR;
 
 		btnColorSelector = new JButton();
 		GridBagConstraints gbc_btnColorselector = new GridBagConstraints();
@@ -45,6 +45,10 @@ public class PanelSelectColor extends JPanel {
 		}
 	}
 
+	public void setColor(Color color){
+		this.currentColor = color;
+	} 
+	
 	public Color getColor() {
 		return currentColor;
 	}

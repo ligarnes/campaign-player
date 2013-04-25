@@ -75,8 +75,8 @@ public class PanelJoinGame extends PanelStartGameDialog {
 		addressIpServer = new JTextField(10);
 		port = new JTextField(5);
 
-		addressIpServer.setText(globalProp.getIpServer());
-		port.setText(globalProp.getPort());
+		addressIpServer.setText(globalProp.getJoinIpServer());
+		port.setText(globalProp.getJoinPort());
 
 		JPanel server = new JPanel();
 		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
@@ -112,13 +112,13 @@ public class PanelJoinGame extends PanelStartGameDialog {
 				}
 			}
 		} catch (SocketException ex) {
-			ExceptionTool.showError(ex, "Problème d'acces à la carte réseaux");
+			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		} catch (Exception ex) {
-			ExceptionTool.showError(ex, "Problème d'acces à la carte réseaux");
+			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		}
 
-		if (allAdresses.contains(globalProp.getIpLocal())) {
-			model.setSelectedItem(globalProp.getIpLocal());
+		if (allAdresses.contains(globalProp.getJoinIpLocal())) {
+			model.setSelectedItem(globalProp.getJoinIpLocal());
 		}
 
 		JPanel localAddressIpPanel = new JPanel(new FlowLayout());
@@ -148,7 +148,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 				join();
 			}
 		});
-		buttonPanel.add(joinButton);
+		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
@@ -158,6 +158,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 			}
 		});
 		buttonPanel.add(cancelButton);
+		buttonPanel.add(joinButton);
 
 		this.add(buttonPanel);
 
@@ -176,6 +177,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 	}
 
 	public void join() {
+		GlobalProperties globalProp = Helpers.getGlobalProperties();
 		final String localAdress = getLocalAdressIP();
 		final String serverAdress = getServerAddressIp();
 		final String port = getPort();
@@ -186,6 +188,10 @@ public class PanelJoinGame extends PanelStartGameDialog {
 				CampaignClient.connectToServer(localAdress, serverAdress, port);
 			}
 		};
+		
+		globalProp.setJoinIpLocal(getLocalAdressIP());
+		globalProp.setJoinPort(getPort());
+		globalProp.setJoinIpServer(getServerAddressIp());
 
 		Thread tr = new Thread(run);
 

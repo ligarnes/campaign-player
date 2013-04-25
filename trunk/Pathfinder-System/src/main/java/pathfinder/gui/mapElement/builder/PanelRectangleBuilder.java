@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
-import net.alteiar.campaign.player.gui.map.element.utils.PanelSelectColor;
+import net.alteiar.panel.PanelSelectColor;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.utils.map.element.MapElementSize;
 
@@ -28,7 +28,7 @@ public class PanelRectangleBuilder extends PanelMapElementBuilder {
 		panelSize = new PanelElementSize(2);
 
 		this.setLayout(new BorderLayout());
-		this.add(new JLabel("Créer un rectangle"), BorderLayout.NORTH);
+		this.add(new JLabel("Cr\u00E9er un rectangle"), BorderLayout.NORTH);
 
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));

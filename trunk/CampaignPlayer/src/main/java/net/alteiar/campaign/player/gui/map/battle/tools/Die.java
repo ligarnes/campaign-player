@@ -14,7 +14,7 @@ public class Die implements ActionListener {
 	private boolean selected;
 
 	public Die(int numFaces, int lowestValue) {
-		// Pour l'instant, le dé est considéré comme
+		// Pour l'instant, le d\u00E9 est consid\u00E9r\u00E9 comme
 		// donnant des valeurs de lowestValue à lowestValue + numFaces.
 		this.numFaces = numFaces;
 		this.lowestValue = lowestValue;
