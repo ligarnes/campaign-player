@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui;
+package net.alteiar.zoom;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,40 +9,38 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.Helpers;
-
 public class MyPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private BufferedImage background;
 
-	public MyPanel() {
+	public MyPanel(BufferedImage background) {
 		super();
 		this.setOpaque(false);
-		initialize();
+		initialize(background);
 	}
 
-	public MyPanel(boolean isDoubleBuffered) {
+	public MyPanel(BufferedImage background, boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
 		this.setOpaque(false);
-		initialize();
+		initialize(background);
 	}
 
-	public MyPanel(LayoutManager layout, boolean isDoubleBuffered) {
+	public MyPanel(BufferedImage background, LayoutManager layout,
+			boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
 		this.setOpaque(false);
-		initialize();
+		initialize(background);
 	}
 
-	public MyPanel(LayoutManager layout) {
+	public MyPanel(BufferedImage background, LayoutManager layout) {
 		super(layout);
 		this.setOpaque(false);
-		initialize();
+		initialize(background);
 	}
 
-	private void initialize() {
-		background = Helpers.getImage(Helpers.getPathTexture("parchemin.jpg"),
-				500, 500);
+	private void initialize(BufferedImage background) {
+		this.background = background;
 	}
 
 	@Override

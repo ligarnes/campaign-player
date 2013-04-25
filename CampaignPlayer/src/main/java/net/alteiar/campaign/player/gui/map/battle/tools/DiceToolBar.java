@@ -24,7 +24,7 @@ public class DiceToolBar extends JToolBar {
 	public static final String ICON_D20_LARGE = "d20-large.png";
 	public static final String ICON_D30_LARGE = "d30-large.png";
 	public static final String ICON_D100_LARGE = "d100-large.png";
-	private static final String ICON_DX_LARGE = "dx-large.png";
+	public static final String ICON_DX_LARGE = "dx-large.png";
 
 	public static final String ICON_D4_REDUCE = "d4-reduce.png";
 	public static final String ICON_D6_REDUCE = "d6-reduce.png";
@@ -34,7 +34,7 @@ public class DiceToolBar extends JToolBar {
 	public static final String ICON_D20_REDUCE = "d20-reduce.png";
 	public static final String ICON_D30_REDUCE = "d30-reduce.png";
 	public static final String ICON_D100_REDUCE = "d100-reduce.png";
-	private static final String ICON_DX_REDUCE = "dx-reduce.png";
+	public static final String ICON_DX_REDUCE = "dx-reduce.png";
 
 	private final ArrayList<Die> dice;
 

@@ -59,6 +59,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	private Boolean showDistance;
 
 	public PanelGeneraBattle(final Battle battle) {
+		super();
 		this.battle = battle;
 
 		fixGrid = true;

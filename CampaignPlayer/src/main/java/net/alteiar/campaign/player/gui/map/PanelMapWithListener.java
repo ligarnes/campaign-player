@@ -36,8 +36,16 @@ public class PanelMapWithListener extends PanelBasicMap implements
 		return listenerList.getListeners(MapListener.class);
 	}
 
+	private MouseEvent createEvent(MouseEvent e) {
+		Point p = convertMousePosition(e.getPoint());
+		return new MouseEvent(this, e.getID(), e.getWhen(), e.getModifiers(),
+				p.x, p.y, e.getLocationOnScreen().x, e.getLocationOnScreen().y,
+				e.getClickCount(), false, e.getButton());
+	}
+
 	@Override
 	public void mousePressed(MouseEvent e) {
+		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
 		MapElement mapElement = this.getElementAt(mapPosition);
 
@@ -49,6 +57,7 @@ public class PanelMapWithListener extends PanelBasicMap implements
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
 		MapElement mapElement = this.getElementAt(mapPosition);
 
@@ -60,6 +69,7 @@ public class PanelMapWithListener extends PanelBasicMap implements
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
 		MapElement mapElement = this.getElementAt(mapPosition);
 
@@ -70,7 +80,8 @@ public class PanelMapWithListener extends PanelBasicMap implements
 	}
 
 	@Override
-	public void mouseMoved(final MouseEvent e) {
+	public void mouseMoved(MouseEvent e) {
+		e = createEvent(e);
 		final Point mapPosition = convertPointPanelToStandard(e.getPoint());
 
 		for (MapListener listener : getMapListener()) {
@@ -88,6 +99,7 @@ public class PanelMapWithListener extends PanelBasicMap implements
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
+		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
 		for (MapListener listener : getMapListener()) {
 			listener.mouseDragged(e, mapPosition);

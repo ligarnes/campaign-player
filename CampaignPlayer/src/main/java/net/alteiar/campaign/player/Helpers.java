@@ -19,9 +19,6 @@
  */
 package net.alteiar.campaign.player;
 
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +27,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import net.alteiar.shared.ExceptionTool;
+import net.alteiar.shared.ImageUtil;
 
 /**
  * @author Cody Stoutenburg
@@ -47,10 +45,6 @@ public class Helpers {
 	public static final String PATH_PROPERTIES = "./ressources/data/";
 
 	public static final String APP_ICON = "app_icons.png";
-
-	private static Object HIGH_RESOLUTION = RenderingHints.VALUE_INTERPOLATION_BICUBIC;
-	private static Object NORMAL_RESOLUTION = RenderingHints.VALUE_INTERPOLATION_BILINEAR;
-	private static Object LOW_RESOLUTION = RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR;
 
 	public static String getPathIcons(String name) {
 		return PATH_ICONS + name;
@@ -74,7 +68,7 @@ public class Helpers {
 			Integer height) {
 		BufferedImage img = getImage(name);
 		if (img != null) {
-			img = resize(img, width, height, HIGH_RESOLUTION);
+			img = ImageUtil.resizeImage(img, width, height);
 		}
 		return img;
 	}
@@ -93,20 +87,5 @@ public class Helpers {
 
 	public static GlobalProperties getGlobalProperties() {
 		return globalProperties;
-	}
-
-	private static BufferedImage resize(BufferedImage image, int width,
-			int height, Object resolution) {
-		int type = image.getType() == 0 ? 2 : image.getType();
-		BufferedImage resizedImage = new BufferedImage(width, height, type);
-		Graphics2D g = resizedImage.createGraphics();
-		// Don't care about time do the best you can
-		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, resolution);
-
-		g.setComposite(AlphaComposite.Src);
-		g.drawImage(image, 0, 0, width, height, null);
-		g.dispose();
-		return resizedImage;
 	}
 }

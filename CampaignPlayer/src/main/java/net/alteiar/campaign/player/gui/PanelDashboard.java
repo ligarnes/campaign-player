@@ -21,13 +21,16 @@ package net.alteiar.campaign.player.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentManager;
 import net.alteiar.campaign.player.gui.players.PanelViewPlayers;
+import net.alteiar.zoom.MyPanel;
 
 /**
  * @author Cody Stoutenburg
@@ -45,6 +48,11 @@ public class PanelDashboard extends MyPanel {
 	// Font.PLAIN,
 	// 32);
 
+	private static BufferedImage getBackgroundTexture() {
+		return Helpers.getImage(Helpers.getPathTexture("parchemin.jpg"), 500,
+				500);
+	}
+
 	private final JLabel titleName;
 	private final JLabel titleStatus;
 
@@ -52,7 +60,7 @@ public class PanelDashboard extends MyPanel {
 	private final JLabel labelPJ;
 
 	public PanelDashboard() {
-		super(new BorderLayout());
+		super(getBackgroundTexture(), new BorderLayout());
 
 		titleName = new JLabel("Nom");
 		titleStatus = new JLabel("status");
