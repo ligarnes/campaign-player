@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashSet;
@@ -11,13 +12,15 @@ import java.util.HashSet;
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.image.DocumentImageBean;
+import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.test.NewCampaignNoGMTest;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.test.beans.map.TestMap;
 
 import org.junit.Test;
 
-public class TestAuthorizableBasicBeans extends NewCampaignTest {
+public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 	private static int COUNT_AUTHORIZATION_CHANGED = 0;
 	private static int COUNT_BEAN_CHANGED = 0;
@@ -141,6 +144,26 @@ public class TestAuthorizableBasicBeans extends NewCampaignTest {
 
 		assertTrue("the owners must have been set",
 				bean.getModifiers().equals(guids));
+	}
+	
+	@Test(timeout = 5000)
+	public void testAuthorizableBeansGameMaster() {
+		DocumentImageBean autorizableBean = new DocumentImageBean(
+				"test-game-master-change-see-right", null);
+		
+		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+
+		DocumentImageBean bean = CampaignClient.getInstance().getBean(
+				autorizableBean.getId(), 200);
+		
+		Player fakeGameMaster = new Player("GameMaster", true, Color.black);
+		CampaignClient.getInstance().addBean(fakeGameMaster);
+		fakeGameMaster = CampaignClient.getInstance().getBean(fakeGameMaster.getId(), 10);
+		assertTrue(fakeGameMaster != null);
+		// Current Player is GM and is supposed to be able to change and
+		// to see every bean
+		assertTrue(bean.isAllowedToApplyChange(fakeGameMaster));
+		assertTrue(bean.isAllowedToSee(fakeGameMaster));
 	}
 
 	@Test(timeout = 5000)
