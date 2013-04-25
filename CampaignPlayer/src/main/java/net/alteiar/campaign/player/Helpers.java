@@ -102,8 +102,9 @@ public class Helpers {
 		BufferedImage resizedImage = new BufferedImage(width, height, type);
 		Graphics2D g = resizedImage.createGraphics();
 		// Don't care about time do the best you can
-		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-				RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, resolution);
+
 		g.setComposite(AlphaComposite.Src);
 		g.drawImage(image, 0, 0, width, height, null);
 		g.dispose();
