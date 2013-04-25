@@ -3,6 +3,7 @@ package net.alteiar.documents;
 import java.beans.PropertyVetoException;
 import java.util.HashSet;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
@@ -132,11 +133,17 @@ public abstract class AuthorizationBean extends BasicBeans {
 	}
 
 	public boolean isAllowedToApplyChange(Player player) {
-		return isAllowedToApplyChange(player.getId());
+			return isAllowedToApplyChange(player.getId());
 	}
 
 	public boolean isAllowedToApplyChange(UniqueID cliendId) {
-		return modifiers.contains(cliendId) || owner.equals(cliendId);
+		Player player = CampaignClient.getInstance().getBean(cliendId);
+		if (player.isMj()){
+			return true;
+		}
+		else{
+			return modifiers.contains(cliendId) || owner.equals(cliendId);
+		}
 	}
 
 	public boolean isAllowedToSee(Player player) {
