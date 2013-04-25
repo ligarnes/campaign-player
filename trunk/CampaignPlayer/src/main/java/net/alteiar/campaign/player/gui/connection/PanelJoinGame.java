@@ -62,7 +62,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelCreateOrChoosePlayer(getDialog(), this);
+		return new PanelLoadingJoin(getDialog(), this);
 	}
 
 	private final void initGui() {
@@ -176,14 +176,22 @@ public class PanelJoinGame extends PanelStartGameDialog {
 	}
 
 	public void join() {
+		final String localAdress = getLocalAdressIP();
+		final String serverAdress = getServerAddressIp();
+		final String port = getPort();
 
-		String localAdress = getLocalAdressIP();
-		String serverAdress = getServerAddressIp();
-		String port = getPort();
+		Runnable run = new Runnable() {
+			@Override
+			public void run() {
+				CampaignClient.connectToServer(localAdress, serverAdress, port);
+			}
+		};
 
-		CampaignClient.connectToServer(localAdress, serverAdress, port);
+		Thread tr = new Thread(run);
 
 		nextState();
+
+		tr.start();
 	}
 
 }

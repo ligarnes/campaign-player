@@ -74,7 +74,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelLoading(getDialog(), this);
+		return new PanelLoadingLoadCampaign(getDialog(), this);
 	}
 
 	private final void initGui() {
@@ -211,7 +211,6 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		final String address = getServerAddressIp();
 		final String port = getPort();
 
-		// PanelLoading
 		Runnable run = new Runnable() {
 			@Override
 			public void run() {
