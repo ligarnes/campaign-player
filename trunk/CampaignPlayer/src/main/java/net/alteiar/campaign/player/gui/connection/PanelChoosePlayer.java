@@ -40,21 +40,23 @@ import javax.swing.ListSelectionModel;
 import net.alteiar.CampaignClient;
 import net.alteiar.player.Player;
 
-public class PanelChoosePlayer extends JPanel {
+public class PanelChoosePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 	private static final int PREFERED_PLAYER_LIST_HEIGHT = 100;
 	private static final int PREFERED_PLAYER_LIST_WIDTH = 200;
 
-	JPanel previous;
-	StartGameDialog startGameDialog;
-
 	JList<Player> playerList;
 
-	public PanelChoosePlayer(StartGameDialog startGameDialog, JPanel previous) {
-		this.previous = previous;
-		this.startGameDialog = startGameDialog;
+	public PanelChoosePlayer(StartGameDialog startGameDialog,
+			PanelStartGameDialog previous) {
+		super(startGameDialog, previous);
 
 		initGui();
+	}
+
+	@Override
+	protected PanelStartGameDialog getNext() {
+		return null;
 	}
 
 	private final void initGui() {
@@ -91,7 +93,7 @@ public class PanelChoosePlayer extends JPanel {
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				PanelChoosePlayer.this.startGameDialog.changeState(previous);
+				previousState();
 			}
 		});
 		buttonPanel.add(cancelButton);
@@ -113,7 +115,7 @@ public class PanelChoosePlayer extends JPanel {
 	private void choosePlayer() {
 		CampaignClient.getInstance()
 				.selectPlayer(playerList.getSelectedValue());
-		startGameDialog.startApplication();
+		nextState();
 	}
 
 	static class PlayerCellRenderer extends JLabel implements

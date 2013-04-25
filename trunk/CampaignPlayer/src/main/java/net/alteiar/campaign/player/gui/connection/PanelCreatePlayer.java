@@ -15,25 +15,28 @@ import javax.swing.JTextField;
 
 import net.alteiar.CampaignClient;
 
-public class PanelCreatePlayer extends JPanel {
+public class PanelCreatePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
 	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
-
-	JPanel previous;
-	StartGameDialog startGameDialog;
 
 	private JTextField pseudoTextField;
 	private JButton playerColorButton;
 	private Color playerColor;
 
-	public PanelCreatePlayer(StartGameDialog startGameDialog, JPanel previous) {
-		this.previous = previous;
-		this.startGameDialog = startGameDialog;
+	public PanelCreatePlayer(StartGameDialog startGameDialog,
+			PanelStartGameDialog previous) {
+		super(startGameDialog, previous);
+
 		this.playerColor = DEFAULT_PLAYER_COLOR;
 
 		initUI();
 
+	}
+
+	@Override
+	protected PanelStartGameDialog getNext() {
+		return null;
 	}
 
 	public final void initUI() {
@@ -86,7 +89,7 @@ public class PanelCreatePlayer extends JPanel {
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				PanelCreatePlayer.this.startGameDialog.changeState(previous);
+				previousState();
 			}
 		});
 		buttonPanel.add(cancelButton);
@@ -108,7 +111,7 @@ public class PanelCreatePlayer extends JPanel {
 		CampaignClient.getInstance().createPlayer(getPseudo(), false,
 				getPlayerColor());
 
-		startGameDialog.startApplication();
+		nextState();
 	}
 
 }

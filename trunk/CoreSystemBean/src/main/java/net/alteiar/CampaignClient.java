@@ -154,7 +154,18 @@ public final class CampaignClient implements DocumentManagerListener {
 
 		// Load all existing documents
 		this.manager.loadDocuments();
+	}
 
+	public String getCampaignPath() {
+		return manager.getCampaignPath();
+	}
+
+	public int getRemoteDocumentCount() {
+		return manager.getRemoteDocumenCount();
+	}
+
+	public int getLocalDocumentCount() {
+		return manager.getLocalDocumentCount();
 	}
 
 	public void createPlayer(String name, Boolean isMj, Color color) {

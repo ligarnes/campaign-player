@@ -30,7 +30,6 @@ public class DocumentManager {
 		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
 				+ localAddress + " to " + serverAddress + " at " + port);
 
-		// System.setProperty("java.rmi.server.useLocalHostname", "true");
 		System.setProperty("java.rmi.server.hostname", localAddress);
 
 		DocumentManager documentManager = null;
@@ -80,6 +79,20 @@ public class DocumentManager {
 		this.server.addServerListener(new CampaignClientObserver());
 
 		campaignPath = server.getCampaignPath();
+	}
+
+	public int getRemoteDocumenCount() {
+		try {
+			return server.getDocumentCount();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
+		return -1;
+	}
+
+	public int getLocalDocumentCount() {
+		return documents.size();
 	}
 
 	public void loadDocuments() {

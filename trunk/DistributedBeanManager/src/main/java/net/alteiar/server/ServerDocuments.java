@@ -99,6 +99,12 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		listeners = new ArrayList<ServerListener>();
 	}
 
+	@Override
+	public int getDocumentCount() throws RemoteException {
+		return documents.size();
+	}
+
+	@Override
 	public String getCampaignPath() throws RemoteException {
 		return campaignPath;
 	}
