@@ -11,6 +11,8 @@ import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.IPluginSystemGui;
 import net.alteiar.campaign.player.gui.factory.PanelCharacterFactory;
+import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.image.DocumentImageBean;
@@ -90,6 +92,13 @@ public class PluginEffectSystemGui implements IPluginSystemGui {
 
 
 	public PanelCharacterFactory getGuiCharacterFactory() {
+		return null;
+	}
+
+
+
+	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

@@ -63,6 +63,16 @@ public abstract class TriggerBean extends MapElement implements PropertyChangeLi
 		this.e=e;
 	}
 	
+	public Class<? extends BasicBeans> getTypeOfActivator()
+	{
+		return typeOfActivator;
+	}
+	
+	public void setTypeOfActivator(Class<? extends BasicBeans> typeOfActivator)
+	{
+		this.typeOfActivator=typeOfActivator;
+	}
+	
 	public void draw(Graphics2D g, double zoomFactor){
 		areaOfActivation.draw(g, zoomFactor);
 	}

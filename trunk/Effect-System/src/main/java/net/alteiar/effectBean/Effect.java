@@ -31,7 +31,7 @@ public abstract class Effect extends MapElement implements DocumentManagerListen
 	public Effect(ColoredShape areaOfEffect, Boolean oneUse,Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
 		super(areaOfEffect.getPosition());
 		this.areaOfEffect=areaOfEffect;
-		this.oneUse=false;
+		this.oneUse=oneUse;
 		typeActOn=typeBean;
 		actOn=(ArrayList<BasicBeans>) CampaignClient.getInstance().getBeanFromClass(typeActOn);
 		CampaignClient.getInstance().addDocumentManagerListener(this);
@@ -106,6 +106,16 @@ public abstract class Effect extends MapElement implements DocumentManagerListen
 		{
 			actOn.remove(bean);
 		}
+	}
+	
+	public Class<? extends BasicBeans> getTypeActOn()
+	{
+		return this.typeActOn;
+	}
+	
+	public void setTypeActOn(Class<? extends BasicBeans> typeActOn)
+	{
+		this.typeActOn=typeActOn;
 	}
 	
 	public abstract void activate();
