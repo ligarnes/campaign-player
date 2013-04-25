@@ -36,9 +36,8 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 
 	private MenuSelection selection;
 
-	public PanelCreateOrChoosePlayer(StartGameDialog startGameDialog,
-			PanelStartGameDialog previous) {
-		super(startGameDialog, previous);
+	public PanelCreateOrChoosePlayer(StartGameDialog startGameDialog) {
+		super(startGameDialog, null);
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

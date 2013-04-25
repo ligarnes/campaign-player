@@ -25,7 +25,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -33,7 +32,7 @@ import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
 
-public class PanelLoading extends PanelStartGameDialog implements
+public class PanelLoadingJoin extends PanelStartGameDialog implements
 		ActionListener {
 	private static final long serialVersionUID = 1L;
 
@@ -42,14 +41,12 @@ public class PanelLoading extends PanelStartGameDialog implements
 
 	private int totalBeans;
 	private Boolean clientCreated;
-	private final Boolean serverDocumentLoaded;
 
-	public PanelLoading(StartGameDialog startGameDialog,
+	public PanelLoadingJoin(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 
 		clientCreated = false;
-		serverDocumentLoaded = false;
 
 		time = new Timer(100, this);
 		time.start();
@@ -82,26 +79,7 @@ public class PanelLoading extends PanelStartGameDialog implements
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelChoosePlayer(getDialog(), this);
-	}
-
-	protected int countFiles() {
-		int count = 0;
-		final CampaignClient c = CampaignClient.getInstance();
-		File baseDir = new File(c.getCampaignPath());
-		if (baseDir.exists()) {
-			for (File dir : baseDir.listFiles()) {
-				if (dir.isDirectory()) {
-					for (File fi : dir.listFiles()) {
-						if (fi.isFile()) {
-							count++;
-						}
-					}
-				}
-			}
-		}
-
-		return count;
+		return new PanelCreateOrChoosePlayer(getDialog());
 	}
 
 	@Override
@@ -110,16 +88,15 @@ public class PanelLoading extends PanelStartGameDialog implements
 
 		if (c != null) {
 			if (!clientCreated) {
-				totalBeans = countFiles();
-				progressBar.setMaximum(totalBeans * 2);
+				totalBeans = c.getRemoteDocumentCount();
+				progressBar.setMaximum(totalBeans);
 				clientCreated = true;
 			}
 
-			if (!serverDocumentLoaded) {
-				int count = c.getRemoteDocumentCount();
-				count += c.getLocalDocumentCount();
+			if (clientCreated) {
+				int count = c.getLocalDocumentCount();
 				progressBar.setValue(count);
-				if (count >= (2 * totalBeans)) {
+				if (count >= (totalBeans)) {
 					nextState();
 					time.stop();
 				}
