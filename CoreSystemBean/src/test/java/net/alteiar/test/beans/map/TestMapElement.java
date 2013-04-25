@@ -86,6 +86,93 @@ public class TestMapElement extends NewCampaignTest {
 	}
 
 	@Test(timeout = 5000)
+	public void testMapElementMove() {
+		MapElementSize width = new MapElementSizePixel(20.0);
+		MapElementSize height = new MapElementSizePixel(20.0);
+		Point position = new Point(0, 0);
+
+		RectangleElement targetRectangle = new RectangleElement(position,
+				Color.RED, width, height);
+
+		MapElementFactory.buildMapElement(targetRectangle, getBattle());
+
+		RectangleElement rectangle = CampaignClient.getInstance().getBean(
+				targetRectangle.getId());
+
+		assertEquals("position should be " + position, position,
+				rectangle.getPosition());
+
+		Point tempPos = new Point(12, 12);
+		rectangle.moveTo(tempPos);
+		assertEquals("position should be " + tempPos, tempPos,
+				rectangle.getPosition());
+
+		rectangle.undoMove();
+		assertEquals("position should be " + position, position,
+				rectangle.getPosition());
+
+		rectangle.moveTo(tempPos);
+		assertEquals("position should be " + tempPos, tempPos,
+				rectangle.getPosition());
+
+		rectangle.applyMove();
+		sleep(5);
+		assertEquals("position should be " + tempPos, tempPos,
+				rectangle.getPosition());
+
+		rectangle.undoMove();
+		assertEquals("position should be " + tempPos, tempPos,
+				rectangle.getPosition());
+	}
+
+	@Test(timeout = 5000)
+	public void testRectangleSelection() {
+		Battle battle = getBattle();
+
+		MapElementSize width = new MapElementSizePixel(20.0);
+		MapElementSize height = new MapElementSizePixel(20.0);
+		Point position = new Point(5, 5);
+
+		RectangleElement targetRectangle = new RectangleElement(position,
+				Color.RED, width, height);
+		MapElementFactory.buildMapElement(targetRectangle, battle);
+
+		RectangleElement rectangle = CampaignClient.getInstance().getBean(
+				targetRectangle.getId(), 300L);
+
+		assertTrue("rectangle should be hidden for players",
+				rectangle.isHiddenForPlayer());
+
+		assertTrue("rectangle should'nt be selected", !rectangle.getSelected());
+
+		rectangle.setHiddenForPlayer(false);
+		rectangle.setSelected(true);
+		sleep(5);
+		assertTrue("rectangle should'nt be hidden for players",
+				!rectangle.isHiddenForPlayer());
+		assertTrue("rectangle should be selected", rectangle.getSelected());
+
+		BufferedImage realImg = new BufferedImage(200, 200,
+				BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = realImg.createGraphics();
+		rectangle.draw(g2, 1.0);
+		g2.dispose();
+
+		BufferedImage targetImg = new BufferedImage(200, 200,
+				BufferedImage.TYPE_INT_ARGB);
+		g2 = targetImg.createGraphics();
+		rectangle.draw(g2, 1.0);
+		g2.dispose();
+
+		try {
+			assertTrue("images should be same",
+					compareImage(targetImg, realImg));
+		} catch (IOException e) {
+			fail("fail to compare images");
+		}
+	}
+
+	@Test(timeout = 5000)
 	public void testRectangle() {
 		Battle battle = getBattle();
 

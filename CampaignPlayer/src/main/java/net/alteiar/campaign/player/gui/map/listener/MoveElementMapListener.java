@@ -24,6 +24,7 @@ public class MoveElementMapListener extends ActionMapListener {
 			GlobalMapListener mapListener, Point first, MapElement mapElement) {
 		super(mapInfo, mapListener);
 		this.mapElement = mapElement;
+		this.mapElement.setSelected(true);
 
 		if (mapInfo.getFixGrid()) {
 			draw = new PathToMouse(mapInfo, first);
@@ -101,6 +102,7 @@ public class MoveElementMapListener extends ActionMapListener {
 	}
 
 	private void finish() {
+		this.mapElement.setSelected(false);
 		mapListener.defaultListener();
 		getMapEditableInfo().removeDrawable(draw);
 	}

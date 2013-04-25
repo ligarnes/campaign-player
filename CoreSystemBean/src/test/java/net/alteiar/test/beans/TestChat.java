@@ -90,6 +90,14 @@ public class TestChat extends NewCampaignTest {
 	}
 
 	@Test(timeout = 5000)
+	public void testChatComplete() {
+		testChat();
+		testChatDiceSender();
+		testChatPrivateSender();
+		testChatMjSender();
+	}
+
+	// @Test(timeout = 5000)
 	public void testChat() {
 		final String expectedMsg = "Salut";
 
@@ -129,7 +137,7 @@ public class TestChat extends NewCampaignTest {
 		}
 	}
 
-	@Test(timeout = 5000)
+	// @Test(timeout = 5000)
 	public void testChatDiceSender() {
 		final Integer expectedDiceCount = 2;
 		final Integer expectedDiceValue = 6;
@@ -174,7 +182,7 @@ public class TestChat extends NewCampaignTest {
 		}
 	}
 
-	@Test(timeout = 5000)
+	// @Test(timeout = 5000)
 	public void testChatPrivateSender() {
 		final String expectedMessage = "my_message";
 
@@ -209,7 +217,7 @@ public class TestChat extends NewCampaignTest {
 				!resultMessage.canAccess());
 	}
 
-	@Test(timeout = 5000)
+	// @Test(timeout = 5000)
 	public void testChatMjSender() {
 		final String name = CampaignClient.getInstance().getCurrentPlayer()
 				.getName();

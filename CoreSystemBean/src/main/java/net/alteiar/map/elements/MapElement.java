@@ -1,8 +1,10 @@
 package net.alteiar.map.elements;
 
 import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.AffineTransform;
 import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
@@ -60,9 +62,32 @@ public abstract class MapElement extends BasicBeans {
 		} else {
 			drawElement(g, zoomFactor);
 		}
+
+		if (getSelected()) {
+			drawSelection(g, zoomFactor);
+		}
 	}
 
 	protected abstract void drawElement(Graphics2D g, double zoomFactor);
+
+	protected void drawSelection(Graphics2D g, double zoomFactor) {
+		Graphics2D g2 = (Graphics2D) g.create();
+
+		Point position = getPosition();
+		int x = (int) (position.getX() * zoomFactor);
+		int y = (int) (position.getY() * zoomFactor);
+		int width = (int) (getWidthPixels() * zoomFactor);
+		int height = (int) (getHeightPixels() * zoomFactor);
+
+		AffineTransform transform = new AffineTransform();
+		transform.translate(x, y);
+
+		g2.setColor(CampaignClient.getInstance().getCurrentPlayer().getColor());
+		g2.setStroke(new BasicStroke(5.0f));
+		g2.transform(transform);
+		g2.drawRect(0, 0, width, height);
+		g2.dispose();
+	}
 
 	public abstract Boolean contain(Point p);
 
