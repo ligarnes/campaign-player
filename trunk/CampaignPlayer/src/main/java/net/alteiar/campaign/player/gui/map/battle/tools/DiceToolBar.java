@@ -24,7 +24,8 @@ import net.alteiar.chat.message.DiceSender;
 
 public class DiceToolBar extends JToolBar {
 	private static final long serialVersionUID = 1L;
-
+	
+	private static final String ICON_D4 = "d4.png";
 	private static final String ICON_D6 = "d6.png";
 	private static final String ICON_D8 = "d8.png";
 	private static final String ICON_D10 = "d10.png";
@@ -32,6 +33,7 @@ public class DiceToolBar extends JToolBar {
 	private static final String ICON_D20 = "d20.png";
 	private static final String ICON_D24 = "d24.png";
 	private static final String ICON_D30 = "d30.png";
+	private static final String ICON_D100 = "d100.png";
 	private static final String ICON_DX = "dx.png";
 
 	private final ArrayList<Die> dice;
@@ -123,6 +125,8 @@ public class DiceToolBar extends JToolBar {
 
 	private String getDieIcon(Die die) {
 		switch (die.getNumFaces()) {
+		case 4:
+			return ICON_D4;
 		case 6:
 			return ICON_D6;
 		case 8:
@@ -137,6 +141,8 @@ public class DiceToolBar extends JToolBar {
 			return ICON_D24;
 		case 30:
 			return ICON_D30;
+		case 100:
+			return ICON_D100;
 		default:
 			return ICON_DX;
 		}
@@ -146,6 +152,7 @@ public class DiceToolBar extends JToolBar {
 			ActionListener {
 
 		private static final long serialVersionUID = 1L;
+		static String d4 = "4 faces";
 		static String d6 = "6 faces";
 		static String d8 = "8 faces";
 		static String d10 = "10 faces";
@@ -153,6 +160,7 @@ public class DiceToolBar extends JToolBar {
 		static String d20 = "20 faces";
 		static String d24 = "24 faces";
 		static String d30 = "30 faces";
+		static String d100 = "100 faces";
 
 		int numFaces;
 
@@ -160,8 +168,11 @@ public class DiceToolBar extends JToolBar {
 
 		public PanelDiceSelection() {
 			super(new BorderLayout());
-
+			
 			// Create the radio buttons.
+			JRadioButton d4Button = new JRadioButton(d4);
+			d4Button.setActionCommand(ICON_D4);
+			
 			JRadioButton d6Button = new JRadioButton(d6);
 			d6Button.setActionCommand(ICON_D6);
 			numFaces = 6;
@@ -184,9 +195,13 @@ public class DiceToolBar extends JToolBar {
 
 			JRadioButton d30Button = new JRadioButton(d30);
 			d30Button.setActionCommand(ICON_D30);
+			
+			JRadioButton d100Button = new JRadioButton(d100);
+			d100Button.setActionCommand(ICON_D100);
 
 			// Group the radio buttons.
 			ButtonGroup group = new ButtonGroup();
+			group.add(d4Button);
 			group.add(d6Button);
 			group.add(d8Button);
 			group.add(d10Button);
@@ -194,8 +209,10 @@ public class DiceToolBar extends JToolBar {
 			group.add(d20Button);
 			group.add(d24Button);
 			group.add(d30Button);
+			group.add(d100Button);
 
 			// Register a listener for the radio buttons.
+			d4Button.addActionListener(this);
 			d6Button.addActionListener(this);
 			d8Button.addActionListener(this);
 			d10Button.addActionListener(this);
@@ -203,6 +220,7 @@ public class DiceToolBar extends JToolBar {
 			d20Button.addActionListener(this);
 			d24Button.addActionListener(this);
 			d30Button.addActionListener(this);
+			d100Button.addActionListener(this);
 
 			// Set up the picture label.
 			picture = new JLabel(createImageIcon(ICON_D6));
@@ -214,6 +232,7 @@ public class DiceToolBar extends JToolBar {
 
 			// Put the radio buttons in a column in a panel.
 			JPanel radioPanel = new JPanel(new GridLayout(0, 1));
+			radioPanel.add(d4Button);
 			radioPanel.add(d6Button);
 			radioPanel.add(d8Button);
 			radioPanel.add(d10Button);
@@ -221,6 +240,7 @@ public class DiceToolBar extends JToolBar {
 			radioPanel.add(d20Button);
 			radioPanel.add(d24Button);
 			radioPanel.add(d30Button);
+			radioPanel.add(d100Button);
 
 			add(radioPanel, BorderLayout.LINE_START);
 			add(picture, BorderLayout.CENTER);
@@ -231,8 +251,10 @@ public class DiceToolBar extends JToolBar {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			picture.setIcon(createImageIcon(e.getActionCommand()));
-
-			if (ICON_D6.equals(e.getActionCommand())) {
+			
+			if (ICON_D4.equals(e.getActionCommand())) {
+				numFaces = 4;
+			} else if (ICON_D6.equals(e.getActionCommand())) {
 				numFaces = 6;
 			} else if (ICON_D8.equals(e.getActionCommand())) {
 				numFaces = 8;
@@ -246,6 +268,8 @@ public class DiceToolBar extends JToolBar {
 				numFaces = 24;
 			} else if (ICON_D30.equals(e.getActionCommand())) {
 				numFaces = 30;
+			} else if (ICON_D100.equals(e.getActionCommand())) {
+				numFaces = 100;
 			} else {
 				numFaces = 0;
 			}
