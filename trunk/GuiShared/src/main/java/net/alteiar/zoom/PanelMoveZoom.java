@@ -14,6 +14,7 @@ public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel {
 	private final JScrollPane scroll;
 
 	public PanelMoveZoom(E panel) {
+		super();
 		inside = panel;
 		scroll = new JScrollPane(inside);
 

@@ -23,10 +23,13 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.TexturePaint;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -38,12 +41,14 @@ import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
+import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.documents.map.Map;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
+import net.alteiar.shared.ImageUtil;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.zoom.Zoomable;
 
@@ -63,8 +68,18 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 
 	private final Timer refreshTime;
 
+	private final int offset;
+
+	private final BufferedImage background;
+	private final BufferedImage backgroundLarge;
+
 	public PanelBasicMap(Map map, DrawInfo draw) {
 		super();
+		this.background = Helpers.getImage(Helpers
+				.getPathTexture("wood-texture-by-shawnaize-small.jpg"));
+		this.backgroundLarge = Helpers.getImage(Helpers
+				.getPathTexture("wood-texture-by-shawnaize.jpg"));
+
 		this.playerDraw = draw;
 
 		showGrid = true;
@@ -83,13 +98,12 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 
 		this.setOpaque(false);
 
+		offset = 120;
 		zoomFactor = 0.50;
-
+		previousZoom = 0;
 		refreshTime = new Timer(20, this);
 
-		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
-				(int) (map.getHeight() * zoomFactor));
-		this.setPreferredSize(dim);
+		zoom(zoomFactor);
 	}
 
 	public void addDrawable(MouseDrawable draw) {
@@ -142,9 +156,41 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 				(int) (click.y / zoomFactor));
 	}
 
+	private BufferedImage img;
+	private double previousZoom;
+
+	protected void paintTexture(Graphics2D g) {
+		Graphics2D g2 = (Graphics2D) g.create();
+
+		if (previousZoom != zoomFactor) {
+			img = ImageUtil.resizeImage(background,
+					(int) (background.getWidth() * zoomFactor),
+					(int) (background.getHeight() * zoomFactor),
+					ImageUtil.LOW_RESOLUTION);
+
+			previousZoom = zoomFactor;
+		}
+
+		// Create a texture paint from the buffered image
+		Rectangle r = new Rectangle(0, 0, img.getWidth(), img.getHeight());
+		TexturePaint tp = new TexturePaint(img, r);
+
+		// Add the texture paint to the graphics context.
+		g2.setPaint(tp);
+
+		// Create and render a rectangle filled with the texture.
+		g2.fillRect(0, 0, getWidth(), getHeight());
+
+		g2.dispose();
+	}
+
 	@Override
 	public void paint(Graphics g) {
+		super.paint(g);
+
 		Graphics2D g2 = (Graphics2D) g;
+
+		paintTexture(g2);
 
 		// Anti-alias!
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -152,6 +198,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
 				RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 
+		g2.translate(offset, offset);
 		// draw background
 		map.drawBackground(g2, zoomFactor);
 		map.drawElements(g2, zoomFactor);
@@ -162,11 +209,17 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 
 		// Draw other info
 		for (MouseDrawable draw : drawables) {
-			draw.draw(g2, getMousePosition());
+			draw.draw(g2, convertMousePosition(getMousePosition()));
 		}
 
+		g2.translate(-offset, -offset);
 		playerDraw.draw(g2);
 		g2.dispose();
+	}
+
+	// convert using the offset
+	protected Point convertMousePosition(Point mousePosition) {
+		return new Point(mousePosition.x - offset, mousePosition.y - offset);
 	}
 
 	/**
@@ -191,8 +244,9 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	@Override
 	public void zoom(double value) {
 		zoomFactor = value;
-		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
-				(int) (map.getHeight() * zoomFactor));
+		Dimension dim = new Dimension((int) (2 * offset + map.getWidth()
+				* zoomFactor),
+				(int) (2 * offset + map.getHeight() * zoomFactor));
 		this.setPreferredSize(dim);
 		this.revalidate();
 		this.repaint();
@@ -205,9 +259,9 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	}
 
 	private void mapChanged() {
-		Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
-				(int) (map.getHeight() * zoomFactor));
-		this.setPreferredSize(dim);
+		// Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
+		// (int) (map.getHeight() * zoomFactor));
+		// this.setPreferredSize(dim);
 		this.revalidate();
 		this.repaint();
 	}

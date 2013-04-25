@@ -51,15 +51,11 @@ import net.alteiar.shared.ExceptionTool;
 public class PanelCreateGame extends PanelStartGameDialog {
 
 	private static final long serialVersionUID = 1L;
-	//private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
 
 	private JTextField gameNameTextField;
 
 	private JTextField pseudoTextField;
-	PanelSelectColor playerColorSelector;
-	//private JButton playerColorButton;
-	//private Color playerColor;
-	//private JCheckBox isMj;
+	private PanelSelectColor playerColorSelector;
 
 	private DefaultComboBoxModel<String> localIpComboBoxModel;
 	private JComboBox<String> localIpComboBox;
@@ -68,8 +64,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	public PanelCreateGame(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
-		//this.playerColor = DEFAULT_PLAYER_COLOR;
-
 		initGui();
 	}
 
@@ -94,13 +88,10 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		localIpComboBox = new JComboBox<String>(localIpComboBoxModel);
 		portTextField = new JTextField(5);
 
-		//isMj = new JCheckBox("MJ");
-
 		// Set some values to the values stocked in global properties
 		pseudoTextField.setText(globalProp.getCreatePseudo());
 		playerColorSelector.setColor(globalProp.getCreateColor());
 		portTextField.setText(globalProp.getCreatePort());
-		//isMj.setSelected(globalProp.isMj());
 
 		// Build inner panel
 
@@ -120,28 +111,9 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
-		//playerColorButton = new JButton("Couleur");
-		// playerColorButton.setForeground(Color.BLUE);
-//		playerColorButton.setBackground(playerColor);
-//		playerColorButton.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent event) {
-//				Color chosenColor = JColorChooser
-//						.showDialog(PanelCreateGame.this,
-//								"Choisissez la couleur de votre personnage",
-//								Color.BLUE);
-//				if (chosenColor != null) {
-//					// playerColorButton.setForeground(playerColor);
-//					playerColor = chosenColor;
-//					playerColorButton.setBackground(chosenColor);
-//				}
-//			}
-//		});
 		identityPanel.add(pseudo);
-		
+
 		identityPanel.add(playerColorSelector);
-		//identityPanel.add(playerColorButton);
-		//identityPanel.add(isMj);
 
 		// Server Info Panel
 		JPanel serverPanel = new JPanel();
@@ -178,9 +150,11 @@ public class PanelCreateGame extends PanelStartGameDialog {
 				}
 			}
 		} catch (SocketException ex) {
-			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
+			ExceptionTool.showError(ex,
+					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		} catch (Exception ex) {
-			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
+			ExceptionTool.showError(ex,
+					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		}
 
 		if (allAdresses.contains(globalProp.getCreateIpLocal())) {
@@ -217,7 +191,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 			}
 		});
 
-		
 		buttonPanel.add(cancelButton);
 		buttonPanel.add(createButton);
 
@@ -252,10 +225,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		return portTextField.getText();
 	}
 
-//	public Boolean isMj() {
-//		return isMj.isSelected();
-//	}
-
 	public void create() {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 
@@ -270,11 +239,9 @@ public class PanelCreateGame extends PanelStartGameDialog {
 
 		globalProp.setCreateColor(getPlayerColor());
 		globalProp.setCreatePseudo(getPseudo());
-		//globalProp.setIsMj(isMj());
 		globalProp.setCreateIpLocal(getLocalAdressIP());
 		globalProp.setCreatePort(getPort());
 		globalProp.setCreateIpServer(getServerAddressIp());
-		//globalProp.setCreateIsServer(true);
 		try {
 			globalProp.save();
 		} catch (IOException ex) {
