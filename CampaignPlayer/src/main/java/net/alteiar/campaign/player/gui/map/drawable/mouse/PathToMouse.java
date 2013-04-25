@@ -15,10 +15,11 @@ import java.util.List;
 
 import net.alteiar.campaign.player.gui.map.Map2DUtils;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.map.elements.MapElement;
 
 public class PathToMouse extends LineToMouse {
 
-	public PathToMouse(MapEditableInfo map, Point origin) {
+	public PathToMouse(MapEditableInfo map, Point origin, MapElement element) {
 		super(map, map.convertPointToSquare(origin));
 	}
 
@@ -42,10 +43,13 @@ public class PathToMouse extends LineToMouse {
 		drawPath(g2, pts);
 	}
 
-	protected void drawPath(Graphics2D g2, List<Point> pts) {
+	protected void drawPath(Graphics2D g, List<Point> pts) {
+		Graphics2D g2 = (Graphics2D) g.create();
+
 		pts = removeDuplicate(pts);
 		double zoomFactor = getMapEditor().getZoom();
 		Double squareSize = getMapEditor().getScale().getPixels() * zoomFactor;
+
 		int i = 0;
 		for (Point point : pts) {
 			if (point == null) {
@@ -54,6 +58,8 @@ public class PathToMouse extends LineToMouse {
 			}
 			Point2D.Double next = getMapEditor().convertSquareToPoint(point);
 
+			g2.translate(next.x, next.y);
+
 			double gap = getMapEditor().getScale().getPixels() * 0.1;
 			double width = gap * zoomFactor;
 
@@ -61,7 +67,7 @@ public class PathToMouse extends LineToMouse {
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.5f));
 
-			g2.fillRoundRect((int) (next.x + width), (int) (next.y + width),
+			g2.fillRoundRect((int) width, (int) width,
 					(int) (squareSize - width * 2),
 					(int) (squareSize - width * 2), (int) width, (int) width);
 
@@ -70,6 +76,7 @@ public class PathToMouse extends LineToMouse {
 					0.8f));
 
 			if (i > 0) {
+				// draw the cell move
 				String str = "" + i;
 				Font f = g2.getFont();
 				f = f.deriveFont(14f);
@@ -83,12 +90,15 @@ public class PathToMouse extends LineToMouse {
 						+ ((squareSize - rect.getHeight()) / 2.0);
 
 				if (rect.getHeight() < (squareSize + width * 2)) {
-					g2.drawString(str, (int) (next.x + centerX),
-							(int) (next.y + centerY));
+					g2.drawString(str, (int) (centerX), (int) (centerY));
 				}
 			}
+
+			g2.translate(-next.x, -next.y);
 			++i;
 		}
+
+		g2.dispose();
 	}
 
 	private List<Point> removeDuplicate(List<Point> pts) {

@@ -27,28 +27,29 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class PanelCreateOrChoosePlayer extends JPanel {
+public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
-	JPanel previous;
-	StartGameDialog mainPanelStartGame;
+	private enum MenuSelection {
+		CREATE, CHOOSE
+	}
 
-	public PanelCreateOrChoosePlayer(StartGameDialog mainPanelStartGame, JPanel previous) {
+	private MenuSelection selection;
 
-		this.previous = previous;
-		this.mainPanelStartGame = mainPanelStartGame;
+	public PanelCreateOrChoosePlayer(StartGameDialog startGameDialog,
+			PanelStartGameDialog previous) {
+		super(startGameDialog, previous);
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		JPanel buttonPanel = new JPanel(new FlowLayout());
-		
+
 		JButton createButton = new JButton("Créer un nouveau joueur");
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				changeState(new PanelCreatePlayer(
-						PanelCreateOrChoosePlayer.this.mainPanelStartGame,
-						PanelCreateOrChoosePlayer.this));
+				selection = MenuSelection.CREATE;
+				nextState();
 			}
 		});
 		buttonPanel.add(createButton);
@@ -57,18 +58,26 @@ public class PanelCreateOrChoosePlayer extends JPanel {
 		chooseExistingButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				changeState(new PanelChoosePlayer(
-						PanelCreateOrChoosePlayer.this.mainPanelStartGame,
-						PanelCreateOrChoosePlayer.this));
+				selection = MenuSelection.CHOOSE;
+				nextState();
 			}
 		});
 		buttonPanel.add(chooseExistingButton);
-		
-		this.add(buttonPanel);
 
+		this.add(buttonPanel);
 	}
 
-	public void changeState(JPanel newPanel) {
-		this.mainPanelStartGame.changeState(newPanel);
+	@Override
+	protected PanelStartGameDialog getNext() {
+		PanelStartGameDialog next = null;
+		switch (selection) {
+		case CHOOSE:
+			next = new PanelChoosePlayer(getDialog(), this);
+			break;
+		case CREATE:
+			next = new PanelCreatePlayer(getDialog(), this);
+			break;
+		}
+		return next;
 	}
 }

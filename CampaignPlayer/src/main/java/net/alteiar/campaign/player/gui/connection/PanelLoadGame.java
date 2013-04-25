@@ -51,15 +51,12 @@ import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
-public class PanelLoadGame extends JPanel {
+public class PanelLoadGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 	private static final int PREFERED_GAME_LIST_HEIGHT = 100;
 	private static final int PREFERED_GAME_LIST_WIDTH = 200;
 
 	private static final String PATH = "./ressources/sauvegarde/";
-
-	JPanel previous;
-	StartGameDialog startGameDialog;
 
 	JList<String> savedGameList;
 
@@ -67,12 +64,17 @@ public class PanelLoadGame extends JPanel {
 	private JComboBox<String> comboboxServerIp;
 	private JTextField port;
 
-	public PanelLoadGame(StartGameDialog startGameDialog, JPanel previous) {
-		this.previous = previous;
-		this.startGameDialog = startGameDialog;
+	public PanelLoadGame(StartGameDialog startGameDialog,
+			PanelStartGameDialog previous) {
+		super(startGameDialog, previous);
 
 		initGui();
 
+	}
+
+	@Override
+	protected PanelStartGameDialog getNext() {
+		return new PanelLoading(getDialog(), this);
 	}
 
 	private final void initGui() {
@@ -189,7 +191,7 @@ public class PanelLoadGame extends JPanel {
 					System.out.println("Leaving the game");
 					CampaignClient.leaveGame();
 				}
-				PanelLoadGame.this.startGameDialog.changeState(previous);
+				previousState();
 			}
 		});
 		buttonPanel.add(cancelButton);
@@ -205,14 +207,23 @@ public class PanelLoadGame extends JPanel {
 		return port.getText();
 	}
 
-	public void load(String campaign) {
-		String address = getServerAddressIp();
-		String port = getPort();
+	public void load(final String campaign) {
+		final String address = getServerAddressIp();
+		final String port = getPort();
 
-		CampaignClient.loadCampaignServer(address, port, campaign);
+		// PanelLoading
+		Runnable run = new Runnable() {
+			@Override
+			public void run() {
+				CampaignClient.loadCampaignServer(address, port, campaign);
+			}
+		};
 
-		PanelLoadGame.this.startGameDialog.changeState(new PanelChoosePlayer(
-				startGameDialog, this));
+		Thread tr = new Thread(run);
+
+		nextState();
+
+		tr.start();
 	}
 
 	public Vector<String> getSavedGames() {

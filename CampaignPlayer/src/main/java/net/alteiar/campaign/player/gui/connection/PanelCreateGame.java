@@ -49,13 +49,10 @@ import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
-public class PanelCreateGame extends JPanel {
+public class PanelCreateGame extends PanelStartGameDialog {
 
 	private static final long serialVersionUID = 1L;
 	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
-
-	JPanel previous;
-	StartGameDialog startGameDialog;
 
 	private JTextField gameNameTextField;
 
@@ -68,12 +65,17 @@ public class PanelCreateGame extends JPanel {
 	private JComboBox<String> localIpComboBox;
 	private JTextField portTextField;
 
-	public PanelCreateGame(StartGameDialog startGameDialog, JPanel previous) {
-		this.previous = previous;
-		this.startGameDialog = startGameDialog;
+	public PanelCreateGame(StartGameDialog startGameDialog,
+			PanelStartGameDialog previous) {
+		super(startGameDialog, previous);
 		this.playerColor = DEFAULT_PLAYER_COLOR;
 
 		initGui();
+	}
+
+	@Override
+	protected PanelStartGameDialog getNext() {
+		return null;
 	}
 
 	private final void initGui() {
@@ -208,7 +210,7 @@ public class PanelCreateGame extends JPanel {
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				PanelCreateGame.this.startGameDialog.changeState(previous);
+				previousState();
 			}
 		});
 
@@ -274,6 +276,6 @@ public class PanelCreateGame extends JPanel {
 			ExceptionTool.showError(ex);
 		}
 
-		startGameDialog.startApplication();
+		nextState();
 	}
 }

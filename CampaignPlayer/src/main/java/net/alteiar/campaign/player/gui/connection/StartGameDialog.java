@@ -3,7 +3,6 @@ package net.alteiar.campaign.player.gui.connection;
 import java.awt.Frame;
 
 import javax.swing.JDialog;
-import javax.swing.JPanel;
 
 public class StartGameDialog extends JDialog {
 
@@ -19,7 +18,7 @@ public class StartGameDialog extends JDialog {
 		this.setLocationRelativeTo(null);
 	}
 
-	public void changeState(JPanel newPanel) {
+	public void changeState(PanelStartGameDialog newPanel) {
 		getContentPane().removeAll();
 		getContentPane().add(newPanel);
 		this.pack();
@@ -37,7 +36,7 @@ public class StartGameDialog extends JDialog {
 		readyToStart = false;
 		this.dispose();
 	}
-	
+
 	public Boolean isReadyToStart() {
 		return readyToStart;
 	}

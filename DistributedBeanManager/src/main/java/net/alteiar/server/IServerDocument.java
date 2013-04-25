@@ -38,6 +38,8 @@ public interface IServerDocument extends Remote {
 	void removeServerListener(ServerListener listener) throws RemoteException;
 
 	// Documents
+	int getDocumentCount() throws RemoteException;
+
 	String getCampaignPath() throws RemoteException;
 
 	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder,
