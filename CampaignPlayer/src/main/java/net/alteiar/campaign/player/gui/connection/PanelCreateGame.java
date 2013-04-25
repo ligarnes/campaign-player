@@ -37,8 +37,6 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -47,19 +45,21 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.panel.PanelSelectColor;
 import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateGame extends PanelStartGameDialog {
 
 	private static final long serialVersionUID = 1L;
-	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
+	//private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
 
 	private JTextField gameNameTextField;
 
 	private JTextField pseudoTextField;
-	private JButton playerColorButton;
-	private Color playerColor;
-	private JCheckBox isMj;
+	PanelSelectColor playerColorSelector;
+	//private JButton playerColorButton;
+	//private Color playerColor;
+	//private JCheckBox isMj;
 
 	private DefaultComboBoxModel<String> localIpComboBoxModel;
 	private JComboBox<String> localIpComboBox;
@@ -68,7 +68,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	public PanelCreateGame(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
-		this.playerColor = DEFAULT_PLAYER_COLOR;
+		//this.playerColor = DEFAULT_PLAYER_COLOR;
 
 		initGui();
 	}
@@ -88,18 +88,19 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		gameNameTextField = new JTextField(10);
 
 		pseudoTextField = new JTextField(10);
+		playerColorSelector = new PanelSelectColor();
 
 		localIpComboBoxModel = new DefaultComboBoxModel<String>();
 		localIpComboBox = new JComboBox<String>(localIpComboBoxModel);
 		portTextField = new JTextField(5);
 
-		isMj = new JCheckBox("MJ");
+		//isMj = new JCheckBox("MJ");
 
 		// Set some values to the values stocked in global properties
-
-		pseudoTextField.setText(globalProp.getPseudo());
-		portTextField.setText(globalProp.getPort());
-		isMj.setSelected(globalProp.isMj());
+		pseudoTextField.setText(globalProp.getCreatePseudo());
+		playerColorSelector.setColor(globalProp.getCreateColor());
+		portTextField.setText(globalProp.getCreatePort());
+		//isMj.setSelected(globalProp.isMj());
 
 		// Build inner panel
 
@@ -115,30 +116,32 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		// Player Info Panel
 		JPanel identityPanel = new JPanel(new FlowLayout());
 		identityPanel.setBorder(BorderFactory
-				.createTitledBorder("Votre identité"));
+				.createTitledBorder("Votre identit\u00E9"));
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
-		playerColorButton = new JButton("Couleur");
+		//playerColorButton = new JButton("Couleur");
 		// playerColorButton.setForeground(Color.BLUE);
-		playerColorButton.setBackground(playerColor);
-		playerColorButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent event) {
-				Color chosenColor = JColorChooser
-						.showDialog(PanelCreateGame.this,
-								"Choisissez la couleur de votre personnage",
-								Color.BLUE);
-				if (chosenColor != null) {
-					// playerColorButton.setForeground(playerColor);
-					playerColor = chosenColor;
-					playerColorButton.setBackground(chosenColor);
-				}
-			}
-		});
+//		playerColorButton.setBackground(playerColor);
+//		playerColorButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent event) {
+//				Color chosenColor = JColorChooser
+//						.showDialog(PanelCreateGame.this,
+//								"Choisissez la couleur de votre personnage",
+//								Color.BLUE);
+//				if (chosenColor != null) {
+//					// playerColorButton.setForeground(playerColor);
+//					playerColor = chosenColor;
+//					playerColorButton.setBackground(chosenColor);
+//				}
+//			}
+//		});
 		identityPanel.add(pseudo);
-		identityPanel.add(playerColorButton);
-		identityPanel.add(isMj);
+		
+		identityPanel.add(playerColorSelector);
+		//identityPanel.add(playerColorButton);
+		//identityPanel.add(isMj);
 
 		// Server Info Panel
 		JPanel serverPanel = new JPanel();
@@ -175,13 +178,13 @@ public class PanelCreateGame extends PanelStartGameDialog {
 				}
 			}
 		} catch (SocketException ex) {
-			ExceptionTool.showError(ex, "Problème d'acces à la carte réseaux");
+			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		} catch (Exception ex) {
-			ExceptionTool.showError(ex, "Problème d'acces à la carte réseaux");
+			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		}
 
-		if (allAdresses.contains(globalProp.getIpLocal())) {
-			localIpComboBoxModel.setSelectedItem(globalProp.getIpLocal());
+		if (allAdresses.contains(globalProp.getCreateIpLocal())) {
+			localIpComboBoxModel.setSelectedItem(globalProp.getCreateIpLocal());
 		}
 
 		JPanel localAddressIpPanel = new JPanel(new FlowLayout());
@@ -214,8 +217,9 @@ public class PanelCreateGame extends PanelStartGameDialog {
 			}
 		});
 
-		buttonPanel.add(createButton);
+		
 		buttonPanel.add(cancelButton);
+		buttonPanel.add(createButton);
 
 		// Add all the panel to this panel
 		this.add(gamePanel);
@@ -229,7 +233,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	}
 
 	public Color getPlayerColor() {
-		return playerColor;
+		return playerColorSelector.getColor();
 	}
 
 	public String getGameName() {
@@ -248,9 +252,9 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		return portTextField.getText();
 	}
 
-	public Boolean isMj() {
-		return isMj.isSelected();
-	}
+//	public Boolean isMj() {
+//		return isMj.isSelected();
+//	}
 
 	public void create() {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
@@ -259,17 +263,18 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		CampaignClient.startNewCampaignServer(getServerAddressIp(), getPort(),
 				getGameName());
 
-		// Create one player
-		CampaignClient.getInstance().createPlayer(getPseudo(), isMj(),
+		// Create one player NOTE: here we force the player who
+		// creates the game to be the Game Master
+		CampaignClient.getInstance().createPlayer(getPseudo(), true,
 				getPlayerColor());
 
-		// TODO : add color to the properties?
-		globalProp.setPseudo(getPseudo());
-		globalProp.setIsMj(isMj());
-		globalProp.setIpLocal(getLocalAdressIP());
-		globalProp.setPort(getPort());
-		globalProp.setIpServer(getServerAddressIp());
-		globalProp.setIsServer(true);
+		globalProp.setCreateColor(getPlayerColor());
+		globalProp.setCreatePseudo(getPseudo());
+		//globalProp.setIsMj(isMj());
+		globalProp.setCreateIpLocal(getLocalAdressIP());
+		globalProp.setCreatePort(getPort());
+		globalProp.setCreateIpServer(getServerAddressIp());
+		//globalProp.setCreateIsServer(true);
 		try {
 			globalProp.save();
 		} catch (IOException ex) {

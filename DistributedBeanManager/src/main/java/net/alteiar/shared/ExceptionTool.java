@@ -53,12 +53,12 @@ public class ExceptionTool {
 		JTextArea textArea = new JTextArea(sw.toString(), 20, 40);
 		textArea.setEditable(false);
 		textArea.setBorder(BorderFactory
-				.createTitledBorder("Détails de l'exception"));
+				.createTitledBorder("D\u00E9tails de l'exception"));
 		final JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setVisible(false);
 
 		// boutton details
-		JButton details = new JButton("Détails...");
+		JButton details = new JButton("D\u00E9tails...");
 		details.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -108,7 +108,7 @@ public class ExceptionTool {
 	}
 
 	public static void showError(RemoteException ex) {
-		showError(ex, "Problème de réseaux, le serveur est injoignable");
+		showError(ex, "Probl\u00E8me de r\u00E9seaux, le serveur est injoignable");
 	}
 
 	public static void showError(Exception e) {
@@ -132,12 +132,12 @@ public class ExceptionTool {
 		JTextArea textArea = new JTextArea(sw.toString(), 20, 40);
 		textArea.setEditable(false);
 		textArea.setBorder(BorderFactory
-				.createTitledBorder("Détails de l'exception"));
+				.createTitledBorder("D\u00E9tails de l'exception"));
 		final JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setVisible(false);
 
 		// boutton details
-		JButton details = new JButton("Détails...");
+		JButton details = new JButton("D\u00E9tails...");
 		details.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

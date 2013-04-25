@@ -143,7 +143,7 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 
 	@Override
 	public String getDocumentDescription() {
-		return "Crée une carte de combat masquée";
+		return "Cr\u00E9e une carte de combat masqu\u00E9e";
 	}
 
 	@Override

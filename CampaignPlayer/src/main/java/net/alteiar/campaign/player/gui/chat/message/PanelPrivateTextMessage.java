@@ -17,7 +17,7 @@ public class PanelPrivateTextMessage extends JPanel {
 		this.setLayout(new MigLayout("insets 0 0 0 0, wmax " + maxWidth,
 				"[][][grow]", "[]"));
 
-		JLabel lblSub = new JLabel("(privé)");
+		JLabel lblSub = new JLabel("(priv\u00E9)");
 		lblSub.setFont(lblSub.getFont().deriveFont(8f));
 		add(lblSub, "aligny top");
 

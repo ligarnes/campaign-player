@@ -20,7 +20,7 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 
 	public PanelCharacterBuilder() {
 		this.setLayout(new BorderLayout());
-		this.add(new JLabel("Créer un personnage"), BorderLayout.NORTH);
+		this.add(new JLabel("Cr\u00E9er un personnage"), BorderLayout.NORTH);
 
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));

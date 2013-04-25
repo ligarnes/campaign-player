@@ -54,7 +54,7 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 			public void actionPerformed(ActionEvent e) {
 				CampaignClient.getInstance().saveGame();
 				JOptionPane.showMessageDialog(null,
-						"La campagne à bien été sauvegardé", "Sauvegarde",
+						"La campagne à bien \u00E9t\u00E9 sauvegard\u00E9", "Sauvegarde",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

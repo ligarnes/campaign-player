@@ -24,7 +24,7 @@ public class PanelTriggerBuilder extends PanelMapElementBuilder{
 		panelSize = new PanelElementSize(1);
 
 		this.setLayout(new BorderLayout());
-		this.add(new JLabel("Ajouter un déclencheur"), BorderLayout.NORTH);
+		this.add(new JLabel("Ajouter un d\u00E9clencheur"), BorderLayout.NORTH);
 
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));

@@ -46,7 +46,7 @@ public class MainPanel extends JTabbedPane {
 		this.addTab("Tableau de bord", new PanelDashboard());
 		this.addTab("Combats", allBattle);
 
-		// this.addTab("Paramètres", new PanelSettings());
+		// this.addTab("Param\u00E8tres", new PanelSettings());
 
 		// this.addTab("Debug-Test", new PanelImages());
 	}

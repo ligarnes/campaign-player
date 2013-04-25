@@ -8,27 +8,28 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JColorChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.panel.PanelSelectColor;
 
 public class PanelCreatePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
-	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
+	//private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
 
 	private JTextField pseudoTextField;
-	private JButton playerColorButton;
-	private Color playerColor;
+	PanelSelectColor playerColorSelector;
+	//private JButton playerColorButton;
+	//private Color playerColor;
 
 	public PanelCreatePlayer(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 
-		this.playerColor = DEFAULT_PLAYER_COLOR;
+		//this.playerColor = DEFAULT_PLAYER_COLOR;
 
 		initUI();
 
@@ -48,42 +49,44 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 		// Player Info Panel
 		JPanel identityPanel = new JPanel(new FlowLayout());
 		identityPanel.setBorder(BorderFactory
-				.createTitledBorder("Votre identité"));
+				.createTitledBorder("Votre identit\u00E9"));
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
-		playerColorButton = new JButton("Couleur");
+		//playerColorButton = new JButton("Couleur");
 		// playerColorButton.setForeground(Color.BLUE);
-		playerColorButton.setBackground(playerColor);
-		playerColorButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent event) {
-				Color chosenColor = JColorChooser
-						.showDialog(PanelCreatePlayer.this,
-								"Choisissez la couleur de votre personnage",
-								Color.BLUE);
-				if (chosenColor != null) {
-					// playerColorButton.setForeground(playerColor);
-					playerColor = chosenColor;
-					playerColorButton.setBackground(chosenColor);
-				}
-			}
-		});
+//		playerColorButton.setBackground(playerColor);
+//		playerColorButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent event) {
+//				Color chosenColor = JColorChooser
+//						.showDialog(PanelCreatePlayer.this,
+//								"Choisissez la couleur de votre personnage",
+//								Color.BLUE);
+//				if (chosenColor != null) {
+//					// playerColorButton.setForeground(playerColor);
+//					playerColor = chosenColor;
+//					playerColorButton.setBackground(chosenColor);
+//				}
+//			}
+//		});
 		identityPanel.add(pseudo);
-		identityPanel.add(playerColorButton);
+		playerColorSelector = new PanelSelectColor();
+		identityPanel.add(playerColorSelector);
+		//identityPanel.add(playerColorButton);
 
 		this.add(identityPanel);
 
 		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-		JButton createButton = new JButton("Créer");
+		JButton createButton = new JButton("Cr\u00E9er");
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				createPlayer();
 			}
 		});
-		buttonPanel.add(createButton);
+		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
@@ -93,6 +96,7 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 			}
 		});
 		buttonPanel.add(cancelButton);
+		buttonPanel.add(createButton);
 
 		this.add(buttonPanel);
 
@@ -103,7 +107,7 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 	}
 
 	private Color getPlayerColor() {
-		return playerColor;
+		return playerColorSelector.getColor();
 	}
 
 	public void createPlayer() {

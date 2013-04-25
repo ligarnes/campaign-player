@@ -54,7 +54,7 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		createButton = createInitializeButton("Créer une partie");
+		createButton = createInitializeButton("Cr\u00E9er une partie");
 		loadButton = createInitializeButton("Charger un partie");
 		joinButton = createInitializeButton("Joindre un partie");
 

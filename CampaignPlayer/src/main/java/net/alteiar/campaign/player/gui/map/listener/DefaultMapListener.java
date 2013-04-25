@@ -190,7 +190,7 @@ public class DefaultMapListener extends ActionMapListener {
 
 	private JMenuItem buildAddElement(final MapEvent event) {
 
-		JMenuItem addElement = new JMenuItem("Ajouter élément");
+		JMenuItem addElement = new JMenuItem("Ajouter \u00E9l\u00E9ment");
 		addElement.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -203,7 +203,7 @@ public class DefaultMapListener extends ActionMapListener {
 
 	private JMenuItem buildMoveElement(final Point mapPosition,
 			final MapElement mapElement) {
-		JMenuItem menuItem = new JMenuItem("Déplacer");
+		JMenuItem menuItem = new JMenuItem("D\u00E9placer");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

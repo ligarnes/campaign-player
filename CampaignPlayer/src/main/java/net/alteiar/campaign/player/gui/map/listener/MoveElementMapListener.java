@@ -68,7 +68,7 @@ public class MoveElementMapListener extends ActionMapListener {
 	}
 
 	private JMenuItem buildCancel() {
-		JMenuItem menuItem = new JMenuItem("Annuler déplacement");
+		JMenuItem menuItem = new JMenuItem("Annuler d\u00E9placement");
 
 		menuItem.addActionListener(new ActionListener() {
 			@Override

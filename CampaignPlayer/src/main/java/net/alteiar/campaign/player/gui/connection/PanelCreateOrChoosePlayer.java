@@ -27,6 +27,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import net.alteiar.CampaignClient;
+
 public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
@@ -38,12 +40,13 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 
 	public PanelCreateOrChoosePlayer(StartGameDialog startGameDialog) {
 		super(startGameDialog, null);
+		startGameDialog.setTitle(startGameDialog.getTitle() + " - " + CampaignClient.getInstance().getCampaignPath());
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-		JButton createButton = new JButton("Créer un nouveau joueur");
+		JButton createButton = new JButton("Cr\u00E9er un nouveau joueur");
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
