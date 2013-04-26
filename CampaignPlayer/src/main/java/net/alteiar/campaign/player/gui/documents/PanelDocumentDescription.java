@@ -56,9 +56,9 @@ public class PanelDocumentDescription extends JPanel {
 
 		lblAvatar = new JLabel();
 
-		BufferedImage icon = ImageUtil.resizeImage(PluginSystem.getInstance()
-				.getDocumentIcon(bean), 30, 30);
+		BufferedImage icon = PluginSystem.getInstance().getDocumentIcon(bean);
 		if (icon != null) {
+			icon = ImageUtil.resizeImage(icon, 30, 30);
 			// add the color to each icons
 			Graphics2D g2 = (Graphics2D) icon.getGraphics();
 			drawPlayerColor(g2, bean);

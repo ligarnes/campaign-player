@@ -44,6 +44,8 @@ public class Helpers {
 	public static final String PATH_TEXTURE = "./ressources/texture/";
 	public static final String PATH_PROPERTIES = "./ressources/data/";
 
+	public static final String PATH_PLUGIN = "./ressources/plugin/";
+
 	public static final String APP_ICON = "app_icons.png";
 
 	public static String getPathIcons(String name) {
