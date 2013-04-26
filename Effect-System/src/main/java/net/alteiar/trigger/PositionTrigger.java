@@ -3,6 +3,7 @@ package net.alteiar.trigger;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyVetoException;
 
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.effectBean.Effect;
@@ -23,7 +24,7 @@ public class PositionTrigger extends TriggerBean {
 	}
 	
 	@Override
-	public void propertyChange(PropertyChangeEvent arg0) {
+	public void triggerPropertyChange(PropertyChangeEvent arg0) {
 		if(arg0.getPropertyName().contentEquals(MapElement.PROP_POSITION_PROPERTY))
 		{
 			System.out.println("dans propertyChange");
@@ -31,14 +32,11 @@ public class PositionTrigger extends TriggerBean {
 			Point position=(Point) arg0.getNewValue();
 			System.out.println("arg0 position="+position);
 			System.out.println("areaOfActivation position="+this.getAreaOfActivation().getPosition());
-			System.out.println("areaOfActivation boundary="+this.getAreaOfActivation().getShape(1.0).getBounds());
 			if(this.contain(position))
 			{
 				this.getEffect().activate();
 			}
 		}
 	}
-
-	
 
 }
