@@ -219,6 +219,9 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 
 	// convert using the offset
 	protected Point convertMousePosition(Point mousePosition) {
+		if (mousePosition == null) {
+			return null;
+		}
 		return new Point(mousePosition.x - offset, mousePosition.y - offset);
 	}
 
