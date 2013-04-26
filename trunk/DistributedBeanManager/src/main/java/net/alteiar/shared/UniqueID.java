@@ -11,15 +11,14 @@ import java.util.UUID;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
-
-public class UniqueID implements Serializable {
+public final class UniqueID implements Serializable {
 	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	private static String MAC_ADRESS = null;
 	@Element
 	private String guid;
-	
+
 	private static String getMacAddress() {
 		if (MAC_ADRESS == null) {
 			InetAddress ip;
@@ -36,11 +35,9 @@ public class UniqueID implements Serializable {
 				}
 				MAC_ADRESS = sb.toString();
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				MAC_ADRESS = "UNKNOWN";
 			} catch (SocketException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				MAC_ADRESS = "SOCKET-EXCEPTION";
 			}
 		}
 		return MAC_ADRESS;
@@ -64,6 +61,10 @@ public class UniqueID implements Serializable {
 
 	public UniqueID() {
 		guid = generateGuid();
+	}
+
+	protected void setGuid(String guid) {
+		this.guid = guid;
 	}
 
 	@Override

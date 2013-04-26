@@ -138,26 +138,42 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	public synchronized void createDocument(DocumentPath path,
 			BeanEncapsulator bean, Boolean perma) throws RemoteException {
 		IDocumentRemote remote = new DocumentRemote(path, bean, perma);
-		UniqueID id = bean.getId();
+		final UniqueID id = bean.getId();
 		documents.put(id, remote);
 
-		// TODO notify in multithread
-		for (ServerListener listener : getListeners()) {
-			listener.documentAdded(id);
+		for (final ServerListener listener : getListeners()) {
+			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						listener.documentAdded(id);
+					} catch (RemoteException e) {
+						listeners.remove(listener);
+					}
+				}
+			});
 		}
 	}
 
 	@Override
-	public synchronized void deleteDocument(UniqueID guid)
+	public synchronized void deleteDocument(final UniqueID guid)
 			throws RemoteException {
 		IDocumentRemote remote = documents.remove(guid);
 		// we may try to delete a document that do not exist
 		if (remote != null) {
 			remote.closeDocument();
 
-			// TODO notify in multithread
-			for (ServerListener listener : getListeners()) {
-				listener.documentRemoved(guid);
+			for (final ServerListener listener : getListeners()) {
+				ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							listener.documentRemoved(guid);
+						} catch (RemoteException e) {
+							listeners.remove(listener);
+						}
+					}
+				});
 			}
 		}
 	}

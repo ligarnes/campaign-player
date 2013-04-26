@@ -2,7 +2,6 @@ package plugin.gui;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,6 +19,7 @@ import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.image.DocumentImageBean;
 import net.alteiar.documents.map.battle.Battle;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.shared.ExceptionTool;
 import pathfinder.gui.document.builder.PanelCreateCharacter;
 import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.viewer.PanelViewImage;
@@ -32,28 +32,32 @@ import plugin.gui.imageIcon.SimpleImageIconFactory;
 
 public class PluginSystemGui implements IPluginSystemGui {
 
-	private final HashMap<Class<?>, Class<?>> viewPanels;
+	private static String MAP_ICON = "/icons/map.png";
+
+	private final DynamicCreateObject viewPanels;
+	private final DynamicCreateObject mapElementEditor;
+
 	private final HashMap<Class<?>, ImageIconFactory<?>> documentIcons;
-	private final HashMap<Class<?>, Class<? extends PanelMapElementEditor<?>>> mapElementEditor;
 
 	public PluginSystemGui() {
-		viewPanels = new HashMap<Class<?>, Class<?>>();
-		viewPanels.put(DocumentImageBean.class, PanelViewImage.class);
+		viewPanels = new DynamicCreateObject();
+		viewPanels.add(DocumentImageBean.class, PanelViewImage.class);
 
 		documentIcons = new HashMap<Class<?>, ImageIconFactory<?>>();
 
-		mapElementEditor = new HashMap<Class<?>, Class<? extends PanelMapElementEditor<?>>>();
-		mapElementEditor.put(PathfinderCharacterElement.class,
+		mapElementEditor = new DynamicCreateObject();
+		mapElementEditor.add(PathfinderCharacterElement.class,
 				PanelCharacterEditor.class);
+
 		// Setting up icons
 		try {
 			BufferedImage mapIcon = ImageIO.read(PluginSystemGui.class
-					.getResource("/icons/map.png"));
+					.getResource(MAP_ICON));
 			addIconFactory(new SimpleImageIconFactory<Battle>(Battle.class,
 					mapIcon));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e, "Impossible de lire l'image: "
+					+ MAP_ICON);
 		}
 		addIconFactory(new CharacterImageIconFactory());
 	}
@@ -90,70 +94,22 @@ public class PluginSystemGui implements IPluginSystemGui {
 	@Override
 	public <E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(
 			E bean) {
-		Class<PanelViewDocument<E>> classes = (Class<PanelViewDocument<E>>) viewPanels
-				.get(bean.getClass());
-		if (classes != null) {
-			try {
-				return classes.getConstructor(bean.getClass())
-						.newInstance(bean);
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null;
+		return (PanelViewDocument<E>) viewPanels.getPanel(bean);
 	}
 
 	@Override
 	public <E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean) {
-		return ((ImageIconFactory<E>) documentIcons.get(bean.getClass()))
-				.getImage(bean);
+		ImageIconFactory<E> factory = ((ImageIconFactory<E>) documentIcons
+				.get(bean.getClass()));
+		if (factory != null) {
+			return factory.getImage(bean);
+		}
+		return null;
 	}
 
 	@Override
 	public <E extends MapElement> PanelMapElementEditor<E> getMapElementEditor(
 			E bean) {
-		Class<PanelMapElementEditor<E>> classes = (Class<PanelMapElementEditor<E>>) mapElementEditor
-				.get(bean.getClass());
-		if (classes != null) {
-			try {
-				return classes.getConstructor(bean.getClass())
-						.newInstance(bean);
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null;
+		return (PanelMapElementEditor<E>) mapElementEditor.getPanel(bean);
 	}
 }

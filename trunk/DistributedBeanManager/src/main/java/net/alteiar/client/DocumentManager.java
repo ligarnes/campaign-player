@@ -20,6 +20,7 @@ import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
+import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
 public class DocumentManager {
@@ -85,8 +86,7 @@ public class DocumentManager {
 		try {
 			return server.getDocumentCount();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 		return -1;
 	}
@@ -101,8 +101,7 @@ public class DocumentManager {
 				addDocument(doc);
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 	}
 
@@ -147,8 +146,7 @@ public class DocumentManager {
 			}
 			getCounterInstance().countDown();
 		} catch (RemoteException e) {
-			// TODO
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -160,8 +158,7 @@ public class DocumentManager {
 		try {
 			this.server.createDocument(path, bean, perma);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 	}
 
@@ -181,8 +178,7 @@ public class DocumentManager {
 		try {
 			this.server.deleteDocument(beanId);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 	}
 
@@ -190,8 +186,7 @@ public class DocumentManager {
 		try {
 			this.server.deleteDocument(bean.getId());
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 	}
 
