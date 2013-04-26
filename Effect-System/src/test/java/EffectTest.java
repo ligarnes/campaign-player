@@ -45,7 +45,7 @@ public class EffectTest extends NewCampaignTest {
 			Effect e = new BasicEffect(new CircleElement(new Point(18,18),Color.red, width ),false,PathfinderCharacter.class);
 			ImageBean image=new ImageBean(new SerializableImage());
 			PathfinderCharacter c=new PathfinderCharacter("patrick", 15, 15,image.getId());
-			PathfinderCharacterElement ce=new PathfinderCharacterElement(new Point(1,1), c);
+			PathfinderCharacterElement ce=new PathfinderCharacter(new Point(1,1), c);
 			Map m=new Map("map");
 			PositionTrigger pt=new PositionTrigger(new CircleElement(new Point(18,18),Color.red,width ),e,PathfinderCharacterElement.class);
 			ce.setMapId(m.getId());

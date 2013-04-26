@@ -7,7 +7,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-import pathfinder.mapElement.character.PathfinderCharacterElement;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.DocumentClient;
@@ -72,10 +71,6 @@ public abstract class TriggerBean extends MapElement implements PropertyChangeLi
 	{
 		this.typeOfActivator=typeOfActivator;
 	}
-	
-	public void draw(Graphics2D g, double zoomFactor){
-		areaOfActivation.draw(g, zoomFactor);
-	}
 
 	public Boolean contain(Point p){
 		return areaOfActivation.contain(p);
@@ -109,6 +104,11 @@ public abstract class TriggerBean extends MapElement implements PropertyChangeLi
 		{
 			bean.removePropertyChangeListener(this);
 		}
+	}
+	
+	@Override
+	protected void drawElement(Graphics2D g, double zoomFactor) {
+		areaOfActivation.draw(g, zoomFactor);
 	}
 	
 	public abstract void propertyChange(PropertyChangeEvent arg0);
