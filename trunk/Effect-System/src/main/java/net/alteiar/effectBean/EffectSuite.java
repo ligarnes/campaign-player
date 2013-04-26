@@ -49,6 +49,7 @@ public class EffectSuite extends Effect{
 	}
 	@Override
 	public void activate() {
+		System.out.println("activation");
 		for(Effect effect:effects)
 		{
 			effect.activate();

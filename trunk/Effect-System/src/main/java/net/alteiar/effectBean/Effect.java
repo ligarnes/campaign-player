@@ -4,7 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.Beans;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyVetoException;
+import java.beans.VetoableChangeListener;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import pathfinder.character.PathfinderCharacter;
 
@@ -12,11 +16,12 @@ import net.alteiar.CampaignClient;
 import net.alteiar.client.DocumentClient;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.documents.map.Map;
 import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 
-public abstract class Effect extends MapElement implements DocumentManagerListener{
+public abstract class Effect extends MapElement implements VetoableChangeListener{
 	/**
 	 * 
 	 */
@@ -33,23 +38,29 @@ public abstract class Effect extends MapElement implements DocumentManagerListen
 		this.areaOfEffect=areaOfEffect;
 		this.oneUse=oneUse;
 		typeActOn=typeBean;
-		actOn=(ArrayList<BasicBeans>) CampaignClient.getInstance().getBeanFromClass(typeActOn);
-		CampaignClient.getInstance().addDocumentManagerListener(this);
+		actOn=new ArrayList<BasicBeans>(); 
+		Map map=(Map)CampaignClient.getInstance().getBean(this.getMapId());
+		HashSet<UniqueID> elements=map.getElements();
+		for(UniqueID element:elements)
+		{
+			BasicBeans elem=CampaignClient.getInstance().getBean(element);
+			if(Beans.isInstanceOf(elem, typeActOn))
+			{
+				actOn.add(elem);
+			}
+		}
+		map.addVetoableChangeListener(this);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public Effect(ColoredShape areaOfEffect,Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
-		super(areaOfEffect.getCenterPosition());
-		this.areaOfEffect=areaOfEffect;
-		this.oneUse=false;
-		typeActOn=typeBean;
-		actOn=(ArrayList<BasicBeans>) CampaignClient.getInstance().getBeanFromClass(typeActOn);
-		CampaignClient.getInstance().addDocumentManagerListener(this);
-	}
-
 	public ColoredShape getAreaOfEffect()
 	{
 		return areaOfEffect;
+	}
+	
+	public void setPosition(Point position)
+	{
+		this.setPosition(position);
+		this.areaOfEffect.setPosition(position);
 	}
 	
 	public void setAreaOfEffect(ColoredShape areaOfEffect)
@@ -92,20 +103,24 @@ public abstract class Effect extends MapElement implements DocumentManagerListen
 		this.oneUse=oneUse;
 	}
 	
-	public void documentAdded(DocumentClient document){
-		BasicBeans bean = document.getBeanEncapsulator().getBean();
-		
-		if(Beans.isInstanceOf(bean, typeActOn))
+	public void vetoableChange(PropertyChangeEvent arg0)
+			throws PropertyVetoException {
+		if(arg0.getPropertyName().contentEquals(Map.METH_ADD_ELEMENT_METHOD))
 		{
-			actOn.add(bean);
+			BasicBeans elem=CampaignClient.getInstance().getBean((UniqueID) arg0.getNewValue());
+			if(Beans.isInstanceOf(elem, typeActOn))
+			{
+				actOn.add(elem);
+			}
 		}
-	}
-	
-	public void documentRemoved(DocumentClient document) {
-		BasicBeans bean = document.getBeanEncapsulator().getBean();
-		if(Beans.isInstanceOf(bean, typeActOn))
+		
+		if(arg0.getPropertyName().contentEquals(Map.METH_REMOVE_ELEMENT_METHOD))
 		{
-			actOn.remove(bean);
+			BasicBeans elem=CampaignClient.getInstance().getBean((UniqueID) arg0.getOldValue());
+			if(Beans.isInstanceOf(elem, typeActOn))
+			{
+				elem.removeVetoableChangeListener(this);
+			}
 		}
 	}
 	
