@@ -1,5 +1,6 @@
 package net.alteiar.trigger;
 
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.PropertyChangeEvent;
 
@@ -37,5 +38,7 @@ public class PositionTrigger extends TriggerBean {
 			}
 		}
 	}
+
+	
 
 }

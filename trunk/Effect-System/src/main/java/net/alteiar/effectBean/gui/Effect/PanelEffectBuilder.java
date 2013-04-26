@@ -19,7 +19,6 @@ import net.alteiar.campaign.player.gui.map.element.action.PanelChangeFunctionFir
 import net.alteiar.campaign.player.gui.map.element.utils.PanelComboBoxLinkedWithPanel;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelLinkedComboBox;
-import net.alteiar.campaign.player.gui.map.element.utils.PanelSelectColor;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.effectBean.BasicEffect;
 import net.alteiar.effectBean.Effect;

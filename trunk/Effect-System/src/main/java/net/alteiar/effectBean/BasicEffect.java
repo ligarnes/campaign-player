@@ -18,7 +18,6 @@ import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import pathfinder.character.PathfinderCharacter;
-import pathfinder.mapElement.character.PathfinderCharacterElement;
 
 public class BasicEffect extends Effect{
 

@@ -58,9 +58,10 @@ public abstract class Effect extends MapElement implements DocumentManagerListen
 		this.areaOfEffect.setPosition(this.getPosition());
 	}
 	
-	
-	public void draw(Graphics2D g, double zoomFactor){
+	@Override
+	protected void drawElement(Graphics2D g, double zoomFactor) {
 		areaOfEffect.draw(g, zoomFactor);
+		
 	}
 
 	public Boolean contain(Point p){
