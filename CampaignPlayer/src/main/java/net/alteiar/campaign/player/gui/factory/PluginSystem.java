@@ -28,7 +28,8 @@ public class PluginSystem implements IPluginSystemGui {
 	private PluginSystem() {
 		plugins = new ArrayList<IPluginSystemGui>();
 
-		plugins.add(getPluginSystemGui());
+		plugins.add(getPathfinderPluginSystemGui());
+		plugins.add(getEffectPluginSystemGui());
 	}
 
 	@Override
@@ -78,6 +79,8 @@ public class PluginSystem implements IPluginSystemGui {
 		try {
 			ClassLoaderUtil
 					.addFile("./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar");
+			ClassLoaderUtil
+					.addFile("./ressources/plugin/Effect-System-0.0.1-SNAPSHOT.jar");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,11 +88,48 @@ public class PluginSystem implements IPluginSystemGui {
 		return ClassLoader.getSystemClassLoader();// loader;
 	}
 
-	public static IPluginSystemGui getPluginSystemGui() {
+	public static IPluginSystemGui getPathfinderPluginSystemGui() {
 		IPluginSystemGui pluginSystemGui = null;
 		try {
 			Class<?> clazz = Class.forName("plugin.gui.PluginSystemGui", true,
 					getClassLoader());
+
+			Class<? extends IPluginSystemGui> runClass = clazz
+					.asSubclass(IPluginSystemGui.class);
+			// Avoid Class.newInstance, for it is evil.
+			Constructor<? extends IPluginSystemGui> ctor = runClass
+					.getConstructor();
+			pluginSystemGui = ctor.newInstance();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pluginSystemGui;
+	}
+
+	public static IPluginSystemGui getEffectPluginSystemGui() {
+		IPluginSystemGui pluginSystemGui = null;
+		try {
+			Class<?> clazz = Class.forName("plugin.effect.gui.PluginSystemGui",
+					true, getClassLoader());
 
 			Class<? extends IPluginSystemGui> runClass = clazz
 					.asSubclass(IPluginSystemGui.class);

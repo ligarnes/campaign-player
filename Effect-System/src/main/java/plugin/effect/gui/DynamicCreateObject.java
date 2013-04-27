@@ -1,4 +1,4 @@
-package plugin.gui;
+package plugin.effect.gui;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;

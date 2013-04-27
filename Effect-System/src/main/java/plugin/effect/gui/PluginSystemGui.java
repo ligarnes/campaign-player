@@ -1,4 +1,4 @@
-package plugin.gui;
+package plugin.effect.gui;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -26,6 +26,8 @@ import pathfinder.gui.document.viewer.PanelViewImage;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.editor.PanelCharacterEditor;
 import pathfinder.map.state.PathfinderDrawInfo;
+import plugin.gui.PathfinderMapElementFactory;
+import plugin.gui.PathfinderPanelCharacterFactory;
 import plugin.gui.imageIcon.CharacterImageIconFactory;
 import plugin.gui.imageIcon.ImageIconFactory;
 import plugin.gui.imageIcon.SimpleImageIconFactory;
