@@ -1,4 +1,4 @@
-package plugin.gui;
+package plugin.effect.gui;
 
 import java.util.ArrayList;
 

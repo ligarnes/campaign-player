@@ -154,7 +154,7 @@ public abstract class MapElement extends BasicBeans {
 		return this.mapId;
 	}
 
-	public final void setMapId(UniqueID mapId) {
+	public void setMapId(UniqueID mapId) {
 		UniqueID oldValue = this.mapId;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
@@ -172,7 +172,7 @@ public abstract class MapElement extends BasicBeans {
 		return position;
 	}
 
-	public final void setPosition(Point position) {
+	public void setPosition(Point position) {
 		Point oldValue = this.position;
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(
