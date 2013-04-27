@@ -71,14 +71,11 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	private final int offset;
 
 	private final BufferedImage background;
-	private final BufferedImage backgroundLarge;
 
 	public PanelBasicMap(Map map, DrawInfo draw) {
 		super();
 		this.background = Helpers.getImage(Helpers
-				.getPathTexture("wood-texture-by-shawnaize-small.jpg"));
-		this.backgroundLarge = Helpers.getImage(Helpers
-				.getPathTexture("wood-texture-by-shawnaize.jpg"));
+				.getPathTexture("wood-texture.jpg"));
 
 		this.playerDraw = draw;
 
