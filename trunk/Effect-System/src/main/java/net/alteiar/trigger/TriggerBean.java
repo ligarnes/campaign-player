@@ -30,12 +30,14 @@ public abstract class TriggerBean extends MapElement implements VetoableChangeLi
 	private Effect e;
 	private ColoredShape areaOfActivation;
 	private Class<? extends BasicBeans> typeOfActivator;
+	private Boolean isActivate;
 	
 	public TriggerBean(ColoredShape areaOfActivation, Effect e,Class<? extends BasicBeans> typeBean) throws ClassNotFoundException
 	{
 		super(areaOfActivation.getPosition());
 		this.areaOfActivation=areaOfActivation;
 		this.e=e;
+		isActivate=false;
 		typeOfActivator=typeBean;
 		Map map=(Map)CampaignClient.getInstance().getBean(this.getMapId());
 		HashSet<UniqueID> elements=map.getElements();
@@ -103,6 +105,16 @@ public abstract class TriggerBean extends MapElement implements VetoableChangeLi
 	{
 		super.setMapId(mapId);
 		areaOfActivation.setMapId(mapId);
+	}
+	
+	public void setIsActivate(Boolean isActivate)
+	{
+		this.isActivate=isActivate;
+	}
+	
+	public Boolean isActivate()
+	{
+		return this.isActivate;
 	}
 	
 	

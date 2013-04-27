@@ -46,4 +46,21 @@ public class EffectChoiceListGenerator implements ComboListFromXML{
 		String type=xmlDocument.getNodeItemInTag("Effect","class", triggerName,name);
 		return Class.forName(type);
 	}
+	
+	public ArrayList<Class<?>> getEffectClasses(String path) throws ClassNotFoundException {
+		XMLFileLoader xmlDocument=new XMLFileLoader(path);
+		ArrayList<String> types=xmlDocument.getNodeItemInTag("EffectTypes");
+		ArrayList<Class<?>> result=new ArrayList<Class<?>>();
+		for(String type:types)
+		{
+			result.add(Class.forName(type));
+		}
+		return result;
+	}
+	
+	public ArrayList<String> getEffectName(String path) throws ClassNotFoundException {
+		XMLFileLoader xmlDocument=new XMLFileLoader(path);
+		ArrayList<String> types=xmlDocument.getNodeNameInTag("EffectTypes");
+		return types;
+	}
 }

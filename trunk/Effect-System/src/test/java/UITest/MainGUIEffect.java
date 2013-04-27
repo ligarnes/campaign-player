@@ -1,5 +1,6 @@
 package UITest;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,11 +11,11 @@ import javax.swing.JPanel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.effectBean.Effect;
-import net.alteiar.effectBean.gui.Effect.PanelEffectBuilder;
-import net.alteiar.effectBean.gui.trigger.PanelTriggerBuilder;
-import net.alteiar.trigger.TriggerBean;
+import net.alteiar.effectBean.gui.effect.PanelEffectBuilder;
+import net.alteiar.test.BasicTest;
 
-public class MainGUIEffect {
+
+public class MainGUIEffect extends BasicTest{
 	private static PanelEffectBuilder monPanel;
 	
 	 public static void main(String[] args) {
@@ -23,12 +24,13 @@ public class MainGUIEffect {
 			String address = "127.0.0.1";
 			String port = "1099";
 
-			String localDirectoryPath = "./ressource/campaign/";
+			String localDirectoryPath = "./Toto/";
 
 			CampaignClient
 					.startNewCampaignServer(address, port, localDirectoryPath);
 
-			CampaignClient.getInstance().createPlayer("toto", true);
+			//CampaignClient.getInstance().createPlayer("Toto", true,
+			//		Color.BLUE);
 		 
 		 
 		 

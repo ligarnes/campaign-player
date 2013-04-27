@@ -1,13 +1,15 @@
+package net.alteiar.test;
 
-
-import java.io.File;
+import java.util.List;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.player.Player;
 
 import org.junit.After;
 import org.junit.Before;
 
-public class NewCampaignTest extends BasicTest {
+public class LoadCampaignTest extends BasicTest {
+	private String originalName;
 
 	@Before
 	public void beforeTest() {
@@ -15,14 +17,12 @@ public class NewCampaignTest extends BasicTest {
 		String address = "127.0.0.1";
 		String port = "1099";
 
-		String localDirectoryPath = getCampaignDirectory();
-
-		deleteRecursive(new File(localDirectoryPath));
-
 		CampaignClient
-				.startNewCampaignServer(address, port, localDirectoryPath);
+				.loadCampaignServer(address, port, getCampaignDirectory());
 
-		CampaignClient.getInstance().createPlayer(getPlayerName(), true);
+		List<Player> players = CampaignClient.getInstance().getPlayers();
+		CampaignClient.getInstance().selectPlayer(players.get(0));
+		originalName = players.get(0).getName();
 	}
 
 	@After
@@ -38,6 +38,11 @@ public class NewCampaignTest extends BasicTest {
 		CampaignClient.getInstance().saveGame();
 		CampaignClient.leaveGame();
 		System.out.println("tearing down");
+	}
+
+	@Override
+	public String getPlayerName() {
+		return originalName;
 	}
 
 }

@@ -170,4 +170,27 @@ public class XMLFileLoader {
 		return result;
 	}	
 
+	
+	public ArrayList<String> getNodeItemInTag(String tag)
+	{
+		ArrayList<String> result=new ArrayList<String>();
+		NodeList list=myXML.getElementsByTagName(tag);
+		for(int i=0;i<list.getLength();i++)
+		{
+			Node temp=list.item(i);
+			NodeList children=temp.getChildNodes();
+			for(int j=0;j<children.getLength();j++)
+			{
+				if(!children.item(j).getNodeName().contentEquals("#text"))
+				{
+					if(children.item(j).getNodeType()==Node.ELEMENT_NODE)
+					{
+						Element child=(Element) children.item(j);
+							result.add(child.getNodeValue());
+					}
+				}
+			}
+		}
+		return result;
+	}
 }

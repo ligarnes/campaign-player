@@ -24,5 +24,9 @@ public class IdleEffect extends Effect{
 	public void activate() {
 	}
 
+	@Override
+	public void desactivate() {
+	}
+
 	
 }

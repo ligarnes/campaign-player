@@ -34,6 +34,12 @@ public class BasicEffect extends Effect{
 	@Override
 	public void activate() {
 		System.out.println("Basic Effect Activated");
+		
+	}
+
+	@Override
+	public void desactivate() {
+		System.out.println("Basic Effect desactivated");
 		if(this.isOneUse())
 		{
 			CampaignClient.getInstance().removeBean(this);
