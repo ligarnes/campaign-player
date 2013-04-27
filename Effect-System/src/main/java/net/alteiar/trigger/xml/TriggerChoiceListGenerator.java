@@ -46,4 +46,21 @@ public class TriggerChoiceListGenerator implements ComboListFromXML{
 		String type=xmlDocument.getNodeItemInTag("Trigger","class", triggerName,name);
 		return Class.forName(type);
 	}
+	
+	public ArrayList<Class<?>> getTriggerClasses(String path) throws ClassNotFoundException {
+		XMLFileLoader xmlDocument=new XMLFileLoader(path);
+		ArrayList<String> types=xmlDocument.getNodeItemInTag("TriggerTypes");
+		ArrayList<Class<?>> result=new ArrayList<Class<?>>();
+		for(String type:types)
+		{
+			result.add(Class.forName(type));
+		}
+		return result;
+	}
+	
+	public ArrayList<String> getTriggerName(String path) throws ClassNotFoundException {
+		XMLFileLoader xmlDocument=new XMLFileLoader(path);
+		ArrayList<String> types=xmlDocument.getNodeNameInTag("TriggerTypes");
+		return types;
+	}
 }

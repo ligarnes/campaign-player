@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.map.Map;
 import net.alteiar.effectBean.BasicEffect;
@@ -14,6 +18,7 @@ import net.alteiar.effectBean.xml.EffectChoiceListGenerator;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.shape.xml.ShapeListGenerator;
+import net.alteiar.test.NewCampaignTest;
 import net.alteiar.trigger.PositionTrigger;
 import net.alteiar.trigger.xml.TriggerChoiceListGenerator;
 import net.alteiar.utils.XMLFileLoader;
@@ -21,12 +26,8 @@ import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizePixel;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import pathfinder.character.PathfinderCharacter;
-import pathfinder.mapElement.character.PathfinderCharacterElement;
 
 
 public class XMLTest extends NewCampaignTest{

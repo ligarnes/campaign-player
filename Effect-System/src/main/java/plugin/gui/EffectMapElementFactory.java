@@ -3,8 +3,9 @@ package plugin.gui;
 import java.util.ArrayList;
 
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import net.alteiar.effectBean.gui.Effect.PanelEffectBuilder;
-import net.alteiar.effectBean.gui.trigger.PanelTriggerBuilder;
+import net.alteiar.effectBean.gui.effect.PanelEffectBuilder;
+import net.alteiar.effectBean.gui.effect.trigger.PanelTriggerBuilder;
+
 
 public class EffectMapElementFactory {
 	protected static final ArrayList<PanelMapElementBuilder> panelBuilder = new ArrayList<PanelMapElementBuilder>();

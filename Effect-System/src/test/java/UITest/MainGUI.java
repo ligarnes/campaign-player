@@ -1,6 +1,7 @@
 package UITest;
 
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,16 +12,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import org.junit.After;
-import org.junit.Before;
+
 
 import net.alteiar.CampaignClient;
-import net.alteiar.effectBean.gui.trigger.PanelTriggerBuilder;
+import net.alteiar.effectBean.gui.effect.trigger.PanelTriggerBuilder;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.trigger.TriggerBean;
 
-public class MainGUI{
+public class MainGUI extends BasicTest{
 	private static PanelTriggerBuilder monPanel;
 	
 	 public static void main(String[] args) {
@@ -29,12 +29,13 @@ public class MainGUI{
 			String address = "127.0.0.1";
 			String port = "1099";
 
-			String localDirectoryPath = "./ressource/campaign/";
+			String localDirectoryPath = "./Toto/";
 
 			CampaignClient
 					.startNewCampaignServer(address, port, localDirectoryPath);
 
-			CampaignClient.getInstance().createPlayer("toto", true);
+			//CampaignClient.getInstance().createPlayer(getPlayerName(), true,
+			//		Color.BLUE);
 		 
 		 
 		 

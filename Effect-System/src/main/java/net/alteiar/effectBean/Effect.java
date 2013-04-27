@@ -35,12 +35,20 @@ public abstract class Effect extends MapElement implements VetoableChangeListene
 	@SuppressWarnings("unchecked")
 	public Effect(ColoredShape areaOfEffect, Boolean oneUse,Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
 		super(areaOfEffect.getPosition());
+		System.out.println("ici5.5");
 		this.areaOfEffect=areaOfEffect;
+		areaOfEffect.setHiddenForPlayer(true);
+		System.out.println("ici5.6");
 		this.oneUse=oneUse;
+		System.out.println("ici5.7");
 		typeActOn=typeBean;
-		actOn=new ArrayList<BasicBeans>(); 
+		System.out.println("ici5.8");
+		actOn=new ArrayList<BasicBeans>();
+		System.out.println("ici5.9");
 		Map map=(Map)CampaignClient.getInstance().getBean(this.getMapId());
+		System.out.println("ici5.10");
 		HashSet<UniqueID> elements=map.getElements();
+		System.out.println("ici5.11");
 		for(UniqueID element:elements)
 		{
 			BasicBeans elem=CampaignClient.getInstance().getBean(element);
@@ -49,7 +57,9 @@ public abstract class Effect extends MapElement implements VetoableChangeListene
 				actOn.add(elem);
 			}
 		}
+		System.out.println("ici5.12");
 		map.addVetoableChangeListener(this);
+		System.out.println("ici5.13");
 	}
 	
 	public ColoredShape getAreaOfEffect()
@@ -134,5 +144,39 @@ public abstract class Effect extends MapElement implements VetoableChangeListene
 		this.typeActOn=typeActOn;
 	}
 	
+	public ArrayList<BasicBeans> getActOn()
+	{
+		return this.actOn;
+	}
+	
+	public void deleteEffect()
+	{
+		Map map=(Map)CampaignClient.getInstance().getBean(this.getMapId());
+		map.removeVetoableChangeListener(this);
+		map.removeElement(this.getId());
+	}
+	
+	public void activation()
+	{
+		activate();
+		areaOfEffect.setHiddenForPlayer(false);
+		if(oneUse)
+		{
+			deleteEffect();
+		}
+	}
+	
+	public void desactivation()
+	{
+		desactivate();
+		areaOfEffect.setHiddenForPlayer(true);
+		if(oneUse)
+		{
+			deleteEffect();
+		}
+	}
+	
 	public abstract void activate();
+	
+	public abstract void desactivate();
 }

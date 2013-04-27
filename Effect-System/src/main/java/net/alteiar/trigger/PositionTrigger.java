@@ -34,7 +34,15 @@ public class PositionTrigger extends TriggerBean {
 			System.out.println("areaOfActivation position="+this.getAreaOfActivation().getPosition());
 			if(this.contain(position))
 			{
-				this.getEffect().activate();
+				this.getEffect().activation();
+				this.setIsActivate(true);
+			}else
+			{
+				if(this.isActivate())
+				{
+					this.getEffect().desactivate();
+					this.setIsActivate(false);
+				}
 			}
 		}
 	}
