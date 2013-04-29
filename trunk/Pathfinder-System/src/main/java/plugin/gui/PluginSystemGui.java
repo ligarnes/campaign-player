@@ -19,6 +19,7 @@ import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.image.DocumentImageBean;
 import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.ExceptionTool;
 import pathfinder.gui.document.builder.PanelCreateCharacter;
@@ -26,6 +27,7 @@ import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.viewer.PanelViewImage;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.editor.PanelCharacterEditor;
+import pathfinder.gui.mapElement.editor.PanelCircleEditor;
 import pathfinder.map.state.PathfinderDrawInfo;
 import plugin.gui.imageIcon.CharacterImageIconFactory;
 import plugin.gui.imageIcon.ImageIconFactory;
@@ -49,6 +51,7 @@ public class PluginSystemGui implements IPluginSystemGui {
 		mapElementEditor = new DynamicPanelBeanBuilder();
 		mapElementEditor.add(PathfinderCharacterElement.class,
 				PanelCharacterEditor.class);
+		mapElementEditor.add(CircleElement.class, PanelCircleEditor.class);
 
 		// Setting up icons
 		try {

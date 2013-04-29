@@ -29,6 +29,7 @@ import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
 import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.event.EventManager;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentLoader;
@@ -143,9 +144,13 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final ArrayList<CampaignListener> listeners;
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 
+	private final EventManager eventManager;
+
 	private CampaignClient(DocumentManager manager) {
 		this.manager = manager;
-		this.manager.addDocumentManagerClient(this);
+		this.manager.addBeanListenerClient(this);
+
+		eventManager = new EventManager(manager);
 
 		listeners = new ArrayList<CampaignListener>();
 		waitBeanListeners = new HashMap<UniqueID, ArrayList<WaitBeanListener>>();
@@ -355,9 +360,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@Override
-	public void documentAdded(DocumentClient document) {
-		BasicBeans bean = document.getBeanEncapsulator().getBean();
-
+	public void beanAdded(BasicBeans bean) {
 		if (Beans.isInstanceOf(bean, Player.class)) {
 			synchronized (players) {
 				players.add((Player) Beans.getInstanceOf(bean, Player.class));
@@ -400,9 +403,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@Override
-	public void documentRemoved(DocumentClient document) {
-		BasicBeans bean = document.getBeanEncapsulator().getBean();
-
+	public void beanRemoved(BasicBeans bean) {
 		if (Beans.isInstanceOf(bean, Player.class)) {
 			synchronized (players) {
 				players.remove(Beans.getInstanceOf(bean, Player.class));
