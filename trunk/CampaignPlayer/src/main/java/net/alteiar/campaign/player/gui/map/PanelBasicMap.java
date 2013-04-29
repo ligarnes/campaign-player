@@ -34,6 +34,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -232,6 +233,19 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	 */
 	public MapElement getElementAt(Point p) {
 		Collection<MapElement> elements = map.getElementsAt(p);
+
+		if (!CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+			Iterator<MapElement> itt = elements.iterator();
+
+			while (itt.hasNext()) {
+				MapElement current = itt.next();
+				if (!current.isHiddenForPlayer()) {
+					return current;
+				}
+			}
+
+			return null;
+		}
 		// return the first element of the list
 		return elements.size() > 0 ? elements.iterator().next() : null;
 	}

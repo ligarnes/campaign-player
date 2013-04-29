@@ -41,7 +41,9 @@ public class EventManager implements DocumentManagerListener {
 			for (UniqueID triggerId : triggers) {
 				Trigger trigger = CampaignClient.getInstance().getBean(
 						triggerId);
-				trigger.beanAdded(bean);
+				if (trigger != null) {
+					trigger.beanAdded(bean);
+				}
 			}
 		}
 	}
