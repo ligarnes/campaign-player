@@ -12,7 +12,6 @@ import java.util.HashSet;
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.documents.map.Map;
-import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 
@@ -24,40 +23,36 @@ public abstract class Effect extends MapElement implements
 	private static final long serialVersionUID = 1L;
 
 	private Boolean oneUse;
-	private ColoredShape areaOfEffect;
-	private final ArrayList<BasicBeans> actOn;
+	private MapElement areaOfEffect;
+
+	private final ArrayList<UniqueID> actOn;
 	private Class<? extends BasicBeans> typeActOn;
 
-	@SuppressWarnings("unchecked")
-	public Effect(ColoredShape areaOfEffect, Boolean oneUse,
-			Class<? extends BasicBeans> typeBean) throws ClassNotFoundException {
+	public Effect(MapElement areaOfEffect, Boolean oneUse,
+			Class<? extends BasicBeans> typeBean, UniqueID mapId) {
 		super(areaOfEffect.getPosition());
-		System.out.println("ici5.5");
+
 		this.areaOfEffect = areaOfEffect;
 		areaOfEffect.setHiddenForPlayer(true);
-		System.out.println("ici5.6");
+
 		this.oneUse = oneUse;
-		System.out.println("ici5.7");
 		typeActOn = typeBean;
-		System.out.println("ici5.8");
-		actOn = new ArrayList<BasicBeans>();
-		System.out.println("ici5.9");
-		Map map = (Map) CampaignClient.getInstance().getBean(this.getMapId());
-		System.out.println("ici5.10");
+		actOn = new ArrayList<UniqueID>();
+
+		this.setMapId(mapId);
+
+		Map map = CampaignClient.getInstance().getBean(this.getMapId());
 		HashSet<UniqueID> elements = map.getElements();
-		System.out.println("ici5.11");
 		for (UniqueID element : elements) {
 			BasicBeans elem = CampaignClient.getInstance().getBean(element);
 			if (Beans.isInstanceOf(elem, typeActOn)) {
-				actOn.add(elem);
+				actOn.add(elem.getId());
 			}
 		}
-		System.out.println("ici5.12");
 		map.addVetoableChangeListener(this);
-		System.out.println("ici5.13");
 	}
 
-	public ColoredShape getAreaOfEffect() {
+	public MapElement getAreaOfEffect() {
 		return areaOfEffect;
 	}
 
@@ -67,7 +62,7 @@ public abstract class Effect extends MapElement implements
 		this.areaOfEffect.setPosition(position);
 	}
 
-	public void setAreaOfEffect(ColoredShape areaOfEffect) {
+	public void setAreaOfEffect(MapElement areaOfEffect) {
 		this.areaOfEffect = areaOfEffect;
 		this.areaOfEffect.setPosition(this.getPosition());
 	}
@@ -111,9 +106,9 @@ public abstract class Effect extends MapElement implements
 			throws PropertyVetoException {
 		if (arg0.getPropertyName().contentEquals(Map.METH_ADD_ELEMENT_METHOD)) {
 			BasicBeans elem = CampaignClient.getInstance().getBean(
-					(UniqueID) arg0.getNewValue());
+					(UniqueID) arg0.getNewValue(), 300);
 			if (Beans.isInstanceOf(elem, typeActOn)) {
-				actOn.add(elem);
+				actOn.add(elem.getId());
 			}
 		}
 
@@ -135,7 +130,7 @@ public abstract class Effect extends MapElement implements
 		this.typeActOn = typeActOn;
 	}
 
-	public ArrayList<BasicBeans> getActOn() {
+	public ArrayList<UniqueID> getActOn() {
 		return this.actOn;
 	}
 

@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertTrue;
+
 import java.awt.Color;
 import java.awt.Point;
 
@@ -7,20 +9,17 @@ import net.alteiar.effectBean.BasicEffect;
 import net.alteiar.effectBean.DelayedEffect;
 import net.alteiar.effectBean.Effect;
 import net.alteiar.effectBean.EffectSuite;
-import net.alteiar.image.ImageBean;
+import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.elements.CircleElement;
+import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.trigger.PositionTrigger;
-import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.map.element.MapElementSize;
 import net.alteiar.utils.map.element.MapElementSizePixel;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import pathfinder.character.PathfinderCharacter;
-import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
 public class EffectTest extends NewCampaignTest {
 
@@ -38,124 +37,103 @@ public class EffectTest extends NewCampaignTest {
 
 	@Test
 	public void testActivate() {
-		try {
-			MapElementSize width = new MapElementSizePixel(20.0);
-			MapElementSize height = new MapElementSizePixel(20.0);
-			Effect e = new BasicEffect(new CircleElement(new Point(18, 18),
-					Color.red, width), false, PathfinderCharacter.class);
-			ImageBean image = new ImageBean(new SerializableImage());
-			PathfinderCharacter c = new PathfinderCharacter("patrick", 15, 15,
-					image.getId());
-			// PathfinderCharacterElement ce = new PathfinderCharacter(new
-			// Point(
-			// 1, 1), c);
-			Map m = new Map("map");
-			PositionTrigger pt = new PositionTrigger(new CircleElement(
-					new Point(18, 18), Color.red, width), e,
-					PathfinderCharacterElement.class);
-			// ce.setMapId(m.getId());
-			e.setMapId(m.getId());
-			pt.setMapId(m.getId());
-			CampaignClient.getInstance().addBean(m);
-			CampaignClient.getInstance().addBean(image);
-			CampaignClient.getInstance().addBean(c);
-			// CampaignClient.getInstance().addBean(ce);
-			CampaignClient.getInstance().addBean(e);
-			// ce = CampaignClient.getInstance().getBean(ce.getId());
-			// ce.setPosition(new Point(20, 20));
+		Map map = new Map("map");
+		CampaignClient.getInstance().addBean(map);
+		map = CampaignClient.getInstance().getBean(map.getId(), 2000);
 
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		MapElementSize width = new MapElementSizePixel(20.0);
+		MapElementSize height = new MapElementSizePixel(20.0);
+		Effect effect = new BasicEffect(new CircleElement(new Point(25, 25),
+				Color.red, width), false, RectangleElement.class, map.getId());
+
+		RectangleElement rectangleElement = new RectangleElement(
+				new Point(4, 4), Color.BLACK, width, height);
+
+		PositionTrigger positionTrigger = new PositionTrigger(
+				new CircleElement(new Point(18, 18), Color.red, width),
+				effect.getId(), RectangleElement.class, map.getId());
+
+		MapElementFactory.buildMapElement(effect, map);
+		MapElementFactory.buildMapElement(rectangleElement, map);
+		MapElementFactory.buildMapElement(positionTrigger, map);
+
+		assertTrue("trigger should'nt be activated",
+				!positionTrigger.isActivate());
+
+		rectangleElement = CampaignClient.getInstance().getBean(
+				rectangleElement.getId(), 300);
+
+		rectangleElement.setPosition(new Point(15, 15));
+		sleep(10);
+
+		assertTrue("trigger should be activated", positionTrigger.isActivate());
 	}
 
 	@Test
 	public void testSuiteEffect() {
-		try {
-			MapElementSize width = new MapElementSizePixel(20.0);
-			MapElementSize height = new MapElementSizePixel(20.0);
-			EffectSuite e;
+		Map map = new Map("map");
+		CampaignClient.getInstance().addBean(map);
+		map = CampaignClient.getInstance().getBean(map.getId(), 2000);
 
-			e = new EffectSuite(new CircleElement(new Point(18, 18), Color.red,
-					width), false, PathfinderCharacter.class);
+		MapElementSize width = new MapElementSizePixel(10.0);
+		MapElementSize height = new MapElementSizePixel(10.0);
+		EffectSuite effectSuite = new EffectSuite(new CircleElement(new Point(
+				18, 18), Color.red, width), false, RectangleElement.class,
+				map.getId());
 
-			BasicEffect t1 = new BasicEffect(new CircleElement(
-					new Point(18, 18), Color.red, width), false,
-					PathfinderCharacter.class);
-			BasicEffect t2 = new BasicEffect(new CircleElement(
-					new Point(18, 18), Color.red, width), false,
-					PathfinderCharacter.class);
-			e.addEffect(t1);
-			e.addEffect(t2);
-			PositionTrigger pt = new PositionTrigger(new CircleElement(
-					new Point(18, 18), Color.red, width), e,
-					PathfinderCharacterElement.class);
-			ImageBean image = new ImageBean(new SerializableImage());
-			PathfinderCharacter c = new PathfinderCharacter("patrick", 15, 15,
-					image.getId());
-			PathfinderCharacterElement ce = new PathfinderCharacterElement(
-					new Point(1, 1), c);
-			Map m = new Map("map");
-			ce.setMapId(m.getId());
-			t1.setMapId(m.getId());
-			t2.setMapId(m.getId());
-			e.setMapId(m.getId());
-			pt.setMapId(m.getId());
-			CampaignClient.getInstance().addBean(m);
-			CampaignClient.getInstance().addBean(image);
-			CampaignClient.getInstance().addBean(c);
-			CampaignClient.getInstance().addBean(ce);
-			CampaignClient.getInstance().addBean(t1);
-			CampaignClient.getInstance().addBean(t2);
-			CampaignClient.getInstance().addBean(e);
-			CampaignClient.getInstance().addBean(pt);
-			ce = CampaignClient.getInstance().getBean(ce.getId());
-			ce.setPosition(new Point(20, 20));
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		BasicEffect basicEffect1 = new BasicEffect(new CircleElement(new Point(
+				18, 18), Color.red, width), false, RectangleElement.class,
+				map.getId());
+		BasicEffect basicEffect2 = new BasicEffect(new CircleElement(new Point(
+				18, 18), Color.red, width), false, RectangleElement.class,
+				map.getId());
+		effectSuite.addEffect(basicEffect1);
+		effectSuite.addEffect(basicEffect2);
+		PositionTrigger pt = new PositionTrigger(new CircleElement(new Point(
+				18, 18), Color.red, width), effectSuite.getId(),
+				RectangleElement.class, map.getId());
+
+		MapElementFactory.buildMapElement(effectSuite, map);
+		MapElementFactory.buildMapElement(basicEffect1, map);
+		MapElementFactory.buildMapElement(basicEffect2, map);
+		MapElementFactory.buildMapElement(pt, map);
+
+		RectangleElement rectangleElement = new RectangleElement(
+				new Point(4, 4), Color.BLACK, width, height);
+		MapElementFactory.buildMapElement(rectangleElement, map);
+
+		rectangleElement = CampaignClient.getInstance().getBean(
+				rectangleElement.getId(), 300);
+		rectangleElement.setPosition(new Point(20, 20));
+
 	}
 
 	@Test
 	public void testDelayedEffect() {
-		try {
-			MapElementSize width = new MapElementSizePixel(20.0);
-			MapElementSize height = new MapElementSizePixel(20.0);
-			DelayedEffect e = new DelayedEffect(new CircleElement(new Point(18,
-					18), Color.red, width), false, PathfinderCharacter.class,
-					10000);
-			BasicEffect t1;
+		Map map = new Map("map");
+		CampaignClient.getInstance().addBean(map);
+		map = CampaignClient.getInstance().getBean(map.getId(), 2000);
 
-			t1 = new BasicEffect(new CircleElement(new Point(18, 18),
-					Color.red, width), false, PathfinderCharacter.class);
+		MapElementSize width = new MapElementSizePixel(20.0);
+		MapElementSize height = new MapElementSizePixel(20.0);
+		DelayedEffect effect = new DelayedEffect(new CircleElement(new Point(
+				18, 18), Color.red, width), false, RectangleElement.class,
+				10000, map.getId());
+		BasicEffect t1 = new BasicEffect(new CircleElement(new Point(18, 18),
+				Color.red, width), false, RectangleElement.class, map.getId());
 
-			e.addEffect(t1);
-			ImageBean image = new ImageBean(new SerializableImage());
-			PathfinderCharacter c = new PathfinderCharacter("patrick", 15, 15,
-					image.getId());
-			PathfinderCharacterElement ce = new PathfinderCharacterElement(
-					new Point(1, 1), c);
-			Map m = new Map("map");
-			ce.setMapId(m.getId());
-			e.setMapId(m.getId());
-			t1.setMapId(m.getId());
-			CampaignClient.getInstance().addBean(m);
-			CampaignClient.getInstance().addBean(image);
-			CampaignClient.getInstance().addBean(c);
-			CampaignClient.getInstance().addBean(ce);
-			CampaignClient.getInstance().addBean(t1);
-			CampaignClient.getInstance().addBean(e);
-			ce = CampaignClient.getInstance().getBean(ce.getId());
-			ce.setPosition(new Point(20, 20));
-			Thread.sleep(15000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ClassNotFoundException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+		effect.addEffect(t1);
+
+		MapElementFactory.buildMapElement(effect, map);
+		MapElementFactory.buildMapElement(t1, map);
+
+		RectangleElement rectangleElement = new RectangleElement(
+				new Point(4, 4), Color.BLACK, width, height);
+		MapElementFactory.buildMapElement(rectangleElement, map);
+
+		rectangleElement = CampaignClient.getInstance().getBean(
+				rectangleElement.getId(), 200);
+		rectangleElement.setPosition(new Point(20, 20));
+
 	}
 }

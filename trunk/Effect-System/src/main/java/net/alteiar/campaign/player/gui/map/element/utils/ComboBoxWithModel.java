@@ -3,33 +3,35 @@ package net.alteiar.campaign.player.gui.map.element.utils;
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 
-public class ComboBoxWithModel extends JComboBox{
-	 private Object previousSelectedItem = null;
-	   private int previousSelectedIndex = -1;
+public class ComboBoxWithModel<E> extends JComboBox<E> {
+	private static final long serialVersionUID = 1L;
 
-	   public Object getPreviousSelectedItem() {
-	      return previousSelectedItem;
-	   }
+	private Object previousSelectedItem = null;
+	private int previousSelectedIndex = -1;
 
-	   public int getPreviousSelectedIndex() {
-	      return previousSelectedIndex;
-	   }
+	public Object getPreviousSelectedItem() {
+		return previousSelectedItem;
+	}
 
-	   ComboBoxWithModel(ComboBoxModel aModel) {
-	      super(aModel);
-	   }
+	public int getPreviousSelectedIndex() {
+		return previousSelectedIndex;
+	}
 
-	   @Override
-	   public void setSelectedIndex(int anIndex) {
-	      previousSelectedIndex = getSelectedIndex();
-	      previousSelectedItem = getSelectedItem();
-	      super.setSelectedIndex(anIndex);
-	   }
+	ComboBoxWithModel(ComboBoxModel<E> aModel) {
+		super(aModel);
+	}
 
-	   @Override
-	   public void setSelectedItem(Object anObject) {
-	      previousSelectedIndex = getSelectedIndex();
-	      previousSelectedItem = getSelectedItem();
-	      super.setSelectedItem(anObject);
-	   }
+	@Override
+	public void setSelectedIndex(int anIndex) {
+		previousSelectedIndex = getSelectedIndex();
+		previousSelectedItem = getSelectedItem();
+		super.setSelectedIndex(anIndex);
+	}
+
+	@Override
+	public void setSelectedItem(Object anObject) {
+		previousSelectedIndex = getSelectedIndex();
+		previousSelectedItem = getSelectedItem();
+		super.setSelectedItem(anObject);
+	}
 }

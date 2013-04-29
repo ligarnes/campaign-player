@@ -33,7 +33,7 @@ public class TriggerEditor extends PanelMapElementEditor<TriggerBean> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private final JComboBox listEffect;
+	private final JComboBox<String> listEffect;
 	private final JButton addButton;
 	private final ArrayList<Effect> effets;
 	private final ArrayList<Integer> selectedEffects;
@@ -69,12 +69,12 @@ public class TriggerEditor extends PanelMapElementEditor<TriggerBean> {
 			}
 		}
 
-		listEffect = new JComboBox(effectList);
+		listEffect = new JComboBox<String>(effectList);
 		listEffect.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				effets.get(selectedEffect).setSelected(false);
-				JComboBox temp = (JComboBox) e.getSource();
+				JComboBox<String> temp = (JComboBox<String>) e.getSource();
 				selectedEffect = temp.getSelectedIndex();
 				effets.get(selectedEffect).setSelected(true);
 			}
@@ -100,13 +100,6 @@ public class TriggerEditor extends PanelMapElementEditor<TriggerBean> {
 
 	}
 
-	private static JPanel buildRow(String name, JPanel panel) {
-		JPanel container = new JPanel(new FlowLayout());
-		container.add(new JLabel(name));
-		container.add(panel);
-		return container;
-	}
-
 	private static JPanel buildRow(String name, JComponent panel) {
 		JPanel container = new JPanel(new FlowLayout());
 		container.add(new JLabel(name));
@@ -124,12 +117,11 @@ public class TriggerEditor extends PanelMapElementEditor<TriggerBean> {
 
 	@Override
 	public void applyModification() {
-
 		TriggerBean trigger = getMapElement();
 		EffectSuite effect = (EffectSuite) trigger.getEffect();
-		Set<Integer> set = new HashSet();
+		Set<Integer> set = new HashSet<Integer>();
 		set.addAll(selectedEffects);
-		ArrayList<Integer> distinctList = new ArrayList(set);
+		ArrayList<Integer> distinctList = new ArrayList<Integer>(set);
 		for (Integer indexEffect : distinctList) {
 			effect.addEffect(effets.get(indexEffect));
 		}

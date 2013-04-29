@@ -43,11 +43,14 @@ public class TestMapElement extends NewCampaignTest {
 	}
 
 	public Battle getBattle() {
-		return CampaignClient.getInstance().getBean(battleId);
+		Long waitingTime = 1000L;
+		return CampaignClient.getInstance().getBean(battleId, waitingTime);
 	}
 
 	@Test(timeout = 5000)
 	public void testMapElement() {
+		Long waitingTime = 1000L;
+
 		MapElementSize width = new MapElementSizePixel(20.0);
 		MapElementSize height = new MapElementSizePixel(20.0);
 		Point position = new Point(0, 0);
@@ -58,7 +61,7 @@ public class TestMapElement extends NewCampaignTest {
 		MapElementFactory.buildMapElement(targetRectangle, getBattle());
 
 		RectangleElement rectangle = CampaignClient.getInstance().getBean(
-				targetRectangle.getId());
+				targetRectangle.getId(), waitingTime);
 
 		assertEquals("center should be at (10, 10)", new Point(10, 10),
 				rectangle.getCenterPosition());
@@ -81,12 +84,15 @@ public class TestMapElement extends NewCampaignTest {
 				newBattleId, rectangle.getMapId());
 
 		CampaignClient.getInstance().removeBean(rectangle);
+		sleep(100);
 		assertEquals("the bean should have been removed", null, CampaignClient
 				.getInstance().getBean(targetRectangle.getId()));
 	}
 
 	@Test(timeout = 5000)
 	public void testMapElementMove() {
+		Long waitingTime = 1000L;
+
 		MapElementSize width = new MapElementSizePixel(20.0);
 		MapElementSize height = new MapElementSizePixel(20.0);
 		Point position = new Point(0, 0);
@@ -97,7 +103,7 @@ public class TestMapElement extends NewCampaignTest {
 		MapElementFactory.buildMapElement(targetRectangle, getBattle());
 
 		RectangleElement rectangle = CampaignClient.getInstance().getBean(
-				targetRectangle.getId());
+				targetRectangle.getId(), waitingTime);
 
 		assertEquals("position should be " + position, position,
 				rectangle.getPosition());
@@ -235,7 +241,9 @@ public class TestMapElement extends NewCampaignTest {
 
 	@Test(timeout = 5000)
 	public void testCircle() {
-		Battle battle = CampaignClient.getInstance().getBean(battleId);
+		Long waitingTime = 1000L;
+		Battle battle = CampaignClient.getInstance().getBean(battleId,
+				waitingTime);
 
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
 		Point position = new Point(5, 5);

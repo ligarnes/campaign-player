@@ -90,6 +90,7 @@ public class TestMap extends NewCampaignTest {
 
 	@Test(timeout = 10000)
 	public void testBattleWithMapElement() {
+		Long waitingTime = 1000L;
 		Battle emptyBattle = new Battle("");
 		assertEquals("verify emptyBattle", emptyBattle, emptyBattle);
 
@@ -100,7 +101,9 @@ public class TestMap extends NewCampaignTest {
 			fail("fail to create battle");
 		}
 		assertNotNull("the battle id must'nt be null", battleId);
-		Battle battle = CampaignClient.getInstance().getBean(battleId);
+		Battle battle = CampaignClient.getInstance().getBean(battleId,
+				waitingTime);
+		assertNotNull("the battle should not be null", battle);
 
 		PropertyChangeListener listener = new PropertyChangeListener() {
 			@Override
@@ -214,6 +217,8 @@ public class TestMap extends NewCampaignTest {
 
 	@Test(timeout = 10000)
 	public void testMap() {
+		Long waitingTime = 1000L;
+
 		Map emptyMap = new Map("");
 		assertEquals("verify emptyMap", emptyMap, emptyMap);
 
@@ -225,7 +230,7 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Map map = CampaignClient.getInstance().getBean(battleId);
+		Map map = CampaignClient.getInstance().getBean(battleId, waitingTime);
 		assertEquals("Map name have a wrong name", targetName,
 				map.getDocumentName());
 
@@ -298,6 +303,7 @@ public class TestMap extends NewCampaignTest {
 
 	@Test
 	public void testBattleGrid() {
+		Long waitingTime = 1000L;
 		File battleImageFile = getDefaultImage();
 		UniqueID battleId1 = null;
 		UniqueID battleId2 = null;
@@ -307,8 +313,10 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Battle battle1 = CampaignClient.getInstance().getBean(battleId1);
-		Battle battle2 = CampaignClient.getInstance().getBean(battleId2);
+		Battle battle1 = CampaignClient.getInstance().getBean(battleId1,
+				waitingTime);
+		Battle battle2 = CampaignClient.getInstance().getBean(battleId2,
+				waitingTime);
 
 		double compareZoomFactor = 2.5;
 		BufferedImage image1 = new BufferedImage(
@@ -343,6 +351,7 @@ public class TestMap extends NewCampaignTest {
 
 	@Test
 	public void testMapFilter() {
+		Long waitingTime = 1000L;
 		File battleImageFile = getDefaultImage();
 		UniqueID battleId = null;
 		try {
@@ -350,7 +359,8 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Battle mapFiltered = CampaignClient.getInstance().getBean(battleId);
+		Battle mapFiltered = CampaignClient.getInstance().getBean(battleId,
+				waitingTime);
 
 		int width = mapFiltered.getWidth();
 		int height = mapFiltered.getHeight();
@@ -375,7 +385,8 @@ public class TestMap extends NewCampaignTest {
 			UniqueID filterId = filter.getId();
 
 			mapFiltered.setFilter(filterId);
-			filter = CampaignClient.getInstance().getBean(filterId);
+			filter = CampaignClient.getInstance()
+					.getBean(filterId, waitingTime);
 
 			BufferedImage filteredImage = new BufferedImage(
 					(int) (mapFiltered.getWidth() * compareZoomFactor),

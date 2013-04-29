@@ -15,6 +15,7 @@ public class TestLoad extends LoadCampaignTest {
 
 	@Test
 	public void testLoad() {
+		CampaignClient.getInstance().getChat().setPseudo("test");
 		assertEquals(CampaignClient.getInstance().getPlayers().get(0),
 				CampaignClient.getInstance().getCurrentPlayer());
 	}

@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
+import net.alteiar.campaign.player.gui.factory.DynamicPanelBeanBuilder;
 import net.alteiar.campaign.player.gui.factory.IPluginSystemGui;
 import net.alteiar.campaign.player.gui.factory.PanelCharacterFactory;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
@@ -34,18 +35,18 @@ public class PluginSystemGui implements IPluginSystemGui {
 
 	private static String MAP_ICON = "/icons/map.png";
 
-	private final DynamicCreateObject viewPanels;
-	private final DynamicCreateObject mapElementEditor;
+	private final DynamicPanelBeanBuilder viewPanels;
+	private final DynamicPanelBeanBuilder mapElementEditor;
 
 	private final HashMap<Class<?>, ImageIconFactory<?>> documentIcons;
 
 	public PluginSystemGui() {
-		viewPanels = new DynamicCreateObject();
+		viewPanels = new DynamicPanelBeanBuilder();
 		viewPanels.add(DocumentImageBean.class, PanelViewImage.class);
 
 		documentIcons = new HashMap<Class<?>, ImageIconFactory<?>>();
 
-		mapElementEditor = new DynamicCreateObject();
+		mapElementEditor = new DynamicPanelBeanBuilder();
 		mapElementEditor.add(PathfinderCharacterElement.class,
 				PanelCharacterEditor.class);
 

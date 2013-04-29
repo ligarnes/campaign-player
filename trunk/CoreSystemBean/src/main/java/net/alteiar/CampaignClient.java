@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.DocumentClient;
@@ -84,7 +86,10 @@ public final class CampaignClient implements DocumentManagerListener {
 					"");
 			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e, "Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.");
+			ExceptionTool
+					.showError(
+							e,
+							"Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -177,6 +182,10 @@ public final class CampaignClient implements DocumentManagerListener {
 			current.setConnected(true);
 			addNotPermaBean(current);
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
+			if (currentPlayer == null) {
+				throw new RuntimeErrorException(new Error(
+						"impossible de créer un joueur"));
+			}
 			connectPlayer();
 		}
 	}

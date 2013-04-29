@@ -5,6 +5,7 @@ import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
@@ -90,6 +91,11 @@ public abstract class MapElement extends BasicBeans {
 	}
 
 	public abstract Boolean contain(Point p);
+
+	public final Rectangle2D getBoundingBox() {
+		return new Rectangle2D.Double(position.getX(), position.getY(),
+				getWidthPixels(), getHeightPixels());
+	}
 
 	public abstract Double getWidthPixels();
 

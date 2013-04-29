@@ -22,7 +22,6 @@ public class NewCampaignTest extends BasicTest {
 
 		CampaignClient
 				.startNewCampaignServer(address, port, localDirectoryPath);
-
 		CampaignClient.getInstance().createPlayer(getPlayerName(), true,
 				Color.BLUE);
 	}
@@ -37,7 +36,7 @@ public class NewCampaignTest extends BasicTest {
 			e.printStackTrace();
 		}
 
-		//CampaignClient.getInstance().saveGame();
+		// CampaignClient.getInstance().saveGame();
 		CampaignClient.leaveGame();
 		System.out.println("tearing down");
 	}

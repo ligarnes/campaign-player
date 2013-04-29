@@ -124,7 +124,6 @@ public class EffectEditor extends PanelMapElementEditor<Effect> {
 
 	@Override
 	public void applyModification() {
-
 		Effect e = getMapElement();
 		Set<Integer> set = new HashSet();
 		set.addAll(selectedTriggers);

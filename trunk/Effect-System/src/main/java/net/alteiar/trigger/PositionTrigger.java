@@ -1,50 +1,35 @@
 package net.alteiar.trigger;
 
-import java.awt.Graphics2D;
-import java.awt.Point;
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
 
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.effectBean.Effect;
 import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.shared.UniqueID;
 
 public class PositionTrigger extends TriggerBean {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	public PositionTrigger(ColoredShape areaOfActivation, Effect e, Class<? extends BasicBeans> typeBean)
-			throws ClassNotFoundException {
-		super(areaOfActivation,e,typeBean);
-		// TODO Auto-generated constructor stub
+	public PositionTrigger(ColoredShape areaOfActivation, UniqueID e,
+			Class<? extends BasicBeans> typeBean, UniqueID mapId) {
+		super(areaOfActivation, e, typeBean, mapId);
 	}
-	
+
 	@Override
-	public void triggerPropertyChange(PropertyChangeEvent arg0) {
-		if(arg0.getPropertyName().contentEquals(MapElement.PROP_POSITION_PROPERTY))
-		{
-			System.out.println("dans propertyChange");
-			
-			Point position=(Point) arg0.getNewValue();
-			System.out.println("arg0 position="+position);
-			System.out.println("areaOfActivation position="+this.getAreaOfActivation().getPosition());
-			if(this.contain(position))
-			{
+	public void triggerPropertyChange(PropertyChangeEvent event) {
+		if (event.getPropertyName().contentEquals(
+				MapElement.PROP_POSITION_PROPERTY)) {
+			MapElement element = (MapElement) event.getSource();
+
+			if (getBoundingBox().intersects(element.getBoundingBox())) {
 				this.getEffect().activation();
 				this.setIsActivate(true);
-			}else
-			{
-				if(this.isActivate())
-				{
+			} else {
+				if (this.isActivate()) {
 					this.getEffect().desactivate();
 					this.setIsActivate(false);
 				}
 			}
 		}
 	}
-
 }

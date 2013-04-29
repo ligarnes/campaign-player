@@ -11,6 +11,7 @@
 			<class name="pathfinder character">pathfinder.character.PathfinderCharacter</class>
 		</Effect>
 		<Effect name="IdleEffect">
+			<class name="pathfinder character">pathfinder.mapElement.character.PathfinderCharacterElement</class>
 			<class name="Circle element">net.alteiar.map.elements.CircleElement</class>
 			<class name="Rectangle element">net.alteiar.map.elements.RectangleElement</class>
 		</Effect>
