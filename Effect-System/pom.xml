@@ -26,11 +26,6 @@
     	<version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
-    	<groupId>net.alteiar.pathfinder</groupId>
-    	<artifactId>Pathfinder-system</artifactId>
-    	<version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
     	<groupId>net.alteiar.campaign.player</groupId>
     	<artifactId>Player</artifactId>
     	<version>1.0-SNAPSHOT</version>

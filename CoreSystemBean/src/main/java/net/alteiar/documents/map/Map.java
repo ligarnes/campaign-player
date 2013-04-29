@@ -78,7 +78,7 @@ public class Map extends AuthorizationBean {
 
 		for (UniqueID id : elements) {
 			MapElement element = CampaignClient.getInstance().getBean(id);
-			if (element.contain(position)) {
+			if (element != null && element.contain(position)) {
 				elementsAt.add(element);
 			}
 		}

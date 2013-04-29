@@ -27,6 +27,7 @@ public class LoadCampaignTest extends BasicTest {
 
 	@After
 	public void afterTest() {
+		System.out.println("tearing down");
 		try {
 			// finalyze all actions
 			Thread.sleep(100);
@@ -37,7 +38,6 @@ public class LoadCampaignTest extends BasicTest {
 
 		CampaignClient.getInstance().saveGame();
 		CampaignClient.leaveGame();
-		System.out.println("tearing down");
 	}
 
 	@Override

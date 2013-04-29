@@ -1,4 +1,4 @@
-package plugin.gui;
+package net.alteiar.campaign.player.gui.factory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -8,10 +8,10 @@ import javax.swing.JPanel;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.shared.ExceptionTool;
 
-public class DynamicCreateObject {
+public class DynamicPanelBeanBuilder {
 	private final HashMap<Class<? extends BasicBeans>, Class<? extends JPanel>> classesObject;
 
-	public DynamicCreateObject() {
+	public DynamicPanelBeanBuilder() {
 		classesObject = new HashMap<Class<? extends BasicBeans>, Class<? extends JPanel>>();
 	}
 

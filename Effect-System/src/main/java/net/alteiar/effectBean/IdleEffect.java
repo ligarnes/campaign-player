@@ -1,25 +1,21 @@
 package net.alteiar.effectBean;
 
-import java.awt.Color;
-import java.awt.Point;
-
-import net.alteiar.client.DocumentClient;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.map.elements.ColoredShape;
+import net.alteiar.shared.UniqueID;
 
-import pathfinder.character.PathfinderCharacter;
-
-public class IdleEffect extends Effect{
+public class IdleEffect extends Effect {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	public IdleEffect(ColoredShape shape, Boolean oneUse, Class<? extends BasicBeans> typeBean) throws ClassNotFoundException  {
-		super(shape, oneUse,typeBean);
+
+	public IdleEffect(ColoredShape shape, Boolean oneUse,
+			Class<? extends BasicBeans> typeBean, UniqueID mapId) {
+		super(shape, oneUse, typeBean, mapId);
 	}
-	
+
 	@Override
 	public void activate() {
 	}
@@ -28,5 +24,4 @@ public class IdleEffect extends Effect{
 	public void desactivate() {
 	}
 
-	
 }

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShapeElement>
+		<shape name="circle element">pathfinder.gui.mapElement.builder.PanelCircleBuilder</shape>
+		<shape name="rectangle element">pathfinder.gui.mapElement.builder.PanelRectangleBuilder</shape>
+</ShapeElement>

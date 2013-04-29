@@ -117,7 +117,7 @@ public class DocumentManager {
 		Long current = System.currentTimeMillis();
 		while (value == null && (current - begin) < timeout) {
 			try {
-				if (getCounterInstance().await((timeout - (current - begin)),
+				if (!getCounterInstance().await((timeout - (current - begin)),
 						TimeUnit.MILLISECONDS)) {
 					return null;
 				}

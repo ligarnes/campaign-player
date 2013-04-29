@@ -57,7 +57,7 @@ public abstract class BasicBeans implements Serializable {
 
 	public void addPropertyChangeListener(String propertyName,
 			PropertyChangeListener listener) {
-		propertyChangeSupport.addPropertyChangeListener(listener);
+		propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
 	}
 
 	public void removePropertyChangeListener(PropertyChangeListener listener) {

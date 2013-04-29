@@ -37,7 +37,6 @@ public abstract class ColoredShape extends MapElement {
 	}
 
 	public void setColor(Color color) {
-		System.out.println("set color");
 		Color oldValue = this.color.getColor();
 		try {
 			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
