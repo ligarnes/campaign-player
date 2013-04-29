@@ -1,7 +1,5 @@
 package net.alteiar.trigger;
 
-import java.beans.PropertyChangeEvent;
-
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.map.elements.MapElement;
@@ -16,20 +14,18 @@ public class PositionTrigger extends TriggerBean {
 	}
 
 	@Override
-	public void triggerPropertyChange(PropertyChangeEvent event) {
-		if (event.getPropertyName().contentEquals(
-				MapElement.PROP_POSITION_PROPERTY)) {
-			MapElement element = (MapElement) event.getSource();
-
-			if (getBoundingBox().intersects(element.getBoundingBox())) {
-				this.getEffect().activation();
+	public void triggerPropertyChange(MapElement element) {
+		if (getBoundingBox().intersects(element.getBoundingBox())
+				|| getBoundingBox().contains(element.getBoundingBox())) {
+			System.out.println(getBoundingBox() + " == "
+					+ element.getBoundingBox());
+			if (!this.isActivate()) {
+				this.getEffect().activate();
 				this.setIsActivate(true);
-			} else {
-				if (this.isActivate()) {
-					this.getEffect().desactivate();
-					this.setIsActivate(false);
-				}
 			}
+		} else if (this.isActivate()) {
+			this.getEffect().desactivate();
+			this.setIsActivate(false);
 		}
 	}
 }

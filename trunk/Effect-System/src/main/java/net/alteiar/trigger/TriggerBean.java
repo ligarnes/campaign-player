@@ -4,20 +4,20 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.Beans;
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
+import java.beans.PropertyChangeListener;
 import java.util.HashSet;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
 import net.alteiar.documents.map.Map;
-import net.alteiar.effectBean.Effect;
+import net.alteiar.documents.map.MapAddRemoveElementAdapter;
+import net.alteiar.effectBean.mine.MyEffect;
 import net.alteiar.map.elements.ColoredShape;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 
 public abstract class TriggerBean extends MapElement implements
-		VetoableChangeListener {
+		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private UniqueID effectId;
@@ -25,11 +25,11 @@ public abstract class TriggerBean extends MapElement implements
 	private Class<? extends BasicBeans> typeOfActivator;
 	private Boolean isActivate;
 
-	public TriggerBean(ColoredShape areaOfActivation, UniqueID e,
+	public TriggerBean(ColoredShape areaOfActivation, UniqueID effect,
 			Class<? extends BasicBeans> typeBean, UniqueID mapID) {
 		super(areaOfActivation.getPosition());
 		this.areaOfActivation = areaOfActivation;
-		this.effectId = e;
+		this.effectId = effect;
 		isActivate = false;
 		typeOfActivator = typeBean;
 
@@ -38,14 +38,14 @@ public abstract class TriggerBean extends MapElement implements
 		Map map = CampaignClient.getInstance().getBean(this.getMapId());
 		HashSet<UniqueID> elements = map.getElements();
 		for (UniqueID element : elements) {
-			BasicBeans activator = CampaignClient.getInstance()
+			MapElement activator = CampaignClient.getInstance()
 					.getBean(element);
 
 			if (Beans.isInstanceOf(activator, typeOfActivator)) {
-				activator.addVetoableChangeListener(this);
+				activator.addPropertyChangeListener(this);
 			}
 		}
-		map.addVetoableChangeListener(this);
+		map.addPropertyChangeListener(new MapObserver());
 	}
 
 	public ColoredShape getAreaOfActivation() {
@@ -57,7 +57,7 @@ public abstract class TriggerBean extends MapElement implements
 		this.setPosition(areaOfActivation.getCenterPosition());
 	}
 
-	protected Effect getEffect() {
+	protected MyEffect getEffect() {
 		return CampaignClient.getInstance().getBean(effectId);
 	}
 
@@ -117,27 +117,24 @@ public abstract class TriggerBean extends MapElement implements
 		areaOfActivation.draw(g, zoomFactor);
 	}
 
-	public void vetoableChange(PropertyChangeEvent event)
-			throws PropertyVetoException {
-		if (event.getPropertyName().contentEquals(Map.METH_ADD_ELEMENT_METHOD)) {
-			BasicBeans activator = CampaignClient.getInstance().getBean(
-					(UniqueID) event.getNewValue());
-
-			if (Beans.isInstanceOf(activator, typeOfActivator)) {
-				activator.addVetoableChangeListener(this);
-			}
-		}
-
-		if (event.getPropertyName()
-				.contentEquals(Map.METH_REMOVE_ELEMENT_METHOD)) {
-			BasicBeans oldActivator = CampaignClient.getInstance().getBean(
-					(UniqueID) event.getOldValue());
-			if (Beans.isInstanceOf(oldActivator, typeOfActivator)) {
-				oldActivator.removeVetoableChangeListener(this);
-			}
-		}
-		triggerPropertyChange(event);
+	public void propertyChange(PropertyChangeEvent event) {
+		triggerPropertyChange((MapElement) event.getSource());
 	}
 
-	public abstract void triggerPropertyChange(PropertyChangeEvent arg0);
+	public abstract void triggerPropertyChange(MapElement element);
+
+	private class MapObserver extends MapAddRemoveElementAdapter {
+
+		@Override
+		protected void mapElementAdded(MapElement element) {
+			element.addPropertyChangeListener(TriggerBean.this);
+			triggerPropertyChange(element);
+		}
+
+		@Override
+		protected void mapElementRemoved(MapElement element) {
+			element.removePropertyChangeListener(TriggerBean.this);
+		}
+
+	}
 }
