@@ -29,7 +29,7 @@ public class PluginSystem implements IPluginSystemGui {
 		plugins = new ArrayList<IPluginSystemGui>();
 
 		plugins.add(getPathfinderPluginSystemGui());
-		plugins.add(getEffectPluginSystemGui());
+		// plugins.add(getEffectPluginSystemGui());
 	}
 
 	@Override

@@ -1,7 +1,15 @@
 package net.alteiar.client;
 
-public interface DocumentManagerListener {
-	void documentAdded(DocumentClient document);
+import net.alteiar.client.bean.BasicBeans;
 
-	void documentRemoved(DocumentClient document);
+public interface DocumentManagerListener {
+
+	/**
+	 * call when a bean is loaded
+	 * 
+	 * @param bean
+	 */
+	void beanAdded(BasicBeans bean);
+
+	void beanRemoved(BasicBeans bean);
 }

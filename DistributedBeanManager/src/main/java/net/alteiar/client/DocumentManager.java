@@ -142,8 +142,9 @@ public class DocumentManager {
 			}
 
 			for (DocumentManagerListener listener : getListeners()) {
-				listener.documentAdded(client);
+				listener.beanAdded(client.getBeanEncapsulator().getBean());
 			}
+
 			getCounterInstance().countDown();
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
@@ -196,11 +197,11 @@ public class DocumentManager {
 			doc = this.documents.remove(guid);
 		}
 		for (DocumentManagerListener listener : getListeners()) {
-			listener.documentRemoved(doc);
+			listener.beanRemoved(doc.getBeanEncapsulator().getBean());
 		}
 	}
 
-	public void addDocumentManagerClient(DocumentManagerListener listener) {
+	public void addBeanListenerClient(DocumentManagerListener listener) {
 		synchronized (listeners) {
 			listeners.add(listener);
 		}
