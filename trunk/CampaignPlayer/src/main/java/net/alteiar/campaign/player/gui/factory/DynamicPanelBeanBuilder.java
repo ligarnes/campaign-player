@@ -5,22 +5,22 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.ExceptionTool;
 
 public class DynamicPanelBeanBuilder {
-	private final HashMap<Class<? extends BasicBeans>, Class<? extends JPanel>> classesObject;
+	private final HashMap<Class<? extends BasicBean>, Class<? extends JPanel>> classesObject;
 
 	public DynamicPanelBeanBuilder() {
-		classesObject = new HashMap<Class<? extends BasicBeans>, Class<? extends JPanel>>();
+		classesObject = new HashMap<Class<? extends BasicBean>, Class<? extends JPanel>>();
 	}
 
-	public void add(Class<? extends BasicBeans> classes,
+	public void add(Class<? extends BasicBean> classes,
 			Class<? extends JPanel> panel) {
 		classesObject.put(classes, panel);
 	}
 
-	public <I extends BasicBeans> JPanel getPanel(I bean) {
+	public <I extends BasicBean> JPanel getPanel(I bean) {
 		Class<? extends JPanel> classes = classesObject.get(bean.getClass());
 		if (classes != null) {
 			try {

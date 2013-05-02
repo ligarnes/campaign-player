@@ -12,8 +12,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
@@ -131,7 +130,7 @@ public class DocumentManager {
 		IDocumentRemote doc;
 		try {
 			doc = server.getDocument(guid);
-			DocumentClient client = doc.buildProxy();
+			DocumentClient client = new DocumentClient(doc);
 			client.loadDocument();
 
 			synchronized (documents) {
@@ -151,9 +150,10 @@ public class DocumentManager {
 		}
 	}
 
-	public void createDocument(DocumentPath path, BeanEncapsulator bean) {
+	public void createDocument(BasicBean bean) {
 		try {
-			this.server.createDocument(path, bean);
+			this.server.createDocument(
+					new DocumentPath(getCampaignPath(), bean), bean);
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
@@ -175,7 +175,7 @@ public class DocumentManager {
 		}
 	}
 
-	public void removeDocument(BasicBeans bean) {
+	public void removeDocument(BasicBean bean) {
 		try {
 			this.server.deleteDocument(bean.getId());
 		} catch (RemoteException e) {

@@ -13,6 +13,7 @@ import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.WebImage;
 
+import org.junit.After;
 import org.junit.Test;
 
 public class TestBenchmark extends NewCampaignTest {
@@ -51,14 +52,6 @@ public class TestBenchmark extends NewCampaignTest {
 			} else {
 				System.out.println("server take more than 10 second");
 			}
-			/*
-			 * t.start(); CampaignClient.getInstance().addBean( new
-			 * DocumentImageBuilder("./test/ressources/medium.jpg"));
-			 * t.end("local sended"); doc =
-			 * CampaignClient.getInstance().getDocument(id, time10second); if
-			 * (doc != null) { t.end("local received"); } else {
-			 * System.out.println("local take more than 1 second"); }
-			 */
 
 			t.start();
 			CampaignClient.getInstance().addBean(
@@ -98,15 +91,6 @@ public class TestBenchmark extends NewCampaignTest {
 				System.out.println("server take more than 10 second");
 			}
 
-			/*
-			 * t.start(); CampaignClient.getInstance().createDocument( new
-			 * DocumentImageBuilder("./test/ressources/large.jpg"));
-			 * t.end("local sended"); doc =
-			 * CampaignClient.getInstance().getDocument(id, time30second); if
-			 * (doc != null) { t.end("local received"); } else {
-			 * System.out.println("local take more than 10 second"); }
-			 */
-
 			t.start();
 			CampaignClient.getInstance().addBean(
 					new ImageBean(new SerializableImage(new File(
@@ -123,5 +107,13 @@ public class TestBenchmark extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("file not found");
 		}
+	}
+
+	@Override
+	@After
+	public void afterTest() {
+		// DO NOT SAVE TO HEAVY IMAGES
+		CampaignClient.leaveGame();
+		System.out.println("tearing down");
 	}
 }

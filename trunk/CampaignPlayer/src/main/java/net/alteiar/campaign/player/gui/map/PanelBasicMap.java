@@ -45,7 +45,7 @@ import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
@@ -293,7 +293,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 						}
 
 						@Override
-						public void beanReceived(BasicBeans bean) {
+						public void beanReceived(BasicBean bean) {
 							bean.addPropertyChangeListener(PanelBasicMap.this);
 							mapChanged();
 						}

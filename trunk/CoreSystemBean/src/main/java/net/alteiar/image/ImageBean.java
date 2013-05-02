@@ -10,11 +10,11 @@ import java.io.IOException;
 import org.simpleframework.xml.Element;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.TransfertImage;
 
-public class ImageBean extends BasicBeans {
+public class ImageBean extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_IMAGE_PROPERTY = "image";

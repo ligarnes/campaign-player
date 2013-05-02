@@ -17,8 +17,7 @@ import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.DocumentClient;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
-import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
@@ -56,10 +55,9 @@ public final class CampaignClient implements DocumentManagerListener {
 		Chat chat = new Chat();
 		DiceRoller diceRoller = new DiceRoller();
 		try {
-			server.createDocument(new DocumentPath(campaignPath, chat),
-					new BeanEncapsulator(chat));
+			server.createDocument(new DocumentPath(campaignPath, chat), chat);
 			server.createDocument(new DocumentPath(campaignPath, diceRoller),
-					new BeanEncapsulator(diceRoller));
+					diceRoller);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -224,7 +222,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		this.currentPlayer.setConnected(false);
 	}
 
-	public void addBean(BasicBeans bean) {
+	public void addBean(BasicBean bean) {
 		realAddBean(bean);
 	}
 
@@ -233,12 +231,11 @@ public final class CampaignClient implements DocumentManagerListener {
 		realAddBean(bean);
 	}
 
-	public void realAddBean(BasicBeans bean) {
-		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
-				.getId().toString()), new BeanEncapsulator(bean));
+	public void realAddBean(BasicBean bean) {
+		manager.createDocument(bean);
 	}
 
-	public void removeBean(BasicBeans bean) {
+	public void removeBean(BasicBean bean) {
 		manager.removeDocument(bean);
 	}
 
@@ -247,7 +244,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <E extends BasicBeans> E getBean(UniqueID id) {
+	public <E extends BasicBean> E getBean(UniqueID id) {
 		DocumentClient document = manager.getDocument(id);
 		if (document == null) {
 			return null;
@@ -256,7 +253,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void addWaitBeanListener(WaitBeanListener listener) {
-		BasicBeans bean = getBean(listener.getBeanId());
+		BasicBean bean = getBean(listener.getBeanId());
 		if (bean != null) {
 			listener.beanReceived(bean);
 			return;
@@ -273,7 +270,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		listenersList.add(listener);
 	}
 
-	protected void removeWaitBeanListener(BasicBeans listener) {
+	protected void removeWaitBeanListener(BasicBean listener) {
 		synchronized (waitBeanListeners) {
 			waitBeanListeners.remove(listener.getId());
 		}
@@ -291,7 +288,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <E extends BasicBeans> E getBean(UniqueID id, long timeout) {
+	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
 		return (E) manager.getDocument(id, timeout).getBeanEncapsulator()
 				.getBean();
 	}
@@ -332,7 +329,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@Override
-	public void beanAdded(BasicBeans bean) {
+	public void beanAdded(BasicBean bean) {
 		if (Beans.isInstanceOf(bean, Player.class)) {
 			synchronized (players) {
 				players.add((Player) Beans.getInstanceOf(bean, Player.class));
@@ -375,7 +372,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@Override
-	public void beanRemoved(BasicBeans bean) {
+	public void beanRemoved(BasicBean bean) {
 		if (Beans.isInstanceOf(bean, Player.class)) {
 			synchronized (players) {
 				players.remove(Beans.getInstanceOf(bean, Player.class));

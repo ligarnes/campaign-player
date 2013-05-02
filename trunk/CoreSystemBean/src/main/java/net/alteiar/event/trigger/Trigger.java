@@ -4,11 +4,11 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.Effect;
 import net.alteiar.shared.UniqueID;
 
-public abstract class Trigger extends BasicBeans implements
+public abstract class Trigger extends BasicBean implements
 		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
@@ -50,7 +50,7 @@ public abstract class Trigger extends BasicBeans implements
 	 * 
 	 * @param bean
 	 */
-	public void beanAdded(BasicBeans bean) {
+	public void beanAdded(BasicBean bean) {
 		if (watch(bean)) {
 			bean.addPropertyChangeListener(this);
 			beanChanged(bean);
@@ -62,14 +62,14 @@ public abstract class Trigger extends BasicBeans implements
 	 * 
 	 * @param bean
 	 */
-	public void beanRemoved(BasicBeans bean) {
+	public void beanRemoved(BasicBean bean) {
 		bean.removePropertyChangeListener(this);
 		beanChanged(bean);
 	}
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		beanChanged((BasicBeans) evt.getSource());
+		beanChanged((BasicBean) evt.getSource());
 	}
 
 	/**
@@ -77,12 +77,12 @@ public abstract class Trigger extends BasicBeans implements
 	 * @param bean
 	 * @return true if you need to watch this bean
 	 */
-	protected abstract Boolean watch(BasicBeans bean);
+	protected abstract Boolean watch(BasicBean bean);
 
 	/**
 	 * called when a bean you watch is changed
 	 * 
 	 * @param bean
 	 */
-	protected abstract void beanChanged(BasicBeans bean);
+	protected abstract void beanChanged(BasicBean bean);
 }

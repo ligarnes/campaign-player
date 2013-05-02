@@ -10,25 +10,18 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyDescriptor;
 import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
-import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import net.alteiar.shared.UniqueID;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-
-public class BeanEncapsulator implements Serializable, VetoableChangeListener {
-	@Attribute
-	private static final long serialVersionUID = 1L;
-
+public class BeanEncapsulator implements VetoableChangeListener {
 	private final PropertyChangeSupport propertyChangeSupportRemote;
-	@Element
-	private final BasicBeans bean;
+	private final BasicBean bean;
+
 	private final ArrayList<BeanChange> changed;
 
-	public BeanEncapsulator(BasicBeans bean) {
+	public BeanEncapsulator(BasicBean bean) {
 		this.bean = bean;
 		propertyChangeSupportRemote = new PropertyChangeSupport(this);
 
@@ -106,7 +99,7 @@ public class BeanEncapsulator implements Serializable, VetoableChangeListener {
 		}
 	}
 
-	public BasicBeans getBean() {
+	public BasicBean getBean() {
 		return this.bean;
 	}
 

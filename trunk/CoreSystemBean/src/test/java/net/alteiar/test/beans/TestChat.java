@@ -16,9 +16,22 @@ import net.alteiar.chat.message.PrivateSender;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestChat extends NewCampaignTest {
+
+	@Override
+	@Before
+	public void beforeTest() {
+		super.beforeTest();
+
+		int currentCount = getChat().getMessages().size();
+
+		while (currentCount < 1) {
+			currentCount = getChat().getMessages().size();
+		}
+	}
 
 	public Chat getChat() {
 		Chat chat = CampaignClient.getInstance().getChat();
@@ -34,7 +47,6 @@ public class TestChat extends NewCampaignTest {
 
 		while (previousCount == currentCount) {
 			currentCount = getChat().getMessages().size();
-			sleep(10);
 		}
 
 		return getChat().getMessages().get(previousCount);
@@ -89,17 +101,13 @@ public class TestChat extends NewCampaignTest {
 		assertEquals("command should be same", msg1.getCommand(), tgtCmd1);
 	}
 
+	/*
+	 * @Test(timeout = 10000) public void testChatComplete() { testChat();
+	 * testChatDiceSender(); testChatPrivateSender(); testChatMjSender(); }
+	 */
+
 	@Test(timeout = 5000)
-	public void testChatComplete() {
-		testChat();
-		testChatDiceSender();
-		testChatPrivateSender();
-		testChatMjSender();
-	}
-
-	// @Test(timeout = 5000)
 	public void testChat() {
-
 		assertEquals("Pseudo should be same as player name", getPlayerName(),
 				getChat().getPseudo());
 
@@ -138,7 +146,7 @@ public class TestChat extends NewCampaignTest {
 		}
 	}
 
-	// @Test(timeout = 5000)
+	@Test(timeout = 5000)
 	public void testChatDiceSender() {
 		final Integer expectedDiceCount = 2;
 		final Integer expectedDiceValue = 6;
@@ -183,7 +191,7 @@ public class TestChat extends NewCampaignTest {
 		}
 	}
 
-	// @Test(timeout = 5000)
+	@Test(timeout = 5000)
 	public void testChatPrivateSender() {
 		final String expectedMessage = "my_message";
 
@@ -218,7 +226,7 @@ public class TestChat extends NewCampaignTest {
 				!resultMessage.canAccess());
 	}
 
-	// @Test(timeout = 5000)
+	@Test(timeout = 5000)
 	public void testChatMjSender() {
 		final String name = CampaignClient.getInstance().getCurrentPlayer()
 				.getName();

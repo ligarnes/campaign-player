@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.AuthorizationBean;
 
 public abstract class BasicTest {
@@ -105,7 +105,7 @@ public abstract class BasicTest {
 		return timeout;
 	}
 
-	protected <E extends BasicBeans> E addBean(E bean) {
+	protected <E extends BasicBean> E addBean(E bean) {
 		CampaignClient.getInstance().addBean(bean);
 		return getBeans(bean);
 	}
@@ -115,7 +115,7 @@ public abstract class BasicTest {
 		return getBeans(bean);
 	}
 
-	protected <E extends BasicBeans> E getBeans(E bean) {
+	protected <E extends BasicBean> E getBeans(E bean) {
 		return CampaignClient.getInstance().getBean(bean.getId(), getTimeout());
 	}
 }

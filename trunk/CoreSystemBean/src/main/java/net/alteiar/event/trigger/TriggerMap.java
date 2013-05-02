@@ -2,7 +2,7 @@ package net.alteiar.event.trigger;
 
 import java.beans.Beans;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 
@@ -20,7 +20,7 @@ public abstract class TriggerMap<E extends MapElement> extends TriggerClass<E> {
 	}
 
 	@Override
-	protected Boolean watch(BasicBeans bean) {
+	protected Boolean watch(BasicBean bean) {
 		if (super.watch(bean)) {
 			MapElement element = (MapElement) Beans.getInstanceOf(bean,
 					MapElement.class);

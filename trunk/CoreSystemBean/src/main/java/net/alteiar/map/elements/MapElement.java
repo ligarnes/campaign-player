@@ -9,14 +9,14 @@ import java.awt.geom.Rectangle2D;
 import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.Scale;
 
 import org.simpleframework.xml.Element;
 
-public abstract class MapElement extends BasicBeans {
+public abstract class MapElement extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_MAP_ID_PROPERTY = "mapId";
