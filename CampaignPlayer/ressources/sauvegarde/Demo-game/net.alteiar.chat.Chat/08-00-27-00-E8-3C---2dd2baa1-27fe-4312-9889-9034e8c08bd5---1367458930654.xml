@@ -2,7 +2,15 @@
    <id serialVersionUID="1">
       <guid>08-00-27-00-E8-3C:2dd2baa1-27fe-4312-9889-9034e8c08bd5:1367458930654</guid>
    </id>
-   <pseudo>Cody</pseudo>
+   <pseudo>unknow</pseudo>
    <messages>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <playerId serialVersionUID="1">
+            <guid>08-00-27-00-E8-3C:9a61e1c2-bb88-4fdc-a097-53481477e04f:1367458930858</guid>
+         </playerId>
+         <sender>Cody</sender>
+         <message>Cody</message>
+         <command>system.connect</command>
+      </messageRemote>
    </messages>
 </chat>

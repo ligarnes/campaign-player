@@ -15,7 +15,6 @@ import net.alteiar.documents.image.DocumentImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignNoGMTest;
-import net.alteiar.test.NewCampaignTest;
 import net.alteiar.test.beans.map.TestMap;
 
 import org.junit.Test;
@@ -31,7 +30,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		String newExpName = "test-document-name-new";
 		DocumentImageBean autorizableBean = new DocumentImageBean(expName, null);
 
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+		CampaignClient.getInstance().addBean(autorizableBean);
 
 		DocumentImageBean bean = CampaignClient.getInstance().getBean(
 				autorizableBean.getId(), 200);
@@ -55,35 +54,27 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		DocumentImageBean autorizableBean = new DocumentImageBean(
 				"test-document-name", null);
 
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
 
-		DocumentImageBean bean = CampaignClient.getInstance().getBean(
-				autorizableBean.getId(), 200);
+		autorizableBean = addBean(autorizableBean);
 
-		assertTrue(bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		try {
-			bean.setOwner(null);
+			autorizableBean.setOwner(null);
 			fail("a null pointer exception must be raised");
 		} catch (NullPointerException e) {
 		}
 
-		assertTrue(bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
-		UniqueID idNewOwner = new UniqueID();
-		bean.setOwner(idNewOwner);
+		autorizableBean.setOwner(new UniqueID());
 		sleep(10);
 
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 	}
 
 	@Test(timeout = 5000)
@@ -91,79 +82,66 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		DocumentImageBean autorizableBean = new DocumentImageBean(
 				"test-document-name", null);
 
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
+		autorizableBean = addBean(autorizableBean);
 
-		DocumentImageBean bean = CampaignClient.getInstance().getBean(
-				autorizableBean.getId(), 200);
-
-		assertTrue(bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		// Change the owner to no one
-		bean.setOwner(new UniqueID());
+		autorizableBean.setOwner(new UniqueID());
 		sleep(10);
 
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 
 		// Add us as modifier
-		UniqueID playerId = CampaignClient.getInstance().getCurrentPlayer()
-				.getId();
-		bean.addModifier(playerId);
+		UniqueID playerId = currentPlayer.getId();
+		autorizableBean.addModifier(playerId);
 		sleep(10);
 
-		assertTrue("Should contain the modifier",
-				bean.getModifiers().contains(playerId));
-		assertTrue(bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue("Should contain the modifier", autorizableBean
+				.getModifiers().contains(playerId));
+		assertTrue(autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		// remove us as modifier
-		bean.removeModifier(playerId);
+		autorizableBean.removeModifier(playerId);
 		sleep(10);
 
-		assertTrue("Should'nt contain the modifier", !bean.getModifiers()
-				.contains(playerId));
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue("Should'nt contain the modifier", !autorizableBean
+				.getModifiers().contains(playerId));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 
 		// set list of modifier
 		HashSet<UniqueID> guids = new HashSet<UniqueID>();
 		for (int i = 0; i < 100; ++i) {
 			guids.add(new UniqueID());
 		}
-		bean.setModifiers(guids);
+		autorizableBean.setModifiers(guids);
 		sleep(10);
 
-		assertTrue("the owners must have been set",
-				bean.getModifiers().equals(guids));
+		assertTrue("the owners must have been set", autorizableBean
+				.getModifiers().equals(guids));
 	}
-	
+
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansGameMaster() {
 		DocumentImageBean autorizableBean = new DocumentImageBean(
 				"test-game-master-change-see-right", null);
-		
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
 
-		DocumentImageBean bean = CampaignClient.getInstance().getBean(
-				autorizableBean.getId(), 200);
-		
+		autorizableBean = addBean(autorizableBean);
+
 		Player fakeGameMaster = new Player("GameMaster", true, Color.black);
 		CampaignClient.getInstance().addBean(fakeGameMaster);
-		fakeGameMaster = CampaignClient.getInstance().getBean(fakeGameMaster.getId(), 10);
+		fakeGameMaster = CampaignClient.getInstance().getBean(
+				fakeGameMaster.getId(), 10);
 		assertTrue(fakeGameMaster != null);
 		// Current Player is GM and is supposed to be able to change and
 		// to see every bean
-		assertTrue(bean.isAllowedToApplyChange(fakeGameMaster));
-		assertTrue(bean.isAllowedToSee(fakeGameMaster));
+		assertTrue(autorizableBean.isAllowedToApplyChange(fakeGameMaster));
+		assertTrue(autorizableBean.isAllowedToSee(fakeGameMaster));
 	}
 
 	@Test(timeout = 5000)
@@ -171,59 +149,50 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		DocumentImageBean autorizableBean = new DocumentImageBean(
 				"test-document-name", null);
 
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
+		autorizableBean = addBean(autorizableBean);
 
-		DocumentImageBean bean = CampaignClient.getInstance().getBean(
-				autorizableBean.getId(), 200);
-
-		assertTrue(bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		// Change the owner to no one
-		bean.setOwner(new UniqueID());
+		autorizableBean.setOwner(new UniqueID());
 		sleep(10);
 
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 
 		// Add us as user
-		UniqueID playerId = CampaignClient.getInstance().getCurrentPlayer()
-				.getId();
-		bean.addUser(playerId);
+		UniqueID playerId = currentPlayer.getId();
+		autorizableBean.addUser(playerId);
 		sleep(10);
 
-		assertTrue("Should contain the user", bean.getUsers()
+		assertTrue("Should contain the user", autorizableBean.getUsers()
 				.contains(playerId));
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		// remove us as user
-		bean.removeUser(playerId);
+		autorizableBean.removeUser(playerId);
 		sleep(10);
 
-		assertTrue("Should'nt contain the user",
-				!bean.getUsers().contains(playerId));
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue("Should'nt contain the user", !autorizableBean.getUsers()
+				.contains(playerId));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 
 		// set list of users
 		HashSet<UniqueID> guids = new HashSet<UniqueID>();
 		for (int i = 0; i < 100; ++i) {
 			guids.add(new UniqueID());
 		}
-		bean.setUsers(guids);
+		autorizableBean.setUsers(guids);
 		sleep(10);
 
-		assertTrue("the users must have been set", bean.getUsers()
+		assertTrue("the users must have been set", autorizableBean.getUsers()
 				.equals(guids));
+
+		autorizableBean.setOwner(currentPlayer.getId());
 	}
 
 	@Test(timeout = 5000)
@@ -231,42 +200,32 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		DocumentImageBean autorizableBean = new DocumentImageBean(
 				"test-document-name", null);
 
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
+		autorizableBean = addBean(autorizableBean);
 
-		DocumentImageBean bean = CampaignClient.getInstance().getBean(
-				autorizableBean.getId(), 200);
-
-		assertTrue(bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		// Change the owner to no one
-		bean.setOwner(new UniqueID());
+		autorizableBean.setOwner(new UniqueID());
 		sleep(10);
 
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 
 		// set to public bean
-		bean.setPublic(true);
+		autorizableBean.setPublic(true);
 		sleep(10);
 
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(autorizableBean.isAllowedToSee(currentPlayer));
 
 		// set to private bean
-		bean.setPublic(false);
+		autorizableBean.setPublic(false);
 		sleep(10);
 
-		assertTrue(!bean.isAllowedToApplyChange(CampaignClient.getInstance()
-				.getCurrentPlayer()));
-		assertTrue(!bean.isAllowedToSee(CampaignClient.getInstance()
-				.getCurrentPlayer()));
+		assertTrue(!autorizableBean.isAllowedToApplyChange(currentPlayer));
+		assertTrue(!autorizableBean.isAllowedToSee(currentPlayer));
 	}
 
 	@Test(timeout = 5000)
@@ -276,12 +235,9 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 		DocumentImageBean autorizableBean = new DocumentImageBean();
 
-		CampaignClient.getInstance().addNotPermaBean(autorizableBean);
+		autorizableBean = addBean(autorizableBean);
 
-		DocumentImageBean bean = CampaignClient.getInstance().getBean(
-				autorizableBean.getId(), 200);
-
-		bean.addPropertyChangeListener(new AuthorizationAdapter() {
+		autorizableBean.addPropertyChangeListener(new AuthorizationAdapter() {
 			@Override
 			public void authorizationChanged(PropertyChangeEvent evt) {
 				super.authorizationChanged(evt);
@@ -289,14 +245,14 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 			}
 		});
 
-		bean.addPropertyChangeListener(new PropertyChangeListener() {
+		autorizableBean.addPropertyChangeListener(new PropertyChangeListener() {
 
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
 				COUNT_BEAN_CHANGED++;
 			}
 		});
-		bean.setImage(TestMap.createTransfertImage());
+		autorizableBean.setImage(TestMap.createTransfertImage());
 
 		sleep(10);
 		assertEquals("The bean have changed", 1, COUNT_BEAN_CHANGED);
@@ -304,29 +260,29 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 				COUNT_AUTHORIZATION_CHANGED);
 
 		UniqueID guid = new UniqueID();
-		bean.addModifier(guid);
+		autorizableBean.addModifier(guid);
 		sleep(5);
-		bean.removeModifier(guid);
+		autorizableBean.removeModifier(guid);
 
-		bean.addUser(guid);
+		autorizableBean.addUser(guid);
 		sleep(5);
-		bean.removeUser(guid);
+		autorizableBean.removeUser(guid);
 		sleep(5);
-		bean.setPublic(true);
+		autorizableBean.setPublic(true);
 		sleep(5);
-		bean.setPublic(false);
+		autorizableBean.setPublic(false);
 		sleep(5);
 		HashSet<UniqueID> users = new HashSet<UniqueID>();
 		users.add(new UniqueID());
-		bean.setUsers(users);
+		autorizableBean.setUsers(users);
 		sleep(5);
-		bean.setModifiers(users);
+		autorizableBean.setModifiers(users);
 		sleep(5);
 
 		assertEquals("The authorization have not changed", 8,
 				COUNT_AUTHORIZATION_CHANGED);
 		assertEquals("The bean have changed", 9, COUNT_BEAN_CHANGED);
 
-		CampaignClient.getInstance().removeBean(bean);
+		CampaignClient.getInstance().removeBean(autorizableBean);
 	}
 }

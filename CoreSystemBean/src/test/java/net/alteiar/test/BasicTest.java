@@ -16,7 +16,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import net.alteiar.CampaignClient;
+import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.documents.AuthorizationBean;
+
 public abstract class BasicTest {
+	/**
+	 * timeout is used in test when we try to get a bean
+	 */
+	protected Long timeout = 300L;
 
 	protected Boolean compareImage(BufferedImage img1, BufferedImage img2)
 			throws IOException {
@@ -91,5 +99,23 @@ public abstract class BasicTest {
 
 		String[] files = objectDir.list();
 		return files != null ? files.length : 0;
+	}
+
+	protected Long getTimeout() {
+		return timeout;
+	}
+
+	protected <E extends BasicBeans> E addBean(E bean) {
+		CampaignClient.getInstance().addBean(bean);
+		return getBeans(bean);
+	}
+
+	protected <E extends AuthorizationBean> E addBean(E bean) {
+		CampaignClient.getInstance().addBean(bean);
+		return getBeans(bean);
+	}
+
+	protected <E extends BasicBeans> E getBeans(E bean) {
+		return CampaignClient.getInstance().getBean(bean.getId(), getTimeout());
 	}
 }

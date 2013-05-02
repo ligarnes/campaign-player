@@ -24,12 +24,9 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	private BeanEncapsulator bean;
 	private final DocumentPath path;
 
-	private final Boolean perma;
-
 	public DocumentClient(IDocumentRemote remote) throws RemoteException {
 		this.remote = remote;
 		this.path = remote.getPath();
-		perma = false;
 	}
 
 	public void remoteValueChanged(String propertyName, Object newValue) {
@@ -98,26 +95,11 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 
 	protected void loadDocumentRemote() throws Exception {
 		bean = this.remote.getBean();
-		/*
-		 * this.perma = this.remote.isPerma();
-		 * 
-		 * if (this.isPerma()) { this.savePerma(remote.getPath().getName()); }
-		 */
 	}
 
 	public void saveLocal() throws Exception {
 		DocumentLoader.SaveDocument(bean.getBean(), this.path.getPath(),
 				this.path.getName() + ".xml");
-	}
-
-	/*
-	 * public void saveAs(String path, String name) throws Exception {
-	 * DocumentLoader.SaveDocument(bean.getBean(), path, name);
-	 * this.path.setName(name); // this.path.setPath(path); perma = true; }
-	 */
-
-	public Boolean isPerma() {
-		return perma;
 	}
 
 	private class DocumentListener extends UnicastRemoteObject implements
@@ -132,14 +114,6 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		public void beanValueChanged(String propertyName, Object newValue)
 				throws RemoteException {
 			remoteValueChanged(propertyName, newValue);
-		}
-
-		@Override
-		public void savePermaListener(String name) throws RemoteException {
-			/*
-			 * try { savePerma(name); } catch (Exception e) { // TODO
-			 * Auto-generated catch block e.printStackTrace(); }
-			 */
 		}
 
 		@Override

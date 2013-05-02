@@ -14,7 +14,7 @@ public class MapElementFactory {
 	public static void buildMapElement(MapElement element, MapBean map) {
 		element.setMapId(map.getId());
 		map.addElement(element.getId());
-		CampaignClient.getInstance().addNotPermaBean(element);
+		CampaignClient.getInstance().addBean(element);
 	}
 
 	/**

@@ -3,17 +3,11 @@ package net.alteiar;
 import java.awt.Color;
 import java.beans.Beans;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 import javax.management.RuntimeErrorException;
@@ -63,9 +57,9 @@ public final class CampaignClient implements DocumentManagerListener {
 		DiceRoller diceRoller = new DiceRoller();
 		try {
 			server.createDocument(new DocumentPath(campaignPath, chat),
-					new BeanEncapsulator(chat), false);
+					new BeanEncapsulator(chat));
 			server.createDocument(new DocumentPath(campaignPath, diceRoller),
-					new BeanEncapsulator(diceRoller), false);
+					new BeanEncapsulator(diceRoller));
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -82,9 +76,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 		DocumentManager manager = null;
 		try {
-			// TODO do not care about perma path for the moment
-			manager = DocumentManager.connect(localAdress, serverAdress, port,
-					"");
+			manager = DocumentManager.connect(localAdress, serverAdress, port);
 			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
 			ExceptionTool
@@ -189,7 +181,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 			Player current = new Player(name, isMj, color);
 			current.setConnected(true);
-			addNotPermaBean(current);
+			addBean(current);
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
 			if (currentPlayer == null) {
 				throw new RuntimeErrorException(new Error(
@@ -232,42 +224,18 @@ public final class CampaignClient implements DocumentManagerListener {
 		this.currentPlayer.setConnected(false);
 	}
 
-	public void addBean(AuthorizationBean bean, Boolean perma) {
-		bean.setOwner(CampaignClient.getInstance().getCurrentPlayer().getId());
-
-		// replace name by guid, we are sure of the unicity
-		manager.createDocument(
-				new DocumentPath(manager.getCampaignPath(), bean),
-				new BeanEncapsulator(bean), perma);
-	}
-
 	public void addBean(BasicBeans bean) {
-		addBean(bean, false);
+		realAddBean(bean);
 	}
 
 	public void addBean(AuthorizationBean bean) {
-		addBean(bean, false);
+		bean.setOwner(getCurrentPlayer().getId());
+		realAddBean(bean);
 	}
 
-	public void addBean(BasicBeans bean, Boolean perma) {
+	public void realAddBean(BasicBeans bean) {
 		manager.createDocument(new DocumentPath(manager.getCampaignPath(), bean
-				.getId().toString()), new BeanEncapsulator(bean), perma);
-	}
-
-	public void addNotPermaBean(AuthorizationBean bean) {
-		this.addBean(bean, false);
-	}
-
-	public void addNotPermaBean(BasicBeans bean) {
-		this.addBean(bean, false);
-	}
-
-	public void addPermaBean(AuthorizationBean bean) {
-		this.addBean(bean, true);
-	}
-
-	public void addPermaBean(BasicBeans bean) {
-		this.addBean(bean, true);
+				.getId().toString()), new BeanEncapsulator(bean));
 	}
 
 	public void removeBean(BasicBeans bean) {
@@ -453,67 +421,32 @@ public final class CampaignClient implements DocumentManagerListener {
 			deleteRecursive(dir);
 		}
 
-		ObjectOutputStream oos = null;
 		try {
-			ArrayList<DocumentClient> docs = manager.getDocuments();
-			HashSet<String> list = new HashSet<String>();
-
-			for (DocumentClient doc : docs) {
-				if (!doc.isPerma()) {
-					doc.saveLocal();
-				} else {
-					list.add(doc.getDocumentPath().getCompletePath());
-				}
+			for (DocumentClient doc : manager.getDocuments()) {
+				doc.saveLocal();
 			}
-			File f = new File(manager.getCampaignPath(), "permaList.txt");
-			f.createNewFile();
-			oos = new ObjectOutputStream(new FileOutputStream(f));
-			oos.writeObject(list);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (oos != null) {
-				try {
-					oos.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			ExceptionTool.showError(e, "Impossible de sauver la campagne");
 		}
 
 	}
 
 	public void loadGame(String campaignName) {
-		ObjectInputStream ois;
 		try {
-			ois = new ObjectInputStream(new FileInputStream(
-					manager.getCampaignPath() + "/permaList.txt"));
-			HashSet<String> list = (HashSet<String>) ois.readObject();
-			for (String path : list) {
-				File f = new File(path);
-				addPermaBean(DocumentLoader.loadBeanLocal(f));
-			}
 			File baseDir = new File(manager.getCampaignPath());
 			if (baseDir.exists()) {
 				for (File dir : baseDir.listFiles()) {
 					if (dir.isDirectory()) {
 						for (File fi : dir.listFiles()) {
 							if (fi.isFile()) {
-								addNotPermaBean(DocumentLoader
-										.loadBeanLocal(fi));
+								addBean(DocumentLoader.loadBeanLocal(fi));
 							}
 						}
 					}
 				}
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e, "Impossible de charger la campagne");
 		}
 
 	}

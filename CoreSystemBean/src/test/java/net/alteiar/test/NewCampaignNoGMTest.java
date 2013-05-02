@@ -29,15 +29,6 @@ public class NewCampaignNoGMTest extends BasicTest {
 
 	@After
 	public void afterTest() {
-		try {
-			// finalyze all actions
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		CampaignClient.getInstance().saveGame();
 		CampaignClient.leaveGame();
 		System.out.println("tearing down");
 	}

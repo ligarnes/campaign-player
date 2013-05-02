@@ -26,8 +26,8 @@ import net.alteiar.shared.UniqueID;
 public class DocumentManager {
 
 	public static DocumentManager connect(String localAddress,
-			String serverAddress, String port, String permaPath)
-			throws RemoteException, MalformedURLException, NotBoundException {
+			String serverAddress, String port) throws RemoteException,
+			MalformedURLException, NotBoundException {
 		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
 				+ localAddress + " to " + serverAddress + " at " + port);
 
@@ -46,7 +46,7 @@ public class DocumentManager {
 					"Find an rmi registry object: " + remoteName);
 			if (remoteObject instanceof IServerDocument) {
 				campaign = (IServerDocument) remoteObject;
-				documentManager = new DocumentManager(campaign, permaPath);
+				documentManager = new DocumentManager(campaign);
 				break;
 			}
 		}
@@ -69,11 +69,8 @@ public class DocumentManager {
 	private final HashSet<DocumentManagerListener> listeners;
 	private final HashMap<UniqueID, DocumentClient> documents;
 	private final String campaignPath;
-	private final String permaPath;
 
-	private DocumentManager(IServerDocument server, String permaPath)
-			throws RemoteException {
-		this.permaPath = permaPath;
+	private DocumentManager(IServerDocument server) throws RemoteException {
 		documents = new HashMap<UniqueID, DocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
 		this.server = server;
@@ -154,10 +151,9 @@ public class DocumentManager {
 		}
 	}
 
-	public void createDocument(DocumentPath path, BeanEncapsulator bean,
-			Boolean perma) {
+	public void createDocument(DocumentPath path, BeanEncapsulator bean) {
 		try {
-			this.server.createDocument(path, bean, perma);
+			this.server.createDocument(path, bean);
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
@@ -169,10 +165,6 @@ public class DocumentManager {
 
 	public String getCampaignPath() {
 		return campaignPath;
-	}
-
-	public String getPermaPath() {
-		return permaPath;
 	}
 
 	public void removeDocument(UniqueID beanId) {
