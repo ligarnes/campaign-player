@@ -20,7 +20,7 @@ import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.EventManager;
 import net.alteiar.player.Player;
@@ -120,7 +120,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	private Player currentPlayer;
 	private final ArrayList<Player> players;
 
-	private final ArrayList<CharacterBean> characters;
+	private final ArrayList<Character> characters;
 
 	private final ArrayList<MapBean> battles;
 
@@ -146,7 +146,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 		// First create all local variable
 		players = new ArrayList<Player>();
-		characters = new ArrayList<CharacterBean>();
+		characters = new ArrayList<Character>();
 		battles = new ArrayList<MapBean>();
 
 		documentsBean = new ArrayList<AuthorizationBean>();
@@ -316,10 +316,10 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CharacterBean> getCharacters() {
-		List<CharacterBean> copy;
+	public List<Character> getCharacters() {
+		List<Character> copy;
 		synchronized (characters) {
-			copy = (List<CharacterBean>) characters.clone();
+			copy = (List<Character>) characters.clone();
 		}
 		return copy;
 	}
@@ -342,9 +342,9 @@ public final class CampaignClient implements DocumentManagerListener {
 				battles.add(battle);
 			}
 			notifyBattleAdded(battle);
-		} else if (Beans.isInstanceOf(bean, CharacterBean.class)) {
-			CharacterBean character = (CharacterBean) Beans.getInstanceOf(bean,
-					CharacterBean.class);
+		} else if (Beans.isInstanceOf(bean, Character.class)) {
+			Character character = (Character) Beans.getInstanceOf(bean,
+					Character.class);
 			synchronized (characters) {
 				characters.add(character);
 			}
@@ -383,9 +383,9 @@ public final class CampaignClient implements DocumentManagerListener {
 				battles.remove(battle);
 			}
 			notifyBattleRemoved(battle);
-		} else if (Beans.isInstanceOf(bean, CharacterBean.class)) {
-			CharacterBean character = (CharacterBean) Beans.getInstanceOf(bean,
-					CharacterBean.class);
+		} else if (Beans.isInstanceOf(bean, Character.class)) {
+			Character character = (Character) Beans.getInstanceOf(bean,
+					Character.class);
 			synchronized (characters) {
 				characters.remove(character);
 			}
@@ -482,13 +482,13 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
-	protected void notifyCharacterAdded(CharacterBean character) {
+	protected void notifyCharacterAdded(Character character) {
 		for (CampaignListener listener : getListeners()) {
 			listener.characterAdded(character);
 		}
 	}
 
-	protected void notifyCharacterRemoved(CharacterBean character) {
+	protected void notifyCharacterRemoved(Character character) {
 		for (CampaignListener listener : getListeners()) {
 			listener.characterRemoved(character);
 		}

@@ -1,7 +1,7 @@
 package net.alteiar;
 
 import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
 
 public class CampaignAdapter implements CampaignListener {
@@ -14,11 +14,11 @@ public class CampaignAdapter implements CampaignListener {
 	}
 
 	@Override
-	public void characterAdded(CharacterBean character) {
+	public void characterAdded(Character character) {
 	}
 
 	@Override
-	public void characterRemoved(CharacterBean character) {
+	public void characterRemoved(Character character) {
 	}
 
 	@Override

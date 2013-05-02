@@ -7,25 +7,25 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 
-import org.uispec4j.UISpec4J;
+import org.junit.Test;
 import org.uispec4j.UISpecAdapter;
-import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
 
-public class TestConnexion extends UISpecTestCase {
+public class TestConnexion /* extends UISpecTestCase */{
 
 	static {
-		UISpec4J.init();
+		// UISpec4J.init();
 	}
 
-	@Override
+	// @Override
 	protected void setUp() throws Exception {
 		// System.out.println("setup");
-		setAdapter(new testAdapter());
+		// setAdapter(new testAdapter());
 	}
 
+	@Test
 	public void testSomething() {
-		Window mainWindow = getMainWindow();
+		// Window mainWindow = getMainWindow();
 
 		// mainWindow.getButton("Ajouter").click();
 

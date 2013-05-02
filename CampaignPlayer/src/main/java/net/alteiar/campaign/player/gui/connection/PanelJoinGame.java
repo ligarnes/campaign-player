@@ -22,13 +22,6 @@ package net.alteiar.campaign.player.gui.connection;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -43,7 +36,6 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.shared.ExceptionTool;
 
 public class PanelJoinGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -82,43 +74,10 @@ public class PanelJoinGame extends PanelStartGameDialog {
 		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
 		server.setBorder(BorderFactory.createTitledBorder("Connection"));
 
-		List<String> allAdresses = new ArrayList<String>();
-
-		Enumeration<NetworkInterface> interfaces;
-		try {
-			interfaces = NetworkInterface.getNetworkInterfaces();
-
-			while (interfaces.hasMoreElements()) {
-				NetworkInterface network = interfaces.nextElement();
-
-				if (network.isUp() && !network.isLoopback()) {
-					Enumeration<InetAddress> addr = network.getInetAddresses();
-
-					while (addr.hasMoreElements()) {
-						InetAddress inet = addr.nextElement();
-
-						if (!inet.isLoopbackAddress()) {
-							if (inet instanceof Inet4Address) {
-								String address = inet.getHostAddress();
-								if (!allAdresses.contains(address)) {
-									allAdresses.add(address);
-									model.addElement(address);
-								}
-							} else if (inet instanceof Inet6Address) {
-								// for ipV6 in futur version
-							}
-						}
-					}
-				}
-			}
-		} catch (SocketException ex) {
-			ExceptionTool.showError(ex,
-					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
-		} catch (Exception ex) {
-			ExceptionTool.showError(ex,
-					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
+		List<String> allAdresses = getAddress();
+		for (String address : allAdresses) {
+			model.addElement(address);
 		}
-
 		if (allAdresses.contains(globalProp.getJoinIpLocal())) {
 			model.setSelectedItem(globalProp.getJoinIpLocal());
 		}

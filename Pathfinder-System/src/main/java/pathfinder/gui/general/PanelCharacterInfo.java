@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import pathfinder.character.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 
@@ -104,14 +104,14 @@ public class PanelCharacterInfo extends JPanel implements
 
 		CampaignClient.getInstance().addCampaignListener(new CampaignAdapter() {
 			@Override
-			public void characterAdded(CharacterBean character) {
+			public void characterAdded(Character character) {
 				PathfinderCharacter bean = CampaignClient.getInstance()
 						.getBean(character.getId());
 				comboBox.addItem(new CharacterAdapter(bean));
 			}
 
 			@Override
-			public void characterRemoved(CharacterBean character) {
+			public void characterRemoved(Character character) {
 				comboBox.removeItem(new CharacterAdapter(
 						(PathfinderCharacter) character));
 			}

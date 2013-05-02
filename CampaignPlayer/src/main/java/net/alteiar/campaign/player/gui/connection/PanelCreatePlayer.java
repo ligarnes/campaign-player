@@ -18,18 +18,19 @@ import net.alteiar.panel.PanelSelectColor;
 public class PanelCreatePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
-	//private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
+	// private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
 
 	private JTextField pseudoTextField;
 	PanelSelectColor playerColorSelector;
-	//private JButton playerColorButton;
-	//private Color playerColor;
+
+	// private JButton playerColorButton;
+	// private Color playerColor;
 
 	public PanelCreatePlayer(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 
-		//this.playerColor = DEFAULT_PLAYER_COLOR;
+		// this.playerColor = DEFAULT_PLAYER_COLOR;
 
 		initUI();
 
@@ -53,27 +54,10 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 		JPanel pseudo = new JPanel(new FlowLayout());
 		pseudo.add(new JLabel("Pseudo:"));
 		pseudo.add(pseudoTextField);
-		//playerColorButton = new JButton("Couleur");
-		// playerColorButton.setForeground(Color.BLUE);
-//		playerColorButton.setBackground(playerColor);
-//		playerColorButton.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent event) {
-//				Color chosenColor = JColorChooser
-//						.showDialog(PanelCreatePlayer.this,
-//								"Choisissez la couleur de votre personnage",
-//								Color.BLUE);
-//				if (chosenColor != null) {
-//					// playerColorButton.setForeground(playerColor);
-//					playerColor = chosenColor;
-//					playerColorButton.setBackground(chosenColor);
-//				}
-//			}
-//		});
+
 		identityPanel.add(pseudo);
 		playerColorSelector = new PanelSelectColor();
 		identityPanel.add(playerColorSelector);
-		//identityPanel.add(playerColorButton);
 
 		this.add(identityPanel);
 
@@ -86,7 +70,6 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 				createPlayer();
 			}
 		});
-		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {

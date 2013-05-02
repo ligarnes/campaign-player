@@ -24,13 +24,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -73,7 +66,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	}
 
 	private final void initGui() {
-
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -120,43 +112,10 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		serverPanel.setLayout(new BoxLayout(serverPanel, BoxLayout.Y_AXIS));
 		serverPanel.setBorder(BorderFactory.createTitledBorder("Connection"));
 
-		List<String> allAdresses = new ArrayList<String>();
-
-		Enumeration<NetworkInterface> interfaces;
-		try {
-			interfaces = NetworkInterface.getNetworkInterfaces();
-
-			while (interfaces.hasMoreElements()) {
-				NetworkInterface network = interfaces.nextElement();
-
-				if (network.isUp() && !network.isLoopback()) {
-					Enumeration<InetAddress> addr = network.getInetAddresses();
-
-					while (addr.hasMoreElements()) {
-						InetAddress inet = addr.nextElement();
-
-						if (!inet.isLoopbackAddress()) {
-							if (inet instanceof Inet4Address) {
-								String address = inet.getHostAddress();
-								if (!allAdresses.contains(address)) {
-									allAdresses.add(address);
-									localIpComboBoxModel.addElement(address);
-								}
-							} else if (inet instanceof Inet6Address) {
-								// for ipV6 in futur version
-							}
-						}
-					}
-				}
-			}
-		} catch (SocketException ex) {
-			ExceptionTool.showError(ex,
-					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
-		} catch (Exception ex) {
-			ExceptionTool.showError(ex,
-					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
+		List<String> allAdresses = getAddress();
+		for (String address : allAdresses) {
+			localIpComboBoxModel.addElement(address);
 		}
-
 		if (allAdresses.contains(globalProp.getCreateIpLocal())) {
 			localIpComboBoxModel.setSelectedItem(globalProp.getCreateIpLocal());
 		}

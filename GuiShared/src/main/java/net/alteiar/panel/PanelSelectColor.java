@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class PanelSelectColor extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private static final Color DEFAULT_PLAYER_COLOR = Color.BLUE;
 
 	private final JButton btnColorSelector;
@@ -45,10 +45,11 @@ public class PanelSelectColor extends JPanel {
 		}
 	}
 
-	public void setColor(Color color){
+	public void setColor(Color color) {
 		this.currentColor = color;
-	} 
-	
+		btnColorSelector.setIcon(Helpers.getIconColor(currentColor, 22, 22));
+	}
+
 	public Color getColor() {
 		return currentColor;
 	}

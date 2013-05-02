@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.player.Player;
 import pathfinder.character.PathfinderCharacter;
 
@@ -19,7 +19,7 @@ public class CharactersDrawable {
 
 	public void draw(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		List<CharacterBean> characters = CampaignClient.getInstance()
+		List<Character> characters = CampaignClient.getInstance()
 				.getCharacters();
 
 		AffineTransform at = new AffineTransform();
@@ -29,7 +29,7 @@ public class CharactersDrawable {
 		orinalTranslate.setToTranslation(10, 10);
 
 		g2.transform(orinalTranslate);
-		for (CharacterBean characterBean : characters) {
+		for (Character characterBean : characters) {
 			drawCharacter(g2, (PathfinderCharacter) characterBean);
 			g2.transform(at);
 		}
