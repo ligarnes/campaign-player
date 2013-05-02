@@ -2,7 +2,7 @@ package pathfinder.effect;
 
 import java.beans.Beans;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.trigger.TriggerMapArea;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
@@ -20,7 +20,7 @@ public class TriggerCharacter extends TriggerMapArea {
 	}
 
 	@Override
-	protected Boolean watch(BasicBeans bean) {
+	protected Boolean watch(BasicBean bean) {
 		if (super.watch(bean)) {
 			if (Beans.isInstanceOf(bean, PathfinderCharacterElement.class)) {
 				return true;

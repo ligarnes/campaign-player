@@ -4,7 +4,7 @@ import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 public final class EffectSuite extends Effect {
@@ -66,7 +66,7 @@ public final class EffectSuite extends Effect {
 	}
 
 	@Override
-	public void activate(BasicBeans bean) {
+	public void activate(BasicBean bean) {
 		for (UniqueID effectId : effects) {
 			Effect effect = CampaignClient.getInstance().getBean(effectId);
 			effect.activate(bean);
@@ -74,7 +74,7 @@ public final class EffectSuite extends Effect {
 	}
 
 	@Override
-	public void desactivate(BasicBeans bean) {
+	public void desactivate(BasicBean bean) {
 		for (UniqueID effectId : effects) {
 			Effect effect = CampaignClient.getInstance().getBean(effectId);
 			effect.desactivate(bean);

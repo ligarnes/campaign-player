@@ -9,7 +9,7 @@ import java.awt.Point;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.Effect;
 import net.alteiar.event.EffectSuite;
@@ -48,12 +48,12 @@ public class EffectTest extends NewCampaignTest {
 		}
 
 		@Override
-		public void activate(BasicBeans bean) {
+		public void activate(BasicBean bean) {
 			effectActivationCount++;
 		}
 
 		@Override
-		public void desactivate(BasicBeans bean) {
+		public void desactivate(BasicBean bean) {
 			effectDesactivationCount++;
 		}
 
@@ -79,12 +79,12 @@ public class EffectTest extends NewCampaignTest {
 		}
 
 		@Override
-		protected void singleActivate(BasicBeans bean) {
+		protected void singleActivate(BasicBean bean) {
 			effectActivationCount++;
 		}
 
 		@Override
-		public void desactivate(BasicBeans bean) {
+		public void desactivate(BasicBean bean) {
 			effectDesactivationCount++;
 		}
 	}

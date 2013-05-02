@@ -4,7 +4,7 @@ import java.beans.PropertyVetoException;
 import java.util.HashSet;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 
@@ -12,7 +12,7 @@ import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
-public abstract class AuthorizationBean extends BasicBeans {
+public abstract class AuthorizationBean extends BasicBean {
 	@Attribute
 	private static final long serialVersionUID = 1L;
 

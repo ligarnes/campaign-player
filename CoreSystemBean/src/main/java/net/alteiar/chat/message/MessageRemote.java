@@ -131,15 +131,4 @@ public class MessageRemote implements Serializable {
 			return false;
 		return true;
 	}
-
-	/*
-	 * @Override public void writeExternal(ObjectOutput out) throws IOException
-	 * { out.writeUTF(destinataire); out.writeUTF(expediteur);
-	 * out.writeUTF(message); }
-	 * 
-	 * @Override public void readExternal(ObjectInput in) throws IOException,
-	 * ClassNotFoundException { destinataire = in.readUTF(); expediteur =
-	 * in.readUTF(); message = in.readUTF(); }
-	 */
-
 }

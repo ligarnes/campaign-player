@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashSet;
 
-import net.alteiar.client.DocumentClient;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.server.ServerDocuments;
 
@@ -17,17 +17,17 @@ public class DocumentRemote extends UnicastRemoteObject implements
 
 	private final HashSet<IDocumentRemoteListener> listeners;
 
-	public DocumentRemote(DocumentPath path, BeanEncapsulator bean)
+	public DocumentRemote(DocumentPath path, BasicBean bean)
 			throws RemoteException {
 		super();
-		this.bean = bean;
+		this.bean = new BeanEncapsulator(bean);
 		this.path = path;
 		listeners = new HashSet<IDocumentRemoteListener>();
 	}
 
 	@Override
-	public BeanEncapsulator getBean() {
-		return bean;
+	public BasicBean getBean() {
+		return bean.getBean();
 	}
 
 	@Override
@@ -45,11 +45,6 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	@Override
 	public void closeDocument() throws RemoteException {
 		notifyDocumentClosed();
-	}
-
-	@Override
-	public DocumentClient buildProxy() throws RemoteException {
-		return new DocumentClient(this);
 	}
 
 	// ////////////////// DOCUMENT LISTENER METHODS ///////////////////////

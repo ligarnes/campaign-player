@@ -143,7 +143,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	@Override
 	public void buildDocument() {
 		ImageBean image = new ImageBean(transfertImage);
-		CampaignClient.getInstance().addBean(image, false);
+		CampaignClient.getInstance().addBean(image);
 
 		String name = textFieldName.getText();
 		Integer hp = Integer.valueOf(textFieldHp.getText());
@@ -152,7 +152,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 				image.getId());
 		character.setImage(image.getId());
 
-		CampaignClient.getInstance().addBean(character, false);
+		CampaignClient.getInstance().addBean(character);
 		transfertImage = null;
 		textFieldName.setText("");
 	}

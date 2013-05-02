@@ -3,11 +3,9 @@ package net.alteiar.server.document;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import net.alteiar.client.DocumentClient;
-import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.client.bean.BasicBean;
 
 public interface IDocumentRemote extends Remote {
-	DocumentClient buildProxy() throws RemoteException;
 
 	void addDocumentListener(IDocumentRemoteListener listener)
 			throws RemoteException;
@@ -19,7 +17,7 @@ public interface IDocumentRemote extends Remote {
 
 	void closeDocument() throws RemoteException;
 
-	BeanEncapsulator getBean() throws RemoteException;
+	BasicBean getBean() throws RemoteException;
 
 	void setBeanValue(String propertyName, Object newValue)
 			throws RemoteException;

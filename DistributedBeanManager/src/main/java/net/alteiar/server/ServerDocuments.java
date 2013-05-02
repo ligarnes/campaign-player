@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
-import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
@@ -135,8 +135,8 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public synchronized void createDocument(DocumentPath path,
-			BeanEncapsulator bean) throws RemoteException {
+	public synchronized void createDocument(DocumentPath path, BasicBean bean)
+			throws RemoteException {
 		IDocumentRemote remote = new DocumentRemote(path, bean);
 		final UniqueID id = bean.getId();
 		documents.put(id, remote);

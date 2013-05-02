@@ -8,7 +8,7 @@ import net.alteiar.CampaignClient;
 import net.alteiar.client.DocumentClient;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.trigger.Trigger;
 import net.alteiar.shared.UniqueID;
 
@@ -31,7 +31,7 @@ public class EventManager implements DocumentManagerListener {
 	}
 
 	@Override
-	public void beanAdded(BasicBeans bean) {
+	public void beanAdded(BasicBean bean) {
 		synchronized (triggers) {
 			if (Beans.isInstanceOf(bean, Trigger.class)) {
 				triggers.add(bean.getId());
@@ -49,7 +49,7 @@ public class EventManager implements DocumentManagerListener {
 	}
 
 	@Override
-	public void beanRemoved(BasicBeans bean) {
+	public void beanRemoved(BasicBean bean) {
 		synchronized (triggers) {
 			if (Beans.isInstanceOf(bean, Trigger.class)) {
 				triggers.remove(bean.getId());

@@ -94,7 +94,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	protected void loadDocumentRemote() throws Exception {
-		bean = this.remote.getBean();
+		bean = new BeanEncapsulator(remote.getBean());
 	}
 
 	public void saveLocal() throws Exception {

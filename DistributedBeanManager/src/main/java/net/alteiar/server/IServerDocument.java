@@ -22,7 +22,7 @@ package net.alteiar.server;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
@@ -42,7 +42,7 @@ public interface IServerDocument extends Remote {
 
 	String getCampaignPath() throws RemoteException;
 
-	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder)
+	void createDocument(DocumentPath path, BasicBean documentBuilder)
 			throws RemoteException;
 
 	void deleteDocument(UniqueID guid) throws RemoteException;

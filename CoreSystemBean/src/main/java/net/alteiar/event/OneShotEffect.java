@@ -1,6 +1,6 @@
 package net.alteiar.event;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 
 public abstract class OneShotEffect extends Effect {
 	private static final long serialVersionUID = 1L;
@@ -12,13 +12,13 @@ public abstract class OneShotEffect extends Effect {
 	}
 
 	@Override
-	public final void activate(BasicBeans bean) {
+	public final void activate(BasicBean bean) {
 		if (!isActivated) {
 			isActivated = true;
 			singleActivate(bean);
 		}
 	}
 
-	protected abstract void singleActivate(BasicBeans bean);
+	protected abstract void singleActivate(BasicBean bean);
 
 }

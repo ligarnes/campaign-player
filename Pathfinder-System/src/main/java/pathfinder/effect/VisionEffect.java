@@ -5,7 +5,7 @@ import java.awt.geom.Rectangle2D;
 import java.beans.Beans;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.Effect;
 import net.alteiar.map.elements.MapElement;
@@ -49,7 +49,7 @@ public class VisionEffect extends Effect {
 	}
 
 	@Override
-	public void activate(BasicBeans bean) {
+	public void activate(BasicBean bean) {
 		if (containElement()) {
 			MapBean map = CampaignClient.getInstance().getBean(mapId);
 
@@ -72,7 +72,7 @@ public class VisionEffect extends Effect {
 	}
 
 	@Override
-	public void desactivate(BasicBeans bean) {
+	public void desactivate(BasicBean bean) {
 		if (!containElement()) {
 			MapBean map = CampaignClient.getInstance().getBean(mapId);
 

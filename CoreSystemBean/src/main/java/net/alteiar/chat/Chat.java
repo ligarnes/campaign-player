@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 import net.alteiar.chat.message.ChatObject;
 import net.alteiar.chat.message.MessageRemote;
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
-public class Chat extends BasicBeans {
+public class Chat extends BasicBean {
 	@Attribute
 	private static final long serialVersionUID = 1L;
 
@@ -63,8 +63,6 @@ public class Chat extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(METH_ADD_MESSAGE_METHOD,
 					null, message);
 		} catch (PropertyVetoException e) {
-			// TODO do not care
-			// e.printStackTrace();
 		}
 	}
 

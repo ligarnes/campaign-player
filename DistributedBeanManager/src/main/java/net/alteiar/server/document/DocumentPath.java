@@ -2,7 +2,7 @@ package net.alteiar.server.document;
 
 import java.io.Serializable;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 
 public class DocumentPath implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class DocumentPath implements Serializable {
 		return validFileName;
 	}
 
-	public DocumentPath(String path, BasicBeans bean) {
+	public DocumentPath(String path, BasicBean bean) {
 		this(path, bean.getId().toString());
 	}
 

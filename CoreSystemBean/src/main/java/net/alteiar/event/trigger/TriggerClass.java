@@ -2,7 +2,7 @@ package net.alteiar.event.trigger;
 
 import java.beans.Beans;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 public abstract class TriggerClass<E> extends Trigger {
@@ -20,13 +20,13 @@ public abstract class TriggerClass<E> extends Trigger {
 	}
 
 	@Override
-	protected Boolean watch(BasicBeans bean) {
+	protected Boolean watch(BasicBean bean) {
 		return Beans.isInstanceOf(bean, typeOfActivator);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	protected void beanChanged(BasicBeans bean) {
+	protected void beanChanged(BasicBean bean) {
 		triggerPropertyChange((E) bean);
 	}
 

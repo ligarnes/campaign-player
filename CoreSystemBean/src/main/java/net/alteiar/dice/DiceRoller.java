@@ -2,9 +2,9 @@ package net.alteiar.dice;
 
 import java.beans.PropertyVetoException;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 
-public class DiceRoller extends BasicBeans {
+public class DiceRoller extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	private static String METH_ROLL_METHOD = "roll";

@@ -1,6 +1,6 @@
 package net.alteiar.client;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 
 public interface DocumentManagerListener {
 
@@ -9,7 +9,7 @@ public interface DocumentManagerListener {
 	 * 
 	 * @param bean
 	 */
-	void beanAdded(BasicBeans bean);
+	void beanAdded(BasicBean bean);
 
-	void beanRemoved(BasicBeans bean);
+	void beanRemoved(BasicBean bean);
 }

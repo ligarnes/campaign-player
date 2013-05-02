@@ -3,13 +3,13 @@ package net.alteiar.player;
 import java.awt.Color;
 import java.beans.PropertyVetoException;
 
-import net.alteiar.client.bean.BasicBeans;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.MyColor;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
-public class Player extends BasicBeans {
+public class Player extends BasicBean {
 	@Attribute
 	private static final long serialVersionUID = 1L;
 
