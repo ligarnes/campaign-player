@@ -21,7 +21,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.character.PathfinderCharacter;
 
@@ -273,7 +273,7 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		 */
 	}
 
-	public CharacterBean getCharacter() {
+	public Character getCharacter() {
 		return this.character;
 	}
 

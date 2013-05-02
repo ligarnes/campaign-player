@@ -27,7 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 
 public class PanelCreateCharacterSheet extends JPanel {
 	private static final long serialVersionUID = -2286637648122082031L;
@@ -106,7 +106,7 @@ public class PanelCreateCharacterSheet extends JPanel {
 		this.add(m_boxCache);
 	}
 
-	public CharacterBean getCharacter() throws NumberFormatException,
+	public Character getCharacter() throws NumberFormatException,
 			RemoteException {
 		return null;// CampaignClient.INSTANCE.createCharacter(m_textNom.getText());
 	}

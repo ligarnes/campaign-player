@@ -98,7 +98,7 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	}
 
 	public void saveLocal() throws Exception {
-		DocumentLoader.SaveDocument(bean.getBean(), this.path.getPath(),
+		DocumentLoader.saveDocument(bean.getBean(), this.path.getPath(),
 				this.path.getName() + ".xml");
 	}
 

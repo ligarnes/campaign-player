@@ -4,7 +4,7 @@ import java.beans.Beans;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import pathfinder.character.PathfinderCharacter;
 
 public class CharacterAdapter {
@@ -50,7 +50,7 @@ public class CharacterAdapter {
 	}
 
 	public static CharacterAdapter[] getCharacters() {
-		List<CharacterBean> character = CampaignClient.getInstance()
+		List<Character> character = CampaignClient.getInstance()
 				.getCharacters();
 		CharacterAdapter[] characterAdapters = new CharacterAdapter[character
 				.size()];

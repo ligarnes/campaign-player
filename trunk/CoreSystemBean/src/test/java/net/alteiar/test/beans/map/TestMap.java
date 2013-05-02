@@ -457,7 +457,7 @@ public class TestMap extends NewCampaignTest {
 					new int[] { 15, 15, 20, 20 }, 4);
 			filter.hidePolygon(hidePolygon);
 			targetFilter.hidePolygon(hidePolygon);
-			sleep(10);
+			sleep(50);
 
 			BufferedImage filteredShowHideImage = new BufferedImage(
 					mapFiltered.getWidth() * 1, mapFiltered.getHeight() * 1,

@@ -24,13 +24,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
 
@@ -49,7 +42,6 @@ import javax.swing.ListSelectionModel;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.shared.ExceptionTool;
 
 public class PanelLoadGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -93,41 +85,10 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
 		server.setBorder(BorderFactory.createTitledBorder("Serveur"));
 
-		List<String> allAdresses = new ArrayList<String>();
-
-		Enumeration<NetworkInterface> interfaces;
-		try {
-			interfaces = NetworkInterface.getNetworkInterfaces();
-
-			while (interfaces.hasMoreElements()) {
-				NetworkInterface network = interfaces.nextElement();
-
-				if (network.isUp() && !network.isLoopback()) {
-					Enumeration<InetAddress> addr = network.getInetAddresses();
-
-					while (addr.hasMoreElements()) {
-						InetAddress inet = addr.nextElement();
-
-						if (!inet.isLoopbackAddress()) {
-							if (inet instanceof Inet4Address) {
-								String address = inet.getHostAddress();
-								if (!allAdresses.contains(address)) {
-									allAdresses.add(address);
-									model.addElement(address);
-								}
-							} else if (inet instanceof Inet6Address) {
-								// for ipV6 in futur version
-							}
-						}
-					}
-				}
-			}
-		} catch (SocketException ex) {
-			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
-		} catch (Exception ex) {
-			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
+		List<String> allAdresses = getAddress();
+		for (String address : allAdresses) {
+			model.addElement(address);
 		}
-
 		if (allAdresses.contains(globalProp.getLoadIpLocal())) {
 			model.setSelectedItem(globalProp.getLoadIpLocal());
 		}
@@ -176,7 +137,6 @@ public class PanelLoadGame extends PanelStartGameDialog {
 				load(PATH + PanelLoadGame.this.savedGameList.getSelectedValue());
 			}
 		});
-		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
@@ -219,7 +179,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 				CampaignClient.loadCampaignServer(address, port, campaign);
 			}
 		};
-		
+
 		globalProp.setLoadPort(getPort());
 		globalProp.setLoadIpServer(getServerAddressIp());
 

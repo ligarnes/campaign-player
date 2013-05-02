@@ -29,7 +29,7 @@ public class DocumentLoader {
 		return bean;
 	}
 
-	public static File SaveDocument(BasicBean objet, String path, String name)
+	public static File saveDocument(BasicBean objet, String path, String name)
 			throws Exception {
 		File dir = new File(path, objet.getClass().getCanonicalName());
 		if (!dir.exists()) {

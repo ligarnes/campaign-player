@@ -13,7 +13,7 @@ import net.alteiar.CampaignListener;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.panel.PanelList;
 
@@ -101,10 +101,10 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 	}
 
 	@Override
-	public void characterAdded(CharacterBean character) {
+	public void characterAdded(Character character) {
 	}
 
 	@Override
-	public void characterRemoved(CharacterBean character) {
+	public void characterRemoved(Character character) {
 	}
 }

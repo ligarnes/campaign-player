@@ -4,13 +4,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.CharacterBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
-public class PathfinderCharacter extends CharacterBean {
+public class PathfinderCharacter extends Character {
 	private static final long serialVersionUID = 1L;
 
 	@Element
