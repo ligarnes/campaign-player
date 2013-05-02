@@ -14,7 +14,7 @@ import net.alteiar.campaign.player.Helpers;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.panel.PanelList;
 
 public class PanelDocumentManager extends PanelList<AuthorizationBean>
@@ -54,8 +54,8 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 			public void actionPerformed(ActionEvent e) {
 				CampaignClient.getInstance().saveGame();
 				JOptionPane.showMessageDialog(null,
-						"La campagne à bien \u00E9t\u00E9 sauvegard\u00E9", "Sauvegarde",
-						JOptionPane.INFORMATION_MESSAGE);
+						"La campagne à bien \u00E9t\u00E9 sauvegard\u00E9",
+						"Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 
@@ -93,11 +93,11 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 	}
 
 	@Override
-	public void battleAdded(Battle battle) {
+	public void battleAdded(MapBean battle) {
 	}
 
 	@Override
-	public void battleRemoved(Battle battle) {
+	public void battleRemoved(MapBean battle) {
 	}
 
 	@Override

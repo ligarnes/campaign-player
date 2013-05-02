@@ -15,7 +15,7 @@ import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 
-public class TestBenchmark {
+public class TestBenchmark extends NewCampaignTest {
 	private class Timer {
 		private Long begin;
 

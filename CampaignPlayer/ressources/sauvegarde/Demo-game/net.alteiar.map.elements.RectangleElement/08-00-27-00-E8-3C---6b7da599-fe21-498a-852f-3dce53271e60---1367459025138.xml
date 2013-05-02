@@ -1,0 +1,26 @@
+<rectangleElement serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:6b7da599-fe21-498a-852f-3dce53271e60:1367459025138</guid>
+   </id>
+   <mapId serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:92d2eb96-7444-47a6-961b-db089bcb6651:1367458946197</guid>
+   </mapId>
+   <position>
+      <x>0</x>
+      <y>0</y>
+   </position>
+   <angle>0.0</angle>
+   <hiddenForPlayer>true</hiddenForPlayer>
+   <color serialVersionUID="1">
+      <r>255</r>
+      <g>255</g>
+      <b>204</b>
+      <a>255</a>
+   </color>
+   <width class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>9.0</squareSize>
+   </width>
+   <height class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>9.0</squareSize>
+   </height>
+</rectangleElement>

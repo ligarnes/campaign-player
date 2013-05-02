@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.documents.map.Map;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.Effect;
 import net.alteiar.event.EffectSuite;
 import net.alteiar.event.OneShotEffect;
@@ -97,7 +97,7 @@ public class EffectTest extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Map map = CampaignClient.getInstance().getBean(mapId, getTimeout());
+		MapBean map = CampaignClient.getInstance().getBean(mapId, getTimeout());
 
 		MapElementSize width = new MapElementSizePixel(20.0);
 		MapElementSize height = new MapElementSizePixel(20.0);
@@ -164,7 +164,7 @@ public class EffectTest extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Map map = CampaignClient.getInstance().getBean(mapId, getTimeout());
+		MapBean map = CampaignClient.getInstance().getBean(mapId, getTimeout());
 
 		MapElementSize width = new MapElementSizePixel(20.0);
 		MapElementSize height = new MapElementSizePixel(20.0);
@@ -232,7 +232,7 @@ public class EffectTest extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Map map = CampaignClient.getInstance().getBean(mapId, getTimeout());
+		MapBean map = CampaignClient.getInstance().getBean(mapId, getTimeout());
 
 		MapElementSize width = new MapElementSizePixel(10.0);
 		MapElementSize height = new MapElementSizePixel(10.0);

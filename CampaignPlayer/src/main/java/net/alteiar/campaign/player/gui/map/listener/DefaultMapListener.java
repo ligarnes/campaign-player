@@ -18,15 +18,15 @@ import net.alteiar.campaign.player.gui.map.element.PanelCreateMapElement;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 
 public class DefaultMapListener extends ActionMapListener {
 
-	private final Battle battle;
+	private final MapBean battle;
 
 	public DefaultMapListener(MapEditableInfo mapInfo,
-			GlobalMapListener mapListener, Battle battle) {
+			GlobalMapListener mapListener, MapBean battle) {
 		super(mapInfo, mapListener);
 		this.battle = battle;
 	}

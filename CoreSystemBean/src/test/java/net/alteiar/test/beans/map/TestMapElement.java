@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.RectangleElement;
@@ -42,7 +42,7 @@ public class TestMapElement extends NewCampaignTest {
 		}
 	}
 
-	public Battle getBattle() {
+	public MapBean getBattle() {
 		Long waitingTime = 1000L;
 		return CampaignClient.getInstance().getBean(battleId, waitingTime);
 	}
@@ -133,7 +133,7 @@ public class TestMapElement extends NewCampaignTest {
 
 	@Test(timeout = 5000)
 	public void testRectangleSelection() {
-		Battle battle = getBattle();
+		MapBean battle = getBattle();
 
 		MapElementSize width = new MapElementSizePixel(20.0);
 		MapElementSize height = new MapElementSizePixel(20.0);
@@ -180,7 +180,7 @@ public class TestMapElement extends NewCampaignTest {
 
 	@Test(timeout = 5000)
 	public void testRectangle() {
-		Battle battle = getBattle();
+		MapBean battle = getBattle();
 
 		MapElementSize width = new MapElementSizePixel(20.0);
 		MapElementSize height = new MapElementSizePixel(20.0);
@@ -242,8 +242,8 @@ public class TestMapElement extends NewCampaignTest {
 	@Test(timeout = 5000)
 	public void testCircle() {
 		Long waitingTime = 1000L;
-		Battle battle = CampaignClient.getInstance().getBean(battleId,
-				waitingTime);
+		MapBean battle = CampaignClient.getInstance()
+				.getBean(battleId, waitingTime);
 
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
 		Point position = new Point(5, 5);

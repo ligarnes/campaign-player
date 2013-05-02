@@ -10,14 +10,14 @@ import java.awt.event.MouseWheelListener;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 
 public class PanelMapWithListener extends PanelBasicMap implements
 		MouseListener, MouseMotionListener, MouseWheelListener {
 	private static final long serialVersionUID = 1L;
 
-	public PanelMapWithListener(Battle map, DrawInfo drawInfo) {
+	public PanelMapWithListener(MapBean map, DrawInfo drawInfo) {
 		super(map, drawInfo);
 
 		this.addMouseListener(this);

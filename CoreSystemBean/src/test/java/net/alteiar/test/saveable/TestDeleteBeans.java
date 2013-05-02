@@ -10,15 +10,17 @@ import java.net.URL;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.image.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.test.NewCampaignTest;
 import net.alteiar.test.beans.map.TestMap;
 import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 
-public class TestDeleteBeans extends TestSaveAndLoad {
+public class TestDeleteBeans extends NewCampaignTest {
 
 	@Test
 	public void testSave() {
@@ -54,11 +56,11 @@ public class TestDeleteBeans extends TestSaveAndLoad {
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}
 
-	@Test
+	@Test(timeout = 1000)
 	public void testSaveBattle() {
-		UniqueID battle = null;
+		UniqueID battleId = null;
 		try {
-			battle = TestMap.createBattle("test-map-save",
+			battleId = TestMap.createBattle("test-map-save",
 					TestMap.getDefaultImage());
 		} catch (IOException e) {
 			fail("no exception should occur");
@@ -66,8 +68,12 @@ public class TestDeleteBeans extends TestSaveAndLoad {
 		CampaignClient.getInstance().saveGame();
 		assertEquals(1, countObjectFile(ImageBean.class));
 
-		CampaignClient.getInstance().removeBean(battle);
-		sleep(10);
+		CampaignClient.getInstance().removeBean(battleId);
+
+		MapBean b = CampaignClient.getInstance().getBean(battleId);
+		while (b != null) {
+			b = CampaignClient.getInstance().getBean(battleId);
+		}
 		CampaignClient.getInstance().saveGame();
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}

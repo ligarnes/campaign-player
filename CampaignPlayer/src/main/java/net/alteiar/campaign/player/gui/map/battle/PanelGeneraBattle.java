@@ -37,7 +37,7 @@ import net.alteiar.campaign.player.gui.map.battle.tools.PanelToolsAdventure;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
@@ -50,7 +50,7 @@ import net.alteiar.zoom.PanelMoveZoom;
 public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	private static final long serialVersionUID = 5502995543807006460L;
 
-	private final Battle battle;
+	private final MapBean battle;
 
 	private final PanelMapWithListener mapPanel;
 	private final PanelMoveZoom<PanelMapWithListener> movePanel;
@@ -58,7 +58,7 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	private Boolean fixGrid;
 	private Boolean showDistance;
 
-	public PanelGeneraBattle(final Battle battle) {
+	public PanelGeneraBattle(final MapBean battle) {
 		super();
 		this.battle = battle;
 

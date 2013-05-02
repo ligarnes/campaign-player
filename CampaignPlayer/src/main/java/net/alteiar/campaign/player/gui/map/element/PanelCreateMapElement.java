@@ -15,7 +15,7 @@ import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
-import net.alteiar.documents.map.Map;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.elements.MapElement;
 
@@ -24,7 +24,7 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 
 	private static PanelCreateMapElement mapElement = new PanelCreateMapElement();
 
-	public static void createMapElement(Map map, MapEvent event) {
+	public static void createMapElement(MapBean map, MapEvent event) {
 		DialogOkCancel<PanelCreateMapElement> dlg = new DialogOkCancel<PanelCreateMapElement>(
 				null, "Cr\u00E9er un element", true, mapElement);
 

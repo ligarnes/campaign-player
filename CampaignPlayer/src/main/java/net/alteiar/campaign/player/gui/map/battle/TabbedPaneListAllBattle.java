@@ -23,14 +23,13 @@ import javax.swing.JTabbedPane;
 
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class TabbedPaneListAllBattle extends JTabbedPane
-/* JFatTabbedPane */{
+public class TabbedPaneListAllBattle extends JTabbedPane {
 
 	private static final long serialVersionUID = -5183267274885482007L;
 
@@ -40,26 +39,25 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 				.addCampaignListener(new CampaignListener());
 
 		// Add existing battles
-		for (Battle battle : CampaignClient.getInstance().getBattles()) {
+		for (MapBean battle : CampaignClient.getInstance().getBattles()) {
 			this.addTab(battle.getDocumentName(), new PanelGeneraBattle(battle));
 		}
 	}
 
 	private class CampaignListener extends CampaignAdapter {
 		@Override
-		public void battleAdded(Battle battle) {
-			addTab(battle.getDocumentName(),
-					new PanelGeneraBattle(battle));
+		public void battleAdded(MapBean battle) {
+			addTab(battle.getDocumentName(), new PanelGeneraBattle(battle));
 		}
 
 		@Override
-		public void battleRemoved(Battle battle) {
+		public void battleRemoved(MapBean battle) {
 			removeTabAt(indexOf(battle));
 		}
 	}
 
-	public Battle getSelectedBattle() {
-		Battle battle = null;
+	public MapBean getSelectedBattle() {
+		MapBean battle = null;
 		int battleIdx = this.getSelectedIndex() - 1;
 		if (battleIdx >= 0) {
 			battle = findBattleFromName(this.getTitleAt(battleIdx));
@@ -67,16 +65,16 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		return battle;
 	}
 
-	public void setSelectedBattle(Battle battle) {
+	public void setSelectedBattle(MapBean battle) {
 		int idx = indexOf(battle);
 		if (idx >= 0) {
 			this.setSelectedIndex(idx);
 		}
 	}
 
-	private Battle findBattleFromName(String name) {
-		Battle finded = null;
-		for (Battle battle : CampaignClient.getInstance().getBattles()) {
+	private MapBean findBattleFromName(String name) {
+		MapBean finded = null;
+		for (MapBean battle : CampaignClient.getInstance().getBattles()) {
 			if (battle.getDocumentName().equals(name)) {
 				finded = battle;
 				break;
@@ -85,7 +83,7 @@ public class TabbedPaneListAllBattle extends JTabbedPane
 		return finded;
 	}
 
-	private int indexOf(Battle battle) {
+	private int indexOf(MapBean battle) {
 		int idx = -1;
 		String battleName = battle.getDocumentName();
 		for (int i = 0; i < this.getTabCount(); ++i) {

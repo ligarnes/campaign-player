@@ -22,7 +22,7 @@ import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
@@ -149,7 +149,7 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 	@Override
 	public void buildDocument() {
 		try {
-			MapFactory.createMap(textFieldMapName.getText(), new Battle(
+			MapFactory.createMap(textFieldMapName.getText(), new MapBean(
 					textFieldMapName.getText()), transfertImage);
 		} catch (IOException e) {
 			ExceptionTool.showError(e);

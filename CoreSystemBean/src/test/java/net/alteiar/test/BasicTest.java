@@ -84,4 +84,12 @@ public abstract class BasicTest {
 		}
 		base.delete();
 	}
+
+	public int countObjectFile(Class<?> classe) {
+		String campaignPath = getCampaignDirectory();
+		File objectDir = new File(campaignPath, classe.getCanonicalName());
+
+		String[] files = objectDir.list();
+		return files != null ? files.length : 0;
+	}
 }

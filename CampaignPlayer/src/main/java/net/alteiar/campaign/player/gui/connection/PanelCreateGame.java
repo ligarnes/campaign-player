@@ -49,8 +49,8 @@ import net.alteiar.panel.PanelSelectColor;
 import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateGame extends PanelStartGameDialog {
-
 	private static final long serialVersionUID = 1L;
+	private static final String PATH = "./ressources/sauvegarde/";
 
 	private JTextField gameNameTextField;
 
@@ -210,7 +210,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	}
 
 	public String getGameName() {
-		return gameNameTextField.getText();
+		return PATH + gameNameTextField.getText();
 	}
 
 	public String getLocalAdressIP() {
