@@ -14,11 +14,11 @@ import org.simpleframework.xml.Element;
 public abstract class BasicBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static final String PROP_DOCUMENT_PATH_PROPERTY = "documentPath";
 	public static final String PROP_ID_PROPERTY = "id";
 
 	protected final VetoableChangeSupport vetoableRemoteChangeSupport;
 	protected final PropertyChangeSupport propertyChangeSupport;
+
 	@Element
 	private UniqueID id;
 
@@ -29,10 +29,20 @@ public abstract class BasicBeans implements Serializable {
 		propertyChangeSupport = new PropertyChangeSupport(this);
 	}
 
+	/**
+	 * The unique id of the bean
+	 * 
+	 * @return the unique id
+	 */
 	public UniqueID getId() {
 		return this.id;
 	}
 
+	/**
+	 * this method must not be called, the id must'nt change
+	 * 
+	 * @param id
+	 */
 	public void setId(UniqueID id) {
 		UniqueID oldValue = this.id;
 		try {
@@ -42,32 +52,57 @@ public abstract class BasicBeans implements Serializable {
 			propertyChangeSupport.firePropertyChange(PROP_ID_PROPERTY,
 					oldValue, id);
 		} catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
 		}
 	}
 
 	public void beanRemoved() {
-
 	}
 
+	/**
+	 * Add a listener to all change that happen on the bean
+	 * 
+	 * @param listener
+	 */
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		propertyChangeSupport.addPropertyChangeListener(listener);
 	}
 
+	/**
+	 * Add a listener to all change that happen on a specific property of the
+	 * bean
+	 * 
+	 * @param propertyName
+	 * @param listener
+	 */
 	public void addPropertyChangeListener(String propertyName,
 			PropertyChangeListener listener) {
 		propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
 	}
 
+	/**
+	 * Remove a listener from the bean
+	 * 
+	 * @param listener
+	 */
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		propertyChangeSupport.removePropertyChangeListener(listener);
 	}
 
+	/**
+	 * Add a vetoable change listener, should'nt be use except by the framework
+	 * 
+	 * @param listener
+	 */
 	public void addVetoableChangeListener(VetoableChangeListener listener) {
 		vetoableRemoteChangeSupport.addVetoableChangeListener(listener);
 	}
 
+	/**
+	 * Remove a vetoable change listener, should'nt be use except by the
+	 * framework
+	 * 
+	 * @param listener
+	 */
 	public void removeVetoableChangeListener(VetoableChangeListener listener) {
 		vetoableRemoteChangeSupport.removeVetoableChangeListener(listener);
 	}
