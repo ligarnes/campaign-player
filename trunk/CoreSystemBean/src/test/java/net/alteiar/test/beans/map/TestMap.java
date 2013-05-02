@@ -21,8 +21,7 @@ import java.util.HashSet;
 import javax.imageio.ImageIO;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.map.Map;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.image.ImageBean;
@@ -70,7 +69,7 @@ public class TestMap extends NewCampaignTest {
 
 	public static UniqueID createBattle(String battleName, File image)
 			throws IOException {
-		Battle battleBean = new Battle(battleName);
+		MapBean battleBean = new MapBean(battleName);
 		MapFactory.createMap(battleName, battleBean, image);
 		return battleBean.getId();
 	}
@@ -91,7 +90,7 @@ public class TestMap extends NewCampaignTest {
 	@Test(timeout = 10000)
 	public void testBattleWithMapElement() {
 		Long waitingTime = 1000L;
-		Battle emptyBattle = new Battle("");
+		MapBean emptyBattle = new MapBean("");
 		assertEquals("verify emptyBattle", emptyBattle, emptyBattle);
 
 		UniqueID battleId = null;
@@ -101,8 +100,8 @@ public class TestMap extends NewCampaignTest {
 			fail("fail to create battle");
 		}
 		assertNotNull("the battle id must'nt be null", battleId);
-		Battle battle = CampaignClient.getInstance().getBean(battleId,
-				waitingTime);
+		MapBean battle = CampaignClient.getInstance()
+				.getBean(battleId, waitingTime);
 		assertNotNull("the battle should not be null", battle);
 
 		PropertyChangeListener listener = new PropertyChangeListener() {
@@ -219,7 +218,7 @@ public class TestMap extends NewCampaignTest {
 	public void testMap() {
 		Long waitingTime = 1000L;
 
-		Map emptyMap = new Map("");
+		MapBean emptyMap = new MapBean("");
 		assertEquals("verify emptyMap", emptyMap, emptyMap);
 
 		String targetName = "test battle";
@@ -230,7 +229,7 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Map map = CampaignClient.getInstance().getBean(battleId, waitingTime);
+		MapBean map = CampaignClient.getInstance().getBean(battleId, waitingTime);
 		assertEquals("Map name have a wrong name", targetName,
 				map.getDocumentName());
 
@@ -284,18 +283,7 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Battle created = CampaignClient.getInstance().getBean(battleId, 300);
-
-		// Change turn
-		int previousTurn = created.getTurn();
-		assertEquals("current turn should be 0", 0, previousTurn);
-
-		created.nextTurn();
-		sleep(10);
-
-		int currentTurn = created.getTurn();
-		assertEquals("current turn should be incremented", (previousTurn + 1),
-				currentTurn);
+		MapBean created = CampaignClient.getInstance().getBean(battleId, 300);
 
 		// Remove the battle
 		CampaignClient.getInstance().removeBean(created);
@@ -313,9 +301,9 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Battle battle1 = CampaignClient.getInstance().getBean(battleId1,
+		MapBean battle1 = CampaignClient.getInstance().getBean(battleId1,
 				waitingTime);
-		Battle battle2 = CampaignClient.getInstance().getBean(battleId2,
+		MapBean battle2 = CampaignClient.getInstance().getBean(battleId2,
 				waitingTime);
 
 		double compareZoomFactor = 2.5;
@@ -359,7 +347,7 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		Battle mapFiltered = CampaignClient.getInstance().getBean(battleId,
+		MapBean mapFiltered = CampaignClient.getInstance().getBean(battleId,
 				waitingTime);
 
 		int width = mapFiltered.getWidth();

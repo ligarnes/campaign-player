@@ -6,7 +6,7 @@ import java.beans.Beans;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.documents.map.Map;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.Effect;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
@@ -28,7 +28,7 @@ public class VisionEffect extends Effect {
 	}
 
 	protected boolean containElement() {
-		Map map = CampaignClient.getInstance().getBean(mapId);
+		MapBean map = CampaignClient.getInstance().getBean(mapId);
 
 		MapElement area = CampaignClient.getInstance().getBean(mapElement);
 
@@ -51,7 +51,7 @@ public class VisionEffect extends Effect {
 	@Override
 	public void activate(BasicBeans bean) {
 		if (containElement()) {
-			Map map = CampaignClient.getInstance().getBean(mapId);
+			MapBean map = CampaignClient.getInstance().getBean(mapId);
 
 			MapFilter filter = CampaignClient.getInstance().getBean(
 					map.getFilter());
@@ -74,7 +74,7 @@ public class VisionEffect extends Effect {
 	@Override
 	public void desactivate(BasicBeans bean) {
 		if (!containElement()) {
-			Map map = CampaignClient.getInstance().getBean(mapId);
+			MapBean map = CampaignClient.getInstance().getBean(mapId);
 
 			MapFilter filter = CampaignClient.getInstance().getBean(
 					map.getFilter());

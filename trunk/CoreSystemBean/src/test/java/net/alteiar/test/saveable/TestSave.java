@@ -3,7 +3,6 @@ package net.alteiar.test.saveable;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -11,17 +10,20 @@ import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
 import net.alteiar.image.ImageBean;
 import net.alteiar.player.Player;
-import net.alteiar.shared.UniqueID;
-import net.alteiar.test.beans.map.TestMap;
+import net.alteiar.test.NewCampaignTest;
 import net.alteiar.utils.images.WebImage;
 
 import org.junit.Test;
 
-public class TestSave extends TestSaveAndLoad {
+public class TestSave extends NewCampaignTest {
 
-	@Test
+	@Override
+	public String getCampaignName() {
+		return "test-save-campaign";
+	}
+
+	@Test(timeout = 1000)
 	public void testSave() {
-
 		CampaignClient.getInstance().saveGame();
 
 		assertEquals(1, countObjectFile(Chat.class));
@@ -30,6 +32,7 @@ public class TestSave extends TestSaveAndLoad {
 
 		CampaignClient.getInstance().getChat().talk("Hello world");
 		sleep(10);
+
 		CampaignClient.getInstance().saveGame();
 
 		ImageBean toRemove = null;
@@ -50,21 +53,19 @@ public class TestSave extends TestSaveAndLoad {
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}
 
-	@Test
-	public void testSaveBattle() {
-		UniqueID battle = null;
-		try {
-			battle = TestMap.createBattle("test-map-save",
-					TestMap.getDefaultImage());
-		} catch (IOException e) {
-			fail("no exception should occur");
-		}
-		CampaignClient.getInstance().saveGame();
-		assertEquals(1, countObjectFile(ImageBean.class));
-
-		CampaignClient.getInstance().removeBean(battle);
-		sleep(10);
-		CampaignClient.getInstance().saveGame();
-		assertEquals(0, countObjectFile(ImageBean.class));
-	}
+	/*
+	 * @Test(timeout = 1000) public void testSaveBattle() { UniqueID battle =
+	 * null; try { battle = TestMap.createBattle("test-map-save",
+	 * TestMap.getDefaultImage()); } catch (IOException e) {
+	 * fail("no exception should occur"); }
+	 * CampaignClient.getInstance().saveGame(); assertEquals(1,
+	 * countObjectFile(ImageBean.class));
+	 * 
+	 * CampaignClient.getInstance().removeBean(battle); sleep(10);
+	 * 
+	 * 
+	 * 
+	 * CampaignClient.getInstance().saveGame(); assertEquals(0,
+	 * countObjectFile(ImageBean.class)); }
+	 */
 }

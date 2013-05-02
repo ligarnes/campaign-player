@@ -17,7 +17,7 @@ import net.alteiar.campaign.player.gui.map.event.MapListener;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.tools.test.PanelZoom;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 
 public class PanelToolsAdventure extends JToolBar implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -36,7 +36,7 @@ public class PanelToolsAdventure extends JToolBar implements Observer {
 	private final ButtonGroup group;
 
 	public PanelToolsAdventure(GlobalMapListener globalListener,
-			final MapEditableInfo mapInfo, Battle battle) {
+			final MapEditableInfo mapInfo, MapBean battle) {
 		this.mapListener = globalListener;
 
 		toolListener = new ToolMapAdventureListener(mapInfo, globalListener,

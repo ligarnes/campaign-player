@@ -112,9 +112,11 @@ public class PanelJoinGame extends PanelStartGameDialog {
 				}
 			}
 		} catch (SocketException ex) {
-			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
+			ExceptionTool.showError(ex,
+					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		} catch (Exception ex) {
-			ExceptionTool.showError(ex, "Probl\u00E8me d'acces à la carte r\u00E9seaux");
+			ExceptionTool.showError(ex,
+					"Probl\u00E8me d'acces à la carte r\u00E9seaux");
 		}
 
 		if (allAdresses.contains(globalProp.getJoinIpLocal())) {
@@ -148,7 +150,6 @@ public class PanelJoinGame extends PanelStartGameDialog {
 				join();
 			}
 		});
-		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
@@ -186,9 +187,11 @@ public class PanelJoinGame extends PanelStartGameDialog {
 			@Override
 			public void run() {
 				CampaignClient.connectToServer(localAdress, serverAdress, port);
+				// save just after load
+				CampaignClient.getInstance().saveGame();
 			}
 		};
-		
+
 		globalProp.setJoinIpLocal(getLocalAdressIP());
 		globalProp.setJoinPort(getPort());
 		globalProp.setJoinIpServer(getServerAddressIp());

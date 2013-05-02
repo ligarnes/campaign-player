@@ -99,6 +99,10 @@ public class TestChat extends NewCampaignTest {
 
 	// @Test(timeout = 5000)
 	public void testChat() {
+
+		assertEquals("Pseudo should be same as player name", getPlayerName(),
+				getChat().getPseudo());
+
 		final String expectedMsg = "Salut";
 
 		Runnable sendTextMessage = new Runnable() {
@@ -114,9 +118,6 @@ public class TestChat extends NewCampaignTest {
 
 		assertEquals("the message must be the same", expectedMsg,
 				msg.getMessage());
-
-		assertEquals("Pseudo should be same as player name", getPlayerName(),
-				getChat().getPseudo());
 
 		String pseudo = "my pseudo";
 		getChat().setPseudo(pseudo);

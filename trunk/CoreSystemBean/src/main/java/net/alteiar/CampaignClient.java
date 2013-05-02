@@ -28,7 +28,7 @@ import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.CharacterBean;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.EventManager;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
@@ -132,7 +132,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	private final ArrayList<CharacterBean> characters;
 
-	private final ArrayList<Battle> battles;
+	private final ArrayList<MapBean> battles;
 
 	private final ArrayList<AuthorizationBean> documentsBean;
 
@@ -144,13 +144,12 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final ArrayList<CampaignListener> listeners;
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 
+	// this manage event
 	private final EventManager eventManager;
 
 	private CampaignClient(DocumentManager manager) {
 		this.manager = manager;
 		this.manager.addBeanListenerClient(this);
-
-		eventManager = new EventManager(manager);
 
 		listeners = new ArrayList<CampaignListener>();
 		waitBeanListeners = new HashMap<UniqueID, ArrayList<WaitBeanListener>>();
@@ -158,12 +157,17 @@ public final class CampaignClient implements DocumentManagerListener {
 		// First create all local variable
 		players = new ArrayList<Player>();
 		characters = new ArrayList<CharacterBean>();
-		battles = new ArrayList<Battle>();
+		battles = new ArrayList<MapBean>();
 
 		documentsBean = new ArrayList<AuthorizationBean>();
 
 		// Load all existing documents
 		this.manager.loadDocuments();
+
+		eventManager = new EventManager(manager);
+		if (chat != null) {
+			this.chat.setPseudo("unknow");
+		}
 	}
 
 	public String getCampaignPath() {
@@ -338,10 +342,10 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Battle> getBattles() {
-		List<Battle> copy;
+	public List<MapBean> getBattles() {
+		List<MapBean> copy;
 		synchronized (battles) {
-			copy = (List<Battle>) battles.clone();
+			copy = (List<MapBean>) battles.clone();
 		}
 		return copy;
 	}
@@ -367,8 +371,8 @@ public final class CampaignClient implements DocumentManagerListener {
 			}
 		} else if (Beans.isInstanceOf(bean, Chat.class)) {
 			chat = (Chat) Beans.getInstanceOf(bean, Chat.class);
-		} else if (Beans.isInstanceOf(bean, Battle.class)) {
-			Battle battle = (Battle) Beans.getInstanceOf(bean, Battle.class);
+		} else if (Beans.isInstanceOf(bean, MapBean.class)) {
+			MapBean battle = (MapBean) Beans.getInstanceOf(bean, MapBean.class);
 			synchronized (battles) {
 				battles.add(battle);
 			}
@@ -408,8 +412,8 @@ public final class CampaignClient implements DocumentManagerListener {
 			synchronized (players) {
 				players.remove(Beans.getInstanceOf(bean, Player.class));
 			}
-		} else if (Beans.isInstanceOf(bean, Battle.class)) {
-			Battle battle = (Battle) Beans.getInstanceOf(bean, Battle.class);
+		} else if (Beans.isInstanceOf(bean, MapBean.class)) {
+			MapBean battle = (MapBean) Beans.getInstanceOf(bean, MapBean.class);
 			synchronized (battles) {
 				battles.remove(battle);
 			}
@@ -444,7 +448,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void saveGame() {
-
 		File dir = new File(manager.getCampaignPath());
 		if (dir.exists()) {
 			deleteRecursive(dir);
@@ -561,13 +564,13 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
-	protected void notifyBattleAdded(Battle battle) {
+	protected void notifyBattleAdded(MapBean battle) {
 		for (CampaignListener listener : getListeners()) {
 			listener.battleAdded(battle);
 		}
 	}
 
-	protected void notifyBattleRemoved(Battle battle) {
+	protected void notifyBattleRemoved(MapBean battle) {
 		for (CampaignListener listener : getListeners()) {
 			listener.battleRemoved(battle);
 		}

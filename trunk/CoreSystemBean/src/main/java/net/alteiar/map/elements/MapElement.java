@@ -10,7 +10,7 @@ import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.documents.map.Map;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.Scale;
 
@@ -101,7 +101,7 @@ public abstract class MapElement extends BasicBeans {
 
 	public abstract Double getHeightPixels();
 
-	protected Map getMap() {
+	protected MapBean getMap() {
 		return CampaignClient.getInstance().getBean(mapId);
 	}
 

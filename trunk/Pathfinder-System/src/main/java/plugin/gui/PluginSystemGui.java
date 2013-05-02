@@ -18,7 +18,7 @@ import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.image.DocumentImageBean;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.elements.RectangleElement;
@@ -61,7 +61,7 @@ public class PluginSystemGui implements IPluginSystemGui {
 		try {
 			BufferedImage mapIcon = ImageIO.read(PluginSystemGui.class
 					.getResource(MAP_ICON));
-			addIconFactory(new SimpleImageIconFactory<Battle>(Battle.class,
+			addIconFactory(new SimpleImageIconFactory<MapBean>(MapBean.class,
 					mapIcon));
 		} catch (IOException e) {
 			ExceptionTool.showError(e, "Impossible de lire l'image: "

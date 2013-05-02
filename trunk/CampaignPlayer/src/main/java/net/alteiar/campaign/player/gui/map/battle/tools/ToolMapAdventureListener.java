@@ -12,7 +12,7 @@ import net.alteiar.campaign.player.gui.map.event.MapListener;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.map.listener.RescaleMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 
 public class ToolMapAdventureListener extends Observable implements MapListener {
 
@@ -21,12 +21,12 @@ public class ToolMapAdventureListener extends Observable implements MapListener 
 	};
 
 	private final MapEditableInfo mapInfo;
-	private final Battle battle;
+	private final MapBean battle;
 	private final GlobalMapListener mapListener;
 	private Tools toolState;
 
 	public ToolMapAdventureListener(MapEditableInfo mapInfo,
-			GlobalMapListener mapListener, Battle battle) {
+			GlobalMapListener mapListener, MapBean battle) {
 		toolState = Tools.ADD_ELEMENT;
 		this.mapListener = mapListener;
 		this.mapInfo = mapInfo;

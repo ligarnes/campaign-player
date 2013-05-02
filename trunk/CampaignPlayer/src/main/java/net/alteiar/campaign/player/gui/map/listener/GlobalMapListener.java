@@ -7,7 +7,7 @@ import java.awt.event.MouseWheelEvent;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
-import net.alteiar.documents.map.battle.Battle;
+import net.alteiar.documents.map.MapBean;
 
 public class GlobalMapListener implements MapListener {
 
@@ -15,7 +15,7 @@ public class GlobalMapListener implements MapListener {
 
 	private MapListener currentListener;
 
-	public GlobalMapListener(Battle battle, MapEditableInfo mapInfo) {
+	public GlobalMapListener(MapBean battle, MapEditableInfo mapInfo) {
 		defaultListener = new DefaultMapListener(mapInfo, this, battle);
 		currentListener = defaultListener;
 	}

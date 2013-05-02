@@ -46,7 +46,7 @@ import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.drawable.mouse.MouseDrawable;
 import net.alteiar.client.bean.BasicBeans;
-import net.alteiar.documents.map.Map;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.ImageUtil;
@@ -61,7 +61,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		Zoomable, ActionListener {
 	private static final long serialVersionUID = -5027864086357387475L;
 
-	protected final Map map;
+	protected final MapBean map;
 	private final List<MouseDrawable> drawables;
 	private final DrawInfo playerDraw;
 	private Double zoomFactor;
@@ -73,7 +73,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 
 	private final BufferedImage background;
 
-	public PanelBasicMap(Map map, DrawInfo draw) {
+	public PanelBasicMap(MapBean map, DrawInfo draw) {
 		super();
 		this.background = Helpers.getImage(Helpers
 				.getPathTexture("wood-texture.jpg"));
@@ -86,7 +86,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 		this.map = map;
 		this.map.addPropertyChangeListener(this);
 		MapFilter filter = CampaignClient.getInstance().getBean(
-				this.map.getFilter());
+				this.map.getFilter(), 3000);
 		filter.addPropertyChangeListener(this);
 
 		for (UniqueID elementId : this.map.getElements()) {
@@ -282,7 +282,7 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		if (Map.METH_ADD_ELEMENT_METHOD.equals(evt.getPropertyName())) {
+		if (MapBean.METH_ADD_ELEMENT_METHOD.equals(evt.getPropertyName())) {
 			final UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 
 			CampaignClient.getInstance().addWaitBeanListener(
@@ -298,7 +298,8 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 							mapChanged();
 						}
 					});
-		} else if (Map.METH_REMOVE_ELEMENT_METHOD.equals(evt.getPropertyName())) {
+		} else if (MapBean.METH_REMOVE_ELEMENT_METHOD.equals(evt
+				.getPropertyName())) {
 			UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 			MapElement mapElement = CampaignClient.getInstance().getBean(
 					mapElementId);

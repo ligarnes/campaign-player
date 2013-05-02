@@ -1,6 +1,7 @@
 package net.alteiar.test;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.player.Player;
@@ -12,7 +13,7 @@ public class LoadCampaignTest extends BasicTest {
 	private String originalName;
 
 	@Before
-	public void beforeTest() {
+	public void beforeTest() throws TimeoutException {
 		System.out.println("Setting up test");
 		String address = "127.0.0.1";
 		String port = "1099";
@@ -20,6 +21,16 @@ public class LoadCampaignTest extends BasicTest {
 		CampaignClient
 				.loadCampaignServer(address, port, getCampaignDirectory());
 
+		long before = System.currentTimeMillis();
+		int currentSize = CampaignClient.getInstance().getPlayers().size();
+		while (currentSize == 0) {
+			currentSize = CampaignClient.getInstance().getPlayers().size();
+
+			long end = System.currentTimeMillis();
+			if ((end - before) == 3000L) {
+				throw new TimeoutException("take to much time");
+			}
+		}
 		List<Player> players = CampaignClient.getInstance().getPlayers();
 		CampaignClient.getInstance().selectPlayer(players.get(0));
 		originalName = players.get(0).getName();
@@ -36,7 +47,7 @@ public class LoadCampaignTest extends BasicTest {
 			e.printStackTrace();
 		}
 
-		CampaignClient.getInstance().saveGame();
+		// CampaignClient.getInstance().saveGame();
 		CampaignClient.leaveGame();
 	}
 

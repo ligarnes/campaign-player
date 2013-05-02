@@ -1,0 +1,23 @@
+<pathfinderCharacterElement>
+   <id serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:4906b1a0-cb09-45eb-acbd-54389c14d0b0:1367459634207</guid>
+   </id>
+   <mapId serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:92d2eb96-7444-47a6-961b-db089bcb6651:1367458946197</guid>
+   </mapId>
+   <position>
+      <x>0</x>
+      <y>350</y>
+   </position>
+   <angle>0.0</angle>
+   <hiddenForPlayer>false</hiddenForPlayer>
+   <charactedId serialVersionUID="1">
+      <guid>08-00-27-00-E8-3C:c2c38f15-abef-4c5a-8654-7f46d5ab8c89:1367459613082</guid>
+   </charactedId>
+   <width class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>1.0</squareSize>
+   </width>
+   <height class="net.alteiar.utils.map.element.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>1.0</squareSize>
+   </height>
+</pathfinderCharacterElement>
