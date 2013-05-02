@@ -42,8 +42,8 @@ public interface IServerDocument extends Remote {
 
 	String getCampaignPath() throws RemoteException;
 
-	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder,
-			Boolean isPerma) throws RemoteException;
+	void createDocument(DocumentPath path, BeanEncapsulator documentBuilder)
+			throws RemoteException;
 
 	void deleteDocument(UniqueID guid) throws RemoteException;
 

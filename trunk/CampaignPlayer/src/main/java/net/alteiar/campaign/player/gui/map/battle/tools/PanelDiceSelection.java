@@ -22,9 +22,9 @@ public class PanelDiceSelection extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	int numFaces;
+	private int numFaces;
 
-	JLabel picture;
+	private JLabel picture;
 
 	public PanelDiceSelection() {
 		super(new BorderLayout());

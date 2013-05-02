@@ -100,8 +100,8 @@ public class TestMap extends NewCampaignTest {
 			fail("fail to create battle");
 		}
 		assertNotNull("the battle id must'nt be null", battleId);
-		MapBean battle = CampaignClient.getInstance()
-				.getBean(battleId, waitingTime);
+		MapBean battle = CampaignClient.getInstance().getBean(battleId,
+				waitingTime);
 		assertNotNull("the battle should not be null", battle);
 
 		PropertyChangeListener listener = new PropertyChangeListener() {
@@ -229,7 +229,8 @@ public class TestMap extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("fail to create battle");
 		}
-		MapBean map = CampaignClient.getInstance().getBean(battleId, waitingTime);
+		MapBean map = CampaignClient.getInstance().getBean(battleId,
+				waitingTime);
 		assertEquals("Map name have a wrong name", targetName,
 				map.getDocumentName());
 
@@ -247,7 +248,8 @@ public class TestMap extends NewCampaignTest {
 		map.setHeight(newHeight);
 
 		ImageBean imageBean = createBeanImage();
-		CampaignClient.getInstance().addNotPermaBean(imageBean);
+
+		CampaignClient.getInstance().addBean(imageBean);
 		UniqueID newImage = imageBean.getId();
 
 		map.setBackground(newImage);
@@ -369,7 +371,7 @@ public class TestMap extends NewCampaignTest {
 			filter.hidePolygon(new Polygon(new int[] { 5, 25, 25, 5 },
 					new int[] { 5, 5, 25, 25 }, 4));
 
-			CampaignClient.getInstance().addNotPermaBean(filter);
+			CampaignClient.getInstance().addBean(filter);
 			UniqueID filterId = filter.getId();
 
 			mapFiltered.setFilter(filterId);

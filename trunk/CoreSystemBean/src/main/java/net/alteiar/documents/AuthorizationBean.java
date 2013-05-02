@@ -70,8 +70,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
 					oldDocumentName, documentName);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -91,8 +89,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_OWNER_PROPERTY,
 					oldValue, owner);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -109,8 +105,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_MODIFIERS_PROPERTY,
 					oldValue, owners);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -127,21 +121,18 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_USERS_PROPERTY,
 					oldValue, users);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
 	public boolean isAllowedToApplyChange(Player player) {
-			return isAllowedToApplyChange(player.getId());
+		return isAllowedToApplyChange(player.getId());
 	}
 
 	public boolean isAllowedToApplyChange(UniqueID cliendId) {
 		Player player = CampaignClient.getInstance().getBean(cliendId);
-		if (player.isMj()){
+		if (player.isMj()) {
 			return true;
-		}
-		else{
+		} else {
 			return modifiers.contains(cliendId) || owner.equals(cliendId);
 		}
 	}
@@ -164,8 +155,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(METH_ADD_MODIFIER_METHOD,
 					null, playerId);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -179,8 +168,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(
 					METH_REMOVE_MODIFIER_METHOD, null, playerId);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -194,8 +181,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(METH_ADD_USER_METHOD,
 					null, playerId);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -209,8 +194,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(METH_REMOVE_USER_METHOD,
 					null, playerId);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 
@@ -227,8 +210,6 @@ public abstract class AuthorizationBean extends BasicBeans {
 			propertyChangeSupport.firePropertyChange(PROP_PUBLIC_PROPERTY,
 					oldValue, isPublic);
 		} catch (PropertyVetoException e) {
-			// TODO Remote refuse
-			// e.printStackTrace();
 		}
 	}
 }
