@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
-import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -50,10 +49,7 @@ public class MapFilter extends BasicBean {
 	}
 
 	public void showPolygon(Polygon polygon) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_SHOW_POLYGON_METHOD, null, polygon);
-
+		if (notifyRemote(METH_SHOW_POLYGON_METHOD, null, polygon)) {
 			synchronized (polygons) {
 				polygons.add(new MyPolygonFilter(polygon, false));
 			}
@@ -61,17 +57,11 @@ public class MapFilter extends BasicBean {
 
 			propertyChangeSupport.firePropertyChange(METH_SHOW_POLYGON_METHOD,
 					null, polygon);
-		} catch (PropertyVetoException e) {
-			// TODO do not care
-			// e.printStackTrace();
 		}
 	}
 
 	public void hidePolygon(Polygon polygon) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_HIDE_POLYGON_METHOD, null, polygon);
-
+		if (notifyRemote(METH_HIDE_POLYGON_METHOD, null, polygon)) {
 			synchronized (polygons) {
 				polygons.add(new MyPolygonFilter(polygon, true));
 			}
@@ -79,9 +69,6 @@ public class MapFilter extends BasicBean {
 
 			propertyChangeSupport.firePropertyChange(METH_HIDE_POLYGON_METHOD,
 					null, polygon);
-		} catch (PropertyVetoException e) {
-			// TODO do not care
-			// e.printStackTrace();
 		}
 	}
 

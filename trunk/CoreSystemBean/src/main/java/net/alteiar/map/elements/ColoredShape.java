@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.beans.PropertyVetoException;
 
 import net.alteiar.shared.MyColor;
 
@@ -38,15 +37,10 @@ public abstract class ColoredShape extends MapElement {
 
 	public void setColor(Color color) {
 		Color oldValue = this.color.getColor();
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
-					oldValue, color);
+		if (notifyRemote(PROP_COLOR_PROPERTY, oldValue, color)) {
 			this.color = new MyColor(color);
 			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 

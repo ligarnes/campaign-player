@@ -20,7 +20,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		TestMap.class, TestMapElement.class, TestNoise.class,
 		TestAuthorizableBasicBeans.class, TestUniqueId.class,
 		TestDeleteBeans.class, TestSave.class, TestLoad.class,
-		EffectTest.class, TestBenchmark.class })
+		EffectTest.class, /* TestBenchmark.class */})
 public class AllTests {
 
 }

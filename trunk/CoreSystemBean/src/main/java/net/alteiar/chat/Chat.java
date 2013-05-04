@@ -1,6 +1,5 @@
 package net.alteiar.chat;
 
-import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 
 import net.alteiar.chat.message.ChatObject;
@@ -54,15 +53,12 @@ public class Chat extends BasicBean {
 	}
 
 	public void addMessage(MessageRemote message) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_ADD_MESSAGE_METHOD, null, message);
+		if (notifyRemote(METH_ADD_MESSAGE_METHOD, null, message)) {
 			synchronized (messages) {
 				this.messages.add(message);
 			}
 			propertyChangeSupport.firePropertyChange(METH_ADD_MESSAGE_METHOD,
 					null, message);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
@@ -78,17 +74,12 @@ public class Chat extends BasicBean {
 
 	public void setMessages(ArrayList<MessageRemote> messages) {
 		ArrayList<MessageRemote> oldValue = this.messages;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_MESSAGES_PROPERTY, oldValue, messages);
+		if (notifyRemote(PROP_MESSAGES_PROPERTY, oldValue, messages)) {
 			synchronized (messages) {
 				this.messages = messages;
 			}
 			propertyChangeSupport.firePropertyChange(PROP_MESSAGES_PROPERTY,
 					oldValue, messages);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 }

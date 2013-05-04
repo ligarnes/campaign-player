@@ -1,7 +1,5 @@
 package net.alteiar.dice;
 
-import java.beans.PropertyVetoException;
-
 import net.alteiar.client.bean.BasicBean;
 
 public class DiceRoller extends BasicBean {
@@ -10,15 +8,10 @@ public class DiceRoller extends BasicBean {
 	private static String METH_ROLL_METHOD = "roll";
 
 	public void roll(Dice dice) {
-		try {
-			dice.roll();
-			this.vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_ROLL_METHOD, null, dice);
+		dice.roll();
+		if (notifyRemote(METH_ROLL_METHOD, null, dice)) {
 			this.propertyChangeSupport.firePropertyChange(METH_ROLL_METHOD,
 					null, dice);
-		} catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
 		}
 	}
 }

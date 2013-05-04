@@ -1,7 +1,6 @@
 package net.alteiar.documents.image;
 
 import java.awt.image.BufferedImage;
-import java.beans.PropertyVetoException;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
@@ -30,15 +29,10 @@ public class DocumentImageBean extends AuthorizationBean {
 
 	public void setImage(TransfertImage image) {
 		TransfertImage oldValue = this.image;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_IMAGE_PROPERTY,
-					oldValue, image);
+		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
 			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
 					oldValue, image);
-		} catch (PropertyVetoException e) {
-			// TODO do nothing, the veto is cause by the framework
-			// e.printStackTrace();
 		}
 	}
 

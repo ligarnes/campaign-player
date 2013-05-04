@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
-import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
@@ -162,15 +161,10 @@ public abstract class MapElement extends BasicBean {
 
 	public void setMapId(UniqueID mapId) {
 		UniqueID oldValue = this.mapId;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_MAP_ID_PROPERTY, oldValue, mapId);
+		if (notifyRemote(PROP_MAP_ID_PROPERTY, oldValue, mapId)) {
 			this.mapId = mapId;
 			propertyChangeSupport.firePropertyChange(PROP_MAP_ID_PROPERTY,
 					oldValue, mapId);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -180,16 +174,11 @@ public abstract class MapElement extends BasicBean {
 
 	public void setPosition(Point position) {
 		Point oldValue = this.position;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_POSITION_PROPERTY, oldValue, position);
+		if (notifyRemote(PROP_POSITION_PROPERTY, oldValue, position)) {
 			this.lastPosition = position;
 			this.position = position;
 			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
 					oldValue, position);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -199,15 +188,10 @@ public abstract class MapElement extends BasicBean {
 
 	public final void setAngle(Double angle) {
 		Double oldValue = this.angle;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_ANGLE_PROPERTY,
-					oldValue, angle);
+		if (notifyRemote(PROP_ANGLE_PROPERTY, oldValue, angle)) {
 			this.angle = angle;
 			propertyChangeSupport.firePropertyChange(PROP_ANGLE_PROPERTY,
 					oldValue, angle);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -217,15 +201,11 @@ public abstract class MapElement extends BasicBean {
 
 	public final void setHiddenForPlayer(Boolean hiddenForPlayer) {
 		Boolean oldValue = this.hiddenForPlayer;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue, hiddenForPlayer);
+		if (notifyRemote(PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue,
+				hiddenForPlayer)) {
 			this.hiddenForPlayer = hiddenForPlayer;
 			propertyChangeSupport.firePropertyChange(
 					PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue, hiddenForPlayer);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 }

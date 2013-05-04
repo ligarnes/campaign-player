@@ -16,7 +16,7 @@ public abstract class BasicBean implements Serializable {
 
 	public static final String PROP_ID_PROPERTY = "id";
 
-	protected final VetoableChangeSupport vetoableRemoteChangeSupport;
+	private final VetoableChangeSupport vetoableRemoteChangeSupport;
 	protected final PropertyChangeSupport propertyChangeSupport;
 
 	@Element
@@ -86,6 +86,20 @@ public abstract class BasicBean implements Serializable {
 	 */
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		propertyChangeSupport.removePropertyChangeListener(listener);
+	}
+
+	protected Boolean notifyRemote(String propertyName, Object oldValue,
+			Object newValue) {
+
+		Boolean authorizedChanged = true;
+		try {
+			vetoableRemoteChangeSupport.fireVetoableChange(propertyName,
+					oldValue, newValue);
+		} catch (PropertyVetoException e) {
+			authorizedChanged = false;
+		}
+
+		return authorizedChanged;
 	}
 
 	/**
