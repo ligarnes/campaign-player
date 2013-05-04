@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.beans.PropertyVetoException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.map.elements.MapElement;
@@ -143,15 +142,10 @@ public class PathfinderCharacterElement extends MapElement {
 
 	public void setWidth(MapElementSize width) {
 		MapElementSize oldValue = this.width;
-		try {
-			this.vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_WIDTH_PROPERTY, oldValue, width);
+		if (notifyRemote(PROP_WIDTH_PROPERTY, oldValue, width)) {
 			this.width = width;
 			this.propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
 					oldValue, width);
-		} catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
 		}
 	}
 
@@ -161,15 +155,10 @@ public class PathfinderCharacterElement extends MapElement {
 
 	public void setHeight(MapElementSize height) {
 		MapElementSize oldValue = this.height;
-		try {
-			this.vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_HEIGHT_PROPERTY, oldValue, height);
+		if (notifyRemote(PROP_HEIGHT_PROPERTY, oldValue, height)) {
 			this.height = height;
 			this.propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
 					oldValue, height);
-		} catch (PropertyVetoException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
 		}
 	}
 }

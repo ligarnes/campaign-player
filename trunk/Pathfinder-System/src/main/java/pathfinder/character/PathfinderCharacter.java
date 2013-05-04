@@ -13,6 +13,10 @@ import org.simpleframework.xml.Element;
 public class PathfinderCharacter extends Character {
 	private static final long serialVersionUID = 1L;
 
+	public static final String PROP_TOTAL_HP_PROPERTY = "totalHp";
+	public static final String PROP_CURRENT_HP_PROPERTY = "currentHp";
+	public static final String PROP_IMAGE_PROPERTY = "image";
+
 	@Element
 	private Integer totalHp;
 	@Element
@@ -67,7 +71,12 @@ public class PathfinderCharacter extends Character {
 	}
 
 	public void setTotalHp(Integer totalHp) {
-		this.totalHp = totalHp;
+		Integer oldValue = this.totalHp;
+		if (notifyRemote(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp)) {
+			this.totalHp = totalHp;
+			propertyChangeSupport.firePropertyChange(PROP_TOTAL_HP_PROPERTY,
+					oldValue, totalHp);
+		}
 	}
 
 	public Integer getCurrentHp() {
@@ -75,7 +84,12 @@ public class PathfinderCharacter extends Character {
 	}
 
 	public void setCurrentHp(Integer currentHp) {
-		this.currentHp = currentHp;
+		Integer oldValue = this.totalHp;
+		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {
+			this.currentHp = currentHp;
+			propertyChangeSupport.firePropertyChange(PROP_CURRENT_HP_PROPERTY,
+					oldValue, currentHp);
+		}
 	}
 
 	public UniqueID getImage() {
@@ -83,7 +97,12 @@ public class PathfinderCharacter extends Character {
 	}
 
 	public void setImage(UniqueID image) {
-		this.image = image;
+		Integer oldValue = this.totalHp;
+		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
+			this.image = image;
+			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
+					oldValue, image);
+		}
 	}
 
 	@Override
