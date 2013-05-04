@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -140,15 +139,10 @@ public class MapBean extends AuthorizationBean {
 
 	public void setWidth(Integer width) {
 		Integer oldValue = this.width;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_WIDTH_PROPERTY,
-					oldValue, width);
+		if (notifyRemote(PROP_WIDTH_PROPERTY, oldValue, width)) {
 			this.width = width;
 			propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
 					oldValue, width);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -158,15 +152,10 @@ public class MapBean extends AuthorizationBean {
 
 	public void setHeight(Integer height) {
 		Integer oldValue = this.height;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_HEIGHT_PROPERTY, oldValue, height);
+		if (notifyRemote(PROP_HEIGHT_PROPERTY, oldValue, height)) {
 			this.height = height;
 			propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
 					oldValue, height);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -176,15 +165,10 @@ public class MapBean extends AuthorizationBean {
 
 	public void setBackground(UniqueID background) {
 		UniqueID oldValue = this.backgroundId;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_BACKGROUND_PROPERTY, oldValue, background);
+		if (notifyRemote(PROP_BACKGROUND_PROPERTY, oldValue, background)) {
 			this.backgroundId = background;
 			propertyChangeSupport.firePropertyChange(PROP_BACKGROUND_PROPERTY,
 					oldValue, background);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -194,15 +178,10 @@ public class MapBean extends AuthorizationBean {
 
 	public void setFilter(UniqueID filter) {
 		UniqueID oldValue = this.filterId;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_FILTER_PROPERTY, oldValue, filter);
+		if (notifyRemote(PROP_FILTER_PROPERTY, oldValue, filter)) {
 			this.filterId = filter;
 			propertyChangeSupport.firePropertyChange(PROP_FILTER_PROPERTY,
 					oldValue, filter);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -212,15 +191,10 @@ public class MapBean extends AuthorizationBean {
 
 	public void setScale(Scale scale) {
 		Scale oldValue = this.scale;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_SCALE_PROPERTY,
-					oldValue, scale);
+		if (notifyRemote(PROP_SCALE_PROPERTY, oldValue, scale)) {
 			this.scale = scale;
 			propertyChangeSupport.firePropertyChange(PROP_SCALE_PROPERTY,
 					oldValue, scale);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -235,45 +209,30 @@ public class MapBean extends AuthorizationBean {
 
 	public void setElements(HashSet<UniqueID> elements) {
 		HashSet<UniqueID> oldValue = this.elements;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_ELEMENTS_PROPERTY, oldValue, elements);
+		if (notifyRemote(PROP_ELEMENTS_PROPERTY, oldValue, elements)) {
 			this.elements = elements;
 			propertyChangeSupport.firePropertyChange(PROP_ELEMENTS_PROPERTY,
 					oldValue, elements);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
 	public void addElement(UniqueID elementId) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_ADD_ELEMENT_METHOD, null, elementId);
+		if (notifyRemote(METH_ADD_ELEMENT_METHOD, null, elementId)) {
 			synchronized (elements) {
 				this.elements.add(elementId);
 			}
 			propertyChangeSupport.firePropertyChange(METH_ADD_ELEMENT_METHOD,
 					null, elementId);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
 	public void removeElement(UniqueID elementId) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_REMOVE_ELEMENT_METHOD, null, elementId);
+		if (notifyRemote(METH_REMOVE_ELEMENT_METHOD, null, elementId)) {
 			synchronized (elements) {
 				this.elements.remove(elementId);
 			}
 			propertyChangeSupport.firePropertyChange(
 					METH_REMOVE_ELEMENT_METHOD, null, elementId);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 

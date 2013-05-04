@@ -1,6 +1,5 @@
 package net.alteiar.documents;
 
-import java.beans.PropertyVetoException;
 import java.util.HashSet;
 
 import net.alteiar.CampaignClient;
@@ -16,7 +15,7 @@ public abstract class AuthorizationBean extends BasicBean {
 	@Attribute
 	private static final long serialVersionUID = 1L;
 
-	public static final String PROP_NAME_PROPERTY = "name";
+	public static final String PROP_DOCUMENT_NAME_PROPERTY = "documentName";
 
 	public static final String PROP_OWNER_PROPERTY = "owner";
 	public static final String PROP_MODIFIERS_PROPERTY = "modifiers";
@@ -62,14 +61,11 @@ public abstract class AuthorizationBean extends BasicBean {
 	}
 
 	public void setDocumentName(String documentName) {
-		String oldDocumentName = documentName;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_NAME_PROPERTY,
-					oldDocumentName, documentName);
+		String oldValue = documentName;
+		if (notifyRemote(PROP_DOCUMENT_NAME_PROPERTY, oldValue, documentName)) {
 			this.documentName = documentName;
-			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
-					oldDocumentName, documentName);
-		} catch (PropertyVetoException e) {
+			propertyChangeSupport.firePropertyChange(
+					PROP_DOCUMENT_NAME_PROPERTY, oldValue, documentName);
 		}
 	}
 
@@ -82,13 +78,10 @@ public abstract class AuthorizationBean extends BasicBean {
 			throw new NullPointerException("The owner could'nt be null");
 		}
 		UniqueID oldValue = this.owner;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_OWNER_PROPERTY,
-					oldValue, owner);
+		if (notifyRemote(PROP_OWNER_PROPERTY, oldValue, owner)) {
 			this.owner = owner;
 			propertyChangeSupport.firePropertyChange(PROP_OWNER_PROPERTY,
 					oldValue, owner);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
@@ -98,13 +91,10 @@ public abstract class AuthorizationBean extends BasicBean {
 
 	public void setModifiers(HashSet<UniqueID> owners) {
 		HashSet<UniqueID> oldValue = this.modifiers;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_MODIFIERS_PROPERTY, oldValue, owners);
+		if (notifyRemote(PROP_MODIFIERS_PROPERTY, oldValue, owners)) {
 			this.modifiers = owners;
 			propertyChangeSupport.firePropertyChange(PROP_MODIFIERS_PROPERTY,
 					oldValue, owners);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
@@ -114,13 +104,10 @@ public abstract class AuthorizationBean extends BasicBean {
 
 	public void setUsers(HashSet<UniqueID> users) {
 		HashSet<UniqueID> oldValue = this.users;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_USERS_PROPERTY,
-					oldValue, users);
+		if (notifyRemote(PROP_USERS_PROPERTY, oldValue, users)) {
 			this.users = users;
 			propertyChangeSupport.firePropertyChange(PROP_USERS_PROPERTY,
 					oldValue, users);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
@@ -146,54 +133,42 @@ public abstract class AuthorizationBean extends BasicBean {
 	}
 
 	public void addModifier(UniqueID playerId) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_ADD_MODIFIER_METHOD, null, playerId);
+		if (notifyRemote(METH_ADD_MODIFIER_METHOD, null, playerId)) {
 			synchronized (modifiers) {
 				modifiers.add(playerId);
 			}
 			propertyChangeSupport.firePropertyChange(METH_ADD_MODIFIER_METHOD,
 					null, playerId);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
 	public void removeModifier(UniqueID playerId) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_REMOVE_MODIFIER_METHOD, null, playerId);
+		if (notifyRemote(METH_REMOVE_MODIFIER_METHOD, null, playerId)) {
 			synchronized (modifiers) {
 				modifiers.remove(playerId);
 			}
 			propertyChangeSupport.firePropertyChange(
 					METH_REMOVE_MODIFIER_METHOD, null, playerId);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
 	public void addUser(UniqueID playerId) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_ADD_USER_METHOD, null, playerId);
+		if (notifyRemote(METH_ADD_USER_METHOD, null, playerId)) {
 			synchronized (users) {
 				users.add(playerId);
 			}
 			propertyChangeSupport.firePropertyChange(METH_ADD_USER_METHOD,
 					null, playerId);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
 	public void removeUser(UniqueID playerId) {
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					METH_REMOVE_USER_METHOD, null, playerId);
+		if (notifyRemote(METH_REMOVE_USER_METHOD, null, playerId)) {
 			synchronized (users) {
 				users.remove(playerId);
 			}
 			propertyChangeSupport.firePropertyChange(METH_REMOVE_USER_METHOD,
 					null, playerId);
-		} catch (PropertyVetoException e) {
 		}
 	}
 
@@ -203,13 +178,10 @@ public abstract class AuthorizationBean extends BasicBean {
 
 	public void setPublic(Boolean isPublic) {
 		Boolean oldValue = this.isPublic;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_PUBLIC_PROPERTY, oldValue, isPublic);
+		if (notifyRemote(PROP_PUBLIC_PROPERTY, oldValue, isPublic)) {
 			this.isPublic = isPublic;
 			propertyChangeSupport.firePropertyChange(PROP_PUBLIC_PROPERTY,
 					oldValue, isPublic);
-		} catch (PropertyVetoException e) {
 		}
 	}
 }

@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
-import java.beans.PropertyVetoException;
 
 import net.alteiar.utils.map.element.MapElementSize;
 
@@ -70,15 +69,10 @@ public class CircleElement extends ColoredShape {
 
 	public void setRadius(MapElementSize radius) {
 		MapElementSize oldValue = this.radius;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_RADIUS_PROPERTY, oldValue, radius);
+		if (notifyRemote(PROP_RADIUS_PROPERTY, oldValue, radius)) {
 			this.radius = radius;
 			propertyChangeSupport.firePropertyChange(PROP_RADIUS_PROPERTY,
 					oldValue, radius);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 

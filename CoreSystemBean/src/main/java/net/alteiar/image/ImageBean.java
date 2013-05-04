@@ -1,18 +1,14 @@
 package net.alteiar.image;
 
 import java.awt.image.BufferedImage;
-import java.beans.PropertyVetoException;
-
 import java.io.IOException;
-
-
-
-import org.simpleframework.xml.Element;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.images.TransfertImage;
+
+import org.simpleframework.xml.Element;
 
 public class ImageBean extends BasicBean {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +22,7 @@ public class ImageBean extends BasicBean {
 	}
 
 	public ImageBean() {
-		image=null;
+		image = null;
 	}
 
 	public TransfertImage getImage() {
@@ -35,15 +31,10 @@ public class ImageBean extends BasicBean {
 
 	public void setImage(TransfertImage image) {
 		TransfertImage oldValue = this.image;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_IMAGE_PROPERTY,
-					oldValue, image);
+		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
 			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
 					oldValue, image);
-		} catch (PropertyVetoException e) {
-			// TODO do nothing, the veto is cause by the framework
-			// e.printStackTrace();
 		}
 	}
 

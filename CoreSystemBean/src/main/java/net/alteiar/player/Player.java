@@ -1,7 +1,6 @@
 package net.alteiar.player;
 
 import java.awt.Color;
-import java.beans.PropertyVetoException;
 
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.MyColor;
@@ -45,15 +44,10 @@ public class Player extends BasicBean {
 
 	public void setName(String name) {
 		String oldValue = this.name;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_NAME_PROPERTY,
-					oldValue, name);
+		if (notifyRemote(PROP_NAME_PROPERTY, oldValue, name)) {
 			this.name = name;
 			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
 					oldValue, name);
-		} catch (PropertyVetoException e) {
-			// TODO do nothing, the veto is cause by the framework
-			// e.printStackTrace();
 		}
 	}
 
@@ -63,15 +57,10 @@ public class Player extends BasicBean {
 
 	public void setMj(Boolean mj) {
 		Boolean oldValue = this.mj;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_MJ_PROPERTY,
-					oldValue, mj);
+		if (notifyRemote(PROP_MJ_PROPERTY, oldValue, mj)) {
 			this.mj = mj;
 			propertyChangeSupport.firePropertyChange(PROP_MJ_PROPERTY,
 					oldValue, mj);
-		} catch (PropertyVetoException e) {
-			// TODO do nothing, the veto is cause by the framework
-			// e.printStackTrace();
 		}
 	}
 
@@ -81,15 +70,10 @@ public class Player extends BasicBean {
 
 	public void setColor(Color color) {
 		Color oldValue = this.color.getColor();
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_COLOR_PROPERTY,
-					oldValue, color);
+		if (notifyRemote(PROP_COLOR_PROPERTY, oldValue, color)) {
 			this.color = new MyColor(color);
 			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
 					oldValue, color);
-		} catch (PropertyVetoException e) {
-			// TODO do nothing, the veto is cause by the framework
-			// e.printStackTrace();
 		}
 	}
 
@@ -99,15 +83,10 @@ public class Player extends BasicBean {
 
 	public void setConnected(Boolean connected) {
 		Boolean oldValue = this.connected;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_CONNECTED_PROPERTY, oldValue, connected);
+		if (notifyRemote(PROP_CONNECTED_PROPERTY, oldValue, connected)) {
 			this.connected = connected;
 			propertyChangeSupport.firePropertyChange(PROP_CONNECTED_PROPERTY,
 					oldValue, connected);
-		} catch (PropertyVetoException e) {
-			// TODO do nothing, the veto is cause by the framework
-			// e.printStackTrace();
 		}
 	}
 

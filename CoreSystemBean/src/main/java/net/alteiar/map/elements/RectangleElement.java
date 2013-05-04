@@ -23,7 +23,6 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
-import java.beans.PropertyVetoException;
 import java.rmi.RemoteException;
 
 import net.alteiar.utils.map.element.MapElementSize;
@@ -97,15 +96,10 @@ public class RectangleElement extends ColoredShape {
 
 	public void setWidth(MapElementSize width) {
 		MapElementSize oldValue = this.width;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_WIDTH_PROPERTY,
-					oldValue, width);
+		if (notifyRemote(PROP_WIDTH_PROPERTY, oldValue, width)) {
 			this.width = width;
 			propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
 					oldValue, width);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
@@ -115,15 +109,10 @@ public class RectangleElement extends ColoredShape {
 
 	public void setHeight(MapElementSize height) {
 		MapElementSize oldValue = this.height;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(
-					PROP_HEIGHT_PROPERTY, oldValue, height);
+		if (notifyRemote(PROP_HEIGHT_PROPERTY, oldValue, height)) {
 			this.height = height;
 			propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
 					oldValue, height);
-		} catch (PropertyVetoException e) {
-			// TODO
-			// e.printStackTrace();
 		}
 	}
 
