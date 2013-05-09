@@ -1,9 +1,13 @@
 package net.alteiar.campaign.player.gui.players;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -29,6 +33,25 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 	private final Player player;
 	private final JLabel btnPresence;
 
+	private static ImageIcon generatePlayerColor(Player p) {
+		String iconPath = Helpers.getPathIcons(IMAGE_ICON);
+		BufferedImage img = Helpers.getImage(iconPath);
+
+		Graphics2D g = (Graphics2D) img.getGraphics();
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
+
+		g.setColor(p.getColor());
+		g.fillOval(20, 20, 8, 8);
+
+		g.setColor(Color.BLACK);
+		g.drawOval(20, 20, 8, 8);
+
+		g.dispose();
+
+		return new ImageIcon(img);
+	}
+
 	public PlayerPanel(Player bean) {
 		this.setBackground(UiHelper.BACKGROUND_COLOR);
 		this.player = bean;
@@ -39,15 +62,15 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 		setMaximumSize(new Dimension(32767, 35));
 		setBorder(new LineBorder(UiHelper.BORDER_COLOR, 2));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 50, 0, 40, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 50, 0, 40, 0 };
 		gridBagLayout.rowHeights = new int[] { 35, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0,
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
 		lblAvatar = new JLabel();
-		lblAvatar.setIcon(Helpers.getIcon(IMAGE_ICON));
+		lblAvatar.setIcon(generatePlayerColor(player));
 
 		GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
 		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
@@ -72,7 +95,6 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 		btnPresence.setMaximumSize(new Dimension(32, 32));
 		btnPresence.setIcon(getCurrentState());
 		GridBagConstraints gbc_btnShared = new GridBagConstraints();
-		gbc_btnShared.insets = new Insets(0, 0, 0, 5);
 		gbc_btnShared.gridx = 2;
 		gbc_btnShared.gridy = 0;
 		add(btnPresence, gbc_btnShared);

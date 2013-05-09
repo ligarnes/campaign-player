@@ -22,7 +22,6 @@ import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
-import net.alteiar.event.EventManager;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentLoader;
@@ -135,7 +134,8 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 
 	// this manage event
-	private final EventManager eventManager;
+	// TODO desactivate it for the moment
+	// private final EventManager eventManager;
 
 	private CampaignClient(DocumentManager manager) {
 		this.manager = manager;
@@ -154,7 +154,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		// Load all existing documents
 		this.manager.loadDocuments();
 
-		eventManager = new EventManager(manager);
+		// eventManager = new EventManager(manager);
 		if (chat != null) {
 			this.chat.setPseudo("unknow");
 		}

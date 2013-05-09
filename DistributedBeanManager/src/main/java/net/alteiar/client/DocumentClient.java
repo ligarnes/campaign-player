@@ -29,8 +29,9 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		this.path = remote.getPath();
 	}
 
-	public void remoteValueChanged(String propertyName, Object newValue) {
-		bean.valueChange(propertyName, newValue);
+	public void remoteValueChanged(String propertyName, Object newValue,
+			Long timestamp) {
+		bean.valueChange(propertyName, newValue, timestamp);
 	}
 
 	@Override
@@ -111,9 +112,9 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 
 		@Override
-		public void beanValueChanged(String propertyName, Object newValue)
-				throws RemoteException {
-			remoteValueChanged(propertyName, newValue);
+		public void beanValueChanged(String propertyName, Object newValue,
+				long timestamp) throws RemoteException {
+			remoteValueChanged(propertyName, newValue, timestamp);
 		}
 
 		@Override

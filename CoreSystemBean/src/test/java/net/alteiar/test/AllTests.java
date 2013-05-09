@@ -6,7 +6,6 @@ import net.alteiar.test.beans.TestPlayer;
 import net.alteiar.test.beans.map.TestMap;
 import net.alteiar.test.beans.map.TestMapElement;
 import net.alteiar.test.beans.map.TestNoise;
-import net.alteiar.test.event.EffectTest;
 import net.alteiar.test.saveable.TestDeleteBeans;
 import net.alteiar.test.saveable.TestLoad;
 import net.alteiar.test.saveable.TestSave;
@@ -20,7 +19,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		TestMap.class, TestMapElement.class, TestNoise.class,
 		TestAuthorizableBasicBeans.class, TestUniqueId.class,
 		TestDeleteBeans.class, TestSave.class, TestLoad.class,
-		EffectTest.class, /* TestBenchmark.class */})
+/* EffectTest.class, *//* TestBenchmark.class */})
 public class AllTests {
-
+	// Effects have been desactivated
 }

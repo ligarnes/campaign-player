@@ -1,0 +1,25 @@
+<mapBean serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4aed8522-7454-4bf8-8fe5-e61c9468c4fb:1368057553016</guid>
+   </id>
+   <documentName>Donjon rouge</documentName>
+   <owner serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:88169f64-41d9-493b-9b87-eb9092027e40:1368054868256</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>true</isPublic>
+   <width>700</width>
+   <height>700</height>
+   <elements/>
+   <backgroundId serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e17baacf-90fd-47e2-8fdf-3b6bd9bf55a5:1368057553031</guid>
+   </backgroundId>
+   <filterId serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cbf01a8c-a0a3-489a-8301-a7c9657a7647:1368057553041</guid>
+   </filterId>
+   <scale>
+      <pixels>70</pixels>
+      <metre>1.5</metre>
+   </scale>
+</mapBean>
