@@ -44,7 +44,15 @@
         <artifactId>maven-surefire-report-plugin</artifactId>
         <version>2.14.1</version>
         <configuration>
+          <locales>fr</locales>
+          <report>index</report>
+          <report>dependencies</report>
+          <report>project-team</report>
+          <report>mailing-list</report>
+          <report>license</report>
+          
           <showSuccess>true</showSuccess>
+          
         </configuration>
        </plugin>
     </plugins>
@@ -52,6 +60,15 @@
   
   <build> 
     <plugins> 
+    
+    	 <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <locales>en,fr</locales>
+        </configuration>
+      </plugin>
+      
      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -85,6 +102,52 @@
       </plugin> --> 
     </plugins> 
   </build>
+  
+  
+   <mailingLists>
+   		<mailingList>
+      		<name>SVN-commit</name>
+      		<subscribe>campaign-player-svn@googlegroups.com</subscribe>
+     	</mailingList>
+     	
+     	<mailingList>
+      		<name>développeur</name>
+      		<subscribe>todo@todo.com</subscribe>
+     	</mailingList>
+   </mailingLists>
+  <!-- List the core committers -->
+    <developers>
+      <developer>
+        <id>0</id>
+        <name>Cody Stoutenburg Tardieu</name>
+        <!-- <organizationUrl>http://www.alteiar.net</organizationUrl> -->
+        <roles>
+          <role>developer</role>
+        </roles>
+        <timezone>-4</timezone>
+      </developer>
+      
+      <developer>
+        <id>1</id>
+        <name>Sylvain Goulet</name>
+       <!--  <organizationUrl>http://www.alteiar.net</organizationUrl> -->
+        <roles>
+          <role>développeur</role>
+        </roles>
+        <timezone>-4</timezone>
+      </developer>
+    </developers>
+    
+    <!-- Contributors -->
+    <contributors>
+        <contributor>
+            <name>Cae Fernandes</name>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-4</timezone>
+        </contributor>
+     </contributors>
   
 
 

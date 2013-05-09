@@ -4,19 +4,18 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.map.elements.CircleElement;
-import pathfinder.effect.TrapBuilder;
+import net.alteiar.utils.map.Scale;
+import net.alteiar.utils.map.element.MapElementSize;
 
 public class PanelCircleEditor extends PanelMapElementEditor<CircleElement> {
 	private static final long serialVersionUID = 1L;
 
 	private final PanelElementSize panelRadius;
-	private final JCheckBox chckbxFireTrap;
 
 	public PanelCircleEditor(CircleElement mapElement) {
 		super(mapElement);
@@ -44,31 +43,29 @@ public class PanelCircleEditor extends PanelMapElementEditor<CircleElement> {
 		gbc_panelRadius.gridy = 0;
 		add(panelRadius, gbc_panelRadius);
 
-		chckbxFireTrap = new JCheckBox("fire trap");
-		GridBagConstraints gbc_chckbxFireTrap = new GridBagConstraints();
-		gbc_chckbxFireTrap.insets = new Insets(0, 0, 0, 5);
-		gbc_chckbxFireTrap.gridx = 1;
-		gbc_chckbxFireTrap.gridy = 1;
-		add(chckbxFireTrap, gbc_chckbxFireTrap);
 	}
 
 	@Override
 	public Boolean isDataValid() {
-		return true;
+		Boolean isValid = true;
+		try {
+			MapElementSize size = panelRadius.getMapElementSize(0);
+			size.getPixels(new Scale());
+		} catch (Exception ex) {
+			isValid = false;
+		}
+
+		return isValid;
 	}
 
 	@Override
 	public String getInvalidMessage() {
-		return "";
+		return "le rayon est invalide";
 	}
 
 	@Override
 	public void applyModification() {
 		CircleElement circleElement = getMapElement();
 		circleElement.setRadius(panelRadius.getMapElementSize(0));
-
-		if (chckbxFireTrap.isSelected()) {
-			TrapBuilder.buildFireTrap(circleElement);
-		}
 	}
 }

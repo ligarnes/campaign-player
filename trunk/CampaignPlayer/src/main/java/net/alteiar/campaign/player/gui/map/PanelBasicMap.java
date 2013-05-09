@@ -303,7 +303,10 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 			UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 			MapElement mapElement = CampaignClient.getInstance().getBean(
 					mapElementId);
-			mapElement.removePropertyChangeListener(this);
+
+			if (mapElement != null) {
+				mapElement.removePropertyChangeListener(this);
+			}
 			mapChanged();
 		} else {
 			mapChanged();

@@ -11,7 +11,9 @@ import java.beans.PropertyDescriptor;
 import java.beans.PropertyVetoException;
 import java.beans.VetoableChangeListener;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import net.alteiar.shared.UniqueID;
 
@@ -20,10 +22,12 @@ public class BeanEncapsulator implements VetoableChangeListener {
 	private final BasicBean bean;
 
 	private final ArrayList<BeanChange> changed;
+	private transient HashMap<String, Long> propertyTimestamp;
 
 	public BeanEncapsulator(BasicBean bean) {
 		this.bean = bean;
 		propertyChangeSupportRemote = new PropertyChangeSupport(this);
+		propertyTimestamp = new HashMap<String, Long>();
 
 		changed = new ArrayList<BeanChange>();
 		this.bean.addVetoableChangeListener(this);
@@ -45,7 +49,18 @@ public class BeanEncapsulator implements VetoableChangeListener {
 	 * @param propertyName
 	 * @param newValue
 	 */
-	public void valueChange(String propertyName, Object newValue) {
+	public void valueChange(String propertyName, Object newValue, Long timestamp) {
+		Long previous = propertyTimestamp.get(propertyName);
+
+		if (previous != null) {
+			Timestamp prev = new Timestamp(previous);
+			Timestamp current = new Timestamp(timestamp);
+			if (!prev.after(current)) {
+				System.out.println("change inversion");
+				return;
+			}
+		}
+
 		synchronized (changed) {
 			changed.add(new BeanChange(propertyName, newValue));
 		}

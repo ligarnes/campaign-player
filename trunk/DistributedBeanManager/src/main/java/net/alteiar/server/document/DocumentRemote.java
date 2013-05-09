@@ -2,6 +2,7 @@ package net.alteiar.server.document;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Date;
 import java.util.HashSet;
 
 import net.alteiar.client.bean.BasicBean;
@@ -38,8 +39,9 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	@Override
 	public void setBeanValue(String propertyName, Object newValue)
 			throws RemoteException {
-		bean.valueChange(propertyName, newValue);
-		notifyBeanChanged(propertyName, newValue);
+		Long timestamp = new Date().getTime();
+		bean.valueChange(propertyName, newValue, timestamp);
+		notifyBeanChanged(propertyName, newValue, timestamp);
 	}
 
 	@Override
@@ -74,13 +76,14 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	}
 
 	protected void notifyBeanChanged(final String propertyName,
-			final Object newValue) {
+			final Object newValue, final long timestamp) {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
 			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
 				@Override
 				public void run() {
 					try {
-						listener.beanValueChanged(propertyName, newValue);
+						listener.beanValueChanged(propertyName, newValue,
+								timestamp);
 					} catch (RemoteException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

@@ -4,13 +4,13 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
 import net.alteiar.map.elements.RectangleElement;
-import pathfinder.effect.TrapBuilder;
+import net.alteiar.utils.map.Scale;
+import net.alteiar.utils.map.element.MapElementSize;
 
 public class PanelRectangleEditor extends
 		PanelMapElementEditor<RectangleElement> {
@@ -18,7 +18,6 @@ public class PanelRectangleEditor extends
 
 	private final PanelElementSize panelWidth;
 	private final PanelElementSize panelHeight;
-	private final JCheckBox chckbxVision;
 
 	public PanelRectangleEditor(RectangleElement mapElement) {
 		super(mapElement);
@@ -62,23 +61,26 @@ public class PanelRectangleEditor extends
 		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 1;
 		add(panelHeight, gbc_panel_1);
-
-		chckbxVision = new JCheckBox("Vision");
-		GridBagConstraints gbc_chckbxVision = new GridBagConstraints();
-		gbc_chckbxVision.insets = new Insets(0, 0, 0, 5);
-		gbc_chckbxVision.gridx = 1;
-		gbc_chckbxVision.gridy = 2;
-		add(chckbxVision, gbc_chckbxVision);
 	}
 
 	@Override
 	public Boolean isDataValid() {
-		return true;
+		Boolean isValid = true;
+		try {
+			MapElementSize size = panelWidth.getMapElementSize(0);
+			size.getPixels(new Scale());
+			size = panelHeight.getMapElementSize(0);
+			size.getPixels(new Scale());
+		} catch (Exception ex) {
+			isValid = false;
+		}
+
+		return isValid;
 	}
 
 	@Override
 	public String getInvalidMessage() {
-		return "";
+		return "La hauteur ou la largueur est invalide";
 	}
 
 	@Override
@@ -86,9 +88,5 @@ public class PanelRectangleEditor extends
 		RectangleElement characterElement = getMapElement();
 		characterElement.setWidth(panelWidth.getMapElementSize(0));
 		characterElement.setHeight(panelHeight.getMapElementSize(0));
-
-		if (chckbxVision.isSelected()) {
-			TrapBuilder.buildVision(characterElement);
-		}
 	}
 }
