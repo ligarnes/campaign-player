@@ -7,11 +7,63 @@
   <version>1.0-SNAPSHOT</version>
   <name>Core System Bean</name>
   <url>http://www.alteiar.net</url>
+   <description>This project contain all core bean of the application and use the DistributedBeanManager</description>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
+  
+     <mailingLists>
+   		<mailingList>
+      		<name>SVN-commit</name>
+      		<subscribe>campaign-player-svn@googlegroups.com</subscribe>
+      		<unsubscribe>campaign-player-svn@googlegroups.com</unsubscribe>
+     	</mailingList>
+     	
+     	<mailingList>
+      		<name>développeur</name>
+      		<subscribe>todo@todo.com</subscribe>
+      		<unsubscribe>todo@todo.com</unsubscribe>
+     	</mailingList>
+   </mailingLists>
+   
+  <!-- List the core committers -->
+    <developers>
+      <developer>
+        <id>0</id>
+        <name>Cody Stoutenburg Tardieu</name>
+        <!-- <organizationUrl>http://www.alteiar.net</organizationUrl> -->
+        <roles>
+          <role>developer</role>
+        </roles>
+        <timezone>-4</timezone>
+      </developer>
+      
+      <developer>
+        <id>1</id>
+        <name>Sylvain Goulet</name>
+       <!--  <organizationUrl>http://www.alteiar.net</organizationUrl> -->
+        <roles>
+          <role>développeur</role>
+        </roles>
+        <timezone>-4</timezone>
+      </developer>
+    </developers>
+    
+    <!-- Contributors -->
+    <contributors>
+        <contributor>
+            <name></name>
+            <roles>
+                <role></role>
+            </roles>
+            <timezone>-4</timezone>
+        </contributor>
+     </contributors>
+     
+     
+  <!-- DEPENDENCIES -->
   <dependencies>
 
     <dependency>
@@ -65,7 +117,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <configuration>
-          <locales>en,fr</locales>
+          <locales>fr,en</locales>
         </configuration>
       </plugin>
       
@@ -102,54 +154,5 @@
       </plugin> --> 
     </plugins> 
   </build>
-  
-  
-   <mailingLists>
-   		<mailingList>
-      		<name>SVN-commit</name>
-      		<subscribe>campaign-player-svn@googlegroups.com</subscribe>
-     	</mailingList>
-     	
-     	<mailingList>
-      		<name>développeur</name>
-      		<subscribe>todo@todo.com</subscribe>
-     	</mailingList>
-   </mailingLists>
-  <!-- List the core committers -->
-    <developers>
-      <developer>
-        <id>0</id>
-        <name>Cody Stoutenburg Tardieu</name>
-        <!-- <organizationUrl>http://www.alteiar.net</organizationUrl> -->
-        <roles>
-          <role>developer</role>
-        </roles>
-        <timezone>-4</timezone>
-      </developer>
-      
-      <developer>
-        <id>1</id>
-        <name>Sylvain Goulet</name>
-       <!--  <organizationUrl>http://www.alteiar.net</organizationUrl> -->
-        <roles>
-          <role>développeur</role>
-        </roles>
-        <timezone>-4</timezone>
-      </developer>
-    </developers>
-    
-    <!-- Contributors -->
-    <contributors>
-        <contributor>
-            <name>Cae Fernandes</name>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>-4</timezone>
-        </contributor>
-     </contributors>
-  
-
-
-  <description>This project contain all core bean of the application and use the DistributedBeanManager</description>
+ 
 </project>
