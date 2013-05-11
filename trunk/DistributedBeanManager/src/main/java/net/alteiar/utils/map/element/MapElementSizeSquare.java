@@ -23,10 +23,10 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import net.alteiar.utils.map.Scale;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-
-import net.alteiar.utils.map.Scale;
 
 /**
  * @author Cody Stoutenburg
@@ -64,6 +64,21 @@ public class MapElementSizeSquare extends MapElementSize {
 	public void readExternal(ObjectInput in) throws IOException,
 			ClassNotFoundException {
 		squareSize = in.readDouble();
+	}
+
+	@Override
+	public Double getValue() {
+		return squareSize;
+	}
+
+	@Override
+	public String getUnitFormat() {
+		return "cases";
+	}
+
+	@Override
+	public String getShortUnitFormat() {
+		return getUnitFormat();
 	}
 
 }

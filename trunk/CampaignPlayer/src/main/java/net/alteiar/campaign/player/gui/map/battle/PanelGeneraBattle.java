@@ -108,11 +108,10 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	@Override
 	public Point convertPointToSquare(Point position) {
 		Integer squareSize = getScale().getPixels();
-		Point square = new Point();
-		square.x = (int) Math.floor(position.x / squareSize.floatValue());
-		square.y = (int) Math.floor(position.y / squareSize.floatValue());
+		int x = (int) Math.floor(position.x / squareSize.floatValue());
+		int y = (int) Math.floor(position.y / squareSize.floatValue());
 
-		return square;
+		return new Point(x, y);
 	}
 
 	@Override
@@ -166,11 +165,6 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 	@Override
 	public Boolean getShowDistance() {
 		return this.showDistance;
-	}
-
-	@Override
-	public MapElement getElementAt(Point position) {
-		return mapPanel.getElementAt(position);
 	}
 
 	@Override

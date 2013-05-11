@@ -33,7 +33,6 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -231,23 +230,21 @@ public class PanelBasicMap extends JPanel implements PropertyChangeListener,
 	 *            - the position of the map element on the panel
 	 * @return the map element
 	 */
-	public MapElement getElementAt(Point p) {
-		Collection<MapElement> elements = map.getElementsAt(p);
+	public List<MapElement> getElementAt(Point p) {
+		List<MapElement> elements = map.getElementsAt(p);
 
 		if (!CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 			Iterator<MapElement> itt = elements.iterator();
 
 			while (itt.hasNext()) {
 				MapElement current = itt.next();
-				if (!current.isHiddenForPlayer()) {
-					return current;
+				if (current.isHiddenForPlayer()) {
+					itt.remove();
 				}
 			}
-
-			return null;
 		}
 		// return the first element of the list
-		return elements.size() > 0 ? elements.iterator().next() : null;
+		return elements;
 	}
 
 	@Override

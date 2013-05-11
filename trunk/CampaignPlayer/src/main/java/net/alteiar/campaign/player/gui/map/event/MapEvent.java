@@ -2,18 +2,18 @@ package net.alteiar.campaign.player.gui.map.event;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import net.alteiar.map.elements.MapElement;
 
 public class MapEvent {
 	private final MouseEvent event;
-	private final MapElement mapElement;
+	private final List<MapElement> elements;
 	private final Point mapPosition;
 
-	public MapEvent(MouseEvent e, MapElement mapElement, Point mapPosition) {
-		super();
+	public MapEvent(MouseEvent e, Point mapPosition, List<MapElement> mapElement) {
 		this.event = e;
-		this.mapElement = mapElement;
+		elements = mapElement;
 		this.mapPosition = mapPosition;
 	}
 
@@ -21,8 +21,8 @@ public class MapEvent {
 		return event;
 	}
 
-	public MapElement getMapElement() {
-		return mapElement;
+	public List<MapElement> getMapElements() {
+		return elements;
 	}
 
 	public Point getMapPosition() {

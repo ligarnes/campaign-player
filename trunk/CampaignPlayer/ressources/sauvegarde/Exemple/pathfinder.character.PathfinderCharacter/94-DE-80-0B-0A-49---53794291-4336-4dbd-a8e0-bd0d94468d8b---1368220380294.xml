@@ -1,0 +1,17 @@
+<pathfinderCharacter serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:53794291-4336-4dbd-a8e0-bd0d94468d8b:1368220380294</guid>
+   </id>
+   <documentName>Thorïn</documentName>
+   <owner serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:88169f64-41d9-493b-9b87-eb9092027e40:1368054868256</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>false</isPublic>
+   <totalHp>22</totalHp>
+   <currentHp>22</currentHp>
+   <image serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a63db17c-a62b-40cf-a119-4b35db39c41b:1368220380287</guid>
+   </image>
+</pathfinderCharacter>

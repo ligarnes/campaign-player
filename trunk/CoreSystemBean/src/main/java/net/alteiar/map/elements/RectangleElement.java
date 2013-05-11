@@ -116,4 +116,17 @@ public class RectangleElement extends ColoredShape {
 		}
 	}
 
+	@Override
+	public String getNameFormat() {
+		if (getWidth().getShortUnitFormat().equals(
+				getHeight().getShortUnitFormat())) {
+			return "Rectangle " + getWidth().getValue() + "x"
+					+ getHeight().getValue() + " "
+					+ getWidth().getShortUnitFormat();
+		}
+		return "Rectangle " + getWidth().getValue()
+				+ getWidth().getShortUnitFormat() + "x"
+				+ getHeight().getValue() + " "
+				+ getHeight().getShortUnitFormat();
+	}
 }

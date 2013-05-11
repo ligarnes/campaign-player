@@ -66,4 +66,19 @@ public class MapElementSizePixel extends MapElementSize {
 		pixels = in.readDouble();
 	}
 
+	@Override
+	public Double getValue() {
+		return pixels;
+	}
+
+	@Override
+	public String getUnitFormat() {
+		return "pixels";
+	}
+
+	@Override
+	public String getShortUnitFormat() {
+		return "px";
+	}
+
 }

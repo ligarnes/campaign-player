@@ -70,4 +70,20 @@ public class MapElementSizeMeter extends MapElementSize {
 			ClassNotFoundException {
 		meters = in.readDouble();
 	}
+
+	@Override
+	public Double getValue() {
+		return meters;
+	}
+
+	@Override
+	public String getUnitFormat() {
+		return "mètres";
+	}
+
+	@Override
+	public String getShortUnitFormat() {
+		return "m";
+	}
+
 }

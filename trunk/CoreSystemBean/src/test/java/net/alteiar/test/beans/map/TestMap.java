@@ -15,8 +15,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
@@ -257,7 +257,7 @@ public class TestMap extends NewCampaignTest {
 		UniqueID newFilter = null;
 		map.setFilter(newFilter);
 
-		HashSet<UniqueID> set = new HashSet<UniqueID>();
+		ArrayList<UniqueID> set = new ArrayList<UniqueID>();
 		set.add(new UniqueID());
 		set.add(new UniqueID());
 		map.setElements(set);

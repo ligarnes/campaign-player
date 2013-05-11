@@ -76,8 +76,10 @@ public abstract class MapElement extends BasicBean {
 		Point position = getPosition();
 		int x = (int) (position.getX() * zoomFactor);
 		int y = (int) (position.getY() * zoomFactor);
-		int width = (int) (getWidthPixels() * zoomFactor);
-		int height = (int) (getHeightPixels() * zoomFactor);
+		int width = Long.valueOf(Math.round(getWidthPixels() * zoomFactor))
+				.intValue();
+		int height = Long.valueOf(Math.round(getHeightPixels() * zoomFactor))
+				.intValue();
 
 		AffineTransform transform = new AffineTransform();
 		transform.translate(x, y);
@@ -208,4 +210,6 @@ public abstract class MapElement extends BasicBean {
 					PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue, hiddenForPlayer);
 		}
 	}
+
+	public abstract String getNameFormat();
 }

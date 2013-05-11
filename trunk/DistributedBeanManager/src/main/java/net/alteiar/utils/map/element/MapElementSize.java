@@ -32,4 +32,10 @@ public abstract class MapElementSize implements Externalizable {
 	private static final long serialVersionUID = 7942889766046711297L;
 
 	public abstract Double getPixels(Scale scale);
+
+	public abstract Double getValue();
+
+	public abstract String getUnitFormat();
+
+	public abstract String getShortUnitFormat();
 }
