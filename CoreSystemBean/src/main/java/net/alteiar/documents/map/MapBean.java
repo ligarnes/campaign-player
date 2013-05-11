@@ -6,7 +6,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -38,8 +37,10 @@ public class MapBean extends AuthorizationBean {
 	private Integer width;
 	@Element
 	private Integer height;
+
 	@ElementList
-	private HashSet<UniqueID> elements;
+	private ArrayList<UniqueID> elements;
+
 	@Element
 	private UniqueID backgroundId;
 	@Element
@@ -52,7 +53,7 @@ public class MapBean extends AuthorizationBean {
 
 	public MapBean(String name) {
 		super(name);
-		elements = new HashSet<UniqueID>();
+		elements = new ArrayList<UniqueID>();
 		scale = new Scale(70, 1.5);
 	}
 
@@ -72,7 +73,7 @@ public class MapBean extends AuthorizationBean {
 	// ///////////////// LOCAL METHODS ///////////////////////
 	public List<MapElement> getElementsAt(Point position) {
 		ArrayList<MapElement> elementsAt = new ArrayList<MapElement>();
-		HashSet<UniqueID> elements = getElements();
+		ArrayList<UniqueID> elements = getElements();
 
 		for (UniqueID id : elements) {
 			MapElement element = CampaignClient.getInstance().getBean(id);
@@ -109,6 +110,7 @@ public class MapBean extends AuthorizationBean {
 
 			mapElement.draw(g2, zoomFactor);
 		}
+
 	}
 
 	public void drawFilter(Graphics2D g2, double zoomFactor) {
@@ -199,16 +201,16 @@ public class MapBean extends AuthorizationBean {
 	}
 
 	@SuppressWarnings("unchecked")
-	public HashSet<UniqueID> getElements() {
-		HashSet<UniqueID> copy = new HashSet<UniqueID>();
+	public ArrayList<UniqueID> getElements() {
+		ArrayList<UniqueID> copy = new ArrayList<UniqueID>();
 		synchronized (elements) {
-			copy = (HashSet<UniqueID>) elements.clone();
+			copy = (ArrayList<UniqueID>) elements.clone();
 		}
 		return copy;
 	}
 
-	public void setElements(HashSet<UniqueID> elements) {
-		HashSet<UniqueID> oldValue = this.elements;
+	public void setElements(ArrayList<UniqueID> elements) {
+		ArrayList<UniqueID> oldValue = this.elements;
 		if (notifyRemote(PROP_ELEMENTS_PROPERTY, oldValue, elements)) {
 			this.elements = elements;
 			propertyChangeSupport.firePropertyChange(PROP_ELEMENTS_PROPERTY,
@@ -235,5 +237,4 @@ public class MapBean extends AuthorizationBean {
 					METH_REMOVE_ELEMENT_METHOD, null, elementId);
 		}
 	}
-
 }

@@ -27,7 +27,7 @@ public class MoveElementMapListener extends ActionMapListener {
 		this.mapElement.setSelected(true);
 
 		if (mapInfo.getFixGrid()) {
-			draw = new PathToMouse(mapInfo, first, mapElement);
+			draw = new PathToMouse(mapInfo, mapElement);
 		} else {
 			draw = new LineToMouse(mapInfo, first);
 		}

@@ -161,4 +161,18 @@ public class PathfinderCharacterElement extends MapElement {
 					oldValue, height);
 		}
 	}
+
+	@Override
+	public String getNameFormat() {
+		if (getWidth().getShortUnitFormat().equals(
+				getHeight().getShortUnitFormat())) {
+			return getCharacter().getName() + " " + getWidth().getValue() + "x"
+					+ getHeight().getValue() + " "
+					+ getWidth().getShortUnitFormat();
+		}
+		return getCharacter().getName() + " " + getWidth().getValue()
+				+ getWidth().getShortUnitFormat() + "x"
+				+ getHeight().getValue() + " "
+				+ getHeight().getShortUnitFormat();
+	}
 }

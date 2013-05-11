@@ -242,8 +242,8 @@ public class TestMapElement extends NewCampaignTest {
 	@Test(timeout = 5000)
 	public void testCircle() {
 		Long waitingTime = 1000L;
-		MapBean battle = CampaignClient.getInstance()
-				.getBean(battleId, waitingTime);
+		MapBean battle = CampaignClient.getInstance().getBean(battleId,
+				waitingTime);
 
 		MapElementSize circleRadius = new MapElementSizePixel(20.0);
 		Point position = new Point(5, 5);
@@ -305,8 +305,9 @@ public class TestMapElement extends NewCampaignTest {
 
 		assertTrue("the circle not contain point (5,5)",
 				!circleClient.contain(new Point(5, 5)));
-		assertTrue("the circle contain point (17,17)",
-				circleClient.contain(new Point(17, 17)));
+
+		assertTrue("the circle contain point (32,32)",
+				circleClient.contain(new Point(32, 32)));
 
 		MapElementSize newCircleRadius = new MapElementSizeMeter(1.5);
 		circleClient.setRadius(newCircleRadius);

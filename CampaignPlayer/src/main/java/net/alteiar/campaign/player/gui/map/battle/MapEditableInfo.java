@@ -66,14 +66,6 @@ public interface MapEditableInfo {
 
 	Point getPositionOf(MapElement currentElement);
 
-	/**
-	 * 
-	 * @param position
-	 *            - the position where the element should be
-	 * @return the element at the position or null if nothing is here
-	 */
-	MapElement getElementAt(Point position);
-
 	Boolean getFixGrid();
 
 	void fixGrid(Boolean fixGrid);

@@ -40,9 +40,9 @@ public class CircleElement extends ColoredShape {
 		double x = p.getX() * zoomFactor + strokeSizeMiddle;
 		double y = p.getY() * zoomFactor + strokeSizeMiddle;
 
-		double radius = getRadiusPixel() * zoomFactor - STROKE_SIZE_LARGE;
+		double diameter = (getRadiusPixel() * zoomFactor - STROKE_SIZE_LARGE) * 2;
 
-		Shape shape = new Ellipse2D.Double(x, y, radius, radius);
+		Shape shape = new Ellipse2D.Double(x, y, diameter, diameter);
 
 		return shape;
 	}
@@ -74,6 +74,12 @@ public class CircleElement extends ColoredShape {
 			propertyChangeSupport.firePropertyChange(PROP_RADIUS_PROPERTY,
 					oldValue, radius);
 		}
+	}
+
+	@Override
+	public String getNameFormat() {
+		return "Cercle " + getRadius().getValue() + " "
+				+ getRadius().getShortUnitFormat();
 	}
 
 }

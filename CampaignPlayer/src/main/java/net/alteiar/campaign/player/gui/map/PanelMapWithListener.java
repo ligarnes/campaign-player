@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.util.List;
 
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
@@ -47,9 +48,9 @@ public class PanelMapWithListener extends PanelBasicMap implements
 	public void mousePressed(MouseEvent e) {
 		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElement mapElement = this.getElementAt(mapPosition);
+		List<MapElement> mapElements = this.getElementAt(mapPosition);
 
-		MapEvent event = new MapEvent(e, mapElement, mapPosition);
+		MapEvent event = new MapEvent(e, mapPosition, mapElements);
 		for (MapListener listener : getMapListener()) {
 			listener.mousePressed(event);
 		}
@@ -59,9 +60,9 @@ public class PanelMapWithListener extends PanelBasicMap implements
 	public void mouseClicked(MouseEvent e) {
 		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElement mapElement = this.getElementAt(mapPosition);
+		List<MapElement> mapElements = this.getElementAt(mapPosition);
 
-		MapEvent event = new MapEvent(e, mapElement, mapPosition);
+		MapEvent event = new MapEvent(e, mapPosition, mapElements);
 		for (MapListener listener : getMapListener()) {
 			listener.mouseClicked(event);
 		}
@@ -71,9 +72,9 @@ public class PanelMapWithListener extends PanelBasicMap implements
 	public void mouseReleased(MouseEvent e) {
 		e = createEvent(e);
 		Point mapPosition = convertPointPanelToStandard(e.getPoint());
-		MapElement mapElement = this.getElementAt(mapPosition);
+		List<MapElement> mapElements = this.getElementAt(mapPosition);
 
-		MapEvent event = new MapEvent(e, mapElement, mapPosition);
+		MapEvent event = new MapEvent(e, mapPosition, mapElements);
 		for (MapListener listener : getMapListener()) {
 			listener.mouseReleased(event);
 		}

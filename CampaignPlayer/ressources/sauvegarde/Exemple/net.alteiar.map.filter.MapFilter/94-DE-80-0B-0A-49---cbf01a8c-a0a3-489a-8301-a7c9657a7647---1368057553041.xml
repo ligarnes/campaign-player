@@ -4,5 +4,14 @@
    </id>
    <width>700</width>
    <height>700</height>
-   <polygons/>
+   <polygons>
+      <myPolygonFilter serialVersionUID="1">
+         <polygon>
+            <npoints>14</npoints>
+            <xpoints length="14">299, 289, 311, 289, 319, 431, 389, 401, 388, 396, 474, 397, 394, 301</xpoints>
+            <ypoints length="14">4, 226, 278, 401, 434, 424, 269, 247, 198, 112, 111, 62, 0, 0</ypoints>
+         </polygon>
+         <hide>false</hide>
+      </myPolygonFilter>
+   </polygons>
 </mapFilter>

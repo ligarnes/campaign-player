@@ -13,14 +13,15 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.map.Map2DUtils;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.map.elements.MapElement;
 
 public class PathToMouse extends LineToMouse {
 
-	public PathToMouse(MapEditableInfo map, Point origin, MapElement element) {
-		super(map, map.convertPointToSquare(origin));
+	public PathToMouse(MapEditableInfo map, MapElement element) {
+		super(map, map.convertPointToSquare(element.getCenterPosition()));
 	}
 
 	@Override
@@ -63,7 +64,9 @@ public class PathToMouse extends LineToMouse {
 			double gap = getMapEditor().getScale().getPixels() * 0.1;
 			double width = gap * zoomFactor;
 
-			g2.setColor(Color.GRAY);
+			Color color = CampaignClient.getInstance().getCurrentPlayer()
+					.getColor();
+			g2.setColor(color);
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.5f));
 

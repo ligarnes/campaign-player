@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
@@ -31,46 +32,88 @@ public class DefaultMapListener extends ActionMapListener {
 		this.battle = battle;
 	}
 
+	private abstract class MapElementAction {
+		private final MapEvent event;
+		private MapElement element;
+
+		public MapElementAction(MapEvent event) {
+			this.event = event;
+		}
+
+		public void setElement(MapElement element) {
+			this.element = element;
+		}
+
+		protected MapEvent getMapEvent() {
+			return event;
+		}
+
+		protected MapElement getMapElement() {
+			return element;
+		}
+
+		public abstract void doAction();
+	}
+
+	private class MapElementRightClickAction extends MapElementAction {
+		public MapElementRightClickAction(MapEvent event) {
+			super(event);
+		}
+
+		@Override
+		public void doAction() {
+			MapElement element = getMapElement();
+			MapEvent event = getMapEvent();
+
+			JPopupMenu popup = new JPopupMenu();
+			popup.add(buildMoveElement(element));
+
+			popup.add(buildEditElement(event.getMouseEvent(), element));
+
+			popup.addSeparator();
+			popup.add(buildShowHideElement(element));
+			popup.addSeparator();
+
+			// need move
+			popup.add(buildMenuRotate(element, event.getMapPosition()));
+			popup.add(buildMenuRemoveElement(element));
+			popup.show(event.getMouseEvent().getComponent(), event
+					.getMouseEvent().getX(), event.getMouseEvent().getY());
+		}
+	}
+
+	private class MapElementLeftClickAction extends MapElementAction {
+		public MapElementLeftClickAction(MapEvent event) {
+			super(event);
+		}
+
+		@Override
+		public void doAction() {
+			MapElement element = getMapElement();
+			mapListener.setCurrentListener(new MoveElementMapListener(
+					getMapEditableInfo(), mapListener, element
+							.getCenterPosition(), element));
+		}
+	}
+
 	@Override
 	public void mouseClicked(MapEvent event) {
 		if (SwingUtilities.isLeftMouseButton(event.getMouseEvent())) {
-			if (event.getMapElement() != null) {
-				mapListener.setCurrentListener(new MoveElementMapListener(
-						getMapEditableInfo(), mapListener, event
-								.getMapElement().getCenterPosition(), event
-								.getMapElement()));
-			}
+			MapElementLeftClickAction action = new MapElementLeftClickAction(
+					event);
+
+			selectElementAction(event, action);
+
 		} else if (SwingUtilities.isRightMouseButton(event.getMouseEvent())) {
-			JPopupMenu popup = new JPopupMenu();
-			if (event.getMapElement() != null) {
-				popup.add(buildMoveElement(event.getMapPosition(),
-						event.getMapElement()));
 
-				popup.add(buildEditElement(event.getMouseEvent(),
-						event.getMapElement()));
-				/*
-				 * List<IAction> actionsAvaible = event.getMapElement()
-				 * .getActions(); if (actionsAvaible.size() > 0) {
-				 * popup.addSeparator(); for (final IAction action :
-				 * actionsAvaible) { JMenuItem menu = new
-				 * JMenuItem(action.getName()); menu.addActionListener(new
-				 * ActionListener() {
-				 * 
-				 * @Override public void actionPerformed(ActionEvent arg0) { try
-				 * { action.doAction(); } catch (Exception e) { // TODO
-				 * Auto-generated catch block e.printStackTrace(); } } });
-				 * menu.setEnabled(action.canDoAction()); popup.add(menu); } }
-				 */
+			if (event.getMapElements().size() > 0) {
+				MapElementRightClickAction action = new MapElementRightClickAction(
+						event);
 
-				popup.addSeparator();
-				popup.add(buildShowHideElement(event.getMapElement()));
-				popup.addSeparator();
+				selectElementAction(event, action);
 
-				// need move
-				popup.add(buildMenuRotate(event.getMapElement(),
-						event.getMapPosition()));
-				popup.add(buildMenuRemoveElement(event));
 			} else {
+				JPopupMenu popup = new JPopupMenu();
 
 				popup.add(buildAddElement(event));
 
@@ -88,14 +131,42 @@ public class DefaultMapListener extends ActionMapListener {
 				popup.add(buildShowGrid());
 				popup.add(buildFixGrid());
 				popup.add(buildShowDistance());
+
+				popup.show(event.getMouseEvent().getComponent(), event
+						.getMouseEvent().getX(), event.getMouseEvent().getY());
 			}
-			popup.show(event.getMouseEvent().getComponent(), event
+		}
+	}
+
+	private void selectElementAction(MapEvent event,
+			final MapElementAction action) {
+
+		List<MapElement> elements = event.getMapElements();
+
+		if (elements.size() > 1) {
+			JPopupMenu menu = new JPopupMenu();
+
+			for (final MapElement mapElement : elements) {
+				JMenuItem item = new JMenuItem(mapElement.getNameFormat());
+				item.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						action.setElement(mapElement);
+						action.doAction();
+					}
+				});
+				menu.add(item);
+			}
+
+			menu.show(event.getMouseEvent().getComponent(), event
 					.getMouseEvent().getX(), event.getMouseEvent().getY());
+		} else if (elements.size() > 0) {
+			action.setElement(elements.get(0));
+			action.doAction();
 		}
 	}
 
 	private JMenuItem buildShowHideElement(final MapElement mapElement) {
-
 		final JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
 				"Afficher le personnage aux joueurs");
 		menuItem.addActionListener(new ActionListener() {
@@ -201,8 +272,7 @@ public class DefaultMapListener extends ActionMapListener {
 		return addElement;
 	}
 
-	private JMenuItem buildMoveElement(final Point mapPosition,
-			final MapElement mapElement) {
+	private JMenuItem buildMoveElement(final MapElement mapElement) {
 		JMenuItem menuItem = new JMenuItem("D\u00E9placer");
 		menuItem.addActionListener(new ActionListener() {
 			@Override
@@ -215,14 +285,14 @@ public class DefaultMapListener extends ActionMapListener {
 		return menuItem;
 	}
 
-	private JMenuItem buildMenuRemoveElement(final MapEvent event) {
+	private JMenuItem buildMenuRemoveElement(final MapElement element) {
 		String title = "element";
 
 		JMenuItem removeElement = new JMenuItem("Supprimer " + title);
 		removeElement.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				getMapEditableInfo().removeElement(event.getMapElement());
+				getMapEditableInfo().removeElement(element);
 			}
 		});
 
