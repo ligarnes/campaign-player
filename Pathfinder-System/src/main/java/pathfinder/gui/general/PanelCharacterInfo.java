@@ -28,7 +28,6 @@ public class PanelCharacterInfo extends JPanel implements
 
 	private PathfinderCharacter character;
 
-	private final JTextField textFieldName;
 	private final JTextField textFieldAc;
 	private final JTextField textFieldAcFlatFooted;
 	private final JTextField textFieldAcTouch;
@@ -48,7 +47,7 @@ public class PanelCharacterInfo extends JPanel implements
 			this.totalHp = total;
 			this.currentHp = current;
 
-			this.setPreferredSize(new Dimension(80, 20));
+			this.setPreferredSize(new Dimension(180, 20));
 		}
 
 		public void setCurrentHp(Integer currentHp) {
@@ -68,7 +67,7 @@ public class PanelCharacterInfo extends JPanel implements
 			int xLife = 0;
 			int yLife = 0;
 
-			int widthLife = 80;
+			int widthLife = 180;
 			int heightLife = 20;
 
 			Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
@@ -79,7 +78,7 @@ public class PanelCharacterInfo extends JPanel implements
 			}
 			g.setColor(Color.BLACK);
 			g.drawRect(xLife, yLife, widthLife - 1, heightLife - 1);
-			g.drawString(currentHp + "/" + totalHp, 40, 10);
+			g.drawString(currentHp + "/" + totalHp, 80, 15);
 		}
 	}
 
@@ -95,12 +94,6 @@ public class PanelCharacterInfo extends JPanel implements
 
 		comboBox = new JComboBox<CharacterAdapter>(
 				CharacterAdapter.getCharacters());
-		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
-		gbc_comboBox.gridx = 1;
-		gbc_comboBox.gridy = 0;
-		add(comboBox, gbc_comboBox);
 
 		CampaignClient.getInstance().addCampaignListener(new CampaignAdapter() {
 			@Override
@@ -132,15 +125,15 @@ public class PanelCharacterInfo extends JPanel implements
 		gbc_lblNom.gridy = 1;
 		add(lblNom, gbc_lblNom);
 
-		textFieldName = new JTextField();
-		textFieldName.setEditable(false);
+		// textFieldName = new JTextField();
+		// textFieldName.setEditable(false);
 		GridBagConstraints gbc_textFieldName = new GridBagConstraints();
 		gbc_textFieldName.insets = new Insets(0, 0, 5, 0);
 		gbc_textFieldName.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textFieldName.gridx = 1;
 		gbc_textFieldName.gridy = 1;
-		add(textFieldName, gbc_textFieldName);
-		textFieldName.setColumns(20);
+		add(comboBox, gbc_textFieldName);
+		// textFieldName.setColumns(20);
 
 		labelInit = new JLabel("PV:");
 		GridBagConstraints gbc_labelInit = new GridBagConstraints();
@@ -226,7 +219,7 @@ public class PanelCharacterInfo extends JPanel implements
 
 	public void updateCharacterView() {
 
-		this.textFieldName.setText(character.getName());
+		// this.textFieldName.setText(character.getName());
 
 		this.healthBar.setCurrentHp(character.getCurrentHp());
 		this.healthBar.setTotalHp(character.getTotalHp());
