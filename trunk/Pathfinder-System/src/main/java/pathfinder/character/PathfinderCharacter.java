@@ -18,11 +18,12 @@ public class PathfinderCharacter extends Character {
 	public static final String PROP_IMAGE_PROPERTY = "image";
 
 	@Element
+	private UniqueID image;
+
+	@Element
 	private Integer totalHp;
 	@Element
 	private Integer currentHp;
-	@Element
-	private UniqueID image;
 
 	protected PathfinderCharacter() {
 		super();

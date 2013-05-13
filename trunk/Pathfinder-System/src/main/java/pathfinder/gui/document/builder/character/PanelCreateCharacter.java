@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder;
+package pathfinder.gui.document.builder.character;
 
 import java.awt.Color;
 import java.awt.Dimension;
