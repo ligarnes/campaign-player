@@ -11,7 +11,8 @@ import javax.swing.JToolBar;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.chat.message.DiceSender;
+import net.alteiar.dice.DiceBag;
+import net.alteiar.dice.DiceSingle;
 
 public class DiceToolBar extends JToolBar {
 	private static final long serialVersionUID = 1L;
@@ -50,13 +51,13 @@ public class DiceToolBar extends JToolBar {
 		});
 		this.add(rollButton);
 
-		addDie(new Die(4, 1));
-		addDie(new Die(6, 1));
-		addDie(new Die(8, 1));
-		addDie(new Die(10, 1));
-		addDie(new Die(12, 1));
-		addDie(new Die(20, 1));
-		addDie(new Die(100, 1));
+		addDie(new Die(new DiceSingle(4)));
+		addDie(new Die(new DiceSingle(6)));
+		addDie(new Die(new DiceSingle(8)));
+		addDie(new Die(new DiceSingle(10)));
+		addDie(new Die(new DiceSingle(12)));
+		addDie(new Die(new DiceSingle(20)));
+		addDie(new Die(new DiceSingle(100)));
 
 		JButton addDieButton = new JButton("Ajouter un d\u00E9");
 		addDieButton.addActionListener(new ActionListener() {
@@ -77,29 +78,24 @@ public class DiceToolBar extends JToolBar {
 		JToggleButton dieButton = new JToggleButton(
 				Helpers.getIcon(getDieIcon(die)));
 		dieButton.addActionListener(die);
-		dieButton.setToolTipText("Nombre de face: " + die.getNumFaces());
+		dieButton.setToolTipText("Nombre de face: "
+				+ die.getDice().getFaceCount());
 		this.dice.add(die);
 		this.add(dieButton);
 	}
 
 	private boolean rollDice() {
 		boolean atLeastOneDieSelected = false;
-		int totalDice = 0;
+		DiceBag bag = new DiceBag();
 		for (Die die : this.dice) {
 			if (die.isSelected()) {
-				// numDice ++;
-				DiceSender dice = new DiceSender(1, die.getNumFaces(), 0);
-				CampaignClient.getInstance().getChat()
-						.talk(dice, DiceSender.DICE_SENDER_COMMAND);
+				bag.addDice(die.getDice());
 				atLeastOneDieSelected = true;
-				totalDice += Integer.valueOf(dice.getTotal());
-				// die.roll();
 			}
 		}
-		if (atLeastOneDieSelected) {
-			CampaignClient.getInstance().getChat()
-					.talk("le total est: " + totalDice);
-		} else {
+
+		CampaignClient.getInstance().getDiceRoller().roll(bag);
+		if (!atLeastOneDieSelected) {
 			// TODO : ne pas /crire ceci dans le chat,
 			// mais bien dans un pop up window qui sera montr\u00E9
 			// uniquement à l'utilisateur.
@@ -113,18 +109,19 @@ public class DiceToolBar extends JToolBar {
 		PanelDiceSelection panelDiceSelection = new PanelDiceSelection();
 
 		int result = JOptionPane.showConfirmDialog(null, panelDiceSelection,
-				"Cr\u00E9ation d'un nouveau d\u00E9", JOptionPane.OK_CANCEL_OPTION);
+				"Cr\u00E9ation d'un nouveau d\u00E9",
+				JOptionPane.OK_CANCEL_OPTION);
 
 		if (result == JOptionPane.OK_OPTION) {
 
-			return new Die(panelDiceSelection.getNumFaces(), 1);
+			return new Die(new DiceSingle(panelDiceSelection.getNumFaces()));
 		} else {
 			return null;
 		}
 	}
 
 	private String getDieIcon(Die die) {
-		switch (die.getNumFaces()) {
+		switch (die.getDice().getFaceCount()) {
 		case 4:
 			return ICON_D4_REDUCE;
 		case 6:

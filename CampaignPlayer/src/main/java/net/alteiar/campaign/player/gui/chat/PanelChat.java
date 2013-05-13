@@ -37,10 +37,11 @@ import javax.swing.JTextArea;
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.message.ChatObject;
-import net.alteiar.chat.message.DiceSender;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.chat.message.MjSender;
 import net.alteiar.chat.message.PrivateSender;
+import net.alteiar.dice.DiceBag;
+import net.alteiar.dice.DiceSingle;
 
 /**
  * @author Cody Stoutenburg
@@ -51,8 +52,6 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 
 	private final PanelMessageReceived receive;
 	private final JTextArea textSend;
-
-	private final Chat chatRoom;
 
 	public PanelChat(Dimension dimRec, Dimension dimSend) {
 		super();
@@ -89,14 +88,12 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 		scrollWrite.setMinimumSize(dimSend);
 		scrollWrite.setMaximumSize(dimSend);
 
-		chatRoom = CampaignClient.getInstance().getChat();
-
-		List<MessageRemote> allMsg = CampaignClient.getInstance().getChat()
-				.getMessages();
+		List<MessageRemote> allMsg = getChat().getMessages();
 		for (MessageRemote msg : allMsg) {
 			receive.appendMessage(msg);
 		}
-		chatRoom.addPropertyChangeListener(this);
+		getChat().addPropertyChangeListener(this);
+
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
@@ -118,6 +115,10 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 		add(scrollWrite, gbc_panel);
 	}
 
+	protected Chat getChat() {
+		return CampaignClient.getInstance().getChat();
+	}
+
 	protected void sendMessage() {
 		String message = this.textSend.getText();
 
@@ -129,10 +130,10 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 					Arrays.copyOfRange(args, 1, args.length));
 
 			if (send != null) {
-				chatRoom.talk(send, command);
+				getChat().talk(send, command);
 			}
 		} else {
-			chatRoom.talk(message, command);
+			getChat().talk(message, command);
 		}
 		this.textSend.setText("");
 		// LoggerConfig.showStat();
@@ -151,7 +152,7 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 		ChatObject message = null;
 
 		if (command.equals("/dice") || command.equals("/d")) {
-			message = applyDice(args[0]);
+			applyDice(args[0]);
 		} else if (command.equals("/name")) {
 			CampaignClient.getInstance().getChat().setPseudo(concat(args, " "));
 		} else if (command.equals("/to")) {
@@ -183,7 +184,7 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 		return new PrivateSender(args[0], builder.toString());
 	}
 
-	private DiceSender applyDice(String message) {
+	private void applyDice(String message) {
 		// Parse the chat standard
 		String diceCntStr = message.substring(0, message.indexOf("d"));
 
@@ -201,7 +202,12 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 		int diceValue = Integer.valueOf(diceValStr);
 		int mod = Integer.valueOf(modStr);
 
-		return new DiceSender(diceCount, diceValue, mod);
+		DiceBag bag = new DiceBag(mod);
+		for (int i = 0; i < diceCount; ++i) {
+			bag.addDice(new DiceSingle(diceValue));
+		}
+
+		CampaignClient.getInstance().getDiceRoller().roll(bag);
 	}
 
 	@Override

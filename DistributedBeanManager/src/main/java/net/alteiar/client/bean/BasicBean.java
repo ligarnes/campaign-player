@@ -107,7 +107,7 @@ public abstract class BasicBean implements Serializable {
 	 * 
 	 * @param listener
 	 */
-	public void addVetoableChangeListener(VetoableChangeListener listener) {
+	protected void addVetoableChangeListener(VetoableChangeListener listener) {
 		vetoableRemoteChangeSupport.addVetoableChangeListener(listener);
 	}
 
@@ -117,7 +117,7 @@ public abstract class BasicBean implements Serializable {
 	 * 
 	 * @param listener
 	 */
-	public void removeVetoableChangeListener(VetoableChangeListener listener) {
+	protected void removeVetoableChangeListener(VetoableChangeListener listener) {
 		vetoableRemoteChangeSupport.removeVetoableChangeListener(listener);
 	}
 

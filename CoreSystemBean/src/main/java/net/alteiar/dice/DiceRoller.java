@@ -5,7 +5,7 @@ import net.alteiar.client.bean.BasicBean;
 public class DiceRoller extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
-	private static String METH_ROLL_METHOD = "roll";
+	public static String METH_ROLL_METHOD = "roll";
 
 	public void roll(Dice dice) {
 		dice.roll();

@@ -3,54 +3,21 @@ package net.alteiar.campaign.player.gui.map.battle.tools;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import net.alteiar.shared.Randomizer;
+import net.alteiar.dice.DiceSingle;
 
 public class Die implements ActionListener {
 
-	private final int numFaces;
-	private int upFace;
-	private final int lowestValue;
+	private final DiceSingle dice;
 
 	private boolean selected;
 
-	public Die(int numFaces, int lowestValue) {
-		// Pour l'instant, le d\u00E9 est consid\u00E9r\u00E9 comme
-		// donnant des valeurs de lowestValue à lowestValue + numFaces.
-		this.numFaces = numFaces;
-		this.lowestValue = lowestValue;
-		this.upFace = lowestValue;
+	public Die(DiceSingle numFaces) {
+		this.dice = numFaces;
 		this.selected = false;
-	}
-
-	@Override
-	public String toString() {
-		return "Die [numFaces=" + numFaces + ", upFace=" + upFace
-				+ ", lowestValue=" + lowestValue + ", selected=" + selected
-				+ "]";
-	}
-
-	public int getNumFaces() {
-		return numFaces;
-	}
-
-	public int getUpFace() {
-		return upFace;
-	}
-
-	public int getLowestValue() {
-		return lowestValue;
 	}
 
 	public boolean isSelected() {
 		return selected;
-	}
-
-	public void roll() {
-		setUpFace(Randomizer.random(lowestValue, numFaces));
-	}
-
-	private void setUpFace(int i) {
-		this.upFace = i;
 	}
 
 	private void setSelected(boolean selected) {
@@ -62,4 +29,8 @@ public class Die implements ActionListener {
 		setSelected(!isSelected());
 	}
 
+	public DiceSingle getDice() {
+		// need to create one each time because it have some memory
+		return new DiceSingle(dice.getFaceCount());
+	}
 }

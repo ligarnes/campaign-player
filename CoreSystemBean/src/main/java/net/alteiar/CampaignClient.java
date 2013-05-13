@@ -160,6 +160,10 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
+	public DiceRoller getDiceRoller() {
+		return diceRoller;
+	}
+
 	public String getCampaignPath() {
 		return manager.getCampaignPath();
 	}

@@ -9,7 +9,6 @@ import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
-import net.alteiar.chat.message.DiceSender;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.chat.message.MjSender;
 import net.alteiar.chat.message.PrivateSender;
@@ -143,51 +142,6 @@ public class TestChat extends NewCampaignTest {
 		for (int i = 0; i < allMsgExpected.size(); ++i) {
 			assertEquals("Message should be same", allMsgExpected.get(i),
 					allMsg.get(i));
-		}
-	}
-
-	@Test(timeout = 5000)
-	public void testChatDiceSender() {
-		final Integer expectedDiceCount = 2;
-		final Integer expectedDiceValue = 6;
-		final Integer expectedModifier = 3;
-
-		int totalMin = 5;
-		int totalMax = 15;
-
-		int diceMin = 1;
-		int diceMax = 6;
-
-		Runnable sendDiceMessage = new Runnable() {
-			@Override
-			public void run() {
-				getChat().talk(
-						new DiceSender(expectedDiceCount, expectedDiceValue,
-								expectedModifier),
-						DiceSender.DICE_SENDER_COMMAND);
-			}
-		};
-
-		MessageRemote msg = getLastMessage(sendDiceMessage);
-
-		DiceSender diceSender = new DiceSender(msg.getMessage());
-
-		assertEquals("The dice count should be same", expectedDiceCount,
-				Integer.valueOf(diceSender.getDiceCount()));
-		assertEquals("The dice value should be same", expectedDiceValue,
-				Integer.valueOf(diceSender.getDiceValue()));
-		assertEquals("The dice modifier should be same", expectedModifier,
-				Integer.valueOf(diceSender.getModifier()));
-
-		assertTrue("The total should be between " + totalMin + " and "
-				+ totalMax, Integer.valueOf(diceSender.getTotal()) >= totalMin
-				&& Integer.valueOf(diceSender.getTotal()) <= totalMax);
-
-		for (String result : diceSender.getResults()) {
-			assertTrue(
-					"The dice should be between " + diceMin + " and " + diceMax,
-					Integer.valueOf(result) >= diceMin
-							&& Integer.valueOf(result) <= diceMax);
 		}
 	}
 
