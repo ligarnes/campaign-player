@@ -1,14 +1,17 @@
 package net.alteiar.dice;
 
+import net.alteiar.dice.visitor.DiceVisitor;
 import net.alteiar.shared.Randomizer;
 
 public class DiceSingle implements Dice {
+	private static final long serialVersionUID = 1L;
+
 	private final Integer faceCount;
 	private Integer result;
 
 	public DiceSingle(Integer numFace) {
 		this.faceCount = numFace;
-		result = 0;
+		result = null;
 	}
 
 	public Integer getFaceCount() {
@@ -17,11 +20,18 @@ public class DiceSingle implements Dice {
 
 	@Override
 	public void roll() {
-		result = Randomizer.dice(faceCount);
+		if (result == null) {
+			result = Randomizer.dice(faceCount);
+		}
 	}
 
 	@Override
 	public Integer getTotal() {
 		return result;
+	}
+
+	@Override
+	public void visit(DiceVisitor visitor) {
+		visitor.visit(this);
 	}
 }

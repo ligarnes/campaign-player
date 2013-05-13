@@ -7,48 +7,41 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.chat.message.DiceSender;
-import net.alteiar.chat.message.MessageRemote;
 import net.miginfocom.swing.MigLayout;
 
-public class PanelDiceMessage extends JPanel {
+public class PanelDice extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private static Color TOTAL_BACKGROUND_COLOR = new Color(115, 53, 28);
 	private static Color GENERAL_BACKGROUND_COLOR = new Color(65, 33, 18);
 	private static Color TEXT_COLOR = new Color(219, 213, 137);
 
-	// private final DiceSender diceSender;
-
-	public PanelDiceMessage(int maxWidth, MessageRemote msg) {
+	public PanelDice(int maxWidth, Integer total, Integer dice,
+			Integer modifier, List<Integer> vals) {
 
 		this.setLayout(new MigLayout("insets 5 5 0 0, hmin 40, w " + maxWidth
 				+ ", hmax " + maxWidth, "[][]", "[]"));
 
-		DiceSender diceSender = new DiceSender(msg.getMessage());
-		String total = diceSender.getTotal();
-		String diceCount = diceSender.getDiceCount();
-		String dice = diceSender.getDiceValue();
-		String modifier = diceSender.getModifier();
-		String[] vals = diceSender.getResults();
+		String totalStr = String.valueOf(total);
 
-		int resWidth = 20 + total.length() * 10;
+		int resWidth = 20 + totalStr.length() * 10;
 		int resHeight = 30;
-		add(new LabelResult(total), "cell 0 0, w " + resWidth + ", h "
+		add(new LabelResult(totalStr), "cell 0 0, w " + resWidth + ", h "
 				+ resHeight + ", growx,aligny center");
 
 		StringBuilder builder = new StringBuilder();
 
-		builder.append("<html>" + diceCount + "d" + dice);
+		builder.append("<html>" + vals.size() + "d" + dice);
 		if (Integer.valueOf(modifier) > 0) {
 			builder.append("+" + modifier);
 		}
 		builder.append(" (");
-		for (String val : vals) {
+		for (Integer val : vals) {
 			builder.append(val + ", ");
 		}
 		builder.delete(builder.length() - 2, builder.length());

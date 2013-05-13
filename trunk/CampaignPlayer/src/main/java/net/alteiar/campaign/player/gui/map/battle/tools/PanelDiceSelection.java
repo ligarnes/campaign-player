@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.dice.DiceSingle;
 
 public class PanelDiceSelection extends JPanel implements ActionListener {
 
@@ -37,30 +38,32 @@ public class PanelDiceSelection extends JPanel implements ActionListener {
 				new Comparator<Die>() {
 					@Override
 					public int compare(Die o1, Die o2) {
-						return o1.getNumFaces() - o2.getNumFaces();
+						return o1.getDice().getFaceCount()
+								- o2.getDice().getFaceCount();
 					}
 				});
 
-		dices.put(new Die(4, 1), DiceToolBar.ICON_D4_LARGE);
-		dices.put(new Die(6, 1), DiceToolBar.ICON_D6_LARGE);
-		dices.put(new Die(8, 1), DiceToolBar.ICON_D8_LARGE);
-		dices.put(new Die(10, 1), DiceToolBar.ICON_D10_LARGE);
-		dices.put(new Die(12, 1), DiceToolBar.ICON_D12_LARGE);
-		dices.put(new Die(20, 1), DiceToolBar.ICON_D20_LARGE);
-		dices.put(new Die(30, 1), DiceToolBar.ICON_D30_LARGE);
-		dices.put(new Die(100, 1), DiceToolBar.ICON_D100_LARGE);
+		dices.put(new Die(new DiceSingle(4)), DiceToolBar.ICON_D4_LARGE);
+		dices.put(new Die(new DiceSingle(6)), DiceToolBar.ICON_D6_LARGE);
+		dices.put(new Die(new DiceSingle(8)), DiceToolBar.ICON_D8_LARGE);
+		dices.put(new Die(new DiceSingle(10)), DiceToolBar.ICON_D10_LARGE);
+		dices.put(new Die(new DiceSingle(12)), DiceToolBar.ICON_D12_LARGE);
+		dices.put(new Die(new DiceSingle(20)), DiceToolBar.ICON_D20_LARGE);
+		dices.put(new Die(new DiceSingle(30)), DiceToolBar.ICON_D30_LARGE);
+		dices.put(new Die(new DiceSingle(100)), DiceToolBar.ICON_D100_LARGE);
 
 		JPanel radioPanel = new JPanel(new GridLayout(0, 1));
 		ButtonGroup group = new ButtonGroup();
 		for (Entry<Die, String> die : dices.entrySet()) {
-			JRadioButton d4Button = new JRadioButton(die.getKey().getNumFaces()
+			JRadioButton d4Button = new JRadioButton(die.getKey().getDice()
+					.getFaceCount()
 					+ " faces");
 			d4Button.setActionCommand(die.getValue());
 			group.add(d4Button);
 			d4Button.addActionListener(this);
 			radioPanel.add(d4Button);
 
-			if (die.getKey().getNumFaces() == 6) {
+			if (die.getKey().getDice().getFaceCount() == 6) {
 				d4Button.setSelected(true);
 				picture.setIcon(createImageIcon(die.getValue()));
 			}

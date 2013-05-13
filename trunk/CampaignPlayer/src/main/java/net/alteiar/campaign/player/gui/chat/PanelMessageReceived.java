@@ -4,19 +4,24 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.util.List;
 
 import javax.swing.BoundedRangeModel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
-import net.alteiar.campaign.player.gui.chat.message.PanelDiceMessage;
+import net.alteiar.CampaignClient;
+import net.alteiar.campaign.player.gui.chat.message.PanelDice;
 import net.alteiar.campaign.player.gui.chat.message.PanelEnterMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelLeaveMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelPrivateTextMessage;
 import net.alteiar.campaign.player.gui.chat.message.PanelTextMessage;
 import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.chat.message.PrivateSender;
+import net.alteiar.dice.Dice;
+import net.alteiar.dice.DiceListener;
+import net.alteiar.dice.visitor.DiceCountVisitor;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelMessageReceived extends JPanel {
@@ -78,6 +83,30 @@ public class PanelMessageReceived extends JPanel {
 		scroll.setPreferredSize(dim);
 		scroll.setSize(dim);
 
+		CampaignClient.getInstance().getDiceRoller()
+				.addPropertyChangeListener(new DiceListener() {
+					@Override
+					public void diceRolled(Dice dices) {
+						DiceCountVisitor visitor = new DiceCountVisitor();
+						dices.visit(visitor);
+
+						for (Integer dice : visitor.getDices()) {
+							List<Integer> results = visitor.getResults(dice);
+							Integer total = 0;
+							for (Integer res : results) {
+								total += res;
+							}
+							Integer mod = visitor.getModifier();
+							total += mod;
+
+							allMessage.add(new PanelDice(maxWidth, total, dice,
+									mod, results));
+						}
+						revalidate();
+						repaint();
+					}
+				});
+
 		this.add(scroll, BorderLayout.CENTER);
 
 	}
@@ -93,9 +122,6 @@ public class PanelMessageReceived extends JPanel {
 
 		} else if (command.equals(MessageRemote.SYSTEM_DISCONNECT_MESSAGE)) {
 			allMessage.add(new PanelLeaveMessage(maxWidth, msg));
-
-		} else if (command.equals("/dice") || command.equals("/d")) {
-			allMessage.add(new PanelDiceMessage(maxWidth, msg));
 
 		} else if (command.equals("/to")) {
 			PrivateSender realMsg = new PrivateSender(msg.getMessage());
