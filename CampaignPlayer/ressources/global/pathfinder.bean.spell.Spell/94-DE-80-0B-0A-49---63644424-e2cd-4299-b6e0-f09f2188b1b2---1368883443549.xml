@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:63644424-e2cd-4299-b6e0-f09f2188b1b2:1368883443549</guid>
+   </id>
+   <name>Vagues d&apos;épuisement </name>
+   <school>Nec</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vagues d%c3%a9puisement.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

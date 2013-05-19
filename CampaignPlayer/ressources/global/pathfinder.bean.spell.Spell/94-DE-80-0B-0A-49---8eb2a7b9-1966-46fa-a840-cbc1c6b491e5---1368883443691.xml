@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8eb2a7b9-1966-46fa-a840-cbc1c6b491e5:1368883443691</guid>
+   </id>
+   <name>Bosquet reposant </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bosquet reposant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

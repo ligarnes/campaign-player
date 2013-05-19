@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d7997e0e-fcee-4f81-999c-cae0b91aa69c:1368883444862</guid>
+   </id>
+   <name>Mot de fermeté </name>
+   <school>Abj</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mot de fermet%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

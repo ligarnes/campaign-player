@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d55cddde-0476-4358-88b1-7f5e525d8077:1368883444161</guid>
+   </id>
+   <name>Peau de nuée </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Peau de nu%c3%a9e.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

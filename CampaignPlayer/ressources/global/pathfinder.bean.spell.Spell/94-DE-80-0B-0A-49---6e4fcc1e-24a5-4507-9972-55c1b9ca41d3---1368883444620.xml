@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6e4fcc1e-24a5-4507-9972-55c1b9ca41d3:1368883444620</guid>
+   </id>
+   <name>Disfonctionnement </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Dysfonctionnement.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

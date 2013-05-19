@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:160f6f46-9e7f-40e3-9626-007cf449292c:1368883441654</guid>
+   </id>
+   <name>Convocation d&apos;alliés naturels II </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation dalli%c3%a9s naturels II.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

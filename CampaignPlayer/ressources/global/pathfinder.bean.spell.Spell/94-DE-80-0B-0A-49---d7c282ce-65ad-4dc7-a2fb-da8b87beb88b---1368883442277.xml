@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d7c282ce-65ad-4dc7-a2fb-da8b87beb88b:1368883442277</guid>
+   </id>
+   <name>Forme de vase III </name>
+   <school>Tra</school>
+   <source>Other</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme de vase III.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

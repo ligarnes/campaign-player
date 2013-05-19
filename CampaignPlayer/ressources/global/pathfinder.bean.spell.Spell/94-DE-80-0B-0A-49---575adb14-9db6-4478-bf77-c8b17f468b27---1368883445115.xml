@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:575adb14-9db6-4478-bf77-c8b17f468b27:1368883445115</guid>
+   </id>
+   <name>Racine </name>
+   <school>Tra</school>
+   <source>inconnu</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Racine.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

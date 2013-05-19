@@ -25,6 +25,7 @@ import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.shared.ExceptionTool;
 import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.builder.character.PanelCreateCharacter;
+import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
 import pathfinder.gui.document.viewer.PanelViewImage;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.editor.PanelCharacterEditor;
@@ -96,6 +97,7 @@ public class PluginSystemGui implements IPluginSystemGui {
 				.add(new pathfinder.gui.document.builder.PanelCreateBattle());
 		documentsBuilder.add(new PanelCreateImage());
 		documentsBuilder.add(new PanelCreateCharacter());
+		documentsBuilder.add(new PanelCreateSpellBook());
 		return documentsBuilder;
 	}
 

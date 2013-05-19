@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ada9700a-f77c-4bb4-9471-30cb109f3e7a:1368883443918</guid>
+   </id>
+   <name>Évolution supérieure </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.%c3%89volution sup%c3%a9rieure.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

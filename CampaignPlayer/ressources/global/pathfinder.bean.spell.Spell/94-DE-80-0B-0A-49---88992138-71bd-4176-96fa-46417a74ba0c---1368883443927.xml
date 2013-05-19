@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:88992138-71bd-4176-96fa-46417a74ba0c:1368883443927</guid>
+   </id>
+   <name>Exilé par la nature </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Exil%c3%a9 par la nature.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

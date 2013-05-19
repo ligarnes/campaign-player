@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8a4c4465-12ec-4134-b3bb-0f79c0e3f04f:1368883445103</guid>
+   </id>
+   <name>Choc </name>
+   <school>Tra</school>
+   <source>inconnu</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Choc.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

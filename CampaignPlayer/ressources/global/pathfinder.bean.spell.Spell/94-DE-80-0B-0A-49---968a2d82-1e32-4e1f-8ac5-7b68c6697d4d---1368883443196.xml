@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:968a2d82-1e32-4e1f-8ac5-7b68c6697d4d:1368883443196</guid>
+   </id>
+   <name>Rayon de soleil </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rayon de soleil.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

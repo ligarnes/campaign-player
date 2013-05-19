@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0851b7d0-daad-400a-a19c-5c7894a07048:1368883443646</guid>
+   </id>
+   <name>Arc de gravité </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Arc de gravit%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

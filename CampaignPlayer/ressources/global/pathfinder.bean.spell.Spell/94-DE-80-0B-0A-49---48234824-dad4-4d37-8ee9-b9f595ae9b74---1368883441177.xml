@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:48234824-dad4-4d37-8ee9-b9f595ae9b74:1368883441177</guid>
+   </id>
+   <name>Appel de la tempête </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Appel de la temp%c3%aate.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3a16a891-38e8-4ef5-9a17-cc624560cd5c:1368883443438</guid>
+   </id>
+   <name>Sphère téléguidée </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sph%c3%a8re t%c3%a9l%c3%a9guid%c3%a9e.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

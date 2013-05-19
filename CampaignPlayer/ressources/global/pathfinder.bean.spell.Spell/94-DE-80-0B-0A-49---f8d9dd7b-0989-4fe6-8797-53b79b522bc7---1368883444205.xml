@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f8d9dd7b-0989-4fe6-8797-53b79b522bc7:1368883444205</guid>
+   </id>
+   <name>Putréfaction de l&apos;eau et de la nourriture </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Putr%c3%a9faction de leau et de la nourriture.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

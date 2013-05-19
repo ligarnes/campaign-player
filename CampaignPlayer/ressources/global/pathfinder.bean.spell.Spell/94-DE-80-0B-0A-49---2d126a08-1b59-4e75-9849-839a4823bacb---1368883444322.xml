@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2d126a08-1b59-4e75-9849-839a4823bacb:1368883444322</guid>
+   </id>
+   <name>Transfert divin </name>
+   <school>Nec</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Transfert divin.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

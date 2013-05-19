@@ -17,7 +17,7 @@ import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
-import net.alteiar.server.document.DocumentPath;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
@@ -25,8 +25,8 @@ import net.alteiar.shared.UniqueID;
 public class DocumentManager {
 
 	public static DocumentManager connect(String localAddress,
-			String serverAddress, String port) throws RemoteException,
-			MalformedURLException, NotBoundException {
+			String serverAddress, String port, String globalPath)
+			throws RemoteException, MalformedURLException, NotBoundException {
 		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
 				+ localAddress + " to " + serverAddress + " at " + port);
 
@@ -45,7 +45,7 @@ public class DocumentManager {
 					"Find an rmi registry object: " + remoteName);
 			if (remoteObject instanceof IServerDocument) {
 				campaign = (IServerDocument) remoteObject;
-				documentManager = new DocumentManager(campaign);
+				documentManager = new DocumentManager(campaign, globalPath);
 				break;
 			}
 		}
@@ -67,15 +67,18 @@ public class DocumentManager {
 
 	private final HashSet<DocumentManagerListener> listeners;
 	private final HashMap<UniqueID, DocumentClient> documents;
-	private final String campaignPath;
+	private final String specificPath;
+	private final String globalPath;
 
-	private DocumentManager(IServerDocument server) throws RemoteException {
+	private DocumentManager(IServerDocument server, String globalPath)
+			throws RemoteException {
 		documents = new HashMap<UniqueID, DocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
 
-		campaignPath = server.getCampaignPath();
+		specificPath = server.getSpecificPath();
+		this.globalPath = globalPath;
 	}
 
 	public int getRemoteDocumenCount() {
@@ -130,7 +133,7 @@ public class DocumentManager {
 		IDocumentRemote doc;
 		try {
 			doc = server.getDocument(guid);
-			DocumentClient client = new DocumentClient(doc);
+			DocumentClient client = new DocumentClient(doc, this);
 			client.loadDocument();
 
 			synchronized (documents) {
@@ -152,8 +155,7 @@ public class DocumentManager {
 
 	public void createDocument(BasicBean bean) {
 		try {
-			this.server.createDocument(
-					new DocumentPath(getCampaignPath(), bean), bean);
+			this.server.createDocument(bean);
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		}
@@ -163,8 +165,12 @@ public class DocumentManager {
 		return new ArrayList<DocumentClient>(documents.values());
 	}
 
-	public String getCampaignPath() {
-		return campaignPath;
+	public String getSpecificPath() {
+		return specificPath;
+	}
+
+	public String getGlobalPath() {
+		return globalPath;
 	}
 
 	public void removeDocument(UniqueID beanId) {

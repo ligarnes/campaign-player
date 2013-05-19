@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2f78958e-177d-48eb-83be-11e1b64d3486:1368883443977</guid>
+   </id>
+   <name>Flammes du fidèle </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Flammes du fid%c3%a8le.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

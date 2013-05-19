@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:645f8c72-9b42-4797-8128-30e1d3d375f8:1368883443613</guid>
+   </id>
+   <name>Accorder la grâce </name>
+   <school>Abj</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Accorder la gr%c3%a2ce.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

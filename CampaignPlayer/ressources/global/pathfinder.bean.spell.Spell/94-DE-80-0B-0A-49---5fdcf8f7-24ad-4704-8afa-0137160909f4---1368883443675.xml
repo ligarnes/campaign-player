@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5fdcf8f7-24ad-4704-8afa-0137160909f4:1368883443675</guid>
+   </id>
+   <name>Aura élémentaire </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aura %c3%a9l%c3%a9mentaire.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

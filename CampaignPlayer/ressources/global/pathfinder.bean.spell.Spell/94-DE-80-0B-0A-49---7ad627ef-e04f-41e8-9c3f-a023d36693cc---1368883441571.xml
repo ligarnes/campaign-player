@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7ad627ef-e04f-41e8-9c3f-a023d36693cc:1368883441571</guid>
+   </id>
+   <name>Communication avec les plantes</name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Communication avec les plantes.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

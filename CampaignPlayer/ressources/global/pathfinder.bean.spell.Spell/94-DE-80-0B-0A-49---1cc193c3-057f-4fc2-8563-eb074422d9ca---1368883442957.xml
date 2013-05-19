@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1cc193c3-057f-4fc2-8563-eb074422d9ca:1368883442957</guid>
+   </id>
+   <name>Nuée d&apos;élémentaires </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Nu%c3%a9e d%c3%a9l%c3%a9mentaires.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3836a5ed-7b0f-4ee9-bedb-84ff643ab52d:1368883444563</guid>
+   </id>
+   <name>Créature artificielle incassable </name>
+   <school>Abj</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cr%c3%a9ature artificielle incassable.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -13,34 +13,34 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		IDocumentRemote {
 	private static final long serialVersionUID = 1L;
 
-	private final BeanEncapsulator bean;
-	private final DocumentPath path;
+	private final BeanEncapsulator beanEncapsulator;
+
+	private final String filename;
 
 	private final HashSet<IDocumentRemoteListener> listeners;
 
-	public DocumentRemote(DocumentPath path, BasicBean bean)
-			throws RemoteException {
+	public DocumentRemote(BasicBean bean) throws RemoteException {
 		super();
-		this.bean = new BeanEncapsulator(bean);
-		this.path = path;
+		this.beanEncapsulator = new BeanEncapsulator(bean);
+		this.filename = DocumentIO.validateFilename(bean.getId().toString());
 		listeners = new HashSet<IDocumentRemoteListener>();
 	}
 
 	@Override
 	public BasicBean getBean() {
-		return bean.getBean();
+		return beanEncapsulator.getBean();
 	}
 
 	@Override
-	public DocumentPath getPath() {
-		return path;
+	public String getFilename() {
+		return filename;
 	}
 
 	@Override
 	public void setBeanValue(String propertyName, Object newValue)
 			throws RemoteException {
 		Long timestamp = new Date().getTime();
-		bean.valueChange(propertyName, newValue, timestamp);
+		beanEncapsulator.valueChange(propertyName, newValue, timestamp);
 		notifyBeanChanged(propertyName, newValue, timestamp);
 	}
 
@@ -116,7 +116,9 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((bean == null) ? 0 : bean.hashCode());
+		result = prime
+				* result
+				+ ((beanEncapsulator == null) ? 0 : beanEncapsulator.hashCode());
 		return result;
 	}
 
@@ -129,10 +131,10 @@ public class DocumentRemote extends UnicastRemoteObject implements
 		if (getClass() != obj.getClass())
 			return false;
 		DocumentRemote other = (DocumentRemote) obj;
-		if (bean == null) {
-			if (other.bean != null)
+		if (beanEncapsulator == null) {
+			if (other.beanEncapsulator != null)
 				return false;
-		} else if (!bean.equals(other.bean))
+		} else if (!beanEncapsulator.equals(other.beanEncapsulator))
 			return false;
 		return true;
 	}

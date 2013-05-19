@@ -1,6 +1,6 @@
 package net.alteiar.campaign.player.gui.tools.adapter;
 
-import net.alteiar.client.DocumentClient;
+import net.alteiar.server.document.DocumentClient;
 
 public class DocumentAdapter extends BasicAdapter<DocumentClient> {
 
@@ -10,7 +10,7 @@ public class DocumentAdapter extends BasicAdapter<DocumentClient> {
 
 	@Override
 	public String toString() {
-		return getObject().getDocumentPath().getName().toString();
+		return getObject().getFilename();
 	}
 
 }

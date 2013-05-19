@@ -1,6 +1,6 @@
 package pathfinder.actions;
 
-import pathfinder.character.PathfinderCharacter;
+import pathfinder.bean.character.PathfinderCharacter;
 
 public class DoHeal extends ChangeHealthPoint {
 

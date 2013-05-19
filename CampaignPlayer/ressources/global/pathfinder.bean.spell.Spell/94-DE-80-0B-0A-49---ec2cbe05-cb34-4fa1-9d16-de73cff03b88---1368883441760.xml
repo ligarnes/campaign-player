@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ec2cbe05-cb34-4fa1-9d16-de73cff03b88:1368883441760</guid>
+   </id>
+   <name>Corde enchantée </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Corde enchant%c3%a9e.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

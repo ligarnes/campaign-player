@@ -8,12 +8,13 @@ import java.util.HashMap;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public abstract class PanelList<E> extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final HashMap<E, JPanel> panels;
+	private final HashMap<E, JComponent> panels;
 	private final JPanel panelCreate;
 
 	public PanelList(String title) {
@@ -22,7 +23,7 @@ public abstract class PanelList<E> extends JPanel {
 
 		this.setBorder(BorderFactory.createTitledBorder(title));
 
-		panels = new HashMap<E, JPanel>();
+		panels = new HashMap<E, JComponent>();
 
 		panelCreate = createPanelCreate();
 		this.add(panelCreate);
@@ -32,7 +33,7 @@ public abstract class PanelList<E> extends JPanel {
 
 	protected abstract JPanel createPanelCreate();
 
-	protected void addElement(E obj, JPanel panel) {
+	protected void addElement(E obj, JComponent panel) {
 		if (!panels.containsKey(obj)) {
 			panels.put(obj, panel);
 			this.remove(panelCreate);
@@ -52,7 +53,7 @@ public abstract class PanelList<E> extends JPanel {
 	}
 
 	protected void removeElement(E obj) {
-		JPanel panel = panels.remove(obj);
+		JComponent panel = panels.remove(obj);
 
 		int i = this.getComponentIndex(panel);
 		if (i > -1) {

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:797952ce-6143-49cb-aa93-3ac8b499b23c:1368883444030</guid>
+   </id>
+   <name>Halo de gloire </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Halo de gloire.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

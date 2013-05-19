@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:60dd9405-de59-4d0f-a188-4332c4b920c9:1368883444353</guid>
+   </id>
+   <name>Vengeance fantasmagorique </name>
+   <school>Ill</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vengeance fantasmagorique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

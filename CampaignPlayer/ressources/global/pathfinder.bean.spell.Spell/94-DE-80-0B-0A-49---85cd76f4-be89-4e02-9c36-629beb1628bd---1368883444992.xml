@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:85cd76f4-be89-4e02-9c36-629beb1628bd:1368883444992</guid>
+   </id>
+   <name>Sceau contre les maléfices </name>
+   <school>Abj</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sceau contre les mal%c3%a9fices.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

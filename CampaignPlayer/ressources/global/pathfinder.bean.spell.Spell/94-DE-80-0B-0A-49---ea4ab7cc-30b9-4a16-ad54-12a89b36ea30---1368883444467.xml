@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ea4ab7cc-30b9-4a16-ad54-12a89b36ea30:1368883444467</guid>
+   </id>
+   <name>Cadeau empoisonné </name>
+   <school>Nec</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cadeau empoisonn%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>anti paladin</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

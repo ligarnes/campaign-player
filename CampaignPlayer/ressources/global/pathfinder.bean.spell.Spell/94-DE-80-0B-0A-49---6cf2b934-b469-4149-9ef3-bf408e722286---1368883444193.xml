@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6cf2b934-b469-4149-9ef3-bf408e722286:1368883444193</guid>
+   </id>
+   <name>Projection d&apos;ombre </name>
+   <school>Nec</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Projection dombre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

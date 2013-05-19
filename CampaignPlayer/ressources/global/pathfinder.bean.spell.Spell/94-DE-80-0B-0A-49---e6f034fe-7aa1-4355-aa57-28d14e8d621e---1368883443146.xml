@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e6f034fe-7aa1-4355-aa57-28d14e8d621e:1368883443146</guid>
+   </id>
+   <name>Purification de nourriture et d&apos;eau</name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Purification de nourriture et deau.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

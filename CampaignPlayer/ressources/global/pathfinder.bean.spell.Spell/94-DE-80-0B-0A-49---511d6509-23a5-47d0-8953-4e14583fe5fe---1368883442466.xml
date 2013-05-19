@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:511d6509-23a5-47d0-8953-4e14583fe5fe:1368883442466</guid>
+   </id>
+   <name>Immobilisation de monstre de groupe </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Immobilisation de monstre de groupe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9f46b7e9-071f-4fb9-9dd9-106e473feb49:1368883443777</guid>
+   </id>
+   <name>Convocation d&apos;eidolon </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation deidolon.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

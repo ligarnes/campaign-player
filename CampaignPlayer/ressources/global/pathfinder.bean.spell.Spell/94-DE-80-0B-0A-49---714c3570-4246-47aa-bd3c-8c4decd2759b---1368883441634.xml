@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:714c3570-4246-47aa-bd3c-8c4decd2759b:1368883441634</guid>
+   </id>
+   <name>Contrôle des plantes </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Contr%c3%b4le des plantes.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

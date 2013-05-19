@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6ac73be6-d433-4e4d-90a6-3818a0f034b2:1368883442177</guid>
+   </id>
+   <name>Fatigue </name>
+   <school>Nec</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Fatigue.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spellBean>
