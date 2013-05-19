@@ -17,31 +17,29 @@ import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
-import net.alteiar.server.document.DocumentClient;
 import net.alteiar.server.document.DocumentIO;
+import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
 public final class CampaignClient implements DocumentManagerListener {
 	private static CampaignClient INSTANCE = null;
 	private static Boolean IS_SERVER = false;
-	private static final String GLOBAL_DOCUMENT_PATH = "./ressources/global";
 
 	public static CampaignClient getInstance() {
 		return INSTANCE;
 	}
 
 	public static synchronized void loadCampaignServer(String serverAdress,
-			String port, String campaignPath) {
+			String port, String globalDocumentPath, String campaignPath) {
 		startServer(serverAdress, port, campaignPath);
-		connectToServer(serverAdress, serverAdress, port);
+		connectToServer(serverAdress, serverAdress, port, globalDocumentPath);
 		CampaignClient.getInstance().loadGame(campaignPath);
 		for (Player player : CampaignClient.getInstance().getPlayers()) {
 			player.setConnected(false);
@@ -49,7 +47,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public static synchronized void startNewCampaignServer(String serverAdress,
-			String port, String campaignPath) {
+			String port, String globalDocumentPath, String campaignPath) {
 
 		ServerDocuments server = startServer(serverAdress, port, campaignPath);
 		Chat chat = new Chat();
@@ -61,11 +59,11 @@ public final class CampaignClient implements DocumentManagerListener {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		connectToServer(serverAdress, serverAdress, port);
+		connectToServer(serverAdress, serverAdress, port, globalDocumentPath);
 	}
 
 	public static synchronized void connectToServer(String localAdress,
-			String serverAdress, String port) {
+			String serverAdress, String port, String globalDocumentPath) {
 
 		if (INSTANCE != null) {
 			return;
@@ -74,7 +72,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		DocumentManager manager = null;
 		try {
 			manager = DocumentManager.connect(localAdress, serverAdress, port,
-					GLOBAL_DOCUMENT_PATH);
+					globalDocumentPath);
 			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
 			ExceptionTool
@@ -183,8 +181,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		if (localFile.exists() && localFile.isDirectory()) {
 			for (File f : localFile.listFiles()) {
 				try {
-					BeanEncapsulator bean = DocumentIO.loadDocumentLocal(f);
-					result.add((E) bean.getBean());
+					BasicBean bean = DocumentIO.loadBeanLocal(f);
+					result.add((E) bean);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -281,13 +279,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		manager.removeDocument(beanId);
 	}
 
-	@SuppressWarnings("unchecked")
 	public <E extends BasicBean> E getBean(UniqueID id) {
-		DocumentClient document = manager.getDocument(id);
-		if (document == null) {
-			return null;
-		}
-		return (E) document.getBeanEncapsulator().getBean();
+		return manager.getBean(id);
 	}
 
 	public void addWaitBeanListener(WaitBeanListener listener) {
@@ -325,10 +318,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		return listeners;
 	}
 
-	@SuppressWarnings("unchecked")
 	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
-		return (E) manager.getDocument(id, timeout).getBeanEncapsulator()
-				.getBean();
+		return manager.getBean(id, timeout);
 	}
 
 	public Player getCurrentPlayer() {
@@ -457,7 +448,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 
 		try {
-			for (DocumentClient doc : manager.getDocuments()) {
+			for (IDocumentClient doc : manager.getDocuments()) {
 				doc.saveLocal();
 			}
 		} catch (Exception e) {

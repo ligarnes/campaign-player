@@ -18,8 +18,8 @@ public class LoadCampaignTest extends BasicTest {
 		String address = "127.0.0.1";
 		String port = "1099";
 
-		CampaignClient
-				.loadCampaignServer(address, port, getCampaignDirectory());
+		CampaignClient.loadCampaignServer(address, port, getGlobalDirectory(),
+				getCampaignDirectory());
 
 		long before = System.currentTimeMillis();
 		int currentSize = CampaignClient.getInstance().getPlayers().size();

@@ -80,6 +80,10 @@ public abstract class BasicTest {
 		return "./test/ressources/campaign/" + getCampaignName();
 	}
 
+	public final String getGlobalDirectory() {
+		return "./test/ressources/global/";
+	}
+
 	public String getPlayerName() {
 		return "player-name";
 	}

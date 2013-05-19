@@ -12,8 +12,18 @@ public class SpellLevelComparator implements Comparator<Spell> {
 		this.classe = classe;
 	}
 
+	protected int diffLevel(Spell o1, Spell o2) {
+		return o1.getLevel(classe) - o2.getLevel(classe);
+	}
+
+	protected int diffName(Spell o1, Spell o2) {
+		return o1.getName().compareTo(o2.getName());
+	}
+
 	@Override
 	public int compare(Spell o1, Spell o2) {
-		return o1.getLevel(classe) - o2.getLevel(classe);
+		int diff = diffLevel(o1, o2) * 100;
+		diff += diffName(o1, o2);
+		return diff;
 	}
 }

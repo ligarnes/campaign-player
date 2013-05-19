@@ -1,13 +1,16 @@
 package net.alteiar.client;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -18,6 +21,9 @@ import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
 import net.alteiar.server.document.DocumentClient;
+import net.alteiar.server.document.DocumentIO;
+import net.alteiar.server.document.DocumentLocal;
+import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
@@ -66,13 +72,13 @@ public class DocumentManager {
 	private final IServerDocument server;
 
 	private final HashSet<DocumentManagerListener> listeners;
-	private final HashMap<UniqueID, DocumentClient> documents;
+	private final HashMap<UniqueID, IDocumentClient> documents;
 	private final String specificPath;
 	private final String globalPath;
 
 	private DocumentManager(IServerDocument server, String globalPath)
 			throws RemoteException {
-		documents = new HashMap<UniqueID, DocumentClient>();
+		documents = new HashMap<UniqueID, IDocumentClient>();
 		listeners = new HashSet<DocumentManagerListener>();
 		this.server = server;
 		this.server.addServerListener(new CampaignClientObserver());
@@ -104,14 +110,61 @@ public class DocumentManager {
 		}
 	}
 
-	public DocumentClient getDocument(UniqueID id) {
-		return documents.get(id);
+	public <E extends BasicBean> E getBean(UniqueID id) {
+		return getBean(id, -1L);
 	}
 
-	public DocumentClient getDocument(UniqueID id, Long timeout) {
+	@SuppressWarnings("unchecked")
+	public <E extends BasicBean> E getBean(UniqueID id, Long timeout) {
+		IDocumentClient doc = getDocument(id, -1L);
+		if (doc == null) {
+			// try to find it locally
+			BasicBean bean = searchGlobalBean(id);
+			if (bean != null) {
+				// add to document in order to avoid search again
+				addDocument(new DocumentLocal(bean));
+			}
+		}
+		doc = getDocument(id, timeout);
+
+		return doc == null ? null : (E) doc.getBeanEncapsulator().getBean();
+	}
+
+	protected BasicBean searchGlobalBean(UniqueID id) {
+		BasicBean beanFound = null;
+		String filename = DocumentIO.validateFilename(id.toString());
+
+		File found = searchFile(new File(getGlobalPath()), filename);
+		if (found != null) {
+			try {
+				beanFound = DocumentIO.loadBeanLocal(found);
+			} catch (Exception e) {
+				// Do not care if we cannot read the file it may be an error
+			}
+		}
+		return beanFound;
+	}
+
+	protected File searchFile(File dir, String filename) {
+		File found = null;
+		Iterator<File> itt = Arrays.asList(dir.listFiles()).iterator();
+
+		while (itt.hasNext() && found == null) {
+			File file = itt.next();
+
+			found = new File(file, filename);
+			if (!found.exists()) {
+				found = null;
+			}
+		}
+
+		return found;
+	}
+
+	protected IDocumentClient getDocument(UniqueID id, Long timeout) {
 		Long begin = System.currentTimeMillis();
 
-		DocumentClient value = documents.get(id);
+		IDocumentClient value = documents.get(id);
 
 		Long current = System.currentTimeMillis();
 		while (value == null && (current - begin) < timeout) {
@@ -133,11 +186,22 @@ public class DocumentManager {
 		IDocumentRemote doc;
 		try {
 			doc = server.getDocument(guid);
-			DocumentClient client = new DocumentClient(doc, this);
+			IDocumentClient client = new DocumentClient(doc, this);
+			addDocument(client);
+		} catch (RemoteException e) {
+			ExceptionTool.showError(e);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private synchronized void addDocument(IDocumentClient client) {
+		try {
 			client.loadDocument();
 
 			synchronized (documents) {
-				this.documents.put(guid, client);
+				this.documents.put(client.getId(), client);
 			}
 
 			for (DocumentManagerListener listener : getListeners()) {
@@ -161,8 +225,8 @@ public class DocumentManager {
 		}
 	}
 
-	public ArrayList<DocumentClient> getDocuments() {
-		return new ArrayList<DocumentClient>(documents.values());
+	public ArrayList<IDocumentClient> getDocuments() {
+		return new ArrayList<IDocumentClient>(documents.values());
 	}
 
 	public String getSpecificPath() {
@@ -190,7 +254,7 @@ public class DocumentManager {
 	}
 
 	private synchronized void removeRemoteDocument(UniqueID guid) {
-		DocumentClient doc;
+		IDocumentClient doc;
 		synchronized (documents) {
 			doc = this.documents.remove(guid);
 		}

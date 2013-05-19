@@ -16,6 +16,8 @@ import net.alteiar.shared.ExceptionTool;
 public abstract class PanelStartGameDialog extends JPanel {
 	private static final long serialVersionUID = -6625096424819076011L;
 
+	protected static final String GLOBAL_DOCUMENT_PATH = "./ressources/global";
+
 	private final StartGameDialog startGameDialog;
 	private final PanelStartGameDialog previous;
 

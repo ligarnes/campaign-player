@@ -8,7 +8,15 @@ public class ThreadPool extends ThreadPoolExecutor {
 
 	public ThreadPool(int maximumThread) {
 		super(maximumThread, maximumThread, 10, TimeUnit.SECONDS,
-				new LinkedBlockingQueue<Runnable>(100));
+				new LinkedBlockingQueue<Runnable>(500));
+
+		/*
+		 * new RejectedExecutionHandler() {
+		 * 
+		 * @Override public void rejectedExecution(Runnable r,
+		 * ThreadPoolExecutor executor) { Thread.sleep(200); executor.submit(r);
+		 * } }
+		 */
 	}
 
 	@Override

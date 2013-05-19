@@ -9,7 +9,7 @@ import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.trigger.Trigger;
-import net.alteiar.server.document.DocumentClient;
+import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.shared.UniqueID;
 
 public class EventManager implements DocumentManagerListener {
@@ -25,7 +25,7 @@ public class EventManager implements DocumentManagerListener {
 	}
 
 	protected void initializeNewTrigger(Trigger trigger) {
-		for (DocumentClient doc : manager.getDocuments()) {
+		for (IDocumentClient doc : manager.getDocuments()) {
 			trigger.beanAdded(doc.getBeanEncapsulator().getBean());
 		}
 	}

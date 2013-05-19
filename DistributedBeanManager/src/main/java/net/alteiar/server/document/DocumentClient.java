@@ -12,7 +12,8 @@ import net.alteiar.client.DocumentManager;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.shared.UniqueID;
 
-public class DocumentClient implements Serializable, PropertyChangeListener {
+public class DocumentClient implements IDocumentClient, Serializable,
+		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private final IDocumentRemote remote;
@@ -20,14 +21,11 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 	private transient IDocumentRemoteListener documentListener;
 
 	private BeanEncapsulator bean;
-	private final String filename;
+	private String filename;
 
-	public DocumentClient(IDocumentRemote remote, DocumentManager manager)
-			throws RemoteException {
-
+	public DocumentClient(IDocumentRemote remote, DocumentManager manager) {
 		this.manager = manager;
 		this.remote = remote;
-		this.filename = remote.getFilename();
 	}
 
 	public void remoteValueChanged(String propertyName, Object newValue,
@@ -45,15 +43,25 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 	}
 
+	@Override
 	public UniqueID getId() {
 		return bean.getId();
 	}
 
+	@Override
 	public BeanEncapsulator getBeanEncapsulator() {
 		return this.bean;
 	}
 
-	public String getFilename() {
+	protected void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	protected DocumentManager getDocumentManager() {
+		return this.manager;
+	}
+
+	protected String getFilename() {
 		return this.filename;
 	}
 
@@ -68,8 +76,10 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		}
 	}
 
+	@Override
 	public void loadDocument() throws Exception {
 		try {
+			setFilename(remote.getFilename());
 			documentListener = new DocumentListener();
 
 			this.remote.addDocumentListener(documentListener);
@@ -79,10 +89,12 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 			try {
 				if (localFile.exists()) {
 					// load local bean
-					DocumentIO.loadDocumentLocal(localFile);
+					bean = new BeanEncapsulator(
+							DocumentIO.loadBeanLocal(localFile));
 				} else if (globalFile.exists()) {
 					// load global bean
-					DocumentIO.loadDocumentLocal(globalFile);
+					bean = new BeanEncapsulator(
+							DocumentIO.loadBeanLocal(globalFile));
 				} else {
 					loadDocumentRemote();
 				}
@@ -101,9 +113,10 @@ public class DocumentClient implements Serializable, PropertyChangeListener {
 		bean = new BeanEncapsulator(remote.getBean());
 	}
 
+	@Override
 	public void saveLocal() throws Exception {
 		DocumentIO.saveDocument(bean.getBean(), manager.getSpecificPath(),
-				this.filename + ".xml");
+				this.filename);
 	}
 
 	private class DocumentListener extends UnicastRemoteObject implements

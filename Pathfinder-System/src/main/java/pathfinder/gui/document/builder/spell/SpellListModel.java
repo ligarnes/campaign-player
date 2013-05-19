@@ -4,8 +4,9 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.AbstractListModel;
 import javax.swing.JLabel;
@@ -21,20 +22,26 @@ public class SpellListModel extends AbstractListModel<Spell> implements
 	private static final long serialVersionUID = 1L;
 
 	private String classe;
-	private ArrayList<Spell> spells;
+	private TreeSet<Spell> spells;
 
 	private ArrayList<Spell> values;
 
 	public SpellListModel(String classe, List<Spell> spells) {
 		this.classe = classe;
-		this.spells = new ArrayList<Spell>(spells);
+		this.spells = new TreeSet<Spell>(new SpellLevelComparator(classe));
+		this.spells.addAll(spells);
 		values = new ArrayList<Spell>();
 		refresh();
 	}
 
+	public Set<Spell> getSpells() {
+		return spells;
+	}
+
 	public void setSpells(String classe, List<Spell> spells) {
 		this.classe = classe;
-		this.spells = new ArrayList<Spell>(spells);
+		this.spells = new TreeSet<Spell>(new SpellLevelComparator(classe));
+		this.spells.addAll(spells);
 		values = new ArrayList<Spell>();
 		refresh();
 		this.fireIntervalRemoved(this, 0, getSize());
@@ -63,8 +70,6 @@ public class SpellListModel extends AbstractListModel<Spell> implements
 			values.add(null);
 			return;
 		}
-
-		Collections.sort(spells, new SpellLevelComparator(classe));
 
 		Integer previousLevel = -1;
 		for (Spell spell : spells) {

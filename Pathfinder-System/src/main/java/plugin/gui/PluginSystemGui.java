@@ -23,10 +23,12 @@ import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.shared.ExceptionTool;
+import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.builder.character.PanelCreateCharacter;
 import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
 import pathfinder.gui.document.viewer.PanelViewImage;
+import pathfinder.gui.document.viewer.spell.PanelSpellBookViewer;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.editor.PanelCharacterEditor;
 import pathfinder.gui.mapElement.editor.PanelCircleEditor;
@@ -48,6 +50,7 @@ public class PluginSystemGui implements IPluginSystemGui {
 	public PluginSystemGui() {
 		viewPanels = new DynamicPanelBeanBuilder();
 		viewPanels.add(DocumentImageBean.class, PanelViewImage.class);
+		viewPanels.add(DocumentSpellBook.class, PanelSpellBookViewer.class);
 
 		documentIcons = new HashMap<Class<?>, ImageIconFactory<?>>();
 
