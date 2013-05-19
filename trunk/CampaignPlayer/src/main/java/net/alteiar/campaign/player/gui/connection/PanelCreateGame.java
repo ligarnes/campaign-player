@@ -189,7 +189,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 
 		// Create the game
 		CampaignClient.startNewCampaignServer(getServerAddressIp(), getPort(),
-				getGameName());
+				PanelStartGameDialog.GLOBAL_DOCUMENT_PATH, getGameName());
 
 		// Create one player NOTE: here we force the player who
 		// creates the game to be the Game Master

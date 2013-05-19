@@ -2,15 +2,15 @@ package pathfinder.gui.document.builder.spell;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import pathfinder.bean.spell.Spell;
-import pathfinder.bean.spell.filter.SpellLevelComparator;
+import pathfinder.gui.document.builder.spell.dragndrop.SpellListTransferHandler;
 
 public class PanelSpellListSource extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -20,8 +20,6 @@ public class PanelSpellListSource extends JPanel {
 	private final SpellListModel modelRenderer;
 
 	public PanelSpellListSource(String classe, List<Spell> spells) {
-		Collections.sort(spells, new SpellLevelComparator(classe));
-
 		JList<Spell> list = new JList<Spell>();
 
 		modelRenderer = new SpellListModel(classe, spells);
@@ -47,5 +45,9 @@ public class PanelSpellListSource extends JPanel {
 		modelRenderer.setSpells(classe, spells);
 		this.revalidate();
 		this.repaint();
+	}
+
+	public Set<Spell> getSpells() {
+		return modelRenderer.getSpells();
 	}
 }

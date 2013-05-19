@@ -145,7 +145,8 @@ public class PanelJoinGame extends PanelStartGameDialog {
 		Runnable run = new Runnable() {
 			@Override
 			public void run() {
-				CampaignClient.connectToServer(localAdress, serverAdress, port);
+				CampaignClient.connectToServer(localAdress, serverAdress, port,
+						PanelStartGameDialog.GLOBAL_DOCUMENT_PATH);
 				// save just after load
 				CampaignClient.getInstance().saveGame();
 			}

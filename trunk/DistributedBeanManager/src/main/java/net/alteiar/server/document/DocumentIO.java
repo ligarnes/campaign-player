@@ -3,18 +3,11 @@ package net.alteiar.server.document;
 import java.io.File;
 
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.client.bean.BeanEncapsulator;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 public class DocumentIO {
-
-	public static BeanEncapsulator loadDocumentLocal(File f) throws Exception {
-		BasicBean bBean = loadBeanLocal(f);
-		BeanEncapsulator bean = new BeanEncapsulator(bBean);
-		return bean;
-	}
 
 	public static BasicBean loadBeanLocal(File f) throws Exception {
 		String path = f.getPath();
@@ -57,6 +50,6 @@ public class DocumentIO {
 		validFileName = validFileName.replaceAll(">",
 				INVALID_FILE_CHARACTER_REPLACEMENT);
 
-		return validFileName;
+		return validFileName + ".xml";
 	}
 }

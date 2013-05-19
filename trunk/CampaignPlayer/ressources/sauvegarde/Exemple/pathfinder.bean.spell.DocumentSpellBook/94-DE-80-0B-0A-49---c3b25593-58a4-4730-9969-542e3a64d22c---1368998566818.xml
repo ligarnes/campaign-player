@@ -1,0 +1,36 @@
+<documentSpellBook serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c3b25593-58a4-4730-9969-542e3a64d22c:1368998566818</guid>
+   </id>
+   <documentName>Grimoire de Thorïn</documentName>
+   <owner serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:88169f64-41d9-493b-9b87-eb9092027e40:1368054868256</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>false</isPublic>
+   <className>prêtre</className>
+   <spells>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6f18c486-7d50-4a3b-b876-dfd55de672ad:1368883441818</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5049a678-d5fe-40ca-80bb-a2bebbf1e072:1368883441944</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:889a5f90-7158-486e-9eb4-f8c570727f5a:1368883443316</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:649c1371-8513-4971-8998-486da0396f3d:1368883443379</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:18c4fb64-a980-456f-a17c-ba584467c1a3:1368883441110</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a280b563-40e5-4e52-a52d-04fad5b8e887:1368883441235</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:26ee2f0f-241b-474d-85e9-90b414f6cd85:1368883443448</guid>
+      </uniqueID>
+   </spells>
+</documentSpellBook>

@@ -176,7 +176,8 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		Runnable run = new Runnable() {
 			@Override
 			public void run() {
-				CampaignClient.loadCampaignServer(address, port, campaign);
+				CampaignClient.loadCampaignServer(address, port,
+						PanelStartGameDialog.GLOBAL_DOCUMENT_PATH, campaign);
 			}
 		};
 
