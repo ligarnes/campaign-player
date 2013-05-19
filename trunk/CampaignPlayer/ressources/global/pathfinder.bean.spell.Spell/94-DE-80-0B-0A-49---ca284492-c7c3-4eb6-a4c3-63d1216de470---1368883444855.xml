@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ca284492-c7c3-4eb6-a4c3-63d1216de470:1368883444855</guid>
+   </id>
+   <name>Misérable pitié </name>
+   <school>Abj</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mis%c3%a9rable piti%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

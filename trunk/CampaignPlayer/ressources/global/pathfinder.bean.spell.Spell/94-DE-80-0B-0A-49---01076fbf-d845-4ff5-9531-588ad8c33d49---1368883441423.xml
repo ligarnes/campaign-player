@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:01076fbf-d845-4ff5-9531-588ad8c33d49:1368883441423</guid>
+   </id>
+   <name>Brume mortelle </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Brume mortelle.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

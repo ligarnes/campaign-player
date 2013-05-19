@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c1f80d7d-835d-4697-9171-d351a263ce57:1368883443002</guid>
+   </id>
+   <name>Panoplie magique </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Panoplie magique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

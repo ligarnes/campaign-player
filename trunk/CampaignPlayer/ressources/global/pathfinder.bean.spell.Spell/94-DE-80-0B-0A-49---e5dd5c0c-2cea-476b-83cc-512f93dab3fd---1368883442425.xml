@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e5dd5c0c-2cea-476b-83cc-512f93dab3fd:1368883442425</guid>
+   </id>
+   <name>Identification </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Identification.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

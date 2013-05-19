@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a4cc570b-2df0-447b-b70c-8b56e58670c6:1368883443108</guid>
+   </id>
+   <name>Projectile magique </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Projectile magique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

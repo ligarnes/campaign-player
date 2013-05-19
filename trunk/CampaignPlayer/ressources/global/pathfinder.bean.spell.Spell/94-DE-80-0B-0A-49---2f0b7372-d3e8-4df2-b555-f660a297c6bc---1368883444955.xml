@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2f0b7372-d3e8-4df2-b555-f660a297c6bc:1368883444955</guid>
+   </id>
+   <name>Représentation de virtuose </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Repr%c3%a9sentation de virtuose.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

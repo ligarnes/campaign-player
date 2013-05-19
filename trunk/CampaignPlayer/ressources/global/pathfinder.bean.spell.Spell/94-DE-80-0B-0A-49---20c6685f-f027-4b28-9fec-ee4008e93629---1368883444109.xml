@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:20c6685f-f027-4b28-9fec-ee4008e93629:1368883444109</guid>
+   </id>
+   <name>Manteau marin </name>
+   <school>Abj</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Manteau marin.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

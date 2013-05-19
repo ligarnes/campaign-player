@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e91e4822-c118-4f53-8908-e32f7056e0e5:1368883443529</guid>
+   </id>
+   <name>Transfert de sorts </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Transfert de sorts.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

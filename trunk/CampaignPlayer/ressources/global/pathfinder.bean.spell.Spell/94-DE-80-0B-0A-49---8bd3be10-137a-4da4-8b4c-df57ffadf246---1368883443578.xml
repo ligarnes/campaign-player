@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8bd3be10-137a-4da4-8b4c-df57ffadf246:1368883443578</guid>
+   </id>
+   <name>Vision magique suprême </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vision magique supr%c3%aame.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

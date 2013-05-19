@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:11aa3ca6-47f7-4a54-bbfa-fdc299c8523a:1368883444429</guid>
+   </id>
+   <name>Aura de funeste destin </name>
+   <school>Nec</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aura de funeste destin.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

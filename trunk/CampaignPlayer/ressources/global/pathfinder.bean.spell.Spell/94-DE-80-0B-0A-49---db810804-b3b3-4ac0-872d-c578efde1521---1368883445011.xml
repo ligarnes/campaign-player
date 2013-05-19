@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:db810804-b3b3-4ac0-872d-c578efde1521:1368883445011</guid>
+   </id>
+   <name>Simulacre de vie supérieur </name>
+   <school>Nec</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Simulacre de vie sup%c3%a9rieur.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

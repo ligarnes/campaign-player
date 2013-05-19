@@ -32,7 +32,6 @@ import net.alteiar.client.bean.BasicBean;
 import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
-import net.alteiar.server.document.DocumentPath;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
@@ -105,7 +104,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public String getCampaignPath() throws RemoteException {
+	public String getSpecificPath() throws RemoteException {
 		return campaignPath;
 	}
 
@@ -135,9 +134,9 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public synchronized void createDocument(DocumentPath path, BasicBean bean)
+	public synchronized void createDocument(BasicBean bean)
 			throws RemoteException {
-		IDocumentRemote remote = new DocumentRemote(path, bean);
+		IDocumentRemote remote = new DocumentRemote(bean);
 		final UniqueID id = bean.getId();
 		documents.put(id, remote);
 

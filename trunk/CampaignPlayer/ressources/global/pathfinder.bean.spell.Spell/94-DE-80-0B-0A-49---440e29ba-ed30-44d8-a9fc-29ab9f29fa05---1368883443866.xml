@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:440e29ba-ed30-44d8-a9fc-29ab9f29fa05:1368883443866</guid>
+   </id>
+   <name>Emprunt de chance </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Emprunt de chance.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

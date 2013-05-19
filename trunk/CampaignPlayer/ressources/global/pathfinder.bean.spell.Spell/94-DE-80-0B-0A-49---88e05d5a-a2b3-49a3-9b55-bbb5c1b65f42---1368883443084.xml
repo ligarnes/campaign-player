@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:88e05d5a-a2b3-49a3-9b55-bbb5c1b65f42:1368883443084</guid>
+   </id>
+   <name>Porte dimensionnelle </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Porte dimensionnelle.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:01ba9b51-8f61-44f1-8a7d-1f8ab6e3c72b:1368883443803</guid>
+   </id>
+   <name>Coup retentissant </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Coup retentissant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>anti paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

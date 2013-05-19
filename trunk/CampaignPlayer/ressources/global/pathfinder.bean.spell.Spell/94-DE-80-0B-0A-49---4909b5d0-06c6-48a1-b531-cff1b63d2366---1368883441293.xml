@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4909b5d0-06c6-48a1-b531-cff1b63d2366:1368883441293</guid>
+   </id>
+   <name>Bannissement </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bannissement.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

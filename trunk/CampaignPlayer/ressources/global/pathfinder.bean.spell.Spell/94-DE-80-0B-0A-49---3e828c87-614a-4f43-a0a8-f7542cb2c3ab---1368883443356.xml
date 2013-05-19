@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3e828c87-614a-4f43-a0a8-f7542cb2c3ab:1368883443356</guid>
+   </id>
+   <name>Simulacre </name>
+   <school>Ill</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Simulacre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

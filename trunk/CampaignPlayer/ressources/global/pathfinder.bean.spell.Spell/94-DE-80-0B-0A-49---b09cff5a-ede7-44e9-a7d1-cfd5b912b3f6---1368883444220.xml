@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b09cff5a-ede7-44e9-a7d1-cfd5b912b3f6:1368883444220</guid>
+   </id>
+   <name>Régénération d&apos;eidolon supérieure</name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.R%c3%a9g%c3%a9n%c3%a9ration deidolon sup%c3%a9rieure.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

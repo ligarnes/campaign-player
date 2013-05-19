@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e7913997-4424-4f4f-aeb2-8e4d97712f1c:1368883442490</guid>
+   </id>
+   <name>Imprécation </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Impr%c3%a9cation.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>anti paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

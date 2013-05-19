@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:dbdc8eec-280f-4fa3-aff7-7c9682e7e74a:1368883444135</guid>
+   </id>
+   <name>Note tangible </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Note tangible.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

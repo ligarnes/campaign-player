@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:09e0741d-396b-40be-a420-c3ed983266a8:1368883442817</guid>
+   </id>
+   <name>Moment de prescience </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Moment de prescience.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

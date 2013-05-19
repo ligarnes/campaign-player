@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8f4f65a8-27fa-4c56-a48c-0a671a6ed2f0:1368883441313</guid>
+   </id>
+   <name>Bénédiction </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.B%c3%a9n%c3%a9diction.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:68278ca8-7c25-4e1c-96f4-fa87fb7f60fa:1368883441752</guid>
+   </id>
+   <name>Coquille antivie </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Coquille antivie.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d083c7ae-ca20-49a4-b396-ef69d5b71dac:1368883444848</guid>
+   </id>
+   <name>Marteau arboricole </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Marteau arboricole.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

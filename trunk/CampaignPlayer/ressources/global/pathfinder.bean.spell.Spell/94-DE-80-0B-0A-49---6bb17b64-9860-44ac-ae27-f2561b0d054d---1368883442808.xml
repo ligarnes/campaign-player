@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6bb17b64-9860-44ac-ae27-f2561b0d054d:1368883442808</guid>
+   </id>
+   <name>Modification d&apos;apparence </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Modification dapparence.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

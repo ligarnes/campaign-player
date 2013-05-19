@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:761c0f9e-d364-4c96-bca6-43c6a2a7dc76:1368883444203</guid>
+   </id>
+   <name>Purulence de groupe </name>
+   <school>Nec</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Purulence de groupe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

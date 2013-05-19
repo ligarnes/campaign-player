@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2a8f304f-ab4e-4031-b0d6-bcccb9106a0d:1368883443879</guid>
+   </id>
+   <name>Ennemi contondant </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Ennemi contondant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

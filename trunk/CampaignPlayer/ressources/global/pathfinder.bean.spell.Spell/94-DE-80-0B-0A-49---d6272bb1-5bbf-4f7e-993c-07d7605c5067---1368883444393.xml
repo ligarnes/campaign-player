@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d6272bb1-5bbf-4f7e-993c-07d7605c5067:1368883444393</guid>
+   </id>
+   <name>Allié compatissant </name>
+   <school>Enc</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Alli%c3%a9 compatissant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8400872c-414f-402f-b9b6-556ad3869db7:1368883444173</guid>
+   </id>
+   <name>Planer </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Planer.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

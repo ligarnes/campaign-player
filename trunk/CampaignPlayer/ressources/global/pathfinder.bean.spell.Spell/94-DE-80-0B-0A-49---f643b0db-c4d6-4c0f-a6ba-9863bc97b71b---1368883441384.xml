@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f643b0db-c4d6-4c0f-a6ba-9863bc97b71b:1368883441384</guid>
+   </id>
+   <name>Bouclier de la foi </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bouclier de la foi.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

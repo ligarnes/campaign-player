@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d5f8e5ea-12db-414e-89d6-d10a111e1233:1368883444432</guid>
+   </id>
+   <name>Bafouiller </name>
+   <school>Enc</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bafouiller.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

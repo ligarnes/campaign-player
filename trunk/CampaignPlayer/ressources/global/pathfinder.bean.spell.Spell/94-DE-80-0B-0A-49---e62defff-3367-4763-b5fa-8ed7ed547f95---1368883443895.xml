@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e62defff-3367-4763-b5fa-8ed7ed547f95:1368883443895</guid>
+   </id>
+   <name>Esprit de l&apos;arc </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Esprit de larc.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

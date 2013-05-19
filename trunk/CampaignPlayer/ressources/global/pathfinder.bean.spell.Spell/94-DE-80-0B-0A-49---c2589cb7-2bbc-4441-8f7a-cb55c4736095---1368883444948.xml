@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c2589cb7-2bbc-4441-8f7a-cb55c4736095:1368883444948</guid>
+   </id>
+   <name>Rendre un jugement </name>
+   <school>Div</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rendre un jugement.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

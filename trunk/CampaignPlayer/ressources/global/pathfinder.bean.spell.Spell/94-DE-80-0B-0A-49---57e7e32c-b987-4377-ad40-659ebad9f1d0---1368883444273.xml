@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:57e7e32c-b987-4377-ad40-659ebad9f1d0:1368883444273</guid>
+   </id>
+   <name>Sables changeants </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sables changeants.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f00ee8ba-2284-4a48-b9ed-f53bf3fb4f52:1368883444532</guid>
+   </id>
+   <name>Convocation de ver vénérable </name>
+   <school>Inv</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation de ver v%c3%a9n%c3%a9rable.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

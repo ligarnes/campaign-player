@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1e4bae96-0ca8-4f3a-a1a8-48b84491ac4b:1368883442200</guid>
+   </id>
+   <name>Fléau d&apos;insectes </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Fl%c3%a9au dinsectes.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

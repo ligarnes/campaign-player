@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:86f02671-353b-44db-aeef-7bbea08a6fde:1368883441814</guid>
+   </id>
+   <name>Création de nourriture et d&apos;eau </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cr%c3%a9ation de nourriture et deau.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

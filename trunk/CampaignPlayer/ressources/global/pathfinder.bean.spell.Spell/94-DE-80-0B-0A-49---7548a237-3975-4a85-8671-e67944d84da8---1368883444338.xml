@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7548a237-3975-4a85-8671-e67944d84da8:1368883444338</guid>
+   </id>
+   <name>Triple aspect </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Triple aspect.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

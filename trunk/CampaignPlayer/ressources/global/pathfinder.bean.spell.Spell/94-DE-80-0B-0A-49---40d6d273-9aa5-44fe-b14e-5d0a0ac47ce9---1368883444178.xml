@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:40d6d273-9aa5-44fe-b14e-5d0a0ac47ce9:1368883444178</guid>
+   </id>
+   <name>Poing de pierre </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Poing de pierre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

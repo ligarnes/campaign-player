@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8befe41e-277b-4425-add7-29e05b2dbd95:1368883444552</guid>
+   </id>
+   <name>Création de demi-plan </name>
+   <school>Inv</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cr%c3%a9ation de demi-plan.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

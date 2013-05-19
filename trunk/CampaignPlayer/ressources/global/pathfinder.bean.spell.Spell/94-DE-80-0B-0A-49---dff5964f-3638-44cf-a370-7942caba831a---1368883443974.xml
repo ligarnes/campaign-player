@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:dff5964f-3638-44cf-a370-7942caba831a:1368883443974</guid>
+   </id>
+   <name>Flammes de la vengeance </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Flammes de la vengeance.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

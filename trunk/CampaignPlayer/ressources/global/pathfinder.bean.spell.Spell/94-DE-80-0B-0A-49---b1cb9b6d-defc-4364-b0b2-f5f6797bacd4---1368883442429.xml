@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b1cb9b6d-defc-4364-b0b2-f5f6797bacd4:1368883442429</guid>
+   </id>
+   <name>Idiotie </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Idiotie.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

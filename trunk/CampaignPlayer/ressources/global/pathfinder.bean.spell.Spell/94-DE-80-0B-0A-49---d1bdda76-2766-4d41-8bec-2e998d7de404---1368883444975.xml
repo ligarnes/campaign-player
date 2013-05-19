@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d1bdda76-2766-4d41-8bec-2e998d7de404:1368883444975</guid>
+   </id>
+   <name>Résurrection temporaire </name>
+   <school>Nec</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.R%c3%a9surrection temporaire.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

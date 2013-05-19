@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:906b5abb-f123-4fc9-9c24-f1211910276b:1368883443170</guid>
+   </id>
+   <name>Rapetissement d&apos;animal </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rapetissement danimal.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

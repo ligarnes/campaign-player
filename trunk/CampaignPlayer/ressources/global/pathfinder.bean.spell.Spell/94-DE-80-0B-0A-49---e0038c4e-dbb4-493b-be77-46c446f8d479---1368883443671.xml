@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e0038c4e-dbb4-493b-be77-46c446f8d479:1368883443671</guid>
+   </id>
+   <name>Aspect du loup </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aspect du loup.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

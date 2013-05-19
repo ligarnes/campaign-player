@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e7cdc6ad-05a3-470e-ba57-7b6b502b20b7:1368883442245</guid>
+   </id>
+   <name>Forme bestiale I </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme bestiale I.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

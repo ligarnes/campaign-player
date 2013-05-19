@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4519886d-b234-4eff-a6cd-36575004a9f4:1368883444060</guid>
+   </id>
+   <name>Joueur de flûte </name>
+   <school>Enc</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Joueur de fl%c3%bbte.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

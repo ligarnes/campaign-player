@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:eabb6549-b083-4cbd-8983-d136f4b222e5:1368883445070</guid>
+   </id>
+   <name>Vengeance pour outrage </name>
+   <school>Enc</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vengeance pour outrage.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

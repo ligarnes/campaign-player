@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f821a57e-8633-4ea8-89b0-bf577c4b7700:1368883442065</guid>
+   </id>
+   <name>Éclair multiple </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.%c3%89clair multiple.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

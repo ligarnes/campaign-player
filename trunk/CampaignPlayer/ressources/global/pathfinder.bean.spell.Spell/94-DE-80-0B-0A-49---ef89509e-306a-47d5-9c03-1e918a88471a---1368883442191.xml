@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ef89509e-306a-47d5-9c03-1e918a88471a:1368883442191</guid>
+   </id>
+   <name>Feuille morte </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Feuille morte.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

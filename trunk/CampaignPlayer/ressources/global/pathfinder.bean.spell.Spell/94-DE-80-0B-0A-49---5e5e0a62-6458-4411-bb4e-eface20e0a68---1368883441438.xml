@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5e5e0a62-6458-4411-bb4e-eface20e0a68:1368883441438</guid>
+   </id>
+   <name>Cauchemar </name>
+   <school>Ill</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.sort Cauchemar.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:92d16ba2-ab87-47fc-8cc5-5665cd6d2f0b:1368883441134</guid>
+   </id>
+   <name>Animation d&apos;objets </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Animation dobjets.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

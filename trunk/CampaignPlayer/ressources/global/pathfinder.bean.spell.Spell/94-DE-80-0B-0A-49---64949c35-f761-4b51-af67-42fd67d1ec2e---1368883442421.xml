@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:64949c35-f761-4b51-af67-42fd67d1ec2e:1368883442421</guid>
+   </id>
+   <name>Hypnose des animaux </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Hypnose des animaux.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:be4f1aa0-3845-4d38-b8d8-5b65d220bfb8:1368883444143</guid>
+   </id>
+   <name>Œil du mitrailleur </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.%c5%92il du mitrailleur.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>alchimiste</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

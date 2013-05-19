@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0cb1cd48-f401-4f40-813f-d45b94f8d686:1368883443958</guid>
+   </id>
+   <name>Final héroïque </name>
+   <school>Enc</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Final h%c3%a9ro%c3%afque.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

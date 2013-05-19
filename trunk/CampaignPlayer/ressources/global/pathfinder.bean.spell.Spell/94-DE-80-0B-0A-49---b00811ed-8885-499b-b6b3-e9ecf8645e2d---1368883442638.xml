@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b00811ed-8885-499b-b6b3-e9ecf8645e2d:1368883442638</guid>
+   </id>
+   <name>Main impérieuse </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Main imp%c3%a9rieuse.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

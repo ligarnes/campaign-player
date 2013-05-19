@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:70d6579c-4848-4312-be57-0e501c90ff06:1368883443629</guid>
+   </id>
+   <name>Appel cacophonique </name>
+   <school>Enc</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Appel cacophonique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

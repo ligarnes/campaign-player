@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:702f2319-84e2-46da-8d3f-39f4ca537967:1368883442015</guid>
+   </id>
+   <name>Dissimulation d&apos;objet </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Dissimulation dobjet.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

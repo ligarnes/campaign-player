@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ccdbf4f3-8171-44d9-aeee-4499b5357011:1368883444636</guid>
+   </id>
+   <name>Engouement téméraire </name>
+   <school>Enc</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Engouement t%c3%a9m%c3%a9raire.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

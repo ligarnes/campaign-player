@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e5ceebf1-7cb1-450b-8eca-bba0133ad7df:1368883441861</guid>
+   </id>
+   <name>Débilité </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.D%c3%a9bilit%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

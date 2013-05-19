@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c4fa4c62-3abc-4183-a57b-7239b7b48e09:1368883444427</guid>
+   </id>
+   <name>Aura d&apos;archon </name>
+   <school>Évo</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aura darchon.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

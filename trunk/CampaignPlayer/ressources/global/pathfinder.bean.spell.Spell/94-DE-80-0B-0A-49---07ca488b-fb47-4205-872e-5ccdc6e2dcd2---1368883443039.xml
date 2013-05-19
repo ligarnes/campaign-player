@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:07ca488b-fb47-4205-872e-5ccdc6e2dcd2:1368883443039</guid>
+   </id>
+   <name>Peau d&apos;écorce </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Peau d%c3%a9corce.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d67ff2af-8680-44fe-b6cc-8485d82ab071:1368883443143</guid>
+   </id>
+   <name>Puissance divine </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Puissance divine.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

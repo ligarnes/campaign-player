@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c6272445-1c16-4994-86a0-8fe6e028eb49:1368883443780</guid>
+   </id>
+   <name>Corps enflammé </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Corps enflamm%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

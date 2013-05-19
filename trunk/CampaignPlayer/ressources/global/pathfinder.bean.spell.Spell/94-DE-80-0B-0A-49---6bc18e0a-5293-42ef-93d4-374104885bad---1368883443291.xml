@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6bc18e0a-5293-42ef-93d4-374104885bad:1368883443291</guid>
+   </id>
+   <name>Résurrection </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.R%c3%a9surrection.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

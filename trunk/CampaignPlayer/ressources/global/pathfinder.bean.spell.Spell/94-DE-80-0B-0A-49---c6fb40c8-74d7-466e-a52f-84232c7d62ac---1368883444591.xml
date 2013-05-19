@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c6fb40c8-74d7-466e-a52f-84232c7d62ac:1368883444591</guid>
+   </id>
+   <name>Décharge défensive </name>
+   <school>Évo</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.d%c3%a9charge d%c3%a9fensive.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

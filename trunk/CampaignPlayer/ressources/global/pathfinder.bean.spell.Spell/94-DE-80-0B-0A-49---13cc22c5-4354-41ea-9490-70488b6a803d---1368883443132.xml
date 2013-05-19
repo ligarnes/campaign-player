@@ -1,0 +1,43 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:13cc22c5-4354-41ea-9490-70488b6a803d:1368883443132</guid>
+   </id>
+   <name>Protection contre les énergies destructives </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Protection contre les %c3%a9nergies destructives.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

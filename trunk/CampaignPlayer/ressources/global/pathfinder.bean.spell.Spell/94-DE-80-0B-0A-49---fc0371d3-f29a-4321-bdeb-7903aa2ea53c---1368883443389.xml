@@ -1,0 +1,35 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fc0371d3-f29a-4321-bdeb-7903aa2ea53c:1368883443389</guid>
+   </id>
+   <name>Soins modérés de groupe </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Soins mod%c3%a9r%c3%a9s de groupe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

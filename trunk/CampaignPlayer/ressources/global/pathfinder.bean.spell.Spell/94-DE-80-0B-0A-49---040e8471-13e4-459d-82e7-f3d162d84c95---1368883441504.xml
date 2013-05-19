@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:040e8471-13e4-459d-82e7-f3d162d84c95:1368883441504</guid>
+   </id>
+   <name>Charme-personne </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Charme-personne.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

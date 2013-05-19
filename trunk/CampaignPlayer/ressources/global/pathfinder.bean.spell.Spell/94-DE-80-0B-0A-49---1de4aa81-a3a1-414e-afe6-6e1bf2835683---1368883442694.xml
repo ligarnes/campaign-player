@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1de4aa81-a3a1-414e-afe6-6e1bf2835683:1368883442694</guid>
+   </id>
+   <name>Marche dans les airs </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Marche dans les airs.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

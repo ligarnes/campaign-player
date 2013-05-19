@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9f79531a-bb11-4c5b-8636-52ee27e8f251:1368883443815</guid>
+   </id>
+   <name>Cri strident </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cri strident.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fc80a51b-77c3-450f-9001-ffc343ed749e:1368883441627</guid>
+   </id>
+   <name>Contrôle de l&apos;eau </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Contr%c3%b4le de leau.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

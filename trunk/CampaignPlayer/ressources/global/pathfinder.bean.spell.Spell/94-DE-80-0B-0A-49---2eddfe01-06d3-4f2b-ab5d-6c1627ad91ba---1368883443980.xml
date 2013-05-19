@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2eddfe01-06d3-4f2b-ab5d-6c1627ad91ba:1368883443980</guid>
+   </id>
+   <name>Forme liquide </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme liquide.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

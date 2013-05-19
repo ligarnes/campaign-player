@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e30fca76-30f2-450e-a0e0-1e12b0db46e2:1368883444146</guid>
+   </id>
+   <name>Orbe aqueux </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Orbe aqueux.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

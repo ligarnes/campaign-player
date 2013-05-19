@@ -24,7 +24,7 @@ import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
-import pathfinder.character.PathfinderCharacter;
+import pathfinder.bean.character.PathfinderCharacter;
 
 public class PanelCreateCharacter extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;

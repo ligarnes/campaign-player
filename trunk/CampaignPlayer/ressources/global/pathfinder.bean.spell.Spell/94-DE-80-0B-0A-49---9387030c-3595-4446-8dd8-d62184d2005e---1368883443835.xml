@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9387030c-3595-4446-8dd8-d62184d2005e:1368883443835</guid>
+   </id>
+   <name>Dénonciation </name>
+   <school>Enc</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.D%c3%a9nonciation.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

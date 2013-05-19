@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8252ed48-3444-4dbc-912e-99034cf813f2:1368883442962</guid>
+   </id>
+   <name>Nuée grouillante </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Nu%c3%a9e grouillante.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

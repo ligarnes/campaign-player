@@ -191,14 +191,10 @@ public class PanelGeneraBattle extends JPanel implements MapEditableInfo {
 
 	@Override
 	public void moveElementAt(MapElement currentElement, Point position) {
-		position.x = Math.max(0, position.x);
-		position.y = Math.max(0, position.y);
-
 		if (fixGrid) {
 			modifyPositionToFixGrid(position);
 		}
 		currentElement.moveTo(position);
-		// setPosition(position);
 	}
 
 	private void modifyPositionToFixGrid(Point position) {

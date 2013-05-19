@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:21e51f7e-9720-4032-9792-8b82c36082d1:1368883444326</guid>
+   </id>
+   <name>Transformation résurgente </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Transformation r%c3%a9surgente.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

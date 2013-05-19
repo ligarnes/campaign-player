@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d7bb63e2-2f73-4c28-8b48-c9fa08c829fd:1368883442889</guid>
+   </id>
+   <name>Mur de pierre </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mur de pierre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

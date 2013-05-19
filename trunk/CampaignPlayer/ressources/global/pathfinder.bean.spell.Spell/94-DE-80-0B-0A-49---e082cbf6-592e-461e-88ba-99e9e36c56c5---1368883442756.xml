@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e082cbf6-592e-461e-88ba-99e9e36c56c5:1368883442756</guid>
+   </id>
+   <name>Métamorphose suprême </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.M%c3%a9tamorphose supr%c3%aame.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

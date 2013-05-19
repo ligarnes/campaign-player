@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6c886739-c98a-4b5f-8353-d5893dc3695b:1368883442537</guid>
+   </id>
+   <name>Lame de feu </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lame de feu.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

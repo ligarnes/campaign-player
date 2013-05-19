@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:088468ef-196d-4840-a8a4-88a1c77f22fe:1368883442043</guid>
+   </id>
+   <name>Domination </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Domination.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

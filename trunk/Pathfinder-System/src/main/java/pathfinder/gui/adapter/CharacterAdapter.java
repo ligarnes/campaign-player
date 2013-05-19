@@ -5,7 +5,7 @@ import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.character.Character;
-import pathfinder.character.PathfinderCharacter;
+import pathfinder.bean.character.PathfinderCharacter;
 
 public class CharacterAdapter {
 	private final PathfinderCharacter character;

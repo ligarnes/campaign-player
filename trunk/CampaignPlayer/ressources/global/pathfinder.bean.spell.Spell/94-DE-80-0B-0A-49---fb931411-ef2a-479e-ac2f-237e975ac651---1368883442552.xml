@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fb931411-ef2a-479e-ac2f-237e975ac651:1368883442552</guid>
+   </id>
+   <name>Leurre </name>
+   <school>Ill</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Leurre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

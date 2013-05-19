@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:695e59e0-b217-4b29-9155-cb7774a809fd:1368883442852</guid>
+   </id>
+   <name>Mot de pouvoir étourdissant </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mot de pouvoir %c3%a9tourdissant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

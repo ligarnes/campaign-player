@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6ed4853e-96d8-40fe-9cfd-bc10db869654:1368883443824</guid>
+   </id>
+   <name>Défier le mal </name>
+   <school>Enc</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.D%c3%a9fier le mal.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

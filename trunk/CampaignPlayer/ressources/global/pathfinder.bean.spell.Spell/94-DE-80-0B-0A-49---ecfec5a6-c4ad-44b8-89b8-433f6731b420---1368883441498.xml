@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ecfec5a6-c4ad-44b8-89b8-433f6731b420:1368883441498</guid>
+   </id>
+   <name>Charme-monstre de groupe </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Charme-monstre de groupe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

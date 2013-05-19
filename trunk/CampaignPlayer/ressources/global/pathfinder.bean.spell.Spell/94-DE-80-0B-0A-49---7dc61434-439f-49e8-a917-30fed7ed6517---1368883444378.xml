@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7dc61434-439f-49e8-a917-30fed7ed6517:1368883444378</guid>
+   </id>
+   <name>Accorder la grâce du champion</name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Accorder la gr%c3%a2ce du champion.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

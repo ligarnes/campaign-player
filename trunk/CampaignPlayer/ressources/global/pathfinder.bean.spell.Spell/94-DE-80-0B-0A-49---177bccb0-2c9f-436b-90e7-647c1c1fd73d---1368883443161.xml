@@ -1,0 +1,47 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:177bccb0-2c9f-436b-90e7-647c1c1fd73d:1368883443161</guid>
+   </id>
+   <name>Ralentissement du poison </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Ralentissement du poison.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

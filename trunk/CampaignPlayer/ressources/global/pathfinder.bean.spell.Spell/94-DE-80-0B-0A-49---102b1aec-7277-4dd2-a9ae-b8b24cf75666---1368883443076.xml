@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:102b1aec-7277-4dd2-a9ae-b8b24cf75666:1368883443076</guid>
+   </id>
+   <name>Poing serré </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Poing serr%c3%a9.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

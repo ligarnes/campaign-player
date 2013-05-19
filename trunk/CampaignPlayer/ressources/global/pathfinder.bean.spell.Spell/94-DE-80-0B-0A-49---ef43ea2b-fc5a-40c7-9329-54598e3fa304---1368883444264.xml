@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ef43ea2b-fc5a-40c7-9329-54598e3fa304:1368883444264</guid>
+   </id>
+   <name>Revigorer de groupe </name>
+   <school>Ill</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Revigorer de groupe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

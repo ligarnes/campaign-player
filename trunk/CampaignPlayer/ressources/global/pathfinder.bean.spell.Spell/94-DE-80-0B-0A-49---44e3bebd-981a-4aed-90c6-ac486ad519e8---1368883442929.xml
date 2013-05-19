@@ -1,0 +1,47 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:44e3bebd-981a-4aed-90c6-ac486ad519e8:1368883442929</guid>
+   </id>
+   <name>Neutralisation du poison </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Neutralisation du poison.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

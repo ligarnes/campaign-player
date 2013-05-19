@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4052b0e5-79b3-4006-a4e5-c7a61b919504:1368883441642</guid>
+   </id>
+   <name>Contrôle du climat </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Contr%c3%b4le du climat.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

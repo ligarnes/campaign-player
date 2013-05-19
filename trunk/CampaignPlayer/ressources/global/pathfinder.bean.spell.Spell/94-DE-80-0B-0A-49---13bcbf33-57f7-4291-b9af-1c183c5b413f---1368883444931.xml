@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:13bcbf33-57f7-4291-b9af-1c183c5b413f:1368883444931</guid>
+   </id>
+   <name>Prison de glace de groupe </name>
+   <school>Inv</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Prison de glace de groupe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

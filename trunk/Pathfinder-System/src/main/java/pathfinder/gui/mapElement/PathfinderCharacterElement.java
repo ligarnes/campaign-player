@@ -15,7 +15,7 @@ import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
 
-import pathfinder.character.PathfinderCharacter;
+import pathfinder.bean.character.PathfinderCharacter;
 
 public class PathfinderCharacterElement extends MapElement {
 

@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fc1b7d50-3e77-4bd7-b55e-c2b757143f38:1368883443323</guid>
+   </id>
+   <name>Sanctification maléfique </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sanctification mal%c3%a9fique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

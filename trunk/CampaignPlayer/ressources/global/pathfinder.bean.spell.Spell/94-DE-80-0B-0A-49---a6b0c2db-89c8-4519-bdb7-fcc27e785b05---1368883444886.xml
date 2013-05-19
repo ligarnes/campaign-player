@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a6b0c2db-89c8-4519-bdb7-fcc27e785b05:1368883444886</guid>
+   </id>
+   <name>Pas de l&apos;ombre </name>
+   <school>Ill</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Pas de lombre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

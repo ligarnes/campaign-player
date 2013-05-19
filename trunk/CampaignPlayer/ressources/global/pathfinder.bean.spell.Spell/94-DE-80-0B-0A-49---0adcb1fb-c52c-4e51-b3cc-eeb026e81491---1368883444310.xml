@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0adcb1fb-c52c-4e51-b3cc-eeb026e81491:1368883444310</guid>
+   </id>
+   <name>Tambours tonnants </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Tambours tonnants.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

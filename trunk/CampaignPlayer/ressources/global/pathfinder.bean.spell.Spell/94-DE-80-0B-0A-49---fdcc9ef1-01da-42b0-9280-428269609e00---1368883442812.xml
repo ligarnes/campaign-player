@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fdcc9ef1-01da-42b0-9280-428269609e00:1368883442812</guid>
+   </id>
+   <name>Modification de mémoire </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Modification de m%c3%a9moire.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

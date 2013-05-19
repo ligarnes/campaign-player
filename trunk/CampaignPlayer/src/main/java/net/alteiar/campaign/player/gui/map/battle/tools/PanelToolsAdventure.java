@@ -6,18 +6,20 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.campaign.player.gui.map.battle.PanelZoom;
 import net.alteiar.campaign.player.gui.map.battle.tools.ToolMapAdventureListener.Tools;
 import net.alteiar.campaign.player.gui.map.event.MapListener;
 import net.alteiar.campaign.player.gui.map.listener.GlobalMapListener;
 import net.alteiar.campaign.player.gui.map.listener.ShowHidePolygonMapListener;
-import net.alteiar.campaign.player.gui.tools.test.PanelZoom;
 import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.filter.MapFilter;
 
 public class PanelToolsAdventure extends JToolBar implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -36,7 +38,7 @@ public class PanelToolsAdventure extends JToolBar implements Observer {
 	private final ButtonGroup group;
 
 	public PanelToolsAdventure(GlobalMapListener globalListener,
-			final MapEditableInfo mapInfo, MapBean battle) {
+			final MapEditableInfo mapInfo, final MapBean battle) {
 		this.mapListener = globalListener;
 
 		toolListener = new ToolMapAdventureListener(mapInfo, globalListener,
@@ -99,6 +101,30 @@ public class PanelToolsAdventure extends JToolBar implements Observer {
 				}
 			});
 			this.add(hideMap);
+
+			JButton showAll = new JButton(Helpers.getIcon(ICON_SHOW, 30, 30));
+			showAll.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					MapFilter filter = CampaignClient.getInstance().getBean(
+							battle.getFilter());
+
+					filter.showAll();
+				}
+			});
+			this.add(showAll);
+
+			JButton hideAll = new JButton(Helpers.getIcon(ICON_SHOW, 30, 30));
+			hideAll.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					MapFilter filter = CampaignClient.getInstance().getBean(
+							battle.getFilter());
+
+					filter.hideAll();
+				}
+			});
+			this.add(hideAll);
 
 			this.add(new PanelZoom(mapInfo));
 

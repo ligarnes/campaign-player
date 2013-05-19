@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4a3e763a-d249-4013-8a76-32b1df8eeac2:1368883442571</guid>
+   </id>
+   <name>Lien télépathique </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lien t%c3%a9l%c3%a9pathique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

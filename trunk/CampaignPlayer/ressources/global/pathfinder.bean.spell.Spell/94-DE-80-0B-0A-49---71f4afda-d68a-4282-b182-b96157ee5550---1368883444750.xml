@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:71f4afda-d68a-4282-b182-b96157ee5550:1368883444750</guid>
+   </id>
+   <name>Hurlement primitif </name>
+   <school>Abj</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Hurlement primitif.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:06db6484-021d-4272-a7dd-775fef61b11a:1368883442760</guid>
+   </id>
+   <name>Métamorphose universelle </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.M%c3%a9tamorphose universelle.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

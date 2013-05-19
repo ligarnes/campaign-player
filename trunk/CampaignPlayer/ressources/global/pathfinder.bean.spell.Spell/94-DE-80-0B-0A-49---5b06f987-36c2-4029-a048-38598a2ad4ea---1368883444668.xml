@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5b06f987-36c2-4029-a048-38598a2ad4ea:1368883444668</guid>
+   </id>
+   <name>Étrange fièvre </name>
+   <school>Nec</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.%c3%89trange fi%c3%a8vre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

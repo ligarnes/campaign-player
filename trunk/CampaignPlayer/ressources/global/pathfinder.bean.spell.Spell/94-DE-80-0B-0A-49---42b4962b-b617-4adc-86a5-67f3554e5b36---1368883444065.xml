@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:42b4962b-b617-4adc-86a5-67f3554e5b36:1368883444065</guid>
+   </id>
+   <name>Lame du crépuscule </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lame du cr%c3%a9puscule.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

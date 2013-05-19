@@ -1,0 +1,35 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:16918664-07d1-4ee5-91c8-5d2acda8f7dc:1368883441956</guid>
+   </id>
+   <name>Détection de pensées </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.D%c3%a9tection de pens%c3%a9es.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

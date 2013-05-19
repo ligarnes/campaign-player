@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3c45bd4d-9098-4fa9-8621-d78d552ef478:1368883444166</guid>
+   </id>
+   <name>Pilier de vie </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Pilier de vie.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

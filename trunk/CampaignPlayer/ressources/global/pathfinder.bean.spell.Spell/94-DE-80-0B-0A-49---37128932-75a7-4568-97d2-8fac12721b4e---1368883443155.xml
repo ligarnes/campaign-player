@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:37128932-75a7-4568-97d2-8fac12721b4e:1368883443155</guid>
+   </id>
+   <name>Rabougrissement des plantes</name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rabougrissement des plantes.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

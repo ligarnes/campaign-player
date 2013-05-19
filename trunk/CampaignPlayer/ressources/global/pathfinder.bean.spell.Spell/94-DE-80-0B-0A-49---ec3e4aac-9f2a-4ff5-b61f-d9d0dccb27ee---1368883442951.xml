@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ec3e4aac-9f2a-4ff5-b61f-d9d0dccb27ee:1368883442951</guid>
+   </id>
+   <name>Nuée de météores </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Nu%c3%a9e de m%c3%a9t%c3%a9ores.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

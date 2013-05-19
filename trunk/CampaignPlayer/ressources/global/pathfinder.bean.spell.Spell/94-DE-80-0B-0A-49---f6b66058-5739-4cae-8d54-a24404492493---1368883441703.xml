@@ -1,0 +1,39 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f6b66058-5739-4cae-8d54-a24404492493:1368883441703</guid>
+   </id>
+   <name>Convocation de monstres III </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation de monstres III.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>anti paladin</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

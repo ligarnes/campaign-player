@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a6f99657-e4bc-4500-bc2c-2a60612eb66e:1368883443106</guid>
+   </id>
+   <name>Profanation </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Profanation.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>anti paladin</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

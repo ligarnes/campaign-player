@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:67b87e39-1cef-4b87-96a1-a9afec6b34a8:1368883444731</guid>
+   </id>
+   <name>Glace bénie </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Glace b%c3%a9nie.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

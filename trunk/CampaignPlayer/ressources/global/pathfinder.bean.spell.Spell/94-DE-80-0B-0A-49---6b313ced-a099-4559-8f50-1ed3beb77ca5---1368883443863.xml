@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6b313ced-a099-4559-8f50-1ed3beb77ca5:1368883443863</guid>
+   </id>
+   <name>Efforts coordonnés </name>
+   <school>Div</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Efforts coordonn%c3%a9s.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e6800602-52b6-443f-b329-094d52e51771:1368883442051</guid>
+   </id>
+   <name>Domination universelle </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Domination universelle.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

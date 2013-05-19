@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:16f5633a-28ff-4d46-9381-2db53359a740:1368883444957</guid>
+   </id>
+   <name>Réprobation </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.R%c3%a9probation.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

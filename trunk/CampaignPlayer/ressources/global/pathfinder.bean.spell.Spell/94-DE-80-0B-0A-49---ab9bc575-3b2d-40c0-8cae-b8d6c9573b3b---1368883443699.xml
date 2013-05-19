@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ab9bc575-3b2d-40c0-8cae-b8d6c9573b3b:1368883443699</guid>
+   </id>
+   <name>Brandon </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Brandon.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

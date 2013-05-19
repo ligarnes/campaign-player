@@ -13,7 +13,7 @@ public interface IDocumentRemote extends Remote {
 	void removeDocumentListener(IDocumentRemoteListener listener)
 			throws RemoteException;
 
-	DocumentPath getPath() throws RemoteException;
+	String getFilename() throws RemoteException;
 
 	void closeDocument() throws RemoteException;
 

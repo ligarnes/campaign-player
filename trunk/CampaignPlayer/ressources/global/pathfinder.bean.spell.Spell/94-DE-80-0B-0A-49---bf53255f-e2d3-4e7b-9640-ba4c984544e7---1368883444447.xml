@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bf53255f-e2d3-4e7b-9640-ba4c984544e7:1368883444447</guid>
+   </id>
+   <name>Boulette </name>
+   <school>Enc</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Boulette.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

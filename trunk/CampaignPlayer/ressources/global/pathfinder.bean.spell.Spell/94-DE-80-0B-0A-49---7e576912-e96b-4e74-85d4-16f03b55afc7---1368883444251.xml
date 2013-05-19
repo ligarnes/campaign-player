@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7e576912-e96b-4e74-85d4-16f03b55afc7:1368883444251</guid>
+   </id>
+   <name>Réservoir draconique </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.R%c3%a9servoir draconique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

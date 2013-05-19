@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:367833ce-9d5b-4f29-ad5b-eeef63da28ae:1368883442378</guid>
+   </id>
+   <name>Guérison de destrier </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Gu%c3%a9rison de destrier.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

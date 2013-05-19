@@ -1,0 +1,47 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:088dda48-914d-4255-9e7b-a5a77dd706de:1368883443386</guid>
+   </id>
+   <name>Soins modérés </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Soins mod%c3%a9r%c3%a9s.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ea9d2db8-bd35-4860-8df9-1bd2904940ba:1368883444481</guid>
+   </id>
+   <name>Chagrin écrasant </name>
+   <school>Enc</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Chagrin %c3%a9crasant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

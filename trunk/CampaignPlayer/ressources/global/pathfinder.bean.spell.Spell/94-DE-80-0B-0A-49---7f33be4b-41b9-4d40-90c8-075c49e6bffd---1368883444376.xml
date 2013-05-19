@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7f33be4b-41b9-4d40-90c8-075c49e6bffd:1368883444376</guid>
+   </id>
+   <name>Accompagnement exquis </name>
+   <school>Ill</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Accompagnement exquis.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

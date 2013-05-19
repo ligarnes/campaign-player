@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:340c60c7-1145-4c86-8dbd-2889da1f176a:1368883443666</guid>
+   </id>
+   <name>Aspect du cerf </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aspect du cerf.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

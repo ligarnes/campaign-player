@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:66bfcb27-e57c-435f-9993-fa05344ade9f:1368883441802</guid>
+   </id>
+   <name>Création de mort-vivant </name>
+   <school>Nec</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cr%c3%a9ation de mort-vivant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

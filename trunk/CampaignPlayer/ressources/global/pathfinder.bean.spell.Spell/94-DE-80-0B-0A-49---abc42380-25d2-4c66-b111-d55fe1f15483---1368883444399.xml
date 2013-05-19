@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:abc42380-25d2-4c66-b111-d55fe1f15483:1368883444399</guid>
+   </id>
+   <name>Anatomie morte-vivante II </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Anatomie morte-vivante II.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

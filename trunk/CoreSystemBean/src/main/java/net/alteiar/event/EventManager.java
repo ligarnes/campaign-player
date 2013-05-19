@@ -5,11 +5,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.client.DocumentClient;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.trigger.Trigger;
+import net.alteiar.server.document.DocumentClient;
 import net.alteiar.shared.UniqueID;
 
 public class EventManager implements DocumentManagerListener {

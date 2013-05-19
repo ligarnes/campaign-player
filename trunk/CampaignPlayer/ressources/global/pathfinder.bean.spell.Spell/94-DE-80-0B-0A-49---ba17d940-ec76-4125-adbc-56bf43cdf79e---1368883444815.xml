@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ba17d940-ec76-4125-adbc-56bf43cdf79e:1368883444815</guid>
+   </id>
+   <name>Lame de sombre triomphe </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lame de sombre triomphe.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>anti paladin</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

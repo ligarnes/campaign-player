@@ -1,0 +1,31 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1d7bf642-b50e-4d89-95e2-c24c7e39026a:1368883443035</guid>
+   </id>
+   <name>Peau de pierre </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Peau de pierre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

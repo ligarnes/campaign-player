@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1f1e2c0d-30f1-4cc7-934f-6dce81f1b897:1368883442138</guid>
+   </id>
+   <name>Esprit impénétrable </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Esprit imp%c3%a9n%c3%a9trable.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

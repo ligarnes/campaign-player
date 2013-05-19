@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a39259c9-6d8f-4d90-8885-af05892f7c76:1368883445080</guid>
+   </id>
+   <name>Vision dans le noir supérieure </name>
+   <school>Tra</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vision dans le noir sup%c3%a9rieure.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>anti paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

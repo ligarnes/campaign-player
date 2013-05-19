@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a86cae65-9c0c-4a7a-9bfc-162f3b65d777:1368883443288</guid>
+   </id>
+   <name>Restauration suprême </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Restauration supr%c3%aame.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

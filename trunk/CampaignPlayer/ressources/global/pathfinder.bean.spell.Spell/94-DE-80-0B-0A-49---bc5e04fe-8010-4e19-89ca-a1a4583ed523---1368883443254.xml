@@ -1,0 +1,39 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bc5e04fe-8010-4e19-89ca-a1a4583ed523:1368883443254</guid>
+   </id>
+   <name>Réparation </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.R%c3%a9paration.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

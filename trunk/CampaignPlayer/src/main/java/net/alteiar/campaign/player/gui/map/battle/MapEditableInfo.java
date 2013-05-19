@@ -78,8 +78,6 @@ public interface MapEditableInfo {
 
 	Boolean getShowDistance();
 
-	// TODO void removeCharacter(ICharacterCombatClient character);
-
 	void removeElement(MapElement toRemove);
 
 	void moveElementAt(MapElement currentElement, Point position);

@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e1304c6f-2bbe-4849-8cd3-41efe3288662:1368883443181</guid>
+   </id>
+   <name>Rapport </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rapport.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

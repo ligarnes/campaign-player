@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ce0f3acd-b5a8-4605-a8e9-2074893af78d:1368883442829</guid>
+   </id>
+   <name>Morsure magique </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Morsure magique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

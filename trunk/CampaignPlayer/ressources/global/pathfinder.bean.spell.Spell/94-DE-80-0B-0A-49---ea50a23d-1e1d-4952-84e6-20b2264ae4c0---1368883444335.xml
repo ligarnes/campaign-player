@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ea50a23d-1e1d-4952-84e6-20b2264ae4c0:1368883444335</guid>
+   </id>
+   <name>Trébucher dans un trou </name>
+   <school>Inv</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Tr%c3%a9bucher dans un trou.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,35 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:acc7842b-c8d5-4d60-abe2-0d0b2f7864b1:1368883443337</guid>
+   </id>
+   <name>Scrutation </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.scrutation.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

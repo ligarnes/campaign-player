@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bd4bc0e5-0069-4ecd-946e-3007c8c6da78:1368883443526</guid>
+   </id>
+   <name>Toile d&apos;araignée </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Toile daraign%c3%a9e.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

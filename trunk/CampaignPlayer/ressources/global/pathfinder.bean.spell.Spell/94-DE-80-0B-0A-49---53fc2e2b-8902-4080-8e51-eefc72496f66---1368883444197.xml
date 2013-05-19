@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:53fc2e2b-8902-4080-8e51-eefc72496f66:1368883444197</guid>
+   </id>
+   <name>Puissantes mâchoires </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Puissantes m%c3%a2choires.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>rodeur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

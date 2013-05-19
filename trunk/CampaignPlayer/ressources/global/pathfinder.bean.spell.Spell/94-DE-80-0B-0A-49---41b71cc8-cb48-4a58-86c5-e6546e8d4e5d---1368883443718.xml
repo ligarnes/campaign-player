@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:41b71cc8-cb48-4a58-86c5-e6546e8d4e5d:1368883443718</guid>
+   </id>
+   <name>Caresse élémentaire </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Caresse %c3%a9l%c3%a9mentaire.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

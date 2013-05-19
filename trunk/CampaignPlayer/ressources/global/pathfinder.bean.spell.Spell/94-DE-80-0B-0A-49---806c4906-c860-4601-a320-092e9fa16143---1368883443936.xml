@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:806c4906-c860-4601-a320-092e9fa16143:1368883443936</guid>
+   </id>
+   <name>Fardeau de l&apos;oracle </name>
+   <school>Nec</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Fardeau de loracle.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

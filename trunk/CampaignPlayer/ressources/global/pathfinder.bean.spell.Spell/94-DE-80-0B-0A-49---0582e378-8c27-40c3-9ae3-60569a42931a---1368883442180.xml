@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0582e378-8c27-40c3-9ae3-60569a42931a:1368883442180</guid>
+   </id>
+   <name>Faux-semblant </name>
+   <school>Ill</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Faux-semblant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

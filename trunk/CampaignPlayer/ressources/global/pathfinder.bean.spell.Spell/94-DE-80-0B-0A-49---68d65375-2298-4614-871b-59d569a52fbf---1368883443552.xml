@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:68d65375-2298-4614-871b-59d569a52fbf:1368883443552</guid>
+   </id>
+   <name>Vent de murmures </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vent de murmures.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

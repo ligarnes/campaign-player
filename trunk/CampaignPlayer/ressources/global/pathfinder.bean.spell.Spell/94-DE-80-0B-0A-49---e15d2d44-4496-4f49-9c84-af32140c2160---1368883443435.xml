@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e15d2d44-4496-4f49-9c84-af32140c2160:1368883443435</guid>
+   </id>
+   <name>Sphère prismatique </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sph%c3%a8re prismatique.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

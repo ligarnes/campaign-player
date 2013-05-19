@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a8544fc6-d05f-4bb1-bab1-d3cbec32c280:1368883444055</guid>
+   </id>
+   <name>Interdiction du fou </name>
+   <school>Abj</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Interdiction du fou.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

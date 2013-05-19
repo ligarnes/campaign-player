@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:29fbee13-8e38-47a7-8f18-b2ab82399bf2:1368883443583</guid>
+   </id>
+   <name>Voie végétale </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Voie v%c3%a9g%c3%a9tale.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

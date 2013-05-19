@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8261714f-35b3-4c59-976f-3d055e1e7d8b:1368883442328</guid>
+   </id>
+   <name>Globe d&apos;invulnérabilité renforcée</name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Globe dinvuln%c3%a9rabilit%c3%a9 renforc%c3%a9e.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

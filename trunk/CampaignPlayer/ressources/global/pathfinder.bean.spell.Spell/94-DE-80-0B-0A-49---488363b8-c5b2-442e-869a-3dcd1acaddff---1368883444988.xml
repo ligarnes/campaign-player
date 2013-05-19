@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:488363b8-c5b2-442e-869a-3dcd1acaddff:1368883444988</guid>
+   </id>
+   <name>Sangsue de ki </name>
+   <school>Nec</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sangsue de ki.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

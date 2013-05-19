@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:77c0557a-7493-424a-b45d-8b411f4b339e:1368883442501</guid>
+   </id>
+   <name>Interdiction </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Interdiction.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7792264e-e91a-4064-99ae-041fd0aeb6da:1368883444021</guid>
+   </id>
+   <name>Grandes illuminations </name>
+   <school>Évo</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Grandes illuminations.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

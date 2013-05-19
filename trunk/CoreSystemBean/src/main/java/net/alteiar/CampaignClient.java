@@ -14,24 +14,25 @@ import javax.management.RuntimeErrorException;
 
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.message.MessageRemote;
-import net.alteiar.client.DocumentClient;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
+import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
-import net.alteiar.server.document.DocumentLoader;
-import net.alteiar.server.document.DocumentPath;
+import net.alteiar.server.document.DocumentClient;
+import net.alteiar.server.document.DocumentIO;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
 public final class CampaignClient implements DocumentManagerListener {
 	private static CampaignClient INSTANCE = null;
 	private static Boolean IS_SERVER = false;
+	private static final String GLOBAL_DOCUMENT_PATH = "./ressources/global";
 
 	public static CampaignClient getInstance() {
 		return INSTANCE;
@@ -54,9 +55,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		Chat chat = new Chat();
 		DiceRoller diceRoller = new DiceRoller();
 		try {
-			server.createDocument(new DocumentPath(campaignPath, chat), chat);
-			server.createDocument(new DocumentPath(campaignPath, diceRoller),
-					diceRoller);
+			server.createDocument(chat);
+			server.createDocument(diceRoller);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -73,7 +73,8 @@ public final class CampaignClient implements DocumentManagerListener {
 
 		DocumentManager manager = null;
 		try {
-			manager = DocumentManager.connect(localAdress, serverAdress, port);
+			manager = DocumentManager.connect(localAdress, serverAdress, port,
+					GLOBAL_DOCUMENT_PATH);
 			INSTANCE = new CampaignClient(manager);
 		} catch (RemoteException e) {
 			ExceptionTool
@@ -160,12 +161,45 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
+	public <E extends BasicBean> ArrayList<E> loadLocalBean(Class<E> classes) {
+		ArrayList<E> beans = new ArrayList<E>();
+
+		File localFile = new File(manager.getSpecificPath(),
+				classes.getCanonicalName());
+		File globalFile = new File(manager.getGlobalPath(),
+				classes.getCanonicalName());
+
+		ArrayList<E> res = loadDirectory(localFile);
+		ArrayList<E> res1 = loadDirectory(globalFile);
+
+		beans.addAll(res);
+		beans.addAll(res1);
+
+		return beans;
+	}
+
+	private <E extends BasicBean> ArrayList<E> loadDirectory(File localFile) {
+		ArrayList<E> result = new ArrayList<E>();
+		if (localFile.exists() && localFile.isDirectory()) {
+			for (File f : localFile.listFiles()) {
+				try {
+					BeanEncapsulator bean = DocumentIO.loadDocumentLocal(f);
+					result.add((E) bean.getBean());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
 	public DiceRoller getDiceRoller() {
 		return diceRoller;
 	}
 
-	public String getCampaignPath() {
-		return manager.getCampaignPath();
+	public String getCampaignName() {
+		return manager.getSpecificPath();
 	}
 
 	public int getRemoteDocumentCount() {
@@ -417,7 +451,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void saveGame() {
-		File dir = new File(manager.getCampaignPath());
+		File dir = new File(manager.getSpecificPath());
 		if (dir.exists()) {
 			deleteRecursive(dir);
 		}
@@ -434,13 +468,13 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public void loadGame(String campaignName) {
 		try {
-			File baseDir = new File(manager.getCampaignPath());
+			File baseDir = new File(manager.getSpecificPath());
 			if (baseDir.exists()) {
 				for (File dir : baseDir.listFiles()) {
 					if (dir.isDirectory()) {
 						for (File fi : dir.listFiles()) {
 							if (fi.isFile()) {
-								addBean(DocumentLoader.loadBeanLocal(fi));
+								addBean(DocumentIO.loadBeanLocal(fi));
 							}
 						}
 					}

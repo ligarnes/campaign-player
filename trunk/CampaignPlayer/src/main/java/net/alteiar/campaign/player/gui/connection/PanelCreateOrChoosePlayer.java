@@ -40,7 +40,8 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 
 	public PanelCreateOrChoosePlayer(StartGameDialog startGameDialog) {
 		super(startGameDialog, null);
-		startGameDialog.setTitle(startGameDialog.getTitle() + " - " + CampaignClient.getInstance().getCampaignPath());
+		startGameDialog.setTitle(startGameDialog.getTitle() + " - "
+				+ CampaignClient.getInstance().getCampaignName());
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

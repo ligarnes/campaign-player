@@ -23,6 +23,8 @@ public class MapFilter extends BasicBean {
 	public static final String METH_SHOW_POLYGON_METHOD = "showPolygon";
 	public static final String METH_HIDE_POLYGON_METHOD = "hidePolygon";
 
+	public static final String PROP_POLYGONS_PROPERTY = "polygons";
+
 	// @Element
 	private transient Area hiddenArea;
 	@Element
@@ -46,6 +48,18 @@ public class MapFilter extends BasicBean {
 		polygons = new ArrayList<MyPolygonFilter>();
 		this.width = 0;
 		this.height = 0;
+	}
+
+	public void showAll() {
+		ArrayList<MyPolygonFilter> pol = new ArrayList<MyPolygonFilter>();
+		pol.add(new MyPolygonFilter(new Polygon(
+				new int[] { 0, width, width, 0 }, new int[] { 0, 0, height,
+						height }, 4), false));
+		setPolygons(pol);
+	}
+
+	public void hideAll() {
+		setPolygons(new ArrayList<MyPolygonFilter>());
 	}
 
 	public void showPolygon(Polygon polygon) {
@@ -111,15 +125,21 @@ public class MapFilter extends BasicBean {
 	}
 
 	public void setPolygons(ArrayList<MyPolygonFilter> polygons) {
-		this.polygons = polygons;
-		hiddenArea = new Area(new Rectangle2D.Double(0, 0, width, height));
+		ArrayList<MyPolygonFilter> oldValue = this.polygons;
+		if (notifyRemote(PROP_POLYGONS_PROPERTY, oldValue, polygons)) {
 
-		for (MyPolygonFilter polygon : polygons) {
-			if (polygon.getHide()) {
-				hiddenArea.add(new Area(polygon.getPolygon()));
-			} else {
-				hiddenArea.subtract(new Area(polygon.getPolygon()));
+			this.polygons = polygons;
+			hiddenArea = new Area(new Rectangle2D.Double(0, 0, width, height));
+
+			for (MyPolygonFilter polygon : polygons) {
+				if (polygon.getHide()) {
+					hiddenArea.add(new Area(polygon.getPolygon()));
+				} else {
+					hiddenArea.subtract(new Area(polygon.getPolygon()));
+				}
 			}
+			this.propertyChangeSupport.firePropertyChange(
+					PROP_POLYGONS_PROPERTY, oldValue, polygons);
 		}
 	}
 

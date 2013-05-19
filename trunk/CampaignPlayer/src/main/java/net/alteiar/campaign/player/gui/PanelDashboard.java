@@ -75,13 +75,6 @@ public class PanelDashboard extends MyPanel {
 		JPanel center = new JPanel();
 		center.setOpaque(false);
 
-		/*
-		 * center.add(new PanelListSimpleCharacter());
-		 * 
-		 * if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
-		 * center.add(new PanelListSimpleMonster()); }
-		 */
-		// center.add(new PanelListBattle());
 		center.add(new PanelViewPlayers());
 		center.add(new PanelDocumentManager());
 

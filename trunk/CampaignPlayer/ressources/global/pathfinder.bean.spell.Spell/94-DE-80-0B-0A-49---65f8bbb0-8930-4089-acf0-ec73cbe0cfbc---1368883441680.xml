@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:65f8bbb0-8930-4089-acf0-ec73cbe0cfbc:1368883441680</guid>
+   </id>
+   <name>Convocation d&apos;alliés naturels VII</name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation dalli%c3%a9s naturels VII.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

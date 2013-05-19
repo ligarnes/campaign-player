@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a533e8da-759a-4ba3-bcd7-bb879884dd40:1368883444270</guid>
+   </id>
+   <name>Rythme naturel </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rythme naturel.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

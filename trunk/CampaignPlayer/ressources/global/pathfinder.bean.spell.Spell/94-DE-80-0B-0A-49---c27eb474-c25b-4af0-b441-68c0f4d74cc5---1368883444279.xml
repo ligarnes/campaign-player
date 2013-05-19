@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c27eb474-c25b-4af0-b441-68c0f4d74cc5:1368883444279</guid>
+   </id>
+   <name>Se hérisser </name>
+   <school>Tra</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Se h%c3%a9risser.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

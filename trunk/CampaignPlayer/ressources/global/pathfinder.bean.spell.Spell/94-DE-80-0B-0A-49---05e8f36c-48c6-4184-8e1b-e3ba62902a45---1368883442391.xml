@@ -1,0 +1,35 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:05e8f36c-48c6-4184-8e1b-e3ba62902a45:1368883442391</guid>
+   </id>
+   <name>Guérison suprême </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Gu%c3%a9rison supr%c3%aame.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

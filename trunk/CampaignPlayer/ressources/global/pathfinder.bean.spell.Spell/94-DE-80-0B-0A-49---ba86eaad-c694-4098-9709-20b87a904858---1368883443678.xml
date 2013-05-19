@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ba86eaad-c694-4098-9709-20b87a904858:1368883443678</guid>
+   </id>
+   <name>Bannir les faux-semblants </name>
+   <school>Abj</school>
+   <source>APG</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bannir les faux-semblants.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

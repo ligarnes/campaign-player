@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e19899af-0163-469a-a79d-51c5b4ca143b:1368883442292</guid>
+   </id>
+   <name>Forme végétale I </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme v%c3%a9g%c3%a9tale I.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

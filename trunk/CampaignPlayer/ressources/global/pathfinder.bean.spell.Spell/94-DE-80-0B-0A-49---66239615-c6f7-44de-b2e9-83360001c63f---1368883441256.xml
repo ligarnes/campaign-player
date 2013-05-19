@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:66239615-c6f7-44de-b2e9-83360001c63f:1368883441256</guid>
+   </id>
+   <name>Aura maudite </name>
+   <school>Abj</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aura maudite.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

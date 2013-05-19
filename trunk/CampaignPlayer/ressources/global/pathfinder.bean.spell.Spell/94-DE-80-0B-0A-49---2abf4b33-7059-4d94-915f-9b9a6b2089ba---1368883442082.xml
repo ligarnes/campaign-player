@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2abf4b33-7059-4d94-915f-9b9a6b2089ba:1368883442082</guid>
+   </id>
+   <name>Éloignement du bois </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.%c3%89loignement du bois.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

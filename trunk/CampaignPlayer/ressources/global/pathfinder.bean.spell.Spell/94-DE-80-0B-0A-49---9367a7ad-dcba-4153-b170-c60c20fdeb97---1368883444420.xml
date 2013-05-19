@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9367a7ad-dcba-4153-b170-c60c20fdeb97:1368883444420</guid>
+   </id>
+   <name>Arme d&apos;ombre </name>
+   <school>Ill</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.arme dombre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

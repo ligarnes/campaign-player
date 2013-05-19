@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b733add3-5a35-4380-a1d7-1886e98a30a0:1368883441485</guid>
+   </id>
+   <name>Chant de discorde </name>
+   <school>Enc</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Chant de discorde.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

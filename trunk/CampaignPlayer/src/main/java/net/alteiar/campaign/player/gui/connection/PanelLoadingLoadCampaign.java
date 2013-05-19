@@ -86,7 +86,7 @@ public class PanelLoadingLoadCampaign extends PanelStartGameDialog implements
 	protected int countFiles() {
 		int count = 0;
 		final CampaignClient c = CampaignClient.getInstance();
-		File baseDir = new File(c.getCampaignPath());
+		File baseDir = new File(c.getCampaignName());
 		if (baseDir.exists()) {
 			for (File dir : baseDir.listFiles()) {
 				if (dir.isDirectory()) {

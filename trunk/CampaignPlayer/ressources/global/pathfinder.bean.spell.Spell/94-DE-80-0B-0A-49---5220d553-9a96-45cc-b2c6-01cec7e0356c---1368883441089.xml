@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5220d553-9a96-45cc-b2c6-01cec7e0356c:1368883441089</guid>
+   </id>
+   <name>Allié d&apos;outreplan </name>
+   <school>Inv</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Alli%c3%a9 doutreplan.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

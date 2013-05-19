@@ -1,0 +1,27 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fbeb95a8-6f89-4c19-a039-bcc3b1853d99:1368883441105</guid>
+   </id>
+   <name>Analyse d&apos;enchantement </name>
+   <school>Div</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Analyse denchantement.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcier</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

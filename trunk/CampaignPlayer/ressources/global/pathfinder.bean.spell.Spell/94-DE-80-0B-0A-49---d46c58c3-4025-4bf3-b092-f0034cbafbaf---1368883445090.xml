@@ -1,0 +1,19 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d46c58c3-4025-4bf3-b092-f0034cbafbaf:1368883445090</guid>
+   </id>
+   <name>Voile répugnant </name>
+   <school>Ill</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Voile r%c3%a9pugnant.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>sorcier</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

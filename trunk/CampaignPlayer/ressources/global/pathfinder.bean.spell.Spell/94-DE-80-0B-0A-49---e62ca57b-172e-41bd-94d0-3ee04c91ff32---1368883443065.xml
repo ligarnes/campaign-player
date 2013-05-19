@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e62ca57b-172e-41bd-94d0-3ee04c91ff32:1368883443065</guid>
+   </id>
+   <name>Pierres acérées </name>
+   <school>Tra</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Pierres ac%c3%a9r%c3%a9es.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

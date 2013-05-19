@@ -1,0 +1,23 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:67fbd343-ab3f-4ef1-9f00-5f057dcacf04:1368883441874</guid>
+   </id>
+   <name>Décret </name>
+   <school>Évo</school>
+   <source>PHB</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.D%c3%a9cret.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

@@ -1,0 +1,15 @@
+<spellBean>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c1629316-1a65-4817-b89e-2a812bcb9273:1368883444436</guid>
+   </id>
+   <name>Barde d&apos;ombre </name>
+   <school>Ill</school>
+   <source>UM</source>
+   <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Barde dombre.ashx</url>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spellBean>

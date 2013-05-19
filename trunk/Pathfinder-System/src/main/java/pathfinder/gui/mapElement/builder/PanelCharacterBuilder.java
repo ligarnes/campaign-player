@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import pathfinder.character.PathfinderCharacter;
+import pathfinder.bean.character.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
