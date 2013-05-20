@@ -15,7 +15,7 @@ public class PanelViewPlayers extends PanelList<Player> {
 		super("Joueurs");
 		List<Player> players = CampaignClient.getInstance().getPlayers();
 		for (Player player : players) {
-			addElement(player, new PlayerPanel(player));
+			addElement(player, new PanelPlayer(player));
 		}
 	}
 
