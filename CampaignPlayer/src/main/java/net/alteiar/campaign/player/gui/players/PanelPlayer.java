@@ -21,7 +21,7 @@ import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.player.Player;
 
-public class PlayerPanel extends JPanel implements PropertyChangeListener {
+public class PanelPlayer extends JPanel implements PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	private static String IMAGE_SHARED = "share-32.png";
@@ -52,7 +52,7 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 		return new ImageIcon(img);
 	}
 
-	public PlayerPanel(Player bean) {
+	public PanelPlayer(Player bean) {
 		this.setBackground(UiHelper.BACKGROUND_COLOR);
 		this.player = bean;
 		player.addPropertyChangeListener(Player.PROP_CONNECTED_PROPERTY, this);
