@@ -54,19 +54,18 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 	private DefaultComboBoxModel<String> model;
 	private JComboBox<String> comboboxServerIp;
-	private JTextField port;
+	private JTextField textFieldPort;
 
 	public PanelLoadGame(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 
 		initGui();
-
 	}
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelLoadingLoadCampaign(getDialog(), this);
+		return new PanelLoadLoadingCampaign(getDialog(), this);
 	}
 
 	private final void initGui() {
@@ -77,9 +76,9 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 		model = new DefaultComboBoxModel<String>();
 		comboboxServerIp = new JComboBox<String>(model);
-		port = new JTextField(5);
+		textFieldPort = new JTextField(5);
 
-		port.setText(globalProp.getLoadPort());
+		textFieldPort.setText(globalProp.getLoadPort());
 
 		JPanel server = new JPanel();
 		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
@@ -89,9 +88,6 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		for (String address : allAdresses) {
 			model.addElement(address);
 		}
-		if (allAdresses.contains(globalProp.getLoadIpLocal())) {
-			model.setSelectedItem(globalProp.getLoadIpLocal());
-		}
 
 		JPanel serverAddressIpPanel = new JPanel(new FlowLayout());
 		serverAddressIpPanel.add(new JLabel("Adresse ip"));
@@ -99,7 +95,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 		JPanel portLabel = new JPanel(new FlowLayout());
 		portLabel.add(new JLabel("Port"));
-		portLabel.add(port);
+		portLabel.add(textFieldPort);
 
 		server.add(serverAddressIpPanel);
 		server.add(portLabel);
@@ -112,7 +108,6 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 		savedGameList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		savedGameList.setLayoutOrientation(JList.VERTICAL);
-		savedGameList.setSelectedIndex(0);
 
 		JScrollPane listScroller = new JScrollPane(savedGameList);
 		listScroller.setPreferredSize(new Dimension(PREFERED_GAME_LIST_WIDTH,
@@ -125,16 +120,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO : is it the correct way to do this check
-				// Je veux faire cette v\u00E9rification dans le cas ou
-				// un player a cliquer sur load, puis sur annuler dans
-				// le panel PanelChoosePlayer et finalement sur
-				// annuler ici
-				if (CampaignClient.getInstance() != null) {
-					System.out.println("Leaving the game");
-					CampaignClient.leaveGame();
-				}
-				load(PATH + PanelLoadGame.this.savedGameList.getSelectedValue());
+				loadCampaign();
 			}
 		});
 
@@ -142,20 +128,21 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				// TODO : is it the correct way to do this check
-				// Je veux faire cette v\u00E9rification dans le cas ou
-				// un player a cliquer sur load, puis sur annuler dans
-				// le panel PanelChoosePlayer et finalement sur
-				// annuler ici
-				if (CampaignClient.getInstance() != null) {
-					System.out.println("Leaving the game");
-					CampaignClient.leaveGame();
-				}
 				previousState();
 			}
 		});
 		buttonPanel.add(cancelButton);
 		buttonPanel.add(createButton);
+
+		String campaignName = globalProp.getLoadCampaign();
+		String address = globalProp.getLoadIpLocal();
+		String port = globalProp.getLoadPort();
+
+		if (allAdresses.contains(address)) {
+			comboboxServerIp.setSelectedItem(address);
+		}
+		textFieldPort.setText(port);
+		savedGameList.setSelectedValue(campaignName, true);
 
 		this.add(buttonPanel);
 	}
@@ -165,24 +152,33 @@ public class PanelLoadGame extends PanelStartGameDialog {
 	}
 
 	public String getPort() {
-		return port.getText();
+		return textFieldPort.getText();
 	}
 
-	public void load(final String campaign) {
+	public String getCampaignName() {
+		return this.savedGameList.getSelectedValue();
+	}
+
+	public void loadCampaign() {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 		final String address = getServerAddressIp();
 		final String port = getPort();
+		String campaignName = getCampaignName();
+		final String campaignPath = PATH + campaignName;
+
+		globalProp.setLoadIpLocal(address);
+		globalProp.setLoadPort(port);
+		globalProp.setLoadCampaign(campaignName);
 
 		Runnable run = new Runnable() {
 			@Override
 			public void run() {
-				CampaignClient.loadCampaignServer(address, port,
-						PanelStartGameDialog.GLOBAL_DOCUMENT_PATH, campaign);
+				CampaignClient
+						.loadCampaignServer(address, port,
+								PanelStartGameDialog.GLOBAL_DOCUMENT_PATH,
+								campaignPath);
 			}
 		};
-
-		globalProp.setLoadPort(getPort());
-		globalProp.setLoadIpServer(getServerAddressIp());
 
 		Thread tr = new Thread(run);
 

@@ -124,8 +124,8 @@ public class DocumentManager {
 				// add to document in order to avoid search again
 				addDocument(new DocumentLocal(bean));
 			}
+			doc = getDocument(id, timeout);
 		}
-		doc = getDocument(id, timeout);
 
 		return doc == null ? null : (E) doc.getBeanEncapsulator().getBean();
 	}

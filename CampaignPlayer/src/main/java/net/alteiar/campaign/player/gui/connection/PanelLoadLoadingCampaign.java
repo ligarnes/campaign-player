@@ -33,7 +33,7 @@ import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
 
-public class PanelLoadingLoadCampaign extends PanelStartGameDialog implements
+public class PanelLoadLoadingCampaign extends PanelStartGameDialog implements
 		ActionListener {
 	private static final long serialVersionUID = 1L;
 
@@ -43,7 +43,7 @@ public class PanelLoadingLoadCampaign extends PanelStartGameDialog implements
 	private int totalBeans;
 	private Boolean clientCreated;
 
-	public PanelLoadingLoadCampaign(StartGameDialog startGameDialog,
+	public PanelLoadLoadingCampaign(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 

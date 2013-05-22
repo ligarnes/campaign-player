@@ -16,6 +16,7 @@ public class StartGameDialog extends JDialog {
 		this.getContentPane().add(new PanelEnterGame(this));
 		this.pack();
 		this.setLocationRelativeTo(null);
+		this.setAlwaysOnTop(true);
 	}
 
 	public void changeState(PanelStartGameDialog newPanel) {

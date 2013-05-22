@@ -16,8 +16,8 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.tools.ListFilter;
-import pathfinder.bean.spell.Spell;
 import pathfinder.bean.spell.DocumentSpellBook;
+import pathfinder.bean.spell.Spell;
 import pathfinder.bean.spell.SpellManager;
 
 public class PanelCreateSpellBook extends PanelDocumentBuilder {
@@ -121,7 +121,8 @@ public class PanelCreateSpellBook extends PanelDocumentBuilder {
 
 	@Override
 	public void buildDocument() {
-		DocumentSpellBook book = new DocumentSpellBook(textFieldSpellBookName.getText(),
+		DocumentSpellBook book = new DocumentSpellBook(
+				textFieldSpellBookName.getText(),
 				panelFilter.getSelectedClasse(), panelListResult.getSpells());
 
 		CampaignClient.getInstance().addBean(book);

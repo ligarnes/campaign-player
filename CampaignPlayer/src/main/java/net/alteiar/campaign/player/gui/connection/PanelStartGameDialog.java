@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import net.alteiar.campaign.player.Helpers;
 import net.alteiar.shared.ExceptionTool;
 
 public abstract class PanelStartGameDialog extends JPanel {
@@ -46,6 +47,8 @@ public abstract class PanelStartGameDialog extends JPanel {
 		if (next != null) {
 			this.startGameDialog.changeState(next);
 		} else {
+			// save properties before run
+			Helpers.getGlobalProperties().save();
 			this.startApplication();
 		}
 	}
