@@ -16,6 +16,7 @@ import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.Character;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.panel.PanelList;
+import net.alteiar.player.Player;
 
 public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		implements CampaignListener {
@@ -106,5 +107,9 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 
 	@Override
 	public void characterRemoved(Character character) {
+	}
+
+	@Override
+	public void playerAdded(Player player) {
 	}
 }

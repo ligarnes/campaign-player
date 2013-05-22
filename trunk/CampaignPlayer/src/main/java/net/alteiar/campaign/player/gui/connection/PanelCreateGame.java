@@ -23,7 +23,6 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -39,7 +38,6 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.panel.PanelSelectColor;
-import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -201,11 +199,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		globalProp.setCreateIpLocal(getLocalAdressIP());
 		globalProp.setCreatePort(getPort());
 		globalProp.setCreateIpServer(getServerAddressIp());
-		try {
-			globalProp.save();
-		} catch (IOException ex) {
-			ExceptionTool.showError(ex);
-		}
+		globalProp.save();
 
 		nextState();
 	}

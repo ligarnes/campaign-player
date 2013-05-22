@@ -22,8 +22,10 @@ public class SpellLevelComparator implements Comparator<Spell> {
 
 	@Override
 	public int compare(Spell o1, Spell o2) {
-		int diff = diffLevel(o1, o2) * 100;
-		diff += diffName(o1, o2);
+		int diff = diffLevel(o1, o2);
+		if (diff == 0) {
+			diff = diffName(o1, o2);
+		}
 		return diff;
 	}
 }

@@ -21,12 +21,10 @@ package net.alteiar.campaign.player.fileChooser;
 
 import java.awt.Component;
 import java.io.File;
-import java.io.IOException;
 
 import javax.swing.JFileChooser;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.shared.ExceptionTool;
 
 /**
  * @author Cody Stoutenburg
@@ -49,14 +47,8 @@ public class StaticDialog {
 				.showOpenDialog(comp);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			file = StaticDialog.FILE_CHOOSER_OPEN_IMAGE.getSelectedFile();
-			try {
-				Helpers.getGlobalProperties().setMapPath(file.getParent());
-				Helpers.getGlobalProperties().save();
-			} catch (IOException e) {
-				// fail to save properties, just too bad
-				ExceptionTool.showWarning(e,
-						"Impossible de sauvegarder le chemin de votre images");
-			}
+			Helpers.getGlobalProperties().setMapPath(file.getParent());
+			Helpers.getGlobalProperties().save();
 		}
 
 		return file;
@@ -77,15 +69,8 @@ public class StaticDialog {
 				.showOpenDialog(comp);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			file = StaticDialog.FILE_CHOOSER_OPEN_CHARACTER.getSelectedFile();
-			try {
-				Helpers.getGlobalProperties()
-						.setCharacterPath(file.getParent());
-				Helpers.getGlobalProperties().save();
-			} catch (IOException e) {
-				// fail to save properties, just too bad
-				ExceptionTool.showWarning(e,
-						"Impossible de sauvegarder le chemin de votre images");
-			}
+			Helpers.getGlobalProperties().setCharacterPath(file.getParent());
+			Helpers.getGlobalProperties().save();
 		}
 
 		return file;

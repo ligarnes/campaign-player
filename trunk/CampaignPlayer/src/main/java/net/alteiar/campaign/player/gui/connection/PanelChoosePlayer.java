@@ -38,6 +38,7 @@ import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.campaign.player.Helpers;
 import net.alteiar.player.Player;
 
 public class PanelChoosePlayer extends PanelStartGameDialog {
@@ -45,12 +46,12 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	private static final int PREFERED_PLAYER_LIST_HEIGHT = 100;
 	private static final int PREFERED_PLAYER_LIST_WIDTH = 200;
 
-	JList<Player> playerList;
+	private JList<Player> playerList;
 
 	public PanelChoosePlayer(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
-		
+
 		initGui();
 	}
 
@@ -64,7 +65,9 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 
 		List<Player> playersName = getPlayers();
 
-		playerList = new JList<Player>(playersName.toArray(new Player[0]));
+		Player[] playersNameArray = new Player[playersName.size()];
+		playersName.toArray(playersNameArray);
+		playerList = new JList<Player>(playersNameArray);
 
 		playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		playerList.setLayoutOrientation(JList.VERTICAL);
@@ -87,7 +90,6 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 			}
 
 		});
-		
 
 		JButton cancelButton = new JButton("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
@@ -98,6 +100,11 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		});
 		buttonPanel.add(cancelButton);
 		buttonPanel.add(chooseButton);
+
+		String playerName = Helpers.getGlobalProperties().getPlayerChoose();
+		if (playersName.contains(playerName)) {
+			playerList.setSelectedValue(playerName, true);
+		}
 
 		this.add(buttonPanel);
 	}
@@ -114,12 +121,13 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	}
 
 	private void choosePlayer() {
-		CampaignClient.getInstance()
-				.selectPlayer(playerList.getSelectedValue());
+		Player player = playerList.getSelectedValue();
+		CampaignClient.getInstance().selectPlayer(player);
+		Helpers.getGlobalProperties().setPlayerChoose(player.getName());
 		nextState();
 	}
 
-	static class PlayerCellRenderer extends JLabel implements
+	private static class PlayerCellRenderer extends JLabel implements
 			ListCellRenderer<Player> {
 
 		private static final long serialVersionUID = 1L;

@@ -159,6 +159,13 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
+	/**
+	 * Load all bean with from the given class that are in specific or global
+	 * directory
+	 * 
+	 * @param classes
+	 * @return
+	 */
 	public <E extends BasicBean> ArrayList<E> loadLocalBean(Class<E> classes) {
 		ArrayList<E> beans = new ArrayList<E>();
 
@@ -360,9 +367,11 @@ public final class CampaignClient implements DocumentManagerListener {
 	@Override
 	public void beanAdded(BasicBean bean) {
 		if (Beans.isInstanceOf(bean, Player.class)) {
+			Player player = (Player) Beans.getInstanceOf(bean, Player.class);
 			synchronized (players) {
-				players.add((Player) Beans.getInstanceOf(bean, Player.class));
+				players.add(player);
 			}
+			notifyPlayerAdded(player);
 		} else if (Beans.isInstanceOf(bean, Chat.class)) {
 			chat = (Chat) Beans.getInstanceOf(bean, Chat.class);
 		} else if (Beans.isInstanceOf(bean, MapBean.class)) {
@@ -508,6 +517,12 @@ public final class CampaignClient implements DocumentManagerListener {
 	protected void notifyBeanRemoved(AuthorizationBean authBean) {
 		for (CampaignListener listener : getListeners()) {
 			listener.beanRemoved(authBean);
+		}
+	}
+
+	protected void notifyPlayerAdded(Player player) {
+		for (CampaignListener listener : getListeners()) {
+			listener.playerAdded(player);
 		}
 	}
 
