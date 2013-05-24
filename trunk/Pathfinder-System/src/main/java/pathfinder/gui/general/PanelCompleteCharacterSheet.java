@@ -23,7 +23,7 @@ import javax.swing.border.TitledBorder;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.documents.character.Character;
 import net.alteiar.shared.ImageUtil;
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 
 public class PanelCompleteCharacterSheet extends JPanel implements
 		PropertyChangeListener {

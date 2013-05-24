@@ -54,7 +54,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelLoadingJoin(getDialog(), this);
+		return new PanelJoinLoading(getDialog(), this);
 	}
 
 	private final void initGui() {

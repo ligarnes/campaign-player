@@ -4,7 +4,7 @@ import java.beans.Beans;
 
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.Effect;
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
 public abstract class TrapEffect extends Effect {

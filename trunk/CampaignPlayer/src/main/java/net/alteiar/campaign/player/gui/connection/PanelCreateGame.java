@@ -64,8 +64,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	}
 
 	private final void initGui() {
-		GlobalProperties globalProp = Helpers.getGlobalProperties();
-
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		// Initialize all the component of the panel
@@ -77,11 +75,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		localIpComboBoxModel = new DefaultComboBoxModel<String>();
 		localIpComboBox = new JComboBox<String>(localIpComboBoxModel);
 		portTextField = new JTextField(5);
-
-		// Set some values to the values stocked in global properties
-		pseudoTextField.setText(globalProp.getCreatePseudo());
-		playerColorSelector.setColor(globalProp.getCreateColor());
-		portTextField.setText(globalProp.getCreatePort());
 
 		// Build inner panel
 
@@ -113,9 +106,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		List<String> allAdresses = getAddress();
 		for (String address : allAdresses) {
 			localIpComboBoxModel.addElement(address);
-		}
-		if (allAdresses.contains(globalProp.getCreateIpLocal())) {
-			localIpComboBoxModel.setSelectedItem(globalProp.getCreateIpLocal());
 		}
 
 		JPanel localAddressIpPanel = new JPanel(new FlowLayout());
@@ -156,6 +146,15 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		this.add(identityPanel);
 		this.add(serverPanel);
 		this.add(buttonPanel);
+
+		// Set default values with the values stocked in global properties
+		GlobalProperties globalProp = Helpers.getGlobalProperties();
+		pseudoTextField.setText(globalProp.getCreatePseudo());
+		playerColorSelector.setColor(globalProp.getCreateColor());
+		portTextField.setText(globalProp.getCreatePort());
+		if (allAdresses.contains(globalProp.getCreateIpLocal())) {
+			localIpComboBoxModel.setSelectedItem(globalProp.getCreateIpLocal());
+		}
 	}
 
 	public String getPseudo() {
@@ -184,6 +183,11 @@ public class PanelCreateGame extends PanelStartGameDialog {
 
 	public void create() {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
+		globalProp.setCreateColor(getPlayerColor());
+		globalProp.setCreatePseudo(getPseudo());
+		globalProp.setCreateIpLocal(getLocalAdressIP());
+		globalProp.setCreatePort(getPort());
+		globalProp.save();
 
 		// Create the game
 		CampaignClient.startNewCampaignServer(getServerAddressIp(), getPort(),
@@ -193,13 +197,6 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		// creates the game to be the Game Master
 		CampaignClient.getInstance().createPlayer(getPseudo(), true,
 				getPlayerColor());
-
-		globalProp.setCreateColor(getPlayerColor());
-		globalProp.setCreatePseudo(getPseudo());
-		globalProp.setCreateIpLocal(getLocalAdressIP());
-		globalProp.setCreatePort(getPort());
-		globalProp.setCreateIpServer(getServerAddressIp());
-		globalProp.save();
 
 		nextState();
 	}

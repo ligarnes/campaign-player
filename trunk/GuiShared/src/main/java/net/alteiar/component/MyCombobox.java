@@ -2,6 +2,8 @@ package net.alteiar.component;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Vector;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -20,10 +22,16 @@ public class MyCombobox<E> extends JPanel {
 		combobox = new JComboBox<>(values);
 	}
 
+	public MyCombobox(Collection<E> values) {
+		combobox = new JComboBox<E>(new Vector<E>(values));
+	}
+
+	@SuppressWarnings("unchecked")
 	public E getSelectedItem() {
 		return (E) combobox.getSelectedItem();
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<E> getSelectedItems() {
 		Object[] obj = combobox.getSelectedObjects();
 		ArrayList<E> selected = new ArrayList<E>(obj.length);
@@ -43,5 +51,13 @@ public class MyCombobox<E> extends JPanel {
 
 	public void addActionListener(ActionListener listener) {
 		combobox.addActionListener(listener);
+	}
+
+	public void removeAllItems() {
+		combobox.removeAllItems();
+	}
+
+	public int getItemCount() {
+		return combobox.getItemCount();
 	}
 }

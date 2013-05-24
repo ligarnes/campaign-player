@@ -1,6 +1,6 @@
 package pathfinder.effect;
 
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 
 public class FireTrapEffect extends TrapEffect {
 	private static final long serialVersionUID = 1L;

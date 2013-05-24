@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import net.alteiar.shared.ImageUtil;
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 
 public class CharacterImageIconFactory extends
 		ImageIconFactory<PathfinderCharacter> {

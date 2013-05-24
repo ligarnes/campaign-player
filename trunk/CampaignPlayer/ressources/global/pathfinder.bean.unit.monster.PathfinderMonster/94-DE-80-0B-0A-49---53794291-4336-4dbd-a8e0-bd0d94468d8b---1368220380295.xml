@@ -1,0 +1,11 @@
+<pathfinderMonster>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:53794291-4336-4dbd-a8e0-bd0d94468d8b:1368220380295</guid>
+   </id>
+   <name>Gobelin</name>
+   <image serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a63db17c-a62b-40cf-a119-4b35db39c41b:1368220380287</guid>
+   </image>
+   <totalHp>22</totalHp>
+   <currentHp>22</currentHp>
+</pathfinderMonster>

@@ -124,6 +124,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		Player player = playerList.getSelectedValue();
 		CampaignClient.getInstance().selectPlayer(player);
 		Helpers.getGlobalProperties().setPlayerChoose(player.getName());
+		Helpers.getGlobalProperties().save();
 		nextState();
 	}
 
