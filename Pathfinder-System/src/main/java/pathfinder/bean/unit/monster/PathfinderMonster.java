@@ -1,46 +1,51 @@
-package pathfinder.bean.character;
+package pathfinder.bean.unit.monster;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.Character;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
-public class PathfinderCharacter extends Character {
+public class PathfinderMonster extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
+	public static final String PROP_NAME_PROPERTY = "name";
 	public static final String PROP_TOTAL_HP_PROPERTY = "totalHp";
 	public static final String PROP_CURRENT_HP_PROPERTY = "currentHp";
 	public static final String PROP_IMAGE_PROPERTY = "image";
+
+	@Element
+	private String name;
 
 	@Element
 	private UniqueID image;
 
 	@Element
 	private Integer totalHp;
+
 	@Element
 	private Integer currentHp;
 
-	protected PathfinderCharacter() {
+	protected PathfinderMonster() {
 		super();
 		totalHp = 0;
 		currentHp = 0;
 	}
 
-	public PathfinderCharacter(String name, Integer totalHp, Integer currentHp,
+	public PathfinderMonster(String name, Integer totalHp, Integer currentHp,
 			UniqueID image) {
-		super(name);
+		this.name = name;
 		this.totalHp = totalHp;
 		this.currentHp = currentHp;
 		this.image = image;
 	}
 
 	// ////////////// METHODS /////////////////
-	public BufferedImage getCharacterImage() {
+	public BufferedImage getMonsterImage() {
 		ImageBean image = CampaignClient.getInstance().getBean(this.image);
 		if (image == null) {
 			return null;
@@ -60,11 +65,16 @@ public class PathfinderCharacter extends Character {
 
 	// ////////////// BEANS METHODS /////////////////
 	public String getName() {
-		return getDocumentName();
+		return name;
 	}
 
 	public void setName(String name) {
-		this.setDocumentName(name);
+		String oldValue = this.name;
+		if (notifyRemote(PROP_NAME_PROPERTY, oldValue, name)) {
+			this.name = name;
+			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
+					oldValue, name);
+		}
 	}
 
 	public Integer getTotalHp() {
@@ -109,5 +119,9 @@ public class PathfinderCharacter extends Character {
 	@Override
 	public void beanRemoved() {
 		CampaignClient.getInstance().removeBean(image);
+	}
+
+	public PathfinderMonster createMonster() {
+		return new PathfinderMonster(name, totalHp, currentHp, image);
 	}
 }

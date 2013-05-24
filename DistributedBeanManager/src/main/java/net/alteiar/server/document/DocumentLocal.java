@@ -1,5 +1,7 @@
 package net.alteiar.server.document;
 
+import java.rmi.RemoteException;
+
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.shared.UniqueID;
@@ -23,13 +25,17 @@ public class DocumentLocal implements IDocumentClient {
 	}
 
 	@Override
-	public void loadDocument() throws Exception {
+	public void loadDocument(BasicBean bean) throws RemoteException {
 		// do nothing, the bean should be given at construction
 	}
 
 	@Override
-	public void saveLocal() throws Exception {
-		// do nothing on save
+	public String getFilename() {
+		return null;
 	}
 
+	@Override
+	public void save(String path) throws Exception {
+		// do nothing, the bean should be given at construction
+	}
 }

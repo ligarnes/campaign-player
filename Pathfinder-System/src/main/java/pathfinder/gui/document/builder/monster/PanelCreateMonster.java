@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.character;
+package pathfinder.gui.document.builder.monster;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,9 +24,9 @@ import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
-import pathfinder.bean.unit.PathfinderCharacter;
+import pathfinder.bean.unit.monster.PathfinderMonster;
 
-public class PanelCreateCharacter extends PanelDocumentBuilder {
+public class PanelCreateMonster extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;
 
 	private TransfertImage transfertImage;
@@ -36,7 +36,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	private final JLabel lblHp;
 	private final JTextField textFieldHp;
 
-	public PanelCreateCharacter() {
+	public PanelCreateMonster() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -132,27 +132,30 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 
 	@Override
 	public String getDocumentName() {
-		return "Personnage";
+		return "Monstre";
 	}
 
 	@Override
 	public String getDocumentDescription() {
-		return "Cr\u00E9er un personnage";
+		return "Cr\u00E9er un monstre";
 	}
 
 	@Override
 	public void buildDocument() {
 		ImageBean image = new ImageBean(transfertImage);
-		CampaignClient.getInstance().addBean(image);
 
 		String name = textFieldName.getText();
 		Integer hp = Integer.valueOf(textFieldHp.getText());
 
-		PathfinderCharacter character = new PathfinderCharacter(name, hp, hp,
+		PathfinderMonster monster = new PathfinderMonster(name, hp, hp,
 				image.getId());
-		character.setImage(image.getId());
+		monster.setImage(image.getId());
 
-		CampaignClient.getInstance().addBean(character);
+		// save the image as perma bean
+		CampaignClient.getInstance().savePerma(image);
+		// save the monster as perma bean
+		CampaignClient.getInstance().savePerma(monster);
+
 		transfertImage = null;
 		textFieldName.setText("");
 	}

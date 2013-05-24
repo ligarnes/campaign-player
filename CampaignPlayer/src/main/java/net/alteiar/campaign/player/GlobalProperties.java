@@ -20,7 +20,6 @@ public class GlobalProperties implements Serializable {
 	private static final String KEY_CREATE_COLOR_GREEN = "create.color.green";
 	private static final String KEY_CREATE_COLOR_BLUE = "create.color.blue";
 	private static final String KEY_CREATE_IP_LOCAL = "create.ipLocal";
-	private static final String KEY_CREATE_IP_SERVER = "create.ipServer";
 	private static final String KEY_CREATE_PORT = "create.port";
 
 	private static final String KEY_JOIN_IP_LOCAL = "join.ipLocal";
@@ -30,6 +29,7 @@ public class GlobalProperties implements Serializable {
 	private static final String KEY_LOAD_IP_LOCAL = "load.ipLocal";
 	private static final String KEY_LOAD_PORT = "load.port";
 	private static final String KEY_LOAD_CAMPAIGN = "load.campaign";
+
 	private static final String KEY_CHOOSE_PLAYER = "load.player";
 
 	// private static final String KEY_IS_MJ = "isMj";
@@ -102,14 +102,6 @@ public class GlobalProperties implements Serializable {
 
 	public void setCreateIpLocal(String ipLocal) {
 		property.setValue(KEY_CREATE_IP_LOCAL, ipLocal);
-	}
-
-	public String getCreateIpServer() {
-		return property.getValue(KEY_CREATE_IP_SERVER, "127.0.0.1");
-	}
-
-	public void setCreateIpServer(String ipServer) {
-		property.setValue(KEY_CREATE_IP_SERVER, ipServer);
 	}
 
 	public String getCreatePort() {

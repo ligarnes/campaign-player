@@ -6,7 +6,6 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -183,38 +182,59 @@ public class DocumentManager {
 	}
 
 	private synchronized void addDocument(UniqueID guid) {
-		IDocumentRemote doc;
 		try {
-			doc = server.getDocument(guid);
-			IDocumentClient client = new DocumentClient(doc, this);
-			addDocument(client);
+			addDocument(loadDocument(guid));
 		} catch (RemoteException e) {
 			ExceptionTool.showError(e);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ExceptionTool.showError(e);
 		}
 	}
 
-	private synchronized void addDocument(IDocumentClient client) {
-		try {
-			client.loadDocument();
-
-			synchronized (documents) {
-				this.documents.put(client.getId(), client);
-			}
-
-			for (DocumentManagerListener listener : getListeners()) {
-				listener.beanAdded(client.getBeanEncapsulator().getBean());
-			}
-
-			getCounterInstance().countDown();
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	private synchronized void addDocument(IDocumentClient document) {
+		// add the document
+		synchronized (documents) {
+			this.documents.put(document.getId(), document);
 		}
+
+		// notify listener that a document is added
+		for (DocumentManagerListener listener : getListeners()) {
+			listener.beanAdded(document.getBeanEncapsulator().getBean());
+		}
+
+		// internal notify that a document is received
+		getCounterInstance().countDown();
+	}
+
+	/**
+	 * Load the document given a specific id we first try to load the document
+	 * locally (global and specific)
+	 * 
+	 * @param guid
+	 * @return
+	 * @throws Exception
+	 */
+	private IDocumentClient loadDocument(UniqueID guid) throws Exception {
+		IDocumentRemote doc = server.getDocument(guid);
+		IDocumentClient client = new DocumentClient(doc);
+
+		// Load the bean
+		BasicBean bean = null;
+		File localFile = new File(getSpecificPath(), client.getFilename());
+		File globalFile = new File(getGlobalPath(), client.getFilename());
+		if (localFile.exists()) {
+			// load local bean if exist
+			bean = DocumentIO.loadBeanLocal(localFile);
+		} else if (globalFile.exists()) {
+			// load global bean if exist
+			bean = DocumentIO.loadBeanLocal(globalFile);
+		} else {
+			// load bean from the server
+			bean = doc.getBean();
+		}
+		client.loadDocument(bean);
+
+		return client;
 	}
 
 	public void createDocument(BasicBean bean) {
@@ -225,8 +245,17 @@ public class DocumentManager {
 		}
 	}
 
-	public ArrayList<IDocumentClient> getDocuments() {
-		return new ArrayList<IDocumentClient>(documents.values());
+	public void saveLocal() throws Exception {
+		synchronized (documents) {
+			for (IDocumentClient doc : documents.values()) {
+				doc.save(getSpecificPath());
+			}
+		}
+	}
+
+	public void saveGlobalBean(BasicBean bean) throws Exception {
+		DocumentLocal doc = new DocumentLocal(bean);
+		doc.save(getGlobalPath());
 	}
 
 	public String getSpecificPath() {

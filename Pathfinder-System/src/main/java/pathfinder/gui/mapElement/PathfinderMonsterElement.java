@@ -15,9 +15,9 @@ import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
 
-import pathfinder.bean.unit.PathfinderCharacter;
+import pathfinder.bean.unit.monster.PathfinderMonster;
 
-public class PathfinderCharacterElement extends MapElement {
+public class PathfinderMonsterElement extends MapElement {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,30 +25,29 @@ public class PathfinderCharacterElement extends MapElement {
 	public static final String PROP_HEIGHT_PROPERTY = "height";
 
 	@Element
-	private UniqueID charactedId;
+	private UniqueID monsterId;
 	@Element
 	private MapElementSize width;
 	@Element
 	private MapElementSize height;
 
-	public PathfinderCharacterElement() {
+	public PathfinderMonsterElement() {
 	}
 
-	public PathfinderCharacterElement(Point point, PathfinderCharacter character) {
+	public PathfinderMonsterElement(Point point, PathfinderMonster character) {
 		this(point, character.getId());
 	}
 
-	public PathfinderCharacterElement(Point point, UniqueID characterId) {
+	public PathfinderMonsterElement(Point point, UniqueID characterId) {
 		super(point);
 
-		this.charactedId = characterId;
+		this.monsterId = characterId;
 		width = new MapElementSizeSquare(1);
 		height = new MapElementSizeSquare(1);
-
 	}
 
-	public PathfinderCharacter getCharacter() {
-		return CampaignClient.getInstance().getBean(charactedId);
+	public PathfinderMonster getMonster() {
+		return CampaignClient.getInstance().getBean(monsterId);
 	}
 
 	@Override
@@ -64,7 +63,7 @@ public class PathfinderCharacterElement extends MapElement {
 	@Override
 	protected void drawElement(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		BufferedImage background = getCharacter().getCharacterImage();
+		BufferedImage background = getMonster().getMonsterImage();
 
 		Point position = getPosition();
 		int x = (int) (position.getX() * zoomFactor);
@@ -90,8 +89,8 @@ public class PathfinderCharacterElement extends MapElement {
 		int yLife = y + height - heightLife;
 		int widthLife = width;
 
-		Integer currentHp = getCharacter().getCurrentHp();
-		Integer totalHp = getCharacter().getTotalHp();
+		Integer currentHp = getMonster().getCurrentHp();
+		Integer totalHp = getMonster().getTotalHp();
 
 		Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
 		if (currentHp > 0) {
@@ -128,11 +127,11 @@ public class PathfinderCharacterElement extends MapElement {
 	 */
 
 	public UniqueID getCharactedId() {
-		return charactedId;
+		return monsterId;
 	}
 
 	public void setCharactedId(UniqueID charactedId) {
-		this.charactedId = charactedId;
+		this.monsterId = charactedId;
 	}
 
 	public MapElementSize getWidth() {
@@ -165,11 +164,11 @@ public class PathfinderCharacterElement extends MapElement {
 	public String getNameFormat() {
 		if (getWidth().getShortUnitFormat().equals(
 				getHeight().getShortUnitFormat())) {
-			return getCharacter().getName() + " " + getWidth().getValue() + "x"
+			return getMonster().getName() + " " + getWidth().getValue() + "x"
 					+ getHeight().getValue() + " "
 					+ getWidth().getShortUnitFormat();
 		}
-		return getCharacter().getName() + " " + getWidth().getValue()
+		return getMonster().getName() + " " + getWidth().getValue()
 				+ getWidth().getShortUnitFormat() + "x"
 				+ getHeight().getValue() + " "
 				+ getHeight().getShortUnitFormat();

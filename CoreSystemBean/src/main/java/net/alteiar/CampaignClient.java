@@ -24,7 +24,6 @@ import net.alteiar.documents.map.MapBean;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentIO;
-import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
@@ -197,6 +196,21 @@ public final class CampaignClient implements DocumentManagerListener {
 			}
 		}
 		return result;
+	}
+
+	/**
+	 * Save the basic bean as a permanent bean (this bean would be accessible
+	 * with any campaign)
+	 * 
+	 * @param bean
+	 * @throws Exception
+	 */
+	public void savePerma(BasicBean bean) {
+		try {
+			manager.saveGlobalBean(bean);
+		} catch (Exception e) {
+			ExceptionTool.showError(e);
+		}
 	}
 
 	public DiceRoller getDiceRoller() {
@@ -457,9 +471,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 
 		try {
-			for (IDocumentClient doc : manager.getDocuments()) {
-				doc.saveLocal();
-			}
+			manager.saveLocal();
 		} catch (Exception e) {
 			ExceptionTool.showError(e, "Impossible de sauver la campagne");
 		}

@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.character.Character;
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 
 public class PanelCharacterInfo extends JPanel implements

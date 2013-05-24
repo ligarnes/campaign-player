@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelAlwaysValidOkCancel;
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 
 public abstract class ChangeHealthPoint extends IAction {
 	private final PathfinderCharacter character;

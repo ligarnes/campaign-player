@@ -10,7 +10,7 @@ import java.util.List;
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.character.Character;
 import net.alteiar.player.Player;
-import pathfinder.bean.character.PathfinderCharacter;
+import pathfinder.bean.unit.PathfinderCharacter;
 
 public class CharactersDrawable {
 

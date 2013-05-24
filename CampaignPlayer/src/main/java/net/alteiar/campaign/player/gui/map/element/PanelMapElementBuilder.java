@@ -13,11 +13,29 @@ public abstract class PanelMapElementBuilder extends JPanel {
 		super();
 	}
 
+	/**
+	 * 
+	 * @return true if we can actually build an element of this kind
+	 */
 	public abstract Boolean isAvailable();
 
+	/**
+	 * 
+	 * @return a name that describe what the panel build
+	 */
 	public abstract String getElementName();
 
+	/**
+	 * 
+	 * @return a long description of what the panel build
+	 */
 	public abstract String getElementDescription();
 
+	/**
+	 * build the MapElement at the given position
+	 * 
+	 * @param position
+	 * @return the MapElement created
+	 */
 	public abstract MapElement buildMapElement(Point position);
 }

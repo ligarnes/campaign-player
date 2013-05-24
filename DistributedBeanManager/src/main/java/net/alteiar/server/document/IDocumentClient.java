@@ -1,14 +1,19 @@
 package net.alteiar.server.document;
 
+import java.rmi.RemoteException;
+
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.shared.UniqueID;
 
 public interface IDocumentClient {
-	public UniqueID getId();
+	UniqueID getId();
 
-	public BeanEncapsulator getBeanEncapsulator();
+	BeanEncapsulator getBeanEncapsulator();
 
-	public void loadDocument() throws Exception;
+	String getFilename();
 
-	public void saveLocal() throws Exception;
+	void loadDocument(BasicBean bean) throws RemoteException;
+
+	void save(String path) throws Exception;
 }

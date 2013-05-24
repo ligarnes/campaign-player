@@ -4,19 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.Point;
 
 import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import pathfinder.bean.character.PathfinderCharacter;
+import net.alteiar.component.MyCombobox;
+import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
 public class PanelCharacterBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
 
-	private final JComboBox<CharacterAdapter> characters;
+	private final MyCombobox<CharacterAdapter> characters;
 
 	public PanelCharacterBuilder() {
 		this.setLayout(new BorderLayout());
@@ -25,7 +25,7 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));
 
-		characters = new JComboBox<CharacterAdapter>(
+		characters = new MyCombobox<CharacterAdapter>(
 				CharacterAdapter.getCharacters());
 		panelCenter.add(characters);
 
@@ -33,7 +33,7 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 	}
 
 	private PathfinderCharacter getCharacter() {
-		return ((CharacterAdapter) characters.getSelectedItem()).getCharacter();
+		return characters.getSelectedItem().getCharacter();
 	}
 
 	@Override
