@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b23b1ea6-318d-47dc-875a-1a9f6b58e704:1369512904849</guid>
+   </id>
+   <name>Forme bestiale III</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:45461013-8694-4586-b36c-dc33b2eaa440:1369512904848</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:83775ce9-7e26-4957-a1d3-5d326f89a066:1369512904848</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le lanceur de sorts adopte la forme et les pouvoirs d&apos;un animal de taille Min, TP, P, M, G ou TG ou d&apos;une créature magique de taille P ou M.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d2e9bd43-c4c2-470d-b341-eb8c43ce9934:1369512904849</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme bestiale III.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

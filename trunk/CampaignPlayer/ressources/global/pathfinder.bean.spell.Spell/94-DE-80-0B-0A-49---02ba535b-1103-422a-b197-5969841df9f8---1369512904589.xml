@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:02ba535b-1103-422a-b197-5969841df9f8:1369512904589</guid>
+   </id>
+   <name>Éloignement du bois</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:787ea37f-ae67-4ba0-94fc-c03e72f54a57:1369512904589</guid>
+      </id>
+      <unit>cases</unit>
+      <value>12</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:17cee20d-f713-460a-abe3-749205ccbd02:1369512904589</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Repousse les objets en bois.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:af3184ab-a6c6-42b7-9738-2c4f3772ca0b:1369512904589</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Éloignement du bois.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ce1cf195-7d15-43e7-bb9d-10c51c2a8534:1369512907813</guid>
+   </id>
+   <name>Lame de sombre triomphe</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1e02dbcb-1257-45e7-97ca-352fbd65aae5:1369512907813</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d86606b2-736f-40f0-857b-5e9b40996b33:1369512907813</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>L&apos;arme liée devient spectrale.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d6e371b0-e931-422f-a939-bf8a600b8a71:1369512907813</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lame de sombre triomphe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>antipaladin</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

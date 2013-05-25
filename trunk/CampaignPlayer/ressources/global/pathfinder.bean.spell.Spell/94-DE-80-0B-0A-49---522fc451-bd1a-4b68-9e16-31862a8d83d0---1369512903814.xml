@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:522fc451-bd1a-4b68-9e16-31862a8d83d0:1369512903814</guid>
+   </id>
+   <name>Colonne de feu</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fe731adc-e12f-4982-aa1b-05789be88d30:1369512903814</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9105907c-dd60-4fb2-b7a6-6b50a2637435:1369512903814</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Feu divin (1d6 points de dégâts/niveau).</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4938455a-6126-4ba7-8118-033aba8f0a0c:1369512903814</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Colonne de feu.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

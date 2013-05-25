@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ffcb2f3a-1eeb-4e1b-a11b-05feb76b8c5f:1369512906306</guid>
+   </id>
+   <name>Téléportation suprême</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:000a0441-62be-4d1c-bab6-0d1a4306ed57:1369512906306</guid>
+      </id>
+      <value>personnelle et contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a8777c54-20e3-4859-ab50-35c93f055c58:1369512906306</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme téléportation, sans limite de portée et sans risque d&apos;erreur.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d3cde1ed-b39a-456d-8929-4f4b8f9a7367:1369512906306</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Téléportation suprême.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,52 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9258ac1a-4581-460a-a9b7-63ee4ecd552a:1369512904491</guid>
+   </id>
+   <name>Discours captivant</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:61d2b283-5f4f-4832-bdd6-8c0994736ba4:1369512904490</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:de54a1ab-ba25-47f0-975e-0a45b5fc325e:1369512904491</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Captive à 30 m (+ 3 m/niveau) à la ronde.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0b216bec-09ca-4f85-ac82-f5ccd6268898:1369512904491</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Discours captivant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

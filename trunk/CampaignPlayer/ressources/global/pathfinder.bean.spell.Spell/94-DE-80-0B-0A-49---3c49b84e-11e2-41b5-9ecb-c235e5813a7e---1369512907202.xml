@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3c49b84e-11e2-41b5-9ecb-c235e5813a7e:1369512907202</guid>
+   </id>
+   <name>Représentation de virtuose</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c198ea83-3687-4b70-b2a2-b34182708874:1369512907202</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:31493ae5-8559-4cf9-ba19-770d57217c7f:1369512907202</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Commence une seconde représentation bardique alors que la première se prolonge.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f98f6807-1d70-4d38-848a-63e297b21f1c:1369512907202</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Représentation de virtuose.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

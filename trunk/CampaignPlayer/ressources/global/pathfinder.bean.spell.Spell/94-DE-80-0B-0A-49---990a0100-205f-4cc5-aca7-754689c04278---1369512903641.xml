@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:990a0100-205f-4cc5-aca7-754689c04278:1369512903641</guid>
+   </id>
+   <name>Brume acide</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:92ca2290-57ec-45c6-93b4-e0103cc60259:1369512903641</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:92b6fc46-af71-4dae-8d65-6d2325171ed0:1369512903641</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Brouillard infligeant des dégâts d&apos;acide.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b3643bb7-7e48-4fde-b80a-728703264a3f:1369512903641</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Brume acide.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

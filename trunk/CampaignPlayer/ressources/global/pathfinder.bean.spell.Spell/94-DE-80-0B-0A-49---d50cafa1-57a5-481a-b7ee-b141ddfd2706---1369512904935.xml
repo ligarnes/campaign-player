@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d50cafa1-57a5-481a-b7ee-b141ddfd2706:1369512904935</guid>
+   </id>
+   <name>Fou rire</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d88f2e41-0af5-4ec1-bbd9-aaddfed22da0:1369512904935</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:aadbb772-9313-4e0f-b5c5-147b473fb886:1369512904935</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible perd ses actions pendant 1 round/niveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:62a88a98-466c-4480-a402-cc676bba6467:1369512904935</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Fou rire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

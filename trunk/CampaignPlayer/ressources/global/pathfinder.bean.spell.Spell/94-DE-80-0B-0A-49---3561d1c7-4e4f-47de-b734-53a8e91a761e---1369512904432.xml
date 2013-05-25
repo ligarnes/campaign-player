@@ -1,0 +1,59 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3561d1c7-4e4f-47de-b734-53a8e91a761e:1369512904432</guid>
+   </id>
+   <name>Détection de l&apos;invisibilité</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:effa924a-d388-41c0-9b09-8e283de09347:1369512904432</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eca8b170-9245-44e3-a3a6-018ede4e1753:1369512904432</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Révèle créatures et objets invisibles.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:09f72fb6-4143-4879-a3ea-cd75d4a7a37f:1369512904432</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Détection de linvisibilité.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

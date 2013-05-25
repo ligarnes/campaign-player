@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5fabca7c-6843-417f-9c9d-090640c733ca:1369512905073</guid>
+   </id>
+   <name>Hypnose des animaux</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fb8a1cf7-d28d-4c58-84c0-aca9a5f0b907:1369512905073</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:39698fdf-0d75-41b3-9bb4-45ed7806b6ae:1369512905073</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Fascine 2d6 DV d&apos;animaux.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d567b646-3aa3-4e41-9bf9-e39422308703:1369512905073</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Hypnose des animaux.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

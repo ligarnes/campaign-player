@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3ad4af5d-728c-4517-baaa-8a934d7f4414:1369512907736</guid>
+   </id>
+   <name>Éruption caustique</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f830dd8d-7235-4974-a92f-e769d1e61954:1369512907736</guid>
+      </id>
+      <unit>cases</unit>
+      <value>6</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:394efd6c-7be5-45e7-a039-b73ffb642cd5:1369512907736</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Explosion de 1d6 acide/niveau qui persiste.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5ad84009-6967-4403-88ee-56e6dc309571:1369512907736</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Éruption caustique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

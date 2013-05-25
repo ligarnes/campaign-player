@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3a232a16-4918-450d-a68b-5e1f622a552f:1369512904989</guid>
+   </id>
+   <name>Globe d&apos;invulnérabilité partielle</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fb9c322f-536f-4398-9d43-92a11c084d25:1369512904989</guid>
+      </id>
+      <unit>cases</unit>
+      <value>2</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:06bea287-a0a0-4d8e-8922-a05d4882ca92:1369512904989</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Bloque les sorts de 3e niveau ou moins.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:21fd513f-4f44-4e0f-a667-920f97981807:1369512904989</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Globe dinvulnérabilité partielle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

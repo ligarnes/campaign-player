@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d25cde46-ca04-4f52-a2a0-cbb588ea3c5a:1369512903544</guid>
+   </id>
+   <name>Blessure légère de groupe</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e853305e-1d80-4a78-825a-63bbbc239331:1369512903544</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:37d8c8ad-f201-4151-ab04-b1d65268df16:1369512903544</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Inflige 1d8 points de dégâts +1/niveau à une créature/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:edbd8777-e5e7-4cac-aa1c-62189becfa89:1369512903544</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Blessure légère de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

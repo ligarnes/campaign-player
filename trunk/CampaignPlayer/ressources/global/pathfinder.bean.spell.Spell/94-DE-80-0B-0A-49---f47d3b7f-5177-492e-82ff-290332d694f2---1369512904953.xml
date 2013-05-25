@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f47d3b7f-5177-492e-82ff-290332d694f2:1369512904953</guid>
+   </id>
+   <name>Fusion dans la pierre</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b96814f0-8637-4fb5-95cc-f26da1a80af8:1369512904953</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d1b07f85-034b-4ecc-bc5c-bcf1424f1633:1369512904953</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Permet d&apos;entrer dans la pierre.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fe186705-8d2d-4c96-91cb-9e6a91527c1d:1369512904953</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Fusion dans la pierre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

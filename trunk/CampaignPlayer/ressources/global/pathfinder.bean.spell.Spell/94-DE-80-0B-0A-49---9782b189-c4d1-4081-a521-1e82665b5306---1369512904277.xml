@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9782b189-c4d1-4081-a521-1e82665b5306:1369512904277</guid>
+   </id>
+   <name>Danse irrésistible</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f9aafb3f-c5ac-4322-964c-b2bf898d0d88:1369512904277</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:43db155f-d381-4d48-980f-8aac8f6bf837:1369512904277</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Force le sujet à danser.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5bfd46e3-455a-4831-a1b5-fff7b1e5453a:1369512904277</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Danse irrésistible.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

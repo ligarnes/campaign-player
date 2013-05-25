@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7bad50eb-9358-45c7-98f8-524981a26f1d:1369512906932</guid>
+   </id>
+   <name>Échec annoncé</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:02a157bb-e0c8-43d8-b42d-ed92a750dd3b:1369512906932</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3ffbee95-4f8c-492c-bb30-0cb8d965da2b:1369512906932</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible est secouée et fiévreuse de façon permanente et peut même recevoir une plaie magique.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f970dd2b-0b14-483c-893e-4fc14d8135ec:1369512906932</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Échec annoncé.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

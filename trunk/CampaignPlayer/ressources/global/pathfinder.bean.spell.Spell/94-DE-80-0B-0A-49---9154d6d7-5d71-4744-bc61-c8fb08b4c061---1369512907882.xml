@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9154d6d7-5d71-4744-bc61-c8fb08b4c061:1369512907882</guid>
+   </id>
+   <name>Panacée universelle</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f81e69e6-b0f5-41fa-960b-8ffd9ac9076d:1369512907882</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0ca6ee5c-ba22-4b07-9295-f08c918ee1ed:1369512907882</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Effet relaxant ou divertissant.</description>
+   <composant>S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a7f19d28-bf99-432d-85fd-ea1680c761fe:1369512907882</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Panacée universelle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

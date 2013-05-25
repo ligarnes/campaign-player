@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9eb8be57-d73d-492c-b301-9c0d942da218:1369512907129</guid>
+   </id>
+   <name>Pas de l&apos;ombre</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a40c51eb-e0e9-4007-8686-8740fd25cb15:1369512907129</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0275f2cd-80a7-4a51-8703-597e18a4cf75:1369512907129</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Téléportation d&apos;une ombre à une autre.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2ef537ee-396a-478f-9d46-fa8daf79781b:1369512907129</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Pas de lombre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

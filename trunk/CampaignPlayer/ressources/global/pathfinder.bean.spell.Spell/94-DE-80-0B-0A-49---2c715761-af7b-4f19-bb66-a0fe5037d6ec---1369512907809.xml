@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2c715761-af7b-4f19-bb66-a0fe5037d6ec:1369512907809</guid>
+   </id>
+   <name>Jeunesse apparente</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:44ef23ef-6c65-4293-845a-731f116129f1:1369512907809</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b2ef809e-b490-45cc-b48e-ed88a0ec58d3:1369512907809</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible semble plus jeune.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d983f6f3-9c75-445d-a27b-e0bafec41913:1369512907809</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Jeunesse apparente.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

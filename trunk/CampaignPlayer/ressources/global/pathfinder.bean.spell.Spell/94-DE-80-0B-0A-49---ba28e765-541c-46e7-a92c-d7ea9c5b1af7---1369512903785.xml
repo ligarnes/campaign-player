@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ba28e765-541c-46e7-a92c-d7ea9c5b1af7:1369512903785</guid>
+   </id>
+   <name>Choc</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:50090fe9-7347-4d64-860b-3e90ac247532:1369512903785</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4f97d3a3-c66a-4688-a88f-1c93f02be4e7:1369512903785</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description></description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0198816e-8933-43b4-9912-4b706b8834fc:1369512903785</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Choc.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

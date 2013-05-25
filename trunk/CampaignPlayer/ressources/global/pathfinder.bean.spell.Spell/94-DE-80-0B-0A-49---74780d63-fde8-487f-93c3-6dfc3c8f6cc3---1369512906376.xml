@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:74780d63-fde8-487f-93c3-6dfc3c8f6cc3:1369512906376</guid>
+   </id>
+   <name>Vagues de fatigue</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4c5a8bda-114a-4e28-bbe5-3e491668f98f:1369512906376</guid>
+      </id>
+      <unit>cases</unit>
+      <value>6</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:152c5e08-2acc-45d8-b767-85e8f4e32589:1369512906376</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Plusieurs cibles sont fatiguées.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:891faed0-0103-48f5-8f14-ae2ddd009eac:1369512906376</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vagues de fatigue.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

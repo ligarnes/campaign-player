@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0d15b292-a83d-448e-b9f9-e9304e7c9a5d:1369512906055</guid>
+   </id>
+   <name>Résurrection</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6ddd8559-4eee-4dc3-8250-06740bcba7d9:1369512906055</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7119af91-be8a-4184-8d09-eee99a045a96:1369512906055</guid>
+      </id>
+      <unit>minute</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Ramène un mort à la vie.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f8f7784b-5305-4134-b4db-2d0c2e70b4f5:1369512906055</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Résurrection.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

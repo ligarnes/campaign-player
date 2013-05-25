@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8ffb3d5e-fda5-423f-b61c-e588e19ff519:1369512905888</guid>
+   </id>
+   <name>Rapport</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:de127559-6968-409b-90ee-2ab9e1b3be24:1369512905888</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:06479b67-af66-4bcb-94e3-7dd989d12fd2:1369512905888</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Indique où se trouvent les alliés et quel est leur état.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f3c0a389-b856-4733-b5c7-3a313f2041b3:1369512905888</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rapport.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

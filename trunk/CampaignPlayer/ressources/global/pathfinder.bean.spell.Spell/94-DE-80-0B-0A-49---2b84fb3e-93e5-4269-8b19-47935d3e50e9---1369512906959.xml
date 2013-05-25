@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2b84fb3e-93e5-4269-8b19-47935d3e50e9:1369512906959</guid>
+   </id>
+   <name>Éruption de pustules</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d8715a7c-f03d-4408-b91f-7a8d9253bdf8:1369512906958</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6d32ea87-5aab-4ef6-b2ee-a80712ac5395:1369512906959</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Des bubons acides explosent quand le personnage est attaqué.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f535f73d-923f-447b-a602-3cccda42a8b1:1369512906959</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Éruption de pustules.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

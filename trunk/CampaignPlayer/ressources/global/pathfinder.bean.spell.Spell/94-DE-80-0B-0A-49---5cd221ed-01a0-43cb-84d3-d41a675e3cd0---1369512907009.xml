@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5cd221ed-01a0-43cb-84d3-d41a675e3cd0:1369512907009</guid>
+   </id>
+   <name>Glace maudite</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2d04f82c-a185-4e54-b0fa-de04205f0e28:1369512907009</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:12888c32-0e50-4fd2-8f87-5013e5341a64:1369512907009</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Crée un mur ou des javelots d&apos;eau maudite gelée.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b63370de-0145-4fe9-88af-f74c00a599f9:1369512907009</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Glace maudite.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

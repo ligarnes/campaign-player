@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b25001b5-7ca6-4dc2-ba90-de6cc9c9efa4:1369512906880</guid>
+   </id>
+   <name>Crochet de force</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f302a45a-31f6-4a8c-96b4-7c386a764f29:1369512906880</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:57b9b799-7408-44ea-9ca5-4eccd1c4b93d:1369512906880</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Un crochet de force attire le personnage vers la cible.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4415c98e-9846-47eb-a732-45df177a8e89:1369512906880</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Crochet de force.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

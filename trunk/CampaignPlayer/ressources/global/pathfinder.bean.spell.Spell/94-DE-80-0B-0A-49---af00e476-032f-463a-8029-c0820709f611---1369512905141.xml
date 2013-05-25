@@ -1,0 +1,55 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:af00e476-032f-463a-8029-c0820709f611:1369512905141</guid>
+   </id>
+   <name>Immobilisation de monstre</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:79ccdc65-ef64-40c3-ad58-5107018efe12:1369512905141</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f23adb44-6582-46c6-bb26-c5f1410b4f00:1369512905141</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Immobilise n&apos;importe quelle créature.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0d05b19c-096f-4c96-be39-31557050f542:1369512905141</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Immobilisation de monstre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

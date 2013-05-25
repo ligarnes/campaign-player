@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:34f8ac05-cf7b-473c-8eab-caf58d72ccef:1369512904613</guid>
+   </id>
+   <name>Emprisonnement</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e67d1159-1891-41db-b112-484c52863f1f:1369512904613</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4d11db95-d8d5-4197-a5d7-b4388532a447:1369512904613</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Emprisonne la cible au centre de la terre.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c89121c5-dabd-493a-a029-d0cab12ed1c5:1369512904613</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Emprisonnement.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

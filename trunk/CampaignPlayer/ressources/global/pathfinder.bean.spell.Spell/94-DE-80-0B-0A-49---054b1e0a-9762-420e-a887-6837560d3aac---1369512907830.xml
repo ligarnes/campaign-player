@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:054b1e0a-9762-420e-a887-6837560d3aac:1369512907830</guid>
+   </id>
+   <name>Manteau de guêpes</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:61f2efa7-9bd6-4f95-8d91-85f9ae1d6562:1369512907830</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f55f3e42-c265-465c-b00a-9a935383f564:1369512907830</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une nuée de guêpes défend ou porte le personnage.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:73efddf3-2308-450b-bad0-431296a7d729:1369512907830</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Manteau de guêpes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

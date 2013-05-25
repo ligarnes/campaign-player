@@ -1,0 +1,55 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3822cef1-c578-42d9-ae96-16b72b271820:1369512905451</guid>
+   </id>
+   <name>Métamorphose funeste</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2d993a6f-33c7-40b9-a4a7-0706842f033e:1369512905451</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:14af34b1-c703-4cea-9d05-945cba6d3766:1369512905451</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Transforme le sujet en animal inoffensif.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0c25c186-0550-446a-b25d-4d4aa2279fd1:1369512905451</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Métamorphose funeste.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

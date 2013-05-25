@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b596571d-bd72-4fc7-9fd7-74466d9b1f10:1369512907660</guid>
+   </id>
+   <name>Créature artificielle incassable</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:135394cd-fffa-4ab1-b4d0-a24b7c386670:1369512907660</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:78f39cc5-0b9c-458f-859b-c2b9190df218:1369512907660</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Augmente la résistance ou la RD d&apos;une créature artificielle.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:05ef1ada-607b-4547-afe2-be3d01efffc0:1369512907660</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Créature artificielle incassable.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0d756d09-36e6-4fe1-affd-f61bff300f65:1369512907943</guid>
+   </id>
+   <name>Réceptacle de l&apos;oracle</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a6aba016-f145-4f45-b05a-19fba692fa98:1369512907942</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:619a9409-5716-422e-a510-96706e67c7ad:1369512907943</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>&apos;&apos;(Oracles seulement)&apos;&apos; La cible bénéficie des avantages de la malédiction de l&apos;oracle.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:69d1b662-6ba3-4b8b-b427-f9b3c5084673:1369512907943</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Réceptacle de loracle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

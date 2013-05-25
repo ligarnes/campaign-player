@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:79165126-3ca3-4a2c-96b5-a15146418a4a:1369512907684</guid>
+   </id>
+   <name>Danse des mille coupures</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f318062c-9105-4db7-b6fc-82465336657e:1369512907684</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f5e3a0fc-4393-48cd-b6d1-a0b71deaf488:1369512907684</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme  danse des cent coupures mais bénéficie de rapidité.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:945e21e2-eec0-424e-a780-cf94f3438290:1369512907684</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Danse des mille coupures.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

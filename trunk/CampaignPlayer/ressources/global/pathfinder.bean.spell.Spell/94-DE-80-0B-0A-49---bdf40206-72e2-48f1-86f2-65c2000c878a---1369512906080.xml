@@ -1,0 +1,67 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bdf40206-72e2-48f1-86f2-65c2000c878a:1369512906080</guid>
+   </id>
+   <name>Sagesse du hibou</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:405f6255-988b-43d5-a095-f9e6c004c5ab:1369512906080</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:82820d7c-525d-4624-947d-b7a05b575dd9:1369512906080</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Confère +4 en Sag pendant 1 minute/niveau.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5035801d-8a91-4862-9a8d-041ce5fc1505:1369512906080</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sagesse du hibou.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e47c95eb-1da9-4864-b6a6-5a414c0f94e4:1369512904919</guid>
+   </id>
+   <name>Forme végétale I</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:46b403f0-8e06-4781-9c89-02c90ac6b0a9:1369512904918</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:be06b41f-4f9b-48a9-9fdc-f0c2457e0d1e:1369512904918</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le lanceur de sorts se transforme en plante de taille P ou M.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:24120c69-23f6-469e-a910-bae0dc896d2e:1369512904919</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme végétale I.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

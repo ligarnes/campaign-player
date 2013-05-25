@@ -1,0 +1,55 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cc4a878e-4d5a-433c-bae7-d208f7944f68:1369512908038</guid>
+   </id>
+   <name>Tempête de peste</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a751e8a7-0793-43e4-b6e4-b6039fb18736:1369512908038</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4c0cb7e1-29ec-49cc-9ca4-78c8d9b72f40:1369512908038</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Un nuage infecte les créatures comme contagion.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1b80447e-dbbf-4c6b-8d44-3a9acc6dfe05:1369512908038</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Tempête de peste.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

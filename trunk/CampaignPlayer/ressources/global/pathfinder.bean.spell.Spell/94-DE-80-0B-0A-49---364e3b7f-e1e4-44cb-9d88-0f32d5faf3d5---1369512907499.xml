@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:364e3b7f-e1e4-44cb-9d88-0f32d5faf3d5:1369512907499</guid>
+   </id>
+   <name>Appel de créature artificielle</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7c7d999b-8c49-4ff4-8dca-d852c68b84ca:1369512907499</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b9f824a7-a284-47dc-8468-f842651c70f2:1369512907499</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Appelle un golem auprès du personnage.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5913ba02-31df-4c4d-b1da-e6dc7e37addd:1369512907499</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Appel de créature artificielle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

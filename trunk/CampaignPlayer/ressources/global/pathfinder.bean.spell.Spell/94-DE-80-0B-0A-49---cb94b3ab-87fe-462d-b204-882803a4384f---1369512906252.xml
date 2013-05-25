@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cb94b3ab-87fe-462d-b204-882803a4384f:1369512906252</guid>
+   </id>
+   <name>Sphère téléguidée</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9d85e009-517a-44f6-9843-21ffb31b7090:1369512906252</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4df046bd-bd16-43b4-8a62-ec882933aefa:1369512906252</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme sphère d&apos;isolement, mais le PJ la déplace par télékinésie.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d6217e3f-c8bb-490b-aaee-8445df159ed8:1369512906252</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sphère téléguidée.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

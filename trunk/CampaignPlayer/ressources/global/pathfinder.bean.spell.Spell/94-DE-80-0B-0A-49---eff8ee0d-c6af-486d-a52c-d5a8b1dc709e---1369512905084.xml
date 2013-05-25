@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:eff8ee0d-c6af-486d-a52c-d5a8b1dc709e:1369512905084</guid>
+   </id>
+   <name>Idiotie</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4c2bd1ab-3faf-4fcf-9226-09483b315118:1369512905084</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:504e2008-dd08-42ab-b33c-705f6523c3c5:1369512905084</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le sujet perd 1d6 points d&apos;Int, de Sag et de Cha.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:304fdc80-cc03-47d8-a4b6-38904cf0071b:1369512905084</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Idiotie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

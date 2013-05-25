@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f924c538-0ab8-4d58-ad3a-241995cdcdcf:1369512904859</guid>
+   </id>
+   <name>Forme d&apos;arbre</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b7b12b7c-25a2-4fac-81e6-e60266f9e23c:1369512904859</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:752f8891-ab3f-4ed2-940f-91545bc5150a:1369512904859</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Transforme le PJ en arbre pendant 1 heure/niveau.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:864ba4ac-2301-43ff-9981-508ffa334c9c:1369512904859</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme darbre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:134139c2-deab-45e2-9d0a-5e7182ffb0ba:1369512906194</guid>
+   </id>
+   <name>Songe</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0dd78f83-db34-4fe7-ad09-d09522d53305:1369512906194</guid>
+      </id>
+      <unit>unlimited</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:30fe44aa-7403-4acc-bc49-cfef191e1338:1369512906194</guid>
+      </id>
+      <unit>minute</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Envoie un message à un dormeur.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:51c43adb-daea-42c2-8ef0-764f2cf9465e:1369512906194</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Songe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

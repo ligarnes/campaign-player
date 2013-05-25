@@ -1,0 +1,49 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4762e5b7-dff9-4619-a32b-9686000d4724:1369512903696</guid>
+   </id>
+   <name>Cercle de téléportation</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:482d354f-da11-4b27-ba64-b65f7d422856:1369512903696</guid>
+      </id>
+      <unit>cases</unit>
+      <value>0</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:65eff673-64f9-416a-8f89-b4dfff9c3fe8:1369512903696</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Amène qui entre dans le cercle à une destination programmée.</description>
+   <composant>V M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e0c0a2de-d0f3-413a-ac46-65b359c547bb:1369512903696</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cercle de téléportation.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

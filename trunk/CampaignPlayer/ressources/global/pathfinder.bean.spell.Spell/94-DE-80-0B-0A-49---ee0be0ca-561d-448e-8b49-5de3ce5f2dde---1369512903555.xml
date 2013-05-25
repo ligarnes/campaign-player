@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ee0be0ca-561d-448e-8b49-5de3ce5f2dde:1369512903555</guid>
+   </id>
+   <name>Blessure modérée de groupe</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c0043dd9-cb1d-4678-9d4b-fedf387c3daa:1369512903555</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:153a5d90-3ea6-4b09-896a-1e3a3eb46889:1369512903555</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Inflige 2d8 points de dégâts +1/niveau à une créature/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a5d91c0e-242e-458c-b0df-fe379c3c35e9:1369512903555</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Blessure modérée de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

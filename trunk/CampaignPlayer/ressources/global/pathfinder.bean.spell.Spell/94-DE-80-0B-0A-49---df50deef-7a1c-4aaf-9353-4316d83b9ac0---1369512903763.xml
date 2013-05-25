@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:df50deef-7a1c-4aaf-9353-4316d83b9ac0:1369512903763</guid>
+   </id>
+   <name>Charme-personne</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:341d6bcf-0480-43ad-a23c-118b31bae0b0:1369512903763</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a0a04583-9a73-4628-8a9e-354144b11be0:1369512903763</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible devient l&apos;ami du PJ.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dedcf01c-0220-4cae-97c2-fdcae309fced:1369512903763</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Charme-personne.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

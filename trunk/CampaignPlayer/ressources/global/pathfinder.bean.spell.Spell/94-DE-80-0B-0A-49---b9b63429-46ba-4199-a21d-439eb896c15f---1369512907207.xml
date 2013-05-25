@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b9b63429-46ba-4199-a21d-439eb896c15f:1369512907207</guid>
+   </id>
+   <name>Résistance à l&apos;âge</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6d58412a-4d64-433c-8767-1401b3c02860:1369512907207</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d2dd4878-fd0e-425b-b527-8537e8b0b442:1369512907207</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Ignore les malus de l&apos;âge avancé.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a470d832-08f1-403d-bf0d-c748b4d521e0:1369512907207</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Résistance à lâge.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

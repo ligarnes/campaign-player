@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5a0e6975-4c95-45ea-b1a9-fe9445b9a9a5:1369512907087</guid>
+   </id>
+   <name>Marteau arboricole</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:079de26f-fac5-4d97-8af2-e5ba8b0eab05:1369512907087</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a8bf5129-355f-4dbd-9f62-57e5ddb0bfb5:1369512907087</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les branches des arbres attaquent les ennemis.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0251b57f-d447-45a3-82b0-df196d17f2a4:1369512907087</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Marteau arboricole.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

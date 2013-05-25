@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a4158806-db63-42f2-98e3-182b2285c874:1369512907101</guid>
+   </id>
+   <name>Morsure du froid</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4c941666-cb79-417a-b28d-8ff5f46377d7:1369512907100</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7bc65ec2-84b1-4e4c-b029-e4a6a1d24da1:1369512907100</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible reçoit des dégâts de froid et elle est fatiguée.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3dbd26af-4f57-47e8-9df1-47514efd2e00:1369512907100</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.morsure du froid.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

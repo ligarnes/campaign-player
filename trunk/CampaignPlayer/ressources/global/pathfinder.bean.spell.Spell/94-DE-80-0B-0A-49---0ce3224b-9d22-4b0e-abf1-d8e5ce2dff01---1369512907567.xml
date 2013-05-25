@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0ce3224b-9d22-4b0e-abf1-d8e5ce2dff01:1369512907567</guid>
+   </id>
+   <name>Brume sanglante</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0c9d37b1-5815-4c47-92a2-04ee1385f001:1369512907567</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f41ffee0-ec7c-47ea-a9c0-8c268df74e46:1369512907567</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La brume cause un affaiblissement de Sagesse et déclenche la rage.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:09c474ef-4eb9-49df-bf86-de02931664e6:1369512907567</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Brume sanglante.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

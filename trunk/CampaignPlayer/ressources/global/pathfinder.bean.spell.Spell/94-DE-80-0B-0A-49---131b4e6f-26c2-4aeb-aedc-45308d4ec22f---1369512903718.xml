@@ -1,0 +1,59 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:131b4e6f-26c2-4aeb-aedc-45308d4ec22f:1369512903718</guid>
+   </id>
+   <name>Cercle magique contre le Mal</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:86df88a3-5d84-43e7-b767-4af02a26918f:1369512903718</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f9cce5c3-6b49-4fdf-9be4-d697bd657a3b:1369512903718</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme protection, mais avec un rayon de 3 m et une durée de 10 minutes/niveau.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d089409d-ea40-41ad-90bd-db521ad23956:1369512903718</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.cercle magique contre le Mal.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

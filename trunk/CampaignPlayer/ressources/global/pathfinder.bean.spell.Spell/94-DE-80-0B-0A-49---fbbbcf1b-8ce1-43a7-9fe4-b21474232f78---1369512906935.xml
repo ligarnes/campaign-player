@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:fbbbcf1b-8ce1-43a7-9fe4-b21474232f78:1369512906935</guid>
+   </id>
+   <name>Écholocalisation</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4145c86c-a425-4378-9db9-4650a48fb286:1369512906935</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7be7d283-8446-4116-99f7-89019364655c:1369512906935</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les sens radars du personnage lui donnent la vision aveugle à 12 mètres.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6bc5b71d-9288-48cb-b374-259425f30f28:1369512906935</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Écholocalisation.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

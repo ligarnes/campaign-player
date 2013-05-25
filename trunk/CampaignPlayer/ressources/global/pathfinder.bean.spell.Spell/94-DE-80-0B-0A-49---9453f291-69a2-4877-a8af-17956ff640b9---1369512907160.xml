@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9453f291-69a2-4877-a8af-17956ff640b9:1369512907160</guid>
+   </id>
+   <name>Possession de marionnette</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2f7a36a8-0fe4-4af0-9a97-6a67037aa50d:1369512907160</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f15ae160-0100-487f-9d42-96dd72164c3e:1369512907160</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme possession mais limité à la ligne de mire.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5562e9a2-ed06-4d45-95c4-4f3af727a379:1369512907160</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Possession de marionnette.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ffdb22a6-9553-4c72-bc58-f8ecd6bee38f:1369512907696</guid>
+   </id>
+   <name>Déformation douloureuse</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:69577bdf-7bcd-453e-9cc8-b253ad90469b:1369512907696</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eddb79d3-2ad8-402c-8b0b-ff190cae215a:1369512907696</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible subit un affaiblissement de Dex et de Con.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3646cbf8-0b20-4beb-9c75-d0d147c118a3:1369512907696</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Déformation douloureuse.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:763b3c2c-b6e5-44a4-a3cf-a4554d0772a9:1369512906373</guid>
+   </id>
+   <name>Tremblement de terre</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e7271917-34b7-4a9d-a320-79ff2092eb56:1369512906373</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b9eeedb7-171a-4636-8deb-b2be64deab45:1369512906373</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Secousse sismique dans un rayon de 1,50 m/niveau.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7bd1159e-c7c5-4b6f-bb1b-71a425e675c9:1369512906373</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Tremblement de terre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

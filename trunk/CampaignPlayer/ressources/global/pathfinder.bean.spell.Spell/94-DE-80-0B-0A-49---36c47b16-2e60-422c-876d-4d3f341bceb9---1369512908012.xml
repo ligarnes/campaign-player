@@ -1,0 +1,52 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:36c47b16-2e60-422c-876d-4d3f341bceb9:1369512908012</guid>
+   </id>
+   <name>Symbole de lutte</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b43d32ac-424b-448a-a56d-cbba8f38eeb3:1369512908012</guid>
+      </id>
+      <value>0 m (voir description)</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bce8fd0b-a55d-4470-be93-47e8e0b0602f:1369512908012</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Déclenche une rune qui oblige une créature à attaquer.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:31b19f23-720c-4293-b318-ccfff6c546e0:1369512908012</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Symbole de lutte.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

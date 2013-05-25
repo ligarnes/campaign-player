@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d1c4457f-6228-4a9e-984b-5ee4180d3724:1369512907667</guid>
+   </id>
+   <name>Cri ki</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:169909b6-ef6c-4f25-b3a2-97bb58671275:1369512907666</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fa7f7e78-521c-4122-bfa7-88962a7586aa:1369512907666</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible reçoit 1d6 dégâts sonores/niveau et elle est étourdie.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:751dbee4-1cbe-4b03-8b55-f4dfed520e5e:1369512907666</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cri ki.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

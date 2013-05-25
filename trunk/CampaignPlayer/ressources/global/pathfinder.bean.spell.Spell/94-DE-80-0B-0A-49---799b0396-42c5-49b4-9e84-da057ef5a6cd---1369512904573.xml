@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:799b0396-42c5-49b4-9e84-da057ef5a6cd:1369512904573</guid>
+   </id>
+   <name>Écran</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:94b66543-0f63-4848-bdf4-5c436a02b0d3:1369512904573</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7782b293-68fb-4569-b5a7-313df007abd1:1369512904573</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Empêche de voir dans une zone, même par scrutation.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a9d42966-0052-44b0-b897-b4ca33d341d1:1369512904573</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Écran.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

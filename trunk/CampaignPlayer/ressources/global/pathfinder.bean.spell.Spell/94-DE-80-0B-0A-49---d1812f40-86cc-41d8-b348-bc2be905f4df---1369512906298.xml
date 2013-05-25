@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d1812f40-86cc-41d8-b348-bc2be905f4df:1369512906298</guid>
+   </id>
+   <name>Télékinésie</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:266c1ac7-0a6a-431f-b6db-c62aeca6b189:1369512906297</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6bf4903e-71f0-48b4-86a0-64002c80b7e1:1369512906298</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Permet de déplacer des objets, d&apos;attaquer des créatures, de lancer des objets.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:efee03ba-b4e8-4c2c-b080-8c3c4f245f58:1369512906298</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Télékinésie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

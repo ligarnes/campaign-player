@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2dd25c72-2fe8-4da1-9155-cafbf2d12104:1369512903926</guid>
+   </id>
+   <name>Contrôle des morts-vivants</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8210bb81-181a-47a8-9162-a38afcb752e7:1369512903925</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ea5e643a-0584-4c44-93a4-a8a9702e965c:1369512903925</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les morts-vivants n&apos;attaquent pas le PJ.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:975babb9-008c-4656-a0eb-936884627ff2:1369512903926</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.sort contrôle des morts-vivants.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

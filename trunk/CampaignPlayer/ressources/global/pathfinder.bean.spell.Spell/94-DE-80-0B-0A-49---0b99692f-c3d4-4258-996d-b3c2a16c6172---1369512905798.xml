@@ -1,0 +1,59 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0b99692f-c3d4-4258-996d-b3c2a16c6172:1369512905798</guid>
+   </id>
+   <name>Protection contre le Bien</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:81453ca6-1690-4394-9d0f-28602f84cbd4:1369512905798</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e125c350-ea38-417d-aee7-11efc4e7b31a:1369512905798</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>+2 à la CA et aux jets de sauvegarde, protection supplémentaire contre l&apos;alignement choisi.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8ea846de-7eeb-478a-bdeb-17054ba64a29:1369512905798</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Protection contre le Bien.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

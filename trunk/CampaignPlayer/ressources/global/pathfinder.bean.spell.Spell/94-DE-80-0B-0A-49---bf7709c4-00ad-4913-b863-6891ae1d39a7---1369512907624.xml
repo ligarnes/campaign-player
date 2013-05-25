@@ -1,0 +1,64 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bf7709c4-00ad-4913-b863-6891ae1d39a7:1369512907624</guid>
+   </id>
+   <name>Convocation de monstres mineure</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dce40057-d2cc-49f6-bc81-99f96876d519:1369512907623</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:22efa990-2bd9-47ef-a581-c8713bbf76ff:1369512907623</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Convoque 1d3 animaux TP.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fb070e3a-d2eb-4736-acfc-bcfb901910e5:1369512907624</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation de monstre mineur.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c1957aaa-4b77-41ee-8226-c7de469b1203:1369512903519</guid>
+   </id>
+   <name>Blessure critique de groupe</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ffbf032b-4559-47ac-9e7b-e1ed9015ace9:1369512903518</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:673a94b8-1dc9-4749-bedf-935c325d9c15:1369512903518</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Inflige 4d8 points de dégâts +1/niveau à une créature/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7fed2efd-ff13-4f1c-b9a4-30b2704d98a0:1369512903519</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Blessure critique de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

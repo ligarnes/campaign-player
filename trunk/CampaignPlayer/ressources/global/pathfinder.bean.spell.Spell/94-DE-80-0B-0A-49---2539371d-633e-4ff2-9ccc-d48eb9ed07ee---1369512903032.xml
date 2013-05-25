@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2539371d-633e-4ff2-9ccc-d48eb9ed07ee:1369512903032</guid>
+   </id>
+   <name>Absorption d&apos;énergie</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:63d1c706-a15f-4457-ab77-cbb2e64b676e:1369512903032</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b18a10f9-f2ba-407e-a41b-ad7fc425aa0c:1369512903032</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible gagne 2d4 niveaux négatifs.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3e3a9264-1d48-4993-972e-ca039519734e:1369512903032</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.sort Absorption dénergie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

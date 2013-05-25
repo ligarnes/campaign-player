@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a6135435-1a3a-4997-bc34-62519e6e174c:1369512904381</guid>
+   </id>
+   <name>Désespoir foudroyant</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6224973e-8f2e-4a64-b4ea-6cc437e1bc31:1369512904381</guid>
+      </id>
+      <unit>cases</unit>
+      <value>6</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c074a8be-9890-4f11-8afa-a6dbc5c0f951:1369512904381</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les sujets subissent -2 aux jets d&apos;attaque, aux jets de dégâts, aux jets de sauvegarde et aux tests.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5dd005fc-737d-45ba-8f52-3cc20029cad1:1369512904381</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Désespoir foudroyant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

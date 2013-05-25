@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cbd78c74-8873-4bc6-a2c7-5635b794934b:1369512907598</guid>
+   </id>
+   <name>Combattant pris au dépourvu</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ff59eb89-fa9f-4644-8b46-e2b0329221f3:1369512907597</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:af33ee14-4ddd-42a0-b650-e9723748154b:1369512907597</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>-4 aux tests d&apos;initiative et de Réflexes de la cible.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:deba7665-3d28-46f5-99eb-86a4ec2929b2:1369512907598</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Combattant pris au dépourvu.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

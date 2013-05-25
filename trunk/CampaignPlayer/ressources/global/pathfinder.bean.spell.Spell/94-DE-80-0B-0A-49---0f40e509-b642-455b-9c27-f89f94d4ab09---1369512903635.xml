@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0f40e509-b642-455b-9c27-f89f94d4ab09:1369512903635</guid>
+   </id>
+   <name>Brouillard dense</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e8ceb400-1896-41f1-9c3c-dad5883b42fd:1369512903635</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1a47a812-fbe3-4d93-a083-281bb028cdec:1369512903635</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Réduit la visibilité et gêne les déplacements.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dff3c36d-1a2e-4177-b88e-8bb6a3241d70:1369512903635</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Brouillard dense.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

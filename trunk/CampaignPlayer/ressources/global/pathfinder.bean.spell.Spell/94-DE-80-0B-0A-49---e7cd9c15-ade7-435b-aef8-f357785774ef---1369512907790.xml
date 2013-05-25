@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e7cd9c15-ade7-435b-aef8-f357785774ef:1369512907790</guid>
+   </id>
+   <name>Hurlement primitif</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eb129742-faf3-4bd5-bffa-6d676277bb7b:1369512907789</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5e00bfd0-50bc-4a54-aef2-849a66874398:1369512907789</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Libère des effets d&apos;enchantement et de paralysie.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:936f1256-6df6-4df7-9492-9e4d27f06e97:1369512907790</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Hurlement primitif.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2a317d12-069b-4029-88dc-7ea679087fd9:1369512905517</guid>
+   </id>
+   <name>Motif scintillant</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c288fc38-ea3f-4f5a-8df6-2b3977142ebf:1369512905517</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:791e3ffd-3fa4-4d5f-8759-af8ae45fbca5:1369512905517</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les couleurs frappent de confusion, d&apos;étourdissement ou d&apos;inconscience.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:09f4aa39-c752-48d1-8eda-cbf2d432696f:1369512905517</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Motif scintillant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f5cd6082-4528-4477-b5da-8efc583d2036:1369512903939</guid>
+   </id>
+   <name>Contrôle des vents</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:49fd7962-943d-41fa-86a0-99d857009f77:1369512903938</guid>
+      </id>
+      <value>12 m (8 c)/niveau</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cd16f10b-82cd-4f7d-a0b3-153eee630c72:1369512903938</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Modifie la direction et la force du vent.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:06e8c13a-a813-4a90-a2ba-825dce6b79ff:1369512903938</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Contrôle des vents.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

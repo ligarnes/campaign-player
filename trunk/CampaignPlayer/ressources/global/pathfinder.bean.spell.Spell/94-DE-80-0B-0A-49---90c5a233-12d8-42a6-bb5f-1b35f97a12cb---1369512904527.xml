@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:90c5a233-12d8-42a6-bb5f-1b35f97a12cb:1369512904527</guid>
+   </id>
+   <name>Distorsion du bois</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d5db3fab-1e1b-488e-89d0-9704118ed46c:1369512904527</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8930a699-dfad-4415-b9af-da00c2143fee:1369512904527</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Tord le bois (manche d&apos;arme, planche, porte, etc.).</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cc254971-6cc6-4cbc-a8de-b4ac377fd09a:1369512904527</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Distorsion du bois.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

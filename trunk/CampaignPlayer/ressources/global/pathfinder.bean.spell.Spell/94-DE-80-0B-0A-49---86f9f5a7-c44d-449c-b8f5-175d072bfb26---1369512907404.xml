@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:86f9f5a7-c44d-449c-b8f5-175d072bfb26:1369512907404</guid>
+   </id>
+   <name>Voile lunaire</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:84c58d16-4399-41eb-b3fa-07d9d1b043c7:1369512907404</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:32c32671-5cc1-4edb-8f93-d103e86ca6cf:1369512907404</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Dissipe la lumière et inverse les lycanthropes.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5cccdf72-ea4b-4813-9eaf-5c9bb163e9ac:1369512907404</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Voile lunaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

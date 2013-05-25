@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f59d9928-093f-43a0-ac30-773837c0f8c4:1369512904253</guid>
+   </id>
+   <name>Croissance d&apos;épines</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:32f181cd-149c-4e32-ba3c-1a84dc0e931a:1369512904253</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0bf62883-29ed-4309-91f8-d6e77d0657e3:1369512904253</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d4 points de dégâts, ralentissement possible.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c01c640d-2c31-4202-a1cd-5b04034ff47a:1369512904253</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Croissance dépines.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

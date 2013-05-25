@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a9592116-6335-46da-98f7-ab3b05f72244:1369512903308</guid>
+   </id>
+   <name>Arme destructrice</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:66344718-8d32-4047-bbbb-2104ad7d179e:1369512903308</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ab4f7318-d579-4a6c-92cd-3b023485b619:1369512903308</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une arme de corps à corps détruit les morts-vivants.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b23ff924-f27f-4c94-9081-24dd9fd51091:1369512903308</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Arme destructrice.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

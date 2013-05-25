@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ed39cd71-3b01-4404-9a0a-3d5b429beac0:1369512907157</guid>
+   </id>
+   <name>Possession d&apos;objet</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f5242320-a3a4-4585-9668-fdfb1d0feb38:1369512907157</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:653643a6-fd38-4e9d-bdb1-e861798678ef:1369512907157</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Possède et anime un objet.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f4e50e4d-5ab7-4de6-a45f-aac793274dff:1369512907157</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Possession dobjet.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

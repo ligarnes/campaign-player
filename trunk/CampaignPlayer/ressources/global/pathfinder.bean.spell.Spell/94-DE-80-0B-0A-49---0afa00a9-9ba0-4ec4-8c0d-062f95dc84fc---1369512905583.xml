@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0afa00a9-9ba0-4ec4-8c0d-062f95dc84fc:1369512905583</guid>
+   </id>
+   <name>Nuée de météores</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d1ccac13-b7a2-4d40-a442-95240416c026:1369512905583</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:16e82864-a30d-461e-9bc2-5e1eae98da7a:1369512905583</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Quatre sphères explosives infligeant 6d6 points de dégâts de feu chacune.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cc0f8e2e-e269-4840-80df-359923a52e98:1369512905583</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Nuée de météores.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

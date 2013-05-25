@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bfd17557-241c-43df-ab70-a8ddb6e47b88:1369512907480</guid>
+   </id>
+   <name>Anatomie morte-vivante IV</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:404b8752-111a-487c-8e45-324739da5562:1369512907480</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:89054545-7ff7-4dc5-acef-ec44c2d6d324:1369512907480</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme forme de mort-vivant III mais avec plus de pouvoirs.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b1ad62ab-650a-4e61-b27b-ca06dfce904e:1369512907480</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Anatomie morte-vivante IV.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

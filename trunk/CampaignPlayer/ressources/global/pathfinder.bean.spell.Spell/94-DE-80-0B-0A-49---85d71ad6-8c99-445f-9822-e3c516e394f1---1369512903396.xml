@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:85d71ad6-8c99-445f-9822-e3c516e394f1:1369512903396</guid>
+   </id>
+   <name>Aura magique</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:645165a9-8a35-49d6-9a0e-ee6c20086ae3:1369512903396</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1581fd83-c2c9-40ae-af6c-a94904f38dec:1369512903396</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Crée une fausse aura magique.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f81ab1e0-5cac-4b02-9d0b-dc6182ce0016:1369512903396</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aura magique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

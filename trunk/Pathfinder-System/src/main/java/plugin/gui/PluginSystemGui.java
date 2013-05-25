@@ -26,6 +26,7 @@ import net.alteiar.shared.ExceptionTool;
 import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.builder.character.PanelCreateCharacter;
+import pathfinder.gui.document.builder.monster.PanelCreateMonster;
 import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
 import pathfinder.gui.document.viewer.PanelViewImage;
 import pathfinder.gui.document.viewer.spell.PanelSpellBookViewer;
@@ -101,6 +102,7 @@ public class PluginSystemGui implements IPluginSystemGui {
 		documentsBuilder.add(new PanelCreateImage());
 		documentsBuilder.add(new PanelCreateCharacter());
 		documentsBuilder.add(new PanelCreateSpellBook());
+		documentsBuilder.add(new PanelCreateMonster());
 		return documentsBuilder;
 	}
 

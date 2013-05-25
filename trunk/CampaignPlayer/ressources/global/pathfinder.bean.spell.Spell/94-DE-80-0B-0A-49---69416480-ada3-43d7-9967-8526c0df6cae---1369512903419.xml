@@ -1,0 +1,52 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:69416480-ada3-43d7-9967-8526c0df6cae:1369512903419</guid>
+   </id>
+   <name>Aversion</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1878db91-4d27-4a72-a2eb-56fc64dee956:1369512903419</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ff25adf2-e1db-46c4-9ac7-1890a1b2134a:1369512903419</guid>
+      </id>
+      <unit>hour</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Objet ou lieu repousse certaines créatures.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:35e1dcf7-5b51-4c01-bf70-e01a20ffe7ff:1369512903419</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aversion.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

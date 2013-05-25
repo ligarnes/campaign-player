@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c2da8946-af80-4f72-8d51-7ee4364d07c1:1369512903627</guid>
+   </id>
+   <name>Brise</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a5ec7c79-3631-427f-adc4-c4771353b636:1369512903627</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:daaa43a3-bfcf-4473-b488-63845ad30d33:1369512903627</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description></description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b423ec29-ac34-4cfb-b320-2f5eac9297b1:1369512903627</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Brise.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

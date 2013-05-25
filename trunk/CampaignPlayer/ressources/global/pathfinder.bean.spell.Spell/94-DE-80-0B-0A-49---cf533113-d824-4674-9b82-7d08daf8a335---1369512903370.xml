@@ -1,0 +1,55 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cf533113-d824-4674-9b82-7d08daf8a335:1369512903370</guid>
+   </id>
+   <name>Assistance divine</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:98bf1cb6-2cd0-4d64-b370-f79792d56bbf:1369512903370</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bfae7737-0fb4-4ed9-accc-e51a14edb2eb:1369512903370</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>+1 sur un jet d&apos;attaque, un jet de sauvegarde ou un test de compétence.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:40b9a231-a01f-41b1-b40b-36f6f0ad72c1:1369512903370</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Assistance divine.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

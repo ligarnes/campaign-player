@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:55a780c2-90a6-44fb-933e-69340753d11a:1369512905755</guid>
+   </id>
+   <name>Prestidigitation</name>
+   <school>universal</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f1f0074b-cbe1-4d5d-b045-a62bc2a565e6:1369512905755</guid>
+      </id>
+      <unit>cases</unit>
+      <value>2</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:798c3d55-ceb4-47fd-b9a5-35f12868ce3d:1369512905755</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Tours de passe-passe.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2e460de0-ca4a-4782-9194-3885659fddb8:1369512905755</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Prestidigitation.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

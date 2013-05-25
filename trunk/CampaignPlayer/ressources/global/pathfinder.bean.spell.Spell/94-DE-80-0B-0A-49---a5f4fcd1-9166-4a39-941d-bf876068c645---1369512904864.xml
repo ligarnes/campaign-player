@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a5f4fcd1-9166-4a39-941d-bf876068c645:1369512904864</guid>
+   </id>
+   <name>Forme de géant I</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:13a8309d-96d6-45d0-8a3b-9145f38ceeec:1369512904864</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eea62959-ddf1-420a-a5dd-0a9fba3c8576:1369512904864</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le lanceur de sorts se transforme en géant de taille G.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:75157d5c-d57e-4d65-af5d-3f8dc9004420:1369512904864</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme de géant I.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

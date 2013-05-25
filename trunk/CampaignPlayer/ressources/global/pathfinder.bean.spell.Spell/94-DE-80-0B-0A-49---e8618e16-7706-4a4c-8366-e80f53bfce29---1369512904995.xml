@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e8618e16-7706-4a4c-8366-e80f53bfce29:1369512904995</guid>
+   </id>
+   <name>Globe d&apos;invulnérabilité renforcée</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b34f291d-10b3-408c-9425-172766055887:1369512904995</guid>
+      </id>
+      <unit>cases</unit>
+      <value>2</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1cc92685-8af9-444e-a14e-f9b8a23b3bf4:1369512904995</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme globe d&apos;invulnérabilité partielle, mais bloque aussi les sorts du 4e niveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9f2166cf-ff21-4e4c-9ef6-1b0f65299d57:1369512904995</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Globe dinvulnérabilité renforcée.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

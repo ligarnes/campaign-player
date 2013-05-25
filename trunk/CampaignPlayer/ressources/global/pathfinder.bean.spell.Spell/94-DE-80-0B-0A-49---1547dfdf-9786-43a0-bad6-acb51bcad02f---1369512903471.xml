@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1547dfdf-9786-43a0-bad6-acb51bcad02f:1369512903471</guid>
+   </id>
+   <name>Bâton à sort</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:29147a5a-e0e7-44af-b4ca-2f0cb2204c26:1369512903471</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:232682f6-b542-43aa-a941-76f6d0222770:1369512903471</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Permet de stocker un sort dans un bâton.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:87dea062-25a8-4c82-a7a0-f99d1966db25:1369512903471</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bâton à sort.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

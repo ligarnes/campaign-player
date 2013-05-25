@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:66877929-78e4-4df4-ac6e-e001a66e0a6e:1369512907875</guid>
+   </id>
+   <name>Nuit polaire</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6e88649c-011a-4acb-b6e6-05f04c8ced15:1369512907875</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:40b3dbbe-660d-4ed0-bf7e-c3d07e909f36:1369512907875</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>De froides ténèbres paralysent les créatures et leur infligent des dégâts.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:19dd0d6f-e00b-473a-87a4-b0b35cb6ae34:1369512907875</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Nuit polaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

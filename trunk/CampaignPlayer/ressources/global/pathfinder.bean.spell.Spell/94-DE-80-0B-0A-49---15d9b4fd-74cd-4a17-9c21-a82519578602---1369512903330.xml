@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:15d9b4fd-74cd-4a17-9c21-a82519578602:1369512903330</guid>
+   </id>
+   <name>Arme spirituelle</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:adba1b08-a1f0-4ce0-89b6-ea12567dea0d:1369512903330</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:896eae28-bd6f-4141-a35f-6ba7b5c1b9be:1369512903330</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Arme magique attaquant d&apos;elle-même.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ce89d0bf-f4dc-4324-b4ec-d39cac4a8c51:1369512903330</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Arme spirituelle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d8109d0e-77b0-46fb-a79a-89fd349c9bd4:1369512906634</guid>
+   </id>
+   <name>Action interdite supérieure</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6ae80c41-dc26-4164-8308-21e01dfecc00:1369512906634</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c2c522ca-9854-4e65-9167-7420c4d83ba5:1369512906634</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme  action interdite mais 1 créature/niveau.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8497c1e9-3031-49c9-9658-c3c6a16cf8f4:1369512906634</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Action interdite supérieure.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

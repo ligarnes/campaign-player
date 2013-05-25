@@ -1,0 +1,56 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b13f6251-90b3-4cba-b6c2-95fcf8c60c78:1369512905588</guid>
+   </id>
+   <name>Nuée grouillante</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f8121f62-6b4d-4dd4-9234-c02f399599a6:1369512905588</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:87550644-91c3-493e-9e8d-3044888f2103:1369512905588</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Convoque une nuée de chauves-souris, de rats ou d&apos;araignées.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:111d7c74-ddd3-4f31-8f83-20f3362be52f:1369512905588</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Nuée grouillante.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

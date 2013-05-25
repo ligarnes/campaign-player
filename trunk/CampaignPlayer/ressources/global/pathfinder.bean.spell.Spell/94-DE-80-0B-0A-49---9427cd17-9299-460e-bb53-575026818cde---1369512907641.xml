@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9427cd17-9299-460e-bb53-575026818cde:1369512907641</guid>
+   </id>
+   <name>Corps de glace</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b0af11c2-7d03-456c-abd8-59e13e7e3387:1369512907641</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1e1b3958-c2e5-4b8c-991e-89b9902aad6d:1369512907641</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le corps du personnage devient de la glace vivante.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:20a61003-268f-4c57-87be-40d5af25c911:1369512907641</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Corps de glace.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

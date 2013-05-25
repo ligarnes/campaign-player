@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b3150385-449b-493d-aead-0955ebfd10a7:1369512905319</guid>
+   </id>
+   <name>Lumières dansantes</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d110ecf8-509b-465d-8021-ec0d1a22a899:1369512905319</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7ae4ff21-e704-456a-86cc-5010d749fd8f:1369512905319</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Crée torches ou autres lueurs.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:97476ed7-2eed-4b1a-94a9-e7d967d8d2a4:1369512905319</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lumières dansantes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

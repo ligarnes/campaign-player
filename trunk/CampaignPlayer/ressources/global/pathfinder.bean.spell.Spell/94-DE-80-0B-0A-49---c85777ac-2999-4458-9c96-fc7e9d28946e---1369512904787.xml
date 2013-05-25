@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c85777ac-2999-4458-9c96-fc7e9d28946e:1369512904787</guid>
+   </id>
+   <name>Flèche acide</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:961e2d46-ae59-4f05-8a56-de4d92afe34d:1369512904786</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:831d7ce7-767b-4515-a120-6f6540ca8f09:1369512904786</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Attaque de contact à distance ; 2d4 points de dégâts pendant 1 round + 1 round/3 niveaux.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:da85ea77-b268-47eb-b75d-96581548baac:1369512904787</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Flèche acide.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ade32088-444e-44bb-91e3-cd96536a4527:1369512905004</guid>
+   </id>
+   <name>Glyphe de garde suprême</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2acdac39-ea0d-4055-9e38-92bd30fda37b:1369512905004</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b811e492-e507-480a-84b5-6cf78608962d:1369512905004</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Comme glyphe de garde, mais avec un sort du 6e niveau ou des dégâts de 10d8 max.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b34e9ebc-f31b-4453-8f7b-de165c21855c:1369512905004</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Glyphe de garde suprême.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

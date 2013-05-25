@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0b25756a-a9c2-4a0d-a5dc-674fa55d10cb:1369512903358</guid>
+   </id>
+   <name>Assassin imaginaire</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d66c9043-9498-4c78-8ab0-a0ec3f87c816:1369512903357</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ef0c1b43-00d0-48b5-865e-0339d0ba2535:1369512903357</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Illusion terrifiante tuant la cible ou lui infligeant 3d6 points de dégâts.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b71c32d0-cf04-4891-a4ec-87547c6ebc59:1369512903358</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Assassin imaginaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8df9e03e-783f-40c4-b0fd-61ccc01e4b98:1369512907350</guid>
+   </id>
+   <name>Téléportation interplanétaire</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4641a6e3-5759-41de-b370-8d85de9448be:1369512907350</guid>
+      </id>
+      <value>personnelle et contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2e3ea277-f64f-4f71-91d1-420af516cb5a:1369512907350</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Téléportation sur une autre planète.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fd070bdf-2df7-43ba-9806-4ccab41feef2:1369512907350</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Téléportation interplanétaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

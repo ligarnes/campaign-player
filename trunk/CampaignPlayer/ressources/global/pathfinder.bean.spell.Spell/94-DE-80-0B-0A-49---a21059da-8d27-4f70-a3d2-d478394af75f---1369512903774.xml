@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a21059da-8d27-4f70-a3d2-d478394af75f:1369512903774</guid>
+   </id>
+   <name>Chêne animé</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:223d01db-119b-47a2-a524-501b1ce0c9b1:1369512903774</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2f5ed146-343a-411f-beac-6924e6bb56e5:1369512903774</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Transforme un chêne en sylvanien.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8e1cf262-b6f2-4548-85c4-5ff4201b0edc:1369512903774</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Chêne animé.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

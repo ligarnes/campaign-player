@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:66e21934-ffa1-47eb-a0c3-0de4650282cc:1369512906994</guid>
+   </id>
+   <name>Frappe de la corneille sanglante</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a86ea5ed-0a0d-4cb4-b9da-fd84f44c06d8:1369512906994</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cce54891-fe9c-4f6f-a55c-e765f1d78bf2:1369512906994</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Les frappes à mains nues créent des corneilles qui infligent des dégâts de feu et d&apos;énergie négative.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0e5e27ba-56f2-415d-9e11-1dfb1eb1d6cc:1369512906994</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Frappe de la corneille sanglante.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

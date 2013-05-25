@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:64d6588d-a9db-4091-8e71-0615d5e0a9d4:1369512904443</guid>
+   </id>
+   <name>Détection des collets et des fosses</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ee903ddd-cab1-4376-b6b0-4207f1f5a3b9:1369512904443</guid>
+      </id>
+      <unit>cases</unit>
+      <value>12</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dd64b6e7-b97f-468c-bf62-97b6eddc5af7:1369512904443</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Détecte pièges naturels et primitifs.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5dabb658-eb4b-467d-ad8d-57ece80c92e2:1369512904443</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Détection des collets et des fosses.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

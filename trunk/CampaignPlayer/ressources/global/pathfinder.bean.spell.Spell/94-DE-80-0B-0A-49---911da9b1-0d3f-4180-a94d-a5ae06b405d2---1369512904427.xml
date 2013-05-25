@@ -1,0 +1,52 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:911da9b1-0d3f-4180-a94d-a5ae06b405d2:1369512904427</guid>
+   </id>
+   <name>Détection de la scrutation</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d427365b-5d66-4a85-9b44-3d8ef767e00b:1369512904427</guid>
+      </id>
+      <unit>cases</unit>
+      <value>8</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1f55650b-d1c3-45a2-b7b3-4c1c2b1689ca:1369512904427</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Détecte l&apos;espionnage magique.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8d2ce567-afcf-4472-a73d-222b5313da74:1369512904427</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Détection de la scrutation.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

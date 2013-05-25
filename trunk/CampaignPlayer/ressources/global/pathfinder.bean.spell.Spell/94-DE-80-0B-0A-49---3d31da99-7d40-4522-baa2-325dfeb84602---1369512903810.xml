@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3d31da99-7d40-4522-baa2-325dfeb84602:1369512903810</guid>
+   </id>
+   <name>Collet</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0a2901cb-17f9-4b11-afd5-7483a87e5242:1369512903810</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a46a050a-a6b7-4254-ad3a-a02cfa22065a:1369512903810</guid>
+      </id>
+      <unit>round</unit>
+      <value>3</value>
+   </castingTime>
+   <description>Crée un piège magique tout simple.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6af66a51-5e55-4acb-a5fe-a64e9d66b97f:1369512903810</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Collet.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

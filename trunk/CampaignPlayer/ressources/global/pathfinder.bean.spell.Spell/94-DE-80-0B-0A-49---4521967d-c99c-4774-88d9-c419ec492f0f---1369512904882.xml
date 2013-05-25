@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4521967d-c99c-4774-88d9-c419ec492f0f:1369512904882</guid>
+   </id>
+   <name>Forme draconique II</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:af8e21e6-6f58-48d3-8e80-70e7e96ea70e:1369512904881</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:650fa8e7-7e4b-4502-b911-f9021b7af69c:1369512904882</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le lanceur de sorts se transforme en dragon de taille G.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:50d5367d-3680-4ad1-a99c-61d8dee76001:1369512904882</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme draconique II.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

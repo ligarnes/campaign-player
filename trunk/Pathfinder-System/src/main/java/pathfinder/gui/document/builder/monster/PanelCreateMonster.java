@@ -24,7 +24,8 @@ import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
-import pathfinder.bean.unit.monster.PathfinderMonster;
+import pathfinder.bean.unit.monster.MonsterBuilder;
+import pathfinder.bean.unit.monster.MonsterManager;
 
 public class PanelCreateMonster extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;
@@ -147,14 +148,11 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 		String name = textFieldName.getText();
 		Integer hp = Integer.valueOf(textFieldHp.getText());
 
-		PathfinderMonster monster = new PathfinderMonster(name, hp, hp,
-				image.getId());
-		monster.setImage(image.getId());
+		MonsterBuilder monster = new MonsterBuilder(name, hp, image.getId());
 
 		// save the image as perma bean
 		CampaignClient.getInstance().savePerma(image);
-		// save the monster as perma bean
-		CampaignClient.getInstance().savePerma(monster);
+		MonsterManager.getInstance().addMonsterBuilder(monster);
 
 		transfertImage = null;
 		textFieldName.setText("");

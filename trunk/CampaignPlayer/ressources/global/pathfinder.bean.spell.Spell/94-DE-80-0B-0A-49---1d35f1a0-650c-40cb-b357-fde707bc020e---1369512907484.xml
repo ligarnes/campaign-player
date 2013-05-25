@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1d35f1a0-650c-40cb-b357-fde707bc020e:1369512907484</guid>
+   </id>
+   <name>Animal anthropomorphe</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:475cd8ac-1828-4737-8448-0db6c9ce7a5d:1369512907484</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:13265373-3029-45a1-8037-db1ec0a88be6:1369512907484</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Un animal devient bipède.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:aaff6107-a40b-4f89-b400-cf40edc142c8:1369512907484</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Animal anthropomorphe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

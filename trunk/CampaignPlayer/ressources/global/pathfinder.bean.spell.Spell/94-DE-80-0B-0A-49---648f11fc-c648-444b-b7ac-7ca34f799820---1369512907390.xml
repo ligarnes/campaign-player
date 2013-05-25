@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:648f11fc-c648-444b-b7ac-7ca34f799820:1369512907390</guid>
+   </id>
+   <name>Vents cinglants</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:10e10d26-55ec-48a8-b188-b0ef36f86143:1369512907389</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9ed7af77-3926-4992-924e-6d69d33dd3f3:1369512907389</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le vent bloque la visibilité et inflige 3d6 points de dégâts.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:48caa4c2-790a-4636-bd3a-0ba86b27562f:1369512907389</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vents cinglants.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:92f89ad9-326a-4e26-832d-be9f1d92d27f:1369512904359</guid>
+   </id>
+   <name>Délivrance de la paralysie</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8eb9076e-728f-47cd-808d-2fb47f8e19af:1369512904359</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:714d2f2b-4a6b-4b00-b32f-8e25baa939a1:1369512904359</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Délivre de la paralysie, d&apos;immobilisation et de lenteur.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e9a3e48e-9ab1-492b-a7b6-e589a056137d:1369512904359</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Délivrance de la paralysie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

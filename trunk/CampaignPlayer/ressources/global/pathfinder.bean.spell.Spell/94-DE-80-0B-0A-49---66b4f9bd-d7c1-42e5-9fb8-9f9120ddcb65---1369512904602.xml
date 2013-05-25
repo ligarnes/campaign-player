@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:66b4f9bd-d7c1-42e5-9fb8-9f9120ddcb65:1369512904602</guid>
+   </id>
+   <name>Empire végétal</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a01105a3-de11-4fc1-b027-7ac6001dde3e:1369512904602</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:27497ee1-366b-4835-99e0-d0951388aef2:1369512904602</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Influence les actions d&apos;une ou plusieurs créatures végétales.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cdd626bc-ca9a-4aa6-a6a6-b079aed7fdd3:1369512904602</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Empire végétal.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

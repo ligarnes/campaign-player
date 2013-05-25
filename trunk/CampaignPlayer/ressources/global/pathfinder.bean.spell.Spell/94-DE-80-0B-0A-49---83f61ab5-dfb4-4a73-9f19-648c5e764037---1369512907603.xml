@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:83f61ab5-dfb4-4a73-9f19-648c5e764037:1369512907603</guid>
+   </id>
+   <name>Contact corrosif</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b64df7dc-07fc-4ada-9383-a587e4fe7ee0:1369512907602</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6e891cc6-d42b-43a4-925c-932e94a2021f:1369512907603</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Attaque de contact qui inflige 1d4 acide/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5c3d95b2-3b15-404a-9c0c-853fc2cf8b56:1369512907603</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.contact corrosif.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

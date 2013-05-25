@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ddf505dc-10ed-4062-ab6e-92313917d258:1369512903596</guid>
+   </id>
+   <name>Bouclier de la Loi</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9929a135-fa42-4cf8-b34b-7bdfe74472d3:1369512903596</guid>
+      </id>
+      <unit>cases</unit>
+      <value>4</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ef6a8929-4997-42f1-98a3-8c04fcc4fe9f:1369512903596</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>+4 à la CA, bonus de résistance de +4 et RM de 25 contre les sorts du Chaos.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b8078590-b2dd-4d7b-8dfa-6526adafbfc5:1369512903596</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bouclier de la Loi.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

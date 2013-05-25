@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9471f011-444c-4171-83a2-519df68e7a7c:1369512907928</guid>
+   </id>
+   <name>Prison de glace de groupe</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:17ddd191-4239-420d-a9eb-5a4af692839c:1369512907928</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:42e16f80-5809-450e-a586-823ffda7d646:1369512907928</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme prison de glace mais affecte 1 créature/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:51baa9ce-e2da-4b72-a01a-8af1f3c2dde7:1369512907928</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Prison de glace de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

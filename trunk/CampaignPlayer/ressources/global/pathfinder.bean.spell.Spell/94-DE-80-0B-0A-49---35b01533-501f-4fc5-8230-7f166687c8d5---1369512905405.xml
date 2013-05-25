@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:35b01533-501f-4fc5-8230-7f166687c8d5:1369512905405</guid>
+   </id>
+   <name>Mauvais œil</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:68f6a019-63e5-40a3-9eb8-32a0bc1c35cb:1369512905405</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f04bba61-13dc-4648-9618-e425fc864096:1369512905405</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Cible paniquée, fiévreuse et comateuse.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f8230d68-973c-4c37-95dd-4781752c5ba4:1369512905405</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mauvais œil.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

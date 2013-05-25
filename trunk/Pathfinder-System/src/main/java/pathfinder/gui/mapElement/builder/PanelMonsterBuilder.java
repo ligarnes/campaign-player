@@ -10,14 +10,15 @@ import javax.swing.JPanel;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
+import pathfinder.bean.unit.monster.MonsterBuilder;
 import pathfinder.bean.unit.monster.PathfinderMonster;
-import pathfinder.gui.adapter.MonsterAdapter;
+import pathfinder.gui.adapter.MonsterBuilderAdapter;
 import pathfinder.gui.mapElement.PathfinderMonsterElement;
 
 public class PanelMonsterBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;
 
-	private final MyCombobox<MonsterAdapter> monsters;
+	private final MyCombobox<MonsterBuilderAdapter> monsters;
 
 	public PanelMonsterBuilder() {
 		this.setLayout(new BorderLayout());
@@ -26,13 +27,14 @@ public class PanelMonsterBuilder extends PanelMapElementBuilder {
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));
 
-		monsters = new MyCombobox<MonsterAdapter>(MonsterAdapter.getMonsters());
+		monsters = new MyCombobox<MonsterBuilderAdapter>(
+				MonsterBuilderAdapter.getMonsters());
 		panelCenter.add(monsters);
 
 		this.add(panelCenter, BorderLayout.CENTER);
 	}
 
-	private PathfinderMonster getCharacter() {
+	private MonsterBuilder getCharacter() {
 		return monsters.getSelectedItem().getMonster();
 	}
 

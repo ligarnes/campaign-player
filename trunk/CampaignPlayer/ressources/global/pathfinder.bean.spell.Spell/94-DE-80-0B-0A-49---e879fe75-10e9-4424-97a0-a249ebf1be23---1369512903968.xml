@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e879fe75-10e9-4424-97a0-a249ebf1be23:1369512903968</guid>
+   </id>
+   <name>Convocation d&apos;alliés naturels III</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a9286a78-08ea-4f68-800b-2a199f611160:1369512903968</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:268df352-a2cd-4da2-9ccd-2bcdf06ec766:1369512903968</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Appelle une ou plusieurs créatures luttant pour le PJ.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b4bf1f02-a4d6-4457-8434-07e3b98eca37:1369512903968</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation dalliés naturels III.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1b196c2b-831d-461d-b865-4652f254c55a:1369512904109</guid>
+   </id>
+   <name>Coquille antiplantes</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e581471c-ceda-4168-aeae-bf488ef80eee:1369512904108</guid>
+      </id>
+      <unit>cases</unit>
+      <value>2</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f180766e-0d7b-41f4-92e4-ffc351904449:1369512904109</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Empêche les plantes animées d&apos;approcher.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cc5a9351-fac9-4f01-8a38-803ee7b46eff:1369512904109</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Coquille antiplantes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

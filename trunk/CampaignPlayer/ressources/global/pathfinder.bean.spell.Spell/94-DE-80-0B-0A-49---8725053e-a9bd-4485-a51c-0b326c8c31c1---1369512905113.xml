@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8725053e-a9bd-4485-a51c-0b326c8c31c1:1369512905113</guid>
+   </id>
+   <name>Image permanente</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2645ef66-9b97-405c-8eda-ae5a7e5921bc:1369512905113</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7d3bbcec-b207-4c12-a8ae-8e9d9eff3d1f:1369512905113</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Illusion permanente qui comprend les aspects visuels, sonores et olfactifs et de température.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d18d9cce-1bd9-4108-848b-e6dc7816b512:1369512905113</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Image permanente.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

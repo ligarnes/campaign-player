@@ -14,23 +14,43 @@ public class Spell extends BasicBean {
 	private String name;
 	@Element
 	private String school;
+
+	@Element
+	private UnitValue range;
+	@Element
+	private UnitValue castingTime;
+
+	@Element
+	private String description;
+
+	@Element
+	private String composant;
+
 	@Element
 	private String source;
+
 	@Element
-	private String url;
+	private Reference reference;
+
 	@ElementMap
 	private HashMap<String, Integer> classesLevel;
 
 	public Spell() {
 	}
 
-	public Spell(String name, String school, String source, String url,
+	public Spell(String name, String school, UnitValue range,
+			UnitValue castingTime, String description, String composant,
+			String source, Reference reference,
 			HashMap<String, Integer> classesLevel) {
 		super();
 		this.name = name;
 		this.school = school;
+		this.range = range;
+		this.castingTime = castingTime;
+		this.description = description;
+		this.composant = composant;
 		this.source = source;
-		this.url = url;
+		this.reference = reference;
 		this.classesLevel = classesLevel;
 	}
 
@@ -72,6 +92,38 @@ public class Spell extends BasicBean {
 		this.school = school;
 	}
 
+	public UnitValue getRange() {
+		return range;
+	}
+
+	public void setRange(UnitValue range) {
+		this.range = range;
+	}
+
+	public UnitValue getCastingTime() {
+		return castingTime;
+	}
+
+	public void setCastingTime(UnitValue castingTime) {
+		this.castingTime = castingTime;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getComposant() {
+		return composant;
+	}
+
+	public void setComposant(String composant) {
+		this.composant = composant;
+	}
+
 	public String getSource() {
 		return source;
 	}
@@ -80,27 +132,19 @@ public class Spell extends BasicBean {
 		this.source = source;
 	}
 
-	public String getUrl() {
-		return url;
+	public Reference getReference() {
+		return reference;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setReference(Reference reference) {
+		this.reference = reference;
 	}
 
-	protected HashMap<String, Integer> getClassesLevel() {
+	public HashMap<String, Integer> getClassesLevel() {
 		return classesLevel;
 	}
 
 	public void setClassesLevel(HashMap<String, Integer> classesLevel) {
 		this.classesLevel = classesLevel;
 	}
-
-	@Override
-	public String toString() {
-		return "SpellBean [name=" + name + ", school=" + school + ", source="
-				+ source + ", url=" + url + ", classesLevel=" + classesLevel
-				+ "]";
-	}
-
 }

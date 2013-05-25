@@ -1,0 +1,59 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:70caf53d-c6bd-4d62-adcf-91590edfddf3:1369512903713</guid>
+   </id>
+   <name>Cercle magique contre le Chaos</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:623e8c22-4539-48ac-b758-cf5513a87015:1369512903713</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f80fd78a-fc1e-48c7-b1b8-e235ef09af7c:1369512903713</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme protection, mais avec un rayon de 3 m et une durée de 10 minutes/niveau.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3c238ac3-efd2-439c-ba46-6f23593928f6:1369512903713</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cercle magique contre le Chaos.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

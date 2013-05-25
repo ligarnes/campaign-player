@@ -1,0 +1,52 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:98504bce-5347-4c31-97f5-8cdf42742b6a:1369512906046</guid>
+   </id>
+   <name>Restauration</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e0a27df2-9cd1-4133-a703-2f474ab53474:1369512906046</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a55d8ee6-4e70-4dfa-a566-c895ff7d2d46:1369512906046</guid>
+      </id>
+      <unit>minute</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Rend niveaux et points de caractéristique perdus.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b28d2ed2-176a-454b-982d-79981e9ae074:1369512906046</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Restauration.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

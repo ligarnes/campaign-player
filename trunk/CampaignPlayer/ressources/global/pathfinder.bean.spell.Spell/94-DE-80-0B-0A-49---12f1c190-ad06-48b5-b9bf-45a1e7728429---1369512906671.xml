@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:12f1c190-ad06-48b5-b9bf-45a1e7728429:1369512906671</guid>
+   </id>
+   <name>Anatomie morte-vivante III</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0378650d-c6a4-4623-80c7-3d7a5eb6a5de:1369512906671</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:37129f89-8119-4945-8ec1-03adf662f7b7:1369512906671</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Prend la forme et les pouvoirs de morts-vivants de taille Min ou TG.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cb66c5d0-7e8a-4e44-88ba-021f5ee86f3f:1369512906671</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Anatomie morte-vivante III.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

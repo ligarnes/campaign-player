@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:11fd9674-29d9-43e1-887a-35633b1a0f9a:1369512904495</guid>
+   </id>
+   <name>Disjonction</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f7dbe93c-fa00-40ab-aff7-5cbb729e83ad:1369512904495</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:52997cc4-2e29-4c4c-8c8c-9d8059327192:1369512904495</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Dissipe la magie et les propriétés des objets magiques.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:aab5fd76-f097-446d-88ea-c76ad5afdbcb:1369512904495</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Disjonction.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

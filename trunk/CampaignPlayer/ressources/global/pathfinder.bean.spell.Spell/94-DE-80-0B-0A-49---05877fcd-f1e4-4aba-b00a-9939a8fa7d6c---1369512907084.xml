@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:05877fcd-f1e4-4aba-b00a-9939a8fa7d6c:1369512907084</guid>
+   </id>
+   <name>Marionnette de peau</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6d71155a-64d5-4dcc-98d8-66165b078b18:1369512907084</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e271ef34-6bdc-45bc-90b6-88e746ed6f5e:1369512907084</guid>
+      </id>
+      <unit>minute</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Anime et possède la peau du personnage comme une créature séparée.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6cad8e1f-11af-4a2f-9845-d28fd6d6ae80:1369512907084</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Marionnette de peau.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

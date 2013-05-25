@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f706c2b1-3dc9-416e-9d83-c683fcb75125:1369512907969</guid>
+   </id>
+   <name>Résurrection temporaire</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:24573d20-042f-40b3-bde8-af199375ddac:1369512907969</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9ac7854e-217b-45ca-a801-42077d1d7004:1369512907969</guid>
+      </id>
+      <unit>minute</unit>
+      <value>10</value>
+   </castingTime>
+   <description>Ramène une créature à la vie pendant 24 heures, après quoi, elle meurt à nouveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:47c9f112-d480-4a22-8e7a-c5301390beeb:1369512907969</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Résurrection temporaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

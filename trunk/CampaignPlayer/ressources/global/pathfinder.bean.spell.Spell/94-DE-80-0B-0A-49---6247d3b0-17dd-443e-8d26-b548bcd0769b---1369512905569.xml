@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6247d3b0-17dd-443e-8d26-b548bcd0769b:1369512905569</guid>
+   </id>
+   <name>Négation de l&apos;invisibilité</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:aeae99cd-eaae-477d-a04d-5d50c8939946:1369512905569</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b90553e0-cdc5-480d-865d-79653c0e10ea:1369512905569</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Dissipe l&apos;invisibilité sur 1,50 m/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:195429ab-2ac1-4ca1-a9b2-f7ddbc24f2bf:1369512905569</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Négation de linvisibilité.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

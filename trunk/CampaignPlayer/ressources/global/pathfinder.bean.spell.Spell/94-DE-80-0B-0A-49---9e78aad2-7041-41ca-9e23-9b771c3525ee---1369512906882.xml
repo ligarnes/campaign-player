@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9e78aad2-7041-41ca-9e23-9b771c3525ee:1369512906882</guid>
+   </id>
+   <name>Dague de stalactite</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6353b182-f2e7-4b3b-8cc3-d5d3cd0df4ad:1369512906882</guid>
+      </id>
+      <unit>cases</unit>
+      <value>0</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3e92198f-e61e-4d7a-a81c-75f3e172d552:1369512906882</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Dague de maître en glace qui inflige 1 point de dégâts de froid.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:de73ce87-155a-47ef-ab60-7f747f4aeaa5:1369512906882</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Dague de stalactite.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

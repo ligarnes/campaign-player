@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:842b6080-5c5b-4b53-9110-f8dce93f0270:1369512907907</guid>
+   </id>
+   <name>Physique monstrueux IV</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2110a54d-1d2a-4921-a703-8a8568b09861:1369512907907</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e162f47c-cf51-465e-9e1f-c465eda16d24:1369512907907</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme  physique monstrueux III avec plus de pouvoirs.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cb4d120e-3a78-4a98-8de5-0665fd332405:1369512907907</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Physique monstrueux IV.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

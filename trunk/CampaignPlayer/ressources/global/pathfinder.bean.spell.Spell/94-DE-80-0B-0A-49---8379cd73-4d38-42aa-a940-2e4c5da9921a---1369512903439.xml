@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8379cd73-4d38-42aa-a940-2e4c5da9921a:1369512903439</guid>
+   </id>
+   <name>Baiser de la goule</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6c745692-2c90-4a9c-b3d1-85934e2ce975:1369512903438</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a38366ec-0ae9-4a9b-ba0d-0fcc57c55d9b:1369512903438</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Paralyse la cible et lui fait dégager une odeur répugnante qui la rend nauséeuse.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:94ac69db-ff9e-4a51-abbb-261ea53bfdfd:1369512903438</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Baiser de la goule.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5887f7d0-7fdb-4c17-8a9b-4b1cfbb5964e:1369512905765</guid>
+   </id>
+   <name>Prière</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b22c11e0-12e8-406e-afbc-54ba540a6297:1369512905765</guid>
+      </id>
+      <unit>cases</unit>
+      <value>8</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d3f5fce6-6bf4-42fc-95ab-a8e363c6a07d:1369512905765</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>+1 pour les alliés à presque tous les jets, -1 pour les adversaires.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:85c36626-e0bf-44df-981a-9be80b96e8b1:1369512905765</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Prière.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

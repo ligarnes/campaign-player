@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6fbeb361-b89b-47e5-84f6-91b86490b344:1369512904776</guid>
+   </id>
+   <name>Flammes</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ca55c25c-cbcd-45df-af6c-f8af31e06fab:1369512904776</guid>
+      </id>
+      <unit>cases</unit>
+      <value>0</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a781ca48-692c-4a0a-9d83-8eb9694cba34:1369512904776</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d6 points de dégâts, +1/niveau, contact ou lancer.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:15c3c73c-c689-442e-9da7-587456b2b6af:1369512904776</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Flammes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2076e35d-7a67-4ce8-a660-1acd0c41c5b3:1369512907068</guid>
+   </id>
+   <name>Malédiction de dégoût</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cd491011-f890-4cad-afe1-db02ceaf25c6:1369512907068</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3672b934-886b-456a-be05-8a28a7bcc010:1369512907068</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Cible fiévreuse quand elle voit le déclencheur.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b4856048-aeb8-435c-a54f-63a538fd101b:1369512907068</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Malédiction de dégoût.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

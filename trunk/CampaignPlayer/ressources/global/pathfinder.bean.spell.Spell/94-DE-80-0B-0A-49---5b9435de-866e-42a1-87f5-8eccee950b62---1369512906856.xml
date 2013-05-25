@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5b9435de-866e-42a1-87f5-8eccee950b62:1369512906856</guid>
+   </id>
+   <name>Crâne ricanant</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1f92fc56-7629-4e1a-b0b0-b1a14db0f598:1369512906856</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:154da35f-46b5-4229-a405-5db1fc602e70:1369512906856</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Un crâne agit comme une bouche magique, les auditeurs sont secoués.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d4485923-843e-43e1-bc85-00bae5bde63f:1369512906856</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Crâne ricanant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

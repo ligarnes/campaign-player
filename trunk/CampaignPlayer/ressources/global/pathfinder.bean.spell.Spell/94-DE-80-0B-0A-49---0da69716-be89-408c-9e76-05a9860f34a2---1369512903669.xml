@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0da69716-be89-408c-9e76-05a9860f34a2:1369512903669</guid>
+   </id>
+   <name>Cage de force</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ca6b10a4-910f-48f2-bee9-a4d892eeb192:1369512903669</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5c8b748e-c864-4b52-a9d9-2869303c71a2:1369512903669</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Cube de force emprisonnant ce qui se trouve à l&apos;intérieur.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f595981e-6eac-43ce-baa6-7a64c2f8e3ad:1369512903669</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cage de force.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

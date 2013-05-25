@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5c8a2e52-da71-4306-ac12-3dd908e09e8c:1369512903768</guid>
+   </id>
+   <name>Châtiment sacré</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ae194f62-1d83-4427-8f5a-3ff126b92c4f:1369512903768</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3024a09f-70ce-47f9-b34a-4e8b6db507e1:1369512903768</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Blesse et aveugle les créatures Mauvaises (1d8 pts de dégâts/2 niveaux).</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:de2d6d0e-d97e-4440-ae17-b902cdb64287:1369512903768</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Châtiment sacré.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

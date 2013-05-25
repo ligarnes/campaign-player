@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2a3432f9-af2a-4c77-9ce5-14a5d8ffbe58:1369512904407</guid>
+   </id>
+   <name>Destruction de mort-vivant</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2e716ebd-49cc-4d8b-b9bb-dfeff02e8408:1369512904407</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d9b3621a-52e3-4a23-986e-c5d861649fb2:1369512904407</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d6 points de dégâts à un mort-vivant.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e0551bc9-9f4b-40ef-8e56-3c515230a188:1369512904407</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Destruction de mort-vivant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

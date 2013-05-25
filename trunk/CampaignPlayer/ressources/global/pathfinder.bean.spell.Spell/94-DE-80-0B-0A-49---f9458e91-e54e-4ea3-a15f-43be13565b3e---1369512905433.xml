@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f9458e91-e54e-4ea3-a15f-43be13565b3e:1369512905433</guid>
+   </id>
+   <name>Métal gelé</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9d85f53d-ad6a-4a29-98fc-222e09603e66:1369512905433</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:38c46bd0-0fde-4eb9-866f-6001d3b5b602:1369512905433</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Gèle le métal et inflige des dégâts à qui le touche.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3fb35051-4187-41ef-98ea-921e55e8a583:1369512905433</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Métal gelé.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

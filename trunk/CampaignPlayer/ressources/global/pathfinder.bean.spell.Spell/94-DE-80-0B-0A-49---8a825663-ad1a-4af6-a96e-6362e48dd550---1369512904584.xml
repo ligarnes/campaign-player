@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8a825663-ad1a-4af6-a96e-6362e48dd550:1369512904584</guid>
+   </id>
+   <name>Effroi</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5aeb4c6a-5ae8-4b8e-b444-e28b4f70437a:1369512904583</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:92b4be73-8ab1-414c-bbef-61d15116ea53:1369512904583</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Panique les créatures ayant moins de 6 DV.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ab0a97c5-441e-47f3-84a3-9df641471d8b:1369512904584</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Effroi.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

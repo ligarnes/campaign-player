@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1ae4c648-7663-4349-a28a-7a0d78542a2f:1369512906803</guid>
+   </id>
+   <name>Convocation de froghémoth</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:54493ee4-af39-44b9-89f9-5442bd69fbf8:1369512906803</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:161961c7-6cc9-4038-995a-c0a355909f3a:1369512906803</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Convoque un froghémoth.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8b6822c6-c5a3-4f4d-9896-c01988c24845:1369512906803</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation de froghémoth.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

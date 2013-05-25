@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2f6d89f5-ddaf-49fd-b204-73ff3cc1a386:1369512906202</guid>
+   </id>
+   <name>Souhait limité</name>
+   <school>universal</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:96d210ba-7353-4f54-bf5c-a79f95b9b69e:1369512906202</guid>
+      </id>
+      <value>voir description</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ce4e709c-8502-4527-991d-30dcae060da7:1369512906202</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Modifie la réalité dans une certaine mesure.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9670e4a5-65f6-4f53-8c1f-64295e8e4f61:1369512906202</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Souhait limité.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

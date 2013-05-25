@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:47d213ee-de28-4dc9-8efc-34a5174c3485:1369512905647</guid>
+   </id>
+   <name>Pénitence</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ac49fc64-0df5-41a2-90ed-ed4fb899e5b9:1369512905647</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:aaf0f223-d63e-4faa-9899-377c88e9ea89:1369512905647</guid>
+      </id>
+      <unit>hour</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Permet au sujet d&apos;expier ses fautes.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:059d5439-1744-41b1-9799-199477f51b8d:1369512905647</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Pénitence.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

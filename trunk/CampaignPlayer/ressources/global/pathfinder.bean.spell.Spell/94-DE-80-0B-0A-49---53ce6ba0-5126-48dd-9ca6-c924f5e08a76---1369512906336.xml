@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:53ce6ba0-5126-48dd-9ca6-c924f5e08a76:1369512906336</guid>
+   </id>
+   <name>Texte illusoire</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f2e8d33e-db12-41eb-abdd-d32f72cf8aab:1369512906336</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:aebaa37e-afab-412a-a0fe-ca3c1798dc2c:1369512906336</guid>
+      </id>
+      <unit>special</unit>
+      <value>1 minute par page</value>
+   </castingTime>
+   <description>Seul le sujet parvient à le déchiffrer.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:526584fb-adbf-40cd-b967-2ed06e3bcd56:1369512906336</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Texte illusoire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

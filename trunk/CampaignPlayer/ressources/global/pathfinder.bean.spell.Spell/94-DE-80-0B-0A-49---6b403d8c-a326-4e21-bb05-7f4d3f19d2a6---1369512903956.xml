@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6b403d8c-a326-4e21-bb05-7f4d3f19d2a6:1369512903956</guid>
+   </id>
+   <name>Convocation d&apos;alliés naturels I</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:66c9ace9-7933-4c54-82ce-474b4d21c725:1369512903956</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a396866d-9c16-49e3-81bf-706fae2350c0:1369512903956</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Appelle une créature luttant pour le PJ.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:89277539-d986-4c5c-a888-875ad663e409:1369512903956</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation dalliés naturels I.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

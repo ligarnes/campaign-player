@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:798bc735-e814-436b-8331-6f92fddfc3a1:1369512904870</guid>
+   </id>
+   <name>Forme de géant II</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c00b0387-bfe1-45cb-8d08-b2d78e82fd25:1369512904870</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a4be2c50-d548-48a3-ac99-e8f5b8312b5e:1369512904870</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le lanceur de sorts se transforme en géant TG.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:14797603-30aa-41c6-a5d9-83f284ee08e5:1369512904870</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Forme de géant II.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

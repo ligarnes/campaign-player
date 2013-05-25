@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4acaf437-c3b1-4f50-bfc3-ac4d6b9fb15d:1369512906925</guid>
+   </id>
+   <name>Dragon d&apos;artifice</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ff9b42c9-e45d-4fbb-8a8f-c179ede583f2:1369512906925</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4dcb4132-8bfe-4def-ba27-a30293776594:1369512906925</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Crée un dragon en feu d&apos;artifice/niveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2b40ef6a-5d11-4cc2-9675-4be1e21663d4:1369512906925</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Dragon dartifice.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

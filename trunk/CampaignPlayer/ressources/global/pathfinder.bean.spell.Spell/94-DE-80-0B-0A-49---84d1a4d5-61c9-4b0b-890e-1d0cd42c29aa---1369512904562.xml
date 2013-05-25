@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:84d1a4d5-61c9-4b0b-890e-1d0cd42c29aa:1369512904562</guid>
+   </id>
+   <name>Éclair</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3391051d-2905-4fe9-9062-66e4e361c149:1369512904562</guid>
+      </id>
+      <unit>cases</unit>
+      <value>24</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:38303195-f47c-4099-9bc3-0522d8622e5e:1369512904562</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d6 points de dégâts d&apos;électricité/niveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fd57e531-f08d-4860-8b33-006e0287a31d:1369512904562</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Éclair.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

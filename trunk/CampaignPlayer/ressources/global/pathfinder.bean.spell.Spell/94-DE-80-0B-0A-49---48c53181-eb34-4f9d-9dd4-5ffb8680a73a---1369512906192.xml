@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:48c53181-eb34-4f9d-9dd4-5ffb8680a73a:1369512906192</guid>
+   </id>
+   <name>Son imaginaire</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:050841f7-0df9-44d5-b056-cb69c145f44d:1369512906191</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b42d90ff-b9b7-4ad6-af57-e5849aadcda9:1369512906191</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Sons illusoires.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:83ee13c4-bfa2-4cf7-9ca1-a3fc1f51e0c9:1369512906191</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Son imaginaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

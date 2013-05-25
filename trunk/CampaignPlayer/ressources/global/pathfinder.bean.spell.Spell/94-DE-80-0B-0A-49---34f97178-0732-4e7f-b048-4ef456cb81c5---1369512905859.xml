@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:34f97178-0732-4e7f-b048-4ef456cb81c5:1369512905859</guid>
+   </id>
+   <name>Racine</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9a0cacbb-1eb6-423a-a632-5da3e100e736:1369512905859</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7e8d85a8-d7c0-4035-aa0e-e79ea3981ca9:1369512905859</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description></description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ccc70bee-40f8-4192-aed1-017873203478:1369512905859</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Racine.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

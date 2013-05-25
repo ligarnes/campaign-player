@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f97b0622-f9b5-4026-8cea-882754a184f1:1369512906139</guid>
+   </id>
+   <name>Signature magique</name>
+   <school>universal</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5021bdab-6b5c-4fc1-a730-10740adf82a0:1369512906139</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dd7afc34-d32c-491f-816b-c70dddac927f:1369512906139</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Inscrit la rune personnelle du PJ (visible ou non).</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8c8eb9d9-9d7d-4db9-9227-53593451ba89:1369512906139</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Signature magique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

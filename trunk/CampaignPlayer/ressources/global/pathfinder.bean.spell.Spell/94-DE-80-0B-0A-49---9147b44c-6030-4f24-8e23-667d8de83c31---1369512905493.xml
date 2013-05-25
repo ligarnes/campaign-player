@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9147b44c-6030-4f24-8e23-667d8de83c31:1369512905493</guid>
+   </id>
+   <name>Morsure magique</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dab1dfff-96cd-49ab-aa1a-32f46c9f9899:1369512905493</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6a907037-a4f7-48c3-be59-86089e67d843:1369512905493</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une arme naturelle du sujet gagne +1 aux jets d&apos;attaque et de dégâts.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f72ff644-30f2-4902-8be4-f3c9217debdf:1369512905493</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Morsure magique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>
