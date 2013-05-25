@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:61ac2e23-03d5-4a59-8f72-dbef270a06d6:1369512905461</guid>
+   </id>
+   <name>Métamorphose universelle</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:db985584-b3fc-48fa-bcda-0a32cfe3ee10:1369512905461</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d532a61b-736d-4817-a6b3-cf977652ad86:1369512905461</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Transforme n&apos;importe quoi en n&apos;importe quoi d&apos;autre.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6734dcfa-7ac1-4f75-bf8f-1b85e64e45d0:1369512905461</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Métamorphose universelle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

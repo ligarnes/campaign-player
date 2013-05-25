@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:844455a1-140b-47ea-b22a-a8f8dab970e3:1369512906388</guid>
+   </id>
+   <name>Ventriloquie</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9332cc02-32d6-464a-9ef9-886ee48525a2:1369512906388</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dd50e5ad-6f40-455b-bf37-72d6740570c5:1369512906388</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Permet de parler à distance pendant 1 minute/niveau.</description>
+   <composant>V F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:207e4fe5-0bcc-4f01-8948-d15c469bf7ef:1369512906388</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Ventriloquie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

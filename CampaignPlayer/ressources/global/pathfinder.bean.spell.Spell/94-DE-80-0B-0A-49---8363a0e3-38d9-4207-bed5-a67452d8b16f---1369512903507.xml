@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8363a0e3-38d9-4207-bed5-a67452d8b16f:1369512903507</guid>
+   </id>
+   <name>Blasphème</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bfe2218e-6720-4ad3-9fc4-6849d899e3f8:1369512903507</guid>
+      </id>
+      <unit>cases</unit>
+      <value>8</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a2dcb9c4-e15b-4ab3-9ac2-ef1068abaeea:1369512903507</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Tue, paralyse, affaiblit ou hébète les cibles non-Mauvaises.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:71cdd8a3-296e-4c32-abd7-8d8448d06b6f:1369512903507</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Blasphème.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

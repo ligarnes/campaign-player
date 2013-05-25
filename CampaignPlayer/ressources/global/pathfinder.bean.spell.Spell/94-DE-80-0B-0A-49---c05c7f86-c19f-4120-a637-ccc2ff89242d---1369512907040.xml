@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c05c7f86-c19f-4120-a637-ccc2ff89242d:1369512907040</guid>
+   </id>
+   <name>Jet d&apos;acide</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5bd11fec-15d0-4cc6-b90d-3c6c76e940d0:1369512907040</guid>
+      </id>
+      <unit>cases</unit>
+      <value>12</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c54e5596-c839-4a7f-8420-96017c85f45d:1369512907040</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d6 points de dégâts d&apos;acide/niveau plus 1 round d&apos;acide.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ebc5a4fe-8616-4977-8e88-c5cb5fd098f4:1369512907040</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Jet dacide.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

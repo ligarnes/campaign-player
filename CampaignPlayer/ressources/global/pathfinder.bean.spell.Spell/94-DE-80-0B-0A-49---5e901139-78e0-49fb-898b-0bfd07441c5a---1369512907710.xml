@@ -1,0 +1,55 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5e901139-78e0-49fb-898b-0bfd07441c5a:1369512907710</guid>
+   </id>
+   <name>Diagnostic</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:768ec131-228d-4339-97be-bbb7693815f2:1369512907709</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f2a2c43d-47ed-46ff-a19c-e9ed6e2f13c6:1369512907709</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Détecte et identifie les maladies.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0b82bf8c-9279-4789-ae93-638fedb36537:1369512907710</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Diagnostic.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

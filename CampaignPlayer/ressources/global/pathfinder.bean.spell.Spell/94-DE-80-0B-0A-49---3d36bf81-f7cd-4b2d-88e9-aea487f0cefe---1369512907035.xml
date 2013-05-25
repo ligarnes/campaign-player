@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3d36bf81-f7cd-4b2d-88e9-aea487f0cefe:1369512907035</guid>
+   </id>
+   <name>Interrogatoire supérieur</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:57c6d533-53ef-49c5-9673-89c9126c8934:1369512907034</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1b65241b-64a9-45fb-8cf2-9beb5ce09112:1369512907034</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Comme  interrogatoire mais avec plus de douleur et de questions.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5a6b361c-ffab-473f-8a7f-110a3c810da8:1369512907034</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Interrogatoire supérieur.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:94626722-8e23-47fe-b4c3-db0f40cab700:1369512905626</guid>
+   </id>
+   <name>Passage sans traces</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bf6c8cc3-19d2-49fe-84a1-e608a9cfa0e4:1369512905626</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f7a7dc08-e6e6-477a-a451-46a49bbf8dc4:1369512905626</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les sujets (1/niveau) ne laissent pas de traces.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c16790f7-6706-4589-a7b7-c63e00419cd6:1369512905626</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Passage sans traces.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

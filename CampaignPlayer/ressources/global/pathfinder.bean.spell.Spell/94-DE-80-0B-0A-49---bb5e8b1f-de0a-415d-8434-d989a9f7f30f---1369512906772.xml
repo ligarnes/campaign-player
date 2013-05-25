@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:bb5e8b1f-de0a-415d-8434-d989a9f7f30f:1369512906772</guid>
+   </id>
+   <name>Chœur hanté</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b0dc4aa9-26cd-49bf-b1eb-07a00263896c:1369512906771</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e6c9befe-598c-433a-90e9-0ab7464f903c:1369512906771</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Des esprits infligent des souffrances aux auditeurs.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a66160e2-1e39-4401-b226-931355780430:1369512906771</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Chœur hanté.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:16691045-2799-40f1-875f-818f02a1c913:1369512905170</guid>
+   </id>
+   <name>Immunité contre les sorts suprême</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2322fb1c-d22d-4ab4-97c4-5b1b8c6fbc8f:1369512905170</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:67eab8e5-27c0-4e5c-8ee2-c9b6dbd19b65:1369512905170</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme immunité contre les sorts, mais jusqu&apos;au 8e niveau.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ff68af8e-97e4-45bc-beca-285784dcc367:1369512905170</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Immunité contre les sorts suprême.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

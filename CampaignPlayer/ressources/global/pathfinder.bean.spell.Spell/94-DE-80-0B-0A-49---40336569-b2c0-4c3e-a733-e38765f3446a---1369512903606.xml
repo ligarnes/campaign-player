@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:40336569-b2c0-4c3e-a733-e38765f3446a:1369512903606</guid>
+   </id>
+   <name>Boule de feu</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1ced3a38-7000-441b-b53c-951e55872f5f:1369512903606</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e7874aa9-ba0d-4755-bdb4-e4f1c7deefe3:1369512903606</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d6 points de dégâts de feu/niveau, 6 m de rayon.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cfc78f1e-9c45-4236-ad64-3bfa2764706f:1369512903606</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Boule de feu.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

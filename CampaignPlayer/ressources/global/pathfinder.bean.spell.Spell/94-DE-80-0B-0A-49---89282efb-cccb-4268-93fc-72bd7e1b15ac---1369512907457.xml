@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:89282efb-cccb-4268-93fc-72bd7e1b15ac:1369512907457</guid>
+   </id>
+   <name>Allegro</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6f37fded-235c-4723-884a-ca0949067965:1369512907457</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9150589c-9f52-4e2e-9bb4-6e75cec7e4f8:1369512907457</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Rapidité pendant la représentation bardique.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9f64667b-848f-4d06-9032-5f66dc1dfbb2:1369512907457</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Allegro.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

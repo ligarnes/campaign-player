@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:960c1393-cb40-4e4b-b829-cd0f20d41770:1369512905543</guid>
+   </id>
+   <name>Mur d&apos;épines</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2d024242-45c0-4fe6-a112-4b2e807411d1:1369512905543</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:43993ad2-1ea4-472f-9ef7-3650c5b15b2c:1369512905543</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Épines blessant quiconque tente de passer.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6d1bcdab-0c47-4fe3-a0c7-7fb183e64c55:1369512905543</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mur dépines.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

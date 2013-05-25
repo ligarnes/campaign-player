@@ -120,8 +120,4 @@ public class PathfinderMonster extends BasicBean {
 	public void beanRemoved() {
 		CampaignClient.getInstance().removeBean(image);
 	}
-
-	public PathfinderMonster createMonster() {
-		return new PathfinderMonster(name, totalHp, currentHp, image);
-	}
 }

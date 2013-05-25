@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:83453813-7a14-434a-b753-12bdf33ef9fd:1369512907635</guid>
+   </id>
+   <name>Cor de poursuite</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9b6e4246-607a-4d80-a2ac-1c8d3cb8a6c4:1369512907635</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7b5f9eed-5200-4223-8973-e040d5acb79c:1369512907635</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Crée trois notes entendues à des kilomètres.</description>
+   <composant>S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e5d65832-ca21-46f1-ba74-8ed4b250cf50:1369512907635</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cor de poursuite.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

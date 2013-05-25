@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ee798859-2db2-4cb5-8531-2c634192c1cb:1369512907861</guid>
+   </id>
+   <name>Misérable pitié</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fd99105b-ef93-401e-8e5e-8ee2b7239e1a:1369512907861</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:97ad1379-c932-4605-9a75-6b3a7e104109:1369512907861</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>L&apos;adversaire ne peut pas attaquer une créature pathétique.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:30608bfa-838d-4253-8a1c-37c1a6472713:1369512907861</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Misérable pitié.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

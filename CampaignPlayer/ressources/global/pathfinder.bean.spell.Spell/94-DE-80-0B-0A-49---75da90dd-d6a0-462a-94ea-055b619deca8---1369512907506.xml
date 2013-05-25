@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:75da90dd-d6a0-462a-94ea-055b619deca8:1369512907506</guid>
+   </id>
+   <name>Arc électrique</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4cc097c9-c156-4cea-ae80-ad547a5e3a0e:1369512907506</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:22173189-bb3d-4373-9729-3427e731b3c4:1369512907506</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les cibles situées sur une ligne prennent 1d6 électricité/niveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:700739bf-a227-4f57-aec7-c578d1446719:1369512907506</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Arc électrique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

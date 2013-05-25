@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f3285b60-80b7-4ce9-af1d-7beb969e3ad7:1369512905784</guid>
+   </id>
+   <name>Projection d&apos;image</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9bfa16af-2f4e-4d71-ba2b-6a933fa74d08:1369512905784</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6accda05-7138-43f3-a4c8-6f20e4ce139d:1369512905784</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Double illusoire pouvant parler et lancer des sorts.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4b3d5dfd-734e-4daa-bb59-476b785ab2b8:1369512905784</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Projection dimage.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:95303162-0fa9-4622-8310-5b8c21f1175e:1369512904336</guid>
+   </id>
+   <name>Défense magique</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3e42347e-7665-486a-9566-c6106da8f44a:1369512904336</guid>
+      </id>
+      <value>n’importe où dans la zone défendue</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c9682066-3f7f-4ddb-9fb7-286fa14a15d8:1369512904336</guid>
+      </id>
+      <unit>minute</unit>
+      <value>30</value>
+   </castingTime>
+   <description>Plusieurs effets magiques protègent une zone.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e51acad6-f689-4210-a448-6c1ab756b58b:1369512904336</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Défense magique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

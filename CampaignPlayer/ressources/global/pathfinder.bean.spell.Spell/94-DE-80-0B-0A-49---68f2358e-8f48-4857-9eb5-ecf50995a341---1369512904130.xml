@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:68f2358e-8f48-4857-9eb5-ecf50995a341:1369512904130</guid>
+   </id>
+   <name>Corps de fer</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:48ea0389-9173-4812-bc7c-11779f528b7e:1369512904129</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c4d9781c-6ea4-4c82-8e54-d28b4024fcf2:1369512904130</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le corps du PJ se transforme en fer vivant. </description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3f87eb37-72f4-4f29-b00a-0e0c25821b6e:1369512904130</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Corps de fer.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,59 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:eeacd8ca-2438-4689-8283-dd06a025a5e7:1369512905057</guid>
+   </id>
+   <name>Hébétement</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ba7c527b-41ed-4dee-abfa-c9218a824d00:1369512905057</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ce1ed5d5-b47c-418c-9bb8-d3248a530b94:1369512905057</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Fait perdre 1 action à un humanoïde de 4 DV ou moins.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d6ad0583-e14b-4b85-9e78-14f0878bfc07:1369512905057</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Hébétement.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

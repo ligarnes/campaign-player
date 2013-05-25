@@ -1,0 +1,51 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e188184a-aa63-4847-81e2-809a31610e8d:1369512906266</guid>
+   </id>
+   <name>Stimulant</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bced3920-fc08-488a-a027-e8c56daac628:1369512906266</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:883ed202-f043-4548-8952-a4913b785d5a:1369512906266</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Confère 1 pv temporaire à la cible.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:678ae406-25c3-434a-a9c7-1b09f944fb11:1369512906266</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Stimulant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

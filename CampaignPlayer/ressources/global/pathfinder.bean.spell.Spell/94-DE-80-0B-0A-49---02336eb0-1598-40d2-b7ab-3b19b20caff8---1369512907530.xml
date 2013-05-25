@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:02336eb0-1598-40d2-b7ab-3b19b20caff8:1369512907530</guid>
+   </id>
+   <name>Bafouiller</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2eeb397d-17fc-4fca-b177-2ac7d72ee935:1369512907530</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4a2900ff-c839-456d-b8a1-4650ce7173c9:1369512907530</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible ne peut plus parler de façon intelligible.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bb614f50-41af-4fe8-a715-6828ff8e711d:1369512907530</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bafouiller.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

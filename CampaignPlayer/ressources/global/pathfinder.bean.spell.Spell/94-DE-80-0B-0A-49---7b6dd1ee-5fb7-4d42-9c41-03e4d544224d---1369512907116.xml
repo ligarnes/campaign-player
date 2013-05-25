@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7b6dd1ee-5fb7-4d42-9c41-03e4d544224d:1369512907116</guid>
+   </id>
+   <name>Ordre assassin</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6f3f7053-e0bb-4b0f-8b61-722821fa158f:1369512907116</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:86a88a28-9742-4635-bbfb-8af9b29c14d2:1369512907116</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible est obligée de tuer un allié.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:60dc98b5-f5d8-4318-b34d-f79985bfbdf0:1369512907116</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Ordre assassin.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

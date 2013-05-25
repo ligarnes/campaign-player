@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ae4cb1d2-a032-4d09-a081-0710ea9a6a42:1369512907631</guid>
+   </id>
+   <name>Convocation de ver vénérable</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2179528f-1a4a-403a-8d28-c149d93a13cd:1369512907631</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a05806f1-3c0f-4816-b566-da59d546d5ae:1369512907631</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Convoque un vert pourpre géant.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c99fb0be-6baa-4745-983e-7851d9510f45:1369512907631</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation de ver vénérable.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

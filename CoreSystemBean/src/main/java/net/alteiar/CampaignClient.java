@@ -190,8 +190,9 @@ public final class CampaignClient implements DocumentManagerListener {
 					BasicBean bean = DocumentIO.loadBeanLocal(f);
 					result.add((E) bean);
 				} catch (Exception e) {
+					System.out.println("fail to load " + f.getName());
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					// e.printStackTrace();
 				}
 			}
 		}

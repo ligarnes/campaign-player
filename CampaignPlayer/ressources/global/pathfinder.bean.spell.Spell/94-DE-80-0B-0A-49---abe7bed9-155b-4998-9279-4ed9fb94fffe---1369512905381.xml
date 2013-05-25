@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:abe7bed9-155b-4998-9279-4ed9fb94fffe:1369512905381</guid>
+   </id>
+   <name>Manteau du Chaos</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:51f771e2-9895-468f-86e1-f2b801ab864a:1369512905381</guid>
+      </id>
+      <unit>cases</unit>
+      <value>4</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:70d1dc71-14f8-4b07-9c75-bcac9a6c11aa:1369512905381</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>+4 à la CA, bonus de résistance de +4 et RM de 25 contre les sorts de la Loi.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8a3014a7-c9e7-4b95-a6c5-4967543f6c6f:1369512905381</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Manteau du Chaos.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

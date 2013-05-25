@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:674d5f9a-512a-4d00-a6e3-094006a7d69e:1369512904322</guid>
+   </id>
+   <name>Décret</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3c94ed6e-4b00-4ea3-8fb0-20aa5f355344:1369512904322</guid>
+      </id>
+      <unit>cases</unit>
+      <value>8</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:76aa8985-1a8f-4672-987c-472d8fe0b34a:1369512904322</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Tue, paralyse, ralentit ou assourdit les cibles non-Loyales.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:029dbc27-fdae-4850-928e-81d19041c37b:1369512904322</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Décret.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

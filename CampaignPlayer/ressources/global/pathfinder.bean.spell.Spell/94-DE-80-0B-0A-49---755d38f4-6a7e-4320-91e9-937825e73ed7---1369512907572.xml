@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:755d38f4-6a7e-4320-91e9-937825e73ed7:1369512907572</guid>
+   </id>
+   <name>Cadeau empoisonné</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:81221ee6-e022-41a7-a5cd-ddb02d032cf7:1369512907572</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:218f77b4-b052-49dd-82a9-7d965ae7eb9e:1369512907572</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible souffre des effets d&apos;un poison présent chez le personnage.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d2ec286f-449e-473e-a1c5-f73766cecc5e:1369512907572</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cadeau empoisonné.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5af5bc05-edfd-4d48-98e4-18a3ae288857:1369512907937</guid>
+   </id>
+   <name>Rappel de compagnon animal</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c0376893-9287-4400-81e7-0bdaa74f44a2:1369512907937</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f7020247-f170-47c8-b896-cde53a2332c2:1369512907937</guid>
+      </id>
+      <unit>minute</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Comme  rappel à la vie mais pour un compagnon animal.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7bf8904c-c548-4069-a731-f3db05c1473c:1369512907937</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rappel de compagnon animal.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

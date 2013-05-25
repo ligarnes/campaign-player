@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cf862287-b430-4a81-983c-a195bb6082e7:1369512907638</guid>
+   </id>
+   <name>Corde d&apos;échardes</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8fe86755-16d8-49c8-b145-0ca684a0aaa5:1369512907638</guid>
+      </id>
+      <unit>cases</unit>
+      <value>3</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9ed07d0f-b48a-4a58-a89d-555b45c671b3:1369512907638</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La représentation inflige 2d6 points de dégâts perforants.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e9350698-e771-4704-a6f6-da02e8726d04:1369512907638</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Corde déchardes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

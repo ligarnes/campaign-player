@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4b786bb2-88e4-44d1-a787-0520a8a000f2:1369512906346</guid>
+   </id>
+   <name>Transformation martiale</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2a5fc32b-2c6c-47ac-963d-a38075a98c3a:1369512906346</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7911f050-4a6f-4d8d-b812-008c59266d92:1369512906346</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le PJ gagne des bonus au combat.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:65029553-d51c-41e2-944d-093c6d5ffa38:1369512906346</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Transformation martiale.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

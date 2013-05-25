@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:196e80eb-9ef7-45fc-afb2-db41bbe1b783:1369512903489</guid>
+   </id>
+   <name>Bénédiction d&apos;arme</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cb5e821c-1060-49fb-b9fd-832cc8b8b5fb:1369512903489</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9e638663-dc19-4205-b619-590202fb9435:1369512903489</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Arme plus efficace contre les adversaires d&apos;alignement Mauvais.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2e6ae59c-6e53-4c67-981e-6da1a40fdcb7:1369512903489</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bénédiction darme.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

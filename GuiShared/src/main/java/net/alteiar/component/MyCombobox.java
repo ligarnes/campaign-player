@@ -20,10 +20,12 @@ public class MyCombobox<E> extends JPanel {
 
 	public MyCombobox(E[] values) {
 		combobox = new JComboBox<>(values);
+		this.add(combobox);
 	}
 
 	public MyCombobox(Collection<E> values) {
 		combobox = new JComboBox<E>(new Vector<E>(values));
+		this.add(combobox);
 	}
 
 	@SuppressWarnings("unchecked")

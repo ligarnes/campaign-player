@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cac7bcf4-af80-443d-b86c-dad8563a8438:1369512906319</guid>
+   </id>
+   <name>Ténèbres maudites</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c86f08f5-e52a-45a3-bfc2-ab105e3d4f2a:1369512906319</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:55951699-a211-44d1-bcea-de53b0c70fda:1369512906319</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Blesse les créatures Bonnes (1d8 pts de dégâts/2 niveaux) et les rend malades.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3494a8e0-723f-4038-be37-bbf0a48b625e:1369512906319</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Ténèbres maudites.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

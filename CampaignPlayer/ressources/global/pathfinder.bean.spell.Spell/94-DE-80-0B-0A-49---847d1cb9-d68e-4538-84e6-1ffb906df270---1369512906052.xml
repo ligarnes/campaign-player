@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:847d1cb9-d68e-4538-84e6-1ffb906df270:1369512906052</guid>
+   </id>
+   <name>Restauration suprême</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c430cb5b-373a-4fed-8661-778b9fbbaaec:1369512906051</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:78b9f761-5234-40f7-8056-294dc4934615:1369512906052</guid>
+      </id>
+      <unit>round</unit>
+      <value>3</value>
+   </castingTime>
+   <description>Comme restauration, mais rend tous les niveaux et points de caractéristique perdus.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0c9362f1-a036-4608-ba60-1c4702fcb787:1369512906052</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Restauration suprême.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

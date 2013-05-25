@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6355f127-cb7c-4d91-8bcc-e44ea671ab1c:1369512905156</guid>
+   </id>
+   <name>Immobilisation de personne de groupe</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bdb7d0d9-8bca-4d62-8c7b-3b939d719548:1369512905156</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:19da7a05-9abf-435b-912b-609686be6e96:1369512905156</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme immobilisation de personne, mais dans un rayon de 9 m.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a230aeee-96c8-48a5-8062-7f19201586e3:1369512905156</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Immobilisation de personne de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

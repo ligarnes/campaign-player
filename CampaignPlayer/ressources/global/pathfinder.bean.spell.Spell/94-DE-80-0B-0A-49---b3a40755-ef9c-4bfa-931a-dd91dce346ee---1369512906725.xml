@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b3a40755-ef9c-4bfa-931a-dd91dce346ee:1369512906725</guid>
+   </id>
+   <name>Bouclier sacré</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:80c8d2ad-229a-40d6-b32d-d2ab34112ada:1369512906725</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:41208193-3697-4ca7-baa5-b307c86ea4db:1369512906725</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Accorde la protection du bouclier du personnage à un tiers.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:98b5ee1a-cce2-4226-a8dd-563f89b85699:1369512906725</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bouclier sacré.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

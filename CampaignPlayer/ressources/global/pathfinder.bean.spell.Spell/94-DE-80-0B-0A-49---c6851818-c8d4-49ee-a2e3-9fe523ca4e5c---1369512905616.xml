@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c6851818-c8d4-49ee-a2e3-9fe523ca4e5c:1369512905616</guid>
+   </id>
+   <name>Parole du Chaos</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8401cd6a-9029-4a77-b072-cf38e00ad9c0:1369512905616</guid>
+      </id>
+      <unit>cases</unit>
+      <value>8</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6bd2e181-91d1-476d-9c94-35b6597bf9b8:1369512905616</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Tue, cause la confusion, étourdit ou assourdit les cibles non-Chaotiques.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8eda9bb0-bbd2-4644-a2de-f8aea777376b:1369512905616</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Parole du Chaos.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

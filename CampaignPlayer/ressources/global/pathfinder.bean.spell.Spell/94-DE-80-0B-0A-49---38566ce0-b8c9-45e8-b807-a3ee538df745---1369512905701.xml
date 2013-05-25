@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:38566ce0-b8c9-45e8-b807-a3ee538df745:1369512905701</guid>
+   </id>
+   <name>Pierres acérées</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:363eedee-0e3a-4cb6-bafa-9d8c252fd1d1:1369512905701</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e47d6cc1-4383-458a-b761-3b71ed460bc0:1369512905701</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d8 points de dégâts, lenteur possible.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:94801674-a9fe-40f0-9ecf-50691bf4c290:1369512905701</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Pierres acérées.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

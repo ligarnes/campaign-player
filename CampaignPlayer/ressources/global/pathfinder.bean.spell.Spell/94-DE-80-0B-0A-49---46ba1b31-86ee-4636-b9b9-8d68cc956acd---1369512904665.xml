@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:46ba1b31-86ee-4636-b9b9-8d68cc956acd:1369512904665</guid>
+   </id>
+   <name>Espoir</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:22c2143d-e8bb-4b8b-9ebd-5da8cc429989:1369512904665</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1cd259d9-70b7-4289-b2ec-4ef8156ebcb1:1369512904665</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les sujets bénéficient de +2 aux jets d&apos;attaque, aux jets de dégâts, aux jets de sauvegarde et aux tests de compétences.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5c83bbd0-735e-4650-a3a7-fc5649e4e04c:1369512904665</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Espoir.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

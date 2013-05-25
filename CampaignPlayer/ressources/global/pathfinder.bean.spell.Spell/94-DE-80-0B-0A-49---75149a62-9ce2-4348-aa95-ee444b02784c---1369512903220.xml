@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:75149a62-9ce2-4348-aa95-ee444b02784c:1369512903220</guid>
+   </id>
+   <name>Animation suspendue</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8a95eb3d-0116-4db7-8f55-c11e083fdc59:1369512903220</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:29de2535-ea1b-4a4b-98a2-dbcb9597f774:1369512903220</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Met la cible en état de stase.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b442a659-ad29-43f3-88a5-f1afe5fdfeb4:1369512903220</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Animation suspendue.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

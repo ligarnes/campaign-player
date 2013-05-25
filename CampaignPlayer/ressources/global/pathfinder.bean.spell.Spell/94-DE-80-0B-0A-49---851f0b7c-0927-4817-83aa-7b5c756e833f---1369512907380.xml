@@ -1,0 +1,56 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:851f0b7c-0927-4817-83aa-7b5c756e833f:1369512907380</guid>
+   </id>
+   <name>vagues d&apos;extase</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8e5b0626-273e-4d34-85c1-25b05aec5245:1369512907380</guid>
+      </id>
+      <unit>cases</unit>
+      <value>6</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2de53919-7f0b-4faf-8f0a-e1801c1a3e39:1369512907380</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les créatures sont étourdies et chancelantes de plaisir.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f75356c2-88a0-40fc-85fe-d16569ef7842:1369512907380</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.vagues dextase.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

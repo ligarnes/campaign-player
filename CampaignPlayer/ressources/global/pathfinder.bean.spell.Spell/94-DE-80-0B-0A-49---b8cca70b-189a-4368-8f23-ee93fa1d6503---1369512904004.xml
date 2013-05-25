@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:b8cca70b-189a-4368-8f23-ee93fa1d6503:1369512904004</guid>
+   </id>
+   <name>Convocation d&apos;alliés naturels IX</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9c0b5da7-41e4-41a5-af66-8a9f52ebe127:1369512904004</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7b7720d6-4651-4493-980b-5bfc3d109342:1369512904004</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Appelle une ou plusieurs créatures luttant pour le PJ.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e240132c-6021-4b26-bce5-98282745b35a:1369512904004</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation dalliés naturels IX.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

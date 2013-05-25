@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e0e3e82c-7e45-4c7c-b8f7-7e397a2909db:1369512908088</guid>
+   </id>
+   <name>Vol d&apos;arcane</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:33c3d559-e654-473c-b67e-1156bb2b9471:1369512908088</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a8f6876c-6468-4568-8a12-c662c1c20364:1369512908088</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La dissipation transmet un effet au personnage.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ed92a5dc-37c7-4530-8e28-be217d3d38f6:1369512908088</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Vol darcane.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:293ae826-d16b-4074-9356-54066523cbf5:1369512903828</guid>
+   </id>
+   <name>Communication avec les animaux</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2c8faa18-a217-4d59-bccd-ec909bd382ff:1369512903828</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7d014a84-0480-4183-9741-a85dda488784:1369512903828</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Permet de communiquer avec les animaux.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a24b01c4-b812-4ee9-a088-48bd6bab9af4:1369512903828</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Communication avec les animaux.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

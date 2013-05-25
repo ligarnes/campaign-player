@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:9b7f96ca-f3e2-4bf2-acdd-8cb45d4681c6:1369512906241</guid>
+   </id>
+   <name>Sphère d&apos;invisibilité</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1e598166-9ac1-425b-b829-ba272417b7f1:1369512906241</guid>
+      </id>
+      <value>Présentation des sorts#PORTEE|personnelle ou Présentation des sorts#PORTEE|contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f3def663-8d3a-4c56-adb3-ca76a60e4446:1369512906241</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Rend tout le monde invisible à 3 m à la ronde.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ec4631a5-4d75-46de-ba18-73cf7f4894c2:1369512906241</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sphère dinvisibilité.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

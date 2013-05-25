@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5ad30f13-1d54-4939-9890-e916aca4a546:1369512907778</guid>
+   </id>
+   <name>Glace bénie</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5270c3dc-e36a-4350-ae0e-23eb7f045a72:1369512907778</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7ef48ea3-ccc4-459e-8627-6345a6dc8eff:1369512907778</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Crée un mur ou des javelots d&apos;eau bénie gelée.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b5274649-afb2-4644-91eb-9349e4ac020a:1369512907778</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Glace bénie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

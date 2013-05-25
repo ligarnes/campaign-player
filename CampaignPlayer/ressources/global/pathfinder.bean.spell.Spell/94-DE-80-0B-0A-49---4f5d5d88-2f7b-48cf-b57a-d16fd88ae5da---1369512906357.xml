@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4f5d5d88-2f7b-48cf-b57a-d16fd88ae5da:1369512906357</guid>
+   </id>
+   <name>Transmutation du métal en bois</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e62863f6-a8cb-4ad6-8158-3cef89b2e247:1369512906357</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b95e15a3-69de-4d95-bddc-d5b66349dd81:1369512906357</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Affecte tout métal à moins de 12 m.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c383d2ca-598e-4589-8a84-4c4ef768975e:1369512906357</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Transmutation du métal en bois.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

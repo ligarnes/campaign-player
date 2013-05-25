@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:852aa9b6-e56c-4b2e-898d-d8339735be3a:1369512905839</guid>
+   </id>
+   <name>Purification de nourriture et d&apos;eau</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b00f096e-52b2-445d-8035-fd5cd953f90b:1369512905839</guid>
+      </id>
+      <unit>cases</unit>
+      <value>2</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d22e60fb-36b0-41eb-bf77-ff5e0bf39d20:1369512905839</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Purifie 30 dm³/niveau de nourriture et d&apos;eau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d101d812-b28c-4e6e-897d-34017beb3f53:1369512905839</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Purification de nourriture et deau.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

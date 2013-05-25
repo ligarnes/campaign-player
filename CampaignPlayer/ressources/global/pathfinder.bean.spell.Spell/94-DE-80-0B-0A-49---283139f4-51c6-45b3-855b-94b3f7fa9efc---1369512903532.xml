@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:283139f4-51c6-45b3-855b-94b3f7fa9efc:1369512903532</guid>
+   </id>
+   <name>Blessure importante de groupe</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cb11edf9-368d-43b4-bf2e-69a6e4caf24b:1369512903531</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:163b285c-d36b-4a9f-9b32-5945b79e1291:1369512903531</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Inflige 3d8 points de dégâts +1/niveau à une créature/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5227fe7d-a1b3-4d76-90cd-17cc35bad790:1369512903531</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Blessure importante de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

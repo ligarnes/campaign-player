@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f52462ac-9025-47d5-b1c0-9a1c05eb6909:1369512903874</guid>
+   </id>
+   <name>Confusion mineure</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e7585fcd-5558-47b2-8ed1-6de6c6eaed34:1369512903874</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:201212f1-56b4-40b0-adb0-e027d560f314:1369512903874</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une créature est confuse pendant 1 round.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4f35c0b3-6333-4189-92fe-60b660b70287:1369512903874</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Confusion mineure.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

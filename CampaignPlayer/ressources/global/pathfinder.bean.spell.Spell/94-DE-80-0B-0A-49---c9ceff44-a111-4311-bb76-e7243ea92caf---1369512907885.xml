@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c9ceff44-a111-4311-bb76-e7243ea92caf:1369512907885</guid>
+   </id>
+   <name>Panoplie du champion</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b0dea8e5-5cb4-4d8c-819b-69e1758ee94b:1369512907884</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:929dcbfd-22ee-4335-9481-b2cb0d784ed7:1369512907885</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une armure ou un bouclier reçoit un bonus d&apos;altération de +1 par tranche de 4 niveaux.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cff3425d-8bd2-4c73-bbef-d99015034711:1369512907885</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Panoplie du champion.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

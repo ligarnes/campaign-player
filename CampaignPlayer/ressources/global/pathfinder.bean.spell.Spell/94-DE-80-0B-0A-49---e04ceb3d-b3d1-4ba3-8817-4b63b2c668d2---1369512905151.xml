@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e04ceb3d-b3d1-4ba3-8817-4b63b2c668d2:1369512905151</guid>
+   </id>
+   <name>Immobilisation de morts-vivants</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:89bf7aea-49bf-48f6-a152-253d9d3d43ab:1369512905151</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0a19a8d1-c37a-417d-aff3-03fff7f7b86a:1369512905151</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Stoppe les morts-vivants pendant 1 round/niveau.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f32ab8c0-91bd-4deb-9159-8d0e4f2ad2ba:1369512905151</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Immobilisation de morts-vivants.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

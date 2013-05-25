@@ -12,13 +12,19 @@ public class MonsterManager {
 		return INSTANCE;
 	}
 
-	private final ArrayList<PathfinderMonster> allMonsters;
+	private final ArrayList<MonsterBuilder> allMonsters;
 
 	private MonsterManager() {
-		allMonsters = CampaignClient.getInstance().loadLocalBean(PathfinderMonster.class);
+		allMonsters = CampaignClient.getInstance().loadLocalBean(
+				MonsterBuilder.class);
 	}
 
-	public ArrayList<PathfinderMonster> getMonsters() {
+	public void addMonsterBuilder(MonsterBuilder builder) {
+		allMonsters.add(builder);
+		CampaignClient.getInstance().savePerma(builder);
+	}
+
+	public ArrayList<MonsterBuilder> getMonsters() {
 		return allMonsters;
 	}
 }

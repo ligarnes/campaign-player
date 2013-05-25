@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:0424de6d-1289-4f84-ab81-95085587d5a1:1369512907868</guid>
+   </id>
+   <name>Mot de fermeté</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e0173428-7056-429e-a2ac-be5d48c3f5ce:1369512907868</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5e437399-b8eb-4acd-8931-4ba6b0a09a54:1369512907868</guid>
+      </id>
+      <unit>immediateAction</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Les alliés relancent un jet de sauvegarde contre le charme ou la peur.</description>
+   <composant>V DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bf571522-830a-4a2b-9985-b63c4a552fb3:1369512907868</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mot de fermeté.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

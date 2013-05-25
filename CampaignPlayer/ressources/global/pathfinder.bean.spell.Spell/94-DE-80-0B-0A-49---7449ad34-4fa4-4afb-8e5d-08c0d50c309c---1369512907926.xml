@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7449ad34-4fa4-4afb-8e5d-08c0d50c309c:1369512907926</guid>
+   </id>
+   <name>Prison de glace</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:68a1c408-c17a-4517-949e-dd834731b029:1369512907926</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0bbef3c9-f877-4c48-9d69-e2598f2794e6:1369512907926</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une épaisse gangue de glace retient la cible et la blesse.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e05b2d34-a704-47d5-ac61-a4eee39136df:1369512907926</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Prison de glace.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

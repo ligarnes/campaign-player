@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ba0748bb-3d40-4561-aa80-46846f268249:1369512907054</guid>
+   </id>
+   <name>Lame de triomphe éclatant</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7090a55e-4bc5-476e-a667-48a50a7da627:1369512907054</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:76a96d55-825a-4ad4-890b-de2e206dd4d0:1369512907054</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>L&apos;arme liée devient spectrale.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:73cd7d94-266a-427e-a4ac-cfe73eb4a34a:1369512907054</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lame de triomphe éclatant.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

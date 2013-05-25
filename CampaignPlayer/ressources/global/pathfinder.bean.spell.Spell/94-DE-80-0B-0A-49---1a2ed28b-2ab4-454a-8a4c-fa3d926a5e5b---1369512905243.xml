@@ -1,0 +1,83 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1a2ed28b-2ab4-454a-8a4c-fa3d926a5e5b:1369512905243</guid>
+   </id>
+   <name>Lecture de la magie</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c93c7a68-b9f4-432d-832b-2be3d2b3ad1e:1369512905243</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0b118701-cd7b-4a12-9aab-508ea2ce8c5a:1369512905243</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Permet de lire parchemins et livres de sorts.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fe6f576e-2861-41a8-b056-d94cc478f40b:1369512905243</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lecture de la magie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>conjurateur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>druide</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>0</integer>
+      </entry>
+      <entry>
+         <string>antipaladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:db1f7143-9023-4e1b-a15e-2096a3e95f99:1369512907246</guid>
+   </id>
+   <name>Sculpture de simulacre</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:04a4aa8e-30ad-4c7b-90a3-469970b611ab:1369512907246</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2a79aac8-5173-4d46-aed7-be16d1d987cf:1369512907246</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Modifie l&apos;apparence d&apos;un simulacre.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9058a0d0-cfd9-4f02-a1a8-84ca763d6a0c:1369512907246</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sculpture de simulacre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

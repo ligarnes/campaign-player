@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:76c2d658-0231-40cb-935c-b4f4c3f2577a:1369512907583</guid>
+   </id>
+   <name>Chevaucher la foudre</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1a79a15d-9c23-440e-96b8-da8f48a35e5a:1369512907583</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4f509509-81e3-43c2-9534-3f52a6bb0f55:1369512907583</guid>
+      </id>
+      <unit>swiftAction</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Transforme en électricité.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9627643b-9a24-4166-8e4f-55d7d290692b:1369512907583</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Chevaucher la foudre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d110effb-4a1f-4d53-bb41-6b1de35010c0:1369512905514</guid>
+   </id>
+   <name>Mot de rappel</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e3ccbe95-6fc6-45d2-a1a2-23b3a715850b:1369512905514</guid>
+      </id>
+      <unit>unlimited</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:baf7db42-8641-493c-bc07-c8c96146262c:1369512905514</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Téléporte le PJ à un endroit choisi à l&apos;avance.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7a17e33d-33e0-4407-a098-c63aca695848:1369512905514</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mot de rappel.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

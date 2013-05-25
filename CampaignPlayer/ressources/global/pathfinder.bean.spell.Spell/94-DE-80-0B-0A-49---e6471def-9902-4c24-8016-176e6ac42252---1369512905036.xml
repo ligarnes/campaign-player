@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e6471def-9902-4c24-8016-176e6ac42252:1369512905036</guid>
+   </id>
+   <name>Guérison de destrier</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9e15b8d5-89eb-4a79-a39f-ccfadbd35ef4:1369512905035</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1cee2c82-ebe5-412d-b7a5-23b28e304fa1:1369512905035</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Guérison suprême sur la monture du PJ.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:69253a45-2f84-4820-b10f-3fe3e7a32866:1369512905035</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Guérison de destrier.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

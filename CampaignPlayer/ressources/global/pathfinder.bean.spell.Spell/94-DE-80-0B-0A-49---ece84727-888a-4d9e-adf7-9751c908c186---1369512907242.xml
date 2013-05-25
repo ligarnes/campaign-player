@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ece84727-888a-4d9e-adf7-9751c908c186:1369512907242</guid>
+   </id>
+   <name>Sceau contre les maléfices</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:87c12f19-4343-4e61-b5cb-e38f888e7041:1369512907242</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6df89701-25ff-4725-8102-7ca686a07bd0:1369512907242</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible a un bonus de +4 aux jets de sauvegarde contre les maléfices des sorcières.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c0472eb3-0f15-442d-87d4-babe255a6cd1:1369512907242</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Sceau contre les maléfices.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

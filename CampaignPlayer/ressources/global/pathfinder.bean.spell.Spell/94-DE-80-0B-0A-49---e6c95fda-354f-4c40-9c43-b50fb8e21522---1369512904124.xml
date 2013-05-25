@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e6c95fda-354f-4c40-9c43-b50fb8e21522:1369512904124</guid>
+   </id>
+   <name>Corde enchantée</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d4de99ef-5b3a-4367-946a-9d9eea15dacf:1369512904123</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:73e82ab7-1ba5-45ea-a86b-2edd2b1abe3c:1369512904124</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Huit créatures peuvent se cacher dans un espace extradimensionnel.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e229add3-2aac-42d5-8bab-e189873ac709:1369512904124</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Corde enchantée.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

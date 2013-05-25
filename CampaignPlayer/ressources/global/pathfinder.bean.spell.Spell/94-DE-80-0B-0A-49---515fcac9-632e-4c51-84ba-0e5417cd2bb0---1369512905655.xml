@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:515fcac9-632e-4c51-84ba-0e5417cd2bb0:1369512905655</guid>
+   </id>
+   <name>Permanence</name>
+   <school>universal</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:783f87fa-a9bf-46fd-a1ec-82f83f956944:1369512905654</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f95c2db1-9482-4a14-a6dd-8ec093368731:1369512905654</guid>
+      </id>
+      <unit>round</unit>
+      <value>2</value>
+   </castingTime>
+   <description>Rend certains sorts permanents.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2d2d6a48-3f7b-4744-892a-3b5ff77b27a2:1369512905654</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Permanence.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4ed309be-4f5b-4125-8100-cd659a7486d2:1369512905623</guid>
+   </id>
+   <name>Passage dans l&apos;éther</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5aa4a80b-4bd5-4325-8fdc-0ce3dbb3c39d:1369512905623</guid>
+      </id>
+      <value>Présentation des sorts#PORTEE|contact (voir description)</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5516491e-e71a-402d-8044-c25b9b9e5da9:1369512905623</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Emmène plusieurs créatures dans le plan Éthéré.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4b3f4005-79c4-4f9b-baa9-0c1307908438:1369512905623</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Passage dans léther.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

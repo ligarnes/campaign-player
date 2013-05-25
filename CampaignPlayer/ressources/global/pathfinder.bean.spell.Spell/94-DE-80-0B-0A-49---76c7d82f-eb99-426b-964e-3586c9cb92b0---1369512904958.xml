@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:76c7d82f-eb99-426b-964e-3586c9cb92b0:1369512904958</guid>
+   </id>
+   <name>Germes de feu</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e9d8fb26-9e02-48eb-b2eb-70a60611d8c3:1369512904958</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c5dd465d-c4f4-4a50-a17f-e84d7bea7e65:1369512904958</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Glands et baies deviennent des projectiles ou des bombes.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:70f74f4c-c739-46b0-a0d3-21018a67f944:1369512904958</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Germes de feu.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

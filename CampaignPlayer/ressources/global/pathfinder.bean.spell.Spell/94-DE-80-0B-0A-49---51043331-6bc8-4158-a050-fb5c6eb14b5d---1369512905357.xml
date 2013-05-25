@@ -1,0 +1,48 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:51043331-6bc8-4158-a050-fb5c6eb14b5d:1369512905357</guid>
+   </id>
+   <name>Mains brûlantes</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:26c16d67-31ef-4e3c-bb66-847ad7da1cdb:1369512905357</guid>
+      </id>
+      <unit>cases</unit>
+      <value>3</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3686fdf7-8c40-424a-ba34-b6cd5de49fd9:1369512905357</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1d4 points de dégâts de feu/niveau (max. 5d4).</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:95544636-e525-4e96-a5af-f1259f117116:1369512905357</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mains brûlantes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

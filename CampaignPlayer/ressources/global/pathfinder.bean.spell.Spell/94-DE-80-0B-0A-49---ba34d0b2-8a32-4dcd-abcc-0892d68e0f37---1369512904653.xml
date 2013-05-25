@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ba34d0b2-8a32-4dcd-abcc-0892d68e0f37:1369512904653</guid>
+   </id>
+   <name>Épée de force</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:96488b3d-dd3d-41d0-8334-921697d73f12:1369512904653</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eaa8e5ed-c6aa-4045-a787-d36e71a0a327:1369512904653</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Lame d&apos;énergie flottante qui frappe les adversaires.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fd1b2be7-ffc3-4649-af52-f084e90fbf7d:1369512904653</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Épée de force.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

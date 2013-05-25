@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:34970da6-a6e1-4f13-9f3a-477e10a2c61f:1369512903199</guid>
+   </id>
+   <name>Animation des plantes</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7db9f545-7b26-4be3-addc-3db631c134c4:1369512903199</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:29018feb-1abe-4940-828f-44073ed21b1f:1369512903199</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une ou plusieurs plantes s&apos;animent et attaquent les adversaires du PJ.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:59764de6-cc6a-4451-9a58-401745a48bb3:1369512903199</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Animation des plantes.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:30078fe4-a182-43c0-bf85-75529ce8b8d9:1369512906793</guid>
+   </id>
+   <name>Contrôle de créature artificielle</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6821361c-c98e-4760-bcd9-efbf38fa6d26:1369512906793</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0a260762-3b2a-4331-ade9-db53fed9ae5a:1369512906793</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Prend le contrôle d&apos;une créature artificielle.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:044dbc45-f2f8-4ba3-9cee-eb8e96c09c91:1369512906793</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Contrôle de créature artificielle.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

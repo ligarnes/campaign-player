@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6b878957-1d07-4b86-88ab-5fb7fa063eb1:1369512906929</guid>
+   </id>
+   <name>Dysfonctionnement</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e3763e32-8623-4fde-aa87-0e709b3db779:1369512906929</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:917c3411-a6fa-4ec6-aae0-2fa0eb2a03c2:1369512906929</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les créatures artificielles se comportent étrangement pendant 1 round/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2e83380e-0139-429a-a330-2f2174b39759:1369512906929</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Dysfonctionnement.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

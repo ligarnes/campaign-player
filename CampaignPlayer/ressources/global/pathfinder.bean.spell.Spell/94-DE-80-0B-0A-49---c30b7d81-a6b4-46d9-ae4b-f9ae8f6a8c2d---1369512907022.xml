@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c30b7d81-a6b4-46d9-ae4b-f9ae8f6a8c2d:1369512907022</guid>
+   </id>
+   <name>imprégner d&apos;aura</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c7e9c386-ff7f-46c7-9a95-4de42584fe35:1369512907022</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0106fd3e-9dad-4840-9846-7c1ca7861d57:1369512907022</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible imite l&apos;aura du prêtre.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:656a65b9-21f7-4b89-8149-765aff67e86e:1369512907022</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.imprégner daura.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

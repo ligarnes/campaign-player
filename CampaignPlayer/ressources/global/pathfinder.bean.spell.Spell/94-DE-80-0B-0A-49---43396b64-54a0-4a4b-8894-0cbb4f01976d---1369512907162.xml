@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:43396b64-54a0-4a4b-8894-0cbb4f01976d:1369512907162</guid>
+   </id>
+   <name>Poursuite divine</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7cb82006-1e8f-485b-9e1a-b9f8f5e62991:1369512907162</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:53c3a60a-d3f9-4ae2-aa3f-482aace1bf65:1369512907162</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Gagne un des types de déplacement de la proie.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d49c1561-bb7b-4054-9ae1-b68783958943:1369512907162</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Poursuite divine.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

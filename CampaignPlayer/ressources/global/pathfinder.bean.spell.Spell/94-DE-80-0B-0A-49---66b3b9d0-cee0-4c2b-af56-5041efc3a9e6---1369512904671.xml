@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:66b3b9d0-cee0-4c2b-af56-5041efc3a9e6:1369512904671</guid>
+   </id>
+   <name>Esprit impénétrable</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5d690ec9-e76c-440a-bc19-c6fc0d1d4e42:1369512904671</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:59f103d0-de21-4191-9898-48d26d44e34b:1369512904671</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Sujet immunisé contre les sorts mentaux et la scrutation.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:09421445-b3c2-4dc8-978d-f96d89bd339f:1369512904671</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Esprit impénétrable.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

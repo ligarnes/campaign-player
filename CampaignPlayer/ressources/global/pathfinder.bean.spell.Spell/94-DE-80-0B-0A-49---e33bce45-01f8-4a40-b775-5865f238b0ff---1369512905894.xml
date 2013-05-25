@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e33bce45-01f8-4a40-b775-5865f238b0ff:1369512905894</guid>
+   </id>
+   <name>Rayon ardent</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d1a8c689-7357-4dd5-b993-a1af1d6ba423:1369512905894</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e6221099-36d0-49c7-843b-8cc244839645:1369512905894</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Attaque à distance infligeant 4d6 points de dégâts de feu, +1 rayon/4 niveaux (max. 3).</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5e5e2e71-7e42-4e37-b5d5-89477bf01a3f:1369512905894</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rayon ardent.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

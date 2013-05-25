@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:49438cf9-5be8-42ce-b90a-353a09abde25:1369512906064</guid>
+   </id>
+   <name>Rouille</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eef61cad-53f9-416d-9bb5-cdd433d9622d:1369512906064</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:634687a2-7824-4728-ac9c-9a53596f3439:1369512906064</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Fait rouiller le métal d&apos;un simple contact.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b3740425-92ab-4330-9380-d065582e5968:1369512906064</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rouille.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

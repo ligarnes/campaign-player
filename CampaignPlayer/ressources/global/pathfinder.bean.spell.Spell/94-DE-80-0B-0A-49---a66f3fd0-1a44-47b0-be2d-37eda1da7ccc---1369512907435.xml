@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a66f3fd0-1a44-47b0-be2d-37eda1da7ccc:1369512907435</guid>
+   </id>
+   <name>Accorder la grâce du champion</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3b0a2372-f045-4d72-bd7a-61d73a6adc2f:1369512907434</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c2dda0c5-6ec7-4c11-ae06-3e823184e1b2:1369512907434</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible gagne des pouvoirs de paladin pendant 1 round/niveau.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9909c5d5-068d-46e0-a977-c8c83d06e3a2:1369512907435</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Accorder la grâce du champion.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

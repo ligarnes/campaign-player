@@ -1,0 +1,37 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:a645903e-afc4-4185-9b35-79e6b56aa955:1369512904011</guid>
+   </id>
+   <name>Convocation d&apos;instrument</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1ecdbe67-a546-46c2-9a1f-c5150fe188a7:1369512904011</guid>
+      </id>
+      <unit>cases</unit>
+      <value>0</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:caa34408-e12d-4e05-b98b-d918adf80a5b:1369512904011</guid>
+      </id>
+      <unit>round</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Convoque un instrument de musique au choix.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e2100ede-5d31-4812-9f92-41b86e000661:1369512904011</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Convocation dinstrument.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>0</integer>
+      </entry>
+   </classesLevel>
+</spell>

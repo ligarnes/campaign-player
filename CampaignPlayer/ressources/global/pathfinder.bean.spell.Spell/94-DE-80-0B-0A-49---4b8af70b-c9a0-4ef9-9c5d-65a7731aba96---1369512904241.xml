@@ -1,0 +1,44 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4b8af70b-c9a0-4ef9-9c5d-65a7731aba96:1369512904241</guid>
+   </id>
+   <name>Cri suprême</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:31d29a7f-696d-4d8f-a630-0d7b7875f1f5:1369512904240</guid>
+      </id>
+      <unit>cases</unit>
+      <value>12</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3510e7af-8ee5-4a16-9292-19c8099d63ae:1369512904240</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Cri dévastateur infligeant 10d6 points de dégâts de son ; étourdit les créatures, abîme les objets.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b24d2d0d-ee56-4ec3-9e07-3a6c8a8af99b:1369512904240</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cri suprême.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

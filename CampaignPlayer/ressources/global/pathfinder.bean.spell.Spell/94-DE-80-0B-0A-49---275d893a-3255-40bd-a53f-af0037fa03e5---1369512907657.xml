@@ -1,0 +1,53 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:275d893a-3255-40bd-a53f-af0037fa03e5:1369512907657</guid>
+   </id>
+   <name>Création de demi-plan supérieure</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9b264e9a-b927-4406-b737-220109f5180d:1369512907657</guid>
+      </id>
+      <unit></unit>
+      <value></value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3b741827-63bf-453c-929f-6929f1dc61ce:1369512907657</guid>
+      </id>
+      <unit>hour</unit>
+      <value>6</value>
+   </castingTime>
+   <description>Comme  création de demi-plan mais plus grand et avec plus de caractéristiques planaires.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:019fbf9c-0fff-4025-a587-f5250ced9fd0:1369512907657</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Création de demi-plan supérieure.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

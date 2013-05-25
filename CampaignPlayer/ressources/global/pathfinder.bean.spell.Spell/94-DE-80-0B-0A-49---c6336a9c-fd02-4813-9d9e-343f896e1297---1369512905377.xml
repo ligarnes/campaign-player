@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:c6336a9c-fd02-4813-9d9e-343f896e1297:1369512905377</guid>
+   </id>
+   <name>Manoir somptueux</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f6e82def-f219-4130-9619-3fb8d4b5a348:1369512905377</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fbbe6113-9bda-48a3-b795-a5fbf439c5b4:1369512905377</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Demeure extradimensionnelle.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:23840ef9-280d-4161-b3ab-d633ffdad990:1369512905377</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Manoir somptueux.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:770cb3a3-48df-49ce-a2b2-9ff898ead0d3:1369512907707</guid>
+   </id>
+   <name>Désir anormal</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8cce9248-f96b-4091-a9b4-5a83fccd6a2c:1369512907707</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3e56eca6-5714-4ffe-be3b-c2dacc274fd8:1369512907707</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible est obligée d&apos;en embrasser ou d&apos;en caresser une autre.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1089ea87-c662-46c8-bf14-8a3b32819cfb:1369512907707</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Désir anormal.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

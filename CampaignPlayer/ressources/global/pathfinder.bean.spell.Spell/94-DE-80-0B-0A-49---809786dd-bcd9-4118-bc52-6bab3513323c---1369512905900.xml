@@ -1,0 +1,36 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:809786dd-bcd9-4118-bc52-6bab3513323c:1369512905900</guid>
+   </id>
+   <name>Rayon de soleil</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c8fab203-01d8-4f86-bf21-b614f99845da:1369512905900</guid>
+      </id>
+      <unit>cases</unit>
+      <value>12</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4be71bac-e088-4707-88fc-73470bfaea0b:1369512905900</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Aveugle et inflige 4d6 points de dégâts.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:10efe689-140d-4b29-a283-85aefb10a1fb:1369512905900</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rayon de soleil.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

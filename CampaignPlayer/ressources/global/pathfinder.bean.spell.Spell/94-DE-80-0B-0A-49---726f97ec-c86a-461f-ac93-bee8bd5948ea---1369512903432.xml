@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:726f97ec-c86a-461f-ac93-bee8bd5948ea:1369512903432</guid>
+   </id>
+   <name>Baie nourricière</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:342323f9-c9d4-4079-831f-3662ee8a9c60:1369512903432</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bbedd3f2-1692-4291-9b9f-07f53c0e0cb0:1369512903432</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>2d4 baies rendant chacune 1 pv (max. 8 pv/24 heures).</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4fa43a20-119b-4122-87f4-8e96a4acce41:1369512903432</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Baie nourricière.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

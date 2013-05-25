@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4bf2ce4e-a8ef-4c7a-a11b-02f10ec23bb5:1369512906719</guid>
+   </id>
+   <name>Barde d&apos;ombre</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:cffb51c9-8f84-4530-8d89-1b1d59899cb9:1369512906719</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8b2f4b8b-a7ba-4559-b79e-3add109fa549:1369512906719</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Clone d&apos;ombre qui commence une représentation bardique.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c7a7b6de-2da7-4654-9963-ad948c537d0c:1369512906719</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Barde dombre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

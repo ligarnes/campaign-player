@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7320617d-7a59-4afc-a899-993f75d8b883:1369512905286</guid>
+   </id>
+   <name>Lueur d&apos;arc-en-ciel</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:da0294a2-cc5d-4d1b-abbf-5229c85c5d77:1369512905286</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:78faaf5b-e5f2-4961-ba2b-5f10b556ece7:1369512905286</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Fascine jusqu&apos;à 24 DV de créatures.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:29de7b27-cf82-4ff0-8eac-e2e259424441:1369512905286</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lueur darc-en-ciel.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>barde</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

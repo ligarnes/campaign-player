@@ -1,0 +1,49 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d5e3a76c-73ee-4721-8da3-a1eef4da7eca:1369512907773</guid>
+   </id>
+   <name>Froide frappe de glace</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:07483646-6a05-474b-900e-8421cb4f181b:1369512907773</guid>
+      </id>
+      <unit>cases</unit>
+      <value>6</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b8216559-b890-40f5-8d5e-c291d6c30c8c:1369512907773</guid>
+      </id>
+      <unit>swiftAction</unit>
+      <value>1</value>
+   </castingTime>
+   <description>Cône d&apos;éclats de glace qui inflige 1d6 points de dégâts de froid/niveau.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c5761201-084b-49ee-bebf-0269f2ab9b9e:1369512907773</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Froide frappe de glace.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

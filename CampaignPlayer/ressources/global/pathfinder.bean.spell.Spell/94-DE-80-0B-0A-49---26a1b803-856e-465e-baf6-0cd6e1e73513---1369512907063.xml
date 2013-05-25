@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:26a1b803-856e-465e-baf6-0cd6e1e73513:1369512907063</guid>
+   </id>
+   <name>Lien des esprits combatifs</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1fb5e864-745a-4f62-a82d-d93f89c1ce2c:1369512907063</guid>
+      </id>
+      <value>personnelle et courte (7,50 m + 1,50 m/2 niveaux) (5 case(s) + 1 case(s)/2 niveaux)</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2db9af40-dd6f-4aff-819c-086a7b08406e:1369512907063</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le personnage et un allié gagnent un bonus à l&apos;attaque et à la CA.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e59e8dc9-8ddd-4997-8a7b-4c0a69c51341:1369512907063</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lien des esprits combatifs.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

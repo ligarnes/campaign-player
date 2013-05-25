@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:6c3c6887-d148-472a-be4b-1b3337bd00aa:1369512905192</guid>
+   </id>
+   <name>Injonction suprême</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1a9b96c0-dc00-4c38-a35d-bd81cf3e0fb7:1369512905192</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:273c0bf3-0d4a-4a05-a8c3-7d7f4c8798f6:1369512905192</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme injonction, mais affecte un sujet/niveau.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6dc499ac-52af-4b6e-8585-b7926f9e275b:1369512905192</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Injonction suprême.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

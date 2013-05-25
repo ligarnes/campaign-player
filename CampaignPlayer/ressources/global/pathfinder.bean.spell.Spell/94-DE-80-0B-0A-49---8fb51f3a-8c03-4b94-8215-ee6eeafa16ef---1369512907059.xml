@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8fb51f3a-8c03-4b94-8215-ee6eeafa16ef:1369512907059</guid>
+   </id>
+   <name>Lance de pureté</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:35fddead-ac42-4731-8885-d08ab421f881:1369512907059</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e5abc9b6-ab81-4671-9c3b-ab61845de1a6:1369512907059</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Blesse et hébète peut-être les créatures mauvaises.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d08c2b9d-de22-437e-bb16-16415e34f173:1369512907059</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lance de pureté.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

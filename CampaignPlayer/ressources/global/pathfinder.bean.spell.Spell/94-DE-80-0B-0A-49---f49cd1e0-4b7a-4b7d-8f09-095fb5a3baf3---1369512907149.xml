@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f49cd1e0-4b7a-4b7d-8f09-095fb5a3baf3:1369512907149</guid>
+   </id>
+   <name>Poing de force</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3e97936f-3d7e-4da0-bed5-1ef461acab53:1369512907149</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0eeb589a-c341-4e7c-b26a-a59cc5971d6f:1369512907149</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>La cible reçoit 1d4 points de dégâts de force par niveau et elle est repoussée.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9b46ab3b-934f-456b-9153-b0b7f6d1622d:1369512907149</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Poing de force.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>magus</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

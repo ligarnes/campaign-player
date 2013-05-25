@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:13be179c-89b0-43aa-9ecc-10d5c4b6a15f:1369512905511</guid>
+   </id>
+   <name>Mot de pouvoir mortel</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e54f3ec3-f6b7-429e-a884-b3a41f8c903b:1369512905511</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:599e1f04-eb4f-4b94-be5b-42cfb61dd018:1369512905511</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Tue un adversaire doté de 100 pv ou moins.</description>
+   <composant>V</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:881c0074-a1e3-4573-a420-04e33b7c2cf1:1369512905511</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Mot de pouvoir mortel.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

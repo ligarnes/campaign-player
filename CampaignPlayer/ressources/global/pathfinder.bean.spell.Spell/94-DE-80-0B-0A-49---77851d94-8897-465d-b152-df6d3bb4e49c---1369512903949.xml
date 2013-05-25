@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:77851d94-8897-465d-b152-df6d3bb4e49c:1369512903949</guid>
+   </id>
+   <name>Contrôle mineur des morts-vivants</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6516c713-3415-43aa-8695-770786efda87:1369512903949</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ec568cda-3279-4c49-9eab-e1a9cd36bc6e:1369512903949</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les morts-vivants obéissent au PJ.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:27405586-e2fc-4564-abbe-9c9ff5411b34:1369512903949</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Contrôle mineur des morts-vivants.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

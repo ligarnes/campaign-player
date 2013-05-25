@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:cd81bb67-a418-4a6c-9ca1-4aa522c944ae:1369512906939</guid>
+   </id>
+   <name>Éclat du chaos</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:55f7f33e-0992-4beb-a6f5-4cede335b340:1369512906938</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9425a025-71a6-4740-8883-ba7a3af978ca:1369512906939</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Blesse et hébète peut-être les créatures Loyales.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:207eb68b-50e3-47fa-a60a-b051e68b0457:1369512906939</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Éclat du chaos.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

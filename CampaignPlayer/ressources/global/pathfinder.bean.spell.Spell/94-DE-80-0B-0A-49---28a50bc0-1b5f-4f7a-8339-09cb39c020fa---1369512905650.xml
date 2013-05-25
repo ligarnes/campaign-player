@@ -1,0 +1,40 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:28a50bc0-1b5f-4f7a-8339-09cb39c020fa:1369512905650</guid>
+   </id>
+   <name>Perception de la mort</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:97301b80-659f-425a-a363-b18238c653d7:1369512905650</guid>
+      </id>
+      <unit>cases</unit>
+      <value>6</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9a42eeb6-0436-4ff3-a988-6ee7fc62ee1e:1369512905650</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Révèle l&apos;état de santé des créatures à 9 m à la ronde.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4d7d9239-a35b-445d-9593-ee3a6e6a343e:1369512905650</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Perception de la mort.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

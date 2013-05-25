@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:721c2144-0c99-4bd1-b07c-ffbb932772b9:1369512905341</guid>
+   </id>
+   <name>Main du berger</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2d234fb5-2ea4-4840-9624-cc3b5bc9d70b:1369512905341</guid>
+      </id>
+      <value>7,5 km</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a041309c-a09c-4120-ac47-982450512af0:1369512905341</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Guide le sujet jusqu&apos;au PJ.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:618eda41-c028-4169-b8da-91c0100d3a11:1369512905341</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Main du berger.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

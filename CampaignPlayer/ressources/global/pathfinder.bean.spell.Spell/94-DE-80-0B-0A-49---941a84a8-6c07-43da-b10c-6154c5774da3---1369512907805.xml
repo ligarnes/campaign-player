@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:941a84a8-6c07-43da-b10c-6154c5774da3:1369512907805</guid>
+   </id>
+   <name>Invasion d&apos;orties</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5b2ebe60-c921-4dfa-ad74-4858ef1094dd:1369512907805</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bb4cb992-a09f-4ffc-a8b6-21795d025c94:1369512907805</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Une explosion inflige 3d6 points de dégâts et 1d6 d&apos;acide.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b29914b0-ce15-4417-bd63-b8f0f7d236aa:1369512907805</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Invasion dorties.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

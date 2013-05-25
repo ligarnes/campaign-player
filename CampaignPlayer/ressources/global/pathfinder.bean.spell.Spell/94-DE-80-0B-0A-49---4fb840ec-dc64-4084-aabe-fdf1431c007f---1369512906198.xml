@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:4fb840ec-dc64-4084-aabe-fdf1431c007f:1369512906198</guid>
+   </id>
+   <name>Souffle de vie</name>
+   <school>conjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f8dd72f5-23fd-4b37-ae4f-60df319a141b:1369512906198</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:078c1f93-bee6-4ebb-9b02-314b24273ef8:1369512906198</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Soigne 5d8 pts de dégâts +1/niveau et ramène des créatures récemment décédées à la vie.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:1f2c84df-0275-4418-9cff-5f901d9da7e3:1369512906198</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Souffle de vie.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>5</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

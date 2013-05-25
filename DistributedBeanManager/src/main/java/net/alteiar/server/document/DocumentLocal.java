@@ -9,9 +9,11 @@ import net.alteiar.shared.UniqueID;
 public class DocumentLocal implements IDocumentClient {
 
 	private final BeanEncapsulator bean;
+	private final String filename;
 
 	public DocumentLocal(BasicBean bean) {
 		this.bean = new BeanEncapsulator(bean);
+		filename = DocumentIO.validateFilename(this.bean.getId().toString());
 	}
 
 	@Override
@@ -31,11 +33,11 @@ public class DocumentLocal implements IDocumentClient {
 
 	@Override
 	public String getFilename() {
-		return null;
+		return filename;
 	}
 
 	@Override
 	public void save(String path) throws Exception {
-		// do nothing, the bean should be given at construction
+		DocumentIO.saveDocument(bean.getBean(), path, getFilename());
 	}
 }

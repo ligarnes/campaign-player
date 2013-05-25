@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:e03a90d2-9834-435e-a91d-98d95d9b95fa:1369512905400</guid>
+   </id>
+   <name>Marteau du chaos</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f22c6ce2-38db-4baf-b002-d2dab7084742:1369512905399</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e418d828-b65b-442f-8347-ee94b98521d8:1369512905400</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Blesse et ralentit les créatures Loyales (1d8 pts de dégâts/2 niveaux).</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c4177616-5302-451f-adab-f9409d7a1966:1369512905400</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Marteau du chaos.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

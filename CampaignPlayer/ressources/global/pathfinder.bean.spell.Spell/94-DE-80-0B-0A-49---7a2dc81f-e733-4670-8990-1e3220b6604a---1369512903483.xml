@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:7a2dc81f-e733-4670-8990-1e3220b6604a:1369512903483</guid>
+   </id>
+   <name>Bénédiction</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:7a18f30a-5c46-46f4-aa79-c4ce833eb7e4:1369512903483</guid>
+      </id>
+      <value>15 m (10 c)</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0f2699a8-82f9-456c-b931-e7fa2b95af87:1369512903483</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les alliés gagnent +1 à l&apos;attaque et aux jets de sauvegarde contre la terreur.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e96a2e0e-52b5-4018-a781-c809d610ab38:1369512903483</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Bénédiction.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

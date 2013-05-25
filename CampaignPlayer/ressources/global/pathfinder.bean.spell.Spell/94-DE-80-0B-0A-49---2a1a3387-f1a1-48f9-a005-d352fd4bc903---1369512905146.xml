@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:2a1a3387-f1a1-48f9-a005-d352fd4bc903:1369512905146</guid>
+   </id>
+   <name>Immobilisation de monstre de groupe</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b39ccbf1-eea1-4abe-8664-fc43567ce624:1369512905146</guid>
+      </id>
+      <unit>medium</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:93024ed3-e89e-4f93-aed8-0627122ce00b:1369512905146</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Comme immobilisation de monstre, mais sur 9 m de rayon.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:11942436-b394-44d2-ad7e-074b0a5d7877:1369512905146</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Immobilisation de monstre de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>9</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>9</integer>
+      </entry>
+   </classesLevel>
+</spell>

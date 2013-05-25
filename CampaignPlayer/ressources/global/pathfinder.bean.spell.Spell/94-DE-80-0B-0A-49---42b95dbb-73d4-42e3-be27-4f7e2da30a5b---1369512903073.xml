@@ -1,0 +1,47 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:42b95dbb-73d4-42e3-be27-4f7e2da30a5b:1369512903073</guid>
+   </id>
+   <name>Aide</name>
+   <school>enchantment</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f6787fd8-e2fb-4b96-8cee-d95596f332d8:1369512903073</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:33d29b69-8289-4994-ae85-1bd995793e2a:1369512903073</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>+1 aux jets d&apos;attaque et de sauvegarde contre la terreur, 1d8 pv temporaires, +1/niveau (max. +10).</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d3a15b8b-b732-4ea3-902a-8ed9b14084b7:1369512903073</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aide.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>alchimiste</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

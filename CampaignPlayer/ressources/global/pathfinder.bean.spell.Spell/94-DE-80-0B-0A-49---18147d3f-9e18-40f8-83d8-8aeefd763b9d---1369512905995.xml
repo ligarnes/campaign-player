@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:18147d3f-9e18-40f8-83d8-8aeefd763b9d:1369512905995</guid>
+   </id>
+   <name>Remémoration</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eb536fb8-e6ce-48ad-97bb-4891a6b25368:1369512905995</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3857b6e4-4482-46c6-b432-ce7274f78736:1369512905995</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Permet de se rappeler d&apos;un sort du 5e niveau ou moins. &apos;&apos;Magiciens uniquement&apos;&apos;</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:477d0ca9-0d8d-4337-9bac-cc7ef3edf07e:1369512905995</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Remémoration.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

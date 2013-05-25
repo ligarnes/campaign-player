@@ -1,0 +1,45 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:1bb0a16f-f763-4df5-8bed-dc29d4a210d8:1369512906146</guid>
+   </id>
+   <name>Simulacre</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:38ec77e6-4b72-4568-8b19-0880ee905211:1369512906146</guid>
+      </id>
+      <unit>cases</unit>
+      <value>0</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:624574ff-807c-42eb-b995-4c354972a740:1369512906146</guid>
+      </id>
+      <unit>hour</unit>
+      <value>12</value>
+   </castingTime>
+   <description>Crée un double partiellement réel du sujet.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:317fef89-1d38-445d-b043-d5ec9a885d88:1369512906146</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Simulacre.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

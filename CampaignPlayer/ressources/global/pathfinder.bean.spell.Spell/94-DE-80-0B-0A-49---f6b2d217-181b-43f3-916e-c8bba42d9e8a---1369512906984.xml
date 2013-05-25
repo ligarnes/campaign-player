@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:f6b2d217-181b-43f3-916e-c8bba42d9e8a:1369512906984</guid>
+   </id>
+   <name>Flèche de loi</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e605e34c-8ae8-427a-a7a8-112fd2c5d848:1369512906984</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:26261a4e-8755-4e21-a40c-fd4d4d9478ef:1369512906984</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Blesse et hébète peut-être les créatures Chaotiques.</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:888659c4-4f36-4eec-a2e2-2f8ec729835d:1369512906984</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Flèche de loi.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>paladin</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>oracle</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

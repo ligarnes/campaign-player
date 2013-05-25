@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:993599c9-125c-47c6-93a8-4e937f84f6c1:1369512907526</guid>
+   </id>
+   <name>Aura de funeste destin</name>
+   <school>necromancy</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:26e86ce6-a98a-41b0-a40c-dc0fcda2d2dd:1369512907526</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c97c749e-caf8-45c4-a9f0-d49a40c221db:1369512907526</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les créatures situées dans l&apos;aura sont secouées.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:009c6458-5448-425b-96d6-190b0b59b8bb:1369512907526</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Aura de funeste destin.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>oracle</string>
+         <integer>4</integer>
+      </entry>
+      <entry>
+         <string>prêtre</string>
+         <integer>4</integer>
+      </entry>
+   </classesLevel>
+</spell>

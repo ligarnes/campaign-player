@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:08d5aebd-3d94-470d-acba-e8a6d1be63af:1369512906067</guid>
+   </id>
+   <name>Runes explosives</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a31c41d0-12b9-4011-b2e3-38c5eeaf281b:1369512906067</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5d4bf7ff-d8e8-444b-aadb-529ee17e138b:1369512906067</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>6d6 points de dégâts à qui les lit.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c7759878-4e25-4fbb-a738-982eface1561:1369512906067</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Runes explosives.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

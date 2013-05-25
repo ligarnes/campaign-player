@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:33d3e71d-ca18-40c8-97f0-06c14c426199:1369512907947</guid>
+   </id>
+   <name>Rendre un jugement supérieur</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:8d551b4a-4317-4f98-a068-ded6dbf99f73:1369512907947</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:fddb7332-b7f7-475c-8067-06f0f1c9ef66:1369512907947</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Un allié bénéficie de tous les jugements.</description>
+   <composant>V DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:9ba3e3f5-7d3e-436b-a3e3-bb276e090607:1369512907947</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rendre un jugement supérieur.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

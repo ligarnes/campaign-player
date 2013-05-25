@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:68770efa-b43e-4ca8-9884-d8b23c2d41f5:1369512905907</guid>
+   </id>
+   <name>Rayon polaire</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:104d400d-0ad1-4794-bf8e-f80efcbe3aae:1369512905907</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:bccde1a1-b129-41f8-a1bc-da934cfda9b2:1369512905907</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Attaque de contact à distance infligeant 1d6 points de dégâts de froid/niveau et 1d4 point de réduction permanente de Dextérité.</description>
+   <composant>V S F</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:3fa51b57-6eaf-45d7-a9ba-476d8d938008:1369512905907</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rayon polaire.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

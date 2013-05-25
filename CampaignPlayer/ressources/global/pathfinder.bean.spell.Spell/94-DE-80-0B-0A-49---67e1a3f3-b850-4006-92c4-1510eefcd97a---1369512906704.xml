@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:67e1a3f3-b850-4006-92c4-1510eefcd97a:1369512906704</guid>
+   </id>
+   <name>Atavisme de groupe</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:4f1ae1bb-f931-4055-8798-76e173794be9:1369512906704</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ca44fa21-765a-4474-bb34-d122d5587e68:1369512906704</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>1 animal/niveau gagne l&apos;archétype évolué.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6e17a483-8028-417e-9d72-ae2bd0c59080:1369512906704</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Atavisme de groupe.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

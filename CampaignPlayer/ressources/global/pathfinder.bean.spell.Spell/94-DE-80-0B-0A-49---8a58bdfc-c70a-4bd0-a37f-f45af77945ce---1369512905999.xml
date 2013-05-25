@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8a58bdfc-c70a-4bd0-a37f-f45af77945ce:1369512905999</guid>
+   </id>
+   <name>Renvoi des sorts</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:63e7022e-c6bc-4760-a482-a1f85da949fb:1369512905999</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:725219b1-4186-43ab-82f6-4984e07fef66:1369512905999</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Retourne 1d4+6 niveaux de sorts à l&apos;envoyeur.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:862ebdff-4054-4ce9-a61f-28722ca04cc6:1369512905999</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Renvoi des sorts.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>conjurateur</string>
+         <integer>6</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>7</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>7</integer>
+      </entry>
+   </classesLevel>
+</spell>

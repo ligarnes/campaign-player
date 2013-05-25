@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:975f6d20-b66c-4a3f-9481-252541ad052c:1369512906421</guid>
+   </id>
+   <name>Voie végétale</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:2c2440c7-6f41-451a-ba4e-8c2dd77320e0:1369512906421</guid>
+      </id>
+      <unit>unlimited</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:c033179c-7c74-4c16-bfc2-d3f99524a31d:1369512906421</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Le PJ entre dans une plante et ressort par une autre.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:58ec80e6-e679-412e-8dd5-671ca27d4fa2:1369512906421</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Voie végétale.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>6</integer>
+      </entry>
+   </classesLevel>
+</spell>

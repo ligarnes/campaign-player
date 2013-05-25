@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:3cf604b6-e67e-4971-9135-e73ad9fa9469:1369512905221</guid>
+   </id>
+   <name>Invisibilité pour les animaux</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e904b118-c092-46cc-94f0-69303bc07ac9:1369512905221</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ffc76d2c-c629-4f83-87a3-f95a00bddbc6:1369512905221</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les animaux ne voient pas un sujet/niveau.</description>
+   <composant>S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d239d326-9cb5-4e0f-8f6b-ed394eb09121:1369512905221</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Invisibilité pour les animaux.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+      <entry>
+         <string>rôdeur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

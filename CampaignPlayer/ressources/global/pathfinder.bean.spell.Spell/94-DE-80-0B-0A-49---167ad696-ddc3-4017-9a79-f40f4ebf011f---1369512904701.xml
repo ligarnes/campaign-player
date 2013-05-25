@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:167ad696-ddc3-4017-9a79-f40f4ebf011f:1369512904701</guid>
+   </id>
+   <name>Explosion de lumière</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:5871f722-ce95-43b3-b840-94b63433ab16:1369512904701</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:0e257106-123b-45c6-a0b1-07fa7344ffe2:1369512904701</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Aveugle à moins de 3 m, 6d6 points de dégâts.</description>
+   <composant>V S M/DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:6e2b4bae-9c6a-4ed4-b0f7-6ee2ed726078:1369512904701</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Explosion de lumière.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>8</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>8</integer>
+      </entry>
+   </classesLevel>
+</spell>

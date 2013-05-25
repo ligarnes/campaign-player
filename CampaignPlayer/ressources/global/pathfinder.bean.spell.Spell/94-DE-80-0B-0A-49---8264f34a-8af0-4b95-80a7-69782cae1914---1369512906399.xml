@@ -1,0 +1,39 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:8264f34a-8af0-4b95-80a7-69782cae1914:1369512906399</guid>
+   </id>
+   <name>Verrou du mage</name>
+   <school>abjuration</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:70b4868e-b427-4b4c-a6bb-594a10199c22:1369512906399</guid>
+      </id>
+      <value>contact</value>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:d8f46ced-a5d6-48d8-b896-4981a34afa26:1369512906399</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Ferme une serrure (porte, coffre) par magie.</description>
+   <composant>V S M</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:dbd08f93-c728-4cdb-8003-8df4d7592ed2:1369512906399</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Verrou du mage.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>2</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>2</integer>
+      </entry>
+   </classesLevel>
+</spell>

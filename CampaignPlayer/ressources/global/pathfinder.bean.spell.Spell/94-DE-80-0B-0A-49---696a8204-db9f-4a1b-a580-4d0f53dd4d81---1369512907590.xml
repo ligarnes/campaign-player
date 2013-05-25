@@ -1,0 +1,43 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:696a8204-db9f-4a1b-a580-4d0f53dd4d81:1369512907590</guid>
+   </id>
+   <name>Cheveux étrangleurs</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:143a5531-ca3b-4710-9ecd-4cb6b22b40d1:1369512907590</guid>
+      </id>
+      <unit>close</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:a783fb60-c0fa-446f-a1a5-959fc847ceb5:1369512907590</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les cheveux s&apos;animent et sont capables d&apos;agripper quelqu&apos;un.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:05e602a9-aa82-487b-8e58-58d094e63bc4:1369512907590</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Cheveux étrangleurs.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>ensorceleur</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>magicien</string>
+         <integer>3</integer>
+      </entry>
+      <entry>
+         <string>sorcière</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:d45f7024-0ced-4123-b5cd-a05e134d807c:1369512905291</guid>
+   </id>
+   <name>Lueur féerique</name>
+   <school>evocation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:eb0c6fb7-0267-4f02-833c-d8c764222e10:1369512905291</guid>
+      </id>
+      <unit>long</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:e3dbe4da-21b4-47f7-97ba-8d0850dbd3de:1369512905291</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Illumine le sujet (annule flou, camouflage, etc.).</description>
+   <composant>V S DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:27855213-87e1-4031-bc33-301b37fc11d1:1369512905291</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Lueur féerique.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>druide</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>

@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:ff6fe8bd-986f-4486-afe3-16151813eeaf:1369512907431</guid>
+   </id>
+   <name>Accompagnement exquis</name>
+   <school>illusion</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b03e49d1-2e51-4ef2-962b-e876c0c476d6:1369512907431</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:39be6a74-f5f0-4d98-b4dc-39662591fa82:1369512907431</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>L&apos;instrument maintient la représentation bardique au profit du personnage.</description>
+   <composant>V S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:f3ce2285-8bdc-4f0f-8008-26e26457eb33:1369512907431</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Accompagnement exquis.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>barde</string>
+         <integer>3</integer>
+      </entry>
+   </classesLevel>
+</spell>

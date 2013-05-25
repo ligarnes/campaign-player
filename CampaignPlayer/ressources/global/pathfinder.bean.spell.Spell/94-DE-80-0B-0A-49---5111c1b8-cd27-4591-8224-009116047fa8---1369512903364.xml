@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:5111c1b8-cd27-4591-8224-009116047fa8:1369512903364</guid>
+   </id>
+   <name>Assimilation retardée</name>
+   <school>transmutation</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ab9786aa-fa24-4662-bb43-7c31401ee49d:1369512903364</guid>
+      </id>
+      <unit>personal</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:ed60f3bd-103b-4456-8e85-0fa9e9ef2077:1369512903364</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>L&apos;extrait ne fait pas effet tant que le personnage ne l&apos;a pas décidé.</description>
+   <composant>S</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:b7a5b80f-6fa5-4005-9c8b-9746ba6aca4a:1369512903364</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Assimilation retardée.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>alchimiste</string>
+         <integer>5</integer>
+      </entry>
+   </classesLevel>
+</spell>

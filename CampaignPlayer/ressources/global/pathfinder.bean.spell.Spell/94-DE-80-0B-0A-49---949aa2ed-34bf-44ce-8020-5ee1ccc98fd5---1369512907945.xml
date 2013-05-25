@@ -1,0 +1,35 @@
+<spell>
+   <id serialVersionUID="1">
+      <guid>94-DE-80-0B-0A-49:949aa2ed-34bf-44ce-8020-5ee1ccc98fd5:1369512907945</guid>
+   </id>
+   <name>Rendre un jugement</name>
+   <school>divination</school>
+   <range>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:465fd9a7-264d-490f-96fc-233ce90b1071:1369512907945</guid>
+      </id>
+      <unit>touch</unit>
+   </range>
+   <castingTime>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:07b16f8a-412f-41b3-9e1e-848bc0e627f1:1369512907945</guid>
+      </id>
+      <value>1</value>
+   </castingTime>
+   <description>Les alliés bénéficient des avantages d&apos;un jugement.</description>
+   <composant>V DF</composant>
+   <source>Ultimate magic</source>
+   <reference>
+      <id serialVersionUID="1">
+         <guid>94-DE-80-0B-0A-49:76a4e9a1-9149-478d-a701-8ad87687e4d5:1369512907945</guid>
+      </id>
+      <name>Wiki Pathfinder-fr.org</name>
+      <url>http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Rendre un jugement.ashx</url>
+   </reference>
+   <classesLevel>
+      <entry>
+         <string>inquisiteur</string>
+         <integer>1</integer>
+      </entry>
+   </classesLevel>
+</spell>
