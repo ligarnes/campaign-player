@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
+import java.util.Collections;
+import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
@@ -129,6 +131,14 @@ public abstract class MapElement extends BasicBean {
 		this.selected = selected;
 	}
 
+	/**
+	 * allow to move the map element locally only so the other user are not
+	 * notify of the change.
+	 * 
+	 * to apply the change you need to call @see{applyMove}
+	 * 
+	 * @param position
+	 */
 	public void moveTo(Point position) {
 		if (lastPosition == null) {
 			this.lastPosition = this.position;
@@ -139,6 +149,9 @@ public abstract class MapElement extends BasicBean {
 				oldValue, position);
 	}
 
+	/**
+	 * apply the local change to the other player.
+	 */
 	public void applyMove() {
 		if (lastPosition == null) {
 			this.lastPosition = this.position;
@@ -201,6 +214,12 @@ public abstract class MapElement extends BasicBean {
 		return hiddenForPlayer;
 	}
 
+	/**
+	 * allow to show or hide the map element for all player the element will
+	 * always be visible for the mj but non opaque
+	 * 
+	 * @param hiddenForPlayer
+	 */
 	public final void setHiddenForPlayer(Boolean hiddenForPlayer) {
 		Boolean oldValue = this.hiddenForPlayer;
 		if (notifyRemote(PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue,
@@ -211,5 +230,17 @@ public abstract class MapElement extends BasicBean {
 		}
 	}
 
+	/**
+	 * 
+	 * @return the formated name of the map element
+	 */
 	public abstract String getNameFormat();
+
+	/**
+	 * 
+	 * @return all the specific action can the map element done
+	 */
+	public List<IAction> getActions() {
+		return Collections.emptyList();
+	}
 }

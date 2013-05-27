@@ -6,8 +6,12 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.element.MapElementSize;
@@ -15,6 +19,8 @@ import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
 
+import pathfinder.actions.DoDamage;
+import pathfinder.actions.DoHeal;
 import pathfinder.bean.unit.PathfinderCharacter;
 
 public class PathfinderCharacterElement extends MapElement {
@@ -44,11 +50,16 @@ public class PathfinderCharacterElement extends MapElement {
 		this.charactedId = characterId;
 		width = new MapElementSizeSquare(1);
 		height = new MapElementSizeSquare(1);
-
 	}
 
 	public PathfinderCharacter getCharacter() {
 		return CampaignClient.getInstance().getBean(charactedId);
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		super.addPropertyChangeListener(listener);
+		getCharacter().addPropertyChangeListener(listener);
 	}
 
 	@Override
@@ -103,14 +114,6 @@ public class PathfinderCharacterElement extends MapElement {
 		g2.setColor(Color.BLACK);
 		g2.drawRect(x, yLife, widthLife - 1, heightLife - 1);
 
-		// Highlight
-		/*
-		 * if (isHighlighted()) {
-		 * g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
-		 * 1f)); g2.setColor(Color.BLUE); Stroke org = g2.getStroke();
-		 * g2.setStroke(new BasicStroke(8)); g2.drawRect(0, 0, width.intValue(),
-		 * height.intValue()); g2.setStroke(org); }
-		 */
 		g2.dispose();
 	}
 
@@ -121,11 +124,13 @@ public class PathfinderCharacterElement extends MapElement {
 				getWidthPixels(), getHeightPixels()).contains(p);
 	}
 
-	/*
-	 * @Override public List<IAction> getActions() { List<IAction> actions = new
-	 * ArrayList<IAction>(); actions.add(new DoDamage(getCharacter()));
-	 * actions.add(new DoHeal(getCharacter())); return actions; }
-	 */
+	@Override
+	public List<IAction> getActions() {
+		ArrayList<IAction> actions = new ArrayList<IAction>();
+		actions.add(new DoDamage(getCharacter()));
+		actions.add(new DoHeal(getCharacter()));
+		return actions;
+	}
 
 	public UniqueID getCharactedId() {
 		return charactedId;
@@ -174,4 +179,5 @@ public class PathfinderCharacterElement extends MapElement {
 				+ getHeight().getValue() + " "
 				+ getHeight().getShortUnitFormat();
 	}
+
 }

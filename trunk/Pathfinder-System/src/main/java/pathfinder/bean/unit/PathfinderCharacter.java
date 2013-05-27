@@ -10,7 +10,7 @@ import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
-public class PathfinderCharacter extends Character {
+public class PathfinderCharacter extends Character implements Unit {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_TOTAL_HP_PROPERTY = "totalHp";
@@ -67,10 +67,12 @@ public class PathfinderCharacter extends Character {
 		this.setDocumentName(name);
 	}
 
+	@Override
 	public Integer getTotalHp() {
 		return totalHp;
 	}
 
+	@Override
 	public void setTotalHp(Integer totalHp) {
 		Integer oldValue = this.totalHp;
 		if (notifyRemote(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp)) {
@@ -80,10 +82,12 @@ public class PathfinderCharacter extends Character {
 		}
 	}
 
+	@Override
 	public Integer getCurrentHp() {
 		return currentHp;
 	}
 
+	@Override
 	public void setCurrentHp(Integer currentHp) {
 		Integer oldValue = this.totalHp;
 		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {

@@ -10,7 +10,9 @@ import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
-public class PathfinderMonster extends BasicBean {
+import pathfinder.bean.unit.Unit;
+
+public class PathfinderMonster extends BasicBean implements Unit {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_NAME_PROPERTY = "name";

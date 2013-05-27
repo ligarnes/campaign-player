@@ -1,10 +1,10 @@
 package pathfinder.actions;
 
-import pathfinder.bean.unit.PathfinderCharacter;
+import pathfinder.bean.unit.Unit;
 
 public class DoDamage extends ChangeHealthPoint {
 
-	public DoDamage(PathfinderCharacter character) {
+	public DoDamage(Unit character) {
 		super(character);
 	}
 
