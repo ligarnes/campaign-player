@@ -6,12 +6,13 @@ import javax.swing.JTextField;
 
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelAlwaysValidOkCancel;
-import pathfinder.bean.unit.PathfinderCharacter;
+import net.alteiar.map.elements.IAction;
+import pathfinder.bean.unit.Unit;
 
 public abstract class ChangeHealthPoint extends IAction {
-	private final PathfinderCharacter character;
+	private final Unit character;
 
-	public ChangeHealthPoint(PathfinderCharacter character) {
+	public ChangeHealthPoint(Unit character) {
 		this.character = character;
 	}
 
@@ -20,7 +21,7 @@ public abstract class ChangeHealthPoint extends IAction {
 		return character != null;
 	}
 
-	protected final PathfinderCharacter getCharacter() {
+	protected final Unit getCharacter() {
 		return character;
 	}
 

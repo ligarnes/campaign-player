@@ -20,6 +20,7 @@ import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.map.event.MapEvent;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
 
 public class DefaultMapListener extends ActionMapListener {
@@ -63,13 +64,31 @@ public class DefaultMapListener extends ActionMapListener {
 		@Override
 		public void doAction() {
 			MapElement element = getMapElement();
-			MapEvent event = getMapEvent();
+			final MapEvent event = getMapEvent();
 
 			JPopupMenu popup = new JPopupMenu();
 			popup.add(buildMoveElement(element));
 
 			popup.add(buildEditElement(event.getMouseEvent(), element));
 
+			popup.addSeparator();
+			for (final IAction act : element.getActions()) {
+				JMenuItem menu = new JMenuItem(act.getName());
+				menu.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						try {
+							act.doAction(event.getMouseEvent().getXOnScreen(),
+									event.getMouseEvent().getYOnScreen());
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				});
+				menu.setEnabled(act.canDoAction());
+				popup.add(menu);
+			}
 			popup.addSeparator();
 			popup.add(buildShowHideElement(element));
 			popup.addSeparator();

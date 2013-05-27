@@ -1,4 +1,4 @@
-package pathfinder.actions;
+package net.alteiar.map.elements;
 
 public abstract class IAction {
 	public abstract String getName();

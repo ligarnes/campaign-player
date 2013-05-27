@@ -6,8 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.map.element.MapElementSize;
@@ -15,6 +18,8 @@ import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
 
+import pathfinder.actions.DoDamage;
+import pathfinder.actions.DoHeal;
 import pathfinder.bean.unit.monster.PathfinderMonster;
 
 public class PathfinderMonsterElement extends MapElement {
@@ -120,11 +125,13 @@ public class PathfinderMonsterElement extends MapElement {
 				getWidthPixels(), getHeightPixels()).contains(p);
 	}
 
-	/*
-	 * @Override public List<IAction> getActions() { List<IAction> actions = new
-	 * ArrayList<IAction>(); actions.add(new DoDamage(getCharacter()));
-	 * actions.add(new DoHeal(getCharacter())); return actions; }
-	 */
+	@Override
+	public List<IAction> getActions() {
+		ArrayList<IAction> actions = new ArrayList<IAction>();
+		actions.add(new DoDamage(getMonster()));
+		actions.add(new DoHeal(getMonster()));
+		return actions;
+	}
 
 	public UniqueID getCharactedId() {
 		return monsterId;
