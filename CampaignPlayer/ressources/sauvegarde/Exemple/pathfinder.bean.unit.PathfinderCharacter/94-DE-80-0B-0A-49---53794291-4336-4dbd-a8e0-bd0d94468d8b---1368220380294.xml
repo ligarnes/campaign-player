@@ -14,4 +14,7 @@
    </image>
    <totalHp>22</totalHp>
    <currentHp>22</currentHp>
+   <ac>14</ac>
+   <acTouch>10</acTouch>
+   <acFlatFooted>14</acFlatFooted>
 </pathfinderCharacter>

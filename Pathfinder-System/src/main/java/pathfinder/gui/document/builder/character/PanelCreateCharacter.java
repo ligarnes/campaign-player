@@ -25,6 +25,7 @@ import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
 import pathfinder.bean.unit.PathfinderCharacter;
+import pathfinder.gui.document.builder.monster.PanelAc;
 
 public class PanelCreateCharacter extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;
@@ -35,14 +36,15 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	private final JTextField textFieldName;
 	private final JLabel lblHp;
 	private final JTextField textFieldHp;
+	private final PanelAc panelAc;
 
 	public PanelCreateCharacter() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0,
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
@@ -61,7 +63,7 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		gbc_lblAvatar.fill = GridBagConstraints.BOTH;
 		gbc_lblAvatar.gridheight = 3;
 		gbc_lblAvatar.gridwidth = 2;
-		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAvatar.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAvatar.gridx = 0;
 		gbc_lblAvatar.gridy = 0;
 		add(lblAvatar, gbc_lblAvatar);
@@ -99,6 +101,16 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		gbc_textFieldHp.gridy = 1;
 		add(textFieldHp, gbc_textFieldHp);
 		textFieldHp.setColumns(10);
+
+		panelAc = new PanelAc();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridheight = 2;
+		gbc_panel.insets = new Insets(0, 0, 5, 0);
+		gbc_panel.gridwidth = 2;
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 2;
+		gbc_panel.gridy = 2;
+		add(panelAc, gbc_panel);
 	}
 
 	private void selectAvatar() {
@@ -148,8 +160,12 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		String name = textFieldName.getText();
 		Integer hp = Integer.valueOf(textFieldHp.getText());
 
+		Integer ac = panelAc.getAc();
+		Integer acFlat = panelAc.getAcFlatFooted();
+		Integer acTouch = panelAc.getAcTouch();
+
 		PathfinderCharacter character = new PathfinderCharacter(name, hp, hp,
-				image.getId());
+				ac, acTouch, acFlat, image.getId());
 		character.setImage(image.getId());
 
 		CampaignClient.getInstance().addBean(character);

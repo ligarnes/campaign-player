@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Vector;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -28,6 +29,14 @@ public class MyCombobox<E> extends JPanel {
 		this.add(combobox);
 	}
 
+	public void setValues(E[] values) {
+		combobox.setModel(new DefaultComboBoxModel<>(values));
+	}
+
+	public void setValues(Collection<E> values) {
+		combobox.setModel(new DefaultComboBoxModel<>(new Vector<E>(values)));
+	}
+
 	@SuppressWarnings("unchecked")
 	public E getSelectedItem() {
 		return (E) combobox.getSelectedItem();
@@ -49,6 +58,10 @@ public class MyCombobox<E> extends JPanel {
 
 	public void addItem(E item) {
 		combobox.addItem(item);
+	}
+
+	public void removeItem(E item) {
+		combobox.removeItem(item);
 	}
 
 	public void addActionListener(ActionListener listener) {

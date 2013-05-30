@@ -32,6 +32,30 @@ public class PathfinderMonster extends BasicBean implements Unit {
 	@Element
 	private Integer currentHp;
 
+	@Element
+	private Integer challengeRating;
+
+	@Element
+	private Integer ac;
+
+	@Element
+	private Integer acFlatFooted;
+
+	@Element
+	private Integer caTouch;
+
+	// Reflexe
+	@Element
+	private Integer reflex;
+
+	// Vigueur
+	@Element
+	private Integer fortitude;
+
+	// Volonte
+	@Element
+	private Integer will;
+
 	protected PathfinderMonster() {
 		super();
 		totalHp = 0;
@@ -79,10 +103,12 @@ public class PathfinderMonster extends BasicBean implements Unit {
 		}
 	}
 
+	@Override
 	public Integer getTotalHp() {
 		return totalHp;
 	}
 
+	@Override
 	public void setTotalHp(Integer totalHp) {
 		Integer oldValue = this.totalHp;
 		if (notifyRemote(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp)) {
@@ -92,10 +118,12 @@ public class PathfinderMonster extends BasicBean implements Unit {
 		}
 	}
 
+	@Override
 	public Integer getCurrentHp() {
 		return currentHp;
 	}
 
+	@Override
 	public void setCurrentHp(Integer currentHp) {
 		Integer oldValue = this.totalHp;
 		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {

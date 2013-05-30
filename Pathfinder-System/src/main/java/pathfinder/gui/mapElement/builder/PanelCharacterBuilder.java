@@ -25,11 +25,15 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));
 
-		characters = new MyCombobox<CharacterAdapter>(
-				CharacterAdapter.getCharacters());
+		characters = new MyCombobox<CharacterAdapter>();
 		panelCenter.add(characters);
 
 		this.add(panelCenter, BorderLayout.CENTER);
+	}
+
+	@Override
+	public void refresh() {
+		characters.setValues(CharacterAdapter.getCharacters());
 	}
 
 	private PathfinderCharacter getCharacter() {

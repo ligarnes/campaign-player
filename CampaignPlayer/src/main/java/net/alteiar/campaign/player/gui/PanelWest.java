@@ -17,8 +17,8 @@ public class PanelWest extends JPanel {
 		inside.setLayout(new BoxLayout(inside, BoxLayout.Y_AXIS));
 
 		PanelChat chat = PanelChatFactory.buildChatSmall();
-		JPanel infoCharacter = PluginSystem.getPathfinderPluginSystemGui()
-				.getGuiCharacterFactory().buildSmallCharacterSheet();
+		JPanel infoCharacter = PluginSystem.getInstance()
+				.buildSmallCharacterSheet();
 
 		inside.add(new PanelShowHide("Chat", chat, width));
 		inside.add(new PanelShowHide("Personnages", infoCharacter, width));

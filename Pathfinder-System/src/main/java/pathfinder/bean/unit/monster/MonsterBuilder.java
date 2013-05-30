@@ -22,15 +22,48 @@ public class MonsterBuilder extends BasicBean {
 	@Element
 	private Integer totalHp;
 
+	@Element
+	private Integer challengeRating;
+
+	@Element
+	private Integer ac;
+
+	@Element
+	private Integer acFlatFooted;
+
+	@Element
+	private Integer caTouch;
+
+	// Reflexe
+	@Element
+	private Integer reflex;
+
+	// Vigueur
+	@Element
+	private Integer fortitude;
+
+	// Volonte
+	@Element
+	private Integer will;
+
 	protected MonsterBuilder() {
 		super();
-		totalHp = 0;
 	}
 
-	public MonsterBuilder(String name, Integer totalHp, UniqueID image) {
+	public MonsterBuilder(String name, UniqueID image, Integer totalHp,
+			Integer challengeRating, Integer ac, Integer acFlatFooted,
+			Integer caTouch, Integer reflex, Integer fortitude, Integer will) {
+		super();
 		this.name = name;
-		this.totalHp = totalHp;
 		this.image = image;
+		this.totalHp = totalHp;
+		this.challengeRating = challengeRating;
+		this.ac = ac;
+		this.acFlatFooted = acFlatFooted;
+		this.caTouch = caTouch;
+		this.reflex = reflex;
+		this.fortitude = fortitude;
+		this.will = will;
 	}
 
 	// ////////////// METHODS /////////////////
@@ -77,9 +110,60 @@ public class MonsterBuilder extends BasicBean {
 		this.image = image;
 	}
 
-	@Override
-	public void beanRemoved() {
-		CampaignClient.getInstance().removeBean(image);
+	public Integer getChallengeRating() {
+		return challengeRating;
+	}
+
+	public void setChallengeRating(Integer challengeRating) {
+		this.challengeRating = challengeRating;
+	}
+
+	public Integer getAc() {
+		return ac;
+	}
+
+	public void setAc(Integer ac) {
+		this.ac = ac;
+	}
+
+	public Integer getAcFlatFooted() {
+		return acFlatFooted;
+	}
+
+	public void setAcFlatFooted(Integer acFlatFooted) {
+		this.acFlatFooted = acFlatFooted;
+	}
+
+	public Integer getCaTouch() {
+		return caTouch;
+	}
+
+	public void setCaTouch(Integer caTouch) {
+		this.caTouch = caTouch;
+	}
+
+	public Integer getReflex() {
+		return reflex;
+	}
+
+	public void setReflex(Integer reflex) {
+		this.reflex = reflex;
+	}
+
+	public Integer getFortitude() {
+		return fortitude;
+	}
+
+	public void setFortitude(Integer fortitude) {
+		this.fortitude = fortitude;
+	}
+
+	public Integer getWill() {
+		return will;
+	}
+
+	public void setWill(Integer will) {
+		this.will = will;
 	}
 
 	public PathfinderMonster createMonster() {

@@ -76,12 +76,13 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 
 	public static void stopServer() {
 		SERVER_THREAD_POOL.shutdown();
-		try {
-			RmiRegistryProxy.INSTANCE.unbind(CAMPAIGN_MANAGER);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		// TODO fail to unbind need to check
+		/*
+		 * try { RmiRegistryProxy.INSTANCE.unbind(CAMPAIGN_MANAGER); } catch
+		 * (RemoteException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
 	}
 
 	private final String campaignPath;

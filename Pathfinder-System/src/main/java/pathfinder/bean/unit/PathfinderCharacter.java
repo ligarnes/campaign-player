@@ -15,6 +15,9 @@ public class PathfinderCharacter extends Character implements Unit {
 
 	public static final String PROP_TOTAL_HP_PROPERTY = "totalHp";
 	public static final String PROP_CURRENT_HP_PROPERTY = "currentHp";
+	public static final String PROP_AC_PROPERTY = "ac";
+	public static final String PROP_AC_TOUCH_PROPERTY = "acTouch";
+	public static final String PROP_AC_FLAT_FOOTED_PROPERTY = "acFlatFooted";
 	public static final String PROP_IMAGE_PROPERTY = "image";
 
 	@Element
@@ -25,6 +28,15 @@ public class PathfinderCharacter extends Character implements Unit {
 	@Element
 	private Integer currentHp;
 
+	@Element
+	private Integer ac;
+
+	@Element
+	private Integer acTouch;
+
+	@Element
+	private Integer acFlatFooted;
+
 	protected PathfinderCharacter() {
 		super();
 		totalHp = 0;
@@ -32,11 +44,15 @@ public class PathfinderCharacter extends Character implements Unit {
 	}
 
 	public PathfinderCharacter(String name, Integer totalHp, Integer currentHp,
-			UniqueID image) {
+			Integer ac, Integer acTouch, Integer acFlatFooted, UniqueID image) {
 		super(name);
 		this.totalHp = totalHp;
 		this.currentHp = currentHp;
 		this.image = image;
+
+		this.ac = ac;
+		this.acFlatFooted = acFlatFooted;
+		this.acTouch = acTouch;
 	}
 
 	// ////////////// METHODS /////////////////
@@ -90,9 +106,9 @@ public class PathfinderCharacter extends Character implements Unit {
 	@Override
 	public void setCurrentHp(Integer currentHp) {
 		Integer oldValue = this.totalHp;
-		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {
+		if (notifyRemote(PROP_AC_PROPERTY, oldValue, currentHp)) {
 			this.currentHp = currentHp;
-			propertyChangeSupport.firePropertyChange(PROP_CURRENT_HP_PROPERTY,
+			propertyChangeSupport.firePropertyChange(PROP_AC_PROPERTY,
 					oldValue, currentHp);
 		}
 	}
@@ -102,7 +118,7 @@ public class PathfinderCharacter extends Character implements Unit {
 	}
 
 	public void setImage(UniqueID image) {
-		Integer oldValue = this.totalHp;
+		UniqueID oldValue = this.image;
 		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
 			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
@@ -114,4 +130,44 @@ public class PathfinderCharacter extends Character implements Unit {
 	public void beanRemoved() {
 		CampaignClient.getInstance().removeBean(image);
 	}
+
+	public Integer getAc() {
+		return ac;
+	}
+
+	public void setAc(Integer ac) {
+		Integer oldValue = this.ac;
+		if (notifyRemote(PROP_AC_PROPERTY, oldValue, ac)) {
+			this.ac = ac;
+			propertyChangeSupport.firePropertyChange(PROP_AC_PROPERTY,
+					oldValue, ac);
+		}
+	}
+
+	public Integer getAcTouch() {
+		return acTouch;
+	}
+
+	public void setAcTouch(Integer acTouch) {
+		Integer oldValue = this.acTouch;
+		if (notifyRemote(PROP_AC_TOUCH_PROPERTY, oldValue, acTouch)) {
+			this.acTouch = acTouch;
+			propertyChangeSupport.firePropertyChange(PROP_AC_TOUCH_PROPERTY,
+					oldValue, acTouch);
+		}
+	}
+
+	public Integer getAcFlatFooted() {
+		return acFlatFooted;
+	}
+
+	public void setAcFlatFooted(Integer acFlatFooted) {
+		Integer oldValue = this.acFlatFooted;
+		if (notifyRemote(PROP_AC_FLAT_FOOTED_PROPERTY, oldValue, acFlatFooted)) {
+			this.acFlatFooted = acFlatFooted;
+			propertyChangeSupport.firePropertyChange(
+					PROP_AC_FLAT_FOOTED_PROPERTY, oldValue, acFlatFooted);
+		}
+	}
+
 }

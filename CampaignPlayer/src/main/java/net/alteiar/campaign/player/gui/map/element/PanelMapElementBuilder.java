@@ -13,6 +13,10 @@ public abstract class PanelMapElementBuilder extends JPanel {
 		super();
 	}
 
+	public void refresh() {
+
+	}
+
 	/**
 	 * 
 	 * @return true if we can actually build an element of this kind

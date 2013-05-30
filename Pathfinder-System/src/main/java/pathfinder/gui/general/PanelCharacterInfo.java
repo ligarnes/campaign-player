@@ -11,13 +11,13 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
+import net.alteiar.component.MyCombobox;
 import net.alteiar.documents.character.Character;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
@@ -35,7 +35,7 @@ public class PanelCharacterInfo extends JPanel implements
 	private final JLabel labelInit;
 	private final HealthBar healthBar;
 
-	private final JComboBox<CharacterAdapter> comboBox;
+	private final MyCombobox<CharacterAdapter> comboBox;
 
 	private class HealthBar extends JPanel {
 		private static final long serialVersionUID = 1L;
@@ -92,7 +92,7 @@ public class PanelCharacterInfo extends JPanel implements
 				0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		comboBox = new JComboBox<CharacterAdapter>(
+		comboBox = new MyCombobox<CharacterAdapter>(
 				CharacterAdapter.getCharacters());
 
 		CampaignClient.getInstance().addCampaignListener(new CampaignAdapter() {
@@ -210,8 +210,7 @@ public class PanelCharacterInfo extends JPanel implements
 			this.character.removePropertyChangeListener(this);
 		}
 		if (comboBox.getItemCount() > 0) {
-			character = ((CharacterAdapter) comboBox.getSelectedItem())
-					.getCharacter();
+			character = comboBox.getSelectedItem().getCharacter();
 			this.character.addPropertyChangeListener(this);
 			updateCharacterView();
 		}
@@ -224,10 +223,10 @@ public class PanelCharacterInfo extends JPanel implements
 		this.healthBar.setCurrentHp(character.getCurrentHp());
 		this.healthBar.setTotalHp(character.getTotalHp());
 
-		// this.textFieldAc.setText(character.getAc().toString());
-		// this.textFieldAcFlatFooted.setText(character.getAcFlatFooted()
-		// .toString());
-		// this.textFieldAcTouch.setText(character.getAcTouch().toString());
+		this.textFieldAc.setText(character.getAc().toString());
+		this.textFieldAcFlatFooted.setText(character.getAcFlatFooted()
+				.toString());
+		this.textFieldAcTouch.setText(character.getAcTouch().toString());
 
 		this.revalidate();
 		this.repaint();

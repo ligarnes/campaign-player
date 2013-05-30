@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,18 @@ public class PathfinderMonsterElement extends MapElement {
 
 	public PathfinderMonster getMonster() {
 		return CampaignClient.getInstance().getBean(monsterId);
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		super.addPropertyChangeListener(listener);
+		getMonster().addPropertyChangeListener(listener);
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		super.removePropertyChangeListener(listener);
+		getMonster().removePropertyChangeListener(listener);
 	}
 
 	@Override
