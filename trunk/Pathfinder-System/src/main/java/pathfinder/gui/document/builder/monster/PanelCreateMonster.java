@@ -36,14 +36,16 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 	private final JTextField textFieldName;
 	private final JLabel lblHp;
 	private final JTextField textFieldHp;
+	private final PanelAc panelAc;
+	private final PanelSaveRoll panelSave;
 
 	public PanelCreateMonster() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0,
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
@@ -62,7 +64,7 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 		gbc_lblAvatar.fill = GridBagConstraints.BOTH;
 		gbc_lblAvatar.gridheight = 3;
 		gbc_lblAvatar.gridwidth = 2;
-		gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAvatar.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAvatar.gridx = 0;
 		gbc_lblAvatar.gridy = 0;
 		add(lblAvatar, gbc_lblAvatar);
@@ -100,6 +102,25 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 		gbc_textFieldHp.gridy = 1;
 		add(textFieldHp, gbc_textFieldHp);
 		textFieldHp.setColumns(10);
+
+		panelAc = new PanelAc();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridheight = 2;
+		gbc_panel.insets = new Insets(0, 0, 5, 0);
+		gbc_panel.gridwidth = 2;
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 2;
+		gbc_panel.gridy = 2;
+		add(panelAc, gbc_panel);
+
+		panelSave = new PanelSaveRoll();
+		GridBagConstraints gbc_panelSave = new GridBagConstraints();
+		gbc_panelSave.gridwidth = 2;
+		gbc_panelSave.insets = new Insets(0, 0, 0, 5);
+		gbc_panelSave.fill = GridBagConstraints.BOTH;
+		gbc_panelSave.gridx = 2;
+		gbc_panelSave.gridy = 4;
+		add(panelSave, gbc_panelSave);
 	}
 
 	private void selectAvatar() {
@@ -148,7 +169,18 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 		String name = textFieldName.getText();
 		Integer hp = Integer.valueOf(textFieldHp.getText());
 
-		MonsterBuilder monster = new MonsterBuilder(name, hp, image.getId());
+		Integer cr = 1;
+
+		Integer ac = panelAc.getAc();
+		Integer acFlatFooted = panelAc.getAcFlatFooted();
+		Integer acTouch = panelAc.getAcTouch();
+
+		Integer reflex = 0;
+		Integer fortitude = 0;
+		Integer will = 0;
+
+		MonsterBuilder monster = new MonsterBuilder(name, image.getId(), hp,
+				cr, ac, acFlatFooted, acTouch, reflex, fortitude, will);
 
 		// save the image as perma bean
 		CampaignClient.getInstance().savePerma(image);

@@ -3,67 +3,94 @@ package net.alteiar.campaign.player.gui.factory;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
+import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
+import net.alteiar.campaign.player.gui.factory.newPlugin.IPlugin;
 import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
 import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.character.Character;
 import net.alteiar.map.elements.MapElement;
 
 public class PluginSystem implements IPluginSystemGui {
 
-	private final ArrayList<IPluginSystemGui> plugins;
-
 	private final static PluginSystem INSTANCE = new PluginSystem();
+
+	private final ICorePlugin core;
+
+	private final ArrayList<IPlugin> plugins;
 
 	public static PluginSystem getInstance() {
 		return INSTANCE;
 	}
 
 	private PluginSystem() {
-		plugins = new ArrayList<IPluginSystemGui>();
+		plugins = new ArrayList<IPlugin>();
+		plugins.add(getPathfinderGeneralPlugin());
 
-		plugins.add(getPathfinderPluginSystemGui());
-		// plugins.add(getEffectPluginSystemGui());
+		core = getPathfinderCorePlugin();
 	}
 
 	@Override
 	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
-		return plugins.get(0).getDrawInfo(mapInfo);
+		return core.getDrawInfo(mapInfo);
 	}
 
 	@Override
 	public <E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(
 			E bean) {
-		return plugins.get(0).getViewPanel(bean);
+		PanelViewDocument<E> found = null;
+
+		Iterator<IPlugin> itt = plugins.iterator();
+		while (itt.hasNext() && found == null) {
+			found = itt.next().getViewPanel(bean);
+		}
+
+		return found;
 	}
 
 	@Override
 	public <E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean) {
-		return plugins.get(0).getDocumentIcon(bean);
+
+		BufferedImage found = null;
+		Iterator<IPlugin> itt = plugins.iterator();
+		while (itt.hasNext() && found == null) {
+			found = itt.next().getDocumentIcon(bean);
+		}
+
+		return found;
 	}
 
 	@Override
 	public ArrayList<PanelDocumentBuilder> getGuiDocumentFactory() {
-		return plugins.get(0).getGuiDocumentFactory();
-	}
 
-	@Override
-	public PanelCharacterFactory getGuiCharacterFactory() {
-		return plugins.get(0).getGuiCharacterFactory();
+		ArrayList<PanelDocumentBuilder> builders = new ArrayList<PanelDocumentBuilder>();
+		for (IPlugin plugin : plugins) {
+			builders.addAll(plugin.getGuiDocumentFactory());
+		}
+
+		return builders;
 	}
 
 	@Override
 	public ArrayList<PanelMapElementBuilder> getGuiMapElementFactory() {
 		ArrayList<PanelMapElementBuilder> mapElementBuilders = new ArrayList<PanelMapElementBuilder>();
 
-		for (IPluginSystemGui plugin : plugins) {
-			mapElementBuilders.addAll(plugin.getGuiMapElementFactory());
+		for (IPlugin plugin : plugins) {
+			ArrayList<PanelMapElementBuilder> mapElementBuilder = plugin
+					.getGuiMapElementFactory();
+			for (PanelMapElementBuilder builder : mapElementBuilder) {
+				builder.refresh();
+			}
+			mapElementBuilders.addAll(mapElementBuilder);
 		}
 
 		return mapElementBuilders;
@@ -72,15 +99,19 @@ public class PluginSystem implements IPluginSystemGui {
 	@Override
 	public <E extends MapElement> PanelMapElementEditor<E> getMapElementEditor(
 			E bean) {
-		return plugins.get(0).getMapElementEditor(bean);
+		PanelMapElementEditor<E> found = null;
+		Iterator<IPlugin> itt = plugins.iterator();
+		while (itt.hasNext() && found == null) {
+			found = itt.next().getMapElementEditor(bean);
+		}
+
+		return found;
 	}
 
 	private static ClassLoader getClassLoader() {
 		try {
 			ClassLoaderUtil
 					.addFile("./ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar");
-			ClassLoaderUtil
-					.addFile("./ressources/plugin/Effect-System-0.0.1-SNAPSHOT.jar");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,77 +119,49 @@ public class PluginSystem implements IPluginSystemGui {
 		return ClassLoader.getSystemClassLoader();// loader;
 	}
 
-	public static IPluginSystemGui getPathfinderPluginSystemGui() {
-		IPluginSystemGui pluginSystemGui = null;
+	private static ICorePlugin getPathfinderCorePlugin() {
+		ICorePlugin pluginSystemGui = null;
 		try {
-			Class<?> clazz = Class.forName("plugin.gui.PluginSystemGui", true,
-					getClassLoader());
+			Class<?> clazz = Class.forName("plugin.gui.PathfinderCorePlugin",
+					true, getClassLoader());
 
-			Class<? extends IPluginSystemGui> runClass = clazz
-					.asSubclass(IPluginSystemGui.class);
+			Class<? extends ICorePlugin> runClass = clazz
+					.asSubclass(ICorePlugin.class);
 			// Avoid Class.newInstance, for it is evil.
-			Constructor<? extends IPluginSystemGui> ctor = runClass
-					.getConstructor();
+			Constructor<? extends ICorePlugin> ctor = runClass.getConstructor();
 			pluginSystemGui = ctor.newInstance();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return pluginSystemGui;
 	}
 
-	public static IPluginSystemGui getEffectPluginSystemGui() {
-		IPluginSystemGui pluginSystemGui = null;
+	private static IPlugin getPathfinderGeneralPlugin() {
+		IPlugin pluginSystemGui = null;
 		try {
-			Class<?> clazz = Class.forName("plugin.effect.gui.PluginSystemGui",
-					true, getClassLoader());
+			Class<?> clazz = Class.forName(
+					"plugin.gui.PathfinderGeneralPlugin", true,
+					getClassLoader());
 
-			Class<? extends IPluginSystemGui> runClass = clazz
-					.asSubclass(IPluginSystemGui.class);
+			Class<? extends IPlugin> runClass = clazz.asSubclass(IPlugin.class);
 			// Avoid Class.newInstance, for it is evil.
-			Constructor<? extends IPluginSystemGui> ctor = runClass
-					.getConstructor();
+			Constructor<? extends IPlugin> ctor = runClass.getConstructor();
 			pluginSystemGui = ctor.newInstance();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return pluginSystemGui;
+	}
+
+	@Override
+	public JPanel buildSmallCharacterSheet() {
+		return core.buildSmallCharacterSheet();
+	}
+
+	@Override
+	public JPanel buildCompleteCharacterSheet(Character character) {
+		return core.buildCompleteCharacterSheet(character);
 	}
 }

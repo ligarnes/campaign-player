@@ -10,10 +10,7 @@ import javax.imageio.ImageIO;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.DynamicPanelBeanBuilder;
-import net.alteiar.campaign.player.gui.factory.IPluginSystemGui;
-import net.alteiar.campaign.player.gui.factory.PanelCharacterFactory;
-import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
+import net.alteiar.campaign.player.gui.factory.newPlugin.IPlugin;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
@@ -31,30 +28,43 @@ import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
 import pathfinder.gui.document.viewer.PanelViewImage;
 import pathfinder.gui.document.viewer.spell.PanelSpellBookViewer;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
+import pathfinder.gui.mapElement.builder.PanelCharacterBuilder;
+import pathfinder.gui.mapElement.builder.PanelCircleBuilder;
+import pathfinder.gui.mapElement.builder.PanelMonsterBuilder;
+import pathfinder.gui.mapElement.builder.PanelRectangleBuilder;
 import pathfinder.gui.mapElement.editor.PanelCharacterEditor;
 import pathfinder.gui.mapElement.editor.PanelCircleEditor;
 import pathfinder.gui.mapElement.editor.PanelRectangleEditor;
-import pathfinder.map.state.PathfinderDrawInfo;
 import plugin.gui.imageIcon.CharacterImageIconFactory;
 import plugin.gui.imageIcon.ImageIconFactory;
 import plugin.gui.imageIcon.SimpleImageIconFactory;
 
-public class PluginSystemGui implements IPluginSystemGui {
+public class PathfinderGeneralPlugin implements IPlugin {
 
 	private static String MAP_ICON = "/icons/map.png";
 
 	private final DynamicPanelBeanBuilder viewPanels;
 	private final DynamicPanelBeanBuilder mapElementEditor;
 
+	private final ArrayList<PanelMapElementBuilder> mapElementBuilder;
+
 	private final HashMap<Class<?>, ImageIconFactory<?>> documentIcons;
 
-	public PluginSystemGui() {
+	public PathfinderGeneralPlugin() {
 		viewPanels = new DynamicPanelBeanBuilder();
 		viewPanels.add(DocumentImageBean.class, PanelViewImage.class);
 		viewPanels.add(DocumentSpellBook.class, PanelSpellBookViewer.class);
 
 		documentIcons = new HashMap<Class<?>, ImageIconFactory<?>>();
 
+		// mapElement builder
+		mapElementBuilder = new ArrayList<PanelMapElementBuilder>();
+		mapElementBuilder.add(new PanelCircleBuilder());
+		mapElementBuilder.add(new PanelRectangleBuilder());
+		mapElementBuilder.add(new PanelCharacterBuilder());
+		mapElementBuilder.add(new PanelMonsterBuilder());
+
+		// mapElement editor
 		mapElementEditor = new DynamicPanelBeanBuilder();
 		mapElementEditor.add(PathfinderCharacterElement.class,
 				PanelCharacterEditor.class);
@@ -64,7 +74,7 @@ public class PluginSystemGui implements IPluginSystemGui {
 
 		// Setting up icons
 		try {
-			BufferedImage mapIcon = ImageIO.read(PluginSystemGui.class
+			BufferedImage mapIcon = ImageIO.read(PathfinderGeneralPlugin.class
 					.getResource(MAP_ICON));
 			addIconFactory(new SimpleImageIconFactory<MapBean>(MapBean.class,
 					mapIcon));
@@ -80,18 +90,8 @@ public class PluginSystemGui implements IPluginSystemGui {
 	}
 
 	@Override
-	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
-		return new PathfinderDrawInfo(mapInfo);
-	}
-
-	@Override
-	public PanelCharacterFactory getGuiCharacterFactory() {
-		return new PathfinderPanelCharacterFactory();
-	}
-
-	@Override
 	public ArrayList<PanelMapElementBuilder> getGuiMapElementFactory() {
-		return new PathfinderMapElementFactory().getBuilders();
+		return mapElementBuilder;
 	}
 
 	@Override
@@ -127,4 +127,5 @@ public class PluginSystemGui implements IPluginSystemGui {
 			E bean) {
 		return (PanelMapElementEditor<E>) mapElementEditor.getPanel(bean);
 	}
+
 }

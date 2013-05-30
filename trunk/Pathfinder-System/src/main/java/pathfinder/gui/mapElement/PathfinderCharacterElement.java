@@ -63,6 +63,12 @@ public class PathfinderCharacterElement extends MapElement {
 	}
 
 	@Override
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		super.removePropertyChangeListener(listener);
+		getCharacter().removePropertyChangeListener(listener);
+	}
+
+	@Override
 	public Double getWidthPixels() {
 		return width.getPixels(getScale());
 	}

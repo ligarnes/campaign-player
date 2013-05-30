@@ -27,11 +27,15 @@ public class PanelMonsterBuilder extends PanelMapElementBuilder {
 		JPanel panelCenter = new JPanel();
 		panelCenter.setLayout(new BoxLayout(panelCenter, BoxLayout.Y_AXIS));
 
-		monsters = new MyCombobox<MonsterBuilderAdapter>(
-				MonsterBuilderAdapter.getMonsters());
+		monsters = new MyCombobox<MonsterBuilderAdapter>();
 		panelCenter.add(monsters);
 
 		this.add(panelCenter, BorderLayout.CENTER);
+	}
+
+	@Override
+	public void refresh() {
+		monsters.setValues(MonsterBuilderAdapter.getMonsters());
 	}
 
 	private MonsterBuilder getCharacter() {

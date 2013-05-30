@@ -4,13 +4,16 @@ import java.beans.Beans;
 
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.gui.factory.PanelCharacterFactory;
+import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
+import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
+import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.documents.character.Character;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.general.PanelCharacterInfo;
 import pathfinder.gui.general.PanelCompleteCharacterSheet;
+import pathfinder.map.state.PathfinderDrawInfo;
 
-public class PathfinderPanelCharacterFactory extends PanelCharacterFactory {
+public class PathfinderCorePlugin implements ICorePlugin {
 
 	@Override
 	public JPanel buildSmallCharacterSheet() {
@@ -23,4 +26,10 @@ public class PathfinderPanelCharacterFactory extends PanelCharacterFactory {
 				.getInstanceOf(character, PathfinderCharacter.class);
 		return new PanelCompleteCharacterSheet(pathfinderCharacter);
 	}
+
+	@Override
+	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
+		return new PathfinderDrawInfo(mapInfo);
+	}
+
 }
