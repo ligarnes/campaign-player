@@ -24,6 +24,14 @@ public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel
 		this.add(scroll, BorderLayout.CENTER);
 	}
 
+	public void addZoomListener(ZoomListener listener) {
+		listenerList.add(ZoomListener.class, listener);
+	}
+
+	public void removeZoomListener(ZoomListener listener) {
+		listenerList.remove(ZoomListener.class, listener);
+	}
+
 	public Point getViewPosition() {
 		return scroll.getViewport().getViewPosition();
 	}
@@ -77,8 +85,16 @@ public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel
 		zoomValue = Math.min(8, zoomValue);
 
 		this.inside.zoom(zoomValue);
+		this.fireZoomChanged(getZoomFactor());
 		this.revalidate();
 		this.repaint();
+	}
+
+	protected void fireZoomChanged(Double zoomFactor) {
+		for (ZoomListener listener : listenerList
+				.getListeners(ZoomListener.class)) {
+			listener.zoomChanged(zoomFactor);
+		}
 	}
 
 	public void zoom(Point center, int zoomFactor) {

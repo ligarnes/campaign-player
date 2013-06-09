@@ -135,7 +135,7 @@ public class PathfinderMonster extends BasicBean implements Unit {
 
 	@Override
 	public void setCurrentHp(Integer currentHp) {
-		Integer oldValue = this.totalHp;
+		Integer oldValue = this.currentHp;
 		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {
 			this.currentHp = currentHp;
 			propertyChangeSupport.firePropertyChange(PROP_CURRENT_HP_PROPERTY,
@@ -148,7 +148,7 @@ public class PathfinderMonster extends BasicBean implements Unit {
 	}
 
 	public void setImage(UniqueID image) {
-		Integer oldValue = this.totalHp;
+		UniqueID oldValue = this.image;
 		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
 			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,

@@ -10,7 +10,7 @@
       <y>105</y>
    </position>
    <angle>0.0</angle>
-   <hiddenForPlayer>true</hiddenForPlayer>
+   <hiddenForPlayer>false</hiddenForPlayer>
    <monsterId serialVersionUID="1">
       <guid>94-DE-80-0B-0A-49:ae621a4f-a33d-4ed7-b0aa-2096b543d9dc:1370699796927</guid>
    </monsterId>

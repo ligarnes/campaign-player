@@ -15,6 +15,7 @@ public class DocumentIO {
 		String[] chaines = path.split("\\\\");
 		String classe = chaines[chaines.length - 2];
 
+		@SuppressWarnings("unchecked")
 		Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
 				.forName(classe);
 		Serializer serializer = new Persister();

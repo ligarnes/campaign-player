@@ -78,7 +78,8 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 
 		JPanel panelCenter1 = new JPanel(new BorderLayout());
 		panelCenter1.add(panelCenter, BorderLayout.CENTER);
-		panelCenter1.add(new PanelToolsAdventure(this), BorderLayout.NORTH);
+		panelCenter1.add(new PanelToolsAdventure(this, movePanel),
+				BorderLayout.NORTH);
 
 		this.setLayout(new BorderLayout());
 

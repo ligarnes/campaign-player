@@ -11,9 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ZoomInOutAction;
+import net.alteiar.zoom.PanelMoveZoom;
+import net.alteiar.zoom.ZoomListener;
 import net.alteiar.zoom.Zoomable;
 
-public class PanelZoomEditor extends JPanel {
+public class PanelZoomEditor extends JPanel implements ZoomListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,8 +24,9 @@ public class PanelZoomEditor extends JPanel {
 	private final JButton btnZoomIn;
 	private final JLabel lblZoomvalue;
 
-	public PanelZoomEditor(Zoomable zoomable) {
+	public PanelZoomEditor(PanelMoveZoom<?> zoomable) {
 		this.zoomable = zoomable;
+		zoomable.addZoomListener(this);
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
@@ -63,5 +66,10 @@ public class PanelZoomEditor extends JPanel {
 
 		DecimalFormat df2 = new DecimalFormat("00.00");
 		this.lblZoomvalue.setText(df2.format(zoom) + "%");
+	}
+
+	@Override
+	public void zoomChanged(Double zoomFactor) {
+		updateZoomValue();
 	}
 }
