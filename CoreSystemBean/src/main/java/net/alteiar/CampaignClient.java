@@ -130,6 +130,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	private final ArrayList<CampaignListener> listeners;
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
+	private final HashMap<UniqueID, ArrayList<SuppressBeanListener>> suppressBeanListeners;
 
 	// this manage event
 	// TODO desactivate it for the moment
@@ -141,6 +142,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 		listeners = new ArrayList<CampaignListener>();
 		waitBeanListeners = new HashMap<UniqueID, ArrayList<WaitBeanListener>>();
+		suppressBeanListeners = new HashMap<UniqueID, ArrayList<SuppressBeanListener>>();
 
 		// First create all local variable
 		players = new ArrayList<Player>();
@@ -305,6 +307,37 @@ public final class CampaignClient implements DocumentManagerListener {
 		return manager.getBean(id);
 	}
 
+	public void addSuppressBeanListener(SuppressBeanListener listener) {
+		synchronized (suppressBeanListeners) {
+			ArrayList<SuppressBeanListener> listeners = suppressBeanListeners
+					.get(listener.getBeanId());
+
+			if (listeners == null) {
+				listeners = new ArrayList<SuppressBeanListener>();
+				suppressBeanListeners.put(listener.getBeanId(), listeners);
+			}
+			listeners.add(listener);
+		}
+	}
+
+	protected ArrayList<SuppressBeanListener> getSuppressBeanListener(
+			UniqueID beanId) {
+		ArrayList<SuppressBeanListener> listeners;
+		synchronized (suppressBeanListeners) {
+			listeners = suppressBeanListeners.get(beanId);
+		}
+		if (listeners == null) {
+			listeners = new ArrayList<SuppressBeanListener>();
+		}
+		return listeners;
+	}
+
+	protected void removeSuppressBeanListener(BasicBean listener) {
+		synchronized (suppressBeanListeners) {
+			suppressBeanListeners.remove(listener.getId());
+		}
+	}
+
 	public void addWaitBeanListener(WaitBeanListener listener) {
 		BasicBean bean = getBean(listener.getBeanId());
 		if (bean != null) {
@@ -454,6 +487,12 @@ public final class CampaignClient implements DocumentManagerListener {
 			notifyBeanRemoved(doc);
 		}
 
+		ArrayList<SuppressBeanListener> removeListeners = getSuppressBeanListener(bean
+				.getId());
+		for (SuppressBeanListener removeBeanListener : removeListeners) {
+			removeBeanListener.beanRemoved(bean);
+		}
+		removeSuppressBeanListener(bean);
 	}
 
 	private static void deleteRecursive(File base) {

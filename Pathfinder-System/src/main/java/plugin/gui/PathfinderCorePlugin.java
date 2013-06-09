@@ -4,9 +4,9 @@ import java.beans.Beans;
 
 import javax.swing.JPanel;
 
+import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
+import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
-import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
 import net.alteiar.documents.character.Character;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.general.PanelCharacterInfo;
@@ -28,7 +28,7 @@ public class PathfinderCorePlugin implements ICorePlugin {
 	}
 
 	@Override
-	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
+	public DrawFilter getDrawInfo(MapEditableInfo mapInfo) {
 		return new PathfinderDrawInfo(mapInfo);
 	}
 

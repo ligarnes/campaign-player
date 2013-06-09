@@ -1,10 +1,12 @@
 package pathfinder.gui.adapter;
 
 import java.beans.Beans;
+import java.util.ArrayList;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.character.Character;
+import net.alteiar.shared.UniqueID;
 import pathfinder.bean.unit.PathfinderCharacter;
 
 public class CharacterAdapter {
@@ -62,5 +64,22 @@ public class CharacterAdapter {
 		}
 
 		return characterAdapters;
+	}
+
+	public static ArrayList<CharacterAdapter> getCharacters(
+			ArrayList<UniqueID> ignoreList) {
+		ArrayList<CharacterAdapter> adapters = new ArrayList<CharacterAdapter>();
+
+		List<Character> characters = CampaignClient.getInstance()
+				.getCharacters();
+
+		for (Character character : characters) {
+			if (!ignoreList.contains(character.getId())) {
+				adapters.add(new CharacterAdapter((PathfinderCharacter) Beans
+						.getInstanceOf(character, PathfinderCharacter.class)));
+			}
+		}
+
+		return adapters;
 	}
 }

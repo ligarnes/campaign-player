@@ -20,6 +20,8 @@ public class PanelShowHide extends JPanel {
 
 	private static final Color TITLE_BACKGROUND_COLOR = new Color(173, 173, 173);
 
+	public static final String PROP_SHOW_PROPERTY = "show";
+
 	private static ImageIcon arrowHide;
 	private static ImageIcon arrowShow;
 
@@ -49,6 +51,10 @@ public class PanelShowHide extends JPanel {
 	}
 
 	public PanelShowHide(String title, JPanel panel, int width) {
+		this(title, panel, width, true);
+	}
+
+	public PanelShowHide(String title, JPanel panel, int width, Boolean show) {
 		if (arrowHide == null && arrowShow == null) {
 			arrowHide = new ImageIcon(
 					PanelShowHide.class.getResource("/icons/Arrow_down.png"));
@@ -64,14 +70,22 @@ public class PanelShowHide extends JPanel {
 
 		panelContent = panel;
 
-		show = true;
+		this.show = show;
 		this.add(panelTitle);
 		this.add(panelContent);
 	}
 
+	public Boolean getShow() {
+		return show;
+	}
+
 	private void reduce() {
+		Boolean oldValue = show;
 		show = !show;
+
 		panelContent.setVisible(show);
+
+		this.firePropertyChange(PROP_SHOW_PROPERTY, oldValue, show);
 
 		this.revalidate();
 		this.repaint();

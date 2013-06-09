@@ -32,17 +32,14 @@ public class MonsterBuilder extends BasicBean {
 	private Integer acFlatFooted;
 
 	@Element
-	private Integer caTouch;
+	private Integer acTouch;
 
-	// Reflexe
 	@Element
 	private Integer reflex;
 
-	// Vigueur
 	@Element
 	private Integer fortitude;
 
-	// Volonte
 	@Element
 	private Integer will;
 
@@ -60,7 +57,7 @@ public class MonsterBuilder extends BasicBean {
 		this.challengeRating = challengeRating;
 		this.ac = ac;
 		this.acFlatFooted = acFlatFooted;
-		this.caTouch = caTouch;
+		this.acTouch = caTouch;
 		this.reflex = reflex;
 		this.fortitude = fortitude;
 		this.will = will;
@@ -134,12 +131,12 @@ public class MonsterBuilder extends BasicBean {
 		this.acFlatFooted = acFlatFooted;
 	}
 
-	public Integer getCaTouch() {
-		return caTouch;
+	public Integer getAcTouch() {
+		return acTouch;
 	}
 
-	public void setCaTouch(Integer caTouch) {
-		this.caTouch = caTouch;
+	public void setAcTouch(Integer caTouch) {
+		this.acTouch = caTouch;
 	}
 
 	public Integer getReflex() {
@@ -167,6 +164,7 @@ public class MonsterBuilder extends BasicBean {
 	}
 
 	public PathfinderMonster createMonster() {
-		return new PathfinderMonster(name, totalHp, totalHp, image);
+		return new PathfinderMonster(name, totalHp, totalHp, challengeRating,
+				ac, acFlatFooted, acTouch, reflex, fortitude, will, image);
 	}
 }

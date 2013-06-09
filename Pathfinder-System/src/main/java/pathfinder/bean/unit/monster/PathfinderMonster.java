@@ -42,17 +42,14 @@ public class PathfinderMonster extends BasicBean implements Unit {
 	private Integer acFlatFooted;
 
 	@Element
-	private Integer caTouch;
+	private Integer acTouch;
 
-	// Reflexe
 	@Element
 	private Integer reflex;
 
-	// Vigueur
 	@Element
 	private Integer fortitude;
 
-	// Volonte
 	@Element
 	private Integer will;
 
@@ -63,10 +60,23 @@ public class PathfinderMonster extends BasicBean implements Unit {
 	}
 
 	public PathfinderMonster(String name, Integer totalHp, Integer currentHp,
+			Integer challengeRating, Integer ac, Integer acFlatFooted,
+			Integer acTouch, Integer reflex, Integer fortitude, Integer will,
 			UniqueID image) {
 		this.name = name;
 		this.totalHp = totalHp;
 		this.currentHp = currentHp;
+
+		this.challengeRating = challengeRating;
+
+		this.ac = ac;
+		this.acFlatFooted = acFlatFooted;
+		this.acTouch = acTouch;
+
+		this.reflex = reflex;
+		this.fortitude = fortitude;
+		this.will = will;
+
 		this.image = image;
 	}
 

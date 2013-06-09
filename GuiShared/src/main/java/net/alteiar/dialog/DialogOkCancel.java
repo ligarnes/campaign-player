@@ -112,7 +112,7 @@ public class DialogOkCancel<Pane extends JPanel & PanelOkCancel> extends
 			}
 		});
 
-		cancelButton.setText("Cancel");
+		cancelButton.setText("Annuler");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent evt) {

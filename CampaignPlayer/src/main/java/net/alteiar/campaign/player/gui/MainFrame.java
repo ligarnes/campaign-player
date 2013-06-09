@@ -49,7 +49,7 @@ public class MainFrame extends JFrame implements WindowListener {
 	// East
 
 	// Center
-	private MainPanel centerPanel;
+	private PanelGlobal centerPanel;
 
 	// West
 	private final JPanel westPanel;
@@ -116,7 +116,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		// west setup
 
 		// center setup
-		centerPanel = new MainPanel();
+		centerPanel = new PanelGlobal();
 		centerPanel.addKeyListener(listeners);
 
 		// frame setup
@@ -132,15 +132,12 @@ public class MainFrame extends JFrame implements WindowListener {
 		southPanel.add(currentTask);
 		southPanel.add(progressBar);
 
+		// this.add(centerPanel, BorderLayout.CENTER);
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.add(westPanel, BorderLayout.WEST);
 		this.add(southPanel, BorderLayout.SOUTH);
 
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	}
-
-	public MainPanel getMainPanel() {
-		return this.centerPanel;
 	}
 
 	@Override

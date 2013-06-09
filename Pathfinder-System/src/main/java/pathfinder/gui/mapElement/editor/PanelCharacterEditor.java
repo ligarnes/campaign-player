@@ -10,8 +10,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
-import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
+import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 

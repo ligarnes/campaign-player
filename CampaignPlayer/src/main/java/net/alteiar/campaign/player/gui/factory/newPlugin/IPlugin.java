@@ -3,10 +3,10 @@ package net.alteiar.campaign.player.gui.factory.newPlugin;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.map.elements.MapElement;
 

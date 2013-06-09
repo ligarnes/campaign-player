@@ -2,13 +2,19 @@ package pathfinder.gui.mapElement.builder;
 
 import java.awt.BorderLayout;
 import java.awt.Point;
+import java.beans.Beans;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
+import net.alteiar.CampaignClient;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
+import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.elements.MapElement;
+import net.alteiar.shared.UniqueID;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
@@ -32,8 +38,22 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 	}
 
 	@Override
-	public void refresh() {
-		characters.setValues(CharacterAdapter.getCharacters());
+	public void refresh(MapBean map) {
+
+		ArrayList<UniqueID> ignoreList = new ArrayList<UniqueID>();
+
+		for (UniqueID mapId : map.getElements()) {
+			MapElement element = CampaignClient.getInstance().getBean(mapId);
+
+			if (Beans.isInstanceOf(element, PathfinderCharacterElement.class)) {
+				PathfinderCharacterElement characterElement = (PathfinderCharacterElement) Beans
+						.getInstanceOf(element,
+								PathfinderCharacterElement.class);
+
+				ignoreList.add(characterElement.getCharactedId());
+			}
+		}
+		characters.setValues(CharacterAdapter.getCharacters(ignoreList));
 	}
 
 	private PathfinderCharacter getCharacter() {
@@ -42,11 +62,6 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 
 	@Override
 	public Boolean isAvailable() {
-		characters.removeAllItems();
-		for (CharacterAdapter adapter : CharacterAdapter.getCharacters()) {
-			characters.addItem(adapter);
-		}
-
 		return characters.getItemCount() > 0;
 	}
 

@@ -110,7 +110,6 @@ public class MapBean extends AuthorizationBean {
 
 			mapElement.draw(g2, zoomFactor);
 		}
-
 	}
 
 	public void drawFilter(Graphics2D g2, double zoomFactor) {
