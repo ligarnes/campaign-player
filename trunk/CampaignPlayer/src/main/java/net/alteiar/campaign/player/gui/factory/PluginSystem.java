@@ -8,16 +8,17 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
+import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
+import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
 import net.alteiar.campaign.player.gui.factory.newPlugin.IPlugin;
-import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.character.Character;
+import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 
 public class PluginSystem implements IPluginSystemGui {
@@ -40,7 +41,7 @@ public class PluginSystem implements IPluginSystemGui {
 	}
 
 	@Override
-	public DrawInfo getDrawInfo(MapEditableInfo mapInfo) {
+	public DrawFilter getDrawInfo(MapEditableInfo mapInfo) {
 		return core.getDrawInfo(mapInfo);
 	}
 
@@ -81,19 +82,28 @@ public class PluginSystem implements IPluginSystemGui {
 	}
 
 	@Override
-	public ArrayList<PanelMapElementBuilder> getGuiMapElementFactory() {
+	public ArrayList<PanelMapElementBuilder> getGuiMapElementFactory(MapBean map) {
 		ArrayList<PanelMapElementBuilder> mapElementBuilders = new ArrayList<PanelMapElementBuilder>();
 
 		for (IPlugin plugin : plugins) {
 			ArrayList<PanelMapElementBuilder> mapElementBuilder = plugin
 					.getGuiMapElementFactory();
 			for (PanelMapElementBuilder builder : mapElementBuilder) {
-				builder.refresh();
+				builder.refresh(map);
 			}
 			mapElementBuilders.addAll(mapElementBuilder);
 		}
 
 		return mapElementBuilders;
+	}
+
+	public Integer getGuiMapElementFactoryCount() {
+		Integer total = 0;
+		for (IPlugin plugin : plugins) {
+			total += plugin.getGuiMapElementFactory().size();
+		}
+
+		return total;
 	}
 
 	@Override

@@ -7,7 +7,8 @@ import java.awt.Rectangle;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel {
+public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel
+		implements Zoomable {
 	private static final long serialVersionUID = 1L;
 
 	private final E inside;
@@ -96,5 +97,15 @@ public class PanelMoveZoom<E extends JPanel & Zoomable> extends JPanel {
 		scroll.getViewport().setViewPosition(newViewPos);
 		this.revalidate();
 		this.repaint();
+	}
+
+	@Override
+	public void zoom(double value) {
+		zoom((int) value);
+	}
+
+	@Override
+	public Double getZoomFactor() {
+		return inside.getZoomFactor();
 	}
 }

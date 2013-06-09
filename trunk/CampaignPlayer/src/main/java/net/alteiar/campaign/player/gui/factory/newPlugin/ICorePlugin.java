@@ -2,8 +2,8 @@ package net.alteiar.campaign.player.gui.factory.newPlugin;
 
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
+import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
+import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.documents.character.Character;
 
 public interface ICorePlugin {
@@ -12,5 +12,5 @@ public interface ICorePlugin {
 
 	JPanel buildCompleteCharacterSheet(Character character);
 
-	DrawInfo getDrawInfo(MapEditableInfo mapInfo);
+	DrawFilter getDrawInfo(MapEditableInfo mapInfo);
 }

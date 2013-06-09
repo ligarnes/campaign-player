@@ -7,12 +7,12 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.DynamicPanelBeanBuilder;
 import net.alteiar.campaign.player.gui.factory.newPlugin.IPlugin;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementEditor;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.image.DocumentImageBean;
 import net.alteiar.documents.map.MapBean;

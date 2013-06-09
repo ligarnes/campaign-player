@@ -4,11 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
-import net.alteiar.campaign.player.gui.map.battle.MapEditableInfo;
-import net.alteiar.campaign.player.gui.map.drawable.DrawInfo;
+import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
+import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import pathfinder.gui.drawable.CharactersDrawable;
 
-public class PathfinderDrawInfo extends DrawInfo {
+public class PathfinderDrawInfo extends DrawFilter {
 
 	public PathfinderDrawInfo(MapEditableInfo mapInfo) {
 		super(mapInfo);

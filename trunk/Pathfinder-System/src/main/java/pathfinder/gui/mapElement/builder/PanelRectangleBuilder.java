@@ -9,8 +9,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
-import net.alteiar.campaign.player.gui.map.element.utils.PanelElementSize;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
+import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
 import net.alteiar.panel.PanelSelectColor;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.utils.map.element.MapElementSize;

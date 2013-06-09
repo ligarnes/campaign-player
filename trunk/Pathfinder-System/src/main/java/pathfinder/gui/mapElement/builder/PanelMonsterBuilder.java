@@ -8,8 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.gui.map.element.PanelMapElementBuilder;
+import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
+import net.alteiar.documents.map.MapBean;
 import pathfinder.bean.unit.monster.MonsterBuilder;
 import pathfinder.bean.unit.monster.PathfinderMonster;
 import pathfinder.gui.adapter.MonsterBuilderAdapter;
@@ -34,7 +35,7 @@ public class PanelMonsterBuilder extends PanelMapElementBuilder {
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(MapBean map) {
 		monsters.setValues(MonsterBuilderAdapter.getMonsters());
 	}
 
