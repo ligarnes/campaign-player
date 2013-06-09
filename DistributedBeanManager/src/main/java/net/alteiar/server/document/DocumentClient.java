@@ -72,7 +72,6 @@ public class DocumentClient implements IDocumentClient, Serializable,
 
 	@Override
 	public void loadDocument(BasicBean bean) throws RemoteException {
-		setFilename(remote.getFilename());
 		documentListener = new DocumentListener();
 
 		this.remote.addDocumentListener(documentListener);

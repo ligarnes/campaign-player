@@ -12,13 +12,15 @@ import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.FixGridActi
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.RescaleAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowGridAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAreaAction;
+import net.alteiar.zoom.PanelMoveZoom;
 
 public class PanelToolsAdventure extends JToolBar {
 	private static final long serialVersionUID = 1L;
 
 	private final ButtonGroup group;
 
-	public PanelToolsAdventure(final MapEditableInfo mapInfo) {
+	public PanelToolsAdventure(final MapEditableInfo mapInfo,
+			PanelMoveZoom<?> panelZoom) {
 
 		group = new ButtonGroup();
 
@@ -51,7 +53,7 @@ public class PanelToolsAdventure extends JToolBar {
 					new ShowHideAreaAction(mapInfo, false));
 			this.add(hideAll);
 
-			this.add(new PanelZoomEditor(mapInfo));
+			this.add(new PanelZoomEditor(panelZoom));
 
 			group.add(showMap);
 			group.add(hideMap);

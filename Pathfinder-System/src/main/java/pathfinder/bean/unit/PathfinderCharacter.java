@@ -105,10 +105,10 @@ public class PathfinderCharacter extends Character implements Unit {
 
 	@Override
 	public void setCurrentHp(Integer currentHp) {
-		Integer oldValue = this.totalHp;
-		if (notifyRemote(PROP_AC_PROPERTY, oldValue, currentHp)) {
+		Integer oldValue = this.currentHp;
+		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {
 			this.currentHp = currentHp;
-			propertyChangeSupport.firePropertyChange(PROP_AC_PROPERTY,
+			propertyChangeSupport.firePropertyChange(PROP_CURRENT_HP_PROPERTY,
 					oldValue, currentHp);
 		}
 	}
