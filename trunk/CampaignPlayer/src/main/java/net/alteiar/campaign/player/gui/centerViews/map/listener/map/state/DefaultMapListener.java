@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.map.listener;
+package net.alteiar.campaign.player.gui.centerViews.map.listener.map.state;
 
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenuItem;
@@ -7,7 +7,8 @@ import javax.swing.SwingUtilities;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.ActionMapListener;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.AddElementAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.FixGridAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowGridAction;
@@ -24,15 +25,15 @@ public class DefaultMapListener extends ActionMapListener {
 		if (SwingUtilities.isRightMouseButton(event.getMouseEvent())) {
 			JPopupMenu popup = new JPopupMenu();
 
-			popup.add(new JMenuItem(new AddElementAction(getMapEditableInfo(),
+			popup.add(new JMenuItem(new AddElementAction(getMapInfo(),
 					event.getFixToGridPosition())));
 
 			if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 				popup.addSeparator();
 				popup.add(new JMenuItem(new ShowHideAreaAction(
-						getMapEditableInfo(), true)));
+						getMapInfo(), true)));
 				popup.add(new JMenuItem(new ShowHideAreaAction(
-						getMapEditableInfo(), false)));
+						getMapInfo(), false)));
 			}
 
 			popup.addSeparator();
@@ -46,15 +47,20 @@ public class DefaultMapListener extends ActionMapListener {
 
 	private JMenuItem buildShowGrid() {
 		final JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
-				new ShowGridAction(getMapEditableInfo()));
-		menuItem.setSelected(getMapEditableInfo().getShowGrid());
+				new ShowGridAction(getMapInfo()));
+		menuItem.setSelected(getMapInfo().getShowGrid());
 		return menuItem;
 	}
 
 	private JMenuItem buildFixGrid() {
 		final JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
-				new FixGridAction(getMapEditableInfo()));
-		menuItem.setSelected(getMapEditableInfo().getFixGrid());
+				new FixGridAction(getMapInfo()));
+		menuItem.setSelected(getMapInfo().getFixGrid());
 		return menuItem;
+	}
+
+	@Override
+	public void cancelTask() {
+		// Do nothing
 	}
 }

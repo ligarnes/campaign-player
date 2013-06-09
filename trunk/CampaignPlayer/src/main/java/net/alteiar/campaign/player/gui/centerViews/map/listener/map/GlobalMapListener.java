@@ -1,25 +1,27 @@
-package net.alteiar.campaign.player.gui.centerViews.map.listener;
+package net.alteiar.campaign.player.gui.centerViews.map.listener.map;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapListener;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapListener;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.state.DefaultMapListener;
 
 public class GlobalMapListener implements MapListener {
 
 	private final DefaultMapListener defaultListener;
 
-	private MapListener currentListener;
+	private ActionMapListener currentListener;
 
 	public GlobalMapListener(MapEditableInfo mapInfo) {
 		defaultListener = new DefaultMapListener(mapInfo);
 		currentListener = defaultListener;
 	}
 
-	public void setCurrentListener(MapListener listener) {
+	public void setCurrentListener(ActionMapListener listener) {
+		currentListener.cancelTask();
 		currentListener = listener;
 	}
 
@@ -28,6 +30,7 @@ public class GlobalMapListener implements MapListener {
 	}
 
 	public void defaultListener() {
+		currentListener.cancelTask();
 		currentListener = defaultListener;
 	}
 

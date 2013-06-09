@@ -21,10 +21,9 @@ package net.alteiar.campaign.player.gui.centerViews.map;
 
 import java.awt.Point;
 import java.awt.geom.Point2D;
-import java.util.List;
 
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
-import net.alteiar.campaign.player.gui.centerViews.map.listener.GlobalMapListener;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.utils.map.Scale;
@@ -65,15 +64,9 @@ public interface MapEditableInfo extends Zoomable {
 
 	Integer getSquareDistance(double distancePixel);
 
-	// double getZoom();
-
-	// void zoom(int zoomFactor);
-
 	void zoom(Point center, int zoomFactor);
 
 	void move(int moveX, int moveY);
-
-	Point getPositionOf(MapElement currentElement);
 
 	Boolean getFixGrid();
 
@@ -96,8 +89,4 @@ public interface MapEditableInfo extends Zoomable {
 	void addDrawable(MouseDrawable draw);
 
 	void removeDrawable(MouseDrawable draw);
-
-	void showPolygon(List<Point> cwPts);
-
-	void hidePolygon(List<Point> cwPts);
 }

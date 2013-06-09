@@ -21,16 +21,14 @@ package net.alteiar.campaign.player.gui.centerViews.map;
 
 import java.awt.BorderLayout;
 import java.awt.Point;
-import java.awt.Polygon;
 import java.awt.geom.Point2D;
-import java.util.List;
 
 import javax.swing.JPanel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
-import net.alteiar.campaign.player.gui.centerViews.map.listener.GlobalMapListener;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.mapElement.MapElementListener;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.PanelToolsAdventure;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
@@ -185,10 +183,10 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 		return squareDistance.intValue();
 	}
 
-	@Override
-	public Point getPositionOf(MapElement currentElement) {
-		return currentElement.getCenterPosition();
-	}
+	/*
+	 * @Override public Point getPositionOf(MapElement currentElement) { return
+	 * currentElement.getCenterPosition(); }
+	 */
 
 	@Override
 	public void moveElementAt(MapElement currentElement, Point position) {
@@ -228,34 +226,6 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 
 	public MapFilter getMapFilter() {
 		return CampaignClient.getInstance().getBean(this.map.getFilter());
-	}
-
-	@Override
-	public void showPolygon(List<Point> cwPts) {
-		MapFilter filter = getMapFilter();
-		int[] x = new int[cwPts.size()];
-		int[] y = new int[cwPts.size()];
-
-		for (int i = 0; i < cwPts.size(); i++) {
-			x[i] = cwPts.get(i).x;
-			y[i] = cwPts.get(i).y;
-		}
-
-		filter.showPolygon(new Polygon(x, y, cwPts.size()));
-	}
-
-	@Override
-	public void hidePolygon(List<Point> cwPts) {
-		MapFilter filter = getMapFilter();
-		int[] x = new int[cwPts.size()];
-		int[] y = new int[cwPts.size()];
-
-		for (int i = 0; i < cwPts.size(); i++) {
-			x[i] = cwPts.get(i).x;
-			y[i] = cwPts.get(i).y;
-		}
-
-		filter.hidePolygon(new Polygon(x, y, cwPts.size()));
 	}
 
 	@Override

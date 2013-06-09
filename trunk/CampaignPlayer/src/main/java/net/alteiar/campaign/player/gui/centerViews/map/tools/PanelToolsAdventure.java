@@ -11,8 +11,11 @@ import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.AddElementA
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.FixGridAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.RescaleAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowGridAction;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAllAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAreaAction;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.dice.PathfinderDiceToolBar;
 import net.alteiar.zoom.PanelMoveZoom;
+import net.alteiar.zoom.PanelZoomEditor;
 
 public class PanelToolsAdventure extends JToolBar {
 	private static final long serialVersionUID = 1L;
@@ -33,11 +36,6 @@ public class PanelToolsAdventure extends JToolBar {
 
 		// For Mj only
 		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
-			this.addSeparator();
-			JToggleButton rescale = new JToggleButton(
-					new RescaleAction(mapInfo));
-			this.add(rescale);
-
 			JToggleButton showMap = new JToggleButton(new ShowHideAreaAction(
 					mapInfo, true));
 			this.add(showMap);
@@ -46,13 +44,13 @@ public class PanelToolsAdventure extends JToolBar {
 					mapInfo, false));
 			this.add(hideMap);
 
-			JButton showAll = new JButton(new ShowHideAreaAction(mapInfo, true));
+			JButton showAll = new JButton(new ShowHideAllAction(mapInfo, true));
 			this.add(showAll);
 
-			JButton hideAll = new JButton(
-					new ShowHideAreaAction(mapInfo, false));
+			JButton hideAll = new JButton(new ShowHideAllAction(mapInfo, false));
 			this.add(hideAll);
 
+			this.addSeparator();
 			this.add(new PanelZoomEditor(panelZoom));
 
 			group.add(showMap);
@@ -60,10 +58,10 @@ public class PanelToolsAdventure extends JToolBar {
 		}
 		this.addSeparator();
 
-		this.add(new DiceToolBar());
-
-		this.addSeparator();
-
+		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+			JButton rescale = new JButton(new RescaleAction(mapInfo));
+			this.add(rescale);
+		}
 		JToggleButton showGrid = new JToggleButton(new ShowGridAction(mapInfo));
 		this.add(showGrid);
 
@@ -75,5 +73,9 @@ public class PanelToolsAdventure extends JToolBar {
 			showGrid.setSelected(true);
 		}
 		this.add(fixGrid);
+
+		this.addSeparator();
+		this.add(new PathfinderDiceToolBar());
+
 	}
 }

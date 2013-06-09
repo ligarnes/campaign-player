@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.map.listener;
+package net.alteiar.campaign.player.gui.centerViews.map.listener.map;
 
 import java.awt.Component;
 import java.awt.Point;
@@ -6,7 +6,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapAdapter;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.zoom.MoveZoomListener;
 
 public class MoveMapListener extends MapAdapter {
@@ -19,7 +20,7 @@ public class MoveMapListener extends MapAdapter {
 		listener = new MoveZoomListener(mapInfo.getMoveZoomPanel());
 	}
 
-	protected MapEditableInfo getMapEditableInfo() {
+	protected MapEditableInfo getMapInfo() {
 		return mapInfo;
 	}
 

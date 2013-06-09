@@ -6,8 +6,7 @@ import java.awt.event.ActionEvent;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelCreateMapElement;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
-import net.alteiar.campaign.player.gui.centerViews.map.listener.MapAdapter;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.state.AddElementListener;
 
 public class AddElementAction extends MapAction {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +16,8 @@ public class AddElementAction extends MapAction {
 
 	private final Point position;
 
+	private final AddElementListener listener;
+
 	public AddElementAction(MapEditableInfo info) {
 		this(info, null);
 	}
@@ -25,6 +26,7 @@ public class AddElementAction extends MapAction {
 		super(info);
 
 		this.position = position;
+		this.listener = new AddElementListener(getMapInfo());
 
 		putValue(NAME, "Ajouter un élément");
 		putValue(SMALL_ICON, Helpers.getIcon(ICON_ADD_ELEMENT_REDUCE_NAME));
@@ -34,20 +36,10 @@ public class AddElementAction extends MapAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (position == null) {
-			getMapInfo().getPanelMap().addMapListener(new AddElementListener());
+			getMapInfo().getMapListener().setCurrentListener(listener);
 		} else {
 			PanelCreateMapElement.createMapElement(getMapInfo().getMap(),
 					position);
-		}
-	}
-
-	private class AddElementListener extends MapAdapter {
-		@Override
-		public void mouseClicked(MapEvent event) {
-			PanelCreateMapElement
-					.createMapElement(getMapInfo().getMap(), event);
-			getMapInfo().getPanelMap().removeMapListener(
-					AddElementListener.this);
 		}
 	}
 }

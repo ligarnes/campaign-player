@@ -7,9 +7,9 @@ import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapAdapter;
-import net.alteiar.campaign.player.gui.centerViews.map.listener.ShowHidePolygonMapListener;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.state.ShowHidePolygonMapListener;
 
 public class ShowHideAreaAction extends MapAction {
 	private static final long serialVersionUID = 1L;
@@ -20,9 +20,11 @@ public class ShowHideAreaAction extends MapAction {
 	private final Boolean isShow;
 	private final Point begin;
 
+	private ShowHideListener listener;
+
 	public ShowHideAreaAction(MapEditableInfo info, Boolean isShow) {
 		this(info, isShow, null);
-
+		listener = new ShowHideListener(info, isShow);
 	}
 
 	public ShowHideAreaAction(MapEditableInfo info, Boolean isShow, Point begin) {
@@ -46,14 +48,17 @@ public class ShowHideAreaAction extends MapAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (begin == null) {
-			getMapInfo().getPanelMap().addMapListener(
-					new ShowHideListener(getMapInfo(), isShow));
+			getMapInfo().getPanelMap().addMapListener(listener);
 		} else {
 			getMapInfo().getMapListener()
 					.setCurrentListener(
 							new ShowHidePolygonMapListener(getMapInfo(), begin,
 									isShow));
 		}
+	}
+
+	public void cancel() {
+		getMapInfo().getPanelMap().removeMapListener(listener);
 	}
 
 	private class ShowHideListener extends MapAdapter {

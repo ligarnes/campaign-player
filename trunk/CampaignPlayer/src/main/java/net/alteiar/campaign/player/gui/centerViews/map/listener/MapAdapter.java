@@ -4,8 +4,6 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapListener;
 
 public class MapAdapter implements MapListener {
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;

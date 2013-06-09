@@ -19,6 +19,16 @@ public class DiceBag implements Dice {
 		this.modifier = modifier;
 	}
 
+	public DiceBag(Dice dice) {
+		this(dice, 0);
+	}
+
+	public DiceBag(Dice dice, Integer modifier) {
+		dices = new ArrayList<Dice>();
+		this.modifier = modifier;
+		dices.add(dice);
+	}
+
 	public void addDice(Dice e) {
 		dices.add(e);
 	}
