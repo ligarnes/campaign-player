@@ -13,13 +13,13 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.alteiar.campaign.player.gui.centerViews.map.tools.PanelZoomEditor;
 import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
 import net.alteiar.documents.map.MapBean;
 import net.alteiar.utils.map.Scale;
 import net.alteiar.zoom.MoveZoomListener;
 import net.alteiar.zoom.PanelMoveZoom;
+import net.alteiar.zoom.PanelZoomEditor;
 
 public class PanelScaleEditor extends PanelAlwaysValidOkCancel implements
 		PanelOkCancel {

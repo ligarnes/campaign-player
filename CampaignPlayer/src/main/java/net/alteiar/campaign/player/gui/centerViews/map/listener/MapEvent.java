@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.map.event;
+package net.alteiar.campaign.player.gui.centerViews.map.listener;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;

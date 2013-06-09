@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.map.tools;
+package net.alteiar.campaign.player.gui.centerViews.map.tools.dice;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -43,14 +43,14 @@ public class PanelDiceSelection extends JPanel implements ActionListener {
 					}
 				});
 
-		dices.put(new Die(new DiceSingle(4)), DiceToolBar.ICON_D4_LARGE);
-		dices.put(new Die(new DiceSingle(6)), DiceToolBar.ICON_D6_LARGE);
-		dices.put(new Die(new DiceSingle(8)), DiceToolBar.ICON_D8_LARGE);
-		dices.put(new Die(new DiceSingle(10)), DiceToolBar.ICON_D10_LARGE);
-		dices.put(new Die(new DiceSingle(12)), DiceToolBar.ICON_D12_LARGE);
-		dices.put(new Die(new DiceSingle(20)), DiceToolBar.ICON_D20_LARGE);
-		dices.put(new Die(new DiceSingle(30)), DiceToolBar.ICON_D30_LARGE);
-		dices.put(new Die(new DiceSingle(100)), DiceToolBar.ICON_D100_LARGE);
+		dices.put(new Die(new DiceSingle(4)), DefaultDiceToolBar.ICON_D4_LARGE);
+		dices.put(new Die(new DiceSingle(6)), DefaultDiceToolBar.ICON_D6_LARGE);
+		dices.put(new Die(new DiceSingle(8)), DefaultDiceToolBar.ICON_D8_LARGE);
+		dices.put(new Die(new DiceSingle(10)), DefaultDiceToolBar.ICON_D10_LARGE);
+		dices.put(new Die(new DiceSingle(12)), DefaultDiceToolBar.ICON_D12_LARGE);
+		dices.put(new Die(new DiceSingle(20)), DefaultDiceToolBar.ICON_D20_LARGE);
+		dices.put(new Die(new DiceSingle(30)), DefaultDiceToolBar.ICON_D30_LARGE);
+		dices.put(new Die(new DiceSingle(100)), DefaultDiceToolBar.ICON_D100_LARGE);
 
 		JPanel radioPanel = new JPanel(new GridLayout(0, 1));
 		ButtonGroup group = new ButtonGroup();
@@ -81,21 +81,21 @@ public class PanelDiceSelection extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		picture.setIcon(createImageIcon(e.getActionCommand()));
 
-		if (DiceToolBar.ICON_D4_LARGE.equals(e.getActionCommand())) {
+		if (DefaultDiceToolBar.ICON_D4_LARGE.equals(e.getActionCommand())) {
 			numFaces = 4;
-		} else if (DiceToolBar.ICON_D6_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D6_LARGE.equals(e.getActionCommand())) {
 			numFaces = 6;
-		} else if (DiceToolBar.ICON_D8_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D8_LARGE.equals(e.getActionCommand())) {
 			numFaces = 8;
-		} else if (DiceToolBar.ICON_D10_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D10_LARGE.equals(e.getActionCommand())) {
 			numFaces = 10;
-		} else if (DiceToolBar.ICON_D12_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D12_LARGE.equals(e.getActionCommand())) {
 			numFaces = 12;
-		} else if (DiceToolBar.ICON_D20_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D20_LARGE.equals(e.getActionCommand())) {
 			numFaces = 20;
-		} else if (DiceToolBar.ICON_D30_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D30_LARGE.equals(e.getActionCommand())) {
 			numFaces = 30;
-		} else if (DiceToolBar.ICON_D100_LARGE.equals(e.getActionCommand())) {
+		} else if (DefaultDiceToolBar.ICON_D100_LARGE.equals(e.getActionCommand())) {
 			numFaces = 100;
 		} else {
 			numFaces = 0;

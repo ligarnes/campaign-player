@@ -13,8 +13,8 @@ import javax.swing.SwingUtilities;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.LineToMouse;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.PathToMouse;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapEvent;
-import net.alteiar.campaign.player.gui.centerViews.map.event.MapListener;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.MapListener;
 import net.alteiar.map.elements.MapElement;
 
 public class MoveState extends MapElementListenerState implements MapListener {

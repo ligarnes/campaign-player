@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.map.tools;
+package net.alteiar.campaign.player.gui.centerViews.map.tools.dice;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +14,7 @@ import net.alteiar.campaign.player.Helpers;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceSingle;
 
-public class DiceToolBar extends JToolBar {
+public class DefaultDiceToolBar extends JToolBar {
 	private static final long serialVersionUID = 1L;
 
 	public static final String ICON_D4_LARGE = "d4-large.png";
@@ -39,7 +39,7 @@ public class DiceToolBar extends JToolBar {
 
 	private final ArrayList<Die> dice;
 
-	public DiceToolBar() {
+	public DefaultDiceToolBar() {
 		dice = new ArrayList<Die>();
 
 		JButton rollButton = new JButton("Lancer les d\u00E9s");

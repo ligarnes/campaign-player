@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.map.tools;
+package net.alteiar.campaign.player.gui.centerViews.map.tools.dice;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
