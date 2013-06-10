@@ -1,23 +1,19 @@
 package net.alteiar.campaign.player.gui.centerViews.map.tools.dice;
 
-import javax.swing.JButton;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JToolBar;
+import javax.swing.SpinnerNumberModel;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.dice.DiceSingle;
 
-public class PathfinderDiceToolBar extends JToolBar {
+public class PathfinderDiceToolBar extends JToolBar implements DiceBagBuilder {
 	private static final long serialVersionUID = 1L;
-
-	public static final String ICON_D4_LARGE = "d4-large.png";
-	public static final String ICON_D6_LARGE = "d6-large.png";
-	public static final String ICON_D8_LARGE = "d8-large.png";
-	public static final String ICON_D10_LARGE = "d10-large.png";
-	public static final String ICON_D12_LARGE = "d12-large.png";
-	public static final String ICON_D20_LARGE = "d20-large.png";
-	public static final String ICON_D30_LARGE = "d30-large.png";
-	public static final String ICON_D100_LARGE = "d100-large.png";
-	public static final String ICON_DX_LARGE = "dx-large.png";
 
 	public static final String ICON_D4_REDUCE = "d4-reduce.png";
 	public static final String ICON_D6_REDUCE = "d6-reduce.png";
@@ -25,33 +21,71 @@ public class PathfinderDiceToolBar extends JToolBar {
 	public static final String ICON_D10_REDUCE = "d10-reduce.png";
 	public static final String ICON_D12_REDUCE = "d12-reduce.png";
 	public static final String ICON_D20_REDUCE = "d20-reduce.png";
-	public static final String ICON_D30_REDUCE = "d30-reduce.png";
 	public static final String ICON_D100_REDUCE = "d100-reduce.png";
-	public static final String ICON_DX_REDUCE = "dx-reduce.png";
+
+	private final JSpinner spinnerDiceCount;
+	private final JSpinner spinnerModifier;
 
 	public PathfinderDiceToolBar() {
-
-		DiceAction d4 = new DiceAction(new DiceSingle(4),
+		DiceBagAction d4 = new DiceBagAction(this, 4,
 				Helpers.getIcon(ICON_D4_REDUCE));
-		DiceAction d6 = new DiceAction(new DiceSingle(6),
+
+		DiceBagAction d6 = new DiceBagAction(this, 6,
 				Helpers.getIcon(ICON_D6_REDUCE));
-		DiceAction d8 = new DiceAction(new DiceSingle(8),
+		DiceBagAction d8 = new DiceBagAction(this, 8,
 				Helpers.getIcon(ICON_D8_REDUCE));
-		DiceAction d10 = new DiceAction(new DiceSingle(10),
+		DiceBagAction d10 = new DiceBagAction(this, 10,
 				Helpers.getIcon(ICON_D10_REDUCE));
-		DiceAction d12 = new DiceAction(new DiceSingle(12),
+		DiceBagAction d12 = new DiceBagAction(this, 12,
 				Helpers.getIcon(ICON_D12_REDUCE));
-		DiceAction d20 = new DiceAction(new DiceSingle(20),
+		DiceBagAction d20 = new DiceBagAction(this, 20,
 				Helpers.getIcon(ICON_D20_REDUCE));
-		DiceAction d100 = new DiceAction(new DiceSingle(100),
+		DiceBagAction d100 = new DiceBagAction(this, 100,
 				Helpers.getIcon(ICON_D100_REDUCE));
 
-		add(new JButton(d4));
-		add(new JButton(d6));
-		add(new JButton(d8));
-		add(new JButton(d10));
-		add(new JButton(d12));
-		add(new JButton(d20));
-		add(new JButton(d100));
+		JPanel dices = new JPanel(new FlowLayout());
+		dices.add(new ButtonCustom(d4));
+		dices.add(new ButtonCustom(d6));
+		dices.add(new ButtonCustom(d8));
+		dices.add(new ButtonCustom(d10));
+		dices.add(new ButtonCustom(d12));
+		dices.add(new ButtonCustom(d20));
+		dices.add(new ButtonCustom(d100));
+
+		JPanel panel = new JPanel(new GridLayout(2, 1));
+		FlowLayout fl_panelDiceCount = new FlowLayout();
+		fl_panelDiceCount.setAlignment(FlowLayout.RIGHT);
+		JPanel panelDiceCount = new JPanel(fl_panelDiceCount);
+		panelDiceCount.add(new JLabel("nb dés:"));
+		FlowLayout fl_panelModifier = new FlowLayout();
+		fl_panelModifier.setAlignment(FlowLayout.RIGHT);
+		JPanel panelModifier = new JPanel(fl_panelModifier);
+		panelModifier.add(new JLabel("Mod. "));
+
+		panel.add(panelDiceCount);
+
+		spinnerDiceCount = new JSpinner();
+		spinnerDiceCount.setPreferredSize(new Dimension(40, 20));
+		spinnerDiceCount.setModel(new SpinnerNumberModel(1, 1, null, 1));
+		panelDiceCount.add(spinnerDiceCount);
+		panel.add(panelModifier);
+
+		spinnerModifier = new JSpinner();
+		spinnerModifier.setPreferredSize(new Dimension(40, 20));
+		spinnerModifier.setModel(new SpinnerNumberModel(0, null, null, 1));
+		panelModifier.add(spinnerModifier);
+
+		add(panel);
+		add(dices);
+	}
+
+	@Override
+	public Integer getDiceCount() {
+		return (Integer) spinnerDiceCount.getValue();
+	}
+
+	@Override
+	public Integer getModifier() {
+		return (Integer) spinnerModifier.getValue();
 	}
 }

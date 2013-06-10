@@ -9,24 +9,28 @@ import net.alteiar.CampaignClient;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceSingle;
 
-public class DiceAction extends AbstractAction {
+public class DiceBagAction extends AbstractAction {
 	private static final long serialVersionUID = 1L;
 
-	public DiceBag diceBag;
+	private final DiceBagBuilder builder;
+	private final Integer dice;
 
-	public DiceAction(DiceSingle dice, ImageIcon icon) {
-		this(new DiceBag(dice), icon);
-	}
+	public DiceBagAction(DiceBagBuilder builder, Integer dice, ImageIcon icon) {
 
-	public DiceAction(DiceBag diceBag, ImageIcon icon) {
-		this.diceBag = diceBag;
+		this.builder = builder;
+		this.dice = dice;
 
 		putValue(LARGE_ICON_KEY, icon);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		DiceBag diceBag = new DiceBag(builder.getModifier());
+
+		for (int i = 0; i < builder.getDiceCount(); i++) {
+			diceBag.addDice(new DiceSingle(dice));
+		}
+
 		CampaignClient.getInstance().getDiceRoller().roll(diceBag);
 	}
-
 }
