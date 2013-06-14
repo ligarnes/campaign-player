@@ -21,8 +21,9 @@ public class GlobalMapListener implements MapListener {
 	}
 
 	public void setCurrentListener(ActionMapListener listener) {
-		currentListener.cancelTask();
+		currentListener.endTask();
 		currentListener = listener;
+		currentListener.startTask();
 	}
 
 	public MapListener getCurrentListener() {
@@ -30,8 +31,7 @@ public class GlobalMapListener implements MapListener {
 	}
 
 	public void defaultListener() {
-		currentListener.cancelTask();
-		currentListener = defaultListener;
+		setCurrentListener(defaultListener);
 	}
 
 	@Override

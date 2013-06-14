@@ -18,7 +18,16 @@ public class AddElementListener extends ActionMapListener {
 	}
 
 	@Override
-	public void cancelTask() {
+	public void endTask() {
+		// Cursor.CROSSHAIR_CURSOR // cible pointe
+		// Cursor.HAND_CURSOR // hand
+		// Cursor.MOVE_CURSOR // move
 		// nothing to do
+	}
+
+	@Override
+	public void startTask() {
+		// TODO Auto-generated method stub
+
 	}
 }

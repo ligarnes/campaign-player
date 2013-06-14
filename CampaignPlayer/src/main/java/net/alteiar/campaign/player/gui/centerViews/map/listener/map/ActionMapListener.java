@@ -12,6 +12,8 @@ public abstract class ActionMapListener extends MoveMapListener {
 		super(mapInfo);
 	}
 
+	public abstract void startTask();
+
 	@Override
 	public void mousePressed(MapEvent event) {
 		super.mousePressed(event);
@@ -27,5 +29,6 @@ public abstract class ActionMapListener extends MoveMapListener {
 		super.mouseWheelMoved(event, mapPosition);
 	}
 
-	public abstract void cancelTask();
+	public abstract void endTask();
+
 }

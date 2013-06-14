@@ -1,5 +1,6 @@
 package net.alteiar.campaign.player.gui.centerViews.map.listener.map.state;
 
+import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.util.List;
@@ -43,13 +44,20 @@ public class ShowHidePolygonMapListener extends ActionMapListener {
 		} else {
 			hidePolygon(draw.getPts());
 		}
-		getMapInfo().removeDrawable(draw);
 		getMapInfo().getMapListener().defaultListener();
 	}
 
 	@Override
-	public void cancelTask() {
+	public void startTask() {
+		this.getMapInfo().getPanelMap()
+				.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+	}
+
+	@Override
+	public void endTask() {
 		getMapInfo().removeDrawable(draw);
+		this.getMapInfo().getPanelMap()
+				.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 	}
 
 	private MapFilter getMapFilter() {

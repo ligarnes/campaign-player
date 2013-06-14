@@ -25,15 +25,15 @@ public class DefaultMapListener extends ActionMapListener {
 		if (SwingUtilities.isRightMouseButton(event.getMouseEvent())) {
 			JPopupMenu popup = new JPopupMenu();
 
-			popup.add(new JMenuItem(new AddElementAction(getMapInfo(),
-					event.getFixToGridPosition())));
+			popup.add(new JMenuItem(new AddElementAction(getMapInfo(), event
+					.getFixToGridPosition())));
 
 			if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
 				popup.addSeparator();
-				popup.add(new JMenuItem(new ShowHideAreaAction(
-						getMapInfo(), true)));
-				popup.add(new JMenuItem(new ShowHideAreaAction(
-						getMapInfo(), false)));
+				popup.add(new JMenuItem(new ShowHideAreaAction(getMapInfo(),
+						true)));
+				popup.add(new JMenuItem(new ShowHideAreaAction(getMapInfo(),
+						false)));
 			}
 
 			popup.addSeparator();
@@ -60,7 +60,13 @@ public class DefaultMapListener extends ActionMapListener {
 	}
 
 	@Override
-	public void cancelTask() {
+	public void startTask() {
 		// Do nothing
 	}
+
+	@Override
+	public void endTask() {
+		// Do nothing
+	}
+
 }
