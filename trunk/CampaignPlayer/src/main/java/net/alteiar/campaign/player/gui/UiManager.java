@@ -8,6 +8,7 @@ import net.alteiar.campaign.player.gui.centerViews.ApplicationView;
 import net.alteiar.campaign.player.gui.centerViews.PanelCenter;
 import net.alteiar.campaign.player.gui.centerViews.PanelDashboard;
 import net.alteiar.campaign.player.gui.centerViews.TabbedPaneListAllBattle;
+import net.alteiar.campaign.player.gui.centerViews.settings.PanelSettings;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.sideView.PanelWest;
 import net.alteiar.campaign.player.gui.sideView.SideView;
@@ -69,8 +70,13 @@ public class UiManager {
 		battle.addSideView(chat);
 		battle.addSideView(characters);
 
+		ApplicationView settings = new ApplicationView("Paramètres",
+				new PanelSettings(), null);
+		settings.addSideView(chat);
+
 		addView(dashBoard);
 		addView(battle);
+		addView(settings);
 	}
 
 	private void addView(ApplicationView view) {

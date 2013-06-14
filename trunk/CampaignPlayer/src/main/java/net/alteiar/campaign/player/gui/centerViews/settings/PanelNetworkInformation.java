@@ -5,14 +5,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.border.TitledBorder;
+import javax.swing.SwingConstants;
 
 import net.alteiar.CampaignClient;
 
-public class PanelNetworkInformation extends JPanel {
+public class PanelNetworkInformation extends PanelBaseSetting {
 	private static final long serialVersionUID = 1L;
 
 	private final JTextField textFieldServer;
@@ -20,9 +18,8 @@ public class PanelNetworkInformation extends JPanel {
 	private final JTextField textFieldPort;
 
 	public PanelNetworkInformation() {
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-				"Informations réseaux", TitledBorder.LEADING, TitledBorder.TOP,
-				null, null));
+		super("Informations réseaux");
+
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -40,6 +37,7 @@ public class PanelNetworkInformation extends JPanel {
 		add(lblIpServer, gbc_lblIpServer);
 
 		textFieldServer = new JTextField();
+		textFieldServer.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldServer.setEditable(false);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 0);
@@ -58,6 +56,7 @@ public class PanelNetworkInformation extends JPanel {
 		add(lblAdresseIpLocal, gbc_lblAdresseIpLocal);
 
 		textFieldLocal = new JTextField();
+		textFieldLocal.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldLocal.setEditable(false);
 		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
 		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
@@ -76,6 +75,7 @@ public class PanelNetworkInformation extends JPanel {
 		add(lblPort, gbc_lblPort);
 
 		textFieldPort = new JTextField();
+		textFieldPort.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldPort.setEditable(false);
 		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
 		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;

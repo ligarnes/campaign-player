@@ -58,17 +58,17 @@ public class TestPlayer extends NewCampaignTest {
 		assertEquals("player name should be same", targetName,
 				current.getName());
 
-		Boolean isMj = !current.isMj();
+		Boolean isMj = !current.isDm();
 		current.setMj(isMj);
 		sleep(5);
-		assertEquals("player mj should be same", isMj, current.isMj());
+		assertEquals("player mj should be same", isMj, current.isDm());
 
 		Color color = Color.RED;
 		current.setColor(color);
 		sleep(10);
 		assertEquals("player color should be same", color, current.getColor());
 
-		current.setMj(!current.isMj());
+		current.setMj(!current.isDm());
 		current.setName(getPlayerName());
 		sleep(5);
 

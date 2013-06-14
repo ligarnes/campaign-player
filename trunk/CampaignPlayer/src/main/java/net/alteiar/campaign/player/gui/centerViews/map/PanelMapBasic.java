@@ -255,7 +255,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 	public List<MapElement> getElementAt(Point p) {
 		List<MapElement> elements = map.getElementsAt(p);
 
-		if (!CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+		if (!CampaignClient.getInstance().getCurrentPlayer().isDm()) {
 			Iterator<MapElement> itt = elements.iterator();
 
 			while (itt.hasNext()) {

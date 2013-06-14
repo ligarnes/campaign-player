@@ -42,6 +42,7 @@ public class PanelSelectColor extends JPanel {
 			currentColor = temp;
 			btnColorSelector
 					.setIcon(Helpers.getIconColor(currentColor, 22, 22));
+			fireActionPerfomed();
 		}
 	}
 
@@ -52,5 +53,25 @@ public class PanelSelectColor extends JPanel {
 
 	public Color getColor() {
 		return currentColor;
+	}
+
+	public void addActionListener(ActionListener listener) {
+		listenerList.add(ActionListener.class, listener);
+	}
+
+	public void removeActionListener(ActionListener listener) {
+		listenerList.remove(ActionListener.class, listener);
+	}
+
+	private void fireActionPerfomed() {
+		ActionListener[] listeners = listenerList
+				.getListeners(ActionListener.class);
+
+		ActionEvent evt = new ActionEvent(this, ActionEvent.ACTION_PERFORMED,
+				"colorChanged");
+		for (ActionListener actionListener : listeners) {
+			actionListener.actionPerformed(evt);
+		}
+
 	}
 }

@@ -15,6 +15,6 @@ public class MjSender extends PrivateSender {
 	@Override
 	public Boolean canAccess() {
 		return super.canAccess()
-				|| CampaignClient.getInstance().getCurrentPlayer().isMj();
+				|| CampaignClient.getInstance().getCurrentPlayer().isDm();
 	}
 }

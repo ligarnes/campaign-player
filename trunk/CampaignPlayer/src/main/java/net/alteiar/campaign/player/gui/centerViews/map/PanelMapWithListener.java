@@ -75,7 +75,7 @@ public class PanelMapWithListener extends PanelMapBasic implements
 					// if visible add it
 					drawables.add(draw);
 				} else if (CampaignClient.getInstance().getCurrentPlayer()
-						.isMj()) {
+						.isDm()) {
 					// if is mj add it
 					drawables.add(draw);
 				}
@@ -142,7 +142,7 @@ public class PanelMapWithListener extends PanelMapBasic implements
 					// if visible add it
 					drawables.add(draw);
 				} else if (CampaignClient.getInstance().getCurrentPlayer()
-						.isMj()) {
+						.isDm()) {
 					// if is mj add it
 					drawables.add(draw);
 				}
@@ -174,7 +174,7 @@ public class PanelMapWithListener extends PanelMapBasic implements
 					// if visible add it
 					drawables.add(draw);
 				} else if (CampaignClient.getInstance().getCurrentPlayer()
-						.isMj()) {
+						.isDm()) {
 					// if is mj add it
 					drawables.add(draw);
 				}
