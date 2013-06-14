@@ -1,6 +1,5 @@
 package net.alteiar.campaign.player.gui.centerViews.map.tools;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
@@ -20,28 +19,21 @@ import net.alteiar.zoom.PanelZoomEditor;
 public class PanelToolsAdventure extends JToolBar {
 	private static final long serialVersionUID = 1L;
 
-	private final ButtonGroup group;
-
 	public PanelToolsAdventure(final MapEditableInfo mapInfo,
 			PanelMoveZoom<?> panelZoom) {
 
-		group = new ButtonGroup();
-
-		JToggleButton addElement = new JToggleButton(new AddElementAction(
-				mapInfo));
+		JButton addElement = new JButton(new AddElementAction(mapInfo));
 		addElement.setHideActionText(true);
 
-		group.add(addElement);
 		this.add(addElement);
 
 		// For Mj only
 		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
-			JToggleButton showMap = new JToggleButton(new ShowHideAreaAction(
-					mapInfo, true));
+			JButton showMap = new JButton(new ShowHideAreaAction(mapInfo, true));
 			this.add(showMap);
 
-			JToggleButton hideMap = new JToggleButton(new ShowHideAreaAction(
-					mapInfo, false));
+			JButton hideMap = new JButton(
+					new ShowHideAreaAction(mapInfo, false));
 			this.add(hideMap);
 
 			JButton showAll = new JButton(new ShowHideAllAction(mapInfo, true));
@@ -52,9 +44,6 @@ public class PanelToolsAdventure extends JToolBar {
 
 			this.addSeparator();
 			this.add(new PanelZoomEditor(panelZoom));
-
-			group.add(showMap);
-			group.add(hideMap);
 		}
 		this.addSeparator();
 

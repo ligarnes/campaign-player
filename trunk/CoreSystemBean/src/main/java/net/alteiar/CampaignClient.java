@@ -72,7 +72,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		try {
 			manager = DocumentManager.connect(localAdress, serverAdress, port,
 					globalDocumentPath);
-			INSTANCE = new CampaignClient(manager);
+			INSTANCE = new CampaignClient(manager, localAdress, serverAdress,
+					port);
 		} catch (RemoteException e) {
 			ExceptionTool
 					.showError(
@@ -132,13 +133,22 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 	private final HashMap<UniqueID, ArrayList<SuppressBeanListener>> suppressBeanListeners;
 
+	private final String localIp;
+	private final String serverIp;
+	private final String port;
+
 	// this manage event
 	// TODO desactivate it for the moment
 	// private final EventManager eventManager;
 
-	private CampaignClient(DocumentManager manager) {
+	private CampaignClient(DocumentManager manager, String ipLocal,
+			String ipServer, String port) {
 		this.manager = manager;
 		this.manager.addBeanListenerClient(this);
+
+		localIp = ipLocal;
+		serverIp = ipServer;
+		this.port = port;
 
 		listeners = new ArrayList<CampaignListener>();
 		waitBeanListeners = new HashMap<UniqueID, ArrayList<WaitBeanListener>>();
@@ -158,6 +168,18 @@ public final class CampaignClient implements DocumentManagerListener {
 		if (chat != null) {
 			this.chat.setPseudo("unknow");
 		}
+	}
+
+	public String getIpLocal() {
+		return localIp;
+	}
+
+	public String getIpServer() {
+		return serverIp;
+	}
+
+	public String getPort() {
+		return port;
 	}
 
 	/**

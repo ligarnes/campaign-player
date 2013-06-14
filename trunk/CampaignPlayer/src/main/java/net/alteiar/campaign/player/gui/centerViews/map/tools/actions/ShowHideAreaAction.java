@@ -1,5 +1,6 @@
 package net.alteiar.campaign.player.gui.centerViews.map.tools.actions;
 
+import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 
@@ -7,8 +8,8 @@ import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.campaign.player.gui.centerViews.map.listener.MapAdapter;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
+import net.alteiar.campaign.player.gui.centerViews.map.listener.map.ActionMapListener;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.state.ShowHidePolygonMapListener;
 
 public class ShowHideAreaAction extends MapAction {
@@ -20,11 +21,8 @@ public class ShowHideAreaAction extends MapAction {
 	private final Boolean isShow;
 	private final Point begin;
 
-	private ShowHideListener listener;
-
 	public ShowHideAreaAction(MapEditableInfo info, Boolean isShow) {
 		this(info, isShow, null);
-		listener = new ShowHideListener(info, isShow);
 	}
 
 	public ShowHideAreaAction(MapEditableInfo info, Boolean isShow, Point begin) {
@@ -48,7 +46,8 @@ public class ShowHideAreaAction extends MapAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (begin == null) {
-			getMapInfo().getPanelMap().addMapListener(listener);
+			getMapInfo().getMapListener().setCurrentListener(
+					new ShowHideListener(getMapInfo(), isShow));
 		} else {
 			getMapInfo().getMapListener()
 					.setCurrentListener(
@@ -57,27 +56,33 @@ public class ShowHideAreaAction extends MapAction {
 		}
 	}
 
-	public void cancel() {
-		getMapInfo().getPanelMap().removeMapListener(listener);
-	}
-
-	private class ShowHideListener extends MapAdapter {
-		private final MapEditableInfo info;
+	private class ShowHideListener extends ActionMapListener {
 		private final Boolean isShow;
 
 		public ShowHideListener(MapEditableInfo info, Boolean isShow) {
-			this.info = info;
+			super(info);
 			this.isShow = isShow;
 		}
 
 		@Override
 		public void mouseClicked(MapEvent event) {
 			if (SwingUtilities.isLeftMouseButton(event.getMouseEvent())) {
-				info.getMapListener().setCurrentListener(
-						new ShowHidePolygonMapListener(info, event
+				getMapInfo().getMapListener().setCurrentListener(
+						new ShowHidePolygonMapListener(getMapInfo(), event
 								.getMapPosition(), isShow));
-				this.info.getPanelMap().removeMapListener(this);
 			}
+		}
+
+		@Override
+		public void startTask() {
+			this.getMapInfo().getPanelMap()
+					.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+		}
+
+		@Override
+		public void endTask() {
+			this.getMapInfo().getPanelMap()
+					.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 		}
 	}
 }
