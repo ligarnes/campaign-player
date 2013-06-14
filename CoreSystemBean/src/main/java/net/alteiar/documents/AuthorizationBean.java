@@ -117,7 +117,7 @@ public abstract class AuthorizationBean extends BasicBean {
 
 	public boolean isAllowedToApplyChange(UniqueID cliendId) {
 		Player player = CampaignClient.getInstance().getBean(cliendId);
-		if (player.isMj()) {
+		if (player.isDm()) {
 			return true;
 		} else {
 			return modifiers.contains(cliendId) || owner.equals(cliendId);

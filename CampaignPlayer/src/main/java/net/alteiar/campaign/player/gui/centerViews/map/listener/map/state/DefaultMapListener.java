@@ -28,7 +28,7 @@ public class DefaultMapListener extends ActionMapListener {
 			popup.add(new JMenuItem(new AddElementAction(getMapInfo(), event
 					.getFixToGridPosition())));
 
-			if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+			if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
 				popup.addSeparator();
 				popup.add(new JMenuItem(new ShowHideAreaAction(getMapInfo(),
 						true)));

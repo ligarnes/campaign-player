@@ -146,7 +146,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 			String cellText = "";
 
 			cellText += player.getName();
-			if (player.isMj()) {
+			if (player.isDm()) {
 				cellText += " (Maître du jeu)";
 			}
 

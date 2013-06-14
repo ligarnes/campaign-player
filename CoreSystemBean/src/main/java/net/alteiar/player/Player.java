@@ -51,7 +51,7 @@ public class Player extends BasicBean {
 		}
 	}
 
-	public Boolean isMj() {
+	public Boolean isDm() {
 		return mj;
 	}
 

@@ -28,7 +28,7 @@ public class PanelToolsAdventure extends JToolBar {
 		this.add(addElement);
 
 		// For Mj only
-		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+		if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
 			JButton showMap = new JButton(new ShowHideAreaAction(mapInfo, true));
 			this.add(showMap);
 
@@ -47,7 +47,7 @@ public class PanelToolsAdventure extends JToolBar {
 		}
 		this.addSeparator();
 
-		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+		if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
 			JButton rescale = new JButton(new RescaleAction(mapInfo));
 			this.add(rescale);
 		}

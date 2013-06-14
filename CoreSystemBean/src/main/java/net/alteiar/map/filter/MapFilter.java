@@ -91,7 +91,7 @@ public class MapFilter extends BasicBean {
 		g2.scale(zoomFactor, zoomFactor);
 		g2.setColor(Color.BLACK);
 
-		if (CampaignClient.getInstance().getCurrentPlayer().isMj()) {
+		if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.5f));
 		} else {
