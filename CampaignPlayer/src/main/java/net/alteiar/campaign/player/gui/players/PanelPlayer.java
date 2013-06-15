@@ -18,7 +18,6 @@ import javax.swing.border.LineBorder;
 
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
-import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.player.Player;
 
 public class PanelPlayer extends JPanel implements PropertyChangeListener {
@@ -99,12 +98,7 @@ public class PanelPlayer extends JPanel implements PropertyChangeListener {
 		gbc_btnShared.gridy = 0;
 		add(btnPresence, gbc_btnShared);
 
-		this.player.addPropertyChangeListener(new AuthorizationAdapter() {
-			@Override
-			public void authorizationChanged(PropertyChangeEvent evt) {
-				btnPresence.setIcon(getCurrentState());
-			}
-		});
+		this.player.addPropertyChangeListener(this);
 	}
 
 	protected ImageIcon getCurrentState() {
@@ -117,6 +111,7 @@ public class PanelPlayer extends JPanel implements PropertyChangeListener {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
+		lblAvatar.setIcon(generatePlayerColor(player));
 		btnPresence.setIcon(getCurrentState());
 	}
 }
