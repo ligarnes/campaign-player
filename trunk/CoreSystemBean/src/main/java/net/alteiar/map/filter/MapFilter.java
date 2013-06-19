@@ -25,8 +25,8 @@ public class MapFilter extends BasicBean {
 
 	public static final String PROP_POLYGONS_PROPERTY = "polygons";
 
-	// @Element
 	private transient Area hiddenArea;
+
 	@Element
 	private Integer width;
 	@Element
@@ -69,8 +69,7 @@ public class MapFilter extends BasicBean {
 			}
 			hiddenArea.subtract(new Area(polygon));
 
-			propertyChangeSupport.firePropertyChange(METH_SHOW_POLYGON_METHOD,
-					null, polygon);
+			notifyLocal(METH_SHOW_POLYGON_METHOD, null, polygon);
 		}
 	}
 
@@ -81,8 +80,7 @@ public class MapFilter extends BasicBean {
 			}
 			hiddenArea.add(new Area(polygon));
 
-			propertyChangeSupport.firePropertyChange(METH_HIDE_POLYGON_METHOD,
-					null, polygon);
+			notifyLocal(METH_HIDE_POLYGON_METHOD, null, polygon);
 		}
 	}
 
@@ -138,8 +136,7 @@ public class MapFilter extends BasicBean {
 					hiddenArea.subtract(new Area(polygon.getPolygon()));
 				}
 			}
-			this.propertyChangeSupport.firePropertyChange(
-					PROP_POLYGONS_PROPERTY, oldValue, polygons);
+			notifyLocal(PROP_POLYGONS_PROPERTY, oldValue, polygons);
 		}
 	}
 

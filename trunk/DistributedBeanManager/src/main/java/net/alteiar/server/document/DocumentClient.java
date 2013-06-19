@@ -33,7 +33,8 @@ public class DocumentClient implements IDocumentClient, Serializable,
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		try {
-			remote.setBeanValue(evt.getPropertyName(), evt.getNewValue());
+			remote.setBeanValue(evt.getPropertyName(),
+					(Serializable) evt.getNewValue());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

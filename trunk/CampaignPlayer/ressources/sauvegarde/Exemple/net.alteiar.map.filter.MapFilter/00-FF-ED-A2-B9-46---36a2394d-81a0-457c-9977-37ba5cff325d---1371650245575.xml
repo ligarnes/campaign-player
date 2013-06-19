@@ -1,0 +1,17 @@
+<mapFilter serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:36a2394d-81a0-457c-9977-37ba5cff325d:1371650245575</guid>
+   </id>
+   <width>700</width>
+   <height>700</height>
+   <polygons>
+      <myPolygonFilter serialVersionUID="1">
+         <polygon>
+            <npoints>14</npoints>
+            <xpoints length="14">308, 308, 284, 311, 288, 320, 395, 431, 393, 405, 391, 459, 392, 390</xpoints>
+            <ypoints length="14">3, 99, 217, 280, 400, 433, 430, 397, 276, 246, 201, 109, 66, 2</ypoints>
+         </polygon>
+         <hide>false</hide>
+      </myPolygonFilter>
+   </polygons>
+</mapFilter>

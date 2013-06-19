@@ -1,6 +1,5 @@
 package plugin.gui.imageIcon;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import net.alteiar.shared.ImageUtil;
@@ -19,11 +18,10 @@ public class CharacterImageIconFactory extends
 
 	@Override
 	public BufferedImage getImage(PathfinderCharacter bean) {
-		BufferedImage img = ImageUtil.resizeImage(bean.getCharacterImage(), 50,
-				50);
-		Graphics2D g2 = (Graphics2D) img.getGraphics();
-		g2.dispose();
+		BufferedImage img = bean.getCharacterImage();
+		if (img != null) {
+			img = ImageUtil.resizeImage(img, 50, 50);
+		}
 		return img;
 	}
-
 }

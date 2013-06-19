@@ -33,8 +33,7 @@ public class ImageBean extends BasicBean {
 		TransfertImage oldValue = this.image;
 		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
-			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
-					oldValue, image);
+			notifyLocal(PROP_IMAGE_PROPERTY, oldValue, image);
 		}
 	}
 

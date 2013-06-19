@@ -104,6 +104,11 @@ public class PanelSpellFilter extends JPanel {
 		spinnerMax.addChangeListener(listener);
 	}
 
+	public void reset() {
+		spinnerMin.setValue(0);
+		spinnerMin.setValue(9);
+	}
+
 	public String getSelectedClasse() {
 		return comboBoxClasses.getSelectedItem();
 	}

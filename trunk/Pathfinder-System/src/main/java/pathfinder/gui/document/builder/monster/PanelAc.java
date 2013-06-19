@@ -39,6 +39,12 @@ public class PanelAc extends JPanel {
 		add(spinnerAcTouch);
 	}
 
+	public void reset() {
+		spinnerAc.setValue(10);
+		spinnerAcFlat.setValue(10);
+		spinnerAcTouch.setValue(10);
+	}
+
 	public Integer getAc() {
 		return (Integer) spinnerAc.getValue();
 	}

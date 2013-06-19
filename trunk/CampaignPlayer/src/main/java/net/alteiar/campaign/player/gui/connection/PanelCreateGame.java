@@ -122,7 +122,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		// Button Panel
 		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-		JButton createButton = new JButton("Connection");
+		JButton createButton = new JButton("Connexion");
 		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {

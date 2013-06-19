@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.color.CMMException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -18,12 +19,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.factory.MapFactory;
+import net.alteiar.image.ImageBean;
+import net.alteiar.map.MapBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.TransfertImage;
@@ -134,27 +139,52 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 						300, 300)));
 			} catch (IOException e) {
 				ExceptionTool.showError(e);
+			} catch (CMMException e) {
+				ExceptionTool.showError(e);
 			}
 		}
 	}
 
 	@Override
-	public String getDocumentName() {
+	public String getDocumentBuilderName() {
 		return "Combat";
 	}
 
 	@Override
-	public String getDocumentDescription() {
+	public String getDocumentBuilderDescription() {
 		return "Cr\u00E9e une carte de combat masqu\u00E9e";
 	}
 
 	@Override
-	public void buildDocument() {
+	public BasicBean buildDocument() {
+		MapBean map = null;
+
+		ImageBean image = new ImageBean(transfertImage);
+		CampaignClient.getInstance().addBean(image);
+
 		try {
-			MapFactory.createMap(textFieldMapName.getText(), new MapBean(
-					textFieldMapName.getText()), transfertImage);
+			map = MapFactory.createMap(textFieldMapName.getText(),
+					transfertImage);
 		} catch (IOException e) {
 			ExceptionTool.showError(e);
 		}
+		return map;
+	}
+
+	@Override
+	public String getDocumentName() {
+		return textFieldMapName.getText();
+	}
+
+	@Override
+	public DocumentType getDocumentType() {
+		return DocumentType.BATTLE_MAP;
+	}
+
+	@Override
+	public void reset() {
+		textFieldMapName.setText("");
+		transfertImage = null;
+		lblMapImage.setIcon(null);
 	}
 }

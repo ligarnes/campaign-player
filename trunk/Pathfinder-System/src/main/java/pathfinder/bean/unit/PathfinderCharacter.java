@@ -4,21 +4,29 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.Character;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
-public class PathfinderCharacter extends Character implements Unit {
+public class PathfinderCharacter extends BasicBean implements Unit {
 	private static final long serialVersionUID = 1L;
+
+	public static final String PROP_NAME_PROPERTY = "name";
 
 	public static final String PROP_TOTAL_HP_PROPERTY = "totalHp";
 	public static final String PROP_CURRENT_HP_PROPERTY = "currentHp";
 	public static final String PROP_AC_PROPERTY = "ac";
 	public static final String PROP_AC_TOUCH_PROPERTY = "acTouch";
 	public static final String PROP_AC_FLAT_FOOTED_PROPERTY = "acFlatFooted";
+
+	public static final String PROP_INIT_MOD_PROPERTY = "initMod";
+
 	public static final String PROP_IMAGE_PROPERTY = "image";
+
+	@Element
+	private String name;
 
 	@Element
 	private UniqueID image;
@@ -37,17 +45,23 @@ public class PathfinderCharacter extends Character implements Unit {
 	@Element
 	private Integer acFlatFooted;
 
+	@Element
+	private Integer initMod;
+
 	protected PathfinderCharacter() {
 		super();
 		totalHp = 0;
 		currentHp = 0;
+		initMod = 0;
 	}
 
 	public PathfinderCharacter(String name, Integer totalHp, Integer currentHp,
-			Integer ac, Integer acTouch, Integer acFlatFooted, UniqueID image) {
-		super(name);
+			Integer ac, Integer acTouch, Integer acFlatFooted, Integer initMod,
+			UniqueID image) {
+		this.name = name;
 		this.totalHp = totalHp;
 		this.currentHp = currentHp;
+		this.initMod = initMod;
 		this.image = image;
 
 		this.ac = ac;
@@ -76,11 +90,15 @@ public class PathfinderCharacter extends Character implements Unit {
 
 	// ////////////// BEANS METHODS /////////////////
 	public String getName() {
-		return getDocumentName();
+		return this.name;
 	}
 
 	public void setName(String name) {
-		this.setDocumentName(name);
+		String oldValue = this.name;
+		if (notifyRemote(PROP_NAME_PROPERTY, oldValue, name)) {
+			this.name = name;
+			notifyLocal(PROP_NAME_PROPERTY, oldValue, name);
+		}
 	}
 
 	@Override
@@ -93,8 +111,7 @@ public class PathfinderCharacter extends Character implements Unit {
 		Integer oldValue = this.totalHp;
 		if (notifyRemote(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp)) {
 			this.totalHp = totalHp;
-			propertyChangeSupport.firePropertyChange(PROP_TOTAL_HP_PROPERTY,
-					oldValue, totalHp);
+			notifyLocal(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp);
 		}
 	}
 
@@ -108,8 +125,7 @@ public class PathfinderCharacter extends Character implements Unit {
 		Integer oldValue = this.currentHp;
 		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {
 			this.currentHp = currentHp;
-			propertyChangeSupport.firePropertyChange(PROP_CURRENT_HP_PROPERTY,
-					oldValue, currentHp);
+			notifyLocal(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp);
 		}
 	}
 
@@ -121,8 +137,7 @@ public class PathfinderCharacter extends Character implements Unit {
 		UniqueID oldValue = this.image;
 		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
-			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
-					oldValue, image);
+			notifyLocal(PROP_IMAGE_PROPERTY, oldValue, image);
 		}
 	}
 
@@ -139,8 +154,7 @@ public class PathfinderCharacter extends Character implements Unit {
 		Integer oldValue = this.ac;
 		if (notifyRemote(PROP_AC_PROPERTY, oldValue, ac)) {
 			this.ac = ac;
-			propertyChangeSupport.firePropertyChange(PROP_AC_PROPERTY,
-					oldValue, ac);
+			notifyLocal(PROP_AC_PROPERTY, oldValue, ac);
 		}
 	}
 
@@ -152,8 +166,7 @@ public class PathfinderCharacter extends Character implements Unit {
 		Integer oldValue = this.acTouch;
 		if (notifyRemote(PROP_AC_TOUCH_PROPERTY, oldValue, acTouch)) {
 			this.acTouch = acTouch;
-			propertyChangeSupport.firePropertyChange(PROP_AC_TOUCH_PROPERTY,
-					oldValue, acTouch);
+			notifyLocal(PROP_AC_TOUCH_PROPERTY, oldValue, acTouch);
 		}
 	}
 
@@ -165,8 +178,21 @@ public class PathfinderCharacter extends Character implements Unit {
 		Integer oldValue = this.acFlatFooted;
 		if (notifyRemote(PROP_AC_FLAT_FOOTED_PROPERTY, oldValue, acFlatFooted)) {
 			this.acFlatFooted = acFlatFooted;
-			propertyChangeSupport.firePropertyChange(
-					PROP_AC_FLAT_FOOTED_PROPERTY, oldValue, acFlatFooted);
+			notifyLocal(PROP_AC_FLAT_FOOTED_PROPERTY, oldValue, acFlatFooted);
+		}
+	}
+
+	@Override
+	public Integer getInitMod() {
+		return initMod;
+	}
+
+	@Override
+	public void setInitMod(Integer initMod) {
+		Integer oldValue = this.initMod;
+		if (notifyRemote(PROP_INIT_MOD_PROPERTY, oldValue, initMod)) {
+			this.initMod = initMod;
+			notifyLocal(PROP_INIT_MOD_PROPERTY, oldValue, initMod);
 		}
 	}
 

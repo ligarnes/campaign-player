@@ -46,8 +46,7 @@ public class Player extends BasicBean {
 		String oldValue = this.name;
 		if (notifyRemote(PROP_NAME_PROPERTY, oldValue, name)) {
 			this.name = name;
-			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
-					oldValue, name);
+			notifyLocal(PROP_NAME_PROPERTY, oldValue, name);
 		}
 	}
 
@@ -59,8 +58,7 @@ public class Player extends BasicBean {
 		Boolean oldValue = this.mj;
 		if (notifyRemote(PROP_MJ_PROPERTY, oldValue, mj)) {
 			this.mj = mj;
-			propertyChangeSupport.firePropertyChange(PROP_MJ_PROPERTY,
-					oldValue, mj);
+			notifyLocal(PROP_MJ_PROPERTY, oldValue, mj);
 		}
 	}
 
@@ -72,8 +70,7 @@ public class Player extends BasicBean {
 		Color oldValue = this.color.getColor();
 		if (notifyRemote(PROP_COLOR_PROPERTY, oldValue, color)) {
 			this.color = new MyColor(color);
-			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
-					oldValue, color);
+			notifyLocal(PROP_COLOR_PROPERTY, oldValue, color);
 		}
 	}
 
@@ -85,8 +82,7 @@ public class Player extends BasicBean {
 		Boolean oldValue = this.connected;
 		if (notifyRemote(PROP_CONNECTED_PROPERTY, oldValue, connected)) {
 			this.connected = connected;
-			propertyChangeSupport.firePropertyChange(PROP_CONNECTED_PROPERTY,
-					oldValue, connected);
+			notifyLocal(PROP_CONNECTED_PROPERTY, oldValue, connected);
 		}
 	}
 

@@ -7,7 +7,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBu
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
-import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.elements.MapElement;
 
 public interface IPlugin {
@@ -15,9 +15,9 @@ public interface IPlugin {
 
 	ArrayList<PanelDocumentBuilder> getGuiDocumentFactory();
 
-	<E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(E bean);
+	PanelViewDocument getViewPanel(BeanDocument bean);
 
-	<E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean);
+	BufferedImage getDocumentIcon(BeanDocument bean);
 
 	<E extends MapElement> PanelMapElementEditor<E> getMapElementEditor(E bean);
 }

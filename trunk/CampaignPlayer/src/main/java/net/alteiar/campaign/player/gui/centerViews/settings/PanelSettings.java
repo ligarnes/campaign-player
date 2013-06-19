@@ -33,5 +33,4 @@ public class PanelSettings extends JPanel {
 		add(panelPlayer, gbc_panel);
 
 	}
-
 }

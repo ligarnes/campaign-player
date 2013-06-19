@@ -18,7 +18,8 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
 import net.alteiar.component.MyCombobox;
-import net.alteiar.documents.character.Character;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.documents.DocumentType;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 
@@ -26,7 +27,7 @@ public class PanelCharacterInfo extends JPanel implements
 		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
-	private PathfinderCharacter character;
+	private BeanDocument characterDocument;
 
 	private final JTextField textFieldAc;
 	private final JTextField textFieldAcFlatFooted;
@@ -82,8 +83,23 @@ public class PanelCharacterInfo extends JPanel implements
 		}
 	}
 
-	public PanelCharacterInfo() {
+	private Boolean isCharacter(BeanDocument doc) {
+		return doc.getDocumentType().equals(DocumentType.CHARACTER);
+	}
 
+	public void addCharacter(final BeanDocument doc) {
+		if (isCharacter(doc)) {
+			comboBox.addItem(new CharacterAdapter(doc));
+		}
+	}
+
+	public void removeCharacter(BeanDocument doc) {
+		if (isCharacter(doc)) {
+			comboBox.removeItem(new CharacterAdapter(doc));
+		}
+	}
+
+	public PanelCharacterInfo() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -96,17 +112,15 @@ public class PanelCharacterInfo extends JPanel implements
 				CharacterAdapter.getCharacters());
 
 		CampaignClient.getInstance().addCampaignListener(new CampaignAdapter() {
+
 			@Override
-			public void characterAdded(Character character) {
-				PathfinderCharacter bean = CampaignClient.getInstance()
-						.getBean(character.getId());
-				comboBox.addItem(new CharacterAdapter(bean));
+			public void beanAdded(BeanDocument bean) {
+				addCharacter(bean);
 			}
 
 			@Override
-			public void characterRemoved(Character character) {
-				comboBox.removeItem(new CharacterAdapter(
-						(PathfinderCharacter) character));
+			public void beanRemoved(BeanDocument bean) {
+				removeCharacter(bean);
 			}
 		});
 
@@ -206,30 +220,35 @@ public class PanelCharacterInfo extends JPanel implements
 	}
 
 	private void comboboxChange() {
-		if (this.character != null) {
-			this.character.removePropertyChangeListener(this);
+		if (this.characterDocument != null) {
+			this.characterDocument.removePropertyChangeListener(this);
 		}
 		if (comboBox.getItemCount() > 0) {
-			character = comboBox.getSelectedItem().getCharacter();
-			this.character.addPropertyChangeListener(this);
+			characterDocument = comboBox.getSelectedItem().getCharacter();
+			this.characterDocument.addPropertyChangeListener(this);
 			updateCharacterView();
 		}
 	}
 
+	private PathfinderCharacter getCharacter() {
+		return CampaignClient.getInstance().getBean(
+				characterDocument.getBeanId());
+	}
+
 	public void updateCharacterView() {
+		PathfinderCharacter character = getCharacter();
+		if (character != null) {
+			this.healthBar.setCurrentHp(character.getCurrentHp());
+			this.healthBar.setTotalHp(character.getTotalHp());
 
-		// this.textFieldName.setText(character.getName());
+			this.textFieldAc.setText(character.getAc().toString());
+			this.textFieldAcFlatFooted.setText(character.getAcFlatFooted()
+					.toString());
+			this.textFieldAcTouch.setText(character.getAcTouch().toString());
 
-		this.healthBar.setCurrentHp(character.getCurrentHp());
-		this.healthBar.setTotalHp(character.getTotalHp());
-
-		this.textFieldAc.setText(character.getAc().toString());
-		this.textFieldAcFlatFooted.setText(character.getAcFlatFooted()
-				.toString());
-		this.textFieldAcTouch.setText(character.getAcTouch().toString());
-
-		this.revalidate();
-		this.repaint();
+			this.revalidate();
+			this.repaint();
+		}
 	}
 
 	@Override

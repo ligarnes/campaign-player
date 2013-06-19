@@ -24,6 +24,7 @@ import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.player.Player;
 import net.alteiar.shared.ImageUtil;
 
@@ -36,9 +37,9 @@ public class PanelDocumentDescription extends JPanel {
 
 	private final JLabel lblAvatar;
 
-	private final AuthorizationBean bean;
+	private final BeanDocument bean;
 
-	public PanelDocumentDescription(AuthorizationBean bean) {
+	public PanelDocumentDescription(BeanDocument bean) {
 		this.setBackground(UiHelper.BACKGROUND_COLOR);
 		this.bean = bean;
 
@@ -158,8 +159,7 @@ public class PanelDocumentDescription extends JPanel {
 	}
 
 	protected void showDocument() {
-		PanelViewDocument<?> comp = PluginSystem.getInstance().getViewPanel(
-				bean);
+		PanelViewDocument comp = PluginSystem.getInstance().getViewPanel(bean);
 		if (comp != null) {
 			JDialog dlg = new JDialog(MainFrame.FRAME, bean.getDocumentName(),
 					false);

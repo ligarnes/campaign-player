@@ -19,6 +19,8 @@ import javax.swing.border.LineBorder;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
+import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
@@ -153,17 +155,27 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public String getDocumentName() {
+	public String getDocumentBuilderName() {
 		return "Monstre";
 	}
 
 	@Override
-	public String getDocumentDescription() {
+	public String getDocumentBuilderDescription() {
 		return "Cr\u00E9er un monstre";
 	}
 
 	@Override
-	public void buildDocument() {
+	public Boolean isDataValid() {
+		return transfertImage != null;
+	}
+
+	@Override
+	public String getInvalidMessage() {
+		return "Aucun avatar selectionn\u00E9e";
+	}
+
+	@Override
+	public BasicBean buildDocument() {
 		ImageBean image = new ImageBean(transfertImage);
 
 		String name = textFieldName.getText();
@@ -188,15 +200,22 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 
 		transfertImage = null;
 		textFieldName.setText("");
+
+		return null;
 	}
 
 	@Override
-	public Boolean isDataValid() {
-		return transfertImage != null;
+	public String getDocumentName() {
+		return null;
 	}
 
 	@Override
-	public String getInvalidMessage() {
-		return "Aucun avatar selectionn\u00E9e";
+	public DocumentType getDocumentType() {
+		return null;
+	}
+
+	@Override
+	public void reset() {
+		// TODO should move else where
 	}
 }

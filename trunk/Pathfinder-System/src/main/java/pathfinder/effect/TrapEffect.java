@@ -13,7 +13,8 @@ public abstract class TrapEffect extends Effect {
 	@Override
 	public void activate(BasicBean bean) {
 		if (Beans.isInstanceOf(bean, PathfinderCharacterElement.class)) {
-			trapActivated(((PathfinderCharacterElement) bean).getCharacter());
+			// trapActivated(((PathfinderCharacterElement)
+			// bean).getCharacter());
 		}
 	}
 

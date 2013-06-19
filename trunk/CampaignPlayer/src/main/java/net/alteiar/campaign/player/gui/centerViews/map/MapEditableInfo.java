@@ -24,9 +24,8 @@ import java.awt.geom.Point2D;
 
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
-import net.alteiar.utils.map.Scale;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.Zoomable;
 
@@ -60,8 +59,6 @@ public interface MapEditableInfo extends Zoomable {
 
 	PanelMapWithListener getPanelMap();
 
-	Scale getScale();
-
 	Integer getSquareDistance(double distancePixel);
 
 	void zoom(Point center, int zoomFactor);
@@ -79,12 +76,6 @@ public interface MapEditableInfo extends Zoomable {
 	void removeElement(MapElement toRemove);
 
 	void moveElementAt(MapElement currentElement, Point position);
-
-	int getPixelSquare();
-
-	void rescaleMap(int pixelSquare);
-
-	void changeScale(Scale echelle);
 
 	void addDrawable(MouseDrawable draw);
 

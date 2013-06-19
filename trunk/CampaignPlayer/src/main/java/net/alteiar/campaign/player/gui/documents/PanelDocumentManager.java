@@ -13,8 +13,7 @@ import net.alteiar.CampaignListener;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.character.Character;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.panel.PanelList;
 import net.alteiar.player.Player;
 
@@ -32,7 +31,7 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		beanListener = new AuthorizationChangeListener();
 		CampaignClient.getInstance().addCampaignListener(this);
 
-		for (AuthorizationBean bean : CampaignClient.getInstance()
+		for (BeanDocument bean : CampaignClient.getInstance()
 				.getDocuments()) {
 			beanAdded(bean);
 		}
@@ -68,7 +67,7 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 	private class AuthorizationChangeListener extends AuthorizationAdapter {
 		@Override
 		public void authorizationChanged(PropertyChangeEvent evt) {
-			AuthorizationBean bean = (AuthorizationBean) evt.getSource();
+			BeanDocument bean = (BeanDocument) evt.getSource();
 			if (bean.isAllowedToSee(CampaignClient.getInstance()
 					.getCurrentPlayer())) {
 				addElement(bean, new PanelDocumentDescription(bean));
@@ -80,7 +79,7 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 
 	// //// LISTENERS ////
 	@Override
-	public void beanAdded(AuthorizationBean bean) {
+	public void beanAdded(BeanDocument bean) {
 		bean.addPropertyChangeListener(beanListener);
 		if (bean.isAllowedToSee(CampaignClient.getInstance().getCurrentPlayer())) {
 			addElement(bean, new PanelDocumentDescription(bean));
@@ -88,25 +87,9 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 	}
 
 	@Override
-	public void beanRemoved(AuthorizationBean bean) {
+	public void beanRemoved(BeanDocument bean) {
 		bean.removePropertyChangeListener(beanListener);
 		removeElement(bean);
-	}
-
-	@Override
-	public void battleAdded(MapBean battle) {
-	}
-
-	@Override
-	public void battleRemoved(MapBean battle) {
-	}
-
-	@Override
-	public void characterAdded(Character character) {
-	}
-
-	@Override
-	public void characterRemoved(Character character) {
 	}
 
 	@Override

@@ -1,0 +1,16 @@
+<chat serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:1c5c48a6-53db-44fa-a47e-31464ab84abc:1371650231242</guid>
+   </id>
+   <pseudo>Cody</pseudo>
+   <messages>
+      <messageRemote serialVersionUID="-2669560462857993375">
+         <playerId serialVersionUID="1">
+            <guid>00-FF-ED-A2-B9-46:0607d0bd-663a-484f-8d77-e4412c018b72:1371650231533</guid>
+         </playerId>
+         <sender>Cody</sender>
+         <message>Cody</message>
+         <command>system.connect</command>
+      </messageRemote>
+   </messages>
+</chat>

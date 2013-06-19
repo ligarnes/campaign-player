@@ -37,6 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
@@ -48,7 +49,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable.Drawabl
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.button.ButtonDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.ImageUtil;
@@ -79,7 +80,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 
 	private final BufferedImage background;
 
-	public PanelMapBasic(MapBean map, DrawFilter draw) {
+	public PanelMapBasic(final MapBean map, DrawFilter draw) {
 		super();
 		setLayout(null);
 		this.background = Helpers.getImage(Helpers
@@ -94,9 +95,15 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 
 		this.map = map;
 		this.map.addPropertyChangeListener(this);
-		MapFilter filter = CampaignClient.getInstance().getBean(
-				this.map.getFilter(), 3000);
-		filter.addPropertyChangeListener(this);
+
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				MapFilter filter = CampaignClient.getInstance().getBean(
+						map.getFilter(), 15000);
+				filter.addPropertyChangeListener(PanelMapBasic.this);
+			}
+		});
 
 		for (UniqueID elementId : this.map.getElements()) {
 			MapElementDrawable drawable = new MapElementDrawable(elementId);

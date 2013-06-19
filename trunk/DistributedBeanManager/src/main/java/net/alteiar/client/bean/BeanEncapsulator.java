@@ -18,11 +18,13 @@ import java.util.HashMap;
 import net.alteiar.shared.UniqueID;
 
 public class BeanEncapsulator implements VetoableChangeListener {
-	private final PropertyChangeSupport propertyChangeSupportRemote;
+
 	private final BasicBean bean;
 
 	private final ArrayList<BeanChange> changed;
 	private transient HashMap<String, Long> propertyTimestamp;
+
+	private final PropertyChangeSupport propertyChangeSupportRemote;
 
 	public BeanEncapsulator(BasicBean bean) {
 		this.bean = bean;

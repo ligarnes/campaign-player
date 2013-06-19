@@ -1,28 +1,26 @@
 package pathfinder.gui.adapter;
 
-import java.beans.Beans;
 import java.util.ArrayList;
-import java.util.List;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.Character;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.shared.UniqueID;
-import pathfinder.bean.unit.PathfinderCharacter;
 
 public class CharacterAdapter {
-	private final PathfinderCharacter character;
+	private final BeanDocument character;
 
-	public CharacterAdapter(PathfinderCharacter character) {
+	public CharacterAdapter(BeanDocument character) {
 		this.character = character;
 	}
 
-	public PathfinderCharacter getCharacter() {
+	public BeanDocument getCharacter() {
 		return character;
 	}
 
 	@Override
 	public String toString() {
-		return character.getName();
+		return character.getDocumentName();
 	}
 
 	@Override
@@ -51,32 +49,20 @@ public class CharacterAdapter {
 		return true;
 	}
 
-	public static CharacterAdapter[] getCharacters() {
-		List<Character> character = CampaignClient.getInstance()
-				.getCharacters();
-		CharacterAdapter[] characterAdapters = new CharacterAdapter[character
-				.size()];
-
-		for (int i = 0; i < characterAdapters.length; i++) {
-			characterAdapters[i] = new CharacterAdapter(
-					(PathfinderCharacter) Beans.getInstanceOf(character.get(i),
-							PathfinderCharacter.class));
-		}
-
-		return characterAdapters;
+	public static ArrayList<CharacterAdapter> getCharacters() {
+		return getCharacters(new ArrayList<UniqueID>());
 	}
 
 	public static ArrayList<CharacterAdapter> getCharacters(
 			ArrayList<UniqueID> ignoreList) {
 		ArrayList<CharacterAdapter> adapters = new ArrayList<CharacterAdapter>();
 
-		List<Character> characters = CampaignClient.getInstance()
-				.getCharacters();
-
-		for (Character character : characters) {
-			if (!ignoreList.contains(character.getId())) {
-				adapters.add(new CharacterAdapter((PathfinderCharacter) Beans
-						.getInstanceOf(character, PathfinderCharacter.class)));
+		for (BeanDocument character : CampaignClient.getInstance()
+				.getDocuments()) {
+			if (!ignoreList.contains(character.getId())
+					&& character.getDocumentType().equals(
+							DocumentType.CHARACTER)) {
+				adapters.add(new CharacterAdapter(character));
 			}
 		}
 

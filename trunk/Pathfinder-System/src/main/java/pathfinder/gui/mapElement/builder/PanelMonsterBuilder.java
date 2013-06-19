@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 import pathfinder.bean.unit.monster.MonsterBuilder;
 import pathfinder.bean.unit.monster.PathfinderMonster;
 import pathfinder.gui.adapter.MonsterBuilderAdapter;

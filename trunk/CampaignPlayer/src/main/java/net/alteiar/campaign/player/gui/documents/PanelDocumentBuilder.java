@@ -2,6 +2,9 @@ package net.alteiar.campaign.player.gui.documents;
 
 import javax.swing.JPanel;
 
+import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.DocumentType;
+
 public abstract class PanelDocumentBuilder extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -9,11 +12,17 @@ public abstract class PanelDocumentBuilder extends JPanel {
 		super();
 	}
 
+	public abstract String getDocumentBuilderName();
+
+	public abstract String getDocumentBuilderDescription();
+
+	public abstract void reset();
+
 	public abstract String getDocumentName();
 
-	public abstract String getDocumentDescription();
+	public abstract BasicBean buildDocument();
 
-	public abstract void buildDocument();
+	public abstract DocumentType getDocumentType();
 
 	public Boolean isDataValid() {
 		return true;

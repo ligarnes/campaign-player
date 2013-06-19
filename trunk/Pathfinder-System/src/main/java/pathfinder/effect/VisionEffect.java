@@ -6,8 +6,8 @@ import java.beans.Beans;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.map.MapBean;
 import net.alteiar.event.Effect;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.UniqueID;

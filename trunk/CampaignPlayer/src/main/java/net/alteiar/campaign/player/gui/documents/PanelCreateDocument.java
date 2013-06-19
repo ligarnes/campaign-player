@@ -15,9 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.shared.ExceptionTool;
 
 public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 	private static final long serialVersionUID = 1L;
@@ -33,13 +37,17 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		dlg.setCancelText("Annuler");
 		dlg.setLocationRelativeTo(null);
 		// dlg.pack();
-		dlg.setMaximumSize(new Dimension(600, 450));
-		dlg.setMinimumSize(new Dimension(600, 450));
-		dlg.setPreferredSize(new Dimension(600, 450));
+		dlg.setMaximumSize(new Dimension(600, 470));
+		dlg.setMinimumSize(new Dimension(600, 470));
+		dlg.setPreferredSize(new Dimension(600, 470));
 		dlg.setVisible(true);
 
 		if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {
-			dlg.getMainPanel().buildElement();
+			try {
+				dlg.getMainPanel().buildElement();
+			} catch (Exception ex) {
+				ExceptionTool.showError(ex);
+			}
 		}
 	}
 
@@ -60,6 +68,7 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		this.add(panelWest, BorderLayout.WEST);
 
 		builder = getBuilders().get(0);
+		builder.reset();
 
 		panelCenter = new JPanel();
 		panelCenter.add(builder);
@@ -101,7 +110,8 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 			maxWidth = Math.max(maxWidth, dim.width);
 			maxHeight = Math.max(maxHeight, dim.height);
 
-			ElementBuilder select = new ElementBuilder(panel.getDocumentName());
+			ElementBuilder select = new ElementBuilder(
+					panel.getDocumentBuilderName());
 			select.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
@@ -120,13 +130,20 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 	private void selectBuilder(PanelDocumentBuilder builder) {
 		panelCenter.removeAll();
 		this.builder = builder;
+		builder.reset();
 		panelCenter.add(this.builder);
 		this.revalidate();
 		this.repaint();
 	}
 
 	public void buildElement() {
-		builder.buildDocument();
+		BasicBean bean = builder.buildDocument();
+
+		if (bean != null) {
+			BeanDocument doc = new BeanDocument(builder.getDocumentName(),
+					builder.getDocumentType(), bean);
+			CampaignClient.getInstance().addBean(doc);
+		}
 	}
 
 	@Override

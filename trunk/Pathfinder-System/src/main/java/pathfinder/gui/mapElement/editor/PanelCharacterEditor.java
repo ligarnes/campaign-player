@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
 import net.alteiar.shared.ImageUtil;
+import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
 public class PanelCharacterEditor extends
@@ -34,7 +35,8 @@ public class PanelCharacterEditor extends
 		setLayout(gridBagLayout);
 
 		JLabel lblImg = new JLabel();
-		BufferedImage img = getMapElement().getCharacter().getCharacterImage();
+		PathfinderCharacter character = getMapElement().getCharacter();
+		BufferedImage img = character.getCharacterImage();
 		img = ImageUtil.resizeImage(img, 50, 50);
 		lblImg.setIcon(new ImageIcon(img));
 		lblImg.setPreferredSize(new Dimension(50, 50));
@@ -47,7 +49,7 @@ public class PanelCharacterEditor extends
 		gbc_lblImg.gridy = 0;
 		add(lblImg, gbc_lblImg);
 
-		JLabel lblName = new JLabel(getMapElement().getCharacter().getName());
+		JLabel lblName = new JLabel(character.getName());
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblName = new GridBagConstraints();
 		gbc_lblName.gridwidth = 3;
