@@ -10,8 +10,8 @@ import java.net.URL;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
-import net.alteiar.documents.map.MapBean;
 import net.alteiar.image.ImageBean;
+import net.alteiar.map.MapBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;

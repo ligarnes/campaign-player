@@ -21,20 +21,22 @@ import java.util.Collection;
 import javax.imageio.ImageIO;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.image.ImageBean;
+import net.alteiar.map.MapBean;
+import net.alteiar.map.Scale;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.map.filter.MapFilter;
+import net.alteiar.map.size.MapElementSize;
+import net.alteiar.map.size.MapElementSizeMeter;
+import net.alteiar.map.size.MapElementSizePixel;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
-import net.alteiar.utils.map.Scale;
-import net.alteiar.utils.map.element.MapElementSize;
-import net.alteiar.utils.map.element.MapElementSizeMeter;
-import net.alteiar.utils.map.element.MapElementSizePixel;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -69,8 +71,8 @@ public class TestMap extends NewCampaignTest {
 
 	public static UniqueID createBattle(String battleName, File image)
 			throws IOException {
-		MapBean battleBean = new MapBean(battleName);
-		MapFactory.createMap(battleName, battleBean, image);
+		MapBean battleBean = MapFactory.createMap(battleName, image);
+		CampaignClient.getInstance().addBean(battleBean);
 		return battleBean.getId();
 	}
 
@@ -216,26 +218,25 @@ public class TestMap extends NewCampaignTest {
 
 	@Test(timeout = 10000)
 	public void testMap() {
-		Long waitingTime = 1000L;
-
 		MapBean emptyMap = new MapBean("");
 		assertEquals("verify emptyMap", emptyMap, emptyMap);
 
 		String targetName = "test battle";
 
-		UniqueID battleId = null;
+		MapBean map = null;
 		try {
-			battleId = createBattle(targetName, getDefaultImage());
+			map = MapFactory.createMap(targetName, getDefaultImage());
 		} catch (IOException e) {
-			fail("fail to create battle");
+			fail("exception should'nt occur");
 		}
-		MapBean map = CampaignClient.getInstance().getBean(battleId,
-				waitingTime);
-		assertEquals("Map name have a wrong name", targetName,
-				map.getDocumentName());
 
-		String newName = "new map name";
-		map.setDocumentName(newName);
+		assertNotNull("Map should'nt be null", map);
+
+		BeanDocument doc = new BeanDocument(targetName,
+				DocumentType.BATTLE_MAP, map);
+
+		doc = addBean(doc);
+		map = doc.getBean();
 
 		Scale newScale = new Scale(map.getScale().getPixels() + 5, map
 				.getScale().getMeter());
@@ -263,8 +264,6 @@ public class TestMap extends NewCampaignTest {
 		map.setElements(set);
 
 		sleep(10);
-		assertEquals("Map name have a wrong name", newName,
-				map.getDocumentName());
 		assertEquals("Map scale should be changed", newScale, map.getScale());
 		assertEquals("Map width should be changed", newWidth, map.getWidth());
 		assertEquals("Map height should be changed", newHeight, map.getHeight());
@@ -274,7 +273,7 @@ public class TestMap extends NewCampaignTest {
 		assertEquals("Map elements should be changed", set, map.getElements());
 
 		// Remove the battle
-		CampaignClient.getInstance().removeBean(map);
+		CampaignClient.getInstance().removeBean(doc);
 	}
 
 	@Test(timeout = 10000)

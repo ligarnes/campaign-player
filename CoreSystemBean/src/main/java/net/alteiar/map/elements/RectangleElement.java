@@ -25,7 +25,7 @@ import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 import java.rmi.RemoteException;
 
-import net.alteiar.utils.map.element.MapElementSize;
+import net.alteiar.map.size.MapElementSize;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -98,8 +98,7 @@ public class RectangleElement extends ColoredShape {
 		MapElementSize oldValue = this.width;
 		if (notifyRemote(PROP_WIDTH_PROPERTY, oldValue, width)) {
 			this.width = width;
-			propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
-					oldValue, width);
+			notifyLocal(PROP_WIDTH_PROPERTY, oldValue, width);
 		}
 	}
 
@@ -111,8 +110,7 @@ public class RectangleElement extends ColoredShape {
 		MapElementSize oldValue = this.height;
 		if (notifyRemote(PROP_HEIGHT_PROPERTY, oldValue, height)) {
 			this.height = height;
-			propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
-					oldValue, height);
+			notifyLocal(PROP_HEIGHT_PROPERTY, oldValue, height);
 		}
 	}
 

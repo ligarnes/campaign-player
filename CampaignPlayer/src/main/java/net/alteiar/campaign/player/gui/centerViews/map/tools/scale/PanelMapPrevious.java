@@ -10,8 +10,8 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
-import net.alteiar.documents.map.MapBean;
-import net.alteiar.utils.map.Scale;
+import net.alteiar.map.MapBean;
+import net.alteiar.map.Scale;
 import net.alteiar.zoom.Zoomable;
 
 public class PanelMapPrevious extends JPanel implements Zoomable {

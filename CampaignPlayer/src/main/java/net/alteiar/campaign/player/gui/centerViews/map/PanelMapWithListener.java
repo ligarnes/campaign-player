@@ -21,7 +21,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawab
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.button.ButtonDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapListener;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 
 public class PanelMapWithListener extends PanelMapBasic implements
 		MouseListener, MouseMotionListener, MouseWheelListener {

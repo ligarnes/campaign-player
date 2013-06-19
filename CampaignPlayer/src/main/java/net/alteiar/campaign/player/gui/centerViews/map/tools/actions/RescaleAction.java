@@ -1,24 +1,18 @@
 package net.alteiar.campaign.player.gui.centerViews.map.tools.actions;
 
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.scale.PanelScaleEditor;
 import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.utils.map.Scale;
+import net.alteiar.map.Scale;
 
 public class RescaleAction extends MapAction {
 	private static final long serialVersionUID = 1L;
 
 	public RescaleAction(MapEditableInfo info) {
-		this(info, null);
-	}
-
-	public RescaleAction(MapEditableInfo info, Point position) {
 		super(info);
-
 		putValue(NAME, "Changer l'echelle");
 	}
 

@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 
 public class PanelAllMaps extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -9,4 +9,8 @@ public interface Unit {
 	Integer getCurrentHp();
 
 	void setCurrentHp(Integer currentHp);
+
+	Integer getInitMod();
+
+	void setInitMod(Integer initMod);
 }

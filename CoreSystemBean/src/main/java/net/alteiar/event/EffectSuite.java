@@ -24,8 +24,7 @@ public final class EffectSuite extends Effect {
 		ArrayList<UniqueID> oldValue = this.effects;
 		if (notifyRemote(PROP_EFFECTS_PROPERTY, oldValue, effects)) {
 			this.effects = effects;
-			propertyChangeSupport.firePropertyChange(PROP_EFFECTS_PROPERTY,
-					oldValue, effects);
+			notifyLocal(PROP_EFFECTS_PROPERTY, oldValue, effects);
 		}
 	}
 
@@ -34,8 +33,7 @@ public final class EffectSuite extends Effect {
 			synchronized (effects) {
 				this.effects.add(effectId);
 			}
-			propertyChangeSupport.firePropertyChange(METH_ADD_EFFECT_METHOD,
-					null, effectId);
+			notifyLocal(METH_ADD_EFFECT_METHOD, null, effectId);
 		}
 	}
 
@@ -44,8 +42,7 @@ public final class EffectSuite extends Effect {
 			synchronized (effects) {
 				this.effects.remove(effectId);
 			}
-			propertyChangeSupport.firePropertyChange(METH_REMOVE_EFFECT_METHOD,
-					null, effectId);
+			notifyLocal(METH_REMOVE_EFFECT_METHOD, null, effectId);
 		}
 	}
 

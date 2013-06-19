@@ -8,8 +8,8 @@ import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEd
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
-import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 
 public interface IPluginSystemGui extends ICorePlugin {
@@ -17,9 +17,9 @@ public interface IPluginSystemGui extends ICorePlugin {
 
 	ArrayList<PanelDocumentBuilder> getGuiDocumentFactory();
 
-	<E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(E bean);
+	PanelViewDocument getViewPanel(BeanDocument bean);
 
-	<E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean);
+	BufferedImage getDocumentIcon(BeanDocument bean);
 
 	<E extends MapElement> PanelMapElementEditor<E> getMapElementEditor(E bean);
 }

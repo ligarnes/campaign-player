@@ -16,12 +16,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
-import net.alteiar.documents.image.DocumentImageBean;
+import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.DocumentType;
+import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.TransfertImage;
@@ -139,21 +140,13 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public String getDocumentName() {
+	public String getDocumentBuilderName() {
 		return "Image";
 	}
 
 	@Override
-	public String getDocumentDescription() {
+	public String getDocumentBuilderDescription() {
 		return "Cr\u00E9er une image";
-	}
-
-	@Override
-	public void buildDocument() {
-		CampaignClient.getInstance().addBean(
-				new DocumentImageBean(textFieldName.getText(), transfertImage));
-		transfertImage = null;
-		revalidateImage();
 	}
 
 	@Override
@@ -164,5 +157,27 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	@Override
 	public String getInvalidMessage() {
 		return "Aucune image selectionn\u00E9e";
+	}
+
+	@Override
+	public String getDocumentName() {
+		return textFieldName.getText();
+	}
+
+	@Override
+	public DocumentType getDocumentType() {
+		return DocumentType.IMAGE;
+	}
+
+	@Override
+	public BasicBean buildDocument() {
+		return new ImageBean(transfertImage);
+	}
+
+	@Override
+	public void reset() {
+		textFieldName.setText("");
+		transfertImage = null;
+		lblPreview.setIcon(null);
 	}
 }

@@ -1,5 +1,6 @@
 package net.alteiar.test;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.awt.BorderLayout;
@@ -18,13 +19,13 @@ import javax.swing.JLabel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.BeanDocument;
 
 public abstract class BasicTest {
 	/**
 	 * timeout is used in test when we try to get a bean
 	 */
-	protected Long timeout = 300L;
+	protected Long timeout = 500L;
 
 	protected Boolean compareImage(BufferedImage img1, BufferedImage img2)
 			throws IOException {
@@ -114,9 +115,22 @@ public abstract class BasicTest {
 		return getBeans(bean);
 	}
 
-	protected <E extends AuthorizationBean> E addBean(E bean) {
+	protected BeanDocument addBean(BeanDocument bean) {
 		CampaignClient.getInstance().addBean(bean);
-		return getBeans(bean);
+		BeanDocument b = getBeans(bean);
+		assertNotNull("The bean should'nt be null", b);
+
+		long begin = System.currentTimeMillis();
+		long end = System.currentTimeMillis();
+		BasicBean beanRec = b.getBean();
+		while (beanRec == null && (end - begin) < getTimeout()) {
+			beanRec = b.getBean();
+			end = System.currentTimeMillis();
+			sleep(50);
+		}
+		assertNotNull("The internal bean should'nt be null", beanRec);
+
+		return b;
 	}
 
 	protected <E extends BasicBean> E getBeans(E bean) {

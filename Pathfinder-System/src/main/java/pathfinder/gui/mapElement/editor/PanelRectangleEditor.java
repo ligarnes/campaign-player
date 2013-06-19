@@ -8,9 +8,9 @@ import javax.swing.JLabel;
 
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
+import net.alteiar.map.Scale;
 import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.utils.map.Scale;
-import net.alteiar.utils.map.element.MapElementSize;
+import net.alteiar.map.size.MapElementSize;
 
 public class PanelRectangleEditor extends
 		PanelMapElementEditor<RectangleElement> {

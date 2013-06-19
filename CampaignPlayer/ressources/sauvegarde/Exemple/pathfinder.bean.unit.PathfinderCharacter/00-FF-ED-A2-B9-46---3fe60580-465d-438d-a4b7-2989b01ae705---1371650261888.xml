@@ -1,0 +1,15 @@
+<pathfinderCharacter>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:3fe60580-465d-438d-a4b7-2989b01ae705:1371650261888</guid>
+   </id>
+   <name>Eleonor</name>
+   <image serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:5870866c-3e8a-46c5-b295-eafcea148060:1371650261881</guid>
+   </image>
+   <totalHp>21</totalHp>
+   <currentHp>21</currentHp>
+   <ac>10</ac>
+   <acTouch>10</acTouch>
+   <acFlatFooted>10</acFlatFooted>
+   <initMod>0</initMod>
+</pathfinderCharacter>

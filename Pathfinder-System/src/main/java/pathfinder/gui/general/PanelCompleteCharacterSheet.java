@@ -20,8 +20,9 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.documents.character.Character;
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.bean.unit.PathfinderCharacter;
 
@@ -29,7 +30,7 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
-	private final PathfinderCharacter character;
+	private final BeanDocument character;
 
 	private final JLabel btnIcon;
 	private final JTextField textFieldName;
@@ -42,7 +43,7 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 	private final JSpinner spinnerAcFlatFooted;
 	private final JSpinner spinnerAcTouch;
 
-	public PanelCompleteCharacterSheet(PathfinderCharacter character) {
+	public PanelCompleteCharacterSheet(BeanDocument character) {
 		this.character = character;
 
 		setAlignmentY(Component.TOP_ALIGNMENT);
@@ -242,6 +243,8 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 	}
 
 	protected void characterChange() {
+		PathfinderCharacter character = CampaignClient.getInstance().getBean(
+				this.character.getBeanId());
 		this.textFieldName.setText(character.getName());
 		// this.spinnerModInit.setValue(character.getInitModifier());
 
@@ -273,7 +276,7 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		 */
 	}
 
-	public Character getCharacter() {
+	public BeanDocument getCharacter() {
 		return this.character;
 	}
 

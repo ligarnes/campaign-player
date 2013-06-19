@@ -3,7 +3,7 @@ package net.alteiar.campaign.player.gui.centerViews.map.listener;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 
 public class MapEvent {
 	private final MouseEvent event;

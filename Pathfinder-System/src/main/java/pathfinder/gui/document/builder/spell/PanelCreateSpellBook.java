@@ -13,8 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
+import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.tools.ListFilter;
 import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.bean.spell.Spell;
@@ -110,21 +111,37 @@ public class PanelCreateSpellBook extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public String getDocumentName() {
+	public String getDocumentBuilderName() {
 		return "Grimoire";
 	}
 
 	@Override
-	public String getDocumentDescription() {
+	public String getDocumentBuilderDescription() {
 		return "Cr\u00E9e un grimoire";
 	}
 
 	@Override
-	public void buildDocument() {
+	public BasicBean buildDocument() {
 		DocumentSpellBook book = new DocumentSpellBook(
 				textFieldSpellBookName.getText(),
 				panelFilter.getSelectedClasse(), panelListResult.getSpells());
+		return book;
+	}
 
-		CampaignClient.getInstance().addBean(book);
+	@Override
+	public String getDocumentName() {
+		return textFieldSpellBookName.getText();
+	}
+
+	@Override
+	public DocumentType getDocumentType() {
+		return DocumentType.NOTE;
+	}
+
+	@Override
+	public void reset() {
+		textFieldSpellBookName.setText("");
+		panelFilter.reset();
+		updateFilter();
 	}
 }

@@ -8,7 +8,8 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.documents.character.Character;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.player.Player;
 import pathfinder.bean.unit.PathfinderCharacter;
 
@@ -19,8 +20,8 @@ public class CharactersDrawable {
 
 	public void draw(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		List<Character> characters = CampaignClient.getInstance()
-				.getCharacters();
+		List<BeanDocument> characters = CampaignClient.getInstance()
+				.getDocuments();
 
 		AffineTransform at = new AffineTransform();
 		at.setToTranslation(70, 0);
@@ -29,9 +30,11 @@ public class CharactersDrawable {
 		orinalTranslate.setToTranslation(10, 10);
 
 		g2.transform(orinalTranslate);
-		for (Character characterBean : characters) {
-			drawCharacter(g2, (PathfinderCharacter) characterBean);
-			g2.transform(at);
+		for (BeanDocument characterBean : characters) {
+			if (characterBean.getDocumentType().equals(DocumentType.CHARACTER)) {
+				drawCharacter(g2, characterBean);
+				g2.transform(at);
+			}
 		}
 	}
 
@@ -39,8 +42,12 @@ public class CharactersDrawable {
 	public static int HEIGHT = 50;
 	public static int HEIGHT_HEALTH_BAR = 10;
 
-	protected void drawCharacter(Graphics2D g, PathfinderCharacter character) {
+	protected void drawCharacter(Graphics2D g, BeanDocument doc) {
 		Graphics2D g2 = (Graphics2D) g.create();
+
+		PathfinderCharacter character = CampaignClient.getInstance().getBean(
+				doc.getBeanId());
+
 		BufferedImage background = character.getCharacterImage();
 
 		if (background != null) {
@@ -50,7 +57,7 @@ public class CharactersDrawable {
 		}
 
 		drawHealthBar(g2, character);
-		drawPlayerColor(g2, character);
+		drawPlayerColor(g2, doc);
 	}
 
 	protected void drawHealthBar(Graphics2D g, PathfinderCharacter character) {
@@ -76,7 +83,7 @@ public class CharactersDrawable {
 		g2.dispose();
 	}
 
-	protected void drawPlayerColor(Graphics2D g2, PathfinderCharacter character) {
+	protected void drawPlayerColor(Graphics2D g2, BeanDocument character) {
 		Player player = CampaignClient.getInstance().getBean(
 				character.getOwner());
 		g2.setColor(player.getColor());

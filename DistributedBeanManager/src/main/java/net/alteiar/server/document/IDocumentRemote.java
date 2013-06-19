@@ -1,5 +1,6 @@
 package net.alteiar.server.document;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -19,6 +20,6 @@ public interface IDocumentRemote extends Remote {
 
 	BasicBean getBean() throws RemoteException;
 
-	void setBeanValue(String propertyName, Object newValue)
+	void setBeanValue(String propertyName, Serializable newValue)
 			throws RemoteException;
 }

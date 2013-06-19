@@ -12,10 +12,10 @@ import javax.swing.JPanel;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
-import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
@@ -56,7 +56,7 @@ public class PanelCharacterBuilder extends PanelMapElementBuilder {
 		characters.setValues(CharacterAdapter.getCharacters(ignoreList));
 	}
 
-	private PathfinderCharacter getCharacter() {
+	private BeanDocument getCharacter() {
 		return characters.getSelectedItem().getCharacter();
 	}
 

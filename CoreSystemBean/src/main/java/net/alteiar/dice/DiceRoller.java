@@ -10,8 +10,7 @@ public class DiceRoller extends BasicBean {
 	public void roll(Dice dice) {
 		dice.roll();
 		if (notifyRemote(METH_ROLL_METHOD, null, dice)) {
-			this.propertyChangeSupport.firePropertyChange(METH_ROLL_METHOD,
-					null, dice);
+			notifyLocal(METH_ROLL_METHOD, null, dice);
 		}
 	}
 }

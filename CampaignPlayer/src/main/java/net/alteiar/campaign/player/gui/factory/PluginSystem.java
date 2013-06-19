@@ -16,9 +16,8 @@ import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
 import net.alteiar.campaign.player.gui.factory.newPlugin.IPlugin;
-import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.character.Character;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 
 public class PluginSystem implements IPluginSystemGui {
@@ -46,9 +45,8 @@ public class PluginSystem implements IPluginSystemGui {
 	}
 
 	@Override
-	public <E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(
-			E bean) {
-		PanelViewDocument<E> found = null;
+	public PanelViewDocument getViewPanel(BeanDocument bean) {
+		PanelViewDocument found = null;
 
 		Iterator<IPlugin> itt = plugins.iterator();
 		while (itt.hasNext() && found == null) {
@@ -59,7 +57,7 @@ public class PluginSystem implements IPluginSystemGui {
 	}
 
 	@Override
-	public <E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean) {
+	public BufferedImage getDocumentIcon(BeanDocument bean) {
 
 		BufferedImage found = null;
 		Iterator<IPlugin> itt = plugins.iterator();
@@ -72,7 +70,6 @@ public class PluginSystem implements IPluginSystemGui {
 
 	@Override
 	public ArrayList<PanelDocumentBuilder> getGuiDocumentFactory() {
-
 		ArrayList<PanelDocumentBuilder> builders = new ArrayList<PanelDocumentBuilder>();
 		for (IPlugin plugin : plugins) {
 			builders.addAll(plugin.getGuiDocumentFactory());
@@ -170,8 +167,4 @@ public class PluginSystem implements IPluginSystemGui {
 		return core.buildSmallCharacterSheet();
 	}
 
-	@Override
-	public JPanel buildCompleteCharacterSheet(Character character) {
-		return core.buildCompleteCharacterSheet(character);
-	}
 }

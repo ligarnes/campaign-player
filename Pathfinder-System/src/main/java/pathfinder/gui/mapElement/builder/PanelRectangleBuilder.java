@@ -13,7 +13,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBu
 import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
 import net.alteiar.panel.PanelSelectColor;
 import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.utils.map.element.MapElementSize;
+import net.alteiar.map.size.MapElementSize;
 
 public class PanelRectangleBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;

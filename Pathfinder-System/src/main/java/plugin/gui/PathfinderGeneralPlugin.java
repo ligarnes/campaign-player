@@ -13,20 +13,17 @@ import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.gui.factory.DynamicPanelBeanBuilder;
 import net.alteiar.campaign.player.gui.factory.newPlugin.IPlugin;
-import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.image.DocumentImageBean;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
+import net.alteiar.documents.DocumentType;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.shared.ExceptionTool;
-import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.builder.character.PanelCreateCharacter;
 import pathfinder.gui.document.builder.monster.PanelCreateMonster;
-import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
 import pathfinder.gui.document.viewer.PanelViewImage;
-import pathfinder.gui.document.viewer.spell.PanelSpellBookViewer;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.builder.PanelCharacterBuilder;
 import pathfinder.gui.mapElement.builder.PanelCircleBuilder;
@@ -43,19 +40,20 @@ public class PathfinderGeneralPlugin implements IPlugin {
 
 	private static String MAP_ICON = "/icons/map.png";
 
-	private final DynamicPanelBeanBuilder viewPanels;
 	private final DynamicPanelBeanBuilder mapElementEditor;
 
 	private final ArrayList<PanelMapElementBuilder> mapElementBuilder;
 
-	private final HashMap<Class<?>, ImageIconFactory<?>> documentIcons;
+	private final HashMap<DocumentType, PanelViewDocument> views;
+	private final HashMap<DocumentType, ImageIconFactory<?>> documentIcon;
 
 	public PathfinderGeneralPlugin() {
-		viewPanels = new DynamicPanelBeanBuilder();
-		viewPanels.add(DocumentImageBean.class, PanelViewImage.class);
-		viewPanels.add(DocumentSpellBook.class, PanelSpellBookViewer.class);
+		views = new HashMap<>();
 
-		documentIcons = new HashMap<Class<?>, ImageIconFactory<?>>();
+		views.put(DocumentType.IMAGE, new PanelViewImage());
+		// viewPanels.add(DocumentSpellBook.class, PanelSpellBookViewer.class);
+
+		documentIcon = new HashMap<>();
 
 		// mapElement builder
 		mapElementBuilder = new ArrayList<PanelMapElementBuilder>();
@@ -76,17 +74,14 @@ public class PathfinderGeneralPlugin implements IPlugin {
 		try {
 			BufferedImage mapIcon = ImageIO.read(PathfinderGeneralPlugin.class
 					.getResource(MAP_ICON));
-			addIconFactory(new SimpleImageIconFactory<MapBean>(MapBean.class,
-					mapIcon));
+			documentIcon.put(DocumentType.BATTLE_MAP,
+					new SimpleImageIconFactory<>(MapBean.class, mapIcon));
 		} catch (IOException e) {
 			ExceptionTool.showError(e, "Impossible de lire l'image: "
 					+ MAP_ICON);
 		}
-		addIconFactory(new CharacterImageIconFactory());
-	}
-
-	protected void addIconFactory(ImageIconFactory<?> factory) {
-		documentIcons.put(factory.getDocumentClass(), factory);
+		documentIcon.put(DocumentType.CHARACTER,
+				new CharacterImageIconFactory());
 	}
 
 	@Override
@@ -101,23 +96,26 @@ public class PathfinderGeneralPlugin implements IPlugin {
 				.add(new pathfinder.gui.document.builder.PanelCreateBattle());
 		documentsBuilder.add(new PanelCreateImage());
 		documentsBuilder.add(new PanelCreateCharacter());
-		documentsBuilder.add(new PanelCreateSpellBook());
+		// documentsBuilder.add(new PanelCreateSpellBook());
 		documentsBuilder.add(new PanelCreateMonster());
 		return documentsBuilder;
 	}
 
 	@Override
-	public <E extends AuthorizationBean> PanelViewDocument<E> getViewPanel(
-			E bean) {
-		return (PanelViewDocument<E>) viewPanels.getPanel(bean);
+	public PanelViewDocument getViewPanel(BeanDocument bean) {
+		BeanDocument doc = bean;
+		PanelViewDocument view = views.get(doc.getDocumentType());
+		if (view != null) {
+			view.setDocument(doc);
+		}
+		return view;
 	}
 
 	@Override
-	public <E extends AuthorizationBean> BufferedImage getDocumentIcon(E bean) {
-		ImageIconFactory<E> factory = ((ImageIconFactory<E>) documentIcons
-				.get(bean.getClass()));
+	public BufferedImage getDocumentIcon(BeanDocument bean) {
+		ImageIconFactory factory = documentIcon.get(bean.getDocumentType());
 		if (factory != null) {
-			return factory.getImage(bean);
+			return factory.getImage(bean.getBean());
 		}
 		return null;
 	}

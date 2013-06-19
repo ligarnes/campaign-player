@@ -39,8 +39,7 @@ public abstract class ColoredShape extends MapElement {
 		Color oldValue = this.color.getColor();
 		if (notifyRemote(PROP_COLOR_PROPERTY, oldValue, color)) {
 			this.color = new MyColor(color);
-			propertyChangeSupport.firePropertyChange(PROP_COLOR_PROPERTY,
-					oldValue, color);
+			notifyLocal(PROP_COLOR_PROPERTY, oldValue, color);
 		}
 	}
 

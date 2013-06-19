@@ -2,19 +2,13 @@ package net.alteiar.campaign.player.gui.documents;
 
 import javax.swing.JPanel;
 
-import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.BeanDocument;
 
-public abstract class PanelViewDocument<E extends AuthorizationBean> extends
-		JPanel {
+public abstract class PanelViewDocument extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final E documentBean;
-
-	public PanelViewDocument(E bean) {
-		documentBean = bean;
+	public PanelViewDocument() {
 	}
 
-	public final E getBean() {
-		return documentBean;
-	}
+	public abstract void setDocument(BeanDocument document);
 }

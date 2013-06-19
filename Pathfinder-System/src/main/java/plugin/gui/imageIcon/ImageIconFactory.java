@@ -2,9 +2,9 @@ package plugin.gui.imageIcon;
 
 import java.awt.image.BufferedImage;
 
-import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.client.bean.BasicBean;
 
-public abstract class ImageIconFactory<E extends AuthorizationBean> {
+public abstract class ImageIconFactory<E extends BasicBean> {
 
 	public abstract Class<E> getDocumentClass();
 

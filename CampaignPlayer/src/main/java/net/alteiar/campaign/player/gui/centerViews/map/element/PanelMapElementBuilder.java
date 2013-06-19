@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import javax.swing.JPanel;
 
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 
 public abstract class PanelMapElementBuilder extends JPanel {

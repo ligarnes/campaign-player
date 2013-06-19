@@ -1,5 +1,6 @@
 package net.alteiar.server.document;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
@@ -37,7 +38,7 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public void setBeanValue(String propertyName, Object newValue)
+	public void setBeanValue(String propertyName, Serializable newValue)
 			throws RemoteException {
 		Long timestamp = new Date().getTime();
 		beanEncapsulator.valueChange(propertyName, newValue, timestamp);

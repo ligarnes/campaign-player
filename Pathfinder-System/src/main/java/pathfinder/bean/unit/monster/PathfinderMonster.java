@@ -20,6 +20,8 @@ public class PathfinderMonster extends BasicBean implements Unit {
 	public static final String PROP_CURRENT_HP_PROPERTY = "currentHp";
 	public static final String PROP_IMAGE_PROPERTY = "image";
 
+	public static final String PROP_INIT_MOD_PROPERTY = "initMod";
+
 	@Element
 	private String name;
 
@@ -52,6 +54,8 @@ public class PathfinderMonster extends BasicBean implements Unit {
 
 	@Element
 	private Integer will;
+
+	private Integer initMod;
 
 	protected PathfinderMonster() {
 		super();
@@ -108,8 +112,7 @@ public class PathfinderMonster extends BasicBean implements Unit {
 		String oldValue = this.name;
 		if (notifyRemote(PROP_NAME_PROPERTY, oldValue, name)) {
 			this.name = name;
-			propertyChangeSupport.firePropertyChange(PROP_NAME_PROPERTY,
-					oldValue, name);
+			notifyLocal(PROP_NAME_PROPERTY, oldValue, name);
 		}
 	}
 
@@ -123,8 +126,7 @@ public class PathfinderMonster extends BasicBean implements Unit {
 		Integer oldValue = this.totalHp;
 		if (notifyRemote(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp)) {
 			this.totalHp = totalHp;
-			propertyChangeSupport.firePropertyChange(PROP_TOTAL_HP_PROPERTY,
-					oldValue, totalHp);
+			notifyLocal(PROP_TOTAL_HP_PROPERTY, oldValue, totalHp);
 		}
 	}
 
@@ -138,8 +140,7 @@ public class PathfinderMonster extends BasicBean implements Unit {
 		Integer oldValue = this.currentHp;
 		if (notifyRemote(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp)) {
 			this.currentHp = currentHp;
-			propertyChangeSupport.firePropertyChange(PROP_CURRENT_HP_PROPERTY,
-					oldValue, currentHp);
+			notifyLocal(PROP_CURRENT_HP_PROPERTY, oldValue, currentHp);
 		}
 	}
 
@@ -151,8 +152,21 @@ public class PathfinderMonster extends BasicBean implements Unit {
 		UniqueID oldValue = this.image;
 		if (notifyRemote(PROP_IMAGE_PROPERTY, oldValue, image)) {
 			this.image = image;
-			propertyChangeSupport.firePropertyChange(PROP_IMAGE_PROPERTY,
-					oldValue, image);
+			notifyLocal(PROP_IMAGE_PROPERTY, oldValue, image);
+		}
+	}
+
+	@Override
+	public Integer getInitMod() {
+		return initMod;
+	}
+
+	@Override
+	public void setInitMod(Integer initMod) {
+		Integer oldValue = this.initMod;
+		if (notifyRemote(PROP_INIT_MOD_PROPERTY, oldValue, initMod)) {
+			this.initMod = initMod;
+			notifyLocal(PROP_INIT_MOD_PROPERTY, oldValue, initMod);
 		}
 	}
 

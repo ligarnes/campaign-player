@@ -32,11 +32,11 @@ import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapLis
 import net.alteiar.campaign.player.gui.centerViews.map.listener.mapElement.MapElementListener;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.PanelToolsAdventure;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
-import net.alteiar.documents.map.MapBean;
 import net.alteiar.factory.MapElementFactory;
+import net.alteiar.map.MapBean;
+import net.alteiar.map.Scale;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
-import net.alteiar.utils.map.Scale;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.Zoomable;
 
@@ -166,13 +166,7 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 		return map;
 	}
 
-	@Override
-	public void changeScale(Scale echelle) {
-		map.setScale(echelle);
-	}
-
-	@Override
-	public Scale getScale() {
+	private Scale getScale() {
 		return map.getScale();
 	}
 
@@ -182,11 +176,6 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 				/ (map.getScale().getPixels() * mapPanel.getZoomFactor()));
 		return squareDistance.intValue();
 	}
-
-	/*
-	 * @Override public Point getPositionOf(MapElement currentElement) { return
-	 * currentElement.getCenterPosition(); }
-	 */
 
 	@Override
 	public void moveElementAt(MapElement currentElement, Point position) {
@@ -202,16 +191,6 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 				* (int) Math.floor(position.x / squareSize.floatValue());
 		position.y = squareSize
 				* (int) Math.floor(position.y / squareSize.floatValue());
-	}
-
-	@Override
-	public int getPixelSquare() {
-		return getScale().getPixels();
-	}
-
-	@Override
-	public void rescaleMap(int pixelSquare) {
-		changeScale(new Scale(pixelSquare, 1.5));
 	}
 
 	@Override

@@ -19,6 +19,8 @@ import javax.swing.border.LineBorder;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
+import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
@@ -113,6 +115,15 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 		add(panelAc, gbc_panel);
 	}
 
+	@Override
+	public void reset() {
+		textFieldName.setText("");
+		textFieldHp.setText("");
+		panelAc.reset();
+		transfertImage = null;
+		this.lblAvatar.setIcon(null);
+	}
+
 	private void selectAvatar() {
 		File imageFile = StaticDialog.getSelectedImageFile(this);
 		if (imageFile != null) {
@@ -143,34 +154,13 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public String getDocumentName() {
+	public String getDocumentBuilderName() {
 		return "Personnage";
 	}
 
 	@Override
-	public String getDocumentDescription() {
+	public String getDocumentBuilderDescription() {
 		return "Cr\u00E9er un personnage";
-	}
-
-	@Override
-	public void buildDocument() {
-		ImageBean image = new ImageBean(transfertImage);
-		CampaignClient.getInstance().addBean(image);
-
-		String name = textFieldName.getText();
-		Integer hp = Integer.valueOf(textFieldHp.getText());
-
-		Integer ac = panelAc.getAc();
-		Integer acFlat = panelAc.getAcFlatFooted();
-		Integer acTouch = panelAc.getAcTouch();
-
-		PathfinderCharacter character = new PathfinderCharacter(name, hp, hp,
-				ac, acTouch, acFlat, image.getId());
-		character.setImage(image.getId());
-
-		CampaignClient.getInstance().addBean(character);
-		transfertImage = null;
-		textFieldName.setText("");
 	}
 
 	@Override
@@ -182,4 +172,33 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	public String getInvalidMessage() {
 		return "Aucun avatar selectionn\u00E9e";
 	}
+
+	@Override
+	public BasicBean buildDocument() {
+		ImageBean image = new ImageBean(transfertImage);
+		CampaignClient.getInstance().addBean(image);
+
+		String name = textFieldName.getText();
+		Integer hp = Integer.valueOf(textFieldHp.getText());
+
+		Integer ac = panelAc.getAc();
+		Integer acFlat = panelAc.getAcFlatFooted();
+		Integer acTouch = panelAc.getAcTouch();
+
+		PathfinderCharacter character = new PathfinderCharacter(name, hp, hp,
+				ac, acTouch, acFlat, 0, image.getId());
+
+		return character;
+	}
+
+	@Override
+	public String getDocumentName() {
+		return textFieldName.getText();
+	}
+
+	@Override
+	public DocumentType getDocumentType() {
+		return DocumentType.CHARACTER;
+	}
+
 }

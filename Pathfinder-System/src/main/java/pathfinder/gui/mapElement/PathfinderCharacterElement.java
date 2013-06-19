@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.map.size.MapElementSize;
+import net.alteiar.map.size.MapElementSizeSquare;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.map.element.MapElementSize;
-import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
 
@@ -40,7 +41,7 @@ public class PathfinderCharacterElement extends MapElement {
 	public PathfinderCharacterElement() {
 	}
 
-	public PathfinderCharacterElement(Point point, PathfinderCharacter character) {
+	public PathfinderCharacterElement(Point point, BeanDocument character) {
 		this(point, character.getId());
 	}
 
@@ -52,20 +53,25 @@ public class PathfinderCharacterElement extends MapElement {
 		height = new MapElementSizeSquare(1);
 	}
 
-	public PathfinderCharacter getCharacter() {
+	public BeanDocument getDocumentCharacter() {
 		return CampaignClient.getInstance().getBean(charactedId);
+	}
+
+	public PathfinderCharacter getCharacter() {
+		return CampaignClient.getInstance().getBean(
+				getDocumentCharacter().getBeanId());
 	}
 
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		super.addPropertyChangeListener(listener);
-		getCharacter().addPropertyChangeListener(listener);
+		getDocumentCharacter().addPropertyChangeListener(listener);
 	}
 
 	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		super.removePropertyChangeListener(listener);
-		getCharacter().removePropertyChangeListener(listener);
+		getDocumentCharacter().removePropertyChangeListener(listener);
 	}
 
 	@Override
@@ -81,7 +87,8 @@ public class PathfinderCharacterElement extends MapElement {
 	@Override
 	protected void drawElement(Graphics2D g, double zoomFactor) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		BufferedImage background = getCharacter().getCharacterImage();
+		PathfinderCharacter character = getCharacter();
+		BufferedImage background = character.getCharacterImage();
 
 		Point position = getPosition();
 		int x = (int) (position.getX() * zoomFactor);
@@ -107,8 +114,8 @@ public class PathfinderCharacterElement extends MapElement {
 		int yLife = y + height - heightLife;
 		int widthLife = width;
 
-		Integer currentHp = getCharacter().getCurrentHp();
-		Integer totalHp = getCharacter().getTotalHp();
+		Integer currentHp = character.getCurrentHp();
+		Integer totalHp = character.getTotalHp();
 
 		Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
 		if (currentHp > 0) {
@@ -133,8 +140,9 @@ public class PathfinderCharacterElement extends MapElement {
 	@Override
 	public List<IAction> getActions() {
 		ArrayList<IAction> actions = new ArrayList<IAction>();
-		actions.add(new DoDamage(getCharacter()));
-		actions.add(new DoHeal(getCharacter()));
+		PathfinderCharacter character = getCharacter();
+		actions.add(new DoDamage(character));
+		actions.add(new DoHeal(character));
 		return actions;
 	}
 
@@ -154,8 +162,7 @@ public class PathfinderCharacterElement extends MapElement {
 		MapElementSize oldValue = this.width;
 		if (notifyRemote(PROP_WIDTH_PROPERTY, oldValue, width)) {
 			this.width = width;
-			this.propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
-					oldValue, width);
+			notifyLocal(PROP_WIDTH_PROPERTY, oldValue, width);
 		}
 	}
 
@@ -167,8 +174,7 @@ public class PathfinderCharacterElement extends MapElement {
 		MapElementSize oldValue = this.height;
 		if (notifyRemote(PROP_HEIGHT_PROPERTY, oldValue, height)) {
 			this.height = height;
-			this.propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
-					oldValue, height);
+			notifyLocal(PROP_HEIGHT_PROPERTY, oldValue, height);
 		}
 	}
 
@@ -176,12 +182,12 @@ public class PathfinderCharacterElement extends MapElement {
 	public String getNameFormat() {
 		if (getWidth().getShortUnitFormat().equals(
 				getHeight().getShortUnitFormat())) {
-			return getCharacter().getName() + " " + getWidth().getValue() + "x"
-					+ getHeight().getValue() + " "
-					+ getWidth().getShortUnitFormat();
+			return getDocumentCharacter().getDocumentName() + " "
+					+ getWidth().getValue() + "x" + getHeight().getValue()
+					+ " " + getWidth().getShortUnitFormat();
 		}
-		return getCharacter().getName() + " " + getWidth().getValue()
-				+ getWidth().getShortUnitFormat() + "x"
+		return getDocumentCharacter().getDocumentName() + " "
+				+ getWidth().getValue() + getWidth().getShortUnitFormat() + "x"
 				+ getHeight().getValue() + " "
 				+ getHeight().getShortUnitFormat();
 	}

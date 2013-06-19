@@ -5,7 +5,7 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
-import net.alteiar.utils.map.element.MapElementSize;
+import net.alteiar.map.size.MapElementSize;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -71,8 +71,7 @@ public class CircleElement extends ColoredShape {
 		MapElementSize oldValue = this.radius;
 		if (notifyRemote(PROP_RADIUS_PROPERTY, oldValue, radius)) {
 			this.radius = radius;
-			propertyChangeSupport.firePropertyChange(PROP_RADIUS_PROPERTY,
-					oldValue, radius);
+			notifyLocal(PROP_RADIUS_PROPERTY, oldValue, radius);
 		}
 	}
 

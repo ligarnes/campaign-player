@@ -19,8 +19,7 @@ import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
-import net.alteiar.documents.character.Character;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentIO;
@@ -118,11 +117,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	private Player currentPlayer;
 	private final ArrayList<Player> players;
 
-	private final ArrayList<Character> characters;
-
-	private final ArrayList<MapBean> battles;
-
-	private final ArrayList<AuthorizationBean> documentsBean;
+	private final ArrayList<BeanDocument> documentsBean;
 
 	private Chat chat;
 	private DiceRoller diceRoller;
@@ -156,10 +151,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 		// First create all local variable
 		players = new ArrayList<Player>();
-		characters = new ArrayList<Character>();
-		battles = new ArrayList<MapBean>();
-
-		documentsBean = new ArrayList<AuthorizationBean>();
+		documentsBean = new ArrayList<BeanDocument>();
 
 		// Load all existing documents
 		this.manager.loadDocuments();
@@ -292,10 +284,10 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<AuthorizationBean> getDocuments() {
-		ArrayList<AuthorizationBean> copy;
+	public ArrayList<BeanDocument> getDocuments() {
+		ArrayList<BeanDocument> copy;
 		synchronized (documentsBean) {
-			copy = (ArrayList<AuthorizationBean>) documentsBean.clone();
+			copy = (ArrayList<BeanDocument>) documentsBean.clone();
 		}
 		return copy;
 	}
@@ -318,7 +310,9 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void removeBean(BasicBean bean) {
-		manager.removeDocument(bean);
+		if (bean != null) {
+			manager.removeDocument(bean);
+		}
 	}
 
 	public void removeBean(UniqueID beanId) {
@@ -412,24 +406,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		return copy;
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<MapBean> getBattles() {
-		List<MapBean> copy;
-		synchronized (battles) {
-			copy = (List<MapBean>) battles.clone();
-		}
-		return copy;
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Character> getCharacters() {
-		List<Character> copy;
-		synchronized (characters) {
-			copy = (List<Character>) characters.clone();
-		}
-		return copy;
-	}
-
 	public Chat getChat() {
 		return this.chat;
 	}
@@ -444,31 +420,31 @@ public final class CampaignClient implements DocumentManagerListener {
 			notifyPlayerAdded(player);
 		} else if (Beans.isInstanceOf(bean, Chat.class)) {
 			chat = (Chat) Beans.getInstanceOf(bean, Chat.class);
-		} else if (Beans.isInstanceOf(bean, MapBean.class)) {
-			MapBean battle = (MapBean) Beans.getInstanceOf(bean, MapBean.class);
-			synchronized (battles) {
-				battles.add(battle);
-			}
-			notifyBattleAdded(battle);
-		} else if (Beans.isInstanceOf(bean, Character.class)) {
-			Character character = (Character) Beans.getInstanceOf(bean,
-					Character.class);
-			synchronized (characters) {
-				characters.add(character);
-			}
-			notifyCharacterAdded(character);
 		} else if (Beans.isInstanceOf(bean, DiceRoller.class)) {
 			diceRoller = (DiceRoller) Beans.getInstanceOf(bean,
 					DiceRoller.class);
 		}
 
-		if (Beans.isInstanceOf(bean, AuthorizationBean.class)) {
-			AuthorizationBean doc = (AuthorizationBean) Beans.getInstanceOf(
-					bean, AuthorizationBean.class);
+		if (Beans.isInstanceOf(bean, BeanDocument.class)) {
+			final BeanDocument doc = (BeanDocument) Beans.getInstanceOf(bean,
+					BeanDocument.class);
 			synchronized (documentsBean) {
 				documentsBean.add(doc);
 			}
-			notifyBeanAdded(doc);
+
+			// TODO may change later but now we do not want to receive the
+			// document while we do not contain the internal bean
+			this.addWaitBeanListener(new WaitBeanListener() {
+				@Override
+				public UniqueID getBeanId() {
+					return doc.getBeanId();
+				}
+
+				@Override
+				public void beanReceived(BasicBean bean) {
+					notifyBeanAdded(doc);
+				}
+			});
 		}
 
 		ArrayList<WaitBeanListener> waitListeners = getWaitBeanListener(bean
@@ -485,24 +461,11 @@ public final class CampaignClient implements DocumentManagerListener {
 			synchronized (players) {
 				players.remove(Beans.getInstanceOf(bean, Player.class));
 			}
-		} else if (Beans.isInstanceOf(bean, MapBean.class)) {
-			MapBean battle = (MapBean) Beans.getInstanceOf(bean, MapBean.class);
-			synchronized (battles) {
-				battles.remove(battle);
-			}
-			notifyBattleRemoved(battle);
-		} else if (Beans.isInstanceOf(bean, Character.class)) {
-			Character character = (Character) Beans.getInstanceOf(bean,
-					Character.class);
-			synchronized (characters) {
-				characters.remove(character);
-			}
-			notifyCharacterRemoved(character);
 		}
 
-		if (Beans.isInstanceOf(bean, AuthorizationBean.class)) {
-			AuthorizationBean doc = (AuthorizationBean) Beans.getInstanceOf(
-					bean, AuthorizationBean.class);
+		if (Beans.isInstanceOf(bean, BeanDocument.class)) {
+			BeanDocument doc = (BeanDocument) Beans.getInstanceOf(bean,
+					BeanDocument.class);
 			synchronized (documentsBean) {
 				documentsBean.remove(doc);
 			}
@@ -582,13 +545,13 @@ public final class CampaignClient implements DocumentManagerListener {
 		return copy;
 	}
 
-	protected void notifyBeanAdded(AuthorizationBean authBean) {
+	protected void notifyBeanAdded(BeanDocument authBean) {
 		for (CampaignListener listener : getListeners()) {
 			listener.beanAdded(authBean);
 		}
 	}
 
-	protected void notifyBeanRemoved(AuthorizationBean authBean) {
+	protected void notifyBeanRemoved(BeanDocument authBean) {
 		for (CampaignListener listener : getListeners()) {
 			listener.beanRemoved(authBean);
 		}
@@ -599,29 +562,4 @@ public final class CampaignClient implements DocumentManagerListener {
 			listener.playerAdded(player);
 		}
 	}
-
-	protected void notifyCharacterAdded(Character character) {
-		for (CampaignListener listener : getListeners()) {
-			listener.characterAdded(character);
-		}
-	}
-
-	protected void notifyCharacterRemoved(Character character) {
-		for (CampaignListener listener : getListeners()) {
-			listener.characterRemoved(character);
-		}
-	}
-
-	protected void notifyBattleAdded(MapBean battle) {
-		for (CampaignListener listener : getListeners()) {
-			listener.battleAdded(battle);
-		}
-	}
-
-	protected void notifyBattleRemoved(MapBean battle) {
-		for (CampaignListener listener : getListeners()) {
-			listener.battleRemoved(battle);
-		}
-	}
-
 }

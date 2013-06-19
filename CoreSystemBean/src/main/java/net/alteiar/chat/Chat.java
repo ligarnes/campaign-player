@@ -32,8 +32,7 @@ public class Chat extends BasicBean {
 	public void setPseudo(String pseudo) {
 		String oldValue = this.pseudo;
 		this.pseudo = pseudo;
-		propertyChangeSupport.firePropertyChange(PROP_PSEUDO_PROPERTY,
-				oldValue, this.pseudo);
+		notifyLocal(PROP_PSEUDO_PROPERTY, oldValue, this.pseudo);
 	}
 
 	public String getPseudo() {
@@ -57,8 +56,7 @@ public class Chat extends BasicBean {
 			synchronized (messages) {
 				this.messages.add(message);
 			}
-			propertyChangeSupport.firePropertyChange(METH_ADD_MESSAGE_METHOD,
-					null, message);
+			notifyLocal(METH_ADD_MESSAGE_METHOD, null, message);
 		}
 	}
 
@@ -78,8 +76,7 @@ public class Chat extends BasicBean {
 			synchronized (messages) {
 				this.messages = messages;
 			}
-			propertyChangeSupport.firePropertyChange(PROP_MESSAGES_PROPERTY,
-					oldValue, messages);
+			notifyLocal(PROP_MESSAGES_PROPERTY, oldValue, messages);
 		}
 	}
 }

@@ -55,6 +55,12 @@ public abstract class BasicBean implements Serializable {
 		}
 	}
 
+	protected void notifyLocal(String propertyName, Object oldValue,
+			Object newValue) {
+		propertyChangeSupport.firePropertyChange(propertyName, oldValue,
+				newValue);
+	}
+
 	public void beanRemoved() {
 	}
 

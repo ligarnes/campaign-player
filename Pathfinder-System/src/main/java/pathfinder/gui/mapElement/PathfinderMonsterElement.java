@@ -13,9 +13,9 @@ import java.util.List;
 import net.alteiar.CampaignClient;
 import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.map.size.MapElementSize;
+import net.alteiar.map.size.MapElementSizeSquare;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.map.element.MapElementSize;
-import net.alteiar.utils.map.element.MapElementSizeSquare;
 
 import org.simpleframework.xml.Element;
 
@@ -162,8 +162,7 @@ public class PathfinderMonsterElement extends MapElement {
 		MapElementSize oldValue = this.width;
 		if (notifyRemote(PROP_WIDTH_PROPERTY, oldValue, width)) {
 			this.width = width;
-			this.propertyChangeSupport.firePropertyChange(PROP_WIDTH_PROPERTY,
-					oldValue, width);
+			notifyLocal(PROP_WIDTH_PROPERTY, oldValue, width);
 		}
 	}
 
@@ -175,8 +174,7 @@ public class PathfinderMonsterElement extends MapElement {
 		MapElementSize oldValue = this.height;
 		if (notifyRemote(PROP_HEIGHT_PROPERTY, oldValue, height)) {
 			this.height = height;
-			this.propertyChangeSupport.firePropertyChange(PROP_HEIGHT_PROPERTY,
-					oldValue, height);
+			notifyLocal(PROP_HEIGHT_PROPERTY, oldValue, height);
 		}
 	}
 

@@ -3,13 +3,13 @@ package pathfinder.bean.spell;
 import java.util.HashSet;
 import java.util.Set;
 
-import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
-public class DocumentSpellBook extends AuthorizationBean {
+public class DocumentSpellBook extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	@Element
@@ -23,7 +23,7 @@ public class DocumentSpellBook extends AuthorizationBean {
 
 	public DocumentSpellBook(String spellBookname, String className,
 			Set<Spell> spells) {
-		super(spellBookname);
+		// super(spellBookname);
 		this.className = className;
 		this.spells = new HashSet<UniqueID>();
 

@@ -11,9 +11,9 @@ import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.map.MapBean;
+import net.alteiar.map.MapBean;
+import net.alteiar.map.Scale;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.map.Scale;
 
 import org.simpleframework.xml.Element;
 
@@ -145,8 +145,7 @@ public abstract class MapElement extends BasicBean {
 		}
 		Point oldValue = this.position;
 		this.position = position;
-		propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
-				oldValue, position);
+		notifyLocal(PROP_POSITION_PROPERTY, oldValue, position);
 	}
 
 	/**
@@ -178,8 +177,7 @@ public abstract class MapElement extends BasicBean {
 		UniqueID oldValue = this.mapId;
 		if (notifyRemote(PROP_MAP_ID_PROPERTY, oldValue, mapId)) {
 			this.mapId = mapId;
-			propertyChangeSupport.firePropertyChange(PROP_MAP_ID_PROPERTY,
-					oldValue, mapId);
+			notifyLocal(PROP_MAP_ID_PROPERTY, oldValue, mapId);
 		}
 	}
 
@@ -192,8 +190,7 @@ public abstract class MapElement extends BasicBean {
 		if (notifyRemote(PROP_POSITION_PROPERTY, oldValue, position)) {
 			this.lastPosition = position;
 			this.position = position;
-			propertyChangeSupport.firePropertyChange(PROP_POSITION_PROPERTY,
-					oldValue, position);
+			notifyLocal(PROP_POSITION_PROPERTY, oldValue, position);
 		}
 	}
 
@@ -205,8 +202,7 @@ public abstract class MapElement extends BasicBean {
 		Double oldValue = this.angle;
 		if (notifyRemote(PROP_ANGLE_PROPERTY, oldValue, angle)) {
 			this.angle = angle;
-			propertyChangeSupport.firePropertyChange(PROP_ANGLE_PROPERTY,
-					oldValue, angle);
+			notifyLocal(PROP_ANGLE_PROPERTY, oldValue, angle);
 		}
 	}
 
@@ -225,8 +221,8 @@ public abstract class MapElement extends BasicBean {
 		if (notifyRemote(PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue,
 				hiddenForPlayer)) {
 			this.hiddenForPlayer = hiddenForPlayer;
-			propertyChangeSupport.firePropertyChange(
-					PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue, hiddenForPlayer);
+			notifyLocal(PROP_HIDDEN_FOR_PLAYER_PROPERTY, oldValue,
+					hiddenForPlayer);
 		}
 	}
 
