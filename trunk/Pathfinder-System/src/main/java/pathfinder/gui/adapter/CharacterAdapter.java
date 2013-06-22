@@ -2,9 +2,10 @@ package pathfinder.gui.adapter;
 
 import java.util.ArrayList;
 
+import pathfinder.DocumentTypeConstant;
+
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.shared.UniqueID;
 
 public class CharacterAdapter {
@@ -61,7 +62,7 @@ public class CharacterAdapter {
 				.getDocuments()) {
 			if (!ignoreList.contains(character.getId())
 					&& character.getDocumentType().equals(
-							DocumentType.CHARACTER)) {
+							DocumentTypeConstant.CHARACTER)) {
 				adapters.add(new CharacterAdapter(character));
 			}
 		}

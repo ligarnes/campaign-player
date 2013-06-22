@@ -20,12 +20,12 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
+import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.document.builder.monster.PanelAc;
 
@@ -197,8 +197,8 @@ public class PanelCreateCharacter extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public DocumentType getDocumentType() {
-		return DocumentType.CHARACTER;
+	public String getDocumentType() {
+		return DocumentTypeConstant.CHARACTER;
 	}
 
 }

@@ -83,10 +83,6 @@ public class PanelSpellFilter extends JPanel {
 		gbc_spinner_1.gridy = 2;
 		add(spinnerMax, gbc_spinner_1);
 
-		for (String classe : SpellManager.getInstance().getClasses()) {
-			comboBoxClasses.addItem(classe);
-		}
-
 		comboBoxClasses.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -105,8 +101,12 @@ public class PanelSpellFilter extends JPanel {
 	}
 
 	public void reset() {
+		for (String classe : SpellManager.getInstance().getClasses()) {
+			comboBoxClasses.addItem(classe);
+		}
+
 		spinnerMin.setValue(0);
-		spinnerMin.setValue(9);
+		spinnerMax.setValue(9);
 	}
 
 	public String getSelectedClasse() {

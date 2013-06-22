@@ -22,12 +22,12 @@ public class BeanDocument extends AuthorizationBean {
 	private UniqueID beanId;
 
 	@Element
-	private DocumentType documentType;
+	private String documentType;
 
 	public BeanDocument() {
 	}
 
-	public BeanDocument(String name, DocumentType type, final BasicBean bean) {
+	public BeanDocument(String name, String type, final BasicBean bean) {
 		super();
 		this.documentName = name;
 		this.beanId = bean.getId();
@@ -45,12 +45,12 @@ public class BeanDocument extends AuthorizationBean {
 		CampaignClient.getInstance().removeBean(getBeanId());
 	}
 
-	public DocumentType getDocumentType() {
+	public String getDocumentType() {
 		return documentType;
 	}
 
-	public void setDocumentType(DocumentType documentType) {
-		DocumentType oldValue = this.documentType;
+	public void setDocumentType(String documentType) {
+		String oldValue = this.documentType;
 		if (notifyRemote(PROP_DOCUMENT_TYPE_PROPERTY, oldValue, documentType)) {
 			this.documentType = documentType;
 			notifyLocal(PROP_DOCUMENT_TYPE_PROPERTY, oldValue, documentType);

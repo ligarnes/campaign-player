@@ -20,12 +20,12 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
+import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.monster.MonsterBuilder;
 import pathfinder.bean.unit.monster.MonsterManager;
 
@@ -210,8 +210,8 @@ public class PanelCreateMonster extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public DocumentType getDocumentType() {
-		return null;
+	public String getDocumentType() {
+		return DocumentTypeConstant.MONSTER;
 	}
 
 	@Override

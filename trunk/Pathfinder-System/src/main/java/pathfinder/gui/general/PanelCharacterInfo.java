@@ -19,7 +19,7 @@ import net.alteiar.CampaignAdapter;
 import net.alteiar.CampaignClient;
 import net.alteiar.component.MyCombobox;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
+import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.adapter.CharacterAdapter;
 
@@ -84,7 +84,7 @@ public class PanelCharacterInfo extends JPanel implements
 	}
 
 	private Boolean isCharacter(BeanDocument doc) {
-		return doc.getDocumentType().equals(DocumentType.CHARACTER);
+		return doc.getDocumentType().equals(DocumentTypeConstant.CHARACTER);
 	}
 
 	public void addCharacter(final BeanDocument doc) {

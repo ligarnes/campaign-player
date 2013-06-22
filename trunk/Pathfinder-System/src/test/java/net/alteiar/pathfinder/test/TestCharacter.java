@@ -8,13 +8,13 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
 
 import org.junit.Test;
 
+import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.PathfinderCharacter;
 
 public class TestCharacter extends NewCampaignTest {
@@ -59,7 +59,7 @@ public class TestCharacter extends NewCampaignTest {
 				totalHp, currentHp, ac, acTouch, acFlat, initMod, img.getId());
 
 		BeanDocument doc = new BeanDocument(character.getName(),
-				DocumentType.CHARACTER, character);
+				DocumentTypeConstant.CHARACTER, character);
 
 		doc = addBean(doc);
 

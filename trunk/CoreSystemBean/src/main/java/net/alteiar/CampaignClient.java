@@ -198,7 +198,14 @@ public final class CampaignClient implements DocumentManagerListener {
 		return beans;
 	}
 
-	private <E extends BasicBean> ArrayList<E> loadDirectory(File localFile) {
+	public static <E extends BasicBean> ArrayList<E> loadDirectory(
+			File globalPath, Class<E> classes) {
+		File globalFile = new File(globalPath, classes.getCanonicalName());
+		return loadDirectory(globalFile);
+	}
+
+	private static <E extends BasicBean> ArrayList<E> loadDirectory(
+			File localFile) {
 		ArrayList<E> result = new ArrayList<E>();
 		if (localFile.exists() && localFile.isDirectory()) {
 			for (File f : localFile.listFiles()) {
@@ -428,9 +435,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		if (Beans.isInstanceOf(bean, BeanDocument.class)) {
 			final BeanDocument doc = (BeanDocument) Beans.getInstanceOf(bean,
 					BeanDocument.class);
-			synchronized (documentsBean) {
-				documentsBean.add(doc);
-			}
 
 			// TODO may change later but now we do not want to receive the
 			// document while we do not contain the internal bean
@@ -442,17 +446,16 @@ public final class CampaignClient implements DocumentManagerListener {
 
 				@Override
 				public void beanReceived(BasicBean bean) {
+					synchronized (documentsBean) {
+						documentsBean.add(doc);
+					}
+					notifyBeanDocumentAdded(doc);
 					notifyBeanAdded(doc);
 				}
 			});
+		} else {
+			notifyBeanAdded(bean);
 		}
-
-		ArrayList<WaitBeanListener> waitListeners = getWaitBeanListener(bean
-				.getId());
-		for (WaitBeanListener waitBeanListener : waitListeners) {
-			waitBeanListener.beanReceived(bean);
-		}
-		removeWaitBeanListener(bean);
 	}
 
 	@Override
@@ -545,7 +548,16 @@ public final class CampaignClient implements DocumentManagerListener {
 		return copy;
 	}
 
-	protected void notifyBeanAdded(BeanDocument authBean) {
+	protected void notifyBeanAdded(BasicBean bean) {
+		ArrayList<WaitBeanListener> waitListeners = getWaitBeanListener(bean
+				.getId());
+		for (WaitBeanListener waitBeanListener : waitListeners) {
+			waitBeanListener.beanReceived(bean);
+		}
+		removeWaitBeanListener(bean);
+	}
+
+	protected void notifyBeanDocumentAdded(BeanDocument authBean) {
 		for (CampaignListener listener : getListeners()) {
 			listener.beanAdded(authBean);
 		}

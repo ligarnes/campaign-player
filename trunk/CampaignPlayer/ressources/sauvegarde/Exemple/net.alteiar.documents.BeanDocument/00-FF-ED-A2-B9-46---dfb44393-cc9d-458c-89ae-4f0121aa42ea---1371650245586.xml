@@ -12,5 +12,5 @@
    <beanId serialVersionUID="1">
       <guid>00-FF-ED-A2-B9-46:f673ded0-00a5-492d-bf60-8d11a5dd928d:1371650245564</guid>
    </beanId>
-   <documentType>BATTLE_MAP</documentType>
+   <documentType>battle-map</documentType>
 </beanDocument>

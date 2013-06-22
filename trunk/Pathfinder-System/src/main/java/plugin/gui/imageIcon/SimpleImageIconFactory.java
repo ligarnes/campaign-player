@@ -2,25 +2,17 @@ package plugin.gui.imageIcon;
 
 import java.awt.image.BufferedImage;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.BeanDocument;
 
-public class SimpleImageIconFactory<E extends BasicBean> extends
-		ImageIconFactory<E> {
-	private final Class<E> classes;
+public class SimpleImageIconFactory implements ImageIconFactory {
 	private final BufferedImage image;
 
-	public SimpleImageIconFactory(Class<E> classes, BufferedImage image) {
-		this.classes = classes;
+	public SimpleImageIconFactory(BufferedImage image) {
 		this.image = image;
 	}
 
 	@Override
-	public Class<E> getDocumentClass() {
-		return classes;
-	}
-
-	@Override
-	public BufferedImage getImage(E bean) {
+	public BufferedImage getImage(BeanDocument bean) {
 		return image;
 	}
 

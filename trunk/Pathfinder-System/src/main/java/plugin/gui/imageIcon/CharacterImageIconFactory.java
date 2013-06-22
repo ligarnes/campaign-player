@@ -2,22 +2,18 @@ package plugin.gui.imageIcon;
 
 import java.awt.image.BufferedImage;
 
+import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.bean.unit.PathfinderCharacter;
 
-public class CharacterImageIconFactory extends
-		ImageIconFactory<PathfinderCharacter> {
+public class CharacterImageIconFactory implements ImageIconFactory {
 
 	public CharacterImageIconFactory() {
 	}
 
 	@Override
-	public Class<PathfinderCharacter> getDocumentClass() {
-		return PathfinderCharacter.class;
-	}
-
-	@Override
-	public BufferedImage getImage(PathfinderCharacter bean) {
+	public BufferedImage getImage(BeanDocument doc) {
+		PathfinderCharacter bean = doc.getBean();
 		BufferedImage img = bean.getCharacterImage();
 		if (img != null) {
 			img = ImageUtil.resizeImage(img, 50, 50);

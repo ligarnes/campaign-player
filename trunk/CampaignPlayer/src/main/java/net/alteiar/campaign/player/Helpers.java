@@ -48,6 +48,12 @@ public class Helpers {
 
 	public static final String APP_ICON = "app_icons.png";
 
+	public static final String PATH_GLOBAL = "./ressources/global/";
+
+	public static File getGlobalDirectory() {
+		return new File(PATH_GLOBAL);
+	}
+
 	public static String getPathIcons(String name) {
 		return PATH_ICONS + name;
 	}

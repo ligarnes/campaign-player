@@ -15,8 +15,8 @@ import javax.swing.JTextField;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.tools.ListFilter;
+import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.bean.spell.Spell;
 import pathfinder.bean.spell.SpellManager;
@@ -97,15 +97,14 @@ public class PanelCreateSpellBook extends PanelDocumentBuilder {
 				updateFilter();
 			}
 		});
-		updateFilter();
 	}
 
 	public void updateFilter() {
 		String className = panelFilter.getSelectedClasse();
 		ListFilter<Spell> filter = panelFilter.getFilter();
 
-		panelListSource.setSpells(className, SpellManager.getInstance()
-				.getSpells(filter));
+		panelListSource.setSpells(className,
+				SpellManager.getInstance().getSpells(filter));
 
 		panelListResult.setSpells(className, new ArrayList<Spell>());
 	}
@@ -134,8 +133,8 @@ public class PanelCreateSpellBook extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public DocumentType getDocumentType() {
-		return DocumentType.NOTE;
+	public String getDocumentType() {
+		return DocumentTypeConstant.SPELL_BOOK;
 	}
 
 	@Override

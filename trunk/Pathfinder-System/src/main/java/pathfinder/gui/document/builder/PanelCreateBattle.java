@@ -25,13 +25,13 @@ import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrateg
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.TransfertImage;
+import pathfinder.DocumentTypeConstant;
 
 public class PanelCreateBattle extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;
@@ -177,8 +177,8 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public DocumentType getDocumentType() {
-		return DocumentType.BATTLE_MAP;
+	public String getDocumentType() {
+		return DocumentTypeConstant.BATTLE_MAP;
 	}
 
 	@Override

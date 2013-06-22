@@ -1,0 +1,15 @@
+<pathfinderCharacter>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:52fc7d6e-1409-4de7-b45e-7830e2813f72:1371649716362</guid>
+   </id>
+   <name>test-name</name>
+   <image serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:dc3e519e-1dc1-4c78-b0b4-49f0c35807b1:1371649716356</guid>
+   </image>
+   <totalHp>28</totalHp>
+   <currentHp>15</currentHp>
+   <ac>14</ac>
+   <acTouch>10</acTouch>
+   <acFlatFooted>14</acFlatFooted>
+   <initMod>0</initMod>
+</pathfinderCharacter>

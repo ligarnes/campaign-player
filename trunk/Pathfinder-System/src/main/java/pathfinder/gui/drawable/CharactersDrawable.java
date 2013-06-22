@@ -9,8 +9,8 @@ import java.util.List;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.player.Player;
+import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.PathfinderCharacter;
 
 public class CharactersDrawable {
@@ -31,7 +31,7 @@ public class CharactersDrawable {
 
 		g2.transform(orinalTranslate);
 		for (BeanDocument characterBean : characters) {
-			if (characterBean.getDocumentType().equals(DocumentType.CHARACTER)) {
+			if (characterBean.getDocumentType().equals(DocumentTypeConstant.CHARACTER)) {
 				drawCharacter(g2, characterBean);
 				g2.transform(at);
 			}
