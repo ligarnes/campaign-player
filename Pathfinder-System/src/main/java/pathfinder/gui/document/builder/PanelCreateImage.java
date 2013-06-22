@@ -21,11 +21,11 @@ import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrateg
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.TransfertImage;
+import pathfinder.DocumentTypeConstant;
 
 public class PanelCreateImage extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;
@@ -165,8 +165,8 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	}
 
 	@Override
-	public DocumentType getDocumentType() {
-		return DocumentType.IMAGE;
+	public String getDocumentType() {
+		return DocumentTypeConstant.IMAGE;
 	}
 
 	@Override

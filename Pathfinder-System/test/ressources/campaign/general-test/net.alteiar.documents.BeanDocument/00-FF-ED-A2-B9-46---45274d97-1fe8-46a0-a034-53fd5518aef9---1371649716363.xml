@@ -1,0 +1,16 @@
+<beanDocument serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:45274d97-1fe8-46a0-a034-53fd5518aef9:1371649716363</guid>
+   </id>
+   <owner serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:e36522ee-bd31-4db6-bb7d-8a89405510f6:1371649716327</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>false</isPublic>
+   <documentName>test-name</documentName>
+   <beanId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:52fc7d6e-1409-4de7-b45e-7830e2813f72:1371649716362</guid>
+   </beanId>
+   <documentType>CHARACTER</documentType>
+</beanDocument>

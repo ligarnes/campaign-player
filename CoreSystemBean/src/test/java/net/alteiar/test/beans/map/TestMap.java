@@ -22,7 +22,6 @@ import javax.imageio.ImageIO;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.image.ImageBean;
@@ -232,8 +231,7 @@ public class TestMap extends NewCampaignTest {
 
 		assertNotNull("Map should'nt be null", map);
 
-		BeanDocument doc = new BeanDocument(targetName,
-				DocumentType.BATTLE_MAP, map);
+		BeanDocument doc = new BeanDocument(targetName, "document-type", map);
 
 		doc = addBean(doc);
 		map = doc.getBean();

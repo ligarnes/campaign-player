@@ -22,15 +22,15 @@ import net.alteiar.map.elements.MapElement;
 
 public class PluginSystem implements IPluginSystemGui {
 
-	private final static PluginSystem INSTANCE = new PluginSystem();
-
-	private final ICorePlugin core;
-
-	private final ArrayList<IPlugin> plugins;
+	private static PluginSystem INSTANCE = new PluginSystem();
 
 	public static PluginSystem getInstance() {
 		return INSTANCE;
 	}
+
+	private final ICorePlugin core;
+
+	private final ArrayList<IPlugin> plugins;
 
 	private PluginSystem() {
 		plugins = new ArrayList<IPlugin>();

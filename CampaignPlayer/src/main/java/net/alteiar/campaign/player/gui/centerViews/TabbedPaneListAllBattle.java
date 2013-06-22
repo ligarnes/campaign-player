@@ -27,7 +27,6 @@ import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.player.gui.centerViews.map.PanelGlobalMap;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.map.MapBean;
 import net.alteiar.shared.UniqueID;
 
@@ -117,8 +116,11 @@ public class TabbedPaneListAllBattle extends JTabbedPane {
 		return finded;
 	}
 
+	// TODO move it
+	public static final String BATTLE_MAP = "battle-map";
+
 	private boolean isBattle(BeanDocument battle) {
-		return battle.getDocumentType().equals(DocumentType.BATTLE_MAP);
+		return battle.getDocumentType().equals(BATTLE_MAP);
 	}
 
 	private int indexOf(BeanDocument battle) {

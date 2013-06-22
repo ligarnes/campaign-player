@@ -12,7 +12,6 @@ import java.util.HashSet;
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.documents.DocumentType;
 import net.alteiar.image.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
@@ -33,7 +32,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 		ImageBean img = new ImageBean();
 		BeanDocument autorizableBean = new BeanDocument(expName,
-				DocumentType.IMAGE, img);
+				"document-type", img);
 
 		CampaignClient.getInstance().addBean(autorizableBean);
 
@@ -57,7 +56,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansOwner() {
 		BeanDocument autorizableBean = new BeanDocument("test-document-name",
-				DocumentType.IMAGE, new ImageBean());
+				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
 
@@ -85,7 +84,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansModifier() {
 		BeanDocument autorizableBean = new BeanDocument("test-document-name",
-				DocumentType.IMAGE, new ImageBean());
+				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
 		autorizableBean = addBean(autorizableBean);
@@ -134,7 +133,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansGameMaster() {
 		BeanDocument autorizableBean = new BeanDocument(
-				"test-game-master-change-see-right", DocumentType.IMAGE,
+				"test-game-master-change-see-right", "document-type",
 				new ImageBean());
 		autorizableBean = addBean(autorizableBean);
 
@@ -152,7 +151,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansUsers() {
 		BeanDocument autorizableBean = new BeanDocument("test-document-name",
-				DocumentType.IMAGE, new ImageBean());
+				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
 		autorizableBean = addBean(autorizableBean);
@@ -203,7 +202,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 	@Test(timeout = 5000)
 	public void testAuthorizableBeanPublic() {
 		BeanDocument autorizableBean = new BeanDocument("test-document-name",
-				DocumentType.IMAGE, new ImageBean());
+				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
 		autorizableBean = addBean(autorizableBean);
@@ -239,8 +238,7 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		COUNT_BEAN_CHANGED = 0;
 
 		BeanDocument autorizableBean = new BeanDocument("test-document-name",
-				DocumentType.IMAGE, new ImageBean(
-						TestMap.createTransfertImage()));
+				"document-type", new ImageBean(TestMap.createTransfertImage()));
 
 		autorizableBean = addBean(autorizableBean);
 
