@@ -65,7 +65,7 @@ public class SpellListModel extends AbstractListModel<Spell> implements
 	private void refresh() {
 		values.clear();
 
-		// TODO fixme
+		// TODO FIXME
 		if (spells.isEmpty()) {
 			values.add(null);
 			return;

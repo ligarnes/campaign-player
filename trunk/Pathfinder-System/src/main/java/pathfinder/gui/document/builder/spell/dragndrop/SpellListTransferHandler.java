@@ -14,12 +14,14 @@ import pathfinder.gui.document.builder.spell.SpellListModel;
 public class SpellListTransferHandler extends TransferHandler {
 	private static final long serialVersionUID = 1L;
 
+	public SpellListTransferHandler() {
+	}
+
 	/**
 	 * We only support importing strings.
 	 */
 	@Override
 	public boolean canImport(TransferSupport info) {
-		// Check for String flavor
 		if (!info.isDataFlavorSupported(SpellTransferable.FLAVOR_SPELL)) {
 			return false;
 		}
@@ -63,6 +65,8 @@ public class SpellListTransferHandler extends TransferHandler {
 		return data;
 	}
 
+	JList<Spell> target = null;;
+
 	/**
 	 * Perform the actual import.
 	 */
@@ -71,7 +75,8 @@ public class SpellListTransferHandler extends TransferHandler {
 		Spell data = verifyDrop(info);
 
 		if (data != null) {
-			JList<Spell> target = (JList<Spell>) info.getComponent();
+			target = (JList<Spell>) info.getComponent();
+
 			SpellListModel listModel = (SpellListModel) target.getModel();
 
 			listModel.addSpell(data);
@@ -85,6 +90,12 @@ public class SpellListTransferHandler extends TransferHandler {
 	@Override
 	protected void exportDone(JComponent c, Transferable t, int action) {
 		JList<Spell> source = (JList<Spell>) c;
+
+		if (source == target) {
+			System.out.println("source == target");
+			return;
+		}
+
 		SpellListModel listModel = (SpellListModel) source.getModel();
 
 		if (action == TransferHandler.MOVE) {
