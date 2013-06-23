@@ -15,12 +15,14 @@ import pathfinder.gui.document.builder.spell.dragndrop.SpellListTransferHandler;
 public class PanelSpellListSource extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private static SpellListTransferHandler handler = new SpellListTransferHandler();
+	private final SpellListTransferHandler handler;
 
 	private final SpellListModel modelRenderer;
 
 	public PanelSpellListSource(String classe, List<Spell> spells) {
 		JList<Spell> list = new JList<Spell>();
+
+		handler = new SpellListTransferHandler();
 
 		modelRenderer = new SpellListModel(classe, spells);
 		list.setModel(modelRenderer);

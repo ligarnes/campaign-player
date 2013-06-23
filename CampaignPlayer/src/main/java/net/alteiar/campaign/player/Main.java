@@ -70,7 +70,6 @@ public class Main {
 				@Override
 				public void run() {
 					MainFrame.FRAME.initComponent();
-					// CampaignClient.createClientCampaign(5, MainFrame.FRAME);
 					MainFrame.FRAME.setVisible(true);
 				}
 			});
