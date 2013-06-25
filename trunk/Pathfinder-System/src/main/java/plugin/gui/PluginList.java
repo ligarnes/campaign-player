@@ -8,7 +8,7 @@ public class PluginList {
 	private final HashMap<String, DocumentPlugin> plugins;
 
 	public PluginList() {
-		plugins = new HashMap<>();
+		plugins = new HashMap<String, DocumentPlugin>();
 	}
 
 	public void addPlugin(DocumentPlugin plugin) {

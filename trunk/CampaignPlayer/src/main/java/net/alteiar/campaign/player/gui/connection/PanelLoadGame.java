@@ -29,9 +29,7 @@ import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -42,6 +40,8 @@ import javax.swing.ListSelectionModel;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.component.MyCombobox;
+import net.alteiar.component.MyList;
 
 public class PanelLoadGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -50,10 +50,9 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 	private static final String PATH = "./ressources/sauvegarde/";
 
-	JList<String> savedGameList;
+	private MyList<String> savedGameList;
 
-	private DefaultComboBoxModel<String> model;
-	private JComboBox<String> comboboxServerIp;
+	private MyCombobox<String> comboboxServerIp;
 	private JTextField textFieldPort;
 
 	public PanelLoadGame(StartGameDialog startGameDialog,
@@ -61,6 +60,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		super(startGameDialog, previous);
 
 		initGui();
+
 	}
 
 	@Override
@@ -74,8 +74,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		model = new DefaultComboBoxModel<String>();
-		comboboxServerIp = new JComboBox<String>(model);
+		comboboxServerIp = new MyCombobox<String>();
 		textFieldPort = new JTextField(5);
 
 		textFieldPort.setText(globalProp.getLoadPort());
@@ -86,7 +85,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 		List<String> allAdresses = getAddress();
 		for (String address : allAdresses) {
-			model.addElement(address);
+			comboboxServerIp.addItem(address);
 		}
 
 		JPanel serverAddressIpPanel = new JPanel(new FlowLayout());
@@ -104,7 +103,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 		Vector<String> savedGames = getSavedGames();
 
-		savedGameList = new JList<String>(savedGames);
+		savedGameList = new MyList<String>(savedGames);
 
 		savedGameList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		savedGameList.setLayoutOrientation(JList.VERTICAL);
@@ -148,7 +147,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 	}
 
 	public String getServerAddressIp() {
-		return (String) comboboxServerIp.getSelectedItem();
+		return comboboxServerIp.getSelectedItem();
 	}
 
 	public String getPort() {
@@ -181,10 +180,8 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		};
 
 		Thread tr = new Thread(run);
-
-		nextState();
-
 		tr.start();
+		nextState();
 	}
 
 	public Vector<String> getSavedGames() {

@@ -19,7 +19,7 @@ public class SpellManager {
 	private final HashSet<String> allClasses;
 
 	private SpellManager() {
-		allSpells = new ArrayList<>();
+		allSpells = new ArrayList<Spell>();
 		allClasses = new HashSet<String>();
 
 		load();

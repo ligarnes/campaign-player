@@ -7,7 +7,7 @@ public class install {
 
 	/**
 	 * @param args
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		File sourceFile = new File(
