@@ -514,7 +514,10 @@ public final class CampaignClient implements DocumentManagerListener {
 					if (dir.isDirectory()) {
 						for (File fi : dir.listFiles()) {
 							if (fi.isFile()) {
-								addBean(DocumentIO.loadBeanLocal(fi));
+								BasicBean bean = DocumentIO.loadBeanLocal(fi);
+								if (bean != null) {
+									addBean(bean);
+								}
 							}
 						}
 					}
@@ -523,7 +526,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		} catch (Exception e) {
 			ExceptionTool.showError(e, "Impossible de charger la campagne");
 		}
-
 	}
 
 	// /////////////// LISTENERS METHODS /////////////////

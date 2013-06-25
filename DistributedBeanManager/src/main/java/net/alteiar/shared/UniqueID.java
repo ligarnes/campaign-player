@@ -26,7 +26,7 @@ public final class UniqueID implements Serializable {
 				ip = InetAddress.getLocalHost();
 				NetworkInterface network = NetworkInterface
 						.getByInetAddress(ip);
-				// ipAdress = ip.toString();
+
 				byte[] mac = network.getHardwareAddress();
 				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < mac.length; i++) {
@@ -35,9 +35,11 @@ public final class UniqueID implements Serializable {
 				}
 				MAC_ADRESS = sb.toString();
 			} catch (UnknownHostException e) {
-				MAC_ADRESS = "UNKNOWN";
+				MAC_ADRESS = "UNKNOWN-HOST_EXCEPTION";
 			} catch (SocketException e) {
 				MAC_ADRESS = "SOCKET-EXCEPTION";
+			} catch (Exception e) {
+				MAC_ADRESS = "OTHER-EXCEPTION";
 			}
 		}
 		return MAC_ADRESS;

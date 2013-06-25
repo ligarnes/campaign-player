@@ -26,9 +26,7 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -36,12 +34,12 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.component.MyCombobox;
 
 public class PanelJoinGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
-	private DefaultComboBoxModel<String> model;
-	private JComboBox<String> comboboxLocalIp;
+	private MyCombobox<String> comboboxLocalIp;
 	private JTextField addressIpServer;
 	private JTextField port;
 
@@ -62,8 +60,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		model = new DefaultComboBoxModel<String>();
-		comboboxLocalIp = new JComboBox<String>(model);
+		comboboxLocalIp = new MyCombobox<String>();
 		addressIpServer = new JTextField(10);
 		port = new JTextField(5);
 
@@ -76,10 +73,10 @@ public class PanelJoinGame extends PanelStartGameDialog {
 
 		List<String> allAdresses = getAddress();
 		for (String address : allAdresses) {
-			model.addElement(address);
+			comboboxLocalIp.addItem(address);
 		}
 		if (allAdresses.contains(globalProp.getJoinIpLocal())) {
-			model.setSelectedItem(globalProp.getJoinIpLocal());
+			comboboxLocalIp.setSelectedItem(globalProp.getJoinIpLocal());
 		}
 
 		JPanel localAddressIpPanel = new JPanel(new FlowLayout());
@@ -125,7 +122,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 	}
 
 	public String getLocalAdressIP() {
-		return (String) comboboxLocalIp.getSelectedItem();
+		return comboboxLocalIp.getSelectedItem();
 	}
 
 	public String getServerAddressIp() {

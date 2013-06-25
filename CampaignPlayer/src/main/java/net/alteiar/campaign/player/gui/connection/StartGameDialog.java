@@ -24,7 +24,8 @@ public class StartGameDialog extends JDialog {
 		getContentPane().add(newPanel);
 		this.pack();
 		this.setLocationRelativeTo(null);
-		this.revalidate();
+		this.invalidate();
+		this.validate();
 		this.repaint();
 	}
 

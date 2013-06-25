@@ -39,8 +39,7 @@ public class MoveMapListener extends MapAdapter {
 		e = new MouseWheelEvent((Component) e.getSource(), e.getID(),
 				e.getWhen(), e.getModifiers(), mapPosition.x, mapPosition.y,
 				e.getXOnScreen(), e.getYOnScreen(), e.getClickCount(), false,
-				e.getScrollType(), e.getScrollAmount(), e.getWheelRotation(),
-				e.getPreciseWheelRotation());
+				e.getScrollType(), e.getScrollAmount(), e.getWheelRotation());
 		listener.mouseWheelMoved(e);
 	}
 }

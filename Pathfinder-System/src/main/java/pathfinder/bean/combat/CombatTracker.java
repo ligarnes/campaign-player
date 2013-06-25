@@ -15,7 +15,7 @@ public class CombatTracker {
 	private final TreeMap<Initiative, Unit> units;
 
 	public CombatTracker() {
-		units = new TreeMap<>();
+		units = new TreeMap<Initiative, Unit>();
 
 	}
 
@@ -27,7 +27,7 @@ public class CombatTracker {
 		return units.values();
 	}
 
-	private static Set<Integer> lucks = new HashSet<>();
+	private static Set<Integer> lucks = new HashSet<Integer>();
 
 	public class Initiative implements Comparable<Initiative> {
 

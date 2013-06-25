@@ -39,6 +39,7 @@ import javax.swing.ListSelectionModel;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.component.MyList;
 import net.alteiar.player.Player;
 
 public class PanelChoosePlayer extends PanelStartGameDialog {
@@ -46,7 +47,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	private static final int PREFERED_PLAYER_LIST_HEIGHT = 100;
 	private static final int PREFERED_PLAYER_LIST_WIDTH = 200;
 
-	private JList<Player> playerList;
+	private MyList<Player> playerList;
 
 	public PanelChoosePlayer(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
@@ -63,11 +64,10 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	private final void initGui() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		List<Player> playersName = getPlayers();
+		List<Player> players = getPlayers();
+		System.out.println("players are " + players.toString());
 
-		Player[] playersNameArray = new Player[playersName.size()];
-		playersName.toArray(playersNameArray);
-		playerList = new JList<Player>(playersNameArray);
+		playerList = new MyList<Player>(players);
 
 		playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		playerList.setLayoutOrientation(JList.VERTICAL);
@@ -102,8 +102,11 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		buttonPanel.add(chooseButton);
 
 		String playerName = Helpers.getGlobalProperties().getPlayerChoose();
-		if (playersName.contains(playerName)) {
-			playerList.setSelectedValue(playerName, true);
+
+		for (Player player : players) {
+			if (playerName.equals(player.getName())) {
+				playerList.setSelectedValue(player, true);
+			}
 		}
 
 		this.add(buttonPanel);
@@ -129,7 +132,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	}
 
 	private static class PlayerCellRenderer extends JLabel implements
-			ListCellRenderer<Player> {
+			ListCellRenderer {
 
 		private static final long serialVersionUID = 1L;
 		private static final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
@@ -139,12 +142,11 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		}
 
 		@Override
-		public Component getListCellRendererComponent(
-				JList<? extends Player> list, Player player, int index,
-				boolean isSelected, boolean cellHasFocus) {
-
+		public Component getListCellRendererComponent(JList list, Object value,
+				int index, boolean isSelected, boolean cellHasFocus) {
 			String cellText = "";
 
+			Player player = (Player) value;
 			cellText += player.getName();
 			if (player.isDm()) {
 				cellText += " (Maître du jeu)";

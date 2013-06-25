@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.alteiar.component.MyCombobox;
 import net.alteiar.map.size.MapElementSize;
 import net.alteiar.map.size.MapElementSizeMeter;
 import net.alteiar.map.size.MapElementSizePixel;
@@ -35,16 +36,16 @@ public class PanelElementSize extends JPanel {
 		}
 	};
 
-	private final JComboBox<UnityType> comboBoxUnite;
+	private final MyCombobox<UnityType> comboBoxUnite;
 	private final JTextField[] textFields;
 
 	public void setElementSizeAt(int i, MapElementSize elementSize) {
-		if (elementSize instanceof MapElementSizeSquare) {
+		if (elementSize instanceof MapElementSizeSquare) { 
 			comboBoxUnite.setSelectedItem(UnityType.CASES);
 			textFields[i].setText(((MapElementSizeSquare) elementSize)
 					.getSquareSize().toString());
 		} else if (elementSize instanceof MapElementSizePixel) {
-			comboBoxUnite.setSelectedItem(UnityType.CASES);
+			comboBoxUnite.setSelectedItem(UnityType.CASES); 
 			textFields[i].setText(((MapElementSizePixel) elementSize)
 					.getPixels().toString());
 		} else if (elementSize instanceof MapElementSizeMeter) {
@@ -56,7 +57,7 @@ public class PanelElementSize extends JPanel {
 
 	public PanelElementSize(int sizeCount) {
 		super(new FlowLayout());
-		comboBoxUnite = new JComboBox<UnityType>(UnityType.values());
+		comboBoxUnite = new MyCombobox<UnityType>(UnityType.values());
 
 		textFields = new JTextField[sizeCount];
 		for (int i = 0; i < sizeCount; i++) {

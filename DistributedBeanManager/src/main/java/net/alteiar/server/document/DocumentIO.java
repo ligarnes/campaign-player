@@ -1,6 +1,8 @@
 package net.alteiar.server.document;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import net.alteiar.client.bean.BasicBean;
 
@@ -9,17 +11,42 @@ import org.simpleframework.xml.core.Persister;
 
 public class DocumentIO {
 
+	public static Boolean isFileValid(File f) {
+		Boolean found = false;
+		String path = f.getPath();
+
+		String[] chaines = path.split(Pattern.quote(File.separator));
+
+		String classe = chaines[chaines.length - 2];
+		try {
+			@SuppressWarnings("unchecked")
+			Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
+					.forName(classe);
+			found = true;
+		} catch (ClassNotFoundException ex) {
+			// do not care as default we say the file is not valid
+		}
+		return found;
+	}
+
 	public static BasicBean loadBeanLocal(File f) throws Exception {
 		String path = f.getPath();
 
-		String[] chaines = path.split("\\\\");
+		String[] chaines = path.split(Pattern.quote(File.separator));
+
 		String classe = chaines[chaines.length - 2];
 
-		@SuppressWarnings("unchecked")
-		Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
-				.forName(classe);
-		Serializer serializer = new Persister();
-		BasicBean bean = serializer.read(c, f);
+		BasicBean bean = null;
+		try {
+			@SuppressWarnings("unchecked")
+			Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
+					.forName(classe);
+			Serializer serializer = new Persister();
+			bean = serializer.read(c, f);
+		} catch (ClassNotFoundException ex) {
+			System.out.println("cannot load " + classe);
+			System.out.println(Arrays.toString(chaines));
+		}
 		return bean;
 	}
 

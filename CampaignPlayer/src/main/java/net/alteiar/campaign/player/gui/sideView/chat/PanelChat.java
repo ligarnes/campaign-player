@@ -90,7 +90,11 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 
 		List<MessageRemote> allMsg = getChat().getMessages();
 		for (MessageRemote msg : allMsg) {
-			receive.appendMessage(msg);
+			// FIXME TODO do not understand why this happen, we shoud'nt save
+			// and load any null message
+			if (msg != null) {
+				receive.appendMessage(msg);
+			}
 		}
 		getChat().addPropertyChangeListener(this);
 

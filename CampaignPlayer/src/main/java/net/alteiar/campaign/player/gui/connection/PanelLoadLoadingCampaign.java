@@ -32,6 +32,7 @@ import javax.swing.JProgressBar;
 import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.server.document.DocumentIO;
 
 public class PanelLoadLoadingCampaign extends PanelStartGameDialog implements
 		ActionListener {
@@ -83,7 +84,7 @@ public class PanelLoadLoadingCampaign extends PanelStartGameDialog implements
 		return new PanelChoosePlayer(getDialog(), null);
 	}
 
-	protected int countFiles() {
+	protected int countValidFiles() {
 		int count = 0;
 		final CampaignClient c = CampaignClient.getInstance();
 		File baseDir = new File(c.getCampaignName());
@@ -91,7 +92,7 @@ public class PanelLoadLoadingCampaign extends PanelStartGameDialog implements
 			for (File dir : baseDir.listFiles()) {
 				if (dir.isDirectory()) {
 					for (File fi : dir.listFiles()) {
-						if (fi.isFile()) {
+						if (fi.isFile() && DocumentIO.isFileValid(fi)) {
 							count++;
 						}
 					}
@@ -108,7 +109,7 @@ public class PanelLoadLoadingCampaign extends PanelStartGameDialog implements
 
 		if (c != null) {
 			if (!clientCreated) {
-				totalBeans = countFiles();
+				totalBeans = countValidFiles();
 				progressBar.setMaximum(totalBeans * 2);
 				clientCreated = true;
 			}

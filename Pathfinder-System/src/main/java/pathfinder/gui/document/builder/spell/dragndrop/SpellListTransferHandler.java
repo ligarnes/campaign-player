@@ -34,8 +34,8 @@ public class SpellListTransferHandler extends TransferHandler {
 	 */
 	@Override
 	protected Transferable createTransferable(JComponent c) {
-		JList<Spell> list = (JList<Spell>) c;
-		Spell spell = list.getSelectedValue();
+		JList list = (JList) c;
+		Spell spell = (Spell) list.getSelectedValue();
 
 		return new SpellTransferable(spell);
 	}
@@ -65,7 +65,7 @@ public class SpellListTransferHandler extends TransferHandler {
 		return data;
 	}
 
-	JList<Spell> target = null;;
+	JList target = null;;
 
 	/**
 	 * Perform the actual import.
@@ -75,7 +75,7 @@ public class SpellListTransferHandler extends TransferHandler {
 		Spell data = verifyDrop(info);
 
 		if (data != null) {
-			target = (JList<Spell>) info.getComponent();
+			target = (JList) info.getComponent();
 
 			SpellListModel listModel = (SpellListModel) target.getModel();
 
@@ -89,7 +89,7 @@ public class SpellListTransferHandler extends TransferHandler {
 	 */
 	@Override
 	protected void exportDone(JComponent c, Transferable t, int action) {
-		JList<Spell> source = (JList<Spell>) c;
+		JList source = (JList) c;
 
 		if (source == target) {
 			System.out.println("source == target");

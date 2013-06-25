@@ -27,9 +27,7 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -37,6 +35,7 @@ import javax.swing.JTextField;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.component.MyCombobox;
 import net.alteiar.panel.PanelSelectColor;
 
 public class PanelCreateGame extends PanelStartGameDialog {
@@ -48,8 +47,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 	private JTextField pseudoTextField;
 	private PanelSelectColor playerColorSelector;
 
-	private DefaultComboBoxModel<String> localIpComboBoxModel;
-	private JComboBox<String> localIpComboBox;
+	private MyCombobox<String> localIpComboBox;
 	private JTextField portTextField;
 
 	public PanelCreateGame(StartGameDialog startGameDialog,
@@ -72,8 +70,8 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		pseudoTextField = new JTextField(10);
 		playerColorSelector = new PanelSelectColor();
 
-		localIpComboBoxModel = new DefaultComboBoxModel<String>();
-		localIpComboBox = new JComboBox<String>(localIpComboBoxModel);
+		//localIpComboBoxModel = new DefaultComboBoxModel<String>();
+		localIpComboBox = new MyCombobox<String>();
 		portTextField = new JTextField(5);
 
 		// Build inner panel
@@ -105,7 +103,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 
 		List<String> allAdresses = getAddress();
 		for (String address : allAdresses) {
-			localIpComboBoxModel.addElement(address);
+			localIpComboBox.addItem(address);
 		}
 
 		JPanel localAddressIpPanel = new JPanel(new FlowLayout());
@@ -153,7 +151,7 @@ public class PanelCreateGame extends PanelStartGameDialog {
 		playerColorSelector.setColor(globalProp.getCreateColor());
 		portTextField.setText(globalProp.getCreatePort());
 		if (allAdresses.contains(globalProp.getCreateIpLocal())) {
-			localIpComboBoxModel.setSelectedItem(globalProp.getCreateIpLocal());
+			localIpComboBox.setSelectedItem(globalProp.getCreateIpLocal());
 		}
 	}
 
