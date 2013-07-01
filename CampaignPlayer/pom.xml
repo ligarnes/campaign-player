@@ -66,6 +66,12 @@
 	<version>2.6</version>
 </dependency>
 
+<!-- Logging API -->
+<dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.16</version>
+</dependency>
             
 
 <!-- DO NOT USE FOR THE MOMENT

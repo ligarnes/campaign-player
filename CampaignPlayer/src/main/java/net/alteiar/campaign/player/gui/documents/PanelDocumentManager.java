@@ -16,6 +16,9 @@ import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.panel.PanelList;
 import net.alteiar.player.Player;
+import net.alteiar.shared.ExceptionTool;
+
+import org.apache.log4j.Logger;
 
 public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		implements CampaignListener {
@@ -31,8 +34,7 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		beanListener = new AuthorizationChangeListener();
 		CampaignClient.getInstance().addCampaignListener(this);
 
-		for (BeanDocument bean : CampaignClient.getInstance()
-				.getDocuments()) {
+		for (BeanDocument bean : CampaignClient.getInstance().getDocuments()) {
 			beanAdded(bean);
 		}
 	}
@@ -52,10 +54,17 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		btnSave.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CampaignClient.getInstance().saveGame();
-				JOptionPane.showMessageDialog(null,
-						"La campagne à bien \u00E9t\u00E9 sauvegard\u00E9",
-						"Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
+				try {
+					CampaignClient.getInstance().saveGame();
+					JOptionPane.showMessageDialog(null,
+							"La campagne à bien \u00E9t\u00E9 sauvegard\u00E9",
+							"Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
+				} catch (Exception e1) {
+					Logger.getLogger(getClass()).error(
+							"Impossible de sauver la campagne", e1);
+					ExceptionTool.showError(e1,
+							"Impossible de sauver la campagne");
+				}
 			}
 		});
 

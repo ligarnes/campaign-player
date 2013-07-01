@@ -14,6 +14,9 @@ import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.elements.RectangleElement;
+
+import org.apache.log4j.Logger;
+
 import pathfinder.bean.spell.SpellManager;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.builder.PanelCharacterBuilder;
@@ -43,8 +46,10 @@ public class PathfinderGeneralPlugin implements IPlugin {
 					.buildCharacterDocumentPlugin());
 			plugins.addPlugin(DocumentPluginFactory
 					.buildSpellBookDocumentPlugin());
+			plugins.addPlugin(DocumentPluginFactory.buildNoteDocumentPlugin());
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			Logger.getLogger(getClass()).error(
+					"impossible de charger le plugin", e1);
 			e1.printStackTrace();
 		}
 

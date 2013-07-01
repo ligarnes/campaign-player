@@ -1,5 +1,7 @@
 package net.alteiar;
 
+import java.util.regex.Pattern;
+
 import net.alteiar.client.bean.BasicBean;
 
 import org.simpleframework.xml.Element;
@@ -34,10 +36,12 @@ public class Notepad extends BasicBean {
 	public String getHtmlFormat() {
 		String tmp = text;
 		// \ new line
-		tmp = tmp.replaceAll("\\\\\\\\", "<br/>");
+		String backslash = Pattern.quote("\\");
+		tmp = tmp.replaceAll(backslash + backslash, "<br/>");
 
 		// **bold**
-		tmp = replaceTag("\\*\\*", tmp, "<b>", "</b>");
+		String bold = Pattern.quote("*");
+		tmp = replaceTag(bold + bold, tmp, "<b>", "</b>");
 
 		return "<html><p>" + tmp + "</p></html>";
 	}

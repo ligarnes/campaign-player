@@ -65,7 +65,6 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		List<Player> players = getPlayers();
-		System.out.println("players are " + players.toString());
 
 		playerList = new MyList<Player>(players);
 

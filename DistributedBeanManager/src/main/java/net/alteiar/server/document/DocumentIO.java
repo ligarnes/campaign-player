@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 import net.alteiar.client.bean.BasicBean;
 
+import org.apache.log4j.Logger;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
@@ -24,7 +25,11 @@ public class DocumentIO {
 					.forName(classe);
 			found = true;
 		} catch (ClassNotFoundException ex) {
-			// do not care as default we say the file is not valid
+			// do not care as default we say the file is not valid<
+			Logger.getLogger(DocumentIO.class).warn(
+					"The file " + path
+							+ " is not a valid bean | the class should be "
+							+ classe, ex);
 		}
 		return found;
 	}

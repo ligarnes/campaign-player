@@ -26,7 +26,11 @@ import net.alteiar.server.document.DocumentIO;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
+import org.apache.log4j.Logger;
+
 public final class CampaignClient implements DocumentManagerListener {
+	private static Logger LOG = Logger.getLogger(CampaignClient.class);
+
 	private static CampaignClient INSTANCE = null;
 	private static Boolean IS_SERVER = false;
 
@@ -38,7 +42,14 @@ public final class CampaignClient implements DocumentManagerListener {
 			String port, String globalDocumentPath, String campaignPath) {
 		startServer(serverAdress, port, campaignPath);
 		connectToServer(serverAdress, serverAdress, port, globalDocumentPath);
-		CampaignClient.getInstance().loadGame(campaignPath);
+
+		try {
+			CampaignClient.getInstance().loadGame(campaignPath);
+		} catch (Exception e) {
+			LOG.error("Impossible de charger la campagne", e);
+			ExceptionTool.showError(e, "Impossible de charger la campagne");
+		}
+
 		for (Player player : CampaignClient.getInstance().getPlayers()) {
 			player.setConnected(false);
 		}
@@ -54,8 +65,7 @@ public final class CampaignClient implements DocumentManagerListener {
 			server.createDocument(chat);
 			server.createDocument(diceRoller);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+			LOG.error("start new campaign server, enable to join server", e);
 		}
 		connectToServer(serverAdress, serverAdress, port, globalDocumentPath);
 	}
@@ -74,16 +84,17 @@ public final class CampaignClient implements DocumentManagerListener {
 			INSTANCE = new CampaignClient(manager, localAdress, serverAdress,
 					port);
 		} catch (RemoteException e) {
+			LOG.error(
+					"Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.",
+					e);
 			ExceptionTool
 					.showError(
 							e,
 							"Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.");
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("Malformed Url when connect to server", e);
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("Not Bound exception when connect to server", e);
 		}
 	}
 
@@ -94,14 +105,11 @@ public final class CampaignClient implements DocumentManagerListener {
 			server = ServerDocuments.startServer(addressIp, port, path);
 			IS_SERVER = true;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("Remote exception when start server", e);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("MalformedURLException exception when start server", e);
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("NotBoundException exception when start server", e);
 		}
 		return server;
 	}
@@ -213,9 +221,7 @@ public final class CampaignClient implements DocumentManagerListener {
 					BasicBean bean = DocumentIO.loadBeanLocal(f);
 					result.add((E) bean);
 				} catch (Exception e) {
-					System.out.println("fail to load " + f.getName());
-					// TODO Auto-generated catch block
-					// e.printStackTrace();
+					LOG.warn("fail to load global bean " + f.getName(), e);
 				}
 			}
 		}
@@ -233,6 +239,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		try {
 			manager.saveGlobalBean(bean);
 		} catch (Exception e) {
+			LOG.error("Error on global save", e);
 			ExceptionTool.showError(e);
 		}
 	}
@@ -264,7 +271,8 @@ public final class CampaignClient implements DocumentManagerListener {
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
 			if (currentPlayer == null) {
 				throw new RuntimeErrorException(new Error(
-						"impossible de créer un joueur"));
+						"impossible de créer un joueur"),
+						"impossible de créer un joueur");
 			}
 			connectPlayer();
 		}
@@ -492,39 +500,30 @@ public final class CampaignClient implements DocumentManagerListener {
 		base.delete();
 	}
 
-	public void saveGame() {
+	public void saveGame() throws Exception {
 		File dir = new File(manager.getSpecificPath());
 		if (dir.exists()) {
 			deleteRecursive(dir);
 		}
 
-		try {
-			manager.saveLocal();
-		} catch (Exception e) {
-			ExceptionTool.showError(e, "Impossible de sauver la campagne");
-		}
-
+		manager.saveLocal();
 	}
 
-	public void loadGame(String campaignName) {
-		try {
-			File baseDir = new File(manager.getSpecificPath());
-			if (baseDir.exists()) {
-				for (File dir : baseDir.listFiles()) {
-					if (dir.isDirectory()) {
-						for (File fi : dir.listFiles()) {
-							if (fi.isFile()) {
-								BasicBean bean = DocumentIO.loadBeanLocal(fi);
-								if (bean != null) {
-									addBean(bean);
-								}
+	public void loadGame(String campaignName) throws Exception {
+		File baseDir = new File(manager.getSpecificPath());
+		if (baseDir.exists()) {
+			for (File dir : baseDir.listFiles()) {
+				if (dir.isDirectory()) {
+					for (File fi : dir.listFiles()) {
+						if (fi.isFile()) {
+							BasicBean bean = DocumentIO.loadBeanLocal(fi);
+							if (bean != null) {
+								addBean(bean);
 							}
 						}
 					}
 				}
 			}
-		} catch (Exception e) {
-			ExceptionTool.showError(e, "Impossible de charger la campagne");
 		}
 	}
 

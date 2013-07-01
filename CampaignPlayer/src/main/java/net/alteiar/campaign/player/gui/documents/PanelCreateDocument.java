@@ -70,8 +70,8 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		builder = getBuilders().get(0);
 		builder.reset();
 
-		panelCenter = new JPanel();
-		panelCenter.add(builder);
+		panelCenter = new JPanel(new BorderLayout());
+		panelCenter.add(builder, BorderLayout.CENTER);
 		this.add(panelCenter, BorderLayout.CENTER);
 	}
 

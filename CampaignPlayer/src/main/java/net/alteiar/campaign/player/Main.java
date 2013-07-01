@@ -29,6 +29,8 @@ import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.connection.StartGameDialog;
 import net.alteiar.campaign.player.gui.factory.PluginSystem;
 
+import org.apache.log4j.xml.DOMConfigurator;
+
 /**
  * @author Cody Stoutenburg
  * 
@@ -44,6 +46,9 @@ public class Main {
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
 		}
+
+		// Initialize log4j
+		DOMConfigurator.configure("./ressources/log/log4j.xml");
 
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

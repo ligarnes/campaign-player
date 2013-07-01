@@ -36,6 +36,8 @@ import net.alteiar.campaign.player.GlobalProperties;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.component.MyCombobox;
 
+import org.apache.log4j.Logger;
+
 public class PanelJoinGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
 
@@ -145,7 +147,12 @@ public class PanelJoinGame extends PanelStartGameDialog {
 				CampaignClient.connectToServer(localAdress, serverAdress, port,
 						PanelStartGameDialog.GLOBAL_DOCUMENT_PATH);
 				// save just after load
-				CampaignClient.getInstance().saveGame();
+				try {
+					CampaignClient.getInstance().saveGame();
+				} catch (Exception e) {
+					Logger.getLogger(getClass()).error(
+							"Impossible de sauver la campagne", e);
+				}
 			}
 		};
 

@@ -29,11 +29,15 @@ import javax.swing.ImageIcon;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Cody Stoutenburg
  * 
  */
 public class Helpers {
+
+	private static Logger log = Logger.getLogger(Helpers.class);
 
 	private static GlobalProperties globalProperties = new GlobalProperties();
 
@@ -67,7 +71,9 @@ public class Helpers {
 		try {
 			img = ImageIO.read(new File(path));
 		} catch (IOException e) {
-			ExceptionTool.showError(e, "Impossible de trouver l'image " + path);
+			ExceptionTool.showWarning(e, "Impossible de trouver l'image "
+					+ path);
+			log.error("impossible de trouver l'image " + path, e);
 		}
 		return img;
 	}
