@@ -22,13 +22,22 @@ import org.junit.Test;
 
 public class TestDeleteBeans extends NewCampaignTest {
 
+	public void save() {
+		try {
+			CampaignClient.getInstance().saveGame();
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("not able to save");
+		}
+	}
+
 	@Test
 	public void testSave() {
 
 		assertEquals(1, CampaignClient.getInstance().getPlayers().size());
 		assertTrue(CampaignClient.getInstance().getChat() != null);
 
-		CampaignClient.getInstance().saveGame();
+		save();
 
 		assertEquals(1, countObjectFile(Chat.class));
 		assertEquals(1, countObjectFile(Player.class));
@@ -36,7 +45,7 @@ public class TestDeleteBeans extends NewCampaignTest {
 
 		CampaignClient.getInstance().getChat().talk("Hello world");
 		sleep(10);
-		CampaignClient.getInstance().saveGame();
+		save();
 
 		ImageBean toRemove = null;
 		try {
@@ -47,12 +56,12 @@ public class TestDeleteBeans extends NewCampaignTest {
 		}
 
 		sleep(10);
-		CampaignClient.getInstance().saveGame();
+		save();
 		assertEquals(1, countObjectFile(ImageBean.class));
 
 		CampaignClient.getInstance().removeBean(toRemove);
 		sleep(10);
-		CampaignClient.getInstance().saveGame();
+		save();
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}
 
@@ -65,7 +74,7 @@ public class TestDeleteBeans extends NewCampaignTest {
 		} catch (IOException e) {
 			fail("no exception should occur");
 		}
-		CampaignClient.getInstance().saveGame();
+		save();
 		assertEquals(1, countObjectFile(ImageBean.class));
 
 		CampaignClient.getInstance().removeBean(battleId);
@@ -74,7 +83,7 @@ public class TestDeleteBeans extends NewCampaignTest {
 		while (b != null) {
 			b = CampaignClient.getInstance().getBean(battleId);
 		}
-		CampaignClient.getInstance().saveGame();
+		save();
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}
 }

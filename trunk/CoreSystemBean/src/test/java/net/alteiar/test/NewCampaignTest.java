@@ -30,7 +30,12 @@ public class NewCampaignTest extends BasicTest {
 	@After
 	public void afterTest() {
 		sleep(100);
-		CampaignClient.getInstance().saveGame();
+		try {
+			CampaignClient.getInstance().saveGame();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		CampaignClient.leaveGame();
 		System.out.println("tearing down");
 	}

@@ -24,6 +24,8 @@ import net.alteiar.dice.DiceListener;
 import net.alteiar.dice.visitor.DiceCountVisitor;
 import net.miginfocom.swing.MigLayout;
 
+import org.apache.log4j.Logger;
+
 public class PanelMessageReceived extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -142,7 +144,8 @@ public class PanelMessageReceived extends JPanel {
 			 * appendMessage(newMsg); }
 			 */
 		} else {
-			System.out.println("unrecognized command: " + command);
+			Logger.getLogger(getClass()).warn(
+					"unrecognized command: " + command);
 		}
 
 		this.revalidate();

@@ -86,6 +86,14 @@
     		<version>2.7</version>
 	</dependency>
 	
+	<!-- Logging api -->
+	<dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.16</version>
+</dependency>
+
+	
   </dependencies>
             
   <reporting>

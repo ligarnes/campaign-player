@@ -37,9 +37,9 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 
 	public PanelCreateImage() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 39, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0,
 				Double.MIN_VALUE };
@@ -110,8 +110,9 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 		lblPreview.setMaximumSize(new Dimension(300, 300));
 		lblPreview.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		GridBagConstraints gbc_lblPreview = new GridBagConstraints();
+		gbc_lblPreview.insets = new Insets(0, 0, 0, 5);
 		gbc_lblPreview.fill = GridBagConstraints.BOTH;
-		gbc_lblPreview.gridwidth = 4;
+		gbc_lblPreview.gridwidth = 5;
 		gbc_lblPreview.gridx = 0;
 		gbc_lblPreview.gridy = 3;
 		add(lblPreview, gbc_lblPreview);

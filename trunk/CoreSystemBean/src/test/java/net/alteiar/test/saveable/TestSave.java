@@ -22,9 +22,18 @@ public class TestSave extends NewCampaignTest {
 		return "test-save-campaign";
 	}
 
+	public void save() {
+		try {
+			CampaignClient.getInstance().saveGame();
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("not able to save");
+		}
+	}
+
 	@Test(timeout = 1000)
 	public void testSave() {
-		CampaignClient.getInstance().saveGame();
+		save();
 
 		assertEquals(1, countObjectFile(Chat.class));
 		assertEquals(1, countObjectFile(Player.class));
@@ -33,7 +42,7 @@ public class TestSave extends NewCampaignTest {
 		CampaignClient.getInstance().getChat().talk("Hello world");
 		sleep(10);
 
-		CampaignClient.getInstance().saveGame();
+		save();
 
 		ImageBean toRemove = null;
 		try {
@@ -44,12 +53,12 @@ public class TestSave extends NewCampaignTest {
 		}
 
 		sleep(10);
-		CampaignClient.getInstance().saveGame();
+		save();
 		assertEquals(1, countObjectFile(ImageBean.class));
 
 		CampaignClient.getInstance().removeBean(toRemove);
 		sleep(10);
-		CampaignClient.getInstance().saveGame();
+		save();
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}
 

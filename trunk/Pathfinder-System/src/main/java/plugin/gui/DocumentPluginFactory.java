@@ -10,6 +10,8 @@ import pathfinder.gui.document.builder.PanelCreateBattle;
 import pathfinder.gui.document.builder.PanelCreateImage;
 import pathfinder.gui.document.builder.character.PanelCreateCharacter;
 import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
+import pathfinder.gui.document.notepad.PanelCreateNote;
+import pathfinder.gui.document.notepad.PanelViewNote;
 import pathfinder.gui.document.viewer.PanelViewImage;
 import plugin.gui.imageIcon.CharacterImageIconFactory;
 import plugin.gui.imageIcon.ImageIconFactory;
@@ -56,4 +58,10 @@ public class DocumentPluginFactory {
 		return doc;
 	}
 
+	public static DocumentPlugin buildNoteDocumentPlugin() throws IOException {
+		DocumentPlugin doc = new DocumentPlugin(DocumentTypeConstant.NOTE,
+				new NullImageIconFactory(), new PanelCreateNote(),
+				new PanelViewNote());
+		return doc;
+	}
 }

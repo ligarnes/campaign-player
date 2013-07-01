@@ -14,9 +14,6 @@ import pathfinder.gui.document.builder.spell.SpellListModel;
 public class SpellListTransferHandler extends TransferHandler {
 	private static final long serialVersionUID = 1L;
 
-	public SpellListTransferHandler() {
-	}
-
 	/**
 	 * We only support importing strings.
 	 */
@@ -65,7 +62,7 @@ public class SpellListTransferHandler extends TransferHandler {
 		return data;
 	}
 
-	JList target = null;;
+	private SpellListModel model = null;
 
 	/**
 	 * Perform the actual import.
@@ -75,11 +72,12 @@ public class SpellListTransferHandler extends TransferHandler {
 		Spell data = verifyDrop(info);
 
 		if (data != null) {
-			target = (JList) info.getComponent();
+			JList target = (JList) info.getComponent();
 
 			SpellListModel listModel = (SpellListModel) target.getModel();
 
 			listModel.addSpell(data);
+			model = listModel;
 		}
 		return data != null;
 	}
@@ -91,12 +89,11 @@ public class SpellListTransferHandler extends TransferHandler {
 	protected void exportDone(JComponent c, Transferable t, int action) {
 		JList source = (JList) c;
 
-		if (source == target) {
-			System.out.println("source == target");
+		SpellListModel listModel = (SpellListModel) source.getModel();
+
+		if (model == listModel) {
 			return;
 		}
-
-		SpellListModel listModel = (SpellListModel) source.getModel();
 
 		if (action == TransferHandler.MOVE) {
 			Spell data;

@@ -13,9 +13,12 @@ import java.beans.VetoableChangeListener;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import net.alteiar.shared.UniqueID;
+
+import org.apache.log4j.Logger;
 
 public class BeanEncapsulator implements VetoableChangeListener {
 
@@ -58,7 +61,10 @@ public class BeanEncapsulator implements VetoableChangeListener {
 			Timestamp prev = new Timestamp(previous);
 			Timestamp current = new Timestamp(timestamp);
 			if (!prev.after(current)) {
-				System.out.println("change inversion");
+				Logger.getLogger(getClass()).info(
+						"do not change value, old value: ("
+								+ new Date(prev.getTime()) + "-"
+								+ new Date(current.getTime()) + ")");
 				return;
 			}
 		}
@@ -85,17 +91,25 @@ public class BeanEncapsulator implements VetoableChangeListener {
 				}
 			}
 		} catch (IntrospectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).error(
+					"Error while trying to update class:" + bean.getClass()
+							+ " | property:" + propertyName + " | newValue:"
+							+ newValue, e);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).error(
+					"Error while trying to update class:" + bean.getClass()
+							+ " | property:" + propertyName + " | newValue:"
+							+ newValue, e);
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).error(
+					"Error while trying to update class:" + bean.getClass()
+							+ " | property:" + propertyName + " | newValue:"
+							+ newValue, e);
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).error(
+					"Error while trying to update class:" + bean.getClass()
+							+ " | property:" + propertyName + " | newValue:"
+							+ newValue, e);
 		}
 	}
 

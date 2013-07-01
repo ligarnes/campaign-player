@@ -2,7 +2,6 @@ package net.alteiar.campaign.player.gui.centerViews.map.element.utils;
 
 import java.awt.FlowLayout;
 
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -40,12 +39,12 @@ public class PanelElementSize extends JPanel {
 	private final JTextField[] textFields;
 
 	public void setElementSizeAt(int i, MapElementSize elementSize) {
-		if (elementSize instanceof MapElementSizeSquare) { 
+		if (elementSize instanceof MapElementSizeSquare) {
 			comboBoxUnite.setSelectedItem(UnityType.CASES);
 			textFields[i].setText(((MapElementSizeSquare) elementSize)
 					.getSquareSize().toString());
 		} else if (elementSize instanceof MapElementSizePixel) {
-			comboBoxUnite.setSelectedItem(UnityType.CASES); 
+			comboBoxUnite.setSelectedItem(UnityType.CASES);
 			textFields[i].setText(((MapElementSizePixel) elementSize)
 					.getPixels().toString());
 		} else if (elementSize instanceof MapElementSizeMeter) {
