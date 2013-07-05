@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import net.alteiar.Notepad;
+import net.alteiar.notepad.Notepad;
 
 public class TextEditorTest {
 

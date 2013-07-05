@@ -20,17 +20,43 @@ public class NoteEditor {
 		textArea.requestFocus();
 	}
 
+	public String getSelectedText() {
+		int selectedBegin = textArea.getSelectionStart();
+		int selectedEnd = textArea.getSelectionEnd();
+
+		return textArea.getText().substring(selectedBegin, selectedEnd);
+	}
+
 	public void insertBalise(String balise, String description) {
 		StringBuilder alltext = new StringBuilder(textArea.getText());
 
 		int caretPos = textArea.getCaretPosition();
 
-		alltext.insert(caretPos, balise + description + balise);
+		boolean insertDescription = true;
+		if (getSelectedText().length() > 0) {
+			description = getSelectedText();
+			insertDescription = false;
+			caretPos = textArea.getSelectionStart();
+		}
 
-		textArea.requestFocus();
+		int currentPos = caretPos;
+		alltext.insert(currentPos, balise);
+		currentPos += balise.length();
+		if (insertDescription) {
+			alltext.insert(currentPos, description);
+		}
+
+		currentPos += description.length();
+		alltext.insert(currentPos, balise);
+		currentPos += balise.length();
+
 		textArea.setText(alltext.toString());
-		textArea.setSelectionStart(caretPos + balise.length());
-		textArea.setSelectionEnd(caretPos + balise.length()
-				+ description.length());
+		textArea.requestFocus();
+		if (insertDescription) {
+			textArea.setSelectionStart(caretPos + balise.length());
+			textArea.setSelectionEnd(currentPos - balise.length());
+		} else {
+			textArea.setCaretPosition(currentPos);
+		}
 	}
 }
