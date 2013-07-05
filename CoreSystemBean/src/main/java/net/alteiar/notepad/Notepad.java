@@ -1,6 +1,4 @@
-package net.alteiar;
-
-import java.util.regex.Pattern;
+package net.alteiar.notepad;
 
 import net.alteiar.client.bean.BasicBean;
 
@@ -10,6 +8,11 @@ public class Notepad extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	private final String PROP_TEXT_PROPERTY = "text";
+
+	public static String NEW_LINE = "\\\\";
+	public static String BOLD = "**";
+	public static String ITALIC = "##";
+	public static String UNDERLINE = "__";
 
 	@Element
 	private String text;
@@ -35,19 +38,11 @@ public class Notepad extends BasicBean {
 
 	public String getHtmlFormat() {
 		String tmp = text;
-		// \ new line
-		String backslash = Pattern.quote("\\");
-		tmp = tmp.replaceAll(backslash + backslash, "<br/>");
 
-		// **bold**
-		String bold = Pattern.quote("*");
-		tmp = replaceTag(bold + bold, tmp, "<b>", "</b>");
+		for (Token token : Tokens.INSTANCE.getTokens()) {
+			tmp = token.replace(tmp);
+		}
 
 		return "<html><p>" + tmp + "</p></html>";
-	}
-
-	private static String replaceTag(String tag, String text, String beginTab,
-			String endTag) {
-		return text.replaceAll(tag + "([^<]*)" + tag, beginTab + "$1" + endTag);
 	}
 }

@@ -10,9 +10,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import net.alteiar.Notepad;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.client.bean.BasicBean;
+import net.alteiar.notepad.Notepad;
 import pathfinder.DocumentTypeConstant;
 import pathfinder.gui.document.notepad.actions.NoteEditor;
 

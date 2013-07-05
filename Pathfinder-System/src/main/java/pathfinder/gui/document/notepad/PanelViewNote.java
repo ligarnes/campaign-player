@@ -6,9 +6,9 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import net.alteiar.Notepad;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.documents.BeanDocument;
+import net.alteiar.notepad.Notepad;
 
 public class PanelViewNote extends PanelViewDocument {
 	private static final long serialVersionUID = 1L;
