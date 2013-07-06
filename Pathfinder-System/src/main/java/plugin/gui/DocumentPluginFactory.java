@@ -13,6 +13,7 @@ import pathfinder.gui.document.image.PanelViewImage;
 import pathfinder.gui.document.notepad.PanelCreateNote;
 import pathfinder.gui.document.notepad.PanelViewNote;
 import pathfinder.gui.document.spell.PanelCreateSpellBook;
+import pathfinder.gui.document.spell.PanelSpellBookViewer;
 import plugin.gui.imageIcon.CharacterImageIconFactory;
 import plugin.gui.imageIcon.ImageIconFactory;
 import plugin.gui.imageIcon.NullImageIconFactory;
@@ -54,7 +55,7 @@ public class DocumentPluginFactory {
 			throws IOException {
 		DocumentPlugin doc = new DocumentPlugin(
 				DocumentTypeConstant.SPELL_BOOK, new NullImageIconFactory(),
-				new PanelCreateSpellBook(), null);
+				new PanelCreateSpellBook(), new PanelSpellBookViewer());
 		return doc;
 	}
 

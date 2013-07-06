@@ -103,10 +103,26 @@ public class PanelCreateSpellBook extends PanelDocumentBuilder {
 		String className = panelFilter.getSelectedClasse();
 		ListFilter<Spell> filter = panelFilter.getFilter();
 
-		panelListSource.setSpells(className,
-				SpellManager.getInstance().getSpells(filter));
+		panelListSource.setSpells(className, SpellManager.getInstance()
+				.getSpells(filter));
 
 		panelListResult.setSpells(className, new ArrayList<Spell>());
+	}
+
+	@Override
+	public Boolean isDataValid() {
+		boolean emptyText = textFieldSpellBookName.getText().isEmpty();
+		return !emptyText;
+	}
+
+	@Override
+	public String getInvalidMessage() {
+		String errorMsg = "";
+		boolean emptyText = textFieldSpellBookName.getText().isEmpty();
+		if (emptyText) {
+			errorMsg = "Aucun nom pour le livre de sort";
+		}
+		return errorMsg;
 	}
 
 	@Override

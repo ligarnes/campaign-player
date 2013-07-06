@@ -75,32 +75,9 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		this.add(panelCenter, BorderLayout.CENTER);
 	}
 
-	private class ElementBuilder extends JPanel {
-		private static final long serialVersionUID = 1L;
-
-		private final JLabel lblTitle;
-
-		public ElementBuilder(String title) {
-			this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-
-			GridBagLayout gridBagLayout = new GridBagLayout();
-			gridBagLayout.columnWidths = new int[] { 0, 0 };
-			gridBagLayout.rowHeights = new int[] { 0, 0 };
-			gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
-			gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
-			setLayout(gridBagLayout);
-
-			lblTitle = new JLabel(title);
-			lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-			GridBagConstraints gbc_lblTitle = new GridBagConstraints();
-			gbc_lblTitle.fill = GridBagConstraints.BOTH;
-			gbc_lblTitle.gridx = 0;
-			gbc_lblTitle.gridy = 0;
-			add(lblTitle, gbc_lblTitle);
-		}
-	}
-
 	private void refreshElements() {
+		builder.reset();
+
 		panelWest.removeAll();
 		int maxWidth = 50;
 		int maxHeight = 50;
@@ -154,5 +131,30 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 	@Override
 	public String getInvalidMessage() {
 		return builder.getInvalidMessage();
+	}
+
+	private class ElementBuilder extends JPanel {
+		private static final long serialVersionUID = 1L;
+
+		private final JLabel lblTitle;
+
+		public ElementBuilder(String title) {
+			this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+			GridBagLayout gridBagLayout = new GridBagLayout();
+			gridBagLayout.columnWidths = new int[] { 0, 0 };
+			gridBagLayout.rowHeights = new int[] { 0, 0 };
+			gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
+			gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
+			setLayout(gridBagLayout);
+
+			lblTitle = new JLabel(title);
+			lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+			GridBagConstraints gbc_lblTitle = new GridBagConstraints();
+			gbc_lblTitle.fill = GridBagConstraints.BOTH;
+			gbc_lblTitle.gridx = 0;
+			gbc_lblTitle.gridy = 0;
+			add(lblTitle, gbc_lblTitle);
+		}
 	}
 }

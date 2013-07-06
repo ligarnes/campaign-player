@@ -12,6 +12,9 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.UniqueID;
+
+import org.apache.log4j.Logger;
+
 import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.bean.spell.Spell;
 
@@ -19,9 +22,10 @@ public class PanelSpellBookViewer extends PanelViewDocument {
 
 	private static final long serialVersionUID = 1L;
 
-	private PanelSpellListSource panel;
+	private final JLabel lblSpellBookName;
+	private final PanelSpellListSource panel;
 
-	public PanelSpellBookViewer(BeanDocument bean) {
+	public PanelSpellBookViewer() {
 		super();
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -31,7 +35,7 @@ public class PanelSpellBookViewer extends PanelViewDocument {
 		gridBagLayout.rowWeights = new double[] { 0.0, 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		JLabel lblSpellBookName = new JLabel(bean.getDocumentName());
+		lblSpellBookName = new JLabel();
 		lblSpellBookName.setFont(new Font("Segoe UI", Font.BOLD, 22));
 		GridBagConstraints gbc_lblSpellBookName = new GridBagConstraints();
 		gbc_lblSpellBookName.insets = new Insets(0, 0, 5, 0);
@@ -39,7 +43,7 @@ public class PanelSpellBookViewer extends PanelViewDocument {
 		gbc_lblSpellBookName.gridy = 0;
 		add(lblSpellBookName, gbc_lblSpellBookName);
 
-		PanelSpellListSource panel = new PanelSpellListSource();
+		panel = new PanelSpellListSource();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 0;
@@ -57,10 +61,12 @@ public class PanelSpellBookViewer extends PanelViewDocument {
 			if (spell != null) {
 				spells.add(spell);
 			} else {
-				System.out.println("enable to find: " + id);
+				Logger.getLogger(getClass()).warn(
+						"not able to find the spell with id" + id);
 			}
 		}
 
+		lblSpellBookName.setText(document.getDocumentName());
 		panel.setSpells(spellBook.getClasseName(), spells);
 	}
 }

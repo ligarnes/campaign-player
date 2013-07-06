@@ -152,12 +152,21 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 
 	@Override
 	public Boolean isDataValid() {
-		return transfertImage != null && !textFieldName.getText().isEmpty();
+		boolean emptyText = textFieldName.getText().isEmpty();
+
+		return !emptyText && transfertImage != null
+				&& !textFieldName.getText().isEmpty();
 	}
 
 	@Override
 	public String getInvalidMessage() {
-		return "Aucune image selectionn\u00E9e";
+		String errorMsg = "Aucune image selectionn\u00E9e";
+
+		boolean emptyText = textFieldName.getText().isEmpty();
+		if (emptyText) {
+			errorMsg = "Aucun nom pour le document";
+		}
+		return errorMsg;
 	}
 
 	@Override
