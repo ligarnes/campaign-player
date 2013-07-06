@@ -146,6 +146,22 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 	}
 
 	@Override
+	public Boolean isDataValid() {
+		boolean emptyText = textFieldMapName.getText().isEmpty();
+		return transfertImage != null && !emptyText;
+	}
+
+	@Override
+	public String getInvalidMessage() {
+		String errorMsg = "Aucune image sélectionnée";
+		boolean emptyText = textFieldMapName.getText().isEmpty();
+		if (emptyText) {
+			errorMsg = "Aucun nom pour le document";
+		}
+		return errorMsg;
+	}
+
+	@Override
 	public String getDocumentBuilderName() {
 		return "Combat";
 	}

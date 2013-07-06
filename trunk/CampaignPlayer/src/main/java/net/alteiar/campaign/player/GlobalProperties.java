@@ -32,12 +32,6 @@ public class GlobalProperties implements Serializable {
 
 	private static final String KEY_CHOOSE_PLAYER = "load.player";
 
-	// private static final String KEY_IS_MJ = "isMj";
-	// private static final String KEY_IP_LOCAL = "ipLocal";
-	// private static final String KEY_IP_SERVER = "ipServer";
-	// private static final String KEY_PORT = "port";
-	// private static final String KEY_IS_SERVER = "isServer";
-
 	private static final String KEY_MAP_PATH = "mapPath";
 	private static final String KEY_CHARACTER_PATH = "characterPath";
 
@@ -61,7 +55,7 @@ public class GlobalProperties implements Serializable {
 			// if we fail to save just too bad, properties are here to help
 			// user
 			ExceptionTool.showWarning(e,
-					"Impossible de sauvegarder le chemin de votre images");
+					"Impossible de sauvegarder les propietes");
 		}
 	}
 
@@ -88,14 +82,6 @@ public class GlobalProperties implements Serializable {
 				String.valueOf(color.getBlue()));
 	}
 
-	// public Boolean isMj() {
-	// return property.getBooleanValue(KEY_IS_MJ);
-	// }
-	//
-	// public void setIsMj(Boolean isMj) {
-	// property.setValue(KEY_IS_MJ, isMj.toString());
-	// }
-
 	public String getCreateIpLocal() {
 		return property.getValue(KEY_CREATE_IP_LOCAL, "127.0.0.1");
 	}
@@ -111,14 +97,6 @@ public class GlobalProperties implements Serializable {
 	public void setCreatePort(String port) {
 		property.setValue(KEY_CREATE_PORT, port);
 	}
-
-	// public Boolean isServer() {
-	// return property.getBooleanValue(KEY_IS_SERVER);
-	// }
-	//
-	// public void setIsServer(Boolean isServer) {
-	// property.setValue(KEY_IS_SERVER, isServer.toString());
-	// }
 
 	public String getJoinIpLocal() {
 		return property.getValue(KEY_JOIN_IP_LOCAL, "127.0.0.1");
