@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.monster;
+package pathfinder.gui.document.monster;
 
 import java.awt.Color;
 import java.awt.Dimension;

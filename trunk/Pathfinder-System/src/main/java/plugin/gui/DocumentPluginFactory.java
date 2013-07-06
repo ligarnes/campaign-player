@@ -6,13 +6,13 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import pathfinder.DocumentTypeConstant;
-import pathfinder.gui.document.builder.PanelCreateBattle;
-import pathfinder.gui.document.builder.PanelCreateImage;
-import pathfinder.gui.document.builder.character.PanelCreateCharacter;
-import pathfinder.gui.document.builder.spell.PanelCreateSpellBook;
+import pathfinder.gui.document.battle.PanelCreateBattle;
+import pathfinder.gui.document.character.PanelCreateCharacter;
+import pathfinder.gui.document.image.PanelCreateImage;
+import pathfinder.gui.document.image.PanelViewImage;
 import pathfinder.gui.document.notepad.PanelCreateNote;
 import pathfinder.gui.document.notepad.PanelViewNote;
-import pathfinder.gui.document.viewer.PanelViewImage;
+import pathfinder.gui.document.spell.PanelCreateSpellBook;
 import plugin.gui.imageIcon.CharacterImageIconFactory;
 import plugin.gui.imageIcon.ImageIconFactory;
 import plugin.gui.imageIcon.NullImageIconFactory;

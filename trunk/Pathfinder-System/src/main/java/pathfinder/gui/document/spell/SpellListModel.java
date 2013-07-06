@@ -1,9 +1,10 @@
-package pathfinder.gui.document.builder.spell;
+package pathfinder.gui.document.spell;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -22,25 +23,31 @@ public class SpellListModel extends AbstractListModel implements ListModel,
 	private static final long serialVersionUID = 1L;
 
 	private String classe;
-	private TreeSet<Spell> spells;
 
+	private ArrayList<Spell> spells;
 	private ArrayList<Spell> values;
+	private Comparator<Spell> comparator;
 
 	public SpellListModel(String classe, List<Spell> spells) {
 		this.classe = classe;
-		this.spells = new TreeSet<Spell>(new SpellLevelComparator(classe));
+		this.spells = new ArrayList<Spell>();
 		this.spells.addAll(spells);
+
+		comparator = new SpellLevelComparator(classe);
 		values = new ArrayList<Spell>();
 		refresh();
 	}
 
 	public Set<Spell> getSpells() {
+		TreeSet<Spell> spells = new TreeSet<Spell>(comparator);
+		spells.addAll(this.spells);
 		return spells;
 	}
 
 	public void setSpells(String classe, List<Spell> spells) {
 		this.classe = classe;
-		this.spells = new TreeSet<Spell>(new SpellLevelComparator(classe));
+		this.spells = new ArrayList<Spell>();
+		comparator = new SpellLevelComparator(classe);
 		this.spells.addAll(spells);
 		values = new ArrayList<Spell>();
 		refresh();
@@ -65,6 +72,7 @@ public class SpellListModel extends AbstractListModel implements ListModel,
 	private void refresh() {
 		values.clear();
 
+		Set<Spell> spells = getSpells();
 		// TODO FIXME
 		if (spells.isEmpty()) {
 			values.add(null);

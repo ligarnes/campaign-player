@@ -101,6 +101,12 @@ public class DocumentManager {
 
 	public void loadDocuments() {
 		try {
+
+			Long begin = System.currentTimeMillis();
+			UniqueID[] documents = this.server.getDocuments();
+			long end = System.currentTimeMillis();
+
+			System.out.println("get beans take: " + (end - begin) + "ms ");
 			for (UniqueID doc : this.server.getDocuments()) {
 				addDocument(doc);
 			}

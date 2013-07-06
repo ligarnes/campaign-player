@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.character;
+package pathfinder.gui.document.character;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -27,7 +27,7 @@ import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
 import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.PathfinderCharacter;
-import pathfinder.gui.document.builder.monster.PanelAc;
+import pathfinder.gui.document.monster.PanelAc;
 
 public class PanelCreateCharacter extends PanelDocumentBuilder {
 	private static final long serialVersionUID = 1L;

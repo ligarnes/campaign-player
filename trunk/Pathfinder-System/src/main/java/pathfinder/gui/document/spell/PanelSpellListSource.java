@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.spell;
+package pathfinder.gui.document.spell;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import pathfinder.bean.spell.Spell;
-import pathfinder.gui.document.builder.spell.dragndrop.SpellListTransferHandler;
+import pathfinder.gui.document.spell.dragndrop.SpellListTransferHandler;
 
 public class PanelSpellListSource extends JPanel {
 	private static final long serialVersionUID = 1L;

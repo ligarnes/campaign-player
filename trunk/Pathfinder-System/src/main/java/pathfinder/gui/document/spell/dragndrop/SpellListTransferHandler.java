@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.spell.dragndrop;
+package pathfinder.gui.document.spell.dragndrop;
 
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -9,7 +9,7 @@ import javax.swing.JList;
 import javax.swing.TransferHandler;
 
 import pathfinder.bean.spell.Spell;
-import pathfinder.gui.document.builder.spell.SpellListModel;
+import pathfinder.gui.document.spell.SpellListModel;
 
 public class SpellListTransferHandler extends TransferHandler {
 	private static final long serialVersionUID = 1L;
@@ -62,8 +62,6 @@ public class SpellListTransferHandler extends TransferHandler {
 		return data;
 	}
 
-	private SpellListModel model = null;
-
 	/**
 	 * Perform the actual import.
 	 */
@@ -77,7 +75,6 @@ public class SpellListTransferHandler extends TransferHandler {
 			SpellListModel listModel = (SpellListModel) target.getModel();
 
 			listModel.addSpell(data);
-			model = listModel;
 		}
 		return data != null;
 	}
@@ -90,10 +87,6 @@ public class SpellListTransferHandler extends TransferHandler {
 		JList source = (JList) c;
 
 		SpellListModel listModel = (SpellListModel) source.getModel();
-
-		if (model == listModel) {
-			return;
-		}
 
 		if (action == TransferHandler.MOVE) {
 			Spell data;

@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.spell;
+package pathfinder.gui.document.spell;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
