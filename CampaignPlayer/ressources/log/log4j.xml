@@ -10,7 +10,7 @@
   </appender>
   
     <appender name="html-appender" class="org.apache.log4j.FileAppender">
-        <param name="File" value="./log/observations.html"/>
+        <param name="File" value="./ressources/log/log.html"/>
         <layout class="org.apache.log4j.HTMLLayout">
         </layout>
     </appender>

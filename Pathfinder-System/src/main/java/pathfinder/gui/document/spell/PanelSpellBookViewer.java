@@ -1,4 +1,4 @@
-package pathfinder.gui.document.viewer.spell;
+package pathfinder.gui.document.spell;
 
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -14,7 +14,6 @@ import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.UniqueID;
 import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.bean.spell.Spell;
-import pathfinder.gui.document.builder.spell.PanelSpellListSource;
 
 public class PanelSpellBookViewer extends PanelViewDocument {
 

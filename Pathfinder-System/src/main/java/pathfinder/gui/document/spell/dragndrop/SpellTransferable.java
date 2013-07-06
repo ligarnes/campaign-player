@@ -1,4 +1,4 @@
-package pathfinder.gui.document.builder.spell.dragndrop;
+package pathfinder.gui.document.spell.dragndrop;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
