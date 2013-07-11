@@ -47,7 +47,7 @@ public class ButtonDrawable extends Drawable {
 	}
 
 	@Override
-	public void draw(Graphics2D g2, double zoomFactor) {
+	public void draw(Graphics2D g2, double zoomFactor, boolean isDm) {
 		Graphics2D g = (Graphics2D) g2.create();
 
 		drawOriginal(g);

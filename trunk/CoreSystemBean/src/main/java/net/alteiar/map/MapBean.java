@@ -99,19 +99,19 @@ public class MapBean extends BasicBean {
 		g.dispose();
 	}
 
-	public void drawElements(Graphics2D g2, double zoomFactor) {
+	public void drawElements(Graphics2D g2, double zoomFactor, boolean isDm) {
 		for (UniqueID mapElementId : getElements()) {
 			MapElement mapElement = CampaignClient.getInstance().getBean(
 					mapElementId);
 
-			mapElement.draw(g2, zoomFactor);
+			mapElement.draw(g2, zoomFactor, isDm);
 		}
 	}
 
-	public void drawFilter(Graphics2D g2, double zoomFactor) {
+	public void drawFilter(Graphics2D g2, double zoomFactor, boolean isDm) {
 		MapFilter filter = CampaignClient.getInstance().getBean(filterId);
 		if (filter != null) {
-			filter.draw(g2, zoomFactor);
+			filter.draw(g2, zoomFactor, isDm);
 		}
 	}
 

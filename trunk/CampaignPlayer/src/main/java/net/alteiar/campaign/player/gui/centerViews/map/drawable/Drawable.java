@@ -14,7 +14,7 @@ public abstract class Drawable {
 		listeners = new EventListenerList();
 	}
 
-	public abstract void draw(Graphics2D g2, double zoomFactor);
+	public abstract void draw(Graphics2D g2, double zoomFactor, boolean isDm);
 
 	public void addDrawableMouseListener(DrawableMouseListener listener) {
 		listeners.add(DrawableMouseListener.class, listener);

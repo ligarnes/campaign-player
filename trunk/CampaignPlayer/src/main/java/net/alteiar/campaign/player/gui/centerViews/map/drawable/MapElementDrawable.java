@@ -27,9 +27,9 @@ public class MapElementDrawable extends Drawable implements
 	}
 
 	@Override
-	public void draw(Graphics2D g2, double zoomFactor) {
+	public void draw(Graphics2D g2, double zoomFactor, boolean isDm) {
 		if (mapElement != null) {
-			mapElement.draw(g2, zoomFactor);
+			mapElement.draw(g2, zoomFactor, isDm);
 		}
 	}
 

@@ -50,11 +50,9 @@ public abstract class MapElement extends BasicBean {
 		this.selected = false;
 	}
 
-	public final void draw(Graphics2D g, double zoomFactor) {
+	public final void draw(Graphics2D g, double zoomFactor, boolean isDm) {
 		if (isHiddenForPlayer()) {
-			Boolean isMj = CampaignClient.getInstance().getCurrentPlayer()
-					.isDm();
-			if (isMj) {
+			if (isDm) {
 				Graphics2D g2 = (Graphics2D) g.create();
 				g2.setComposite(AlphaComposite.getInstance(
 						AlphaComposite.SRC_OVER, 0.5f));

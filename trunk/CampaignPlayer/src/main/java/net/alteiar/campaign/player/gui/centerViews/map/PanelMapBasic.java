@@ -80,6 +80,8 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 
 	private final BufferedImage background;
 
+	private boolean viewAsDm;
+
 	public PanelMapBasic(final MapBean map, DrawFilter draw) {
 		super();
 		setLayout(null);
@@ -118,7 +120,19 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		previousZoom = 0;
 		refreshTime = new Timer(20, this);
 
+		viewAsDm = CampaignClient.getInstance().getCurrentPlayer().isDm();
+
 		zoom(zoomFactor);
+	}
+
+	public void setViewAsDm(boolean isDm) {
+		// enable only if you are a dm
+		if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
+			viewAsDm = isDm;
+		}
+
+		this.revalidate();
+		this.repaint();
 	}
 
 	public void addDrawable(MouseDrawable draw) {
@@ -218,14 +232,14 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 
 		synchronized (drawableElements) {
 			for (Drawable draw : drawableElements) {
-				draw.draw(g2, zoomFactor);
+				draw.draw(g2, zoomFactor, viewAsDm);
 			}
 		}
 
 		if (showGrid) {
 			map.drawGrid(g2, zoomFactor);
 		}
-		map.drawFilter(g2, zoomFactor);
+		map.drawFilter(g2, zoomFactor, viewAsDm);
 
 		// Draw other info
 		for (MouseDrawable draw : drawables) {
@@ -235,7 +249,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		g2.translate(-offset, -offset);
 
 		for (Drawable draw : buttons) {
-			draw.draw(g2, zoomFactor);
+			draw.draw(g2, zoomFactor, viewAsDm);
 		}
 		playerDraw.draw(g2);
 		g2.dispose();
