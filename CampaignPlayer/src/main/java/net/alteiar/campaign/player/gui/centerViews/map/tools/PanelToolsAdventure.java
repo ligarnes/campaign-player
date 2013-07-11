@@ -12,6 +12,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.RescaleActi
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowGridAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAllAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAreaAction;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ViewAsPlayerAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.dice.PathfinderDiceToolBar;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.PanelZoomEditor;
@@ -63,6 +64,7 @@ public class PanelToolsAdventure extends JToolBar {
 		}
 		this.add(fixGrid);
 
+		this.add(new ViewAsPlayerAction(mapInfo));
 		this.addSeparator();
 		this.add(new PathfinderDiceToolBar());
 

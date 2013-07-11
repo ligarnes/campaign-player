@@ -80,4 +80,8 @@ public interface MapEditableInfo extends Zoomable {
 	void addDrawable(MouseDrawable draw);
 
 	void removeDrawable(MouseDrawable draw);
+
+	void viewAsPlayer();
+
+	void viewAsMj();
 }

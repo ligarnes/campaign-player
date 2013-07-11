@@ -221,4 +221,14 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 	public Double getZoomFactor() {
 		return movePanel.getZoomFactor();
 	}
+
+	@Override
+	public void viewAsPlayer() {
+		mapPanel.setViewAsDm(false);
+	}
+
+	@Override
+	public void viewAsMj() {
+		mapPanel.setViewAsDm(true);
+	}
 }

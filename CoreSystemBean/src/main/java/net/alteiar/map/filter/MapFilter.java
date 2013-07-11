@@ -9,7 +9,6 @@ import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 
 import org.simpleframework.xml.Attribute;
@@ -84,12 +83,12 @@ public class MapFilter extends BasicBean {
 		}
 	}
 
-	public void draw(Graphics2D g, double zoomFactor) {
+	public void draw(Graphics2D g, double zoomFactor, boolean isDm) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		g2.scale(zoomFactor, zoomFactor);
 		g2.setColor(Color.BLACK);
 
-		if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
+		if (isDm) {
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.5f));
 		} else {

@@ -161,13 +161,13 @@ public class TestMapElement extends NewCampaignTest {
 		BufferedImage realImg = new BufferedImage(200, 200,
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = realImg.createGraphics();
-		rectangle.draw(g2, 1.0);
+		rectangle.draw(g2, 1.0, true);
 		g2.dispose();
 
 		BufferedImage targetImg = new BufferedImage(200, 200,
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = targetImg.createGraphics();
-		rectangle.draw(g2, 1.0);
+		rectangle.draw(g2, 1.0, true);
 		g2.dispose();
 
 		try {
@@ -219,7 +219,7 @@ public class TestMapElement extends NewCampaignTest {
 		BufferedImage realImg = new BufferedImage(200, 200,
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = realImg.createGraphics();
-		rectangle.draw(g2, 1.0);
+		rectangle.draw(g2, 1.0, true);
 		g2.dispose();
 
 		targetRectangle.setWidth(newWidth);
@@ -228,7 +228,7 @@ public class TestMapElement extends NewCampaignTest {
 		BufferedImage targetImg = new BufferedImage(200, 200,
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = targetImg.createGraphics();
-		rectangle.draw(g2, 1.0);
+		rectangle.draw(g2, 1.0, true);
 		g2.dispose();
 
 		try {
@@ -271,13 +271,13 @@ public class TestMapElement extends NewCampaignTest {
 		BufferedImage imgGenerated = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = (Graphics2D) imgGenerated.getGraphics();
-		circleClient.draw(g2, 1.0);
+		circleClient.draw(g2, 1.0, true);
 		g2.dispose();
 
 		BufferedImage imgExpected = new BufferedImage(1000, 1000,
 				BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) imgExpected.getGraphics();
-		circleClient.draw(g2, 1.0);
+		circleClient.draw(g2, 1.0, true);
 		g2.dispose();
 
 		try {
