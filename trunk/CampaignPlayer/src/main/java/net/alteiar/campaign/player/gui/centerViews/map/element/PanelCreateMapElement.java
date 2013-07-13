@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
 import net.alteiar.factory.MapElementFactory;
@@ -71,7 +71,7 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		super(new BorderLayout());
 
 		Integer factoryCount = PluginSystem.getInstance()
-				.getGuiMapElementFactoryCount();
+				.getGuiMapElementFactory().size();
 		panelWest = new JPanel(new GridLayout(factoryCount, 1));
 
 		this.add(panelWest, BorderLayout.WEST);
@@ -87,9 +87,10 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 		int maxHeight = 50;
 
 		ArrayList<PanelMapElementBuilder> builders = PluginSystem.getInstance()
-				.getGuiMapElementFactory(map);
+				.getGuiMapElementFactory();
 		for (final PanelMapElementBuilder panel : builders) {
 			Dimension dim = panel.getPreferredSize();
+			panel.refresh(map);
 
 			maxWidth = Math.max(maxWidth, dim.width);
 			maxHeight = Math.max(maxHeight, dim.height);

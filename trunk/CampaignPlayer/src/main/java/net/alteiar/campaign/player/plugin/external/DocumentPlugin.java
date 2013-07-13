@@ -1,10 +1,10 @@
-package plugin.gui;
+package net.alteiar.campaign.player.plugin.external;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
-import plugin.gui.imageIcon.ImageIconFactory;
+import net.alteiar.campaign.player.plugin.imageIcon.ImageIconFactory;
 
-public class DocumentPlugin {
+public class DocumentPlugin implements IPluginElement {
 
 	private final String documentType;
 
@@ -21,10 +21,6 @@ public class DocumentPlugin {
 		this.viewer = viewer;
 	}
 
-	public String getDocumentType() {
-		return documentType;
-	}
-
 	public ImageIconFactory getIcon() {
 		return icon;
 	}
@@ -35,5 +31,10 @@ public class DocumentPlugin {
 
 	public PanelViewDocument getViewer() {
 		return viewer;
+	}
+
+	@Override
+	public String getType() {
+		return documentType;
 	}
 }

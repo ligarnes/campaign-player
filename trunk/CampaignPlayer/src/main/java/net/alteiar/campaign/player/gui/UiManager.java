@@ -9,10 +9,10 @@ import net.alteiar.campaign.player.gui.centerViews.PanelCenter;
 import net.alteiar.campaign.player.gui.centerViews.PanelDashboard;
 import net.alteiar.campaign.player.gui.centerViews.TabbedPaneListAllBattle;
 import net.alteiar.campaign.player.gui.centerViews.settings.PanelSettings;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
 import net.alteiar.campaign.player.gui.sideView.PanelWest;
 import net.alteiar.campaign.player.gui.sideView.SideView;
 import net.alteiar.campaign.player.gui.sideView.chat.PanelChatFactory;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 
 public class UiManager {
 

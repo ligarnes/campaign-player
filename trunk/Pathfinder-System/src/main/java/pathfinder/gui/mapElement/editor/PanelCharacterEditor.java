@@ -16,15 +16,16 @@ import net.alteiar.shared.ImageUtil;
 import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
-public class PanelCharacterEditor extends
-		PanelMapElementEditor<PathfinderCharacterElement> {
+public class PanelCharacterEditor extends PanelMapElementEditor {
 	private static final long serialVersionUID = 1L;
 
+	private final JLabel lblImg;
+	private final JLabel lblName;
 	private final PanelElementSize panelWidth;
 	private final PanelElementSize panelHeight;
 
-	public PanelCharacterEditor(PathfinderCharacterElement mapElement) {
-		super(mapElement);
+	public PanelCharacterEditor() {
+		super();
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -34,11 +35,7 @@ public class PanelCharacterEditor extends
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		JLabel lblImg = new JLabel();
-		PathfinderCharacter character = getMapElement().getCharacter();
-		BufferedImage img = character.getCharacterImage();
-		img = ImageUtil.resizeImage(img, 50, 50);
-		lblImg.setIcon(new ImageIcon(img));
+		lblImg = new JLabel();
 		lblImg.setPreferredSize(new Dimension(50, 50));
 		lblImg.setMaximumSize(new Dimension(50, 50));
 		lblImg.setMinimumSize(new Dimension(50, 50));
@@ -49,7 +46,7 @@ public class PanelCharacterEditor extends
 		gbc_lblImg.gridy = 0;
 		add(lblImg, gbc_lblImg);
 
-		JLabel lblName = new JLabel(character.getName());
+		lblName = new JLabel();
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblName = new GridBagConstraints();
 		gbc_lblName.gridwidth = 3;
@@ -66,7 +63,6 @@ public class PanelCharacterEditor extends
 		add(lblWidth, gbc_lblWidth);
 
 		panelWidth = new PanelElementSize(1);
-		panelWidth.setElementSizeAt(0, getMapElement().getWidth());
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -82,13 +78,28 @@ public class PanelCharacterEditor extends
 		add(lblHeight, gbc_lblHeight);
 
 		panelHeight = new PanelElementSize(1);
-		panelHeight.setElementSizeAt(0, getMapElement().getHeight());
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
 		gbc_panel_1.gridx = 2;
 		gbc_panel_1.gridy = 2;
 		add(panelHeight, gbc_panel_1);
+	}
+
+	@Override
+	protected void mapElementChanged() {
+		PathfinderCharacterElement characterElement = getMapElement();
+
+		PathfinderCharacter character = characterElement.getCharacter();
+		BufferedImage img = character.getCharacterImage();
+		img = ImageUtil.resizeImage(img, 50, 50);
+		lblImg.setIcon(new ImageIcon(img));
+
+		lblName.setText(character.getName());
+
+		panelWidth.setElementSizeAt(0, characterElement.getWidth());
+		panelHeight.setElementSizeAt(0, characterElement.getHeight());
+
 	}
 
 	@Override
@@ -108,4 +119,5 @@ public class PanelCharacterEditor extends
 		characterElement.setHeight(panelHeight.getMapElementSize(0));
 
 	}
+
 }

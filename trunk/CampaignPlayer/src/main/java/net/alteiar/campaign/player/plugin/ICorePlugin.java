@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.factory.newPlugin;
+package net.alteiar.campaign.player.plugin;
 
 import javax.swing.JPanel;
 

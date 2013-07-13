@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
@@ -158,7 +158,7 @@ public class DefaultState extends MapElementListenerState {
 			final MouseEvent event, final E mapElement) {
 		JMenuItem menuItem = new JMenuItem("Editer");
 
-		final PanelMapElementEditor<E> pane = PluginSystem.getInstance()
+		final PanelMapElementEditor pane = PluginSystem.getInstance()
 				.getMapElementEditor(mapElement);
 
 		menuItem.setEnabled(false);
@@ -167,7 +167,7 @@ public class DefaultState extends MapElementListenerState {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
-					DialogOkCancel<PanelMapElementEditor<E>> dlg = new DialogOkCancel<PanelMapElementEditor<E>>(
+					DialogOkCancel<PanelMapElementEditor> dlg = new DialogOkCancel<PanelMapElementEditor>(
 							null, "Editer", true, pane);
 					dlg.setOkText("Editer");
 					dlg.setCancelText("Annuler");

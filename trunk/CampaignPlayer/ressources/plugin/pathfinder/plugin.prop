@@ -1,0 +1,4 @@
+name=pathfinder
+jar=Pathfinder-system-1.0-SNAPSHOT.jar 
+core.classname=plugin.PathfinderCorePlugin
+document.classname=plugin.PathfinderGeneralPlugin

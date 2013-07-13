@@ -5,18 +5,24 @@ import javax.swing.JPanel;
 import net.alteiar.dialog.PanelOkCancel;
 import net.alteiar.map.elements.MapElement;
 
-public abstract class PanelMapElementEditor<E extends MapElement> extends
-		JPanel implements PanelOkCancel {
+public abstract class PanelMapElementEditor extends JPanel implements
+		PanelOkCancel {
 	private static final long serialVersionUID = 1L;
 
-	private final E mapElement;
+	private MapElement mapElement;
 
-	public PanelMapElementEditor(E mapElement) {
-		this.mapElement = mapElement;
+	public PanelMapElementEditor() {
 	}
 
-	protected E getMapElement() {
-		return mapElement;
+	public void setMapElement(MapElement mapElement) {
+		this.mapElement = mapElement;
+		mapElementChanged();
+	}
+
+	protected abstract void mapElementChanged();
+
+	protected <E extends MapElement> E getMapElement() {
+		return (E) mapElement;
 	}
 
 	public abstract void applyModification();

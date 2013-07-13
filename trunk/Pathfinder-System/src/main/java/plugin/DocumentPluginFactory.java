@@ -1,10 +1,14 @@
-package plugin.gui;
+package plugin;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import net.alteiar.campaign.player.plugin.external.DocumentPlugin;
+import net.alteiar.campaign.player.plugin.imageIcon.ImageIconFactory;
+import net.alteiar.campaign.player.plugin.imageIcon.NullImageIconFactory;
+import net.alteiar.campaign.player.plugin.imageIcon.SimpleImageIconFactory;
 import pathfinder.DocumentTypeConstant;
 import pathfinder.gui.document.battle.PanelCreateBattle;
 import pathfinder.gui.document.character.PanelCreateCharacter;
@@ -14,10 +18,7 @@ import pathfinder.gui.document.notepad.PanelCreateNote;
 import pathfinder.gui.document.notepad.PanelViewNote;
 import pathfinder.gui.document.spell.PanelCreateSpellBook;
 import pathfinder.gui.document.spell.PanelSpellBookViewer;
-import plugin.gui.imageIcon.CharacterImageIconFactory;
-import plugin.gui.imageIcon.ImageIconFactory;
-import plugin.gui.imageIcon.NullImageIconFactory;
-import plugin.gui.imageIcon.SimpleImageIconFactory;
+import plugin.imageIcon.CharacterImageIconFactory;
 
 public class DocumentPluginFactory {
 	private static String MAP_ICON = "/icons/map.png";
