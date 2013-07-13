@@ -12,15 +12,14 @@ import net.alteiar.map.Scale;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.map.size.MapElementSize;
 
-public class PanelRectangleEditor extends
-		PanelMapElementEditor<RectangleElement> {
+public class PanelRectangleEditor extends PanelMapElementEditor {
 	private static final long serialVersionUID = 1L;
 
 	private final PanelElementSize panelWidth;
 	private final PanelElementSize panelHeight;
 
-	public PanelRectangleEditor(RectangleElement mapElement) {
-		super(mapElement);
+	public PanelRectangleEditor() {
+		super();
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -38,7 +37,6 @@ public class PanelRectangleEditor extends
 		add(lblWidth, gbc_lblWidth);
 
 		panelWidth = new PanelElementSize(1);
-		panelWidth.setElementSizeAt(0, getMapElement().getWidth());
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -54,13 +52,19 @@ public class PanelRectangleEditor extends
 		add(lblHeight, gbc_lblHeight);
 
 		panelHeight = new PanelElementSize(1);
-		panelHeight.setElementSizeAt(0, getMapElement().getHeight());
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
 		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 1;
 		add(panelHeight, gbc_panel_1);
+	}
+
+	@Override
+	protected void mapElementChanged() {
+		RectangleElement rectangle = getMapElement();
+		panelWidth.setElementSizeAt(0, rectangle.getWidth());
+		panelHeight.setElementSizeAt(0, rectangle.getHeight());
 	}
 
 	@Override
@@ -89,4 +93,5 @@ public class PanelRectangleEditor extends
 		characterElement.setWidth(panelWidth.getMapElementSize(0));
 		characterElement.setHeight(panelHeight.getMapElementSize(0));
 	}
+
 }

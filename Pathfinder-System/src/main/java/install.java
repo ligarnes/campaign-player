@@ -16,7 +16,12 @@ public class install {
 		File targetFile = new File(
 				"../CampaignPlayer/ressources/plugin/Pathfinder-system-1.0-SNAPSHOT.jar");
 
-		FileUtils.copyFile(sourceFile, targetFile);
+		// FileUtils.copyFile(sourceFile, targetFile);
+
+		File newTargetFile = new File(
+				"../CampaignPlayer/ressources/plugin/pathfinder/Pathfinder-system-1.0-SNAPSHOT.jar");
+
+		FileUtils.copyFile(sourceFile, newTargetFile);
 	}
 
 }

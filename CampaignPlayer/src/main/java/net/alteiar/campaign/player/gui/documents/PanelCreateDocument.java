@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;

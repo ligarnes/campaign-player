@@ -12,13 +12,13 @@ import net.alteiar.map.Scale;
 import net.alteiar.map.elements.CircleElement;
 import net.alteiar.map.size.MapElementSize;
 
-public class PanelCircleEditor extends PanelMapElementEditor<CircleElement> {
+public class PanelCircleEditor extends PanelMapElementEditor {
 	private static final long serialVersionUID = 1L;
 
 	private final PanelElementSize panelRadius;
 
-	public PanelCircleEditor(CircleElement mapElement) {
-		super(mapElement);
+	public PanelCircleEditor() {
+		super();
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
@@ -35,7 +35,6 @@ public class PanelCircleEditor extends PanelMapElementEditor<CircleElement> {
 		add(lblRadius, gbc_lblRadius);
 
 		panelRadius = new PanelElementSize(1);
-		panelRadius.setElementSizeAt(0, getMapElement().getRadius());
 		GridBagConstraints gbc_panelRadius = new GridBagConstraints();
 		gbc_panelRadius.insets = new Insets(0, 0, 5, 5);
 		gbc_panelRadius.fill = GridBagConstraints.BOTH;
@@ -43,6 +42,12 @@ public class PanelCircleEditor extends PanelMapElementEditor<CircleElement> {
 		gbc_panelRadius.gridy = 0;
 		add(panelRadius, gbc_panelRadius);
 
+	}
+
+	@Override
+	protected void mapElementChanged() {
+		CircleElement circle = getMapElement();
+		panelRadius.setElementSizeAt(0, circle.getRadius());
 	}
 
 	@Override
@@ -68,4 +73,5 @@ public class PanelCircleEditor extends PanelMapElementEditor<CircleElement> {
 		CircleElement circleElement = getMapElement();
 		circleElement.setRadius(panelRadius.getMapElementSize(0));
 	}
+
 }

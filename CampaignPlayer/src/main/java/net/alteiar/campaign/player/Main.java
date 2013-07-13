@@ -27,8 +27,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.connection.StartGameDialog;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 
+import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
 /**
@@ -53,13 +54,17 @@ public class Main {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
 		} catch (InstantiationException e) {
-			e.printStackTrace();
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
 		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
 		}
 
 		// Touch to load plugin class

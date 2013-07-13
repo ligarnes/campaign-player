@@ -21,7 +21,7 @@ import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.UiHelper;
 import net.alteiar.campaign.player.gui.MainFrame;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanDocument;

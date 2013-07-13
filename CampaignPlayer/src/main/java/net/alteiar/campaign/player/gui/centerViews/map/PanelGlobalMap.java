@@ -31,7 +31,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawa
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.mapElement.MapElementListener;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.PanelToolsAdventure;
-import net.alteiar.campaign.player.gui.factory.PluginSystem;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.Scale;

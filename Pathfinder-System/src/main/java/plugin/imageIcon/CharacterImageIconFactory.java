@@ -1,7 +1,8 @@
-package plugin.gui.imageIcon;
+package plugin.imageIcon;
 
 import java.awt.image.BufferedImage;
 
+import net.alteiar.campaign.player.plugin.imageIcon.ImageIconFactory;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.bean.unit.PathfinderCharacter;

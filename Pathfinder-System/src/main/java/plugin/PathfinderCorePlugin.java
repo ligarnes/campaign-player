@@ -1,10 +1,10 @@
-package plugin.gui;
+package plugin;
 
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
-import net.alteiar.campaign.player.gui.factory.newPlugin.ICorePlugin;
+import net.alteiar.campaign.player.plugin.ICorePlugin;
 import pathfinder.gui.general.PanelCharacterInfo;
 import pathfinder.map.state.PathfinderDrawInfo;
 

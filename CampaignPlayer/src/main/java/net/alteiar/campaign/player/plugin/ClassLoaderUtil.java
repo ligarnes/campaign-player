@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.factory;
+package net.alteiar.campaign.player.plugin;
 
 import java.io.File;
 import java.io.IOException;

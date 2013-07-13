@@ -1,4 +1,4 @@
-package plugin.gui.imageIcon;
+package net.alteiar.campaign.player.plugin.imageIcon;
 
 import java.awt.image.BufferedImage;
 
