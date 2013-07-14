@@ -7,12 +7,11 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.JToolBar;
 import javax.swing.SpinnerNumberModel;
 
 import net.alteiar.campaign.player.Helpers;
 
-public class PathfinderDiceToolBar extends JToolBar implements DiceBagBuilder {
+public class PathfinderDiceToolBar extends JPanel implements DiceBagBuilder {
 	private static final long serialVersionUID = 1L;
 
 	public static final String ICON_D4_REDUCE = "d4-reduce.png";
@@ -27,6 +26,8 @@ public class PathfinderDiceToolBar extends JToolBar implements DiceBagBuilder {
 	private final JSpinner spinnerModifier;
 
 	public PathfinderDiceToolBar() {
+		FlowLayout flowLayout = (FlowLayout) getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
 		DiceBagAction d4 = new DiceBagAction(this, 4,
 				Helpers.getIcon(ICON_D4_REDUCE));
 
