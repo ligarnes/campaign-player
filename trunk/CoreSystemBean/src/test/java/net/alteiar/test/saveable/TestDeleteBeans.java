@@ -10,6 +10,7 @@ import java.net.URL;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
+import net.alteiar.chat.MessageFactory;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.player.Player;
@@ -43,7 +44,8 @@ public class TestDeleteBeans extends NewCampaignTest {
 		assertEquals(1, countObjectFile(Player.class));
 		assertEquals(0, countObjectFile(String.class));
 
-		CampaignClient.getInstance().getChat().talk("Hello world");
+		CampaignClient.getInstance().getChat()
+				.talk(MessageFactory.currentPlayer("Hello world"));
 		sleep(10);
 		save();
 

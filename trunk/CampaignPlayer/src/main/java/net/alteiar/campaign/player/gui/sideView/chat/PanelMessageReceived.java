@@ -13,18 +13,12 @@ import javax.swing.JScrollPane;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.sideView.chat.message.PanelDice;
-import net.alteiar.campaign.player.gui.sideView.chat.message.PanelEnterMessage;
-import net.alteiar.campaign.player.gui.sideView.chat.message.PanelLeaveMessage;
-import net.alteiar.campaign.player.gui.sideView.chat.message.PanelPrivateTextMessage;
 import net.alteiar.campaign.player.gui.sideView.chat.message.PanelTextMessage;
-import net.alteiar.chat.message.MessageRemote;
-import net.alteiar.chat.message.PrivateSender;
+import net.alteiar.chat.Message;
 import net.alteiar.dice.Dice;
 import net.alteiar.dice.DiceListener;
 import net.alteiar.dice.visitor.DiceCountVisitor;
 import net.miginfocom.swing.MigLayout;
-
-import org.apache.log4j.Logger;
 
 public class PanelMessageReceived extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -48,8 +42,6 @@ public class PanelMessageReceived extends JPanel {
 				"insets 5 5 5 5, flowy, novisualpadding, wmax " + maxWidth,
 				"[grow]", "[fill]"));
 
-		// Do not work
-		// scroll.setAutoscrolls(true);
 		// make autoscroll
 		scroll.getVerticalScrollBar().addAdjustmentListener(
 				new AdjustmentListener() {
@@ -113,42 +105,11 @@ public class PanelMessageReceived extends JPanel {
 
 	}
 
-	public void appendMessage(MessageRemote msg) {
-		String command = msg.getCommand();
-
-		if (command.equals(MessageRemote.TEXT_MESSAGE)) {
+	public void appendMessage(Message msg) {
+		if (msg.accept(CampaignClient.getInstance().getCurrentPlayer())) {
 			allMessage.add(new PanelTextMessage(maxWidth, msg));
-
-		} else if (command.equals(MessageRemote.SYSTEM_CONNECT_MESSAGE)) {
-			allMessage.add(new PanelEnterMessage(maxWidth, msg));
-
-		} else if (command.equals(MessageRemote.SYSTEM_DISCONNECT_MESSAGE)) {
-			allMessage.add(new PanelLeaveMessage(maxWidth, msg));
-
-		} else if (command.equals("/to")) {
-			PrivateSender realMsg = new PrivateSender(msg.getMessage());
-			if (realMsg.canAccess()) {
-				allMessage.add(new PanelPrivateTextMessage(maxWidth, msg,
-						realMsg));
-			}
-
-		} else if (command.equals("/mj")) {
-			// FIXME TODO
-			/*
-			 * MjSender mjSender = new MjSender(msg.getMessage());
-			 * 
-			 * if (mjSender.canAccess()) { MessageRemote newMsg = new
-			 * MessageRemote(msg.getSender(), mjSender.getMessage(),
-			 * mjSender.getCommand());
-			 * 
-			 * appendMessage(newMsg); }
-			 */
-		} else {
-			Logger.getLogger(getClass()).warn(
-					"unrecognized command: " + command);
+			this.revalidate();
+			this.repaint();
 		}
-
-		this.revalidate();
-		this.repaint();
 	}
 }

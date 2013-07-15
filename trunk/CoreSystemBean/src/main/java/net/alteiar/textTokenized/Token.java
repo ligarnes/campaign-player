@@ -1,4 +1,4 @@
-package net.alteiar.notepad;
+package net.alteiar.textTokenized;
 
 public abstract class Token {
 	private final String name;
@@ -15,4 +15,5 @@ public abstract class Token {
 	public abstract String getToken();
 
 	public abstract String replace(String input);
+
 }

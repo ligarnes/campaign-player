@@ -11,6 +11,7 @@ import javax.swing.JToolBar;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.chat.Message;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceSingle;
 
@@ -100,7 +101,7 @@ public class DefaultDiceToolBar extends JToolBar {
 			// mais bien dans un pop up window qui sera montr\u00E9
 			// uniquement à l'utilisateur.
 			CampaignClient.getInstance().getChat()
-					.talk("Aucun d\u00E9 s\u00E9lectionn\u00E9.");
+					.talk(new Message("Aucun d\u00E9 s\u00E9lectionn\u00E9."));
 		}
 		return atLeastOneDieSelected;
 	}

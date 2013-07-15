@@ -1,6 +1,7 @@
 package net.alteiar.notepad;
 
 import net.alteiar.client.bean.BasicBean;
+import net.alteiar.textTokenized.TokenManager;
 
 import org.simpleframework.xml.Element;
 
@@ -8,11 +9,6 @@ public class Notepad extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	private final String PROP_TEXT_PROPERTY = "text";
-
-	public static String NEW_LINE = "\\\\";
-	public static String BOLD = "**";
-	public static String ITALIC = "##";
-	public static String UNDERLINE = "__";
 
 	@Element
 	private String text;
@@ -37,12 +33,7 @@ public class Notepad extends BasicBean {
 	}
 
 	public String getHtmlFormat() {
-		String tmp = text;
-
-		for (Token token : Tokens.INSTANCE.getTokens()) {
-			tmp = token.replace(tmp);
-		}
-
-		return "<html><p>" + tmp + "</p></html>";
+		return "<html><p>" + TokenManager.INSTANCE.getHtmlFormat(text)
+				+ "</p></html>";
 	}
 }

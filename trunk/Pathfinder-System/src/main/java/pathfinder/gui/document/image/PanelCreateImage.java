@@ -119,7 +119,12 @@ public class PanelCreateImage extends PanelDocumentBuilder {
 	}
 
 	private void selectImage(ImageSelectorStrategy selector) {
-		transfertImage = selector.selectImage();
+		TransfertImage tmp = selector.selectImage();
+
+		if (tmp != null) {
+			transfertImage = tmp;
+		}
+
 		revalidateImage();
 	}
 

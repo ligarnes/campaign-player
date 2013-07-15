@@ -130,9 +130,10 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 	}
 
 	private void selectImage(ImageSelectorStrategy selector) {
-		transfertImage = selector.selectImage();
+		TransfertImage tmp = selector.selectImage();
 
-		if (transfertImage != null) {
+		if (tmp != null) {
+			transfertImage = tmp;
 			try {
 				BufferedImage img = transfertImage.restoreImage();
 				lblMapImage.setIcon(new ImageIcon(ImageUtil.resizeImage(img,

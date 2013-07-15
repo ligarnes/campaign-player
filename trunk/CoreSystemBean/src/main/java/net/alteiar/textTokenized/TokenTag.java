@@ -1,4 +1,4 @@
-package net.alteiar.notepad;
+package net.alteiar.textTokenized;
 
 import java.util.regex.Pattern;
 
@@ -27,7 +27,8 @@ public class TokenTag extends Token {
 		for (int i = 0; i < repeat; ++i) {
 			totalQuoteToken += quoteToken;
 		}
-		totalQuoteToken = totalQuoteToken + "([^<]*)" + totalQuoteToken;
+
+		totalQuoteToken = totalQuoteToken + "(.+?)" + totalQuoteToken;
 		p = Pattern.compile(totalQuoteToken);
 	}
 

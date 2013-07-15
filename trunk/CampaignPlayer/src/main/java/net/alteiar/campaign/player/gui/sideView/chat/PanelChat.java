@@ -27,7 +27,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -35,13 +34,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.campaign.player.gui.sideView.chat.macro.MacroManager;
 import net.alteiar.chat.Chat;
-import net.alteiar.chat.message.ChatObject;
-import net.alteiar.chat.message.MessageRemote;
-import net.alteiar.chat.message.MjSender;
-import net.alteiar.chat.message.PrivateSender;
-import net.alteiar.dice.DiceBag;
-import net.alteiar.dice.DiceSingle;
+import net.alteiar.chat.Message;
+import net.alteiar.chat.MessageFactory;
 
 /**
  * @author Cody Stoutenburg
@@ -53,8 +49,12 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 	private final PanelMessageReceived receive;
 	private final JTextArea textSend;
 
+	private final MacroManager macroManager;
+
 	public PanelChat(Dimension dimRec, Dimension dimSend) {
 		super();
+		macroManager = new MacroManager();
+
 		receive = new PanelMessageReceived(dimRec);
 
 		textSend = new JTextArea();
@@ -88,8 +88,8 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 		scrollWrite.setMinimumSize(dimSend);
 		scrollWrite.setMaximumSize(dimSend);
 
-		List<MessageRemote> allMsg = getChat().getMessages();
-		for (MessageRemote msg : allMsg) {
+		List<Message> allMsg = getChat().getMessages();
+		for (Message msg : allMsg) {
 			// FIXME TODO do not understand why this happen, we shoud'nt save
 			// and load any null message
 			if (msg != null) {
@@ -126,99 +126,25 @@ public class PanelChat extends JPanel implements PropertyChangeListener {
 	protected void sendMessage() {
 		String message = this.textSend.getText();
 
-		String command = MessageRemote.TEXT_MESSAGE;
 		if (message.startsWith("/")) {
-			String[] args = message.split(" ");
-			command = args[0];
-			ChatObject send = applyMacro(command,
-					Arrays.copyOfRange(args, 1, args.length));
+			Message msg = macroManager.applyMacro(message);
 
-			if (send != null) {
-				getChat().talk(send, command);
+			if (msg != null) {
+				getChat().talk(msg);
 			}
 		} else {
-			getChat().talk(message, command);
+			getChat().talk(
+					MessageFactory.textMessage(CampaignClient.getInstance()
+							.getCurrentPlayer(), message));
 		}
 		this.textSend.setText("");
-		// LoggerConfig.showStat();
-	}
-
-	private String concat(String[] vals, String separator) {
-		StringBuilder builder = new StringBuilder();
-		for (String name : vals) {
-			builder.append(name + " ");
-		}
-
-		return builder.toString();
-	}
-
-	protected ChatObject applyMacro(String command, String... args) {
-		ChatObject message = null;
-
-		if (command.equals("/dice") || command.equals("/d")) {
-			applyDice(args[0]);
-		} else if (command.equals("/name")) {
-			CampaignClient.getInstance().getChat().setPseudo(concat(args, " "));
-		} else if (command.equals("/to")) {
-			message = applyPrivateMessage(args);
-		} else if (command.equals("/mj")) {
-			String newCommand = MessageRemote.TEXT_MESSAGE;
-			String msg = concat(args, " ");
-			if (args[0].startsWith("/")) {
-				newCommand = args[0];
-				msg = applyMacro(args[0],
-						Arrays.copyOfRange(args, 1, args.length))
-						.stringFormat();
-			}
-
-			message = new MjSender(newCommand, msg);
-		}
-
-		return message;
-	}
-
-	private PrivateSender applyPrivateMessage(String[] args) {
-		StringBuilder builder = new StringBuilder();
-
-		for (int i = 1; i < args.length; i++) {
-			builder.append(args[i] + " ");
-		}
-		builder.deleteCharAt(builder.length() - 1);
-
-		return new PrivateSender(args[0], builder.toString());
-	}
-
-	private void applyDice(String message) {
-		// Parse the chat standard
-		String diceCntStr = message.substring(0, message.indexOf("d"));
-
-		int modif = message.indexOf("+");
-		int diceValEnd = modif == -1 ? message.length() : modif;
-		String diceValStr = message.substring(message.indexOf("d") + 1,
-				diceValEnd);
-
-		String modStr = "0";
-		if (modif != -1) {
-			modStr = message.substring(modif + 1);
-		}
-
-		int diceCount = Integer.valueOf(diceCntStr);
-		int diceValue = Integer.valueOf(diceValStr);
-		int mod = Integer.valueOf(modStr);
-
-		DiceBag bag = new DiceBag(mod);
-		for (int i = 0; i < diceCount; ++i) {
-			bag.addDice(new DiceSingle(diceValue));
-		}
-
-		CampaignClient.getInstance().getDiceRoller().roll(bag);
 	}
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (evt.getPropertyName()
 				.equalsIgnoreCase(Chat.METH_ADD_MESSAGE_METHOD)) {
-			receive.appendMessage((MessageRemote) evt.getNewValue());
+			receive.appendMessage((Message) evt.getNewValue());
 		}
 	}
 }
