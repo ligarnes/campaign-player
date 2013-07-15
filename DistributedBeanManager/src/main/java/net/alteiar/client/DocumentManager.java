@@ -12,10 +12,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.server.IServerDocument;
 import net.alteiar.server.ServerListener;
@@ -27,13 +25,16 @@ import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
+import org.apache.log4j.Logger;
+
 public class DocumentManager {
 
 	public static DocumentManager connect(String localAddress,
 			String serverAddress, String port, String globalPath)
 			throws RemoteException, MalformedURLException, NotBoundException {
-		LoggerConfig.CLIENT_LOGGER.log(Level.INFO, "Connect from "
-				+ localAddress + " to " + serverAddress + " at " + port);
+		Logger.getLogger(DocumentManager.class).info(
+				"Connect from " + localAddress + " to " + serverAddress
+						+ " at " + port);
 
 		System.setProperty("java.rmi.server.hostname", localAddress);
 
@@ -46,7 +47,7 @@ public class DocumentManager {
 
 		for (String remoteName : allRemoteNames) {
 			remoteObject = RmiRegistry.lookup(remoteName);
-			LoggerConfig.CLIENT_LOGGER.log(Level.INFO,
+			Logger.getLogger(DocumentManager.class).info(
 					"Find an rmi registry object: " + remoteName);
 			if (remoteObject instanceof IServerDocument) {
 				campaign = (IServerDocument) remoteObject;
@@ -101,12 +102,6 @@ public class DocumentManager {
 
 	public void loadDocuments() {
 		try {
-
-			Long begin = System.currentTimeMillis();
-			UniqueID[] documents = this.server.getDocuments();
-			long end = System.currentTimeMillis();
-
-			System.out.println("get beans take: " + (end - begin) + "ms ");
 			for (UniqueID doc : this.server.getDocuments()) {
 				addDocument(doc);
 			}

@@ -2,8 +2,6 @@ package net.alteiar.chat;
 
 import java.util.ArrayList;
 
-import net.alteiar.chat.message.ChatObject;
-import net.alteiar.chat.message.MessageRemote;
 import net.alteiar.client.bean.BasicBean;
 
 import org.simpleframework.xml.Attribute;
@@ -23,10 +21,10 @@ public class Chat extends BasicBean {
 	@Element
 	private transient String pseudo;
 	@ElementList
-	private ArrayList<MessageRemote> messages;
+	private ArrayList<Message> messages;
 
 	public Chat() {
-		messages = new ArrayList<MessageRemote>();
+		messages = new ArrayList<Message>();
 	}
 
 	public void setPseudo(String pseudo) {
@@ -39,19 +37,11 @@ public class Chat extends BasicBean {
 		return this.pseudo;
 	}
 
-	public void talk(String message) {
-		talk(message, MessageRemote.TEXT_MESSAGE);
+	public void talk(Message message) {
+		addMessage(message);
 	}
 
-	public void talk(ChatObject obj, String command) {
-		talk(obj.stringFormat(), command);
-	}
-
-	public void talk(String message, String command) {
-		addMessage(new MessageRemote(pseudo, message, command));
-	}
-
-	public void addMessage(MessageRemote message) {
+	public void addMessage(Message message) {
 		if (notifyRemote(METH_ADD_MESSAGE_METHOD, null, message)) {
 			synchronized (messages) {
 				this.messages.add(message);
@@ -61,17 +51,17 @@ public class Chat extends BasicBean {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<MessageRemote> getMessages() {
-		ArrayList<MessageRemote> copy = new ArrayList<MessageRemote>();
+	public ArrayList<Message> getMessages() {
+		ArrayList<Message> copy = new ArrayList<Message>();
 		synchronized (messages) {
-			copy = (ArrayList<MessageRemote>) messages.clone();
+			copy = (ArrayList<Message>) messages.clone();
 		}
 
 		return copy;
 	}
 
-	public void setMessages(ArrayList<MessageRemote> messages) {
-		ArrayList<MessageRemote> oldValue = this.messages;
+	public void setMessages(ArrayList<Message> messages) {
+		ArrayList<Message> oldValue = this.messages;
 		if (notifyRemote(PROP_MESSAGES_PROPERTY, oldValue, messages)) {
 			synchronized (messages) {
 				this.messages = messages;

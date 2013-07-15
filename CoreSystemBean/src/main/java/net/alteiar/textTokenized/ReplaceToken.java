@@ -1,4 +1,4 @@
-package net.alteiar.notepad;
+package net.alteiar.textTokenized;
 
 import java.util.regex.Pattern;
 

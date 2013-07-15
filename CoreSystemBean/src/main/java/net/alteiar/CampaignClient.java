@@ -8,12 +8,13 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.management.RuntimeErrorException;
 
 import net.alteiar.chat.Chat;
-import net.alteiar.chat.message.MessageRemote;
+import net.alteiar.chat.MessageFactory;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
@@ -293,8 +294,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		// The server should already contain a chat
 		if (chat != null) {
 			chat.setPseudo(currentPlayer.getName());
-			chat.talk(currentPlayer.getName(),
-					MessageRemote.SYSTEM_CONNECT_MESSAGE);
+
+			chat.talk(MessageFactory.connectMessage(currentPlayer));
 		}
 	}
 
@@ -410,6 +411,20 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public Player getCurrentPlayer() {
 		return currentPlayer;
+	}
+
+	public Player getDm() {
+		Player dm = null;
+
+		Iterator<Player> players = getPlayers().iterator();
+		while (players.hasNext() && dm == null) {
+			Player p = players.next();
+			if (p.isDm()) {
+				dm = p;
+			}
+		}
+
+		return dm;
 	}
 
 	@SuppressWarnings("unchecked")

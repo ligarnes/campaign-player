@@ -26,16 +26,16 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
 
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.logger.LoggerConfig;
 import net.alteiar.rmi.client.RmiRegistry;
 import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.ThreadPool;
+
+import org.apache.log4j.Logger;
 
 /**
  * @author Cody Stoutenburg
@@ -53,15 +53,15 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 			String campaignPath) throws RemoteException, MalformedURLException,
 			NotBoundException {
 
-		LoggerConfig.SERVER_LOGGER.log(Level.INFO, "start server at ip: "
-				+ addressIp + ", port: " + port);
+		Logger.getLogger(ServerDocuments.class).info(
+				"start server at ip: " + addressIp + ", port: " + port);
 
 		System.setProperty("java.rmi.server.hostname", addressIp);
 		ServerDocuments server = new ServerDocuments(campaignPath);
 		RmiRegistryProxy
 				.startRmiRegistryProxy(addressIp, Integer.valueOf(port));
 
-		LoggerConfig.SERVER_LOGGER.log(Level.INFO,
+		Logger.getLogger(ServerDocuments.class).info(
 				"create an object at adress = //" + addressIp + ":" + port
 						+ "/" + CAMPAIGN_MANAGER);
 

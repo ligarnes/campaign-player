@@ -87,4 +87,16 @@ public class Main {
 			System.exit(0);
 		}
 	}
+
+	public static void showStat() {
+		Runtime runtime = Runtime.getRuntime();
+		Integer byteToMega = 1048576;
+		System.out.print("used : "
+				+ ((runtime.totalMemory() - runtime.freeMemory()) / byteToMega)
+				+ "mb ");
+		System.out.print("  committed : "
+				+ (runtime.totalMemory() / byteToMega) + "mb ");
+		System.out.println("  max : " + (runtime.maxMemory() / byteToMega)
+				+ "mb ");
+	}
 }

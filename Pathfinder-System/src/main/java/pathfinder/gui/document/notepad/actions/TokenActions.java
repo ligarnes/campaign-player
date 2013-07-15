@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import net.alteiar.notepad.Token;
+import net.alteiar.textTokenized.Token;
 
 public class TokenActions extends AbstractAction {
 	private static final long serialVersionUID = 1L;
