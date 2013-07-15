@@ -59,12 +59,18 @@ public class PluginSystem {
 	public void loadPlugin(String directory) throws FileNotFoundException,
 			IOException {
 
+		File dir = new File(directory);
+
 		PropertieBase propertie = new PropertieBase(directory + "plugin.prop");
 		propertie.load();
 
 		String jarFile = propertie.getValue(PROP_JAR_NAME);
-		File jar = new File(directory, jarFile);
+		File jar = new File(dir, jarFile.trim());
 
+		if (!jar.exists()) {
+			throw new FileNotFoundException("Le fichier de plugin: "
+					+ jar.getCanonicalPath() + " n'as pas été trouvé");
+		}
 		ClassLoaderUtil.addFile(jar);
 
 		String pluginName = propertie.getValue(PROP_PLUGIN_NAME);
