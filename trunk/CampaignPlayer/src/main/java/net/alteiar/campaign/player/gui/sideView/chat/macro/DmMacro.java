@@ -7,7 +7,7 @@ public class DmMacro extends Macro {
 
 	@Override
 	public String[] getCommand() {
-		return new String[] { "dm", "mj" };
+		return new String[] { "/dm", "/mj" };
 	}
 
 	@Override
