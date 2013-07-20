@@ -26,7 +26,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import net.alteiar.shared.ExceptionTool;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.shared.ImageUtil;
 
 import org.apache.log4j.Logger;

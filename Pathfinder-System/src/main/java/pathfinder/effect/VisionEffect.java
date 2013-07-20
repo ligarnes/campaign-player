@@ -9,7 +9,7 @@ import net.alteiar.client.bean.BasicBean;
 import net.alteiar.event.Effect;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.filter.MapFilter;
+import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.shared.UniqueID;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 
@@ -53,7 +53,7 @@ public class VisionEffect extends Effect {
 		if (containElement()) {
 			MapBean map = CampaignClient.getInstance().getBean(mapId);
 
-			MapFilter filter = CampaignClient.getInstance().getBean(
+			ManualMapFilter filter = CampaignClient.getInstance().getBean(
 					map.getFilter());
 
 			MapElement element = CampaignClient.getInstance().getBean(
@@ -76,7 +76,7 @@ public class VisionEffect extends Effect {
 		if (!containElement()) {
 			MapBean map = CampaignClient.getInstance().getBean(mapId);
 
-			MapFilter filter = CampaignClient.getInstance().getBean(
+			ManualMapFilter filter = CampaignClient.getInstance().getBean(
 					map.getFilter());
 
 			MapElement element = CampaignClient.getInstance().getBean(

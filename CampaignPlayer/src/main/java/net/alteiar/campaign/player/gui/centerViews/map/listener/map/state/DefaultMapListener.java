@@ -12,7 +12,9 @@ import net.alteiar.campaign.player.gui.centerViews.map.listener.map.ActionMapLis
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.AddElementAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.FixGridAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowGridAction;
-import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAreaAction;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.ShowHideAreaAction;
+import net.alteiar.map.filter.ManualMapFilter;
+import net.alteiar.map.filter.MapFilter;
 
 public class DefaultMapListener extends ActionMapListener {
 
@@ -30,18 +32,27 @@ public class DefaultMapListener extends ActionMapListener {
 
 			if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
 				popup.addSeparator();
-				popup.add(new JMenuItem(new ShowHideAreaAction(getMapInfo(),
-						true)));
-				popup.add(new JMenuItem(new ShowHideAreaAction(getMapInfo(),
-						false)));
+
+				// depend on filter
+				MapFilter filter = CampaignClient.getInstance().getBean(
+						getMapInfo().getMap().getFilter());
+				if (filter instanceof ManualMapFilter) {
+					popup.add(new JMenuItem(new ShowHideAreaAction(
+							getMapInfo(), true)));
+					popup.add(new JMenuItem(new ShowHideAreaAction(
+							getMapInfo(), false)));
+				}
 			}
 
-			popup.addSeparator();
-			popup.add(buildShowGrid());
-			popup.add(buildFixGrid());
+			// TODO remove this, not important for here
+			// popup.addSeparator();
+			// popup.add(buildShowGrid());
+			// popup.add(buildFixGrid());
 
 			popup.show(event.getMouseEvent().getComponent(), event
 					.getMouseEvent().getX(), event.getMouseEvent().getY());
+			popup.setLocation(event.getMouseEvent().getXOnScreen(), event
+					.getMouseEvent().getYOnScreen());
 		}
 	}
 

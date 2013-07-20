@@ -15,8 +15,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
@@ -28,7 +28,7 @@ import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.Scale;
 import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.map.filter.MapFilter;
+import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.map.size.MapElementSize;
 import net.alteiar.map.size.MapElementSizeMeter;
 import net.alteiar.map.size.MapElementSizePixel;
@@ -256,7 +256,7 @@ public class TestMap extends NewCampaignTest {
 		UniqueID newFilter = null;
 		map.setFilter(newFilter);
 
-		ArrayList<UniqueID> set = new ArrayList<UniqueID>();
+		HashSet<UniqueID> set = new HashSet<UniqueID>();
 		set.add(new UniqueID());
 		set.add(new UniqueID());
 		map.setElements(set);
@@ -362,7 +362,7 @@ public class TestMap extends NewCampaignTest {
 			// Test filter
 			double compareZoomFactor = 2.75;
 
-			MapFilter filter = new MapFilter(width, height);
+			ManualMapFilter filter = new ManualMapFilter(battleId);
 			filter.showPolygon(new Polygon(new int[] { 5, 25, 25, 5 },
 					new int[] { 5, 5, 25, 25 }, 4));
 			filter.hidePolygon(new Polygon(new int[] { 5, 25, 25, 5 },
@@ -385,8 +385,7 @@ public class TestMap extends NewCampaignTest {
 					(int) (mapFiltered.getHeight() * 2.75),
 					BufferedImage.TYPE_INT_ARGB);
 
-			MapFilter targetFilter = new MapFilter(filteredImage.getWidth(),
-					filteredImage.getHeight());
+			ManualMapFilter targetFilter = new ManualMapFilter(battleId);
 
 			Graphics2D g = (Graphics2D) filteredImage.getGraphics();
 			mapFiltered.drawBackground(g, 2.75);

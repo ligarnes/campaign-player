@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -24,13 +25,11 @@ import net.alteiar.documents.BeanDocument;
 import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentIO;
-import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
 import org.apache.log4j.Logger;
 
 public final class CampaignClient implements DocumentManagerListener {
-	private static Logger LOG = Logger.getLogger(CampaignClient.class);
 
 	private static CampaignClient INSTANCE = null;
 	private static Boolean IS_SERVER = false;
@@ -47,8 +46,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		try {
 			CampaignClient.getInstance().loadGame(campaignPath);
 		} catch (Exception e) {
-			LOG.error("Impossible de charger la campagne", e);
-			ExceptionTool.showError(e, "Impossible de charger la campagne");
+			Logger.getLogger(CampaignClient.class).error(
+					"Impossible de charger la campagne", e);
 		}
 
 		for (Player player : CampaignClient.getInstance().getPlayers()) {
@@ -66,7 +65,8 @@ public final class CampaignClient implements DocumentManagerListener {
 			server.createDocument(chat);
 			server.createDocument(diceRoller);
 		} catch (RemoteException e) {
-			LOG.error("start new campaign server, enable to join server", e);
+			Logger.getLogger(CampaignClient.class).error(
+					"start new campaign server, enable to join server", e);
 		}
 		connectToServer(serverAdress, serverAdress, port, globalDocumentPath);
 	}
@@ -85,17 +85,15 @@ public final class CampaignClient implements DocumentManagerListener {
 			INSTANCE = new CampaignClient(manager, localAdress, serverAdress,
 					port);
 		} catch (RemoteException e) {
-			LOG.error(
-					"Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.",
-					e);
-			ExceptionTool
-					.showError(
-							e,
-							"Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.");
+			Logger.getLogger(CampaignClient.class)
+					.error("Aucune partie n'a \u00E9t\u00E9 trouv\u00E9e sur le serveur s\u00E9lectionn\u00E9.",
+							e);
 		} catch (MalformedURLException e) {
-			LOG.error("Malformed Url when connect to server", e);
+			Logger.getLogger(CampaignClient.class).error(
+					"Malformed Url when connect to server", e);
 		} catch (NotBoundException e) {
-			LOG.error("Not Bound exception when connect to server", e);
+			Logger.getLogger(CampaignClient.class).error(
+					"Not Bound exception when connect to server", e);
 		}
 	}
 
@@ -106,11 +104,14 @@ public final class CampaignClient implements DocumentManagerListener {
 			server = ServerDocuments.startServer(addressIp, port, path);
 			IS_SERVER = true;
 		} catch (RemoteException e) {
-			LOG.error("Remote exception when start server", e);
+			Logger.getLogger(CampaignClient.class).error(
+					"Remote exception when start server", e);
 		} catch (MalformedURLException e) {
-			LOG.error("MalformedURLException exception when start server", e);
+			Logger.getLogger(CampaignClient.class).error(
+					"MalformedURLException exception when start server", e);
 		} catch (NotBoundException e) {
-			LOG.error("NotBoundException exception when start server", e);
+			Logger.getLogger(CampaignClient.class).error(
+					"NotBoundException exception when start server", e);
 		}
 		return server;
 	}
@@ -222,7 +223,8 @@ public final class CampaignClient implements DocumentManagerListener {
 					BasicBean bean = DocumentIO.loadBeanLocal(f);
 					result.add((E) bean);
 				} catch (Exception e) {
-					LOG.warn("fail to load global bean " + f.getName(), e);
+					Logger.getLogger(CampaignClient.class).warn(
+							"fail to load global bean " + f.getName(), e);
 				}
 			}
 		}
@@ -240,8 +242,8 @@ public final class CampaignClient implements DocumentManagerListener {
 		try {
 			manager.saveGlobalBean(bean);
 		} catch (Exception e) {
-			LOG.error("Error on global save", e);
-			ExceptionTool.showError(e);
+			Logger.getLogger(CampaignClient.class).error(
+					"Error on global save", e);
 		}
 	}
 
@@ -337,6 +339,17 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public <E extends BasicBean> E getBean(UniqueID id) {
 		return manager.getBean(id);
+	}
+
+	public <E extends BasicBean> ArrayList<E> getBeans(Collection<UniqueID> ids) {
+		ArrayList<E> lst = new ArrayList<E>();
+
+		for (UniqueID id : ids) {
+			E bean = getBean(id);
+			lst.add(bean);
+		}
+
+		return lst;
 	}
 
 	public void addSuppressBeanListener(SuppressBeanListener listener) {

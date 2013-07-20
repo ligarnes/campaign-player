@@ -37,11 +37,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.player.Threads;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable.DrawableListener;
@@ -98,7 +98,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		this.map = map;
 		this.map.addPropertyChangeListener(this);
 
-		SwingUtilities.invokeLater(new Runnable() {
+		Threads.THREAD_POOL.submit(new Runnable() {
 			@Override
 			public void run() {
 				MapFilter filter = CampaignClient.getInstance().getBean(
@@ -334,7 +334,6 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		for (DrawableMouseListener listener : listeners) {
 			draw.addDrawableMouseListener(listener);
 		}
-		redraw();
 	}
 
 	@Override
@@ -342,16 +341,21 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		if (MapBean.METH_ADD_ELEMENT_METHOD.equals(evt.getPropertyName())) {
 			final UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 			addDrawable(new MapElementDrawable(mapElementId));
-		} else {
-			redraw();
+		} else if (MapBean.PROP_FILTER_PROPERTY.equals(evt.getPropertyName())) {
+			Threads.THREAD_POOL.submit(new Runnable() {
+				@Override
+				public void run() {
+					MapFilter filter = CampaignClient.getInstance().getBean(
+							map.getFilter(), 15000);
+					filter.addPropertyChangeListener(PanelMapBasic.this);
+				}
+			});
 		}
+		redraw();
 	}
 
 	@Override
 	public void redraw() {
-		// Dimension dim = new Dimension((int) (map.getWidth() * zoomFactor),
-		// (int) (map.getHeight() * zoomFactor));
-		// this.setPreferredSize(dim);
 		this.revalidate();
 		this.repaint();
 	}

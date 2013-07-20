@@ -16,9 +16,9 @@
       </id>
       <value>1</value>
    </castingTime>
-   <description></description>
+   <description>Vous créez une petite coupe de force. Par une action de mouvement, vous pouvez diriger le récipient de 4,5 m (3 c) par round dans toutes les directions, mais le sort s’achève si la distance entre vous et le récipient dépasse la portée du sort. Une action de mouvement vous permet de récupérer ou renverser un liquide. Le récipient peut contenir un demi-litre de liquide ou de petits objets, ne pesant pas plus de 2,5 kg. Si ce même volume est étalé sur une surface quelconque, vous pouvez le rassembler en vous concentrant pendant 1 mn.</description>
    <composant>V S</composant>
-   <source>Ultimate magic</source>
+   <source>Blog Paizo</source>
    <reference>
       <id serialVersionUID="1">
          <guid>94-DE-80-0B-0A-49:a7754249-ee0b-40e3-8cdc-ed0f981e6843:1369512906122</guid>

@@ -16,9 +16,9 @@
       </id>
       <value>1</value>
    </castingTime>
-   <description></description>
+   <description>Une étincelle d’électricité vient frapper la cible sur un jet réussi d’attaque de contact à distance. Elle provoque 1d3 points de dégâts d’électricité.</description>
    <composant>V S</composant>
-   <source>Ultimate magic</source>
+   <source>Blog Paizo</source>
    <reference>
       <id serialVersionUID="1">
          <guid>94-DE-80-0B-0A-49:0198816e-8933-43b4-9912-4b706b8834fc:1369512903785</guid>

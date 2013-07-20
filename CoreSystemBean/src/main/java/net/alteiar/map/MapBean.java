@@ -6,6 +6,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.UniqueID;
 
+import org.apache.log4j.Logger;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
@@ -25,7 +27,7 @@ public class MapBean extends BasicBean {
 	private static final String PROP_WIDTH_PROPERTY = "width";
 	private static final String PROP_HEIGHT_PROPERTY = "height";
 	private static final String PROP_BACKGROUND_PROPERTY = "background";
-	private static final String PROP_FILTER_PROPERTY = "filter";
+	public static final String PROP_FILTER_PROPERTY = "filter";
 	public static final String PROP_SCALE_PROPERTY = "scale";
 	private static final String PROP_ELEMENTS_PROPERTY = "elements";
 
@@ -38,7 +40,7 @@ public class MapBean extends BasicBean {
 	private Integer height;
 
 	@ElementList
-	private ArrayList<UniqueID> elements;
+	private HashSet<UniqueID> elements;
 
 	@Element
 	private UniqueID backgroundId;
@@ -51,7 +53,7 @@ public class MapBean extends BasicBean {
 	}
 
 	public MapBean(String name) {
-		elements = new ArrayList<UniqueID>();
+		elements = new HashSet<UniqueID>();
 		scale = new Scale(70, 1.5);
 	}
 
@@ -71,7 +73,7 @@ public class MapBean extends BasicBean {
 	// ///////////////// LOCAL METHODS ///////////////////////
 	public List<MapElement> getElementsAt(Point position) {
 		ArrayList<MapElement> elementsAt = new ArrayList<MapElement>();
-		ArrayList<UniqueID> elements = getElements();
+		HashSet<UniqueID> elements = getElements();
 
 		for (UniqueID id : elements) {
 			MapElement element = CampaignClient.getInstance().getBean(id);
@@ -93,8 +95,8 @@ public class MapBean extends BasicBean {
 			backgroundImage = ImageBean.getImage(backgroundId);
 			g.drawImage(backgroundImage, transform, null);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+			Logger.getLogger(getClass()).warn("Impossible de charger l'image",
+					e);
 		}
 		g.dispose();
 	}
@@ -193,16 +195,16 @@ public class MapBean extends BasicBean {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<UniqueID> getElements() {
-		ArrayList<UniqueID> copy = new ArrayList<UniqueID>();
+	public HashSet<UniqueID> getElements() {
+		HashSet<UniqueID> copy = new HashSet<UniqueID>();
 		synchronized (elements) {
-			copy = (ArrayList<UniqueID>) elements.clone();
+			copy = (HashSet<UniqueID>) elements.clone();
 		}
 		return copy;
 	}
 
-	public void setElements(ArrayList<UniqueID> elements) {
-		ArrayList<UniqueID> oldValue = this.elements;
+	public void setElements(HashSet<UniqueID> elements) {
+		HashSet<UniqueID> oldValue = this.elements;
 		if (notifyRemote(PROP_ELEMENTS_PROPERTY, oldValue, elements)) {
 			this.elements = elements;
 			notifyLocal(PROP_ELEMENTS_PROPERTY, oldValue, elements);

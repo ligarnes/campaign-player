@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
-import net.alteiar.shared.ExceptionTool;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
 

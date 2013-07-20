@@ -22,7 +22,6 @@ import net.alteiar.server.document.DocumentIO;
 import net.alteiar.server.document.DocumentLocal;
 import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
-import net.alteiar.shared.ExceptionTool;
 import net.alteiar.shared.UniqueID;
 
 import org.apache.log4j.Logger;
@@ -91,7 +90,8 @@ public class DocumentManager {
 		try {
 			return server.getDocumentCount();
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).error(
+					"Impossible de récupéré le nombre de document distant", e);
 		}
 		return -1;
 	}
@@ -106,7 +106,8 @@ public class DocumentManager {
 				addDocument(doc);
 			}
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).error(
+					"Impossible de récupéré les documents", e);
 		}
 	}
 
@@ -186,9 +187,11 @@ public class DocumentManager {
 		try {
 			addDocument(loadDocument(guid));
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).error(
+					"Impossible d'ajouter le document " + guid, e);
 		} catch (Exception e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).error(
+					"Impossible d'ajouter le document " + guid, e);
 		}
 	}
 
@@ -242,7 +245,8 @@ public class DocumentManager {
 		try {
 			this.server.createDocument(bean);
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).error(
+					"Impossible de crée le document", e);
 		}
 	}
 
@@ -271,16 +275,13 @@ public class DocumentManager {
 		try {
 			this.server.deleteDocument(beanId);
 		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).error(
+					"Impossible d'enlever le document" + beanId, e);
 		}
 	}
 
 	public void removeDocument(BasicBean bean) {
-		try {
-			this.server.deleteDocument(bean.getId());
-		} catch (RemoteException e) {
-			ExceptionTool.showError(e);
-		}
+		removeDocument(bean.getId());
 	}
 
 	private synchronized void removeRemoteDocument(UniqueID guid) {

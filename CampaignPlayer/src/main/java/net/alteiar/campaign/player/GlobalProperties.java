@@ -4,7 +4,8 @@ import java.awt.Color;
 import java.io.IOException;
 import java.io.Serializable;
 
-import net.alteiar.shared.ExceptionTool;
+import net.alteiar.campaign.player.logger.ExceptionTool;
+
 
 /**
  * 

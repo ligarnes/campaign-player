@@ -8,7 +8,7 @@ import java.net.URL;
 import net.alteiar.CampaignClient;
 import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
-import net.alteiar.map.filter.MapFilter;
+import net.alteiar.map.filter.CharacterMapFilter;
 import net.alteiar.utils.images.SerializableImage;
 import net.alteiar.utils.images.TransfertImage;
 import net.alteiar.utils.images.WebImage;
@@ -40,7 +40,8 @@ public class MapFactory {
 		map.setWidth(backgroundImage.getWidth());
 		map.setHeight(backgroundImage.getHeight());
 
-		MapFilter filter = new MapFilter(map.getWidth(), map.getHeight());
+		// ManualMapFilter filter = new ManualMapFilter(map.getId());
+		CharacterMapFilter filter = new CharacterMapFilter(map);
 		CampaignClient.getInstance().addBean(filter);
 
 		map.setFilter(filter.getId());

@@ -15,7 +15,7 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.InlineView;
 import javax.swing.text.html.ParagraphView;
 
-import net.alteiar.shared.ExceptionTool;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 
 public class ChatEditor extends JEditorPane {
 	private static final long serialVersionUID = 1L;

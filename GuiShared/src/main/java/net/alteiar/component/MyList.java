@@ -2,6 +2,7 @@ package net.alteiar.component;
 
 import java.awt.BorderLayout;
 import java.util.Collection;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JList;
@@ -53,5 +54,10 @@ public class MyList<E> extends JPanel {
 	@SuppressWarnings("unchecked")
 	public E getSelectedValue() {
 		return (E) list.getSelectedValue();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<E> getSelectedValues() {
+		return list.getSelectedValuesList();
 	}
 }

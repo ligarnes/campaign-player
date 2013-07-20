@@ -10,12 +10,18 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.AddRemoveElementToView;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.map.elements.IAction;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.map.filter.CharacterMapFilter;
+import net.alteiar.map.filter.MapFilter;
+
+import org.apache.log4j.Logger;
 
 public class DefaultState extends MapElementListenerState {
 
@@ -43,8 +49,9 @@ public class DefaultState extends MapElementListenerState {
 							act.doAction(event.getXOnScreen(),
 									event.getYOnScreen());
 						} catch (Exception e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							Logger.getLogger(getClass()).warn(
+									"Une erreur s'est produite lors de l'exécution de l'action "
+											+ act.getName(), e1);
 						}
 					}
 				});
@@ -53,12 +60,25 @@ public class DefaultState extends MapElementListenerState {
 			}
 			popup.addSeparator();
 			popup.add(buildShowHideElement(element));
+			// depend on filter
+			MapFilter filter = CampaignClient.getInstance().getBean(
+					getMapEditableInfo().getMap().getFilter());
+			if (filter instanceof CharacterMapFilter) {
+
+				Boolean haveVision = ((CharacterMapFilter) filter).getViewer()
+						.contains(element.getId());
+				popup.add(new JMenuItem(new AddRemoveElementToView(
+						getMapEditableInfo(), element, !haveVision)));
+			}
 			popup.addSeparator();
 
 			// need move
-			popup.add(buildMenuRotate(element));
+			// popup.add(buildMenuRotate(element));
 			popup.add(buildMenuRemoveElement(element));
-			popup.show(event.getComponent(), event.getX(), event.getY());
+			popup.show(event.getComponent(), event.getXOnScreen(),
+					event.getYOnScreen());
+
+			popup.setLocation(event.getXOnScreen(), event.getYOnScreen());
 		}
 	}
 
