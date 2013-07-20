@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 import net.alteiar.CampaignClient;
 import net.alteiar.CampaignListener;
 import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.panel.PanelList;
 import net.alteiar.player.Player;
-import net.alteiar.shared.ExceptionTool;
 
 import org.apache.log4j.Logger;
 

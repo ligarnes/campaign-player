@@ -16,17 +16,20 @@ import java.util.List;
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.Map2DUtils;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
+import net.alteiar.map.MapUtils;
 import net.alteiar.map.elements.MapElement;
 
 public class PathToMouse extends LineToMouse {
 
 	public PathToMouse(MapEditableInfo map, MapElement element) {
-		super(map, map.convertPointToSquare(element.getCenterPosition()));
+		super(map, MapUtils.convertPointToSquare(map.getMap(),
+				element.getCenterPosition()));
 	}
 
 	@Override
 	public void addPoint(Point pt) {
-		super.addPoint(getMapEditor().convertPointToSquare(pt));
+		super.addPoint(MapUtils.convertPointToSquare(getMapEditor().getMap(),
+				pt));
 	}
 
 	@Override
@@ -39,8 +42,8 @@ public class PathToMouse extends LineToMouse {
 		}
 
 		Point point = getMapEditor().convertPointPanelToStandard(mouse);
-		pts.addAll(computeLine(ptsPath.get(ptsPath.size() - 1), getMapEditor()
-				.convertPointToSquare(point)));
+		pts.addAll(computeLine(ptsPath.get(ptsPath.size() - 1),
+				MapUtils.convertPointToSquare(getMapEditor().getMap(), point)));
 		drawPath(g2, pts);
 	}
 
@@ -58,7 +61,9 @@ public class PathToMouse extends LineToMouse {
 				++i;
 				continue;
 			}
-			Point2D.Double next = getMapEditor().convertSquareToPoint(point);
+
+			Point2D.Double next = MapUtils.convertSquareToPoint(getMapEditor()
+					.getMap(), point, zoomFactor);
 
 			g2.translate(next.x, next.y);
 

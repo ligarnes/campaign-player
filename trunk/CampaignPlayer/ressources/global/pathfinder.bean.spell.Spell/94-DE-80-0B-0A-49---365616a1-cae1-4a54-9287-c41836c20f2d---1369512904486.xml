@@ -16,7 +16,7 @@
       </id>
       <value>1</value>
    </castingTime>
-   <description></description>
+   <description>Une averse soudaine trempe la créature ou l’objet ciblé. La pluie suit la cible dans la limite de la portée du sort, en l’imbibant d’eau. Si la cible est en feu, les flammes s’éteignent automatiquement. Toute flamme plus petite qu’un feu de camp (comme les lanternes et les torches) est également automatiquement noyée.</description>
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>

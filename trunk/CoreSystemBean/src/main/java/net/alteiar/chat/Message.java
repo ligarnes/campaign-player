@@ -8,13 +8,22 @@ import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.textTokenized.TokenManager;
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+
 public class Message implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private final HashSet<UniqueID> to;
+	@ElementList
+	private HashSet<UniqueID> to;
 
-	private final String message;
+	@Element
+	private String message;
+
+	public Message() {
+
+	}
 
 	public Message(String message) {
 		to = new HashSet<UniqueID>();

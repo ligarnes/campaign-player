@@ -1,0 +1,23 @@
+<pathfinderMonsterElement>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:f3174aa7-fab8-4253-bb65-ba7e3786c158:1374330478201</guid>
+   </id>
+   <mapId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:0468f443-ed1f-4367-9043-527e11be3b26:1374330464660</guid>
+   </mapId>
+   <position>
+      <x>280</x>
+      <y>315</y>
+   </position>
+   <angle>0.0</angle>
+   <hiddenForPlayer>false</hiddenForPlayer>
+   <monsterId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:097c693e-593d-4baa-b928-ec778b987ed8:1374330478198</guid>
+   </monsterId>
+   <width class="net.alteiar.map.size.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>1.0</squareSize>
+   </width>
+   <height class="net.alteiar.map.size.MapElementSizeSquare" serialVersionUID="-9152421144887148374">
+      <squareSize>1.0</squareSize>
+   </height>
+</pathfinderMonsterElement>

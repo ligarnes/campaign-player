@@ -19,7 +19,7 @@
       <value>4</value>
    </castingTime>
    <description>Comme création de demi-plan mineure mais plus grand et avec des caractéristiques planaires.</description>
-   <composant></composant>
+   <composant>aucun</composant>
    <source>Ultimate magic</source>
    <reference>
       <id serialVersionUID="1">

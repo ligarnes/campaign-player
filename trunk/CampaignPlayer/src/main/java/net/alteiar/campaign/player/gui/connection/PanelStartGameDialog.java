@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.Helpers;
-import net.alteiar.shared.ExceptionTool;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 
 public abstract class PanelStartGameDialog extends JPanel {
 	private static final long serialVersionUID = -6625096424819076011L;

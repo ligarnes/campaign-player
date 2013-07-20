@@ -16,9 +16,11 @@
       </id>
       <value>1</value>
    </castingTime>
-   <description></description>
+   <description>Vous créez un vent léger qui souffle sur la cible, dans la direction de votre choix. La brise accorde à son bénéficiaire un bonus de +2 aux jets de sauvegarde effectués dans les environnements très chauds, contre les attaques de souffle, les nuages et les gaz (comme brume mortelle, nuage nauséabond et les poisons inhalés). Ce sort ne fonctionne pas sans air ou sous l’eau.
+
+Vous ne pouvez activer qu’un seul sort de brise à la fois. Si vous en lancez un nouveau alors que le précédent est encore actif, ce dernier se dissipe.</description>
    <composant>V S M</composant>
-   <source>Ultimate magic</source>
+   <source>Blog Paizo</source>
    <reference>
       <id serialVersionUID="1">
          <guid>94-DE-80-0B-0A-49:b423ec29-ac34-4cfb-b320-2f5eac9297b1:1369512903627</guid>

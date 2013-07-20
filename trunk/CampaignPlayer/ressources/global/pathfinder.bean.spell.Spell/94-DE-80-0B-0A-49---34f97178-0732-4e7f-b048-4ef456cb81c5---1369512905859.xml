@@ -16,7 +16,7 @@
       </id>
       <value>1</value>
    </castingTime>
-   <description></description>
+   <description>Ce sort renforce le lien de la cible avec le sol, améliorant sa capacité à résister aux manœuvres de combat. Elle gagne un bonus d’intuition de +2 à la DMD pour résister à une bousculade ou un renversement, et un bonus de +2 aux jets d’Acrobaties effectués pour conserver l’équilibre ou rester debout lorsque son bénéficiaire se trouve sur de la terre, du sable, de la pierre ou toute autre matière rocheuse.</description>
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>

@@ -16,13 +16,13 @@ import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBu
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.campaign.player.plugin.external.DocumentPlugin;
 import net.alteiar.campaign.player.plugin.external.IPlugin;
 import net.alteiar.campaign.player.plugin.external.MapElementPlugin;
 import net.alteiar.campaign.player.plugin.external.PluginList;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.elements.MapElement;
-import net.alteiar.shared.ExceptionTool;
 
 import org.apache.log4j.Logger;
 
@@ -185,7 +185,9 @@ public class PluginSystem {
 		MapElementPlugin plugin = getPlugin(bean);
 		if (plugin != null) {
 			editor = plugin.getEditor();
-			editor.setMapElement(bean);
+			if (editor != null) {
+				editor.setMapElement(bean);
+			}
 		}
 
 		return editor;

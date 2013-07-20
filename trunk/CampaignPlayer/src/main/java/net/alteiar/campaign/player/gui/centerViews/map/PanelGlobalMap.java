@@ -34,9 +34,8 @@ import net.alteiar.campaign.player.gui.centerViews.map.tools.PanelToolsAdventure
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.MapBean;
-import net.alteiar.map.Scale;
 import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.filter.MapFilter;
+import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.Zoomable;
 
@@ -110,23 +109,6 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 	}
 
 	@Override
-	public Point convertPointToSquare(Point position) {
-		Integer squareSize = getScale().getPixels();
-		int x = (int) Math.floor(position.x / squareSize.floatValue());
-		int y = (int) Math.floor(position.y / squareSize.floatValue());
-
-		return new Point(x, y);
-	}
-
-	@Override
-	public Point2D.Double convertSquareToPoint(Point position) {
-		double zoomFactor = getZoomFactor();
-		Double squareSize = getScale().getPixels() * zoomFactor;
-		return new Point2D.Double(squareSize * position.x, squareSize
-				* position.y);
-	}
-
-	@Override
 	public PanelMapWithListener getPanelMap() {
 		return mapPanel;
 	}
@@ -166,10 +148,6 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 		return map;
 	}
 
-	private Scale getScale() {
-		return map.getScale();
-	}
-
 	@Override
 	public Integer getSquareDistance(double distancePixel) {
 		Double squareDistance = Math.ceil(distancePixel
@@ -203,7 +181,7 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 		movePanel.zoom(center, zoomFactor);
 	}
 
-	public MapFilter getMapFilter() {
+	public ManualMapFilter getMapFilter() {
 		return CampaignClient.getInstance().getBean(this.map.getFilter());
 	}
 

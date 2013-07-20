@@ -26,6 +26,10 @@ public class PanelToolsAdventure extends JTabbedPane {
 			pane = new JPanel(new FlowLayout(FlowLayout.LEFT));
 			pane.add(new PanelToolDm(mapInfo));
 			this.addTab("Maitre du jeu", pane);
+
+			pane = new JPanel(new FlowLayout(FlowLayout.LEFT));
+			pane.add(new PanelToolFilter(mapInfo));
+			this.addTab("Vision", pane);
 		}
 
 		JToolBar diceToolBar = new JToolBar();

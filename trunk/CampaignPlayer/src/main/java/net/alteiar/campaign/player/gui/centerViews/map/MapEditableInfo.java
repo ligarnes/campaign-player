@@ -47,16 +47,6 @@ public interface MapEditableInfo extends Zoomable {
 
 	Point2D.Double convertPointStandardToPanel(Point2D position);
 
-	/**
-	 * 
-	 * @param position
-	 *            - in the map (no zoom)
-	 * @return
-	 */
-	Point convertPointToSquare(Point position);
-
-	Point2D.Double convertSquareToPoint(Point position);
-
 	PanelMapWithListener getPanelMap();
 
 	Integer getSquareDistance(double distancePixel);

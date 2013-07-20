@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 import net.alteiar.client.bean.BasicBean;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
 public class Chat extends BasicBean {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_MESSAGES_PROPERTY = "messages";

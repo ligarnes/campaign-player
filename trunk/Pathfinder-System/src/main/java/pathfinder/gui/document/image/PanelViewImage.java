@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
+import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.image.ImageBean;
-import net.alteiar.shared.ExceptionTool;
 import net.alteiar.zoom.MoveZoomListener;
 import net.alteiar.zoom.PanelMoveZoom;
 

@@ -12,7 +12,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.PolygonToMouse;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.ActionMapListener;
-import net.alteiar.map.filter.MapFilter;
+import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.shared.UniqueID;
 
 public class ShowHidePolygonMapListener extends ActionMapListener {
@@ -60,13 +60,13 @@ public class ShowHidePolygonMapListener extends ActionMapListener {
 				.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 	}
 
-	private MapFilter getMapFilter() {
+	private ManualMapFilter getMapFilter() {
 		UniqueID filterId = getMapInfo().getMap().getFilter();
 		return CampaignClient.getInstance().getBean(filterId);
 	}
 
 	private void showPolygon(List<Point> cwPts) {
-		MapFilter filter = getMapFilter();
+		ManualMapFilter filter = getMapFilter();
 		int[] x = new int[cwPts.size()];
 		int[] y = new int[cwPts.size()];
 
@@ -79,7 +79,7 @@ public class ShowHidePolygonMapListener extends ActionMapListener {
 	}
 
 	private void hidePolygon(List<Point> cwPts) {
-		MapFilter filter = getMapFilter();
+		ManualMapFilter filter = getMapFilter();
 		int[] x = new int[cwPts.size()];
 		int[] y = new int[cwPts.size()];
 

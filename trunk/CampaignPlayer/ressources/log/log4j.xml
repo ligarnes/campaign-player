@@ -15,6 +15,12 @@
         </layout>
     </appender>
     
+  <appender name="my-appender" class="net.alteiar.campaign.player.logger.MyAppender">
+  	
+  </appender>
+  
+  
+  
   
   <!-- Perf4J appenders -->
     <!--
@@ -60,10 +66,16 @@
     </logger>
 -->
     
+  <logger name="net.alteiar" additivity="true">
+        <level value="WARN"/>
+         <appender-ref ref="my-appender"/>
+    </logger>
+    
   <root>
     <priority value="ALL"/>
-    <appender-ref ref="Log4jViewer"/>
+    <!-- <appender-ref ref="Log4jViewer"/>  -->
     <appender-ref ref="html-appender"/>
-  </root>
+   
+    </root>
 	
 </log4j:configuration>

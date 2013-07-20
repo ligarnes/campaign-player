@@ -9,32 +9,24 @@ import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.FixGridAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.RescaleAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowGridAction;
-import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAllAction;
-import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ShowHideAreaAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.ViewAsPlayerAction;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.ChangeMapFilterAction;
 
 public class PanelToolDm extends JToolBar {
 	private static final long serialVersionUID = 1L;
 
 	public PanelToolDm(final MapEditableInfo mapInfo) {
-		JButton showMap = new JButton(new ShowHideAreaAction(mapInfo, true));
-		this.add(showMap);
-
-		JButton hideMap = new JButton(new ShowHideAreaAction(mapInfo, false));
-		this.add(hideMap);
-
-		JButton showAll = new JButton(new ShowHideAllAction(mapInfo, true));
-		this.add(showAll);
-
-		JButton hideAll = new JButton(new ShowHideAllAction(mapInfo, false));
-		this.add(hideAll);
-
-		this.addSeparator();
 
 		if (CampaignClient.getInstance().getCurrentPlayer().isDm()) {
+			JButton changeFilter = new JButton(new ChangeMapFilterAction(
+					mapInfo));
+			this.add(changeFilter);
+			this.addSeparator();
+
 			JButton rescale = new JButton(new RescaleAction(mapInfo));
 			this.add(rescale);
 		}
+
 		JToggleButton showGrid = new JToggleButton(new ShowGridAction(mapInfo));
 		this.add(showGrid);
 
