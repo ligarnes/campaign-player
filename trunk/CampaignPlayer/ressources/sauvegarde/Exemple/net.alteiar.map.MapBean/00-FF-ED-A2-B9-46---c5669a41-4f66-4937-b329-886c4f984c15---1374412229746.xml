@@ -1,0 +1,22 @@
+<mapBean>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:c5669a41-4f66-4937-b329-886c4f984c15:1374412229746</guid>
+   </id>
+   <width>700</width>
+   <height>700</height>
+   <elements>
+      <uniqueID serialVersionUID="1">
+         <guid>00-FF-ED-A2-B9-46:46d1f276-ea4d-4e80-ba33-1fac6f63cf93:1374412272457</guid>
+      </uniqueID>
+   </elements>
+   <backgroundId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:25977f1a-c29c-4550-8b32-4c59964bd07d:1374412229746</guid>
+   </backgroundId>
+   <filterId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:5db00ef3-694b-424e-bc04-adf2f57b070d:1374412229753</guid>
+   </filterId>
+   <scale>
+      <pixels>35</pixels>
+      <metre>1.5</metre>
+   </scale>
+</mapBean>

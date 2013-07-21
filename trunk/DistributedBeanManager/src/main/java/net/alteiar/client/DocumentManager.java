@@ -141,6 +141,7 @@ public class DocumentManager {
 				beanFound = DocumentIO.loadBeanLocal(found);
 			} catch (Exception e) {
 				// Do not care if we cannot read the file it may be an error
+				// Logger.getLogger(getClass()).warn("", e);
 			}
 		}
 		return beanFound;

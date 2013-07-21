@@ -1,0 +1,16 @@
+<beanDocument serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:032f49e2-3835-47cc-a3ba-6164031fb962:1374412229793</guid>
+   </id>
+   <owner serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:6bf6ec9b-30cf-4c0b-9545-f50768c92b9a:1374412182234</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>true</isPublic>
+   <documentName>Donjon rouge</documentName>
+   <beanId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:c5669a41-4f66-4937-b329-886c4f984c15:1374412229746</guid>
+   </beanId>
+   <documentType>battle-map</documentType>
+</beanDocument>

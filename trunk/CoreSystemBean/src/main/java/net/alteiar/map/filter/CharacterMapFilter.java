@@ -41,7 +41,7 @@ public class CharacterMapFilter extends MapFilter {
 	private static int VISIBLE_COLOR = (new Color(0f, 0f, 0f, 0.1f)).getRGB();
 
 	@ElementList
-	private HashSet<UniqueID> elementsViews;
+	private final HashSet<UniqueID> elementsViews;
 
 	@Element
 	private Integer maxVision;
@@ -67,7 +67,7 @@ public class CharacterMapFilter extends MapFilter {
 	}
 
 	public CharacterMapFilter() {
-
+		elementsViews = new HashSet<UniqueID>();
 	}
 
 	private void readObject(java.io.ObjectInputStream in) throws IOException,
