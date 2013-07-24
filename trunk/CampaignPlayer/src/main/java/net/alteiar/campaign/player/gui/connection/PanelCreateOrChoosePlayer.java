@@ -65,6 +65,9 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 				nextState();
 			}
 		});
+		chooseExistingButton.setEnabled(!PanelChoosePlayer.getAvaiblePlayers()
+				.isEmpty());
+
 		buttonPanel.add(chooseExistingButton);
 
 		this.add(buttonPanel);
