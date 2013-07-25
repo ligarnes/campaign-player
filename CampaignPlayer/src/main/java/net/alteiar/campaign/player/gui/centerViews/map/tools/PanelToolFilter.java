@@ -72,10 +72,10 @@ public class PanelToolFilter extends JToolBar {
 
 	private void initAutomatiqueMapFilter() {
 		JButton btnAddElementToView = new JButton(new AddRemoveElementToView(
-				mapInfo, true));
+				mapInfo, true, "Ajouter vision"));
 
 		JButton btnRemoveElementToView = new JButton(
-				new AddRemoveElementToView(mapInfo, false));
+				new AddRemoveElementToView(mapInfo, false, "Enlever vision"));
 
 		final CharacterMapFilter filter = CampaignClient.getInstance().getBean(
 				mapInfo.getMap().getFilter());

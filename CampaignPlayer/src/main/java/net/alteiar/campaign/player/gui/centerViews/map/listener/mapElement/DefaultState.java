@@ -60,15 +60,19 @@ public class DefaultState extends MapElementListenerState {
 			}
 			popup.addSeparator();
 			popup.add(buildShowHideElement(element));
+
 			// depend on filter
 			MapFilter filter = CampaignClient.getInstance().getBean(
 					getMapEditableInfo().getMap().getFilter());
 			if (filter instanceof CharacterMapFilter) {
-
 				Boolean haveVision = ((CharacterMapFilter) filter).getViewer()
 						.contains(element.getId());
-				popup.add(new JMenuItem(new AddRemoveElementToView(
-						getMapEditableInfo(), element, !haveVision)));
+
+				JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem(
+						new AddRemoveElementToView(getMapEditableInfo(),
+								element, !haveVision));
+				menuItem.setSelected(haveVision);
+				popup.add(menuItem);
 			}
 			popup.addSeparator();
 

@@ -1,0 +1,15 @@
+<pathfinderCharacter>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:56640ec4-25ae-4b89-8748-be14c1cc9839:1374755743651</guid>
+   </id>
+   <name>irina</name>
+   <image serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:5d0fe132-8931-451d-a027-d93f15599b79:1374755743643</guid>
+   </image>
+   <totalHp>24</totalHp>
+   <currentHp>24</currentHp>
+   <ac>10</ac>
+   <acTouch>10</acTouch>
+   <acFlatFooted>10</acFlatFooted>
+   <initMod>0</initMod>
+</pathfinderCharacter>

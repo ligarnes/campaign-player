@@ -8,7 +8,9 @@ import java.util.HashSet;
 
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
-import net.alteiar.server.ServerDocuments;
+import net.alteiar.thread.ThreadPoolServer;
+
+import org.apache.log4j.Logger;
 
 public class DocumentRemote extends UnicastRemoteObject implements
 		IDocumentRemote {
@@ -79,15 +81,15 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	protected void notifyBeanChanged(final String propertyName,
 			final Object newValue, final long timestamp) {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
-			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+			ThreadPoolServer.execute(new Runnable() {
 				@Override
 				public void run() {
 					try {
 						listener.beanValueChanged(propertyName, newValue,
 								timestamp);
 					} catch (RemoteException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						Logger.getLogger(getClass())
+								.error("Connexion perdu", e);
 					}
 				}
 			});
@@ -97,14 +99,14 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	protected void notifyDocumentClosed() {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
 			if (listener != null) {
-				ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+				ThreadPoolServer.execute(new Runnable() {
 					@Override
 					public void run() {
 						try {
 							listener.documentClosed();
 						} catch (RemoteException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							Logger.getLogger(getClass()).error(
+									"Connexion perdu", e);
 						}
 					}
 				});

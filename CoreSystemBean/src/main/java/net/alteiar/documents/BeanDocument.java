@@ -76,4 +76,10 @@ public class BeanDocument extends AuthorizationBean {
 	public <E extends BasicBean> E getBean() {
 		return CampaignClient.getInstance().getBean(beanId);
 	}
+
+	@Override
+	public String toString() {
+		return "BeanDocument [documentName=" + documentName + ", documentType="
+				+ documentType + "]";
+	}
 }

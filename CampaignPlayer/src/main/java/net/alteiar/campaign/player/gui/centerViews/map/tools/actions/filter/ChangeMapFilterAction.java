@@ -14,6 +14,7 @@ import net.alteiar.map.filter.CharacterMapFilter;
 import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.map.filter.NoMapFilter;
+import net.alteiar.thread.MyRunnable;
 
 public class ChangeMapFilterAction extends MapAction {
 	private static final long serialVersionUID = 1L;
@@ -66,7 +67,7 @@ public class ChangeMapFilterAction extends MapAction {
 
 		if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {
 
-			Threads.THREAD_POOL.submit(new Runnable() {
+			Threads.execute(new MyRunnable() {
 
 				@Override
 				public void run() {
@@ -94,6 +95,11 @@ public class ChangeMapFilterAction extends MapAction {
 
 					// delete the old filter
 					CampaignClient.getInstance().removeBean(map.getFilter());
+				}
+
+				@Override
+				public String getTaskName() {
+					return "create new map filter";
 				}
 			});
 		}

@@ -12,6 +12,7 @@ import net.alteiar.campaign.player.gui.centerViews.settings.PanelSettings;
 import net.alteiar.campaign.player.gui.sideView.PanelWest;
 import net.alteiar.campaign.player.gui.sideView.SideView;
 import net.alteiar.campaign.player.gui.sideView.chat.PanelChatFactory;
+import net.alteiar.campaign.player.gui.sideView.combatTraker.PanelCombatTraker;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 
 public class UiManager {
@@ -57,18 +58,23 @@ public class UiManager {
 		SideView characters = new SideView("Personnages", PluginSystem
 				.getInstance().buildSmallCharacterSheet());
 
+		SideView combatTracker = new SideView("Combat", new PanelCombatTraker(
+				200));
+
 		addSideView(characters);
 		addSideView(chat);
+		addSideView(combatTracker);
 
 		// Applications views
 		ApplicationView dashBoard = new ApplicationView("Accueil",
 				new PanelDashboard(), null);
 		dashBoard.addSideView(chat);
 
-		ApplicationView battle = new ApplicationView("Combat",
+		ApplicationView battle = new ApplicationView("Cartes",
 				new TabbedPaneListAllBattle(), null);
 		battle.addSideView(chat);
 		battle.addSideView(characters);
+		battle.addSideView(combatTracker);
 
 		ApplicationView settings = new ApplicationView("Paramètres",
 				new PanelSettings(), null);

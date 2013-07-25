@@ -9,6 +9,10 @@ import java.rmi.server.UnicastRemoteObject;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolClient;
+
+import org.apache.log4j.Logger;
 
 public class DocumentClient implements IDocumentClient, Serializable,
 		PropertyChangeListener {
@@ -31,14 +35,25 @@ public class DocumentClient implements IDocumentClient, Serializable,
 	}
 
 	@Override
-	public void propertyChange(PropertyChangeEvent evt) {
-		try {
-			remote.setBeanValue(evt.getPropertyName(),
-					(Serializable) evt.getNewValue());
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void propertyChange(final PropertyChangeEvent evt) {
+		// Property change ask remote
+		ThreadPoolClient.execute(new MyRunnable() {
+			@Override
+			public void run() {
+				try {
+					remote.setBeanValue(evt.getPropertyName(),
+							(Serializable) evt.getNewValue());
+				} catch (RemoteException e) {
+					Logger.getLogger(getClass()).error("Connexion perdu", e);
+				}
+			}
+
+			@Override
+			public String getTaskName() {
+				return evt.getPropertyName() + " change task";
+			}
+		});
+
 	}
 
 	@Override
@@ -66,8 +81,7 @@ public class DocumentClient implements IDocumentClient, Serializable,
 			this.bean.removePropertyChangeListener(this);
 			this.remote.removeDocumentListener(documentListener);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).error("Connexion perdu", e);
 		}
 	}
 
@@ -79,10 +93,6 @@ public class DocumentClient implements IDocumentClient, Serializable,
 
 		this.bean = new BeanEncapsulator(bean);
 		this.bean.addPropertyChangeListener(this);
-	}
-
-	protected void loadDocumentRemote() throws Exception {
-		bean = new BeanEncapsulator(remote.getBean());
 	}
 
 	@Override

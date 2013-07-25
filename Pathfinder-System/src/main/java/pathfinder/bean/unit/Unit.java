@@ -1,6 +1,10 @@
 package pathfinder.bean.unit;
 
+import net.alteiar.shared.UniqueID;
+
 public interface Unit {
+
+	UniqueID getId();
 
 	Integer getTotalHp();
 

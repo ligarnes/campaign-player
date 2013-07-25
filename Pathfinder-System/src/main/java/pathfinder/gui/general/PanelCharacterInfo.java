@@ -89,7 +89,12 @@ public class PanelCharacterInfo extends JPanel implements
 
 	public void addCharacter(final BeanDocument doc) {
 		if (isCharacter(doc)) {
-			comboBox.addItem(new CharacterAdapter(doc));
+			CharacterAdapter adapter = new CharacterAdapter(doc);
+			comboBox.addItem(adapter);
+
+			if (comboBox.getItemCount() < 2) {
+				comboBox.setSelectedItem(adapter);
+			}
 		}
 	}
 
@@ -223,6 +228,7 @@ public class PanelCharacterInfo extends JPanel implements
 		if (this.characterDocument != null) {
 			this.characterDocument.removePropertyChangeListener(this);
 		}
+
 		if (comboBox.getItemCount() > 0) {
 			characterDocument = comboBox.getSelectedItem().getCharacter();
 			this.characterDocument.addPropertyChangeListener(this);

@@ -44,6 +44,10 @@ public class MyCombobox<E> extends JPanel {
 		combobox.setSelectedItem(item);
 	}
 
+	public E getItemAt(int idx) {
+		return (E) combobox.getItemAt(idx);
+	}
+
 	@SuppressWarnings("unchecked")
 	public E getSelectedItem() {
 		return (E) combobox.getSelectedItem();

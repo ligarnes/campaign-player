@@ -2,8 +2,20 @@
    <id serialVersionUID="1">
       <guid>00-FF-ED-A2-B9-46:8b6def4a-b8b2-4414-be79-2851a22195b2:1374412182184</guid>
    </id>
-   <pseudo>Cody</pseudo>
+   <pseudo>unknow</pseudo>
    <messages>
+      <message>
+         <to/>
+         <message>**Cody viens de rejoindre la partie**</message>
+      </message>
+      <message>
+         <to/>
+         <message>**Cody viens de rejoindre la partie**</message>
+      </message>
+      <message>
+         <to/>
+         <message>**Cody viens de rejoindre la partie**</message>
+      </message>
       <message>
          <to/>
          <message>**Cody viens de rejoindre la partie**</message>

@@ -245,7 +245,6 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		autorizableBean.addPropertyChangeListener(new AuthorizationAdapter() {
 			@Override
 			public void authorizationChanged(PropertyChangeEvent evt) {
-				super.authorizationChanged(evt);
 				COUNT_AUTHORIZATION_CHANGED++;
 			}
 		});
