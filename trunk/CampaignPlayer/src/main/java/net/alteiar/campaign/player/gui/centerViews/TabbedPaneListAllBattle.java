@@ -19,6 +19,8 @@
  */
 package net.alteiar.campaign.player.gui.centerViews;
 
+import java.beans.PropertyChangeEvent;
+
 import javax.swing.JTabbedPane;
 
 import net.alteiar.CampaignAdapter;
@@ -26,6 +28,7 @@ import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.player.gui.centerViews.map.PanelGlobalMap;
 import net.alteiar.client.bean.BasicBean;
+import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.MapBean;
 import net.alteiar.shared.UniqueID;
@@ -60,10 +63,35 @@ public class TabbedPaneListAllBattle extends JTabbedPane {
 
 						@Override
 						public void beanReceived(BasicBean bean) {
-							addTab(doc.getDocumentName(), new PanelGlobalMap(
-									(MapBean) bean));
+							addTabBattle(doc, (MapBean) bean);
+
 						}
 					});
+		}
+	}
+
+	private void addTabBattle(final BeanDocument doc, final MapBean bean) {
+		if (doc.isAllowedToSee(CampaignClient.getInstance().getCurrentPlayer())) {
+			addTab(doc.getDocumentName(), new PanelGlobalMap(bean));
+		}
+
+		final AuthorizationAdapter auth = new AuthorizationAdapter(doc) {
+			@Override
+			public void authorizationChanged(PropertyChangeEvent evt) {
+				authorizationChange(doc, bean);
+			}
+		};
+	}
+
+	private void authorizationChange(final BeanDocument doc, final MapBean bean) {
+		int idx = indexOf(doc);
+		if (doc.isAllowedToSee(CampaignClient.getInstance().getCurrentPlayer())) {
+			// do not add more than once
+			if (idx < 0) {
+				addTab(doc.getDocumentName(), new PanelGlobalMap(bean));
+			}
+		} else if (idx >= 0) {
+			removeTabAt(idx);
 		}
 	}
 
@@ -116,7 +144,7 @@ public class TabbedPaneListAllBattle extends JTabbedPane {
 		return finded;
 	}
 
-	// TODO move it
+	// TODO FIXME move it
 	public static final String BATTLE_MAP = "battle-map";
 
 	private boolean isBattle(BeanDocument battle) {

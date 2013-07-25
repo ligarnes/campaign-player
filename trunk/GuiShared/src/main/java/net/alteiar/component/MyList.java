@@ -70,4 +70,5 @@ public class MyList<E> extends JPanel {
 		// for jdk1.7
 		// return list.getSelectedValues();
 	}
+
 }

@@ -19,6 +19,7 @@ import net.alteiar.chat.MessageFactory;
 import net.alteiar.client.DocumentManager;
 import net.alteiar.client.DocumentManagerListener;
 import net.alteiar.client.bean.BasicBean;
+import net.alteiar.combatTraker.CombatTraker;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanDocument;
@@ -61,9 +62,11 @@ public final class CampaignClient implements DocumentManagerListener {
 		ServerDocuments server = startServer(serverAdress, port, campaignPath);
 		Chat chat = new Chat();
 		DiceRoller diceRoller = new DiceRoller();
+		CombatTraker traker = new CombatTraker();
 		try {
 			server.createDocument(chat);
 			server.createDocument(diceRoller);
+			server.createDocument(traker);
 		} catch (RemoteException e) {
 			Logger.getLogger(CampaignClient.class).error(
 					"start new campaign server, enable to join server", e);
@@ -132,6 +135,10 @@ public final class CampaignClient implements DocumentManagerListener {
 	private Chat chat;
 	private DiceRoller diceRoller;
 
+	// TODO FIXME currently combat traker is global but we may need to change
+	// that
+	private CombatTraker combatTraker;
+
 	private final DocumentManager manager;
 
 	private final ArrayList<CampaignListener> listeners;
@@ -199,11 +206,14 @@ public final class CampaignClient implements DocumentManagerListener {
 		File globalFile = new File(manager.getGlobalPath(),
 				classes.getCanonicalName());
 
-		ArrayList<E> res = loadDirectory(localFile);
-		ArrayList<E> res1 = loadDirectory(globalFile);
-
-		beans.addAll(res);
-		beans.addAll(res1);
+		if (localFile.exists() && localFile.isDirectory()) {
+			ArrayList<E> res = loadDirectory(localFile);
+			beans.addAll(res);
+		}
+		if (globalFile.exists() && globalFile.isDirectory()) {
+			ArrayList<E> res1 = loadDirectory(globalFile);
+			beans.addAll(res1);
+		}
 
 		return beans;
 	}
@@ -216,16 +226,15 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	private static <E extends BasicBean> ArrayList<E> loadDirectory(
 			File localFile) {
+
 		ArrayList<E> result = new ArrayList<E>();
-		if (localFile.exists() && localFile.isDirectory()) {
-			for (File f : localFile.listFiles()) {
-				try {
-					BasicBean bean = DocumentIO.loadBeanLocal(f);
-					result.add((E) bean);
-				} catch (Exception e) {
-					Logger.getLogger(CampaignClient.class).warn(
-							"fail to load global bean " + f.getName(), e);
-				}
+		for (File f : localFile.listFiles()) {
+			try {
+				BasicBean bean = DocumentIO.loadBeanLocal(f);
+				result.add((E) bean);
+			} catch (Exception e) {
+				Logger.getLogger(CampaignClient.class).warn(
+						"fail to load global bean " + f.getName(), e);
 			}
 		}
 		return result;
@@ -337,6 +346,10 @@ public final class CampaignClient implements DocumentManagerListener {
 		manager.removeDocument(beanId);
 	}
 
+	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
+		return manager.getBean(id, timeout);
+	}
+
 	public <E extends BasicBean> E getBean(UniqueID id) {
 		return manager.getBean(id);
 	}
@@ -418,10 +431,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		return listeners;
 	}
 
-	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
-		return manager.getBean(id, timeout);
-	}
-
 	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
@@ -453,6 +462,10 @@ public final class CampaignClient implements DocumentManagerListener {
 		return this.chat;
 	}
 
+	public CombatTraker getCombatTraker() {
+		return this.combatTraker;
+	}
+
 	@Override
 	public void beanAdded(BasicBean bean) {
 		if (Beans.isInstanceOf(bean, Player.class)) {
@@ -466,6 +479,9 @@ public final class CampaignClient implements DocumentManagerListener {
 		} else if (Beans.isInstanceOf(bean, DiceRoller.class)) {
 			diceRoller = (DiceRoller) Beans.getInstanceOf(bean,
 					DiceRoller.class);
+		} else if (Beans.isInstanceOf(bean, CombatTraker.class)) {
+			combatTraker = (CombatTraker) Beans.getInstanceOf(bean,
+					CombatTraker.class);
 		}
 
 		if (Beans.isInstanceOf(bean, BeanDocument.class)) {

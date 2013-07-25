@@ -33,7 +33,7 @@ import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.thread.ThreadPool;
+import net.alteiar.thread.ThreadPoolServer;
 
 import org.apache.log4j.Logger;
 
@@ -47,7 +47,6 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	private static final long serialVersionUID = 731240477472043798L;
 
 	public static String CAMPAIGN_MANAGER = "Campaign-manager";
-	public static ThreadPool SERVER_THREAD_POOL = null;
 
 	public static ServerDocuments startServer(String addressIp, String port,
 			String campaignPath) throws RemoteException, MalformedURLException,
@@ -69,13 +68,11 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		RmiRegistry.rebind("//" + addressIp + ":" + port + "/"
 				+ CAMPAIGN_MANAGER, server);
 
-		SERVER_THREAD_POOL = new ThreadPool(10);
-
 		return server;
 	}
 
 	public static void stopServer() {
-		SERVER_THREAD_POOL.shutdown();
+		ThreadPoolServer.shutdown();
 
 		// TODO fail to unbind need to check
 		/*
@@ -142,7 +139,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		documents.put(id, remote);
 
 		for (final ServerListener listener : getListeners()) {
-			ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+			ThreadPoolServer.execute(new Runnable() {
 				@Override
 				public void run() {
 					try {
@@ -164,7 +161,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 			remote.closeDocument();
 
 			for (final ServerListener listener : getListeners()) {
-				ServerDocuments.SERVER_THREAD_POOL.execute(new Runnable() {
+				ThreadPoolServer.execute(new Runnable() {
 					@Override
 					public void run() {
 						try {

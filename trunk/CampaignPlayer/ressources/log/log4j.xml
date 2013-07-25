@@ -3,11 +3,6 @@
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
  
- <appender name="Log4jViewer" class="org.apache.log4j.net.SocketAppender">
-    <param name="remoteHost" value="localhost"/>
-    <param name="port" value="4445"/>
-    <param name="locationInfo" value="true"/>
-  </appender>
   
     <appender name="html-appender" class="org.apache.log4j.FileAppender">
         <param name="File" value="./ressources/log/log.html"/>
@@ -16,7 +11,6 @@
     </appender>
     
   <appender name="my-appender" class="net.alteiar.campaign.player.logger.MyAppender">
-  	
   </appender>
   
   
@@ -75,7 +69,6 @@
     <priority value="ALL"/>
     <!-- <appender-ref ref="Log4jViewer"/>  -->
     <appender-ref ref="html-appender"/>
-   
     </root>
 	
 </log4j:configuration>

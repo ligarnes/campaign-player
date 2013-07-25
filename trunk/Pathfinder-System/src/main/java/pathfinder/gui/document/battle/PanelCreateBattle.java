@@ -31,6 +31,9 @@ import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.images.TransfertImage;
+
+import org.apache.log4j.Logger;
+
 import pathfinder.DocumentTypeConstant;
 
 public class PanelCreateBattle extends PanelDocumentBuilder {
@@ -183,7 +186,8 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 			map = MapFactory.createMap(textFieldMapName.getText(),
 					transfertImage);
 		} catch (IOException e) {
-			ExceptionTool.showError(e);
+			Logger.getLogger(getClass()).warn("Impossible de créer le combat",
+					e);
 		}
 		return map;
 	}

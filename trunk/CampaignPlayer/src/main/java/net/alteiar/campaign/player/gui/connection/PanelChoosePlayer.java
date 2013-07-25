@@ -47,6 +47,17 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	private static final int PREFERED_PLAYER_LIST_HEIGHT = 100;
 	private static final int PREFERED_PLAYER_LIST_WIDTH = 200;
 
+	public static List<Player> getAvaiblePlayers() {
+		List<Player> allPlayers = CampaignClient.getInstance().getPlayers();
+		Iterator<Player> itt = allPlayers.iterator();
+		while (itt.hasNext()) {
+			if (itt.next().getConnected()) {
+				itt.remove();
+			}
+		}
+		return allPlayers;
+	}
+
 	private MyList<Player> playerList;
 
 	public PanelChoosePlayer(StartGameDialog startGameDialog,
@@ -64,7 +75,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 	private final void initGui() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		List<Player> players = getPlayers();
+		List<Player> players = getAvaiblePlayers();
 
 		playerList = new MyList<Player>(players);
 
@@ -109,17 +120,6 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		}
 
 		this.add(buttonPanel);
-	}
-
-	public List<Player> getPlayers() {
-		List<Player> allPlayers = CampaignClient.getInstance().getPlayers();
-		Iterator<Player> itt = allPlayers.iterator();
-		while (itt.hasNext()) {
-			if (itt.next().getConnected()) {
-				itt.remove();
-			}
-		}
-		return allPlayers;
 	}
 
 	private void choosePlayer() {

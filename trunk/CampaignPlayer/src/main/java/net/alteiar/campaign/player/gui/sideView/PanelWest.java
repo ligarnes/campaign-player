@@ -1,9 +1,11 @@
 package net.alteiar.campaign.player.gui.sideView;
 
+import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Collection;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -45,6 +47,7 @@ public class PanelWest extends JPanel {
 						}
 					});
 			inside.add(showHide);
+			inside.add(Box.createRigidArea(new Dimension(0, 3)));
 		}
 	}
 }

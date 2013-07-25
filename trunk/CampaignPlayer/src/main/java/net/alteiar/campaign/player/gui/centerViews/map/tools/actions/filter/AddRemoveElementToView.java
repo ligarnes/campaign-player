@@ -27,15 +27,25 @@ public class AddRemoveElementToView extends MapAction {
 
 	public AddRemoveElementToView(MapEditableInfo info, MapElement element,
 			Boolean addToView) {
+		this(info, element, addToView, "Source de vision");
+	}
+
+	public AddRemoveElementToView(MapEditableInfo info, Boolean addToView,
+			String name) {
+		this(info, null, addToView, name);
+	}
+
+	public AddRemoveElementToView(MapEditableInfo info, MapElement element,
+			Boolean addToView, String name) {
 		super(info);
 
 		this.element = element;
 		this.addToView = addToView;
 
-		String name = "Enlever vision";
-		if (addToView) {
-			name = "Ajouter vision";
-		}
+		/*
+		 * String name = "Enlever vision"; if (addToView) { name =
+		 * "Ajouter vision"; }
+		 */
 
 		putValue(NAME, name);
 		// putValue(SMALL_ICON, Helpers.getIcon(icon));
@@ -82,6 +92,7 @@ public class AddRemoveElementToView extends MapAction {
 			DialogOkCancel<PanelSelectList<ElementViewAdapter>> dlg = new DialogOkCancel<PanelSelectList<ElementViewAdapter>>(
 					null, title, true, panel);
 			dlg.setLocationRelativeTo(null);
+			dlg.pack();
 			dlg.setVisible(true);
 
 			if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {

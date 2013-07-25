@@ -23,6 +23,8 @@ import net.alteiar.server.document.DocumentLocal;
 import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolClient;
 
 import org.apache.log4j.Logger;
 
@@ -101,6 +103,20 @@ public class DocumentManager {
 	}
 
 	public void loadDocuments() {
+		ThreadPoolClient.execute(new MyRunnable() {
+			@Override
+			public void run() {
+				realLoadDocuments();
+			}
+
+			@Override
+			public String getTaskName() {
+				return "load documents";
+			}
+		});
+	}
+
+	private void realLoadDocuments() {
 		try {
 			for (UniqueID doc : this.server.getDocuments()) {
 				addDocument(doc);
@@ -242,13 +258,24 @@ public class DocumentManager {
 		return client;
 	}
 
-	public void createDocument(BasicBean bean) {
-		try {
-			this.server.createDocument(bean);
-		} catch (RemoteException e) {
-			Logger.getLogger(getClass()).error(
-					"Impossible de crée le document", e);
-		}
+	public void createDocument(final BasicBean bean) {
+
+		ThreadPoolClient.execute(new MyRunnable() {
+			@Override
+			public void run() {
+				try {
+					server.createDocument(bean);
+				} catch (RemoteException e) {
+					Logger.getLogger(getClass()).error(
+							"Impossible de crée le document", e);
+				}
+			}
+
+			@Override
+			public String getTaskName() {
+				return "add document: " + bean;
+			}
+		});
 	}
 
 	public void saveLocal() throws Exception {

@@ -20,6 +20,7 @@ import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
+import pathfinder.actions.AddToCombatTracker;
 import pathfinder.actions.DoDamage;
 import pathfinder.actions.DoHeal;
 import pathfinder.bean.unit.PathfinderCharacter;
@@ -143,6 +144,8 @@ public class PathfinderCharacterElement extends MapElement {
 		PathfinderCharacter character = getCharacter();
 		actions.add(new DoDamage(character));
 		actions.add(new DoHeal(character));
+
+		actions.add(new AddToCombatTracker(character));
 		return actions;
 	}
 

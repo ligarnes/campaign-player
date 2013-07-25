@@ -120,10 +120,13 @@ public class BeanEncapsulator implements VetoableChangeListener {
 	public void vetoableChange(PropertyChangeEvent evt)
 			throws PropertyVetoException {
 		BeanChange changeNotification = new BeanChange(evt);
-		if (changed.contains(changeNotification)) {
-			synchronized (changed) {
-				changed.remove(changeNotification);
-			}
+
+		boolean remoteChange = false;
+		synchronized (changed) {
+			remoteChange = changed.contains(changeNotification);
+		}
+		if (remoteChange) {
+			changed.remove(changeNotification);
 		} else {
 			propertyChangeSupportRemote.firePropertyChange(evt);
 			throw new PropertyVetoException("remote change", evt);
@@ -165,7 +168,6 @@ public class BeanEncapsulator implements VetoableChangeListener {
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + getOuterType().hashCode();
 			result = prime * result
 					+ ((method == null) ? 0 : method.hashCode());
 			result = prime * result
@@ -182,8 +184,6 @@ public class BeanEncapsulator implements VetoableChangeListener {
 			if (getClass() != obj.getClass())
 				return false;
 			BeanChange other = (BeanChange) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
 			if (method == null) {
 				if (other.method != null)
 					return false;
@@ -197,8 +197,5 @@ public class BeanEncapsulator implements VetoableChangeListener {
 			return true;
 		}
 
-		private BeanEncapsulator getOuterType() {
-			return BeanEncapsulator.this;
-		}
 	}
 }

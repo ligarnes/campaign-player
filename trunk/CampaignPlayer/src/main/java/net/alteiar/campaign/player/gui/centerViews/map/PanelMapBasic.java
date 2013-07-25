@@ -54,6 +54,7 @@ import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.MyRunnable;
 import net.alteiar.zoom.Zoomable;
 
 /**
@@ -98,12 +99,17 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		this.map = map;
 		this.map.addPropertyChangeListener(this);
 
-		Threads.THREAD_POOL.submit(new Runnable() {
+		Threads.execute(new MyRunnable() {
 			@Override
 			public void run() {
 				MapFilter filter = CampaignClient.getInstance().getBean(
 						map.getFilter(), 15000);
 				filter.addPropertyChangeListener(PanelMapBasic.this);
+			}
+
+			@Override
+			public String getTaskName() {
+				return "Wait for map filter";
 			}
 		});
 
@@ -342,12 +348,17 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 			final UniqueID mapElementId = ((UniqueID) evt.getNewValue());
 			addDrawable(new MapElementDrawable(mapElementId));
 		} else if (MapBean.PROP_FILTER_PROPERTY.equals(evt.getPropertyName())) {
-			Threads.THREAD_POOL.submit(new Runnable() {
+			Threads.execute(new MyRunnable() {
 				@Override
 				public void run() {
 					MapFilter filter = CampaignClient.getInstance().getBean(
 							map.getFilter(), 15000);
 					filter.addPropertyChangeListener(PanelMapBasic.this);
+				}
+
+				@Override
+				public String getTaskName() {
+					return "Wait for map filter";
 				}
 			});
 		}
