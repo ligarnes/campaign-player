@@ -12,10 +12,10 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-import net.alteiar.image.ImageBean;
+import net.alteiar.media.ImageBean;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.images.WebImage;
+import net.alteiar.utils.files.images.WebImage;
 
 import org.junit.Test;
 

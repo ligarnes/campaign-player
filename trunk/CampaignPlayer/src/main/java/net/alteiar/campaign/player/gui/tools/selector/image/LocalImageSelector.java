@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.logger.ExceptionTool;
-import net.alteiar.utils.images.SerializableImage;
-import net.alteiar.utils.images.TransfertImage;
+import net.alteiar.utils.files.images.SerializableImage;
+import net.alteiar.utils.files.images.TransfertImage;
 
 public class LocalImageSelector implements ImageSelectorStrategy {
 

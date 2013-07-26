@@ -1,4 +1,4 @@
-package net.alteiar.image;
+package net.alteiar.media;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.images.TransfertImage;
+import net.alteiar.utils.files.images.TransfertImage;
 
 import org.simpleframework.xml.Element;
 

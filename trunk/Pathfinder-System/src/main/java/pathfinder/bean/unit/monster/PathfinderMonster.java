@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.image.ImageBean;
+import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;

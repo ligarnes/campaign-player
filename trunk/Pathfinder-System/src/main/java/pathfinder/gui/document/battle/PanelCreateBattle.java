@@ -27,10 +27,10 @@ import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.factory.MapFactory;
-import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
+import net.alteiar.media.ImageBean;
 import net.alteiar.shared.ImageUtil;
-import net.alteiar.utils.images.TransfertImage;
+import net.alteiar.utils.files.images.TransfertImage;
 
 import org.apache.log4j.Logger;
 

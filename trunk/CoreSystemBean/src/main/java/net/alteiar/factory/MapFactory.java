@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.net.URL;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.filter.CharacterMapFilter;
-import net.alteiar.utils.images.SerializableImage;
-import net.alteiar.utils.images.TransfertImage;
-import net.alteiar.utils.images.WebImage;
+import net.alteiar.media.ImageBean;
+import net.alteiar.utils.files.images.SerializableImage;
+import net.alteiar.utils.files.images.TransfertImage;
+import net.alteiar.utils.files.images.WebImage;
 
 public class MapFactory {
 

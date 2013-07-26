@@ -11,13 +11,13 @@ import java.net.URL;
 import net.alteiar.CampaignClient;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.MessageFactory;
-import net.alteiar.image.ImageBean;
 import net.alteiar.map.MapBean;
+import net.alteiar.media.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.test.beans.map.TestMap;
-import net.alteiar.utils.images.WebImage;
+import net.alteiar.utils.files.images.WebImage;
 
 import org.junit.Test;
 

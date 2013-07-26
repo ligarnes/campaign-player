@@ -17,7 +17,7 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.utils.images;
+package net.alteiar.utils.files.images;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
