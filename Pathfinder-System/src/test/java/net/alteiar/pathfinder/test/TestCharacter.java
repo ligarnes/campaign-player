@@ -8,9 +8,9 @@ import java.io.IOException;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.image.ImageBean;
-import net.alteiar.utils.images.SerializableImage;
-import net.alteiar.utils.images.TransfertImage;
+import net.alteiar.media.ImageBean;
+import net.alteiar.utils.files.images.SerializableImage;
+import net.alteiar.utils.files.images.TransfertImage;
 
 import org.junit.Test;
 

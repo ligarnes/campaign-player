@@ -12,7 +12,7 @@ import java.util.HashSet;
 import net.alteiar.CampaignClient;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.image.ImageBean;
+import net.alteiar.media.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignNoGMTest;

@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.net.URL;
 
 import net.alteiar.CampaignClient;
-import net.alteiar.image.ImageBean;
+import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.images.SerializableImage;
-import net.alteiar.utils.images.WebImage;
+import net.alteiar.utils.files.images.SerializableImage;
+import net.alteiar.utils.files.images.WebImage;
 
 import org.junit.After;
 import org.junit.Test;

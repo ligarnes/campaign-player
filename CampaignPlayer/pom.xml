@@ -18,6 +18,9 @@
 		<artifactId>java-plugin</artifactId>
 		<version>1.7</version>
 	</dependency>-->
+	
+
+
 	<dependency>
 		<groupId>net.alteiar.campaign.player</groupId>
 		<artifactId>Rmi-Server</artifactId>

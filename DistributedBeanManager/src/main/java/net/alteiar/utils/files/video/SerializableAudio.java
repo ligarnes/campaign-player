@@ -17,36 +17,39 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.utils.images;
+package net.alteiar.utils.files.video;
 
-import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
-
-import org.simpleframework.xml.Element;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.advanced.AdvancedPlayer;
+import net.alteiar.utils.files.SerializableFile;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class WebImage implements TransfertImage {
+public class SerializableAudio extends SerializableFile implements
+		TransfertAudio {
 	private static final long serialVersionUID = 4786344613415239528L;
-	@Element
-	private final URL url;
 
-	private transient BufferedImage image;
+	private transient AdvancedPlayer audio;
 
-	public WebImage(URL url) {
-		this.url = url;
+	public SerializableAudio() {
+		super();
+	}
+
+	public SerializableAudio(File file) throws IOException {
+		super(file);
 	}
 
 	@Override
-	public BufferedImage restoreImage() throws IOException {
-		if (image == null) {
-			image = ImageIO.read(url);
+	public AdvancedPlayer restoreAudio() throws IOException, JavaLayerException {
+		if (audio == null) {
+			audio = new AdvancedPlayer(new ByteArrayInputStream(file));
 		}
-		return image;
+		return audio;
 	}
 }

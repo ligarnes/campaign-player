@@ -19,15 +19,20 @@
  */
 package net.alteiar.campaign.player;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.rmi.RMISecurityManager;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import javazoom.jl.decoder.JavaLayerException;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.connection.StartGameDialog;
 import net.alteiar.campaign.player.plugin.PluginSystem;
+import net.alteiar.utils.files.video.SerializableAudio;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -37,6 +42,41 @@ import org.apache.log4j.xml.DOMConfigurator;
  * 
  */
 public class Main {
+
+	public static void testAudio() {
+		try {
+			SerializableAudio mp3player = new SerializableAudio(
+					new File(
+							"C:\\Users\\ligarnes\\Music\\Era I\\01 - Ameno (Remix).mp3"));
+
+			mp3player.restoreAudio().play();
+
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (JavaLayerException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}/*
+		 * try { File mp3 = new File(
+		 * "C:\\Users\\ligarnes\\Music\\Era I\\01 - Ameno (Remix).mp3");
+		 * 
+		 * File ogg = new File(
+		 * "C:\\Users\\ligarnes\\Music\\Apocalyptica\\07 Inquisiton Symphony.ogg"
+		 * );
+		 * 
+		 * // Open an audio input stream. AudioInputStream audioIn =
+		 * AudioSystem.getAudioInputStream(ogg); // Get a sound clip resource.
+		 * Clip clip = AudioSystem.getClip(); // Open audio clip and load
+		 * samples from the audio input stream. clip.open(audioIn);
+		 * clip.start(); } catch (UnsupportedAudioFileException e) {
+		 * e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }
+		 * catch (LineUnavailableException e) { e.printStackTrace(); }
+		 */catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * @param args
@@ -50,6 +90,11 @@ public class Main {
 
 		// Initialize log4j
 		DOMConfigurator.configure("./ressources/log/log4j.xml");
+
+		testAudio();
+		if (true) {
+			return;
+		}
 
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
