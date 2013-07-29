@@ -1,6 +1,4 @@
-#summary One-sentence summary of this page.
 #labels Phase-Implementation
-
 = Copie automatique du fichier de plugin =
 
 Pour une copie plus simple et automatique je suit les étapes suivantes:
