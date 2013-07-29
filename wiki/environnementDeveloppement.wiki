@@ -1,3 +1,4 @@
+#labels Phase-Implementation
 = Environnement de développement =
 Tous les projets sont des projets qui utilise maven
 
@@ -10,8 +11,9 @@ Pour ce faire vous pouvez suivre les étapes suivantes
   * faire un checkout complet du projet
   * Lancer eclipse
   * Import -> Existing Maven Project pour chacun des projet
-  * une fois chaque projet importer faire dans l'ordre (Character-Builder, Rmi-Server, Server-shared, client-shared, Player):
+  * une fois chaque projet importer faire dans l'ordre (Rmi-Server, DistributedBeanManager, CoreSystemBean, GuiShared, Player, Pathfinder-System):
     * clique droit sur le projet -> run as -> maven install  
     * clique droit sur le projet refresh
+  * Si des changements sont effectué sur le projet Pathfinder-System il est nécessaire de faire *maven install* puis de copier le jar générer dans Pathfinder-System/target et de le copier dans le dossier CampaignPlayer/ressources/plugin/pathfinder (voir automatisation pour plugin)
 
 Si tout fonctionne correctement il n'y aura aucune erreur et vous pourrez exécuter le projet Player.
