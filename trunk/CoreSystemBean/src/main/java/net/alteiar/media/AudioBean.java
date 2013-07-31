@@ -3,12 +3,13 @@ package net.alteiar.media;
 import java.io.IOException;
 
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
-import net.alteiar.CampaignClient;
+import javazoom.jl.player.Player;
 import net.alteiar.client.bean.BasicBean;
-import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolUtils;
 import net.alteiar.utils.files.video.SerializableAudio;
 
+import org.apache.log4j.Logger;
 import org.simpleframework.xml.Element;
 
 public class AudioBean extends BasicBean {
@@ -16,15 +17,27 @@ public class AudioBean extends BasicBean {
 
 	public static final String PROP_AUDIO_PROPERTY = "audio";
 
+	private static final String METH_PLAY_DISTRIBUTED_METHOD = "playDistributed";
+	private static final String METH_PAUSE_DISTRIBUTED_METHOD = "pauseDistributed";
+
+	public static final String METH_PLAY_METHOD = "play";
+	public static final String METH_PAUSE_METHOD = "pause";
+
 	@Element
 	private SerializableAudio audio;
 
-	public AudioBean(SerializableAudio image) {
-		this.audio = image;
+	private int framePosition;
+
+	private transient Player player;
+
+	public AudioBean(SerializableAudio audio) {
+		this.audio = audio;
+		framePosition = 0;
 	}
 
 	public AudioBean() {
 		audio = null;
+		framePosition = 0;
 	}
 
 	public SerializableAudio getAudio() {
@@ -39,20 +52,60 @@ public class AudioBean extends BasicBean {
 		}
 	}
 
+	private Player getPlayer() {
+		return player;
+	}
+
+	public void play() {
+		playDistributed(0);
+	}
+
 	/**
-	 * 
-	 * @param id
-	 * @return the buffered image or null if the document is not found
-	 * @throws IOException
-	 *             if we are not able to read the image
-	 * @throws JavaLayerException
+	 * This is an internal function and should not be use directly
 	 */
-	public static AdvancedPlayer getAudio(UniqueID id) throws IOException,
-			JavaLayerException {
-		AudioBean imageBean = CampaignClient.getInstance().getBean(id);
-		if (imageBean == null) {
-			return null;
+	public void playDistributed(int i) {
+		if (notifyRemote(METH_PLAY_DISTRIBUTED_METHOD, null, 0)) {
+
+			ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
+				@Override
+				public void run() {
+					try {
+						player = getAudio().restoreAudio();
+						player.play();
+					} catch (JavaLayerException e) {
+						Logger.getLogger(getClass()).warn(
+								"Exception when playing music", e);
+					} catch (IOException e) {
+						Logger.getLogger(getClass()).warn(
+								"Exception when playing music", e);
+					}
+				}
+
+				@Override
+				public String getTaskName() {
+					return "play audio";
+				}
+			});
+			notifyLocal(METH_PLAY_METHOD, null, null);
 		}
-		return imageBean.getAudio().restoreAudio();
+	}
+
+	public void pause() {
+		pauseDistributed(getPlayer().getPosition());
+	}
+
+	/**
+	 * This is an internal function and should not be use directly
+	 */
+	public void pauseDistributed(int i) {
+		if (notifyRemote(METH_PAUSE_DISTRIBUTED_METHOD, null, i)) {
+			framePosition = i;
+			getPlayer().close();
+			notifyLocal(METH_PAUSE_METHOD, null, null);
+		}
+	}
+
+	public void stop() {
+		pauseDistributed(0);
 	}
 }

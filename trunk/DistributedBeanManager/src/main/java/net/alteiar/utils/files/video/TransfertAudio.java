@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
+import javazoom.jl.player.Player;
 
 public interface TransfertAudio extends Serializable {
 
-	AdvancedPlayer restoreAudio() throws IOException, JavaLayerException;
+	Player restoreAudio() throws IOException, JavaLayerException;
 }

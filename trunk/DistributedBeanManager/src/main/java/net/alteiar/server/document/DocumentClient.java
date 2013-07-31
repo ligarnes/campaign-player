@@ -10,7 +10,7 @@ import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
-import net.alteiar.thread.ThreadPoolClient;
+import net.alteiar.thread.ThreadPoolUtils;
 
 import org.apache.log4j.Logger;
 
@@ -37,7 +37,7 @@ public class DocumentClient implements IDocumentClient, Serializable,
 	@Override
 	public void propertyChange(final PropertyChangeEvent evt) {
 		// Property change ask remote
-		ThreadPoolClient.execute(new MyRunnable() {
+		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
 			@Override
 			public void run() {
 				try {

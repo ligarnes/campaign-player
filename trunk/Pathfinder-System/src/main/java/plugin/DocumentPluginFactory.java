@@ -12,8 +12,10 @@ import net.alteiar.campaign.player.plugin.imageIcon.SimpleImageIconFactory;
 import pathfinder.DocumentTypeConstant;
 import pathfinder.gui.document.battle.PanelCreateBattle;
 import pathfinder.gui.document.character.PanelCreateCharacter;
-import pathfinder.gui.document.image.PanelCreateImage;
-import pathfinder.gui.document.image.PanelViewImage;
+import pathfinder.gui.document.media.audio.PanelCreateAudio;
+import pathfinder.gui.document.media.audio.PanelViewAudio;
+import pathfinder.gui.document.media.image.PanelCreateImage;
+import pathfinder.gui.document.media.image.PanelViewImage;
 import pathfinder.gui.document.notepad.PanelCreateNote;
 import pathfinder.gui.document.notepad.PanelViewNote;
 import pathfinder.gui.document.spell.PanelCreateSpellBook;
@@ -64,6 +66,13 @@ public class DocumentPluginFactory {
 		DocumentPlugin doc = new DocumentPlugin(DocumentTypeConstant.NOTE,
 				new NullImageIconFactory(), new PanelCreateNote(),
 				new PanelViewNote());
+		return doc;
+	}
+
+	public static DocumentPlugin buildAudioDocumentPlugin() throws IOException {
+		DocumentPlugin doc = new DocumentPlugin(DocumentTypeConstant.AUDIO,
+				new NullImageIconFactory(), new PanelCreateAudio(),
+				new PanelViewAudio());
 		return doc;
 	}
 }

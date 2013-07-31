@@ -1,4 +1,4 @@
-package pathfinder.gui.document.image;
+package pathfinder.gui.document.media.image;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -189,6 +189,9 @@ public abstract class MapElement extends BasicBean {
 			this.lastPosition = position;
 			this.position = position;
 			notifyLocal(PROP_POSITION_PROPERTY, oldValue, position);
+		} else {
+			// we change it locally so keep it.
+			this.position = position;
 		}
 	}
 

@@ -17,40 +17,20 @@
  *       Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
  * 
  */
-package net.alteiar.utils.files.images;
-
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
-import net.alteiar.utils.files.SerializableFile;
+package net.alteiar.campaign.player.fileChooser;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class SerializableImage extends SerializableFile implements
-		TransfertImage {
-	private static final long serialVersionUID = 4786344613415239528L;
+public class FileFilterAudio extends GeneralFileFilter {
+	private static final String[] ALL_SUPPORTED_EXTENTION_TYPE = { "mp3" };
 
-	private transient BufferedImage image;
+	private static final String FILE_TYPE = "musique";
 
-	public SerializableImage() {
+	public FileFilterAudio() {
 		super();
-	}
-
-	public SerializableImage(File file) throws IOException {
-		super(file);
-	}
-
-	@Override
-	public BufferedImage restoreImage() throws IOException {
-		if (image == null) {
-			image = ImageIO.read(new ByteArrayInputStream(getBytes()));
-		}
-		return image;
+		this.allSupportedExtentionType = ALL_SUPPORTED_EXTENTION_TYPE;
+		this.description = FILE_TYPE;
 	}
 }

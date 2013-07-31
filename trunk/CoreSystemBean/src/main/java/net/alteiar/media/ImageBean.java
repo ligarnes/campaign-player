@@ -14,6 +14,7 @@ public class ImageBean extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_IMAGE_PROPERTY = "image";
+
 	@Element
 	private TransfertImage image;
 

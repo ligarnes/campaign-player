@@ -27,6 +27,7 @@ import net.alteiar.player.Player;
 import net.alteiar.server.ServerDocuments;
 import net.alteiar.server.document.DocumentIO;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.ThreadPoolUtils;
 
 import org.apache.log4j.Logger;
 
@@ -121,7 +122,26 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public static synchronized void leaveGame() {
 		INSTANCE.disconnect();
+
+		// wait max 3sec
+		long maxDisconnectedTime = 3000L;
+		long begin = System.currentTimeMillis();
+		long time = System.currentTimeMillis() - begin;
+		while (INSTANCE.getCurrentPlayer().getConnected()
+				&& time < maxDisconnectedTime) {
+
+			// Wait for disconnection received
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				Logger.getLogger(CampaignClient.class).warn(
+						"Exception during shutdown", e);
+			}
+			time = System.currentTimeMillis() - begin;
+		}
+
 		INSTANCE = null;
+		ThreadPoolUtils.getClientPool().shutdown();
 		if (IS_SERVER) {
 			ServerDocuments.stopServer();
 		}

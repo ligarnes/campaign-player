@@ -2,17 +2,16 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import net.alteiar.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
 import net.alteiar.map.filter.CharacterMapFilter;
+import net.alteiar.media.ImageBean;
+import net.alteiar.utils.files.images.SerializableImage;
 
 import org.apache.log4j.Logger;
 
@@ -36,8 +35,10 @@ public class ChooseFilterAction extends MapAction {
 
 		if (imgFile != null) {
 			try {
-				BufferedImage img = ImageIO.read(imgFile);
-				filter.setMapFilter(img);
+				ImageBean bean = new ImageBean(new SerializableImage(imgFile));
+				CampaignClient.getInstance().addBean(bean);
+				// BufferedImage img = ImageIO.read(imgFile);
+				filter.setFilteredImageId(bean.getId());
 			} catch (IOException e) {
 				Logger.getLogger(getClass()).error(
 						"Impossible de lire l'image filtre", e);

@@ -10,5 +10,6 @@ public class DocumentTypeConstant {
 	public static final String MONSTER = "monster";
 	public static final String NOTE = "note";
 	public static final String IMAGE = "image";
+	public static final String AUDIO = "audio";
 	public static final String SPELL_BOOK = "spell-book";
 }
