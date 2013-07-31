@@ -5,21 +5,31 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.WaitBeanListener;
+import net.alteiar.WaitMultipleBeansListener;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.squaredMap.Array2D;
 import net.alteiar.map.filter.squaredMap.ImageInfo;
+import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolUtils;
 
+import org.apache.log4j.Logger;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
-public class CharacterMapFilter extends MapFilter {
+public class CharacterMapFilter extends MapFilter implements
+		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	public static final String METH_ADD_ELEMENT_VIEW_METHOD = "addElementIdView";
@@ -27,7 +37,10 @@ public class CharacterMapFilter extends MapFilter {
 
 	public static final String METH_REVALIDATE_FILTER_METHOD = "revalidateFilter";
 
+	public static final String METH_REVALIDATE_FILTER_IMAGE_METHOD = "revalidateFilterImage";
+
 	public static final String PROP_MAX_VISION_PROPERTY = "maxVision";
+	public static final String PROP_FILTERED_IMAGE_ID_PROPERTY = "filteredImageId";
 
 	private static int CLEAR_VALUE = 0;
 	private static int BLOCK_VALUE = 1;
@@ -46,14 +59,26 @@ public class CharacterMapFilter extends MapFilter {
 	@Element
 	private Integer maxVision;
 
-	@Element
-	private ImageInfo squaredMap;
+	@Element(required = false)
+	private UniqueID filteredImageId;
+
+	// local info, DO NOT SAVE IT, IT TAKE MANY SPACE
+	private transient ImageInfo squaredMap;
 
 	/**
 	 * The current vision map, this is computed each time we need it (but we
 	 * don't want to create a new large table each time
 	 */
 	private transient Array2D visionMap;
+
+	/**
+	 * All of this is not really clean but enable good performance even on large
+	 * map
+	 */
+	private transient BufferedImage filterImage;
+	private transient boolean isDm;
+	private transient boolean somethingChange;
+	private transient boolean refreshVision;
 
 	public CharacterMapFilter(MapBean map) {
 		super(map.getId());
@@ -64,18 +89,63 @@ public class CharacterMapFilter extends MapFilter {
 
 		visionMap = new Array2D(squaredMap.getImageWidth(),
 				squaredMap.getImageHeight(), HIDE_VALUE);
+
+		somethingChange = false;
+		refreshVision = true;
 	}
 
 	public CharacterMapFilter() {
-		// elementsViews = new HashSet<UniqueID>();
 	}
 
 	private void readObject(java.io.ObjectInputStream in) throws IOException,
 			ClassNotFoundException {
 		in.defaultReadObject();
 
-		visionMap = new Array2D(getSquaredMap().getImageWidth(),
-				getSquaredMap().getImageHeight(), HIDE_VALUE);
+		HashSet<UniqueID> ids = new HashSet<UniqueID>();
+		ids.add(filteredImageId);
+		ids.add(getMapId());
+		for (UniqueID uniqueID : elementsViews) {
+			ids.add(uniqueID);
+		}
+
+		new WaitMultipleBeansListener(ids) {
+			@Override
+			public void beanReceived() {
+				// Create all info given the map
+				squaredMap = new ImageInfo(getMap());
+				visionMap = new Array2D(getSquaredMap().getImageWidth(),
+						getSquaredMap().getImageHeight(), HIDE_VALUE);
+
+				// add listener on each element to view
+				ArrayList<MapElement> elements = CampaignClient.getInstance()
+						.getBeans(elementsViews);
+				for (MapElement element : elements) {
+					element.addPropertyChangeListener(
+							MapElement.PROP_POSITION_PROPERTY,
+							CharacterMapFilter.this);
+				}
+
+				try {
+					revalidateFilter();
+				} catch (IOException e) {
+					Logger.getLogger(getClass()).warn(
+							"Impossible de changer le filtre", e);
+				} catch (IllegalArgumentException e) {
+					Logger.getLogger(getClass()).error(e.getMessage(), e);
+				}
+
+				somethingChange = true;
+				refreshFilterImageThread();
+			}
+		};
+
+		somethingChange = false;
+		refreshVision = true;
+	}
+
+	@Override
+	public void beanRemoved() {
+		refreshVision = false;
 	}
 
 	private ImageInfo getSquaredMap() {
@@ -86,8 +156,46 @@ public class CharacterMapFilter extends MapFilter {
 		return elementsViews;
 	}
 
-	public void setMapFilter(BufferedImage filter) {
+	public UniqueID getFilteredImageId() {
+		return filteredImageId;
+	}
+
+	public void setFilteredImageId(final UniqueID filteredImageId) {
+		final UniqueID oldValue = this.filteredImageId;
+		if (this.notifyRemote(PROP_FILTERED_IMAGE_ID_PROPERTY, oldValue,
+				filteredImageId)) {
+			this.filteredImageId = filteredImageId;
+
+			CampaignClient.getInstance().addWaitBeanListener(
+					new WaitBeanListener() {
+						@Override
+						public UniqueID getBeanId() {
+							return filteredImageId;
+						}
+
+						@Override
+						public void beanReceived(BasicBean bean) {
+							try {
+								revalidateFilter();
+								refreshFilterImage();
+								notifyLocal(PROP_FILTERED_IMAGE_ID_PROPERTY,
+										oldValue, filteredImageId);
+							} catch (IOException e) {
+								Logger.getLogger(getClass()).warn(
+										"Impossible de changer le filtre", e);
+							} catch (IllegalArgumentException e) {
+								Logger.getLogger(getClass()).error(
+										e.getMessage(), e);
+							}
+						}
+					});
+		}
+	}
+
+	private void revalidateFilter() throws IOException {
 		this.getSquaredMap().fill(CLEAR_VALUE);
+
+		BufferedImage filter = ImageBean.getImage(filteredImageId);
 
 		if (filter.getWidth() != getSquaredMap().getImageWidth()
 				|| filter.getHeight() != getSquaredMap().getImageHeight()) {
@@ -108,17 +216,6 @@ public class CharacterMapFilter extends MapFilter {
 				}
 			}
 		}
-
-		// we change the filter, now we need to notify everyone that a change
-		// occur
-		revalidateFilter(squaredMap);
-	}
-
-	public void revalidateFilter(ImageInfo info) {
-		if (this.notifyRemote(METH_REVALIDATE_FILTER_METHOD, null, info)) {
-			this.squaredMap = info;
-			this.notifyLocal(METH_REVALIDATE_FILTER_METHOD, null, info);
-		}
 	}
 
 	public Integer getMaxVision() {
@@ -137,16 +234,45 @@ public class CharacterMapFilter extends MapFilter {
 		addElementIdView(element.getId());
 	}
 
-	public void addElementIdView(UniqueID element) {
+	public void addElementIdView(final UniqueID element) {
 		if (notifyRemote(METH_ADD_ELEMENT_VIEW_METHOD, null, element)) {
 			elementsViews.add(element);
+
+			CampaignClient.getInstance().addWaitBeanListener(
+					new WaitBeanListener() {
+						@Override
+						public UniqueID getBeanId() {
+							return element;
+						}
+
+						@Override
+						public void beanReceived(BasicBean bean) {
+							somethingChange = true;
+							bean.addPropertyChangeListener(
+									MapElement.PROP_POSITION_PROPERTY,
+									CharacterMapFilter.this);
+						}
+					});
 			notifyLocal(METH_ADD_ELEMENT_VIEW_METHOD, null, element);
 		}
 	}
 
-	public void removeElementView(UniqueID element) {
+	public void removeElementView(final UniqueID element) {
 		if (notifyRemote(METH_REMOVE_ELEMENT_VIEW_METHOD, null, element)) {
 			elementsViews.remove(element);
+			CampaignClient.getInstance().addWaitBeanListener(
+					new WaitBeanListener() {
+						@Override
+						public UniqueID getBeanId() {
+							return element;
+						}
+
+						@Override
+						public void beanReceived(BasicBean bean) {
+							somethingChange = true;
+							bean.removePropertyChangeListener(CharacterMapFilter.this);
+						}
+					});
 			notifyLocal(METH_REMOVE_ELEMENT_VIEW_METHOD, null, element);
 		}
 	}
@@ -157,8 +283,7 @@ public class CharacterMapFilter extends MapFilter {
 		return ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
 	}
 
-	@Override
-	public void draw(Graphics2D g, double zoomFactor, boolean isDm) {
+	private void refreshFilterImage() {
 		visionMap.fill(HIDE_VALUE);
 
 		computeVision();
@@ -171,9 +296,60 @@ public class CharacterMapFilter extends MapFilter {
 			visionMap.replaceValues(HIDE_VALUE, HIDDEN_PLAYER_COLOR);
 		}
 
-		BufferedImage img = visionMap.buildImage();
-		g.drawImage(img, 0, 0, (int) (getMap().getWidth() * zoomFactor),
-				(int) (getMap().getHeight() * zoomFactor), null);
+		BufferedImage oldValue = this.filterImage;
+		if (filterImage != null) {
+			synchronized (filterImage) {
+				filterImage = visionMap.buildImage();
+			}
+		} else {
+			filterImage = visionMap.buildImage();
+		}
+		notifyLocal(METH_REVALIDATE_FILTER_IMAGE_METHOD, oldValue, filterImage);
+	}
+
+	private void refreshFilterImageThread() {
+		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
+			@Override
+			public void run() {
+				while (refreshVision) {
+					if (somethingChange) {
+						somethingChange = false;
+						refreshFilterImage();
+					}
+					try {
+						Thread.sleep(30);
+					} catch (InterruptedException e) {
+						Logger.getLogger(getClass()).info("Error during sleep",
+								e);
+					}
+				}
+			}
+
+			@Override
+			public String getTaskName() {
+				return "Mise à jour du filtre sur la carte: " + getMapId();
+			}
+		});
+	}
+
+	@Override
+	public void draw(Graphics2D g, double zoomFactor, boolean isDm) {
+		if (isDm != this.isDm) {
+			this.isDm = isDm;
+			this.somethingChange = true;
+		}
+
+		if (filterImage != null) {
+			synchronized (filterImage) {
+				g.drawImage(this.filterImage, 0, 0,
+						(int) (getMap().getWidth() * zoomFactor),
+						(int) (getMap().getHeight() * zoomFactor), null);
+
+			}
+		} else {
+			drawDefault(g, zoomFactor, isDm);
+		}
+
 	}
 
 	private void computeVision() {
@@ -259,34 +435,14 @@ public class CharacterMapFilter extends MapFilter {
 		int y = begin.y;
 		int numerator = longest >> 1;
 
-		// int prevX = x;
-		// int prevY = y;
-
-		// int cost = 0;
-		// double total = 0;
 		for (int i = 0; i <= longest; i++) {
 
 			addVisible(image, getSquaredMap().getSquareSize(), x, y,
 					visibleColor);
 
-			if (getSquaredMap().getValue(x, y) == BLOCK_VALUE) {// Integer.MAX_VALUE)
-				// {
+			if (getSquaredMap().getValue(x, y) == BLOCK_VALUE) {
 				return;
 			}
-			/*
-			 * int diff = Math.abs(x - prevX) + Math.abs(y - prevY); cost +=
-			 * getSquaredMap().getValue(x, y) * diff; total += diff;
-			 * 
-			 * if (total > 0) { prevX = x; prevY = y;
-			 * 
-			 * double avg = cost / total; double dist = new Point(x,
-			 * y).distance(begin) * avg;
-			 * 
-			 * 
-			 * if (dist > currentVision) { return; }
-			 * 
-			 * }
-			 */
 
 			numerator += shortest;
 			if (!(numerator < longest)) {
@@ -297,6 +453,13 @@ public class CharacterMapFilter extends MapFilter {
 				x += dx2;
 				y += dy2;
 			}
+		}
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (MapElement.PROP_POSITION_PROPERTY.equals(evt.getPropertyName())) {
+			somethingChange = true;
 		}
 	}
 }

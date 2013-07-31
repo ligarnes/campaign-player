@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
+import javazoom.jl.player.Player;
 import net.alteiar.utils.files.SerializableFile;
 
 /**
@@ -35,7 +35,7 @@ public class SerializableAudio extends SerializableFile implements
 		TransfertAudio {
 	private static final long serialVersionUID = 4786344613415239528L;
 
-	private transient AdvancedPlayer audio;
+	// private transient Player audio;
 
 	public SerializableAudio() {
 		super();
@@ -46,10 +46,10 @@ public class SerializableAudio extends SerializableFile implements
 	}
 
 	@Override
-	public AdvancedPlayer restoreAudio() throws IOException, JavaLayerException {
-		if (audio == null) {
-			audio = new AdvancedPlayer(new ByteArrayInputStream(file));
-		}
-		return audio;
+	public Player restoreAudio() throws IOException, JavaLayerException {
+		// if (audio == null) {
+		// audio = new Player(new ByteArrayInputStream(getBytes()));
+		// }
+		return new Player(new ByteArrayInputStream(getBytes()));
 	}
 }

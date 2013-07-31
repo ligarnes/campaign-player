@@ -24,7 +24,7 @@ import net.alteiar.server.document.IDocumentClient;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
-import net.alteiar.thread.ThreadPoolClient;
+import net.alteiar.thread.ThreadPoolUtils;
 
 import org.apache.log4j.Logger;
 
@@ -103,7 +103,7 @@ public class DocumentManager {
 	}
 
 	public void loadDocuments() {
-		ThreadPoolClient.execute(new MyRunnable() {
+		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
 			@Override
 			public void run() {
 				realLoadDocuments();
@@ -259,8 +259,7 @@ public class DocumentManager {
 	}
 
 	public void createDocument(final BasicBean bean) {
-
-		ThreadPoolClient.execute(new MyRunnable() {
+		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
 			@Override
 			public void run() {
 				try {

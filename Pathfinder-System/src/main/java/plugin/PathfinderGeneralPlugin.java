@@ -43,6 +43,9 @@ public class PathfinderGeneralPlugin implements IPlugin {
 					.buildSpellBookDocumentPlugin());
 			documentPlugins.addPlugin(DocumentPluginFactory
 					.buildNoteDocumentPlugin());
+
+			documentPlugins.addPlugin(DocumentPluginFactory
+					.buildAudioDocumentPlugin());
 		} catch (IOException e1) {
 			Logger.getLogger(getClass()).error(
 					"impossible de charger le plugin", e1);
@@ -85,6 +88,7 @@ public class PathfinderGeneralPlugin implements IPlugin {
 			lst.add(DocumentPluginFactory.buildCharacterDocumentPlugin());
 			lst.add(DocumentPluginFactory.buildSpellBookDocumentPlugin());
 			lst.add(DocumentPluginFactory.buildNoteDocumentPlugin());
+			lst.add(DocumentPluginFactory.buildAudioDocumentPlugin());
 		} catch (IOException e1) {
 			Logger.getLogger(getClass()).error(
 					"impossible de charger le plugin", e1);

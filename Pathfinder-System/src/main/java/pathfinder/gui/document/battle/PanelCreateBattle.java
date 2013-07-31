@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.player.Threads;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
@@ -28,8 +28,8 @@ import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.map.MapBean;
-import net.alteiar.media.ImageBean;
 import net.alteiar.shared.ImageUtil;
+import net.alteiar.thread.MyRunnable;
 import net.alteiar.utils.files.images.TransfertImage;
 
 import org.apache.log4j.Logger;
@@ -132,21 +132,33 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 		add(lblMapImage, gbc_lblMapImage);
 	}
 
-	private void selectImage(ImageSelectorStrategy selector) {
-		TransfertImage tmp = selector.selectImage();
+	private void selectImage(final ImageSelectorStrategy selector) {
+		Threads.execute(new MyRunnable() {
 
-		if (tmp != null) {
-			transfertImage = tmp;
-			try {
-				BufferedImage img = transfertImage.restoreImage();
-				lblMapImage.setIcon(new ImageIcon(ImageUtil.resizeImage(img,
-						300, 300)));
-			} catch (IOException e) {
-				ExceptionTool.showError(e);
-			} catch (CMMException e) {
-				ExceptionTool.showError(e);
+			@Override
+			public void run() {
+				TransfertImage tmp = selector.selectImage();
+
+				if (tmp != null) {
+					transfertImage = tmp;
+					try {
+						BufferedImage img = transfertImage.restoreImage();
+						lblMapImage.setIcon(new ImageIcon(ImageUtil
+								.resizeImage(img, 300, 300)));
+					} catch (IOException e) {
+						ExceptionTool.showError(e);
+					} catch (CMMException e) {
+						ExceptionTool.showError(e);
+					}
+				}
 			}
-		}
+
+			@Override
+			public String getTaskName() {
+				return "loading image";
+			}
+		});
+
 	}
 
 	@Override
@@ -178,10 +190,6 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 	@Override
 	public BasicBean buildDocument() {
 		MapBean map = null;
-
-		ImageBean image = new ImageBean(transfertImage);
-		CampaignClient.getInstance().addBean(image);
-
 		try {
 			map = MapFactory.createMap(textFieldMapName.getText(),
 					transfertImage);

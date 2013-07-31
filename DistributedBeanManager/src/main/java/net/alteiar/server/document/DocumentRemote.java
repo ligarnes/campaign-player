@@ -8,7 +8,8 @@ import java.util.HashSet;
 
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.client.bean.BeanEncapsulator;
-import net.alteiar.thread.ThreadPoolServer;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolUtils;
 
 import org.apache.log4j.Logger;
 
@@ -81,7 +82,12 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	protected void notifyBeanChanged(final String propertyName,
 			final Object newValue, final long timestamp) {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
-			ThreadPoolServer.execute(new Runnable() {
+			ThreadPoolUtils.getServerPool().execute(new MyRunnable() {
+				@Override
+				public String getTaskName() {
+					return "Bean changed";
+				}
+
 				@Override
 				public void run() {
 					try {
@@ -99,7 +105,12 @@ public class DocumentRemote extends UnicastRemoteObject implements
 	protected void notifyDocumentClosed() {
 		for (final IDocumentRemoteListener listener : getDocumentListeners()) {
 			if (listener != null) {
-				ThreadPoolServer.execute(new Runnable() {
+				ThreadPoolUtils.getServerPool().execute(new MyRunnable() {
+					@Override
+					public String getTaskName() {
+						return "Document closed";
+					}
+
 					@Override
 					public void run() {
 						try {

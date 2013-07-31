@@ -90,7 +90,6 @@ public class MainFrame extends JFrame implements WindowListener {
 		southPanel.add(currentTask);
 		southPanel.add(progressBar);
 
-		// this.add(centerPanel, BorderLayout.CENTER);
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.add(westPanel, BorderLayout.WEST);
 		this.add(southPanel, BorderLayout.SOUTH);

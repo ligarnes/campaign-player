@@ -40,6 +40,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import net.alteiar.CampaignClient;
+import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.Threads;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
@@ -49,6 +50,7 @@ import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable.Drawabl
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.button.ButtonDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
+import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
@@ -99,19 +101,22 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		this.map = map;
 		this.map.addPropertyChangeListener(this);
 
-		Threads.execute(new MyRunnable() {
-			@Override
-			public void run() {
-				MapFilter filter = CampaignClient.getInstance().getBean(
-						map.getFilter(), 15000);
-				filter.addPropertyChangeListener(PanelMapBasic.this);
-			}
+		CampaignClient.getInstance().addWaitBeanListener(
+				new WaitBeanListener() {
+					@Override
+					public UniqueID getBeanId() {
+						return map.getFilter();
+					}
 
-			@Override
-			public String getTaskName() {
-				return "Wait for map filter";
-			}
-		});
+					@Override
+					public void beanReceived(BasicBean bean) {
+						MapFilter filter = CampaignClient.getInstance()
+								.getBean(map.getFilter(), 15000);
+						if (filter != null) {
+							filter.addPropertyChangeListener(PanelMapBasic.this);
+						}
+					}
+				});
 
 		for (UniqueID elementId : this.map.getElements()) {
 			MapElementDrawable drawable = new MapElementDrawable(elementId);
@@ -233,6 +238,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 				RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 
 		g2.translate(offset, offset);
+
 		// draw background
 		map.drawBackground(g2, zoomFactor);
 

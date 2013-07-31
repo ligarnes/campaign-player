@@ -34,22 +34,48 @@ import org.simpleframework.xml.Element;
 public class SerializableFile implements Serializable {
 	private static final long serialVersionUID = 4786344613415239528L;
 
+	private static String convert(byte[] array) {
+		StringBuilder builder = new StringBuilder();
+
+		for (byte b : array) {
+			int i = b;
+			builder.append(String.valueOf(i) + " ");
+		}
+		builder.deleteCharAt(builder.length() - 1);
+
+		return new String(builder);
+	}
+
+	private static byte[] convert(String array) {
+		String[] vals = array.split(" ");
+		byte[] bytes = new byte[vals.length];
+
+		for (int i = 0; i < bytes.length; i++) {
+			bytes[i] = Integer.valueOf(vals[i]).byteValue();
+		}
+		return bytes;
+	}
+
 	@Element
-	protected byte[] file;
+	private String file;
 
 	public SerializableFile() {
 	}
 
-	public byte[] getBytes() {
-		return this.file;
+	public SerializableFile(byte[] bytes) {
+		this(convert(bytes));
 	}
 
-	public SerializableFile(byte[] bytes) {
+	public SerializableFile(String bytes) {
 		this.file = bytes;
 	}
 
 	public SerializableFile(File file) throws IOException {
-		this.file = SerializableFile.getBytesFromFile(file);
+		this.file = convert(SerializableFile.getBytesFromFile(file));
+	}
+
+	public byte[] getBytes() {
+		return convert(this.file);
 	}
 
 	private static byte[] getBytesFromFile(File file) throws IOException {

@@ -33,7 +33,8 @@ import net.alteiar.rmi.server.RmiRegistryProxy;
 import net.alteiar.server.document.DocumentRemote;
 import net.alteiar.server.document.IDocumentRemote;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.thread.ThreadPoolServer;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolUtils;
 
 import org.apache.log4j.Logger;
 
@@ -72,7 +73,7 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 	}
 
 	public static void stopServer() {
-		ThreadPoolServer.shutdown();
+		ThreadPoolUtils.getServerPool().shutdown();
 
 		// TODO fail to unbind need to check
 		/*
@@ -139,7 +140,12 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		documents.put(id, remote);
 
 		for (final ServerListener listener : getListeners()) {
-			ThreadPoolServer.execute(new Runnable() {
+			ThreadPoolUtils.getServerPool().execute(new MyRunnable() {
+				@Override
+				public String getTaskName() {
+					return "Create documents";
+				}
+
 				@Override
 				public void run() {
 					try {
@@ -161,7 +167,12 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 			remote.closeDocument();
 
 			for (final ServerListener listener : getListeners()) {
-				ThreadPoolServer.execute(new Runnable() {
+				ThreadPoolUtils.getServerPool().execute(new MyRunnable() {
+					@Override
+					public String getTaskName() {
+						return "Delete documents";
+					}
+
 					@Override
 					public void run() {
 						try {

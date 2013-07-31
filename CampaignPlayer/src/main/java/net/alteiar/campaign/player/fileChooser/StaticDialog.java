@@ -54,6 +54,26 @@ public class StaticDialog {
 		return file;
 	}
 
+	public static File getSelectedAudioFile(Component comp) {
+		if (FILE_CHOOSER_OPEN_IMAGE == null) {
+			// setup the dialog
+			String path = Helpers.getGlobalProperties().getMapPath();
+			FILE_CHOOSER_OPEN_IMAGE = new JFileChooser(path);
+			FILE_CHOOSER_OPEN_IMAGE.setFileFilter(new FileFilterAudio());
+		}
+
+		File file = null;
+		int returnVal = StaticDialog.FILE_CHOOSER_OPEN_IMAGE
+				.showOpenDialog(comp);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			file = StaticDialog.FILE_CHOOSER_OPEN_IMAGE.getSelectedFile();
+			Helpers.getGlobalProperties().setMapPath(file.getParent());
+			Helpers.getGlobalProperties().save();
+		}
+
+		return file;
+	}
+
 	public static File getSelectedCharacter(Component comp) {
 		if (FILE_CHOOSER_OPEN_CHARACTER == null) {
 			// setup the dialog
