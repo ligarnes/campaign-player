@@ -102,7 +102,9 @@ public class CharacterMapFilter extends MapFilter implements
 		in.defaultReadObject();
 
 		HashSet<UniqueID> ids = new HashSet<UniqueID>();
-		ids.add(filteredImageId);
+		if (filteredImageId != null) {
+			ids.add(filteredImageId);
+		}
 		ids.add(getMapId());
 		for (UniqueID uniqueID : elementsViews) {
 			ids.add(uniqueID);
@@ -194,6 +196,10 @@ public class CharacterMapFilter extends MapFilter implements
 
 	private void revalidateFilter() throws IOException {
 		this.getSquaredMap().fill(CLEAR_VALUE);
+
+		if (filteredImageId == null) {
+			return;
+		}
 
 		BufferedImage filter = ImageBean.getImage(filteredImageId);
 

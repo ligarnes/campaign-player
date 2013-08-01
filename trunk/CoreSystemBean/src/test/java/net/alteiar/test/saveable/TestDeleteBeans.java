@@ -46,7 +46,7 @@ public class TestDeleteBeans extends NewCampaignTest {
 
 		CampaignClient.getInstance().getChat()
 				.talk(MessageFactory.currentPlayer("Hello world"));
-		sleep(10);
+		sleep();
 		save();
 
 		ImageBean toRemove = null;
@@ -57,12 +57,12 @@ public class TestDeleteBeans extends NewCampaignTest {
 			fail("no exception should occur");
 		}
 
-		sleep(10);
+		sleep();
 		save();
 		assertEquals(1, countObjectFile(ImageBean.class));
 
 		CampaignClient.getInstance().removeBean(toRemove);
-		sleep(10);
+		sleep();
 		save();
 		assertEquals(0, countObjectFile(ImageBean.class));
 	}

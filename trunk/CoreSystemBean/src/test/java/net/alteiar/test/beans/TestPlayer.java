@@ -54,32 +54,28 @@ public class TestPlayer extends NewCampaignTest {
 
 		String targetName = "test-new-name";
 		current.setName(targetName);
-		sleep(10);
-		assertEquals("player name should be same", targetName,
-				current.getName());
+		waitForChange(current, "getName", targetName);
 
-		Boolean isMj = !current.isDm();
-		current.setMj(isMj);
-		sleep(5);
-		assertEquals("player mj should be same", isMj, current.isDm());
+		Boolean isDm = !current.isDm();
+		current.setDm(isDm);
+		waitForChange(current, "isDm", isDm);
 
 		Color color = Color.RED;
 		current.setColor(color);
-		sleep(10);
+		sleep();
 		assertEquals("player color should be same", color, current.getColor());
 
-		current.setMj(!current.isDm());
+		isDm = !current.isDm();
+		current.setDm(isDm);
+		waitForChange(current, "isDm", isDm);
+
+		targetName = getPlayerName();
 		current.setName(getPlayerName());
-		sleep(5);
+		waitForChange(current, "getName", targetName);
 
 		assertTrue("player should be connected", current.getConnected());
 		current.setConnected(false);
-		sleep(5);
-		assertTrue("player should'nt be connected", !current.getConnected());
+		waitForChange(current, "getConnected", false);
 	}
 
-	@Test
-	public void testDocument() {
-
-	}
 }

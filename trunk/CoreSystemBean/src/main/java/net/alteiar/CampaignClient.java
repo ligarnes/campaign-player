@@ -194,9 +194,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		this.manager.loadDocuments();
 
 		// eventManager = new EventManager(manager);
-		if (chat != null) {
-			this.chat.setPseudo("unknow");
-		}
 	}
 
 	public String getIpLocal() {
@@ -244,6 +241,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		return loadDirectory(globalFile);
 	}
 
+	@SuppressWarnings("unchecked")
 	private static <E extends BasicBean> ArrayList<E> loadDirectory(
 			File localFile) {
 
@@ -324,8 +322,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	private void connectPlayer() {
 		// The server should already contain a chat
 		if (chat != null) {
-			chat.setPseudo(currentPlayer.getName());
-
 			chat.talk(MessageFactory.connectMessage(currentPlayer));
 		}
 	}

@@ -4,35 +4,21 @@ import java.util.ArrayList;
 
 import net.alteiar.client.bean.BasicBean;
 
-import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
 public class Chat extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_MESSAGES_PROPERTY = "messages";
-	public static final String PROP_PSEUDO_PROPERTY = "pseudo";
 
 	public static final String METH_ADD_MESSAGE_METHOD = "addMessage";
 
 	// pseudo is transient because it is not shared
-	@Element
-	private transient String pseudo;
 	@ElementList
 	private ArrayList<Message> messages;
 
 	public Chat() {
 		messages = new ArrayList<Message>();
-	}
-
-	public void setPseudo(String pseudo) {
-		String oldValue = this.pseudo;
-		this.pseudo = pseudo;
-		notifyLocal(PROP_PSEUDO_PROPERTY, oldValue, this.pseudo);
-	}
-
-	public String getPseudo() {
-		return this.pseudo;
 	}
 
 	public void talk(Message message) {

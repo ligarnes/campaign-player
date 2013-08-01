@@ -78,9 +78,6 @@ public class TestChat extends NewCampaignTest {
 
 	@Test(timeout = 5000)
 	public void testChat() {
-		assertEquals("Pseudo should be same as player name", getPlayerName(),
-				getChat().getPseudo());
-
 		final String expectedMsg = "Salut";
 
 		Runnable sendTextMessage = new Runnable() {
@@ -93,17 +90,12 @@ public class TestChat extends NewCampaignTest {
 
 		assertEquals("the message must be the same", expectedMsg, msg.getText());
 
-		String pseudo = "my pseudo";
-		getChat().setPseudo(pseudo);
-		assertEquals("Pseudo should be same as new pseudo changed", pseudo,
-				getChat().getPseudo());
-
 		ArrayList<Message> allMsgExpected = new ArrayList<Message>();
 		allMsgExpected.add(MessageFactory.textMessage(CampaignClient
 				.getInstance().getCurrentPlayer(), "my message"));
 
 		getChat().setMessages(allMsgExpected);
-		sleep(10);
+		sleep();
 		List<Message> allMsg = getChat().getMessages();
 
 		for (int i = 0; i < allMsgExpected.size(); ++i) {

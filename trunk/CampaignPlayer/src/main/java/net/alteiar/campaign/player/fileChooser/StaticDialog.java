@@ -38,7 +38,7 @@ public class StaticDialog {
 		if (FILE_CHOOSER_OPEN_IMAGE == null) {
 			// setup the dialog
 			String path = Helpers.getGlobalProperties().getMapPath();
-			FILE_CHOOSER_OPEN_IMAGE = new JFileChooser(path);
+			FILE_CHOOSER_OPEN_IMAGE = new ImageFileChooser(path);
 			FILE_CHOOSER_OPEN_IMAGE.setFileFilter(new FileFilterImage());
 		}
 

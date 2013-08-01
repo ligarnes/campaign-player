@@ -26,6 +26,7 @@ import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.Scale;
+import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.elements.RectangleElement;
 import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.map.size.MapElementSize;
@@ -127,6 +128,10 @@ public class TestMap extends NewCampaignTest {
 
 		MapElementFactory.buildMapElement(rectangle, battle);
 
+		// wait for the element to be loaded
+		MapElement e = getBeans(rectangle);
+
+		// wait for the element to be in the element list
 		while (elementsOnMap.isEmpty()) {
 			sleep(10);
 			elementsOnMap = battle.getElements();
@@ -155,7 +160,7 @@ public class TestMap extends NewCampaignTest {
 		battle.setScale(new Scale(25, 1.5));
 		battle.setFilter(new UniqueID());
 
-		sleep(5);
+		sleep();
 		// Should have 4 call
 		// (add element, remove element, scale change, filter change)
 		verifyInnerClassCall(4);
@@ -253,7 +258,7 @@ public class TestMap extends NewCampaignTest {
 
 		map.setBackground(newImage);
 
-		UniqueID newFilter = null;
+		UniqueID newFilter = new UniqueID();
 		map.setFilter(newFilter);
 
 		HashSet<UniqueID> set = new HashSet<UniqueID>();
@@ -261,17 +266,23 @@ public class TestMap extends NewCampaignTest {
 		set.add(new UniqueID());
 		map.setElements(set);
 
-		sleep(10);
-		assertEquals("Map scale should be changed", newScale, map.getScale());
-		assertEquals("Map width should be changed", newWidth, map.getWidth());
-		assertEquals("Map height should be changed", newHeight, map.getHeight());
-		assertEquals("Map image should be changed", newImage,
-				map.getBackground());
-		assertEquals("Map image should be changed", newFilter, map.getFilter());
-		assertEquals("Map elements should be changed", set, map.getElements());
+		waitForChange(map, "getScale", newScale);
+		waitForChange(map, "getWidth", newWidth);
+		waitForChange(map, "getHeight", newHeight);
+		waitForChange(map, "getBackground", newImage);
+		waitForChange(map, "getFilter", newFilter);
+		waitForChange(map, "getElements", set);
 
 		// Remove the battle
 		CampaignClient.getInstance().removeBean(doc);
+
+		long begin = System.currentTimeMillis();
+		long current = System.currentTimeMillis();
+		while (CampaignClient.getInstance().getBean(doc.getBeanId()) != null
+				&& (current - begin) < timeout) {
+			sleep();
+			current = System.currentTimeMillis();
+		}
 	}
 
 	@Test(timeout = 10000)
@@ -305,6 +316,7 @@ public class TestMap extends NewCampaignTest {
 		MapBean battle2 = CampaignClient.getInstance().getBean(battleId2,
 				waitingTime);
 
+		sleep();
 		double compareZoomFactor = 2.5;
 		BufferedImage image1 = new BufferedImage(
 				(int) (battle1.getWidth() * compareZoomFactor),
@@ -407,7 +419,7 @@ public class TestMap extends NewCampaignTest {
 					new int[] { 15, 15, 50, 50 }, 4);
 			filter.showPolygon(showPolygon);
 			targetFilter.showPolygon(showPolygon);
-			sleep(10);
+			sleep();
 
 			BufferedImage filteredShowImage = new BufferedImage(
 					(int) (mapFiltered.getWidth() * 0.75),
@@ -453,7 +465,7 @@ public class TestMap extends NewCampaignTest {
 					new int[] { 15, 15, 20, 20 }, 4);
 			filter.hidePolygon(hidePolygon);
 			targetFilter.hidePolygon(hidePolygon);
-			sleep(50);
+			sleep();
 
 			BufferedImage filteredShowHideImage = new BufferedImage(
 					mapFiltered.getWidth() * 1, mapFiltered.getHeight() * 1,

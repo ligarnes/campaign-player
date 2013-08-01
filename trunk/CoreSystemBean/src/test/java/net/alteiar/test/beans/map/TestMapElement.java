@@ -78,13 +78,10 @@ public class TestMapElement extends NewCampaignTest {
 		}
 
 		rectangle.setMapId(newBattleId);
-		sleep(10);
-
-		assertEquals("The battle id should be the same as the map id",
-				newBattleId, rectangle.getMapId());
+		waitForChange(rectangle, "getMapId", newBattleId);
 
 		CampaignClient.getInstance().removeBean(rectangle);
-		sleep(100);
+		sleep();
 		assertEquals("the bean should have been removed", null, CampaignClient
 				.getInstance().getBean(targetRectangle.getId()));
 	}
@@ -122,7 +119,7 @@ public class TestMapElement extends NewCampaignTest {
 				rectangle.getPosition());
 
 		rectangle.applyMove();
-		sleep(5);
+		sleep();
 		assertEquals("position should be " + tempPos, tempPos,
 				rectangle.getPosition());
 
@@ -153,10 +150,8 @@ public class TestMapElement extends NewCampaignTest {
 
 		rectangle.setHiddenForPlayer(false);
 		rectangle.setSelected(true);
-		sleep(5);
-		assertTrue("rectangle should'nt be hidden for players",
-				!rectangle.isHiddenForPlayer());
-		assertTrue("rectangle should be selected", rectangle.getSelected());
+		waitForChange(rectangle, "isHiddenForPlayer", false);
+		waitForChange(rectangle, "getSelected", true);
 
 		BufferedImage realImg = new BufferedImage(200, 200,
 				BufferedImage.TYPE_INT_ARGB);
@@ -209,7 +204,7 @@ public class TestMapElement extends NewCampaignTest {
 		MapElementSize newHeight = new MapElementSizeSquare(3.0);
 		rectangle.setWidth(newWidth);
 		rectangle.setHeight(newHeight);
-		sleep(5);
+		sleep();
 		assertEquals("The width should be equals", newWidth.getPixels(battle
 				.getScale()), rectangle.getWidth().getPixels(battle.getScale()));
 		assertEquals("The height should be equals", newHeight.getPixels(battle
@@ -294,7 +289,11 @@ public class TestMapElement extends NewCampaignTest {
 		circleClient.setPosition(newPosition);
 		circleClient.setAngle(angle);
 
-		sleep(10);
+		waitForChange(circleClient, "getPosition", newPosition);
+		waitForChange(circleClient, "getAngle", angle);
+		waitForChange(circleClient, "isHiddenForPlayer", isHidden);
+		waitForChange(circleClient, "getPosition", newPosition);
+		waitForChange(circleClient, "getPosition", newPosition);
 
 		assertEquals("The position should be equals", newPosition,
 				circleClient.getPosition());
@@ -311,14 +310,14 @@ public class TestMapElement extends NewCampaignTest {
 
 		MapElementSize newCircleRadius = new MapElementSizeMeter(1.5);
 		circleClient.setRadius(newCircleRadius);
-		sleep(10);
+		sleep();
 		assertEquals("radius should be equals",
 				newCircleRadius.getPixels(battle.getScale()), circleClient
 						.getRadius().getPixels(battle.getScale()));
 
 		Color color = Color.BLUE;
 		circleClient.setColor(color);
-		sleep(10);
+		sleep();
 		assertEquals("radius should be equals", color, circleClient.getColor());
 	}
 	/*
