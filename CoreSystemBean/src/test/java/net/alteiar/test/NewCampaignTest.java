@@ -20,16 +20,22 @@ public class NewCampaignTest extends BasicTest {
 
 		deleteRecursive(new File(localDirectoryPath));
 
-		CampaignClient.startNewCampaignServer(address, port,
-				getGlobalDirectory(), localDirectoryPath);
+		try {
+			CampaignClient.startNewCampaignServer(address, port,
+					getGlobalDirectory(), localDirectoryPath);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		CampaignClient.getInstance().createPlayer(getPlayerName(), true,
 				Color.BLUE);
+
 	}
 
 	@After
 	public void afterTest() {
-		sleep(100);
+		sleep();
 		try {
 			CampaignClient.getInstance().saveGame();
 		} catch (Exception e) {

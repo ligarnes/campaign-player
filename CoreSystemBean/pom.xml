@@ -123,6 +123,36 @@
   </reporting> 
   
   <build> 
+  
+      <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+		          <skipTests>true</skipTests>
+		        </configuration>
+            </plugin>
+        </plugins>
+  </pluginManagement>
+  
+   <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+    </plugins>
+    
+    <!-- 
     <plugins> 
               
     	 <plugin>
@@ -155,7 +185,7 @@
           <skipTests>true</skipTests>
         </configuration>
       </plugin>
-    </plugins> 
+    </plugins>  -->
   </build>
  
 </project>

@@ -31,7 +31,9 @@ public class MyTheadPool {
 	}
 
 	public void shutdown() {
-		pool.shutdown();
+		if (!pool.isShutdown()) {
+			pool.shutdown();
+		}
 	}
 
 	private class MyRealThreadPool extends ThreadPoolExecutor {

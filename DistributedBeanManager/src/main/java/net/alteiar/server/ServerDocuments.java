@@ -56,6 +56,9 @@ public final class ServerDocuments extends UnicastRemoteObject implements
 		Logger.getLogger(ServerDocuments.class).info(
 				"start server at ip: " + addressIp + ", port: " + port);
 
+		// start server thread pool
+		ThreadPoolUtils.startServerThreadPool();
+
 		System.setProperty("java.rmi.server.hostname", addressIp);
 		ServerDocuments server = new ServerDocuments(campaignPath);
 		RmiRegistryProxy

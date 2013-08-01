@@ -23,7 +23,7 @@ public class DocumentIO {
 			@SuppressWarnings("unchecked")
 			Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
 					.forName(classe);
-			found = true;
+			found = c != null;
 		} catch (ClassNotFoundException ex) {
 			// do not care as default we say the file is not valid<
 			Logger.getLogger(DocumentIO.class).warn(

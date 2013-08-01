@@ -39,6 +39,9 @@ public class DocumentManager {
 
 		System.setProperty("java.rmi.server.hostname", localAddress);
 
+		// Start Thread pool client
+		ThreadPoolUtils.startClientThreadPool();
+
 		DocumentManager documentManager = null;
 		IServerDocument campaign = null;
 		Remote remoteObject;
@@ -133,6 +136,9 @@ public class DocumentManager {
 
 	@SuppressWarnings("unchecked")
 	public <E extends BasicBean> E getBean(UniqueID id, Long timeout) {
+		if (id == null) {
+			throw new NullPointerException("the unique id must'nt be null");
+		}
 		IDocumentClient doc = getDocument(id, -1L);
 		if (doc == null) {
 			// try to find it locally

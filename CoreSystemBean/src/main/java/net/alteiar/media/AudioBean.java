@@ -26,6 +26,8 @@ public class AudioBean extends BasicBean {
 	@Element
 	private SerializableAudio audio;
 
+	// TODO use it for play and pause
+	@SuppressWarnings("unused")
 	private int framePosition;
 
 	private transient Player player;

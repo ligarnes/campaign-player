@@ -13,14 +13,14 @@ public class Player extends BasicBean {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_NAME_PROPERTY = "name";
-	public static final String PROP_MJ_PROPERTY = "mj";
+	public static final String PROP_MJ_PROPERTY = "dm";
 	public static final String PROP_COLOR_PROPERTY = "color";
 	public static final String PROP_CONNECTED_PROPERTY = "connected";
 
 	@Element
 	private String name;
 	@Element
-	private Boolean mj;
+	private Boolean dm;
 	@Element
 	private MyColor color;
 
@@ -33,7 +33,7 @@ public class Player extends BasicBean {
 	public Player(String name, Boolean mj, Color color) {
 		super();
 		this.name = name;
-		this.mj = mj;
+		this.dm = mj;
 		this.color = new MyColor(color);
 		this.connected = false;
 	}
@@ -51,13 +51,13 @@ public class Player extends BasicBean {
 	}
 
 	public Boolean isDm() {
-		return mj;
+		return dm;
 	}
 
-	public void setMj(Boolean mj) {
-		Boolean oldValue = this.mj;
+	public void setDm(Boolean mj) {
+		Boolean oldValue = this.dm;
 		if (notifyRemote(PROP_MJ_PROPERTY, oldValue, mj)) {
-			this.mj = mj;
+			this.dm = mj;
 			notifyLocal(PROP_MJ_PROPERTY, oldValue, mj);
 		}
 	}
@@ -88,7 +88,7 @@ public class Player extends BasicBean {
 
 	@Override
 	public String toString() {
-		return "Player [name=" + name + ", mj=" + mj + ", color=" + color + "]";
+		return "Player [name=" + name + ", mj=" + dm + ", color=" + color + "]";
 	}
 
 }

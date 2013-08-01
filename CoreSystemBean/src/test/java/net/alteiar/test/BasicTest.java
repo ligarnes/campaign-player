@@ -1,5 +1,6 @@
 package net.alteiar.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
@@ -9,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
@@ -27,6 +30,66 @@ public abstract class BasicTest {
 	 */
 	protected Long timeout = 500L;
 
+	public void waitForChange(BasicBean bean, String property,
+			Object expectedValue) {
+		waitForChange(timeout, bean, property, expectedValue);
+	}
+
+	/**
+	 * Generic method to test with timeout
+	 * 
+	 * @param timeout
+	 *            - the time before timeout
+	 * @param bean
+	 *            - the bean to test
+	 * @param property
+	 *            - the method name
+	 * @param expectedValue
+	 *            - the expected value
+	 */
+	public void waitForChange(long timeout, BasicBean bean, String property,
+			Object expectedValue) {
+		try {
+			Object actual = null;
+			boolean isEquals = expectedValue.equals(actual);
+
+			long begin = System.currentTimeMillis();
+			long current = System.currentTimeMillis();
+			while (!isEquals && (current - begin) < timeout) {
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Method meth = bean.getClass().getMethod(property);
+				actual = meth.invoke(bean);
+
+				isEquals = expectedValue.equals(actual);
+				current = System.currentTimeMillis();
+			}
+
+			if ((current - begin) >= timeout) {
+				fail("Time out, the value do not change within " + timeout);
+			} else {
+				assertEquals(property + " have not the right value",
+						expectedValue, actual);
+			}
+
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+			fail("error in test method do not exist");
+		} catch (SecurityException e) {
+			fail("error in test method not accessible");
+		} catch (IllegalAccessException e) {
+			fail("error in test method not accessible");
+		} catch (IllegalArgumentException e) {
+			fail("error in test method require arguments ");
+		} catch (InvocationTargetException e) {
+			fail("error in test method unknoew");
+		}
+	}
+
 	protected Boolean compareImage(BufferedImage img1, BufferedImage img2)
 			throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -40,6 +103,9 @@ public abstract class BasicTest {
 		baos.flush();
 		byte[] resultBytes = baos.toByteArray();
 		baos.close();
+
+		System.out.println("target: " + targetBytes.length + " | get: "
+				+ resultBytes.length);
 
 		return Arrays.equals(targetBytes, resultBytes);
 	}
@@ -63,6 +129,10 @@ public abstract class BasicTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	protected void sleep() {
+		sleep(timeout);
 	}
 
 	protected void sleep(long time) {
