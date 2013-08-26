@@ -5,9 +5,9 @@ import java.awt.Point;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.SuppressBeanListener;
 import net.alteiar.WaitBeanListener;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;

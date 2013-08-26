@@ -17,10 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.UiHelper;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.MainFrame;
+import net.alteiar.campaign.player.infos.HelpersImages;
+import net.alteiar.campaign.player.infos.UiHelper;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
@@ -100,7 +100,7 @@ public class PanelDocumentDescription extends JPanel {
 		btnDelete.setMaximumSize(new Dimension(32, 32));
 		btnDelete.setMinimumSize(new Dimension(32, 32));
 		btnDelete.setPreferredSize(new Dimension(32, 32));
-		btnDelete.setIcon(Helpers.getIcon("delete.png", 32, 32));
+		btnDelete.setIcon(HelpersImages.getIcon("delete.png", 32, 32));
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
 		gbc_btnDelete.gridx = 3;
 		gbc_btnDelete.gridy = 0;
@@ -179,11 +179,11 @@ public class PanelDocumentDescription extends JPanel {
 	}
 
 	protected ImageIcon getCurrentState() {
-		ImageIcon currentStateIcon = Helpers.getIcon(IMAGE_NO_SHARED);
+		ImageIcon currentStateIcon = HelpersImages.getIcon(IMAGE_NO_SHARED);
 		if (this.bean.getPublic()) {
-			currentStateIcon = Helpers.getIcon(IMAGE_SHARED);
+			currentStateIcon = HelpersImages.getIcon(IMAGE_SHARED);
 		} else if (!this.bean.getUsers().isEmpty()) {
-			currentStateIcon = Helpers.getIcon(IMAGE_PARTIALLY_SHARED);
+			currentStateIcon = HelpersImages.getIcon(IMAGE_PARTIALLY_SHARED);
 		}
 		return currentStateIcon;
 	}

@@ -3,7 +3,7 @@ package pathfinder.bean.unit;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;

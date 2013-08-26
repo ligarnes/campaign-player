@@ -3,7 +3,8 @@ package net.alteiar.test;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignFactory;
 import net.alteiar.player.Player;
 
 import org.junit.After;
@@ -18,7 +19,7 @@ public class LoadCampaignTest extends BasicTest {
 		String address = "127.0.0.1";
 		String port = "1099";
 
-		CampaignClient.loadCampaignServer(address, port, getGlobalDirectory(),
+		CampaignFactory.loadCampaignServer(address, port, getGlobalDirectory(),
 				getCampaignDirectory());
 
 		long before = System.currentTimeMillis();
@@ -48,7 +49,7 @@ public class LoadCampaignTest extends BasicTest {
 		}
 
 		// CampaignClient.getInstance().saveGame();
-		CampaignClient.leaveGame();
+		CampaignFactory.leaveGame();
 	}
 
 	@Override

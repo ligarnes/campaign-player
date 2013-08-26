@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.sideView.chat.message.PanelDice;
 import net.alteiar.campaign.player.gui.sideView.chat.message.PanelTextMessage;
 import net.alteiar.chat.Message;

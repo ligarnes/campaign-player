@@ -19,16 +19,18 @@
  */
 package net.alteiar.campaign.player.gui.centerViews;
 
+import java.beans.Beans;
 import java.beans.PropertyChangeEvent;
 
 import javax.swing.JTabbedPane;
 
-import net.alteiar.CampaignAdapter;
-import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
+import net.alteiar.campaign.CampaignAdapter;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.PanelGlobalMap;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.AuthorizationAdapter;
+import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.MapBean;
 import net.alteiar.shared.UniqueID;
@@ -104,13 +106,17 @@ public class TabbedPaneListAllBattle extends JTabbedPane {
 
 	private class CampaignListener extends CampaignAdapter {
 		@Override
-		public void beanAdded(BeanDocument bean) {
-			addBattleDocument(bean);
+		public void beanAdded(BeanBasicDocument bean) {
+			if (Beans.isInstanceOf(bean, BeanDocument.class)) {
+				addBattleDocument((BeanDocument) bean);
+			}
 		}
 
 		@Override
-		public void beanRemoved(BeanDocument bean) {
-			removeBattleDocument(bean);
+		public void beanRemoved(BeanBasicDocument bean) {
+			if (Beans.isInstanceOf(bean, BeanDocument.class)) {
+				removeBattleDocument((BeanDocument) bean);
+			}
 		}
 	}
 

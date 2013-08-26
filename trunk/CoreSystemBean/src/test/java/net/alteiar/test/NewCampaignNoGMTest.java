@@ -3,7 +3,8 @@ package net.alteiar.test;
 import java.awt.Color;
 import java.io.File;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignFactory;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,7 +21,7 @@ public class NewCampaignNoGMTest extends BasicTest {
 
 		deleteRecursive(new File(localDirectoryPath));
 
-		CampaignClient.startNewCampaignServer(address, port,
+		CampaignFactory.startNewCampaignServer(address, port,
 				getGlobalDirectory(), localDirectoryPath);
 
 		CampaignClient.getInstance().createPlayer(getPlayerName(), false,
@@ -29,7 +30,7 @@ public class NewCampaignNoGMTest extends BasicTest {
 
 	@After
 	public void afterTest() {
-		CampaignClient.leaveGame();
+		CampaignFactory.leaveGame();
 		System.out.println("tearing down");
 	}
 

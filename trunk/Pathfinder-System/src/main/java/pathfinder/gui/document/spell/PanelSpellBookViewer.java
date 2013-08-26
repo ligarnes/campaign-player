@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JLabel;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.UniqueID;

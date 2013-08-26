@@ -1,6 +1,6 @@
 package net.alteiar.factory;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 

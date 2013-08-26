@@ -8,12 +8,13 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.CampaignListener;
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignListener;
+import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.AuthorizationBean;
+import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.panel.PanelList;
 import net.alteiar.player.Player;
@@ -46,11 +47,11 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 		btnAdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PanelCreateDocument.createDocument();
+				// PanelCreateDocument.createDocument();
 			}
 		});
 
-		JButton btnSave = new JButton(Helpers.getIcon(ICON_SAVE, 24, 24));
+		JButton btnSave = new JButton(HelpersImages.getIcon(ICON_SAVE, 24, 24));
 		btnSave.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -88,15 +89,15 @@ public class PanelDocumentManager extends PanelList<AuthorizationBean>
 
 	// //// LISTENERS ////
 	@Override
-	public void beanAdded(BeanDocument bean) {
+	public void beanAdded(BeanBasicDocument bean) {
 		bean.addPropertyChangeListener(beanListener);
 		if (bean.isAllowedToSee(CampaignClient.getInstance().getCurrentPlayer())) {
-			addElement(bean, new PanelDocumentDescription(bean));
+			// addElement(bean, new PanelDocumentDescription(bean));
 		}
 	}
 
 	@Override
-	public void beanRemoved(BeanDocument bean) {
+	public void beanRemoved(BeanBasicDocument bean) {
 		bean.removePropertyChangeListener(beanListener);
 		removeElement(bean);
 	}

@@ -24,9 +24,10 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.gui.documents.PanelDocumentManager;
+import net.alteiar.campaign.player.gui.centerViews.explorer.PanelDocumentExplorer;
 import net.alteiar.campaign.player.gui.players.PanelViewPlayers;
+import net.alteiar.campaign.player.infos.HelpersImages;
+import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.panel.MyPanel;
 
 /**
@@ -42,7 +43,7 @@ public class PanelDashboard extends MyPanel {
 	// 32);
 
 	private static BufferedImage getBackgroundTexture() {
-		return Helpers.getImage(Helpers.getPathTexture("parchemin.jpg"), 500,
+		return HelpersImages.getImage(HelpersPath.getPathTexture("parchemin.jpg"), 500,
 				500);
 	}
 
@@ -53,7 +54,9 @@ public class PanelDashboard extends MyPanel {
 		center.setOpaque(false);
 
 		center.add(new PanelViewPlayers());
-		center.add(new PanelDocumentManager());
+		// center.add(new PanelDocumentManager());
+
+		center.add(new PanelDocumentExplorer());
 
 		this.add(center, BorderLayout.CENTER);
 	}

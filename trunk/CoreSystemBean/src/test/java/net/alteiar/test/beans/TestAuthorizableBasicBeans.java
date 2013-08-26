@@ -9,7 +9,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashSet;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.media.ImageBean;
@@ -31,8 +31,9 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		String newExpName = "test-document-name-new";
 
 		ImageBean img = new ImageBean();
-		BeanDocument autorizableBean = new BeanDocument(expName,
-				"document-type", img);
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(), expName, "document-type",
+				img);
 
 		CampaignClient.getInstance().addBean(autorizableBean);
 
@@ -55,7 +56,8 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansOwner() {
-		BeanDocument autorizableBean = new BeanDocument("test-document-name",
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(), "test-document-name",
 				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
@@ -83,7 +85,9 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansModifier() {
-		BeanDocument autorizableBean = new BeanDocument("test-document-name",
+		System.out.println(CampaignClient.getInstance().getRootDirectory());
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(), "test-document-name",
 				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
@@ -131,15 +135,14 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansGameMaster() {
-		BeanDocument autorizableBean = new BeanDocument(
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(),
 				"test-game-master-change-see-right", "document-type",
 				new ImageBean());
 		autorizableBean = addBean(autorizableBean);
 
 		Player fakeGameMaster = new Player("GameMaster", true, Color.black);
-		CampaignClient.getInstance().addBean(fakeGameMaster);
-		fakeGameMaster = CampaignClient.getInstance().getBean(
-				fakeGameMaster.getId(), 10);
+		fakeGameMaster = addBean(fakeGameMaster);
 		assertTrue(fakeGameMaster != null);
 		// Current Player is GM and is supposed to be able to change and
 		// to see every bean
@@ -149,7 +152,8 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 	@Test(timeout = 5000)
 	public void testAuthorizableBeansUsers() {
-		BeanDocument autorizableBean = new BeanDocument("test-document-name",
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(), "test-document-name",
 				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
@@ -197,7 +201,8 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 
 	@Test(timeout = 5000)
 	public void testAuthorizableBeanPublic() {
-		BeanDocument autorizableBean = new BeanDocument("test-document-name",
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(), "test-document-name",
 				"document-type", new ImageBean());
 
 		Player currentPlayer = CampaignClient.getInstance().getCurrentPlayer();
@@ -233,7 +238,8 @@ public class TestAuthorizableBasicBeans extends NewCampaignNoGMTest {
 		COUNT_AUTHORIZATION_CHANGED = 0;
 		COUNT_BEAN_CHANGED = 0;
 
-		BeanDocument autorizableBean = new BeanDocument("test-document-name",
+		BeanDocument autorizableBean = new BeanDocument(CampaignClient
+				.getInstance().getRootDirectory(), "test-document-name",
 				"document-type", new ImageBean(TestMap.createTransfertImage()));
 
 		autorizableBean = addBean(autorizableBean);

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.MessageFactory;
 import net.alteiar.map.MapBean;

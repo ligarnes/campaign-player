@@ -3,7 +3,7 @@ package net.alteiar.media;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.files.images.TransfertImage;

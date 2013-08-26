@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.button.ButtonDrawable;

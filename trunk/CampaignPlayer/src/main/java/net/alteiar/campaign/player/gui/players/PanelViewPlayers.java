@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import net.alteiar.CampaignAdapter;
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignAdapter;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.panel.PanelList;
 import net.alteiar.player.Player;
 

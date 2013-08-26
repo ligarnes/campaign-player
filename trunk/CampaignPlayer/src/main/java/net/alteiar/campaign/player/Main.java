@@ -21,17 +21,18 @@ package net.alteiar.campaign.player;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.rmi.RMISecurityManager;
+import java.text.ParseException;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.synth.SynthLookAndFeel;
 
 import net.alteiar.campaign.player.gui.MainFrame;
-import net.alteiar.campaign.player.gui.connection.StartGameDialog;
+import net.alteiar.campaign.player.gui.connexion.StartGameDialog;
 import net.alteiar.campaign.player.plugin.PluginSystem;
-import net.alteiar.media.AudioBean;
-import net.alteiar.utils.files.video.SerializableAudio;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -41,34 +42,6 @@ import org.apache.log4j.xml.DOMConfigurator;
  * 
  */
 public class Main {
-
-	public static void testAudio() {
-		try {
-			final SerializableAudio mp3player = new SerializableAudio(
-					new File(
-							"C:\\Users\\ligarnes\\Music\\Era I\\01 - Ameno (Remix).mp3"));
-
-			AudioBean bean = new AudioBean(mp3player);
-
-			bean.play();
-
-			try {
-				Thread.sleep(7000L);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
-			bean.stop();
-
-			// bean.play();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 
 	/**
 	 * @param args
@@ -84,6 +57,10 @@ public class Main {
 		DOMConfigurator.configure("./ressources/log/log4j.xml");
 
 		try {
+			SynthLookAndFeel lookAndFeel = new SynthLookAndFeel();
+			lookAndFeel.load(new File("./ressources/lookAndFeel/default.xml")
+					.toURI().toURL());
+			UIManager.setLookAndFeel(lookAndFeel);
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (UnsupportedLookAndFeelException e) {
 			Logger.getLogger(Main.class).warn(
@@ -95,6 +72,15 @@ public class Main {
 			Logger.getLogger(Main.class).warn(
 					"Impossible de changer le look and feel", e);
 		} catch (IllegalAccessException e) {
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
+		} catch (MalformedURLException e) {
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
+		} catch (ParseException e) {
+			Logger.getLogger(Main.class).warn(
+					"Impossible de changer le look and feel", e);
+		} catch (IOException e) {
 			Logger.getLogger(Main.class).warn(
 					"Impossible de changer le look and feel", e);
 		}

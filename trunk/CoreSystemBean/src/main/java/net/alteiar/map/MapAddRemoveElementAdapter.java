@@ -3,7 +3,7 @@ package net.alteiar.map;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 

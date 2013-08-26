@@ -11,9 +11,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.WaitMultipleBeansListener;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;

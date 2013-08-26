@@ -1,0 +1,13 @@
+<player serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:35162e97-9450-465a-955e-c04c86e50a15:1377381944164</guid>
+   </id>
+   <name>Cody</name>
+   <dm>true</dm>
+   <color serialVersionUID="1">
+      <r>153</r>
+      <g>0</g>
+      <b>0</b>
+      <a>255</a>
+   </color>
+</player>

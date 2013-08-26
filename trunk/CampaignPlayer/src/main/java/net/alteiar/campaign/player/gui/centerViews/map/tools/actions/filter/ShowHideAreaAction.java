@@ -6,12 +6,12 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.SwingUtilities;
 
-import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.ActionMapListener;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.state.ShowHidePolygonMapListener;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
+import net.alteiar.campaign.player.infos.HelpersImages;
 
 public class ShowHideAreaAction extends MapAction {
 	private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ public class ShowHideAreaAction extends MapAction {
 			text = "Afficher";
 		}
 
-		putValue(SMALL_ICON, Helpers.getIcon(icon));
+		putValue(SMALL_ICON, HelpersImages.getIcon(icon));
 		putValue(NAME, text);
 	}
 

@@ -39,10 +39,8 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import net.alteiar.CampaignClient;
 import net.alteiar.WaitBeanListener;
-import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.Threads;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable.DrawableListener;
@@ -50,6 +48,9 @@ import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable.Drawabl
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.button.ButtonDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
+import net.alteiar.campaign.player.infos.HelpersImages;
+import net.alteiar.campaign.player.infos.HelpersPath;
+import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
@@ -88,7 +89,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 	public PanelMapBasic(final MapBean map, DrawFilter draw) {
 		super();
 		setLayout(null);
-		this.background = Helpers.getImage(Helpers
+		this.background = HelpersImages.getImage(HelpersPath
 				.getPathTexture("wood-texture.jpg"));
 
 		this.playerDraw = draw;

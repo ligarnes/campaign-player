@@ -2,7 +2,7 @@ package pathfinder.gui.adapter;
 
 import java.beans.PropertyChangeListener;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.combatTraker.CombatTrackerUnit;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceSingle;

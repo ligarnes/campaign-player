@@ -2,10 +2,10 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter;
 
 import java.awt.event.ActionEvent;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
+import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.shared.UniqueID;
 
@@ -29,7 +29,7 @@ public class ShowHideAllAction extends MapAction {
 			text = "Afficher tout";
 		}
 
-		putValue(SMALL_ICON, Helpers.getIcon(icon));
+		putValue(SMALL_ICON, HelpersImages.getIcon(icon));
 		putValue(NAME, text);
 	}
 

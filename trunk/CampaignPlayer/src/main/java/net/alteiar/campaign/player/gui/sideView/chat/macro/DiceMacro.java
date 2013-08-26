@@ -1,6 +1,6 @@
 package net.alteiar.campaign.player.gui.sideView.chat.macro;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.chat.Message;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceSingle;

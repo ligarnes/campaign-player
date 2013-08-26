@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.dice.Dice;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceListener;
