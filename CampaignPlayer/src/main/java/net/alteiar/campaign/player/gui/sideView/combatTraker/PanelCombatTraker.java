@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.sideView.combatTraker.dnd.ListTransferHandler;
 import net.alteiar.combatTraker.CombatTrackerUnit;
 import net.alteiar.combatTraker.CombatTraker;

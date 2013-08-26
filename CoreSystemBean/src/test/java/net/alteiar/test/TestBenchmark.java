@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignFactory;
 import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.utils.files.images.SerializableImage;
@@ -113,7 +114,7 @@ public class TestBenchmark extends NewCampaignTest {
 	@After
 	public void afterTest() {
 		// DO NOT SAVE TO HEAVY IMAGES
-		CampaignClient.leaveGame();
+		CampaignFactory.leaveGame();
 		System.out.println("tearing down");
 	}
 }

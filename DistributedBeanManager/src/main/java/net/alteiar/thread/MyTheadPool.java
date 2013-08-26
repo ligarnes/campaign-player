@@ -40,8 +40,8 @@ public class MyTheadPool {
 		private final ArrayList<TaskObserver> observers;
 
 		public MyRealThreadPool(int maximumThread) {
-			super(maximumThread, maximumThread, 10, TimeUnit.SECONDS,
-					new LinkedBlockingQueue<Runnable>(500));
+			super(maximumThread, maximumThread, 0L, TimeUnit.MILLISECONDS,
+					new LinkedBlockingQueue<Runnable>());
 
 			observers = new ArrayList<TaskObserver>();
 		}

@@ -2,21 +2,16 @@ package net.alteiar.documents;
 
 import java.beans.PropertyChangeListener;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
 
-public class BeanDocument extends AuthorizationBean {
+public class BeanDocument extends BeanBasicDocument {
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_BEAN_PROPERTY = "bean";
-
-	public static final String PROP_DOCUMENT_NAME_PROPERTY = "documentName";
-
-	@Element
-	private String documentName;
 
 	@Element
 	private UniqueID beanId;
@@ -27,13 +22,23 @@ public class BeanDocument extends AuthorizationBean {
 	public BeanDocument() {
 	}
 
-	public BeanDocument(String name, String type, final BasicBean bean) {
-		super();
-		this.documentName = name;
+	public BeanDocument(BeanDirectory directory, String name, String type,
+			final BasicBean bean) {
+		this(directory.getId(), name, type, bean);
+	}
+
+	public BeanDocument(UniqueID directory, String name, String type,
+			final BasicBean bean) {
+		super(directory, name);
 		this.beanId = bean.getId();
 		this.documentType = type;
 
 		CampaignClient.getInstance().addBean(bean);
+	}
+
+	@Override
+	public final boolean isDirectory() {
+		return false;
 	}
 
 	@Override
@@ -57,18 +62,6 @@ public class BeanDocument extends AuthorizationBean {
 		}
 	}
 
-	public String getDocumentName() {
-		return documentName;
-	}
-
-	public void setDocumentName(String documentName) {
-		String oldValue = documentName;
-		if (notifyRemote(PROP_DOCUMENT_NAME_PROPERTY, oldValue, documentName)) {
-			this.documentName = documentName;
-			notifyLocal(PROP_DOCUMENT_NAME_PROPERTY, oldValue, documentName);
-		}
-	}
-
 	public UniqueID getBeanId() {
 		return beanId;
 	}
@@ -79,7 +72,7 @@ public class BeanDocument extends AuthorizationBean {
 
 	@Override
 	public String toString() {
-		return "BeanDocument [documentName=" + documentName + ", documentType="
-				+ documentType + "]";
+		return "BeanDocument [documentName=" + getDocumentName()
+				+ ", documentType=" + documentType + "]";
 	}
 }

@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.chat.Message;
 import net.alteiar.dice.DiceBag;
 import net.alteiar.dice.DiceSingle;
@@ -77,7 +77,7 @@ public class DefaultDiceToolBar extends JToolBar {
 
 	private void addDie(Die die) {
 		JToggleButton dieButton = new JToggleButton(
-				Helpers.getIcon(getDieIcon(die)));
+				HelpersImages.getIcon(getDieIcon(die)));
 		dieButton.addActionListener(die);
 		dieButton.setToolTipText("Nombre de face: "
 				+ die.getDice().getFaceCount());

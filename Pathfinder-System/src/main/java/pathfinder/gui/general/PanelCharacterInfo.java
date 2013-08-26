@@ -15,9 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.alteiar.CampaignAdapter;
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignAdapter;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.component.MyCombobox;
+import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDocument;
 import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.unit.PathfinderCharacter;
@@ -119,13 +120,17 @@ public class PanelCharacterInfo extends JPanel implements
 		CampaignClient.getInstance().addCampaignListener(new CampaignAdapter() {
 
 			@Override
-			public void beanAdded(BeanDocument bean) {
-				addCharacter(bean);
+			public void beanAdded(BeanBasicDocument bean) {
+				if (!bean.isDirectory()) {
+					addCharacter((BeanDocument) bean);
+				}
 			}
 
 			@Override
-			public void beanRemoved(BeanDocument bean) {
-				removeCharacter(bean);
+			public void beanRemoved(BeanBasicDocument bean) {
+				if (!bean.isDirectory()) {
+					removeCharacter((BeanDocument) bean);
+				}
 			}
 		});
 

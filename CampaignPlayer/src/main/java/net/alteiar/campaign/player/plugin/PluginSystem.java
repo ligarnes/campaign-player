@@ -9,7 +9,6 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.player.PropertieBase;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
@@ -21,6 +20,7 @@ import net.alteiar.campaign.player.plugin.external.DocumentPlugin;
 import net.alteiar.campaign.player.plugin.external.IPlugin;
 import net.alteiar.campaign.player.plugin.external.MapElementPlugin;
 import net.alteiar.campaign.player.plugin.external.PluginList;
+import net.alteiar.campaign.player.tools.PropertieBase;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.elements.MapElement;
 

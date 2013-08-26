@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.dice.DiceSingle;
 
 public class PanelDiceSelection extends JPanel implements ActionListener {
@@ -108,6 +108,6 @@ public class PanelDiceSelection extends JPanel implements ActionListener {
 
 	/** Returns an ImageIcon */
 	protected static ImageIcon createImageIcon(String path) {
-		return Helpers.getIcon(path, 240, 240);
+		return HelpersImages.getIcon(path, 240, 240);
 	}
 }

@@ -2,8 +2,8 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions;
 
 import java.awt.event.ActionEvent;
 
-import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
+import net.alteiar.campaign.player.infos.HelpersImages;
 
 public class ShowGridAction extends MapAction {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +14,7 @@ public class ShowGridAction extends MapAction {
 		super(info);
 
 		putValue(NAME, "Afficher la grille");
-		putValue(LARGE_ICON_KEY, Helpers.getIcon(ICON_SHOW_GRID));
+		putValue(LARGE_ICON_KEY, HelpersImages.getIcon(ICON_SHOW_GRID));
 	}
 
 	@Override

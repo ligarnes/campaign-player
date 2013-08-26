@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.player.infos.HelpersImages;
 
 public class PathfinderDiceToolBar extends JPanel implements DiceBagBuilder {
 	private static final long serialVersionUID = 1L;
@@ -29,20 +29,20 @@ public class PathfinderDiceToolBar extends JPanel implements DiceBagBuilder {
 		FlowLayout flowLayout = (FlowLayout) getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		DiceBagAction d4 = new DiceBagAction(this, 4,
-				Helpers.getIcon(ICON_D4_REDUCE));
+				HelpersImages.getIcon(ICON_D4_REDUCE));
 
 		DiceBagAction d6 = new DiceBagAction(this, 6,
-				Helpers.getIcon(ICON_D6_REDUCE));
+				HelpersImages.getIcon(ICON_D6_REDUCE));
 		DiceBagAction d8 = new DiceBagAction(this, 8,
-				Helpers.getIcon(ICON_D8_REDUCE));
+				HelpersImages.getIcon(ICON_D8_REDUCE));
 		DiceBagAction d10 = new DiceBagAction(this, 10,
-				Helpers.getIcon(ICON_D10_REDUCE));
+				HelpersImages.getIcon(ICON_D10_REDUCE));
 		DiceBagAction d12 = new DiceBagAction(this, 12,
-				Helpers.getIcon(ICON_D12_REDUCE));
+				HelpersImages.getIcon(ICON_D12_REDUCE));
 		DiceBagAction d20 = new DiceBagAction(this, 20,
-				Helpers.getIcon(ICON_D20_REDUCE));
+				HelpersImages.getIcon(ICON_D20_REDUCE));
 		DiceBagAction d100 = new DiceBagAction(this, 100,
-				Helpers.getIcon(ICON_D100_REDUCE));
+				HelpersImages.getIcon(ICON_D100_REDUCE));
 
 		JPanel dices = new JPanel(new FlowLayout());
 		dices.add(new ButtonCustom(d4));

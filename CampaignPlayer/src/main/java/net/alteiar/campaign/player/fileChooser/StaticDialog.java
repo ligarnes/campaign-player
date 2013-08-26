@@ -23,31 +23,25 @@ import java.awt.Component;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.player.infos.Helpers;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
 public class StaticDialog {
-	private static JFileChooser FILE_CHOOSER_OPEN_IMAGE = null;
-	private static JFileChooser FILE_CHOOSER_OPEN_CHARACTER = null;
 
 	public static File getSelectedImageFile(Component comp) {
-		if (FILE_CHOOSER_OPEN_IMAGE == null) {
-			// setup the dialog
-			String path = Helpers.getGlobalProperties().getMapPath();
-			FILE_CHOOSER_OPEN_IMAGE = new ImageFileChooser(path);
-			FILE_CHOOSER_OPEN_IMAGE.setFileFilter(new FileFilterImage());
-		}
+		String path = Helpers.getGlobalProperties().getPathImages();
+		JFileChooser chooser = new ImageFileChooser(path);
 
 		File file = null;
-		int returnVal = StaticDialog.FILE_CHOOSER_OPEN_IMAGE
-				.showOpenDialog(comp);
+		int returnVal = chooser.showOpenDialog(comp);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			file = StaticDialog.FILE_CHOOSER_OPEN_IMAGE.getSelectedFile();
-			Helpers.getGlobalProperties().setMapPath(file.getParent());
+			file = chooser.getSelectedFile();
+			Helpers.getGlobalProperties().setPathImages(file.getParent());
 			Helpers.getGlobalProperties().save();
 		}
 
@@ -55,41 +49,15 @@ public class StaticDialog {
 	}
 
 	public static File getSelectedAudioFile(Component comp) {
-		if (FILE_CHOOSER_OPEN_IMAGE == null) {
-			// setup the dialog
-			String path = Helpers.getGlobalProperties().getMapPath();
-			FILE_CHOOSER_OPEN_IMAGE = new JFileChooser(path);
-			FILE_CHOOSER_OPEN_IMAGE.setFileFilter(new FileFilterAudio());
-		}
+		String path = Helpers.getGlobalProperties().getPathAudio();
+		JFileChooser chooser = new JFileChooser(path);
+		chooser.setFileFilter(new FileNameExtensionFilter("Audio", "mp3"));
 
 		File file = null;
-		int returnVal = StaticDialog.FILE_CHOOSER_OPEN_IMAGE
-				.showOpenDialog(comp);
+		int returnVal = chooser.showOpenDialog(comp);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			file = StaticDialog.FILE_CHOOSER_OPEN_IMAGE.getSelectedFile();
-			Helpers.getGlobalProperties().setMapPath(file.getParent());
-			Helpers.getGlobalProperties().save();
-		}
-
-		return file;
-	}
-
-	public static File getSelectedCharacter(Component comp) {
-		if (FILE_CHOOSER_OPEN_CHARACTER == null) {
-			// setup the dialog
-			String path = Helpers.getGlobalProperties().getCharacterPath();
-			FILE_CHOOSER_OPEN_CHARACTER = new JFileChooser(path);
-			// TODO fixme restore
-			// FILE_CHOOSER_OPEN_CHARACTER
-			// .setFileFilter(new CharacterFileFilter());
-		}
-
-		File file = null;
-		int returnVal = StaticDialog.FILE_CHOOSER_OPEN_CHARACTER
-				.showOpenDialog(comp);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			file = StaticDialog.FILE_CHOOSER_OPEN_CHARACTER.getSelectedFile();
-			Helpers.getGlobalProperties().setCharacterPath(file.getParent());
+			file = chooser.getSelectedFile();
+			Helpers.getGlobalProperties().setPathAudio(file.getParent());
 			Helpers.getGlobalProperties().save();
 		}
 

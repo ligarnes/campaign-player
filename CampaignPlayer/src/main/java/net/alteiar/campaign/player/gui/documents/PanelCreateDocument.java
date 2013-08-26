@@ -15,12 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
+import net.alteiar.documents.BeanDirectory;
 import net.alteiar.documents.BeanDocument;
 
 public class PanelCreateDocument extends JPanel implements PanelOkCancel {
@@ -28,7 +29,7 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 
 	private static PanelCreateDocument documentBuilder = new PanelCreateDocument();
 
-	public static void createDocument() {
+	public static void createDocument(final BeanDirectory parent) {
 		DialogOkCancel<PanelCreateDocument> dlg = new DialogOkCancel<PanelCreateDocument>(
 				null, "Cr\u00E9er un document", true, documentBuilder);
 
@@ -44,7 +45,7 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 
 		if (dlg.getReturnStatus() == DialogOkCancel.RET_OK) {
 			try {
-				dlg.getMainPanel().buildElement();
+				dlg.getMainPanel().buildElement(parent);
 			} catch (Exception ex) {
 				ExceptionTool.showError(ex);
 			}
@@ -113,11 +114,11 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		this.repaint();
 	}
 
-	public void buildElement() {
+	public void buildElement(BeanDirectory dir) {
 		BasicBean bean = builder.buildDocument();
 
 		if (bean != null) {
-			BeanDocument doc = new BeanDocument(builder.getDocumentName(),
+			BeanDocument doc = new BeanDocument(dir, builder.getDocumentName(),
 					builder.getDocumentType(), bean);
 			CampaignClient.getInstance().addBean(doc);
 		}

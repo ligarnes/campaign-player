@@ -3,7 +3,8 @@ package net.alteiar.test;
 import java.awt.Color;
 import java.io.File;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignFactory;
 
 import org.junit.After;
 import org.junit.Before;
@@ -21,7 +22,7 @@ public class NewCampaignTest extends BasicTest {
 		deleteRecursive(new File(localDirectoryPath));
 
 		try {
-			CampaignClient.startNewCampaignServer(address, port,
+			CampaignFactory.startNewCampaignServer(address, port,
 					getGlobalDirectory(), localDirectoryPath);
 
 		} catch (Exception e) {
@@ -42,7 +43,7 @@ public class NewCampaignTest extends BasicTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		CampaignClient.leaveGame();
+		CampaignFactory.leaveGame();
 		System.out.println("tearing down");
 	}
 

@@ -3,10 +3,10 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 
-import net.alteiar.campaign.player.Helpers;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelCreateMapElement;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.state.AddElementListener;
+import net.alteiar.campaign.player.infos.HelpersImages;
 
 public class AddElementAction extends MapAction {
 	private static final long serialVersionUID = 1L;
@@ -29,8 +29,8 @@ public class AddElementAction extends MapAction {
 		this.listener = new AddElementListener(getMapInfo());
 
 		putValue(NAME, "Ajouter un élément");
-		putValue(SMALL_ICON, Helpers.getIcon(ICON_ADD_ELEMENT_REDUCE_NAME));
-		putValue(LARGE_ICON_KEY, Helpers.getIcon(ICON_ADD_ELEMENT_NAME));
+		putValue(SMALL_ICON, HelpersImages.getIcon(ICON_ADD_ELEMENT_REDUCE_NAME));
+		putValue(LARGE_ICON_KEY, HelpersImages.getIcon(ICON_ADD_ELEMENT_NAME));
 	}
 
 	@Override

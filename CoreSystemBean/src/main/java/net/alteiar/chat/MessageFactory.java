@@ -2,7 +2,7 @@ package net.alteiar.chat;
 
 import java.util.Iterator;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.player.Player;
 import net.alteiar.textTokenized.TokenManager;
 

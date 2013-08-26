@@ -1,10 +1,11 @@
 package pathfinder.bean.spell;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.tools.ListFilter;
 
 public class SpellManager {
@@ -29,8 +30,8 @@ public class SpellManager {
 	 * loading can be long but don't need it instantly
 	 */
 	private void load() {
-		allSpells.addAll(CampaignClient.loadDirectory(
-				Helpers.getGlobalDirectory(), Spell.class));
+		allSpells.addAll(CampaignClient.loadDirectory(new File(
+				HelpersPath.PATH_DOCUMENT_GLOBAL), Spell.class));
 
 		for (Spell spell : allSpells) {
 			allClasses.addAll(spell.getClassesLevel().keySet());

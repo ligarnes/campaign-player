@@ -20,7 +20,7 @@ import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
@@ -236,7 +236,8 @@ public class TestMap extends NewCampaignTest {
 
 		assertNotNull("Map should'nt be null", map);
 
-		BeanDocument doc = new BeanDocument(targetName, "document-type", map);
+		BeanDocument doc = new BeanDocument(CampaignClient.getInstance()
+				.getRootDirectory(), targetName, "document-type", map);
 
 		doc = addBean(doc);
 		map = doc.getBean();

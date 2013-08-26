@@ -10,7 +10,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.CircleElement;

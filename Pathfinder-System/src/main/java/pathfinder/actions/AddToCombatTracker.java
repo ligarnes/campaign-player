@@ -3,7 +3,7 @@ package pathfinder.actions;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.combatTraker.CombatTrackerUnit;
 import net.alteiar.map.elements.IAction;
 import pathfinder.bean.unit.Unit;

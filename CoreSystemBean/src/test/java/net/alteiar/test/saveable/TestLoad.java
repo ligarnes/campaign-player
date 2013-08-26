@@ -1,7 +1,7 @@
 package net.alteiar.test.saveable;
 
 import static org.junit.Assert.assertEquals;
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.test.LoadCampaignTest;
 
 import org.junit.Test;

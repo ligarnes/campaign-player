@@ -2,7 +2,7 @@ package pathfinder.bean.unit.monster;
 
 import java.util.ArrayList;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 
 public class MonsterManager {
 

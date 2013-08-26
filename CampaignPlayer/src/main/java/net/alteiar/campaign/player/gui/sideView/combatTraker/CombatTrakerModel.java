@@ -5,8 +5,8 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.AbstractListModel;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Threads;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.combatTraker.CombatTrackerUnit;
 import net.alteiar.combatTraker.CombatTraker;
 import net.alteiar.shared.UniqueID;

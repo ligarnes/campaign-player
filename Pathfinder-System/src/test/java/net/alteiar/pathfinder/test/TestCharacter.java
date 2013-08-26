@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.io.IOException;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.media.ImageBean;
 import net.alteiar.utils.files.images.SerializableImage;
@@ -58,7 +58,8 @@ public class TestCharacter extends NewCampaignTest {
 		PathfinderCharacter character = new PathfinderCharacter("test-name",
 				totalHp, currentHp, ac, acTouch, acFlat, initMod, img.getId());
 
-		BeanDocument doc = new BeanDocument(character.getName(),
+		BeanDocument doc = new BeanDocument(CampaignClient.getInstance()
+				.getRootDirectory(), character.getName(),
 				DocumentTypeConstant.CHARACTER, character);
 
 		doc = addBean(doc);

@@ -3,10 +3,10 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Threads;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
+import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.list.PanelSelectList;
 import net.alteiar.map.MapBean;

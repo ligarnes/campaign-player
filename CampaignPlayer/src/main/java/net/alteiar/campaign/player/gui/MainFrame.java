@@ -30,8 +30,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.CampaignFactory;
+import net.alteiar.campaign.player.infos.Helpers;
+import net.alteiar.campaign.player.infos.HelpersImages;
+import net.alteiar.campaign.player.infos.HelpersPath;
 
 /**
  * @author Cody Stoutenburg
@@ -59,7 +61,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		super();
 
 		this.addWindowListener(this);
-		this.setIconImage(Helpers.getImage(Helpers
+		this.setIconImage(HelpersImages.getImage(HelpersPath
 				.getPathIcons(Helpers.APP_ICON)));
 
 		this.setMinimumSize(new Dimension(800, 600));
@@ -103,7 +105,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		CampaignClient.leaveGame();
+		CampaignFactory.leaveGame();
 	}
 
 	@Override

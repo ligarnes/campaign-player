@@ -16,8 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import net.alteiar.campaign.player.Helpers;
-import net.alteiar.campaign.player.UiHelper;
+import net.alteiar.campaign.player.infos.HelpersImages;
+import net.alteiar.campaign.player.infos.HelpersPath;
+import net.alteiar.campaign.player.infos.UiHelper;
 import net.alteiar.player.Player;
 
 public class PanelPlayer extends JPanel implements PropertyChangeListener {
@@ -33,8 +34,8 @@ public class PanelPlayer extends JPanel implements PropertyChangeListener {
 	private final JLabel btnPresence;
 
 	private static ImageIcon generatePlayerColor(Player p) {
-		String iconPath = Helpers.getPathIcons(IMAGE_ICON);
-		BufferedImage img = Helpers.getImage(iconPath);
+		String iconPath = HelpersPath.getPathIcons(IMAGE_ICON);
+		BufferedImage img = HelpersImages.getImage(iconPath);
 
 		Graphics2D g = (Graphics2D) img.getGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -102,9 +103,9 @@ public class PanelPlayer extends JPanel implements PropertyChangeListener {
 	}
 
 	protected ImageIcon getCurrentState() {
-		ImageIcon currentStateIcon = Helpers.getIcon(IMAGE_NO_SHARED);
+		ImageIcon currentStateIcon = HelpersImages.getIcon(IMAGE_NO_SHARED);
 		if (this.player.getConnected()) {
-			currentStateIcon = Helpers.getIcon(IMAGE_SHARED);
+			currentStateIcon = HelpersImages.getIcon(IMAGE_SHARED);
 		}
 		return currentStateIcon;
 	}

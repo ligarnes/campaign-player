@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pathfinder.DocumentTypeConstant;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.UniqueID;
 

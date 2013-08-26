@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 
 public class PanelNetworkInformation extends PanelBaseSetting {
 	private static final long serialVersionUID = 1L;

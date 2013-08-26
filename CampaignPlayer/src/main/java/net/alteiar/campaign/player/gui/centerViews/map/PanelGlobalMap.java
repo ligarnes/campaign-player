@@ -25,7 +25,7 @@ import java.awt.geom.Point2D;
 
 import javax.swing.JPanel;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;

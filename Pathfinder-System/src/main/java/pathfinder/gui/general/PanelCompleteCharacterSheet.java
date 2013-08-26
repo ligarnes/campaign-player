@@ -20,8 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
-import net.alteiar.CampaignClient;
-import net.alteiar.campaign.player.Helpers;
+import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.shared.ImageUtil;
 import pathfinder.bean.unit.PathfinderCharacter;
@@ -88,7 +88,7 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		textFieldName.setColumns(8);
 
 		JButton btnEditAccess = new JButton();
-		btnEditAccess.setIcon(Helpers.getIcon("PlayerAccessIcon.png", 40, 40));
+		btnEditAccess.setIcon(HelpersImages.getIcon("PlayerAccessIcon.png", 40, 40));
 		btnEditAccess.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

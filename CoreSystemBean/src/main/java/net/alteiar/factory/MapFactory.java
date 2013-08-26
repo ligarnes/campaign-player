@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import net.alteiar.CampaignClient;
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.filter.CharacterMapFilter;
 import net.alteiar.media.ImageBean;
