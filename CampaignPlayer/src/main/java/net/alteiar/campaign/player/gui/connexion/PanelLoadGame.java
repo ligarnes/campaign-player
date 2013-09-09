@@ -37,7 +37,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
-import net.alteiar.campaign.CampaignFactory;
+import net.alteiar.campaign.CampaignFactoryNew;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
@@ -151,8 +151,8 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		return comboboxServerIp.getSelectedItem();
 	}
 
-	public String getPort() {
-		return textFieldPort.getText();
+	public int getPort() {
+		return Integer.valueOf(textFieldPort.getText());
 	}
 
 	public String getCampaignName() {
@@ -162,7 +162,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 	public void loadCampaign() {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 		final String address = getServerAddressIp();
-		final String port = getPort();
+		final int port = getPort();
 		String campaignName = getCampaignName();
 		final String campaignPath = HelpersPath.PATH_SAVE + campaignName;
 
@@ -173,7 +173,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		Runnable run = new Runnable() {
 			@Override
 			public void run() {
-				CampaignFactory.loadCampaignServer(address, port,
+				CampaignFactoryNew.loadCampaign(address, port,
 						HelpersPath.PATH_DOCUMENT_GLOBAL, campaignPath);
 			}
 		};

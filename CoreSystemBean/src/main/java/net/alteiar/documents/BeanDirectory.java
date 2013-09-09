@@ -20,8 +20,16 @@ public class BeanDirectory extends BeanBasicDocument {
 	public BeanDirectory() {
 	}
 
+	private static UniqueID getDirectoryId(BeanDirectory parent) {
+		UniqueID dirId = null;
+		if (parent != null) {
+			dirId = parent.getId();
+		}
+		return dirId;
+	}
+
 	public BeanDirectory(BeanDirectory parent, String name) {
-		this(parent.getId(), name);
+		this(getDirectoryId(parent), name);
 	}
 
 	public BeanDirectory(UniqueID parent, String name) {

@@ -6,8 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;

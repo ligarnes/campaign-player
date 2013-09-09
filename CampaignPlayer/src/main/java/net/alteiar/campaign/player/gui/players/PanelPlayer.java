@@ -41,7 +41,7 @@ public class PanelPlayer extends JPanel implements PropertyChangeListener {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 
-		g.setColor(p.getColor());
+		g.setColor(p.getRealColor());
 		g.fillOval(20, 20, 8, 8);
 
 		g.setColor(Color.BLACK);

@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.tools.ListFilter;
 import pathfinder.DocumentTypeConstant;
 import pathfinder.bean.spell.DocumentSpellBook;

@@ -11,10 +11,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
 import net.alteiar.media.ImageBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.apache.log4j.Logger;

@@ -1,6 +1,6 @@
 package net.alteiar.dice;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 
 public class DiceRoller extends BasicBean {
 	private static final long serialVersionUID = 1L;

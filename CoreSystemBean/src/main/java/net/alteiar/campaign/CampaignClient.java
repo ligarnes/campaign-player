@@ -3,6 +3,7 @@ package net.alteiar.campaign;
 import java.awt.Color;
 import java.beans.Beans;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -16,17 +17,17 @@ import net.alteiar.SuppressBeanListener;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.chat.Chat;
 import net.alteiar.chat.MessageFactory;
-import net.alteiar.client.DocumentManager;
-import net.alteiar.client.DocumentManagerListener;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.combatTraker.CombatTraker;
 import net.alteiar.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
 import net.alteiar.documents.BeanDocument;
+import net.alteiar.newversion.client.DocumentManager;
+import net.alteiar.newversion.client.DocumentManagerListener;
+import net.alteiar.newversion.server.document.DocumentIO;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.player.Player;
-import net.alteiar.server.document.DocumentIO;
 import net.alteiar.shared.UniqueID;
 
 import org.apache.log4j.Logger;
@@ -34,7 +35,6 @@ import org.apache.log4j.Logger;
 public final class CampaignClient implements DocumentManagerListener {
 	// MOVE STATIC TO FACTORY class
 	static CampaignClient INSTANCE = null;
-	static Boolean IS_SERVER = false;
 
 	public static CampaignClient getInstance() {
 		return INSTANCE;
@@ -59,20 +59,26 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 	private final HashMap<UniqueID, ArrayList<SuppressBeanListener>> suppressBeanListeners;
 
-	private final String localIp;
+	// TODO to remove useless with raspberry system
 	private final String serverIp;
-	private final String port;
+	private final int port;
 
 	// this manage event
 	// TODO desactivate it for the moment
 	// private final EventManager eventManager;
 
-	protected CampaignClient(DocumentManager manager, String ipLocal,
-			String ipServer, String port) {
-		this.manager = manager;
+	protected CampaignClient(String ipServer, int port, String globalPath) {
+
+		try {
+			this.manager = new DocumentManager(ipServer, port, globalPath,
+					new MyKryoInit());
+		} catch (IOException e) {
+			Logger.getLogger(getClass()).error("Impossible de se connecter", e);
+			throw new ExceptionInInitializerError(e);
+		}
+
 		this.manager.addBeanListenerClient(this);
 
-		localIp = ipLocal;
 		serverIp = ipServer;
 		this.port = port;
 
@@ -86,7 +92,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		rootDirectory = null;
 
 		// Load all existing documents
-		this.manager.loadDocuments();
+		// this.manager.loadDocuments();
 
 		// Create or select player
 		// createPlayer(name, isMj, color);
@@ -95,19 +101,19 @@ public final class CampaignClient implements DocumentManagerListener {
 		// eventManager = new EventManager(manager);
 	}
 
-	public BeanDirectory getRootDirectory() {
-		return rootDirectory;
+	public boolean isInitialized() {
+		return this.manager.isInitialized();
 	}
 
-	public String getIpLocal() {
-		return localIp;
+	public BeanDirectory getRootDirectory() {
+		return rootDirectory;
 	}
 
 	public String getIpServer() {
 		return serverIp;
 	}
 
-	public String getPort() {
+	public int getPort() {
 		return port;
 	}
 
@@ -181,12 +187,16 @@ public final class CampaignClient implements DocumentManagerListener {
 		return diceRoller;
 	}
 
+	public String getCampaignDirectory() {
+		return manager.getSpecificPath();
+	}
+
 	public String getCampaignName() {
 		return manager.getSpecificPath();
 	}
 
 	public int getRemoteDocumentCount() {
-		return manager.getRemoteDocumenCount();
+		return manager.getLocalDocumentCount();// manager.getRemoteDocumenCount();
 	}
 
 	public int getLocalDocumentCount() {
@@ -216,7 +226,7 @@ public final class CampaignClient implements DocumentManagerListener {
 				addBean(root);
 
 				// we wait it here because the root directory must exist!
-				rootDirectory = getBean(root.getId(), 300L);
+				rootDirectory = getBean(root.getId(), 3000L);
 
 				BeanDirectory pj = new BeanDirectory(rootDirectory,
 						"personnages");
@@ -257,6 +267,7 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	void disconnect() {
 		this.currentPlayer.setConnected(false);
+		manager.stopClient();
 	}
 
 	public void addBean(BasicBean bean) {
@@ -281,12 +292,12 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public void removeBean(BasicBean bean) {
 		if (bean != null) {
-			manager.removeDocument(bean);
+			removeBean(bean.getId());
 		}
 	}
 
 	public void removeBean(UniqueID beanId) {
-		manager.removeDocument(beanId);
+		manager.deleteDocument(beanId);
 	}
 
 	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
@@ -294,7 +305,7 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public <E extends BasicBean> E getBean(UniqueID id) {
-		return manager.getBean(id);
+		return manager.getBean(id, -1);
 	}
 
 	public <E extends BasicBean> ArrayList<E> getBeans(Collection<UniqueID> ids) {

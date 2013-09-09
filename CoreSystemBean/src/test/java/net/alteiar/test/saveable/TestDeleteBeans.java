@@ -17,7 +17,7 @@ import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.test.beans.map.TestMap;
-import net.alteiar.utils.files.images.WebImage;
+import net.alteiar.utils.file.images.WebImage;
 
 import org.junit.Test;
 

@@ -19,8 +19,6 @@
  */
 package net.alteiar.campaign.player.infos;
 
-
-
 import net.alteiar.campaign.player.tools.GlobalProperties;
 
 import org.apache.log4j.Logger;

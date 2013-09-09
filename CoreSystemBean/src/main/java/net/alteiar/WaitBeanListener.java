@@ -1,6 +1,6 @@
 package net.alteiar;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 public interface WaitBeanListener {

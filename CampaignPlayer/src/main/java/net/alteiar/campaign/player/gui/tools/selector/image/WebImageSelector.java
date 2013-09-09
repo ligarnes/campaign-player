@@ -2,8 +2,8 @@ package net.alteiar.campaign.player.gui.tools.selector.image;
 
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.UrlOkCancel;
-import net.alteiar.utils.files.images.TransfertImage;
-import net.alteiar.utils.files.images.WebImage;
+import net.alteiar.utils.file.images.TransfertImage;
+import net.alteiar.utils.file.images.WebImage;
 
 public class WebImageSelector implements ImageSelectorStrategy {
 

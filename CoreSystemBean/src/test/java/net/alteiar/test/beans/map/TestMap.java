@@ -35,8 +35,8 @@ import net.alteiar.map.size.MapElementSizePixel;
 import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;
-import net.alteiar.utils.files.images.SerializableImage;
-import net.alteiar.utils.files.images.TransfertImage;
+import net.alteiar.utils.file.images.SerializableImage;
+import net.alteiar.utils.file.images.TransfertImage;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -3,7 +3,7 @@ package net.alteiar.documents;
 import java.util.HashSet;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 

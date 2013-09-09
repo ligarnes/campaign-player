@@ -13,8 +13,10 @@ import javax.swing.tree.TreePath;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.explorer.actions.NewDocumentAction;
 import net.alteiar.campaign.player.gui.centerViews.explorer.actions.RemoveDirectoryAction;
+import net.alteiar.campaign.player.gui.centerViews.explorer.actions.ViewDocumentAction;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
+import net.alteiar.documents.BeanDocument;
 
 public class DocumentExplorerListener extends MouseAdapter {
 
@@ -58,19 +60,25 @@ public class DocumentExplorerListener extends MouseAdapter {
 	private void dirClick(MouseEvent e, BeanDirectory parent,
 			BeanBasicDocument doc) {
 
+		JPopupMenu popup = new JPopupMenu();
+
 		if (doc.isDirectory()) {
 			BeanDirectory dir = (BeanDirectory) doc;
 
-			JPopupMenu popup = new JPopupMenu();
+			// JPopupMenu popup = new JPopupMenu();
 
 			popup.add(new JMenuItem(new RemoveDirectoryAction(dir)));
 			popup.add(new JMenuItem(new NewDocumentAction(dir)));
 
-			popup.show(tree, e.getX(), e.getY());
+			// popup.show(tree, e.getX(), e.getY());
 		} else {
+			BeanDocument file = (BeanDocument) doc;
+			popup.add(new JMenuItem(new ViewDocumentAction(file)));
 
 			System.out.println("is a file");
-			JPopupMenu menu = new JPopupMenu();
+
 		}
+
+		popup.show(tree, e.getX(), e.getY());
 	}
 }

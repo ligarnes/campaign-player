@@ -2,7 +2,7 @@ package pathfinder.bean.spell;
 
 import java.util.HashMap;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementMap;

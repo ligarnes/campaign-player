@@ -9,6 +9,10 @@ public class DiceSingle implements Dice {
 	private final Integer faceCount;
 	private Integer result;
 
+	public DiceSingle() {
+		this(0);
+	}
+
 	public DiceSingle(Integer numFace) {
 		this.faceCount = numFace;
 		result = null;

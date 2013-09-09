@@ -8,8 +8,8 @@ import java.beans.PropertyChangeListener;
 import net.alteiar.SuppressBeanListener;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.elements.MapElement;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 public class MapElementDrawable extends Drawable implements

@@ -1,12 +1,12 @@
 package net.alteiar.campaign.player.gui.tools.selector.image;
 
 import java.io.File;
-import java.io.IOException;
 
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
-import net.alteiar.campaign.player.logger.ExceptionTool;
-import net.alteiar.utils.files.images.SerializableImage;
-import net.alteiar.utils.files.images.TransfertImage;
+import net.alteiar.utils.file.images.SerializableImage;
+import net.alteiar.utils.file.images.TransfertImage;
+
+import org.apache.log4j.Logger;
 
 public class LocalImageSelector implements ImageSelectorStrategy {
 
@@ -18,8 +18,9 @@ public class LocalImageSelector implements ImageSelectorStrategy {
 		if (imageFile != null) {
 			try {
 				selectedImage = new SerializableImage(imageFile);
-			} catch (IOException e) {
-				ExceptionTool.showError(e);
+			} catch (Exception e) {
+				Logger.getLogger(getClass()).warn(
+						"Problème pour crée une image", e);
 			}
 		}
 

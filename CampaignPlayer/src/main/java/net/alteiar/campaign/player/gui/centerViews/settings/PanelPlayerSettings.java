@@ -86,7 +86,7 @@ public class PanelPlayerSettings extends PanelBaseSetting {
 		String pseudo = CampaignClient.getInstance().getCurrentPlayer()
 				.getName();
 		Color color = CampaignClient.getInstance().getCurrentPlayer()
-				.getColor();
+				.getRealColor();
 		Boolean isDm = CampaignClient.getInstance().getCurrentPlayer().isDm();
 
 		txtPseudo.setText(pseudo);
@@ -102,6 +102,6 @@ public class PanelPlayerSettings extends PanelBaseSetting {
 
 	protected void colorChanged() {
 		CampaignClient.getInstance().getCurrentPlayer()
-				.setColor(btnColor.getColor());
+				.changeColor(btnColor.getColor());
 	}
 }

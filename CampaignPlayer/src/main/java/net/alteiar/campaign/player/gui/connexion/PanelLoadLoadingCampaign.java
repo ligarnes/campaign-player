@@ -33,7 +33,7 @@ import javax.swing.Timer;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.infos.Languages;
-import net.alteiar.server.document.DocumentIO;
+import net.alteiar.newversion.server.document.DocumentIO;
 
 public class PanelLoadLoadingCampaign extends PanelStartGameDialog implements
 		ActionListener {

@@ -1,6 +1,6 @@
 package pathfinder.bean.spell;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 
 import org.simpleframework.xml.Element;
 

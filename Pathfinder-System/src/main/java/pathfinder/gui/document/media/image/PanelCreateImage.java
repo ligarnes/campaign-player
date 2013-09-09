@@ -21,10 +21,10 @@ import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrateg
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.campaign.player.logger.ExceptionTool;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.media.ImageBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.ImageUtil;
-import net.alteiar.utils.files.images.TransfertImage;
+import net.alteiar.utils.file.images.TransfertImage;
 import pathfinder.DocumentTypeConstant;
 
 public class PanelCreateImage extends PanelDocumentBuilder {

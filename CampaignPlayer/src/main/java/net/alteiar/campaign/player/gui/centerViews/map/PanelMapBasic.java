@@ -51,10 +51,10 @@ import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawa
 import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.tools.Threads;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.elements.MapElement;
 import net.alteiar.map.filter.MapFilter;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;

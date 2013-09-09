@@ -1,25 +1,37 @@
 package net.alteiar.test;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.campaign.CampaignFactory;
+import net.alteiar.campaign.CampaignFactoryNew;
+import net.alteiar.newversion.server.ServerDocuments;
 import net.alteiar.player.Player;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 
 public class LoadCampaignTest extends BasicTest {
 	private String originalName;
+	private ServerDocuments server;
 
 	@Before
 	public void beforeTest() throws TimeoutException {
+		// Start a server
+		try {
+			server = new ServerDocuments(4545, "abc");
+		} catch (IOException e) {
+			Logger.getLogger(CampaignClient.class).error(
+					"fail to start server", e);
+		}
+
 		System.out.println("Setting up test");
 		String address = "127.0.0.1";
-		String port = "1099";
+		int port = 4545;
 
-		CampaignFactory.loadCampaignServer(address, port, getGlobalDirectory(),
+		CampaignFactoryNew.loadCampaign(address, port, getGlobalDirectory(),
 				getCampaignDirectory());
 
 		long before = System.currentTimeMillis();
@@ -44,12 +56,17 @@ public class LoadCampaignTest extends BasicTest {
 			// finalyze all actions
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(CampaignClient.class).error("fail to sleep", e);
 		}
 
-		// CampaignClient.getInstance().saveGame();
-		CampaignFactory.leaveGame();
+		try {
+			CampaignClient.getInstance().saveGame();
+		} catch (Exception e) {
+			Logger.getLogger(CampaignClient.class).error("Fail to save", e);
+		}
+		CampaignFactoryNew.leaveGame();
+
+		server.stopServer();
 	}
 
 	@Override

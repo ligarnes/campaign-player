@@ -41,7 +41,7 @@ public class PanelJoinLoading extends PanelStartGameDialog implements
 	private final Timer time;
 
 	private int totalBeans;
-	private Boolean clientCreated;
+	private final Boolean clientCreated;
 
 	public PanelJoinLoading(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
@@ -69,10 +69,15 @@ public class PanelJoinLoading extends PanelStartGameDialog implements
 		add(lblChargementDeLa, gbc_lblChargementDeLa);
 
 		progressBar = new JProgressBar();
-		progressBar.setMinimum(0);
-		progressBar.setMaximum(100);
-		progressBar.setValue(0);
-		progressBar.setStringPainted(true);
+
+		progressBar.setIndeterminate(true);
+
+		/*
+		 * progressBar.setMinimum(0); progressBar.setMaximum(100);
+		 * progressBar.setValue(0);
+		 * 
+		 * progressBar.setStringPainted(true);
+		 */
 		GridBagConstraints gbc_progressBar = new GridBagConstraints();
 		gbc_progressBar.gridx = 0;
 		gbc_progressBar.gridy = 1;
@@ -88,21 +93,18 @@ public class PanelJoinLoading extends PanelStartGameDialog implements
 	public void actionPerformed(ActionEvent e) {
 		final CampaignClient c = CampaignClient.getInstance();
 
-		if (c != null) {
-			if (!clientCreated) {
-				totalBeans = c.getRemoteDocumentCount();
-				progressBar.setMaximum(totalBeans);
-				clientCreated = true;
-			}
-
-			if (clientCreated) {
-				int count = c.getLocalDocumentCount();
-				progressBar.setValue(count);
-				if (count >= (totalBeans)) {
-					nextState();
-					time.stop();
-				}
-			}
+		if (c.isInitialized()) {
+			nextState();
+			time.stop();
 		}
+		/*
+		 * if (c != null) { if (!clientCreated) { totalBeans =
+		 * c.getRemoteDocumentCount(); progressBar.setMaximum(totalBeans);
+		 * clientCreated = true; }
+		 * 
+		 * if (clientCreated) { int count = c.getLocalDocumentCount();
+		 * progressBar.setValue(count); if (count >= (totalBeans)) {
+		 * nextState(); time.stop(); } } }
+		 */
 	}
 }

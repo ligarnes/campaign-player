@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 import net.alteiar.media.ImageBean;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.shared.UniqueID;
-import net.alteiar.utils.files.images.WebImage;
+import net.alteiar.utils.file.images.WebImage;
 
 import org.junit.Test;
 

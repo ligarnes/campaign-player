@@ -18,11 +18,11 @@ import javax.swing.SwingConstants;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.campaign.player.plugin.PluginSystem;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
 import net.alteiar.documents.BeanDirectory;
 import net.alteiar.documents.BeanDocument;
+import net.alteiar.newversion.shared.bean.BasicBean;
 
 public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 	private static final long serialVersionUID = 1L;
@@ -120,6 +120,9 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		if (bean != null) {
 			BeanDocument doc = new BeanDocument(dir, builder.getDocumentName(),
 					builder.getDocumentType(), bean);
+
+			// TODO remove setPublic only for test
+			doc.setPublic(true);
 			CampaignClient.getInstance().addBean(doc);
 		}
 	}

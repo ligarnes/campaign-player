@@ -151,7 +151,7 @@ public class PanelDocumentDescription extends JPanel {
 
 	protected void drawPlayerColor(Graphics2D g2, AuthorizationBean bean) {
 		Player player = CampaignClient.getInstance().getBean(bean.getOwner());
-		g2.setColor(player.getColor());
+		g2.setColor(player.getRealColor());
 		g2.fillOval(19, 19, 9, 9);
 
 		g2.setColor(Color.BLACK);

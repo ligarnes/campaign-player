@@ -21,8 +21,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.BeanDocument;
+import net.alteiar.newversion.shared.bean.BasicBean;
 
 public abstract class BasicTest {
 	/**

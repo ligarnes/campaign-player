@@ -1,6 +1,6 @@
 package net.alteiar.campaign.player.gui.tools.selector.image;
 
-import net.alteiar.utils.files.images.TransfertImage;
+import net.alteiar.utils.file.images.TransfertImage;
 
 public class DocumentImageSelector implements ImageSelectorStrategy {
 
