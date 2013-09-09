@@ -39,24 +39,15 @@
         </roles>
         <timezone>-4</timezone>
       </developer>
-      
-      <developer>
-        <id>1</id>
-        <name>Sylvain Goulet</name>
-       <!--  <organizationUrl>http://www.alteiar.net</organizationUrl> -->
-        <roles>
-          <role>développeur</role>
-        </roles>
-        <timezone>-4</timezone>
-      </developer>
+     
     </developers>
     
     <!-- Contributors -->
     <contributors>
         <contributor>
-            <name></name>
+            <name>Sylvain Goulet</name>
             <roles>
-                <role></role>
+                <role>développeur</role>
             </roles>
             <timezone>-4</timezone>
         </contributor>
@@ -101,6 +92,7 @@
 	
   </dependencies>
             
+            <!-- 
   <reporting>
     <plugins>
       <plugin>
@@ -120,7 +112,7 @@
         </configuration>
        </plugin>
     </plugins>
-  </reporting> 
+  </reporting> -->
   
   <build> 
   
@@ -135,7 +127,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12.4</version>
-                <configuration>
+                 <configuration>
 		          <skipTests>true</skipTests>
 		        </configuration>
             </plugin>
@@ -152,40 +144,6 @@
         </plugin>
     </plugins>
     
-    <!-- 
-    <plugins> 
-              
-    	 <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>2.14</version>
-        <configuration>
-          <locales>fr,en</locales>
-          <skipTests>true</skipTests>
-        </configuration>
-      </plugin>
-      
-      
-      <plugin>
-    		<groupId>org.apache.maven.plugins</groupId>
-    		<artifactId>maven-compiler-plugin</artifactId>
-   			<version>2.0.2</version>
-    		<configuration>
-        		<source>1.6</source>
-        		<target>1.6</target>
-    		</configuration>
-		</plugin>
-		
-  
-     <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.14</version>
-        <configuration>
-          <skipTests>true</skipTests>
-        </configuration>
-      </plugin>
-    </plugins>  -->
   </build>
  
 </project>

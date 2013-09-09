@@ -71,7 +71,7 @@ public class PathToMouse extends LineToMouse {
 			double width = gap * zoomFactor;
 
 			Color color = CampaignClient.getInstance().getCurrentPlayer()
-					.getColor();
+					.getRealColor();
 			g2.setColor(color);
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					0.5f));

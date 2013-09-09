@@ -3,7 +3,7 @@ package net.alteiar.documents;
 import java.beans.PropertyChangeListener;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;

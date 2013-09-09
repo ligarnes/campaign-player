@@ -84,12 +84,12 @@ public class PanelNetworkInformation extends PanelBaseSetting {
 		add(textFieldPort, gbc_textField_2);
 		textFieldPort.setColumns(10);
 
-		String localAddressIp = CampaignClient.getInstance().getIpLocal();
+		// String localAddressIp = CampaignClient.getInstance().getIpLocal();
 		String serverAddressIp = CampaignClient.getInstance().getIpServer();
-		String port = CampaignClient.getInstance().getPort();
+		Integer port = CampaignClient.getInstance().getPort();
 
-		textFieldLocal.setText(localAddressIp);
+		// textFieldLocal.setText(localAddressIp);
 		textFieldServer.setText(serverAddressIp);
-		textFieldPort.setText(port);
+		textFieldPort.setText(port.toString());
 	}
 }

@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.thread.MyRunnable;
 import net.alteiar.thread.ThreadPoolUtils;
-import net.alteiar.utils.files.video.SerializableAudio;
+import net.alteiar.utils.file.audio.SerializableAudio;
 
 import org.apache.log4j.Logger;
 import org.simpleframework.xml.Element;

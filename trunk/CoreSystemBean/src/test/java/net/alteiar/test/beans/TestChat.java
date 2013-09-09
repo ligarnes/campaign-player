@@ -51,7 +51,9 @@ public class TestChat extends NewCampaignTest {
 	}
 
 	@Test(timeout = 5000)
-	public void testMessageRemote() {
+	public void testMessage() {
+		System.out.println("test message");
+
 		String tgtMsg1 = "**msg1**";
 		String tgtMsg2 = "**msg1**";
 		String tgtMsg3 = "msg1";
@@ -74,6 +76,8 @@ public class TestChat extends NewCampaignTest {
 				!msg1.getHtmlFormat().equals(msg3.getHtmlFormat()));
 
 		assertEquals("message should be same", msg1.getText(), tgtMsg1);
+
+		System.out.println("test message");
 	}
 
 	@Test(timeout = 5000)
@@ -120,6 +124,7 @@ public class TestChat extends NewCampaignTest {
 			}
 		};
 
+		System.out.println("wait for last message 1");
 		Message result = getLastMessage(sendTextMessage);
 
 		assertTrue("The message is for us so we can access it",
@@ -134,6 +139,7 @@ public class TestChat extends NewCampaignTest {
 			}
 		};
 
+		System.out.println("wait for last message 2");
 		result = getLastMessage(sendTextMessage);
 		assertTrue("The message is not for us so we can't access it",
 				!result.accept(CampaignClient.getInstance().getCurrentPlayer()));
@@ -147,6 +153,7 @@ public class TestChat extends NewCampaignTest {
 			}
 		};
 
+		System.out.println("wait for last message 3");
 		result = getLastMessage(sendTextMessage);
 		assertTrue("The message is not for us so we can't access it",
 				result.accept(CampaignClient.getInstance().getCurrentPlayer()));
@@ -169,6 +176,7 @@ public class TestChat extends NewCampaignTest {
 			}
 		};
 
+		System.out.println("wait for last message 1");
 		Message result = getLastMessage(sendTextMessage);
 
 		assertTrue("The message is for us so we can access it",

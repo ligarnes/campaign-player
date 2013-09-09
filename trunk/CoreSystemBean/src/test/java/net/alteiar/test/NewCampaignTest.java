@@ -2,36 +2,44 @@ package net.alteiar.test;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.campaign.CampaignFactory;
+import net.alteiar.campaign.CampaignFactoryNew;
+import net.alteiar.newversion.server.ServerDocuments;
 
 import org.junit.After;
 import org.junit.Before;
 
 public class NewCampaignTest extends BasicTest {
 
+	private ServerDocuments server;
+
 	@Before
 	public void beforeTest() {
+		// Start a server
+		try {
+			server = new ServerDocuments(4545, "abc");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		System.out.println("Setting up test");
 		String address = "127.0.0.1";
-		String port = "1099";
+		int port = 4545;
 
 		String localDirectoryPath = getCampaignDirectory();
 
 		deleteRecursive(new File(localDirectoryPath));
 
-		try {
-			CampaignFactory.startNewCampaignServer(address, port,
-					getGlobalDirectory(), localDirectoryPath);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		CampaignFactoryNew
+				.startNewCampaign(address, port, getGlobalDirectory());
 
 		CampaignClient.getInstance().createPlayer(getPlayerName(), true,
 				Color.BLUE);
 
+		System.out.println("test started");
 	}
 
 	@After
@@ -43,7 +51,9 @@ public class NewCampaignTest extends BasicTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		CampaignFactory.leaveGame();
+		CampaignFactoryNew.leaveGame();
+
+		server.stopServer();
 		System.out.println("tearing down");
 	}
 

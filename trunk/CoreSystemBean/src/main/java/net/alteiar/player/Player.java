@@ -2,8 +2,8 @@ package net.alteiar.player;
 
 import java.awt.Color;
 
-import net.alteiar.client.bean.BasicBean;
-import net.alteiar.shared.MyColor;
+import net.alteiar.newversion.shared.bean.BasicBean;
+import net.alteiar.shared.ColorWrapper;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -22,7 +22,7 @@ public class Player extends BasicBean {
 	@Element
 	private Boolean dm;
 	@Element
-	private MyColor color;
+	private ColorWrapper color;
 
 	private Boolean connected;
 
@@ -34,7 +34,7 @@ public class Player extends BasicBean {
 		super();
 		this.name = name;
 		this.dm = mj;
-		this.color = new MyColor(color);
+		this.color = new ColorWrapper(color);
 		this.connected = false;
 	}
 
@@ -62,14 +62,22 @@ public class Player extends BasicBean {
 		}
 	}
 
-	public Color getColor() {
-		return color.getColor();
+	public Color getRealColor() {
+		return getColor().getColor();
 	}
 
-	public void setColor(Color color) {
-		Color oldValue = this.color.getColor();
+	public void changeColor(Color color) {
+		setColor(new ColorWrapper(color));
+	}
+
+	public ColorWrapper getColor() {
+		return color;
+	}
+
+	public void setColor(ColorWrapper color) {
+		ColorWrapper oldValue = this.color;
 		if (notifyRemote(PROP_COLOR_PROPERTY, oldValue, color)) {
-			this.color = new MyColor(color);
+			this.color = color;
 			notifyLocal(PROP_COLOR_PROPERTY, oldValue, color);
 		}
 	}

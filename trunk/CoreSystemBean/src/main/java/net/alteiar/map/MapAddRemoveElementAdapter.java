@@ -26,7 +26,8 @@ public abstract class MapAddRemoveElementAdapter implements
 			MapElement element = CampaignClient.getInstance().getBean(
 					(UniqueID) evt.getNewValue(), timeout);
 			mapElementAdded(element);
-		} else if (MapBean.METH_REMOVE_ELEMENT_METHOD.equals(evt.getPropertyName())) {
+		} else if (MapBean.METH_REMOVE_ELEMENT_METHOD.equals(evt
+				.getPropertyName())) {
 			MapElement element = CampaignClient.getInstance().getBean(
 					(UniqueID) evt.getNewValue(), timeout);
 			mapElementAdded(element);

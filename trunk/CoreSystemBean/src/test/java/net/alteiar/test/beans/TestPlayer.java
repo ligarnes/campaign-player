@@ -7,7 +7,7 @@ import java.awt.Color;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.chat.Chat;
-import net.alteiar.client.bean.BeanEncapsulator;
+import net.alteiar.newversion.shared.bean.BeanEncapsulator;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;
 
@@ -61,9 +61,10 @@ public class TestPlayer extends NewCampaignTest {
 		waitForChange(current, "isDm", isDm);
 
 		Color color = Color.RED;
-		current.setColor(color);
+		current.changeColor(color);
 		sleep();
-		assertEquals("player color should be same", color, current.getColor());
+		assertEquals("player color should be same", color,
+				current.getRealColor());
 
 		isDm = !current.isDm();
 		current.setDm(isDm);
@@ -77,5 +78,4 @@ public class TestPlayer extends NewCampaignTest {
 		current.setConnected(false);
 		waitForChange(current, "getConnected", false);
 	}
-
 }

@@ -8,7 +8,7 @@ import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 
-import net.alteiar.shared.MyColor;
+import net.alteiar.shared.ColorWrapper;
 
 import org.simpleframework.xml.Element;
 
@@ -21,14 +21,14 @@ public abstract class ColoredShape extends MapElement {
 	protected static final Integer STROKE_SIZE_SMALL = 2;
 
 	@Element
-	private MyColor color;
+	private ColorWrapper color;
 
 	protected ColoredShape() {
 	}
 
 	public ColoredShape(Point position, Color color) {
 		super(position);
-		this.color = new MyColor(color);
+		this.color = new ColorWrapper(color);
 	}
 
 	public Color getColor() {
@@ -38,7 +38,7 @@ public abstract class ColoredShape extends MapElement {
 	public void setColor(Color color) {
 		Color oldValue = this.color.getColor();
 		if (notifyRemote(PROP_COLOR_PROPERTY, oldValue, color)) {
-			this.color = new MyColor(color);
+			this.color = new ColorWrapper(color);
 			notifyLocal(PROP_COLOR_PROPERTY, oldValue, color);
 		}
 	}

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -21,6 +22,7 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 
 	private JTextField pseudoTextField;
 	private PanelSelectColor playerColorSelector;
+	private JCheckBox checkIsMj;
 
 	public PanelCreatePlayer(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
@@ -53,6 +55,9 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 		playerColorSelector = new PanelSelectColor();
 		identityPanel.add(playerColorSelector);
 
+		checkIsMj = new JCheckBox(Languages.getText("create_is_dm"));
+		identityPanel.add(checkIsMj);
+
 		this.add(identityPanel);
 
 		JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -77,7 +82,6 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 		buttonPanel.add(createButton);
 
 		this.add(buttonPanel);
-
 	}
 
 	public String getPseudo() {
@@ -90,8 +94,8 @@ public class PanelCreatePlayer extends PanelStartGameDialog {
 
 	public void createPlayer() {
 		// Create a non-MJ player
-		CampaignClient.getInstance().createPlayer(getPseudo(), false,
-				getPlayerColor());
+		CampaignClient.getInstance().createPlayer(getPseudo(),
+				checkIsMj.isSelected(), getPlayerColor());
 
 		nextState();
 	}

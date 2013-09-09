@@ -28,11 +28,11 @@ import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.CampaignAdapter;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.PanelGlobalMap;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.map.MapBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 /**

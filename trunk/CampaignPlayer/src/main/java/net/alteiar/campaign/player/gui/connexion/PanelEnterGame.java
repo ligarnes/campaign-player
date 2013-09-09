@@ -9,7 +9,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import net.alteiar.campaign.CampaignFactoryNew;
+import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
+import net.alteiar.campaign.player.tools.NetworkProperties;
+
+import org.apache.log4j.Logger;
 
 public class PanelEnterGame extends PanelStartGameDialog implements
 		ActionListener {
@@ -41,7 +46,8 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 		PanelStartGameDialog next = null;
 		switch (selection) {
 		case CREATE:
-			next = new PanelCreateGame(getDialog(), this);
+			next = new PanelCreatePlayer(getDialog(), this);
+			// null;// new PanelCreateGame(getDialog(), this);
 			break;
 		case LOAD:
 			next = new PanelLoadGame(getDialog(), this);
@@ -95,6 +101,18 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == createButton) {
 			selection = MenuSelection.CREATE;
+
+			NetworkProperties networkProp = new NetworkProperties();
+			// Create the game
+			try {
+				CampaignFactoryNew.startNewCampaign(networkProp.getServerIp(),
+						networkProp.getServerPort(),
+						HelpersPath.PATH_DOCUMENT_GLOBAL);
+			} catch (Exception e) {
+				Logger.getLogger(getClass()).error(
+						"Impossible de créer la partie", e);
+			}
+
 		} else if (event.getSource() == loadButton) {
 			selection = MenuSelection.LOAD;
 		} else if (event.getSource() == joinButton) {

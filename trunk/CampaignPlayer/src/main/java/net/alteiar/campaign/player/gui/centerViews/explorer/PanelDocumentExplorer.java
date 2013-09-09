@@ -5,9 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -27,9 +27,9 @@ import net.alteiar.campaign.player.gui.documents.PanelCreateDocument;
 import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.campaign.player.tools.Threads;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
@@ -82,6 +82,8 @@ public class PanelDocumentExplorer extends JPanel {
 
 					@Override
 					public void beanAdded(BeanBasicDocument bean) {
+						System.out.println("Document added "
+								+ bean.getDocumentName());
 						refreshTree();
 					}
 				});
@@ -142,9 +144,9 @@ public class PanelDocumentExplorer extends JPanel {
 			public void run() {
 				DefaultMutableTreeNode root = (DefaultMutableTreeNode) treeModel
 						.getRoot();
-
-				System.out.println("fill it");
-				fillIt(root);
+				synchronized (treeModel) {
+					fillIt(root);
+				}
 
 				SwingUtilities.invokeLater(new Runnable() {
 					@Override
@@ -175,14 +177,37 @@ public class PanelDocumentExplorer extends JPanel {
 			}
 		});
 
-		ArrayList<BeanBasicDocument> docs = new ArrayList<>();
+		Map<String, DefaultMutableTreeNode> existingDocs = new HashMap<>();
+
+		for (int i = 0; i < parent.getChildCount(); i++) {
+			DefaultMutableTreeNode childNode = (DefaultMutableTreeNode) parent
+					.getChildAt(i);
+			String documentId = ((DocumentAdapter) childNode.getUserObject())
+					.getDocument().getId().toString();
+			existingDocs.put(documentId, childNode);
+		}
+
 		for (final UniqueID id : beanDir.getDocuments()) {
 			BeanBasicDocument beanBasicDocument = CampaignClient.getInstance()
 					.getBean(id);
 
 			if (beanBasicDocument != null) {
-				docs.add(beanBasicDocument);
 
+				DefaultMutableTreeNode node = existingDocs
+						.get(beanBasicDocument.getId().toString());
+
+				if (node != null) {
+					existingDocs.remove(beanBasicDocument.getDocumentName());
+				} else {
+					node = new DefaultMutableTreeNode(new DocumentAdapter(
+							beanBasicDocument), beanBasicDocument.isDirectory());
+					parent.add(node);
+
+				}
+
+				if (beanBasicDocument.isDirectory()) {
+					fillIt(node);
+				}
 			} else {
 				CampaignClient.getInstance().addWaitBeanListener(
 						new WaitBeanListener() {
@@ -199,61 +224,22 @@ public class PanelDocumentExplorer extends JPanel {
 			}
 		}
 
-		if (docs.isEmpty()) {
-			parent.removeAllChildren();
-			return;
-		}
+		if (!existingDocs.isEmpty()) {
+			for (String docnameToRemove : existingDocs.keySet()) {
+				Iterator<DefaultMutableTreeNode> itt = new DefaultMutableTreeNodeChildIterator(
+						parent);
 
-		Collections.sort(docs, new DocumentNameComparator());
-
-		int childIdx = 0;
-		for (int i = 0; i < docs.size(); ++i) {
-			DefaultMutableTreeNode currentTreeNode = null;
-
-			if (parent.getChildCount() > childIdx) {
-				currentTreeNode = (DefaultMutableTreeNode) parent
-						.getChildAt(childIdx);
-				String docName = ((DocumentAdapter) currentTreeNode
-						.getUserObject()).getDocument().getDocumentName();
-
-				String currentDocName = docs.get(i).getDocumentName();
-				if (docName.equals(currentDocName)) {
-					// already there
-					childIdx++;
-				} else if (docName.compareToIgnoreCase(currentDocName) < 0) {
-					DefaultMutableTreeNode node = new DefaultMutableTreeNode(
-							new DocumentAdapter(docs.get(i)), docs.get(i)
-									.isDirectory());
-					this.treeModel.insertNodeInto(node, parent, i);
-				} else {
-					System.out.println("node removed");
-					// the node as been removed
-					// FIXME, TODO TO TEST
-					this.treeModel.removeNodeFromParent(currentTreeNode);
-					i--;
+				boolean docRemoved = false;
+				while (itt.hasNext() && !docRemoved) {
+					DefaultMutableTreeNode childNode = itt.next();
+					String documentName = childNode.getUserObject().toString();
+					if (documentName.equals(docnameToRemove)) {
+						itt.remove();
+						docRemoved = true;
+					}
 				}
-			} else {
-				// just append the node
-				DefaultMutableTreeNode node = new DefaultMutableTreeNode(
-						new DocumentAdapter(docs.get(i)), docs.get(i)
-								.isDirectory());
-				this.treeModel.insertNodeInto(node, parent, i);
 			}
 
-			// if is directory we need to fillIt
-			if (docs.get(i).isDirectory()) {
-				fillIt((DefaultMutableTreeNode) parent.getChildAt(i));
-			}
-		}
-	}
-
-	private class DocumentNameComparator implements
-			Comparator<BeanBasicDocument> {
-
-		@Override
-		public int compare(BeanBasicDocument o1, BeanBasicDocument o2) {
-			return o1.getDocumentName().compareToIgnoreCase(
-					o2.getDocumentName());
 		}
 	}
 }

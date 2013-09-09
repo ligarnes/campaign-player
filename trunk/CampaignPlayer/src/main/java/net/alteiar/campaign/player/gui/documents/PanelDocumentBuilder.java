@@ -2,7 +2,7 @@ package net.alteiar.campaign.player.gui.documents;
 
 import javax.swing.JPanel;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 
 public abstract class PanelDocumentBuilder extends JPanel {
 	private static final long serialVersionUID = 1L;

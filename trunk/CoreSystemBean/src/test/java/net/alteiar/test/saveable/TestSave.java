@@ -12,7 +12,7 @@ import net.alteiar.chat.MessageFactory;
 import net.alteiar.media.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;
-import net.alteiar.utils.files.images.WebImage;
+import net.alteiar.utils.file.images.WebImage;
 
 import org.junit.Test;
 

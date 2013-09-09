@@ -1,6 +1,6 @@
 package net.alteiar.notepad;
 
-import net.alteiar.client.bean.BasicBean;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.textTokenized.TokenManager;
 
 import org.simpleframework.xml.Element;

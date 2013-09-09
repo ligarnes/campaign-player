@@ -42,6 +42,19 @@ public class RmiRegistryProxy extends UnicastRemoteObject implements
 	public static RmiRegistryProxy INSTANCE;
 	private final String bindName;
 
+	public static synchronized void startRmiRegistryProxy(
+			String adressIpExtern, String adressIpLocal, int port)
+			throws RemoteException, MalformedURLException {
+		if (INSTANCE == null) {
+			LocateRegistry.createRegistry(port);
+
+			System.setProperty("java.rmi.server.hostname", adressIpExtern);
+			INSTANCE = new RmiRegistryProxy("//" + adressIpLocal + ":" + port
+					+ "/" + IRmiRegistryProxy.RMI_NAME);
+			Naming.rebind(INSTANCE.getName(), INSTANCE);
+		}
+	}
+
 	public static synchronized void startRmiRegistryProxy(String adressIp,
 			int port) throws RemoteException, MalformedURLException {
 		if (INSTANCE == null) {

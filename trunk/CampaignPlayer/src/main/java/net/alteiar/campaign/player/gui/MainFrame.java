@@ -30,7 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import net.alteiar.campaign.CampaignFactory;
+import net.alteiar.campaign.CampaignFactoryNew;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.infos.HelpersPath;
@@ -105,7 +105,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		CampaignFactory.leaveGame();
+		CampaignFactoryNew.leaveGame();
 	}
 
 	@Override

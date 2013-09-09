@@ -87,7 +87,7 @@ public class CharactersDrawable {
 	protected void drawPlayerColor(Graphics2D g2, BeanDocument character) {
 		Player player = CampaignClient.getInstance().getBean(
 				character.getOwner());
-		g2.setColor(player.getColor());
+		g2.setColor(player.getRealColor());
 		g2.fillOval(40, 30, 10, 10);
 
 		g2.setColor(Color.BLACK);

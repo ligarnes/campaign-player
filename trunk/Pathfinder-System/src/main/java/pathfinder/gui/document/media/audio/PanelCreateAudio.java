@@ -17,9 +17,9 @@ import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
 import net.alteiar.campaign.player.logger.ExceptionTool;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.media.AudioBean;
-import net.alteiar.utils.files.video.SerializableAudio;
+import net.alteiar.newversion.shared.bean.BasicBean;
+import net.alteiar.utils.file.audio.SerializableAudio;
 import pathfinder.DocumentTypeConstant;
 
 public class PanelCreateAudio extends PanelDocumentBuilder {

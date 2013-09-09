@@ -10,9 +10,9 @@ import java.util.Collections;
 import java.util.List;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.client.bean.BasicBean;
 import net.alteiar.map.MapBean;
 import net.alteiar.map.Scale;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
@@ -84,7 +84,8 @@ public abstract class MapElement extends BasicBean {
 		AffineTransform transform = new AffineTransform();
 		transform.translate(x, y);
 
-		g2.setColor(CampaignClient.getInstance().getCurrentPlayer().getColor());
+		g2.setColor(CampaignClient.getInstance().getCurrentPlayer()
+				.getRealColor());
 		g2.setStroke(new BasicStroke(5.0f));
 		g2.transform(transform);
 		g2.drawRect(0, 0, width, height);

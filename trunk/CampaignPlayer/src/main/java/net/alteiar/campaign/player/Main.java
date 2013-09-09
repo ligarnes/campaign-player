@@ -19,16 +19,11 @@
  */
 package net.alteiar.campaign.player;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.rmi.RMISecurityManager;
-import java.text.ParseException;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.synth.SynthLookAndFeel;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.connexion.StartGameDialog;
@@ -47,6 +42,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// Log.TRACE();
 		System.setProperty("java.security.policy", "./ressources/security.txt");
 		// Create and install a security manager
 		if (System.getSecurityManager() == null) {
@@ -57,10 +53,10 @@ public class Main {
 		DOMConfigurator.configure("./ressources/log/log4j.xml");
 
 		try {
-			SynthLookAndFeel lookAndFeel = new SynthLookAndFeel();
-			lookAndFeel.load(new File("./ressources/lookAndFeel/default.xml")
-					.toURI().toURL());
-			UIManager.setLookAndFeel(lookAndFeel);
+			// SynthLookAndFeel lookAndFeel = new SynthLookAndFeel();
+			// lookAndFeel.load(new File("./ressources/lookAndFeel/default.xml")
+			// .toURI().toURL());
+			// UIManager.setLookAndFeel(lookAndFeel);
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (UnsupportedLookAndFeelException e) {
 			Logger.getLogger(Main.class).warn(
@@ -74,16 +70,14 @@ public class Main {
 		} catch (IllegalAccessException e) {
 			Logger.getLogger(Main.class).warn(
 					"Impossible de changer le look and feel", e);
-		} catch (MalformedURLException e) {
-			Logger.getLogger(Main.class).warn(
-					"Impossible de changer le look and feel", e);
-		} catch (ParseException e) {
-			Logger.getLogger(Main.class).warn(
-					"Impossible de changer le look and feel", e);
-		} catch (IOException e) {
-			Logger.getLogger(Main.class).warn(
-					"Impossible de changer le look and feel", e);
-		}
+		} /*
+		 * catch (MalformedURLException e) { Logger.getLogger(Main.class).warn(
+		 * "Impossible de changer le look and feel", e); } catch (ParseException
+		 * e) { Logger.getLogger(Main.class).warn(
+		 * "Impossible de changer le look and feel", e); } catch (IOException e)
+		 * { Logger.getLogger(Main.class).warn(
+		 * "Impossible de changer le look and feel", e); }
+		 */
 
 		// Touch to load plugin class
 		PluginSystem.getInstance();

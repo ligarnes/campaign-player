@@ -173,8 +173,8 @@ public class GlobalProperties implements Serializable {
 		return property.getValue(KEY_LOAD_PORT, "1099");
 	}
 
-	public void setLoadPort(String port) {
-		property.setValue(KEY_LOAD_PORT, port);
+	public void setLoadPort(Integer port) {
+		property.setValue(KEY_LOAD_PORT, port.toString());
 	}
 
 	public String getLoadCampaign() {
