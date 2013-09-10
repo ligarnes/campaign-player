@@ -12,6 +12,8 @@ import net.alteiar.newversion.shared.message.MessageSplitReady;
 import net.alteiar.newversion.shared.request.RequestObject;
 import net.alteiar.shared.IUniqueObject;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.thread.MyRunnable;
+import net.alteiar.thread.ThreadPoolUtils;
 
 import org.apache.log4j.Logger;
 
@@ -67,25 +69,29 @@ public abstract class DocuManager extends Listener {
 
 	private void sendTCPMessage(final Connection conn, final IUniqueObject obj) {
 
-		Thread tr = new Thread(new Runnable() {
+		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
 			@Override
 			public void run() {
 				while ((conn.getTcpWriteBufferSize() + getMaxChunkSize()) >= bufferSize) {
 					try {
 						Thread.sleep(10);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						Logger.getLogger(getClass()).debug(
+								"Erreur durant l'attente", e);
 					}
 				}
 
 				realSend(conn, obj);
 			}
+
+			@Override
+			public String getTaskName() {
+				return "Sending message";
+			}
 		});
-		tr.start();
 	}
 
-	private void realSend(Connection conn, IUniqueObject reply) {
+	private synchronized void realSend(Connection conn, IUniqueObject reply) {
 		try {
 			int size = conn.sendTCP(reply);
 		} catch (Exception ex) {

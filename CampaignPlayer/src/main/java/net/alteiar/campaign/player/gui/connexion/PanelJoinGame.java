@@ -35,9 +35,12 @@ import net.alteiar.campaign.CampaignFactoryNew;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.campaign.player.tools.GlobalProperties;
 import net.alteiar.campaign.player.tools.NetworkProperties;
+import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.component.MyCombobox;
+import net.alteiar.thread.MyRunnable;
 
 public class PanelJoinGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -55,7 +58,8 @@ public class PanelJoinGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelJoinLoading(getDialog(), this);
+		return new PanelLoading(getDialog(), this,
+				new PanelCreateOrChoosePlayer(getDialog()));
 	}
 
 	private final void initGui() {
@@ -138,44 +142,22 @@ public class PanelJoinGame extends PanelStartGameDialog {
 	}
 
 	public void join() {
-		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		final String localAdress = getLocalAdressIP();
-		final String serverAdress = getServerAddressIp();
-		final String port = getPort();
+		Threads.execute(new MyRunnable() {
+			@Override
+			public void run() {
+				NetworkProperties networkProp = new NetworkProperties();
+				CampaignFactoryNew.connectToServer(networkProp.getServerIp(),
+						networkProp.getServerPort(),
+						HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
+								.getInstance().getKryo());
+			}
 
-		NetworkProperties networkProp = new NetworkProperties();
-		CampaignFactoryNew.connectToServer(networkProp.getServerIp(),
-				networkProp.getServerPort(),/* "192.168.0.103", 4545, */
-				HelpersPath.PATH_DOCUMENT_GLOBAL);
-		/*
-		 * Runnable run = new Runnable() {
-		 * 
-		 * @Override public void run() { try { CampaignFactoryRasp factory = new
-		 * CampaignFactoryRasp( getLocalAdressIP(), "24.142.94.63", "1099");
-		 * factory.connectToServer(getServerAddressIp(),
-		 * HelpersPath.PATH_DOCUMENT_GLOBAL); } catch (RemoteException e1) {
-		 * Logger.getLogger(getClass()).error(
-		 * "Impossible de charger la campagne", e1); } catch
-		 * (MalformedURLException e) { Logger.getLogger(getClass()).error(
-		 * "Impossible de charger la campagne", e); } catch (NotBoundException
-		 * e) { Logger.getLogger(getClass()).error(
-		 * "Impossible de charger la campagne", e); }
-		 * 
-		 * // CampaignFactory.connectToServer(localAdress, serverAdress, //
-		 * port, HelpersPath.PATH_DOCUMENT_GLOBAL); // save just after load try
-		 * { CampaignClient.getInstance().saveGame(); } catch (Exception e) {
-		 * Logger.getLogger(getClass()).error(
-		 * "Impossible de sauver la campagne", e); } } };
-		 */
-
-		globalProp.setJoinIpLocal(getLocalAdressIP());
-		globalProp.setJoinPort(getPort());
-		globalProp.setJoinIpServer(getServerAddressIp());
-
-		// Thread tr = new Thread(run);
+			@Override
+			public String getTaskName() {
+				return "Connect to server";
+			}
+		});
 
 		nextState();
-
-		// tr.start();
 	}
 }

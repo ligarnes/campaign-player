@@ -67,11 +67,12 @@ public final class CampaignClient implements DocumentManagerListener {
 	// TODO desactivate it for the moment
 	// private final EventManager eventManager;
 
-	protected CampaignClient(String ipServer, int port, String globalPath) {
+	protected CampaignClient(String ipServer, int port, String globalPath,
+			MyKryoInit kryoInit) {
 
 		try {
 			this.manager = new DocumentManager(ipServer, port, globalPath,
-					new MyKryoInit());
+					kryoInit);
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).error("Impossible de se connecter", e);
 			throw new ExceptionInInitializerError(e);
@@ -103,6 +104,16 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public boolean isInitialized() {
 		return this.manager.isInitialized();
+	}
+
+	public boolean isLoaded() {
+		boolean isLoaded = isInitialized();
+
+		isLoaded = isLoaded && combatTraker != null;
+		isLoaded = isLoaded && chat != null;
+		isLoaded = isLoaded && diceRoller != null;
+
+		return isLoaded;
 	}
 
 	public BeanDirectory getRootDirectory() {

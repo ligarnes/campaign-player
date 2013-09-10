@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
+import net.alteiar.campaign.MyKryoInit;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
@@ -43,7 +44,10 @@ public class PluginSystem {
 	private final PluginList<DocumentPlugin> pluginDocument;
 	private final PluginList<MapElementPlugin> pluginElements;
 
+	private final MyKryoInit kryo;
+
 	public PluginSystem() {
+		kryo = new MyKryoInit();
 
 		pluginDocument = new PluginList<DocumentPlugin>();
 		pluginElements = new PluginList<MapElementPlugin>();
@@ -54,6 +58,10 @@ public class PluginSystem {
 			Logger.getLogger(getClass()).error("enable to load plugin ", e);
 			ExceptionTool.showError(e);
 		}
+	}
+
+	public MyKryoInit getKryo() {
+		return kryo;
 	}
 
 	public void loadPlugin(String directory) throws FileNotFoundException,
@@ -116,6 +124,9 @@ public class PluginSystem {
 		for (MapElementPlugin plug : plugin.getMapElements()) {
 			pluginElements.addPlugin(plug);
 		}
+
+		MyKryoInit kryo = new MyKryoInit();
+		kryo.addPluginClasses(plugin.getClasses());
 	}
 
 	public DrawFilter getDrawInfo(MapEditableInfo mapInfo) {

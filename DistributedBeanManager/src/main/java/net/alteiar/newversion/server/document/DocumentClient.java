@@ -8,7 +8,7 @@ import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.newversion.shared.bean.BeanEncapsulator;
 import net.alteiar.shared.UniqueID;
 
-public class DocumentClient implements PropertyChangeListener {
+public class DocumentClient implements IDocument, PropertyChangeListener {
 
 	private BeanEncapsulator bean;
 	private String filename;
@@ -17,9 +17,10 @@ public class DocumentClient implements PropertyChangeListener {
 
 	public DocumentClient(DocumentManager manager) {
 		this.listener = manager;
-		filename = null;// = remote.getFilename();
+		filename = null;
 	}
 
+	@Override
 	public void remoteValueChanged(String propertyName, Object newValue,
 			Long timestamp) {
 		bean.valueChange(propertyName, newValue, timestamp);
@@ -45,14 +46,17 @@ public class DocumentClient implements PropertyChangeListener {
 
 	}
 
+	@Override
 	public UniqueID getId() {
 		return bean.getId();
 	}
 
+	@Override
 	public BeanEncapsulator getBeanEncapsulator() {
 		return this.bean;
 	}
 
+	@Override
 	public String getFilename() {
 		return this.filename;
 	}
@@ -60,11 +64,13 @@ public class DocumentClient implements PropertyChangeListener {
 	/**
 	 * this method is call when the document is close on the server
 	 */
+	@Override
 	public final void remoteCloseDocument() {
 		this.bean.beanRemoved();
 		this.bean.removePropertyChangeListener(this);
 	}
 
+	@Override
 	public void loadDocument(BasicBean bean) {
 		this.filename = DocumentIO.validateFilename(bean.getId().toString());
 
@@ -72,6 +78,7 @@ public class DocumentClient implements PropertyChangeListener {
 		this.bean.addPropertyChangeListener(this);
 	}
 
+	@Override
 	public void save(String path) throws Exception {
 		DocumentIO.saveDocument(bean.getBean(), path, getFilename());
 	}

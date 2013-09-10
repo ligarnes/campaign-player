@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import net.alteiar.campaign.CampaignFactoryNew;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.campaign.player.tools.NetworkProperties;
 
 import org.apache.log4j.Logger;
@@ -46,8 +47,8 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 		PanelStartGameDialog next = null;
 		switch (selection) {
 		case CREATE:
-			next = new PanelCreatePlayer(getDialog(), this);
-			// null;// new PanelCreateGame(getDialog(), this);
+			next = new PanelLoading(getDialog(), this, new PanelCreatePlayer(
+					getDialog(), null));
 			break;
 		case LOAD:
 			next = new PanelLoadGame(getDialog(), this);
@@ -107,7 +108,8 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 			try {
 				CampaignFactoryNew.startNewCampaign(networkProp.getServerIp(),
 						networkProp.getServerPort(),
-						HelpersPath.PATH_DOCUMENT_GLOBAL);
+						HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
+								.getInstance().getKryo());
 			} catch (Exception e) {
 				Logger.getLogger(getClass()).error(
 						"Impossible de créer la partie", e);
@@ -123,5 +125,4 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 		}
 		this.nextState();
 	}
-
 }

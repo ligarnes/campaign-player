@@ -44,14 +44,14 @@ public class CampaignFactoryNew {
 	 * @param globalDocumentPath
 	 */
 	public static synchronized void connectToServer(String serverAdress,
-			int port, String globalDocumentPath) {
+			int port, String globalDocumentPath, MyKryoInit kryoInit) {
 
 		if (CampaignClient.INSTANCE != null) {
 			return;
 		}
 
 		CampaignClient.INSTANCE = new CampaignClient(serverAdress, port,
-				globalDocumentPath);
+				globalDocumentPath, kryoInit);
 
 		// Sysout
 		// 30 sec timeout
@@ -76,8 +76,8 @@ public class CampaignFactoryNew {
 	}
 
 	public static synchronized void loadCampaign(String serverAdress, int port,
-			String globalDocumentPath, String campaignName) {
-		connectToServer(serverAdress, port, globalDocumentPath);
+			String globalDocumentPath, String campaignName, MyKryoInit kryoInit) {
+		connectToServer(serverAdress, port, globalDocumentPath, kryoInit);
 
 		try {
 			CampaignClient.getInstance().loadGame(campaignName);
@@ -92,8 +92,8 @@ public class CampaignFactoryNew {
 	}
 
 	public static synchronized void startNewCampaign(String serverAdress,
-			int port, String globalDocumentPath) {
-		connectToServer(serverAdress, port, globalDocumentPath);
+			int port, String globalDocumentPath, MyKryoInit kryoInit) {
+		connectToServer(serverAdress, port, globalDocumentPath, kryoInit);
 
 		Chat chat = new Chat();
 		DiceRoller diceRoller = new DiceRoller();

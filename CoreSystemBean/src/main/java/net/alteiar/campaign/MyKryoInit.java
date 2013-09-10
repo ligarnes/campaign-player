@@ -22,6 +22,16 @@ import com.esotericsoftware.kryo.Kryo;
 
 public class MyKryoInit extends KryoInit {
 
+	private final ArrayList<Class<?>[]> classes;
+
+	public MyKryoInit() {
+		classes = new ArrayList<>();
+	}
+
+	public void addPluginClasses(Class<?>[] plugin) {
+		this.classes.add(plugin);
+	}
+
 	@Override
 	public void registerKryo(Kryo kryo) {
 		super.registerKryo(kryo);
@@ -47,5 +57,11 @@ public class MyKryoInit extends KryoInit {
 		kryo.register(Scale.class);
 
 		kryo.register(URL.class);
+
+		for (Class<?>[] plugin : classes) {
+			for (Class<?> classPlugin : plugin) {
+				kryo.register(classPlugin);
+			}
+		}
 	}
 }

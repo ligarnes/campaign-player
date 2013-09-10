@@ -26,15 +26,21 @@ public class ChunkSendFactory {
 	}
 
 	public synchronized ChunkObjectSend generateMessages(IUniqueObject bean) {
-		ByteArrayOutputStream stream = new ByteArrayOutputStream();
-		Output output = new Output(stream);
-		kryo.writeObject(output, bean);
-		output.close(); // Also calls output.flush()
+		ChunkObjectSend msg = null;
+		try {
+			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			Output output = new Output(stream);
+			kryo.writeObject(output, bean);
+			output.close(); // Also calls output.flush()
 
-		// Serialization done, get bytes
-		byte[] buffer = stream.toByteArray();
+			// Serialization done, get bytes
+			byte[] buffer = stream.toByteArray();
+			msg = new ChunkObjectSend(bean.getClass().getName(), bean.getId(),
+					buffer, chunkSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		return new ChunkObjectSend(bean.getClass().getName(), bean.getId(),
-				buffer, chunkSize);
+		return msg;
 	}
 }
