@@ -41,9 +41,13 @@ import net.alteiar.campaign.CampaignFactoryNew;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
+import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.campaign.player.tools.GlobalProperties;
+import net.alteiar.campaign.player.tools.NetworkProperties;
+import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.component.MyCombobox;
 import net.alteiar.component.MyList;
+import net.alteiar.thread.MyRunnable;
 
 public class PanelLoadGame extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -65,7 +69,8 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelLoadLoadingCampaign(getDialog(), this);
+		return new PanelLoading(getDialog(), this,
+				new PanelCreateOrChoosePlayer(getDialog()));
 	}
 
 	private final void initGui() {
@@ -160,26 +165,25 @@ public class PanelLoadGame extends PanelStartGameDialog {
 	}
 
 	public void loadCampaign() {
-		GlobalProperties globalProp = Helpers.getGlobalProperties();
-		final String address = getServerAddressIp();
-		final int port = getPort();
 		String campaignName = getCampaignName();
 		final String campaignPath = HelpersPath.PATH_SAVE + campaignName;
 
-		globalProp.setLoadIpLocal(address);
-		globalProp.setLoadPort(port);
-		globalProp.setLoadCampaign(campaignName);
-
-		Runnable run = new Runnable() {
+		Threads.execute(new MyRunnable() {
 			@Override
 			public void run() {
-				CampaignFactoryNew.loadCampaign(address, port,
-						HelpersPath.PATH_DOCUMENT_GLOBAL, campaignPath);
+				NetworkProperties networkProp = new NetworkProperties();
+				CampaignFactoryNew.loadCampaign(networkProp.getServerIp(),
+						networkProp.getServerPort(),
+						HelpersPath.PATH_DOCUMENT_GLOBAL, campaignPath,
+						PluginSystem.getInstance().getKryo());
 			}
-		};
 
-		Thread tr = new Thread(run);
-		tr.start();
+			@Override
+			public String getTaskName() {
+				return "Load campaign";
+			}
+		});
+
 		nextState();
 	}
 

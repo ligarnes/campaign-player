@@ -1,7 +1,6 @@
 package net.alteiar.newversion.server.document;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import net.alteiar.newversion.shared.bean.BasicBean;
@@ -41,18 +40,12 @@ public class DocumentIO {
 
 		String classe = chaines[chaines.length - 2];
 
-		BasicBean bean = null;
-		try {
-			@SuppressWarnings("unchecked")
-			Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
-					.forName(classe);
-			Serializer serializer = new Persister();
-			bean = serializer.read(c, f);
-		} catch (ClassNotFoundException ex) {
-			System.out.println("cannot load " + classe);
-			System.out.println(Arrays.toString(chaines));
-		}
-		return bean;
+		@SuppressWarnings("unchecked")
+		Class<? extends BasicBean> c = (Class<? extends BasicBean>) Class
+				.forName(classe);
+		Serializer serializer = new Persister();
+
+		return serializer.read(c, f);
 	}
 
 	public static File saveDocument(BasicBean objet, String path)

@@ -33,21 +33,20 @@ import javax.swing.Timer;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.infos.Languages;
 
-public class PanelJoinLoading extends PanelStartGameDialog implements
+public class PanelLoading extends PanelStartGameDialog implements
 		ActionListener {
 	private static final long serialVersionUID = 1L;
+
+	private final PanelStartGameDialog next;
 
 	private final JProgressBar progressBar;
 	private final Timer time;
 
-	private int totalBeans;
-	private final Boolean clientCreated;
-
-	public PanelJoinLoading(StartGameDialog startGameDialog,
-			PanelStartGameDialog previous) {
+	public PanelLoading(StartGameDialog startGameDialog,
+			PanelStartGameDialog previous, PanelStartGameDialog next) {
 		super(startGameDialog, previous);
 
-		clientCreated = false;
+		this.next = next;
 
 		time = new Timer(100, this);
 		time.start();
@@ -72,12 +71,6 @@ public class PanelJoinLoading extends PanelStartGameDialog implements
 
 		progressBar.setIndeterminate(true);
 
-		/*
-		 * progressBar.setMinimum(0); progressBar.setMaximum(100);
-		 * progressBar.setValue(0);
-		 * 
-		 * progressBar.setStringPainted(true);
-		 */
 		GridBagConstraints gbc_progressBar = new GridBagConstraints();
 		gbc_progressBar.gridx = 0;
 		gbc_progressBar.gridy = 1;
@@ -86,25 +79,16 @@ public class PanelJoinLoading extends PanelStartGameDialog implements
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelCreateOrChoosePlayer(getDialog());
+		return next;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		final CampaignClient c = CampaignClient.getInstance();
 
-		if (c.isInitialized()) {
+		if (c.isLoaded()) {
 			nextState();
 			time.stop();
 		}
-		/*
-		 * if (c != null) { if (!clientCreated) { totalBeans =
-		 * c.getRemoteDocumentCount(); progressBar.setMaximum(totalBeans);
-		 * clientCreated = true; }
-		 * 
-		 * if (clientCreated) { int count = c.getLocalDocumentCount();
-		 * progressBar.setValue(count); if (count >= (totalBeans)) {
-		 * nextState(); time.stop(); } } }
-		 */
 	}
 }

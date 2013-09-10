@@ -48,11 +48,13 @@ public class ChunkObjectReceived {
 			bean = (E) k.readObject(input, c);
 			input.close(); // Also calls output.flush()
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).warn(
+					"Classe non trouvé: " + classname, e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getLogger(getClass()).warn("Erreur réseaux", e);
+		} catch (Exception e) {
+			Logger.getLogger(getClass()).warn(
+					"Erreur lors de la lecture de l'objet", e);
 		}
 
 		return bean;

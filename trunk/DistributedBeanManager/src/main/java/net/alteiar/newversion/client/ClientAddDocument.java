@@ -47,9 +47,6 @@ public class ClientAddDocument extends DocuManager {
 	}
 
 	public void createDocument(final BasicBean bean) {
-		// System.out.println("send bean: " + bean);
-		// System.out.println("send bean id: " + bean.getId());
-
 		final ChunkObjectSend sended = factory.generateMessages(bean);
 		sendObject(client, sended);
 	}
@@ -60,7 +57,8 @@ public class ClientAddDocument extends DocuManager {
 
 	@Override
 	protected void objectReceived(IUniqueObject bean) {
-		// System.out.println("bean received: " + bean);
+		System.out.println("bean received: " + bean.getClass() + " | id: "
+				+ bean.getId());
 		// System.out.println("bean received id: " + bean.getId());
 		manager.documentAdded((BasicBean) bean);
 	}

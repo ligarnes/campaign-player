@@ -54,6 +54,7 @@ public class PanelSpellBookViewer extends PanelViewDocument {
 	@Override
 	public void setDocument(BeanDocument document) {
 		DocumentSpellBook spellBook = document.getBean();
+
 		ArrayList<Spell> spells = new ArrayList<Spell>();
 		for (UniqueID id : spellBook.getSpells()) {
 			Spell spell = CampaignClient.getInstance().getBean(id);

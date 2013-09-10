@@ -12,7 +12,10 @@ import net.alteiar.map.elements.RectangleElement;
 
 import org.apache.log4j.Logger;
 
+import pathfinder.bean.combat.CombatTracker;
+import pathfinder.bean.spell.DocumentSpellBook;
 import pathfinder.bean.spell.SpellManager;
+import pathfinder.bean.unit.PathfinderCharacter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;
 import pathfinder.gui.mapElement.PathfinderMonsterElement;
 import pathfinder.gui.mapElement.builder.PanelCharacterBuilder;
@@ -114,4 +117,10 @@ public class PathfinderGeneralPlugin implements IPlugin {
 		return mapElementPlugins;
 	}
 
+	@Override
+	public Class<?>[] getClasses() {
+		return new Class[] { CircleElement.class, DocumentSpellBook.class,
+				CombatTracker.class, PathfinderCharacter.class,
+				PathfinderCharacter.class };
+	}
 }

@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import net.alteiar.newversion.server.document.DocumentClient;
 import net.alteiar.newversion.server.document.DocumentIO;
 import net.alteiar.newversion.server.document.DocumentLocal;
+import net.alteiar.newversion.server.document.IDocument;
 import net.alteiar.newversion.server.kryo.KryoInit;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.newversion.shared.message.MessageModifyValue;
@@ -32,7 +33,7 @@ public class DocumentManager {
 	}
 
 	private final HashSet<DocumentManagerListener> listeners;
-	private final HashMap<UniqueID, DocumentClient> documents;
+	private final HashMap<UniqueID, IDocument> documents;
 	private String specificPath;
 	private final String globalPath;
 
@@ -42,7 +43,7 @@ public class DocumentManager {
 
 	public DocumentManager(String ipServeur, int portTCP, String globalPath,
 			KryoInit init) throws IOException {
-		documents = new HashMap<UniqueID, DocumentClient>();
+		documents = new HashMap<UniqueID, IDocument>();
 		listeners = new HashSet<DocumentManagerListener>();
 
 		this.globalPath = globalPath;
@@ -63,8 +64,43 @@ public class DocumentManager {
 		if (ids != null) {
 			for (UniqueID id : ids) {
 				System.out.println("request: " + id);
-				addDocu.requestDocument(id);
+				// addDocu.requestDocument(id);
+				loadDocument(id);
 			}
+		}
+	}
+
+	/**
+	 * Load the document given a specific id we first try to load the document
+	 * locally (global and specific)
+	 * 
+	 * @param guid
+	 * @return
+	 * @throws Exception
+	 */
+	private void loadDocument(UniqueID guid) {
+		String filename = DocumentIO.validateFilename(guid.toString());
+
+		// Load the bean
+		BasicBean bean = null;
+		File localFile = new File(getSpecificPath(), filename);
+		File globalFile = new File(getGlobalPath(), filename);
+
+		try {
+			if (localFile.exists()) {
+				// load local bean if exist
+				bean = DocumentIO.loadBeanLocal(localFile);
+				documentAdded(bean);
+			} else if (globalFile.exists()) {
+				// load global bean if exist
+				bean = DocumentIO.loadBeanLocal(globalFile);
+				documentAdded(bean);
+			} else {
+				// load bean from the server
+				addDocu.requestDocument(guid);
+			}
+		} catch (Exception e) {
+			addDocu.requestDocument(guid);
 		}
 	}
 
@@ -104,14 +140,18 @@ public class DocumentManager {
 		DocumentClient doc = new DocumentClient(this);
 		doc.loadDocument(bean);
 
+		addDocument(doc);
+	}
+
+	private void addDocument(IDocument document) {
 		// add the document
 		synchronized (documents) {
-			this.documents.put(doc.getId(), doc);
+			this.documents.put(document.getId(), document);
 		}
 
 		// notify listener that a document is added
 		for (DocumentManagerListener listener : getListeners()) {
-			listener.beanAdded(doc.getBeanEncapsulator().getBean());
+			listener.beanAdded(document.getBeanEncapsulator().getBean());
 		}
 
 		// internal notify that a document is received
@@ -127,7 +167,7 @@ public class DocumentManager {
 	 * @param timestamp
 	 */
 	protected void documentChanged(MessageModifyValue msg) {
-		DocumentClient doc = documents.get(msg.getId());
+		IDocument doc = documents.get(msg.getId());
 		doc.remoteValueChanged(msg.getPropertyName(), msg.getNewValue(),
 				msg.getTimestamp());
 	}
@@ -138,7 +178,7 @@ public class DocumentManager {
 	 * @param msg
 	 */
 	protected void documentClosed(UniqueID guid) {
-		DocumentClient doc = documents.remove(guid);
+		IDocument doc = documents.remove(guid);
 		doc.remoteCloseDocument();
 	}
 
@@ -179,21 +219,33 @@ public class DocumentManager {
 	}
 
 	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
-		DocumentClient doc = getDocument(id, timeout);
-		if (doc == null) {
-			return null;
+		if (id == null) {
+			throw new NullPointerException("the unique id must'nt be null");
 		}
-		return (E) doc.getBeanEncapsulator().getBean();
+		IDocument doc = getDocument(id, -1L);
+
+		if (doc == null) {
+			// try to find it locally
+			BasicBean bean = searchGlobalBean(id);
+			if (bean != null) {
+				// add to document in order to avoid search again
+				addDocument(new DocumentLocal(bean));
+			}
+			doc = getDocument(id, timeout);
+		}
+
+		return doc == null ? null : (E) doc.getBeanEncapsulator().getBean();
+		// (E) doc.getBeanEncapsulator().getBean();
 	}
 
 	public UniqueID[] getIds() {
 		return documents.keySet().toArray(new UniqueID[documents.size()]);
 	}
 
-	protected DocumentClient getDocument(UniqueID id, Long timeout) {
+	protected IDocument getDocument(UniqueID id, Long timeout) {
 		Long begin = System.currentTimeMillis();
 
-		DocumentClient value = documents.get(id);
+		IDocument value = documents.get(id);
 
 		Long current = System.currentTimeMillis();
 		while (value == null && (current - begin) < timeout) {
@@ -245,7 +297,7 @@ public class DocumentManager {
 
 	public void saveLocal() throws Exception {
 		synchronized (documents) {
-			for (DocumentClient doc : documents.values()) {
+			for (IDocument doc : documents.values()) {
 				doc.save(getSpecificPath());
 			}
 		}

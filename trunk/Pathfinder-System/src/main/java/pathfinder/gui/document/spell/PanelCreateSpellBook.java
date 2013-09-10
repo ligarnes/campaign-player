@@ -140,6 +140,9 @@ public class PanelCreateSpellBook extends PanelDocumentBuilder {
 		DocumentSpellBook book = new DocumentSpellBook(
 				textFieldSpellBookName.getText(),
 				panelFilter.getSelectedClasse(), panelListResult.getSpells());
+
+		System.out.println("bookname: " + book.getClasseName());
+		System.out.println("spells: " + book.getSpells());
 		return book;
 	}
 
