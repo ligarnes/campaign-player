@@ -7,8 +7,8 @@ import net.alteiar.newversion.shared.SendingKey;
 import net.alteiar.newversion.shared.chunk.ChunkObjectReceived;
 import net.alteiar.newversion.shared.chunk.ChunkObjectSend;
 import net.alteiar.newversion.shared.message.MessageCreateValue;
+import net.alteiar.newversion.shared.message.MessageReadyToReceive;
 import net.alteiar.newversion.shared.message.MessageSplitEnd;
-import net.alteiar.newversion.shared.message.MessageSplitReady;
 import net.alteiar.newversion.shared.request.RequestObject;
 import net.alteiar.shared.IUniqueObject;
 import net.alteiar.shared.UniqueID;
@@ -93,41 +93,26 @@ public abstract class DocuManager extends Listener {
 
 	private synchronized void realSend(Connection conn, IUniqueObject reply) {
 		try {
-			int size = conn.sendTCP(reply);
+			conn.sendTCP(reply);
 		} catch (Exception ex) {
 			Logger.getLogger(getClass()).warn(
-					"Erreur durant l'envoie d'un élément", ex);
+					"Erreur durant l'envoie d'un élément " + reply, ex);
 		}
-		/*
-		 * System.out.println("sending " + reply.getId() + " " +
-		 * humanReadableByteCount(size, true) + " to " +
-		 * conn.getRemoteAddressTCP());
-		 * 
-		 * System.out.println("buffer Size: " +
-		 * humanReadableByteCount(conn.getTcpWriteBufferSize(), true) + "/" +
-		 * humanReadableByteCount(bufferSize, true));
-		 * 
-		 * Runtime runtime = Runtime.getRuntime(); Integer byteToMega = 1048576;
-		 * 
-		 * System.out.println("used : " + ((runtime.totalMemory() -
-		 * runtime.freeMemory()) / byteToMega) + "mb ");
-		 * System.out.println("  committed : " + (runtime.totalMemory() /
-		 * byteToMega) + "mb ");
-		 */
 	}
 
 	@Override
 	public final void received(Connection conn, Object obj) {
 		try {
-			if (obj instanceof MessageSplitReady) {
+			if (obj instanceof MessageReadyToReceive) {
 				// When we are sending object we wait for ready message before
 				// sending other
 				IUniqueObject reply = messageReadyReceived(conn,
-						(MessageSplitReady) obj);
+						(MessageReadyToReceive) obj);
 				sendTCPMessage(conn, reply);
 
 			} else if (obj instanceof MessageCreateValue) {
-				IUniqueObject reply = messageObjectReceived((MessageCreateValue) obj);
+				MessageCreateValue msg = (MessageCreateValue) obj;
+				IUniqueObject reply = messageObjectReceived(msg);
 				sendTCPMessage(conn, reply);
 			} else if (obj instanceof MessageSplitEnd) {
 				messageObjectEndReceived((MessageSplitEnd) obj);
@@ -138,22 +123,12 @@ public abstract class DocuManager extends Listener {
 			}
 		} catch (Exception ex) {
 			Logger.getLogger(getClass()).warn(
-					"Erreur lors de la reception de donnée", ex);
+					"Erreur lors de la reception de donnée " + obj, ex);
 		}
 	}
 
-	public static String humanReadableByteCount(long bytes, boolean si) {
-		int unit = si ? 1000 : 1024;
-		if (bytes < unit)
-			return bytes + " B";
-		int exp = (int) (Math.log(bytes) / Math.log(unit));
-		String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1)
-				+ (si ? "" : "i");
-		return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
-	}
-
 	private final IUniqueObject messageReadyReceived(Connection conn,
-			MessageSplitReady obj) {
+			MessageReadyToReceive obj) {
 		IUniqueObject reply = null;
 		Encaps sended = sendingObject.get(new SendingKey(obj.getId(), conn));
 
@@ -161,7 +136,6 @@ public abstract class DocuManager extends Listener {
 			System.out.println("impossible d'envoyer " + obj.getId());
 		}
 		if (sended.isFinish()) {
-			System.out.println("envoie terminer " + obj.getId());
 			reply = sended.getEndChunk();
 			sendingObject.remove(new SendingKey(obj.getId(), conn));
 
@@ -173,7 +147,9 @@ public abstract class DocuManager extends Listener {
 		return reply;
 	}
 
-	private final MessageSplitReady messageObjectReceived(MessageCreateValue obj) {
+	private final MessageReadyToReceive messageObjectReceived(
+			MessageCreateValue obj) {
+
 		ChunkObjectReceived received = receivingObject.get(obj.getId());
 		if (received == null) {
 			received = new ChunkObjectReceived();
@@ -183,7 +159,7 @@ public abstract class DocuManager extends Listener {
 		byte[] bytes = obj.getBytes();
 		received.addChunk(bytes);
 
-		return new MessageSplitReady(obj.getId());
+		return new MessageReadyToReceive(obj.getId());
 	}
 
 	private final void messageObjectEndReceived(MessageSplitEnd obj) {

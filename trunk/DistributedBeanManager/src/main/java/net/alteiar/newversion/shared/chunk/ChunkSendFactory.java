@@ -30,7 +30,7 @@ public class ChunkSendFactory {
 		try {
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
 			Output output = new Output(stream);
-			kryo.writeObject(output, bean);
+			kryo.writeObjectOrNull(output, bean, bean.getClass());
 			output.close(); // Also calls output.flush()
 
 			// Serialization done, get bytes

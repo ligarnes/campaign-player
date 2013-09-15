@@ -5,12 +5,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -37,7 +40,6 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 		dlg.setOkText("Cr\u00E9er");
 		dlg.setCancelText("Annuler");
 		dlg.setLocationRelativeTo(null);
-		// dlg.pack();
 		dlg.setMaximumSize(new Dimension(600, 470));
 		dlg.setMinimumSize(new Dimension(600, 470));
 		dlg.setPreferredSize(new Dimension(600, 470));
@@ -99,7 +101,21 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 			select.setPreferredSize(new Dimension(80, 80));
 			select.setMaximumSize(new Dimension(80, 80));
 			select.setMinimumSize(new Dimension(80, 80));
-			panelWest.add(select);
+			// panelWest.add(select);
+
+			JButton btnCreate = new JButton(panel.getDocumentBuilderName());
+			btnCreate.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					selectBuilder(panel);
+				}
+			});
+
+			btnCreate.setPreferredSize(new Dimension(100, 50));
+			btnCreate.setMaximumSize(new Dimension(100, 50));
+			btnCreate.setMinimumSize(new Dimension(100, 50));
+
+			panelWest.add(btnCreate);
 		}
 
 		this.setPreferredSize(new Dimension(maxWidth, maxHeight));

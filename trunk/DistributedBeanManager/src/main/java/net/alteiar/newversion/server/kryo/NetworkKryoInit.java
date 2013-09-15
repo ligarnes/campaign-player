@@ -2,8 +2,8 @@ package net.alteiar.newversion.server.kryo;
 
 import net.alteiar.newversion.shared.message.MessageCreateValue;
 import net.alteiar.newversion.shared.message.MessageModifyValue;
+import net.alteiar.newversion.shared.message.MessageReadyToReceive;
 import net.alteiar.newversion.shared.message.MessageSplitEnd;
-import net.alteiar.newversion.shared.message.MessageSplitReady;
 import net.alteiar.newversion.shared.reply.ReplyCampaignServer;
 import net.alteiar.newversion.shared.reply.ReplyIdsClient;
 import net.alteiar.newversion.shared.request.RequestCampaignClient;
@@ -23,7 +23,7 @@ public class NetworkKryoInit extends KryoInit {
 		kryo.register(MessageModifyValue.class);
 		kryo.register(MessageCreateValue.class);
 
-		kryo.register(MessageSplitReady.class);
+		kryo.register(MessageReadyToReceive.class);
 		kryo.register(MessageSplitEnd.class);
 		kryo.register(RequestObject.class);
 

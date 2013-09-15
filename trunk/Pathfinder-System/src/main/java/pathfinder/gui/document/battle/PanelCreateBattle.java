@@ -179,7 +179,7 @@ public class PanelCreateBattle extends PanelDocumentBuilder {
 
 	@Override
 	public String getDocumentBuilderName() {
-		return "Combat";
+		return "Cartes";
 	}
 
 	@Override

@@ -53,6 +53,7 @@ public class PanelDocumentExplorer extends JPanel {
 
 		treeModel = new DefaultTreeModel(all, true);
 		tree = new JTree();
+		tree.setEditable(true);
 		tree.setModel(treeModel);
 		tree.setRootVisible(false);
 		tree.getSelectionModel().setSelectionMode(
@@ -82,8 +83,6 @@ public class PanelDocumentExplorer extends JPanel {
 
 					@Override
 					public void beanAdded(BeanBasicDocument bean) {
-						System.out.println("Document added "
-								+ bean.getDocumentName());
 						refreshTree();
 					}
 				});
@@ -192,17 +191,15 @@ public class PanelDocumentExplorer extends JPanel {
 					.getBean(id);
 
 			if (beanBasicDocument != null) {
-
 				DefaultMutableTreeNode node = existingDocs
 						.get(beanBasicDocument.getId().toString());
 
 				if (node != null) {
-					existingDocs.remove(beanBasicDocument.getDocumentName());
+					existingDocs.remove(beanBasicDocument.getId().toString());
 				} else {
 					node = new DefaultMutableTreeNode(new DocumentAdapter(
 							beanBasicDocument), beanBasicDocument.isDirectory());
 					parent.add(node);
-
 				}
 
 				if (beanBasicDocument.isDirectory()) {
@@ -225,21 +222,21 @@ public class PanelDocumentExplorer extends JPanel {
 		}
 
 		if (!existingDocs.isEmpty()) {
-			for (String docnameToRemove : existingDocs.keySet()) {
+			for (String docIdToRemove : existingDocs.keySet()) {
 				Iterator<DefaultMutableTreeNode> itt = new DefaultMutableTreeNodeChildIterator(
 						parent);
 
 				boolean docRemoved = false;
 				while (itt.hasNext() && !docRemoved) {
 					DefaultMutableTreeNode childNode = itt.next();
-					String documentName = childNode.getUserObject().toString();
-					if (documentName.equals(docnameToRemove)) {
+					String documentId = ((DocumentAdapter) childNode
+							.getUserObject()).getDocument().getId().toString();
+					if (documentId.equals(docIdToRemove)) {
 						itt.remove();
 						docRemoved = true;
 					}
 				}
 			}
-
 		}
 	}
 }

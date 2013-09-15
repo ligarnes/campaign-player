@@ -32,7 +32,9 @@ public class CharactersDrawable {
 		g2.transform(orinalTranslate);
 		for (BeanDocument characterBean : characters) {
 			if (characterBean.getDocumentType().equals(
-					DocumentTypeConstant.CHARACTER)) {
+					DocumentTypeConstant.CHARACTER)
+					&& characterBean.isAllowedToSee(CampaignClient
+							.getInstance().getCurrentPlayer())) {
 				drawCharacter(g2, characterBean);
 				g2.transform(at);
 			}

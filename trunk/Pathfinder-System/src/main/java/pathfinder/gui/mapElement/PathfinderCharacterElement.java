@@ -66,13 +66,13 @@ public class PathfinderCharacterElement extends MapElement {
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		super.addPropertyChangeListener(listener);
-		getDocumentCharacter().addPropertyChangeListener(listener);
+		getDocumentCharacter().getBean().addPropertyChangeListener(listener);
 	}
 
 	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		super.removePropertyChangeListener(listener);
-		getDocumentCharacter().removePropertyChangeListener(listener);
+		getDocumentCharacter().getBean().removePropertyChangeListener(listener);
 	}
 
 	@Override

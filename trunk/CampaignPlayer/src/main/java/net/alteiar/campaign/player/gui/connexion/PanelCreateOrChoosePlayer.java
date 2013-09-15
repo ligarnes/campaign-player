@@ -28,7 +28,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignListener;
 import net.alteiar.campaign.player.infos.Languages;
+import net.alteiar.documents.BeanBasicDocument;
+import net.alteiar.player.Player;
 
 public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 	private static final long serialVersionUID = 1L;
@@ -41,8 +44,7 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 
 	public PanelCreateOrChoosePlayer(StartGameDialog startGameDialog) {
 		super(startGameDialog, null);
-		startGameDialog.setTitle(startGameDialog.getTitle() + " - "
-				+ CampaignClient.getInstance().getCampaignName());
+		startGameDialog.setTitle(startGameDialog.getTitle());
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -59,7 +61,7 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 		});
 		buttonPanel.add(createButton);
 
-		JButton chooseExistingButton = new JButton(
+		final JButton chooseExistingButton = new JButton(
 				Languages.getText("choose_existing_player"));
 		chooseExistingButton.addActionListener(new ActionListener() {
 			@Override
@@ -74,6 +76,23 @@ public class PanelCreateOrChoosePlayer extends PanelStartGameDialog {
 		buttonPanel.add(chooseExistingButton);
 
 		this.add(buttonPanel);
+
+		CampaignClient.getInstance().addCampaignListener(
+				new CampaignListener() {
+					@Override
+					public void playerAdded(Player player) {
+						chooseExistingButton.setEnabled(!PanelChoosePlayer
+								.getAvaiblePlayers().isEmpty());
+					}
+
+					@Override
+					public void beanRemoved(BeanBasicDocument bean) {
+					}
+
+					@Override
+					public void beanAdded(BeanBasicDocument bean) {
+					}
+				});
 	}
 
 	@Override

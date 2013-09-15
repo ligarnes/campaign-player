@@ -24,7 +24,11 @@ public abstract class BasicBean implements Serializable, IUniqueObject {
 	private UniqueID id;
 
 	public BasicBean() {
-		this.id = new UniqueID();
+		this(new UniqueID());
+	}
+
+	protected BasicBean(UniqueID id) {
+		this.id = id;
 
 		vetoableRemoteChangeSupport = new VetoableChangeSupport(this);
 		propertyChangeSupport = new PropertyChangeSupport(this);

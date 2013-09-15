@@ -3,6 +3,7 @@ package net.alteiar.campaign;
 import net.alteiar.chat.Chat;
 import net.alteiar.combatTraker.CombatTraker;
 import net.alteiar.dice.DiceRoller;
+import net.alteiar.kryo.MyKryoInit;
 import net.alteiar.player.Player;
 import net.alteiar.thread.ThreadPoolUtils;
 
@@ -44,14 +45,14 @@ public class CampaignFactoryNew {
 	 * @param globalDocumentPath
 	 */
 	public static synchronized void connectToServer(String serverAdress,
-			int port, String globalDocumentPath, MyKryoInit kryoInit) {
-
+			int port, String specificDir, String globalDocumentPath,
+			MyKryoInit kryoInit) {
 		if (CampaignClient.INSTANCE != null) {
 			return;
 		}
 
 		CampaignClient.INSTANCE = new CampaignClient(serverAdress, port,
-				globalDocumentPath, kryoInit);
+				specificDir, globalDocumentPath, kryoInit);
 
 		// Sysout
 		// 30 sec timeout
@@ -76,8 +77,10 @@ public class CampaignFactoryNew {
 	}
 
 	public static synchronized void loadCampaign(String serverAdress, int port,
-			String globalDocumentPath, String campaignName, MyKryoInit kryoInit) {
-		connectToServer(serverAdress, port, globalDocumentPath, kryoInit);
+			String specificDir, String globalDocumentPath, String campaignName,
+			MyKryoInit kryoInit) {
+		connectToServer(serverAdress, port, specificDir, globalDocumentPath,
+				kryoInit);
 
 		try {
 			CampaignClient.getInstance().loadGame(campaignName);
@@ -92,8 +95,10 @@ public class CampaignFactoryNew {
 	}
 
 	public static synchronized void startNewCampaign(String serverAdress,
-			int port, String globalDocumentPath, MyKryoInit kryoInit) {
-		connectToServer(serverAdress, port, globalDocumentPath, kryoInit);
+			int port, String specificDir, String globalDocumentPath,
+			MyKryoInit kryoInit) {
+		connectToServer(serverAdress, port, specificDir, globalDocumentPath,
+				kryoInit);
 
 		Chat chat = new Chat();
 		DiceRoller diceRoller = new DiceRoller();

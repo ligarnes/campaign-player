@@ -11,8 +11,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import net.alteiar.SuppressBeanListener;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.chat.Chat;
@@ -23,12 +21,14 @@ import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
 import net.alteiar.documents.BeanDocument;
+import net.alteiar.kryo.MyKryoInit;
 import net.alteiar.newversion.client.DocumentManager;
 import net.alteiar.newversion.client.DocumentManagerListener;
 import net.alteiar.newversion.server.document.DocumentIO;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
+import net.alteiar.utils.file.SerializableFile;
 
 import org.apache.log4j.Logger;
 
@@ -59,7 +59,6 @@ public final class CampaignClient implements DocumentManagerListener {
 	private final HashMap<UniqueID, ArrayList<WaitBeanListener>> waitBeanListeners;
 	private final HashMap<UniqueID, ArrayList<SuppressBeanListener>> suppressBeanListeners;
 
-	// TODO to remove useless with raspberry system
 	private final String serverIp;
 	private final int port;
 
@@ -67,12 +66,12 @@ public final class CampaignClient implements DocumentManagerListener {
 	// TODO desactivate it for the moment
 	// private final EventManager eventManager;
 
-	protected CampaignClient(String ipServer, int port, String globalPath,
-			MyKryoInit kryoInit) {
+	protected CampaignClient(String ipServer, int port, String specificDic,
+			String globalPath, MyKryoInit kryoInit) {
 
 		try {
-			this.manager = new DocumentManager(ipServer, port, globalPath,
-					kryoInit);
+			this.manager = new DocumentManager(ipServer, port, specificDic,
+					globalPath, kryoInit);
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).error("Impossible de se connecter", e);
 			throw new ExceptionInInitializerError(e);
@@ -91,13 +90,6 @@ public final class CampaignClient implements DocumentManagerListener {
 		players = new ArrayList<Player>();
 		documentsBean = new HashSet<BeanDocument>();
 		rootDirectory = null;
-
-		// Load all existing documents
-		// this.manager.loadDocuments();
-
-		// Create or select player
-		// createPlayer(name, isMj, color);
-		// selectPlayer(player);
 
 		// eventManager = new EventManager(manager);
 	}
@@ -194,6 +186,21 @@ public final class CampaignClient implements DocumentManagerListener {
 		}
 	}
 
+	public File searchFile(String filename) {
+		File global = new File(manager.getGlobalPath(),
+				SerializableFile.FILE_DIR + "/" + filename);
+		File specific = new File(manager.getSpecificPath(),
+				SerializableFile.FILE_DIR + "/" + filename);
+
+		if (specific.exists()) {
+			return specific;
+		} else if (global.exists()) {
+			return global;
+		}
+
+		return null;
+	}
+
 	public DiceRoller getDiceRoller() {
 		return diceRoller;
 	}
@@ -204,10 +211,6 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	public String getCampaignName() {
 		return manager.getSpecificPath();
-	}
-
-	public int getRemoteDocumentCount() {
-		return manager.getLocalDocumentCount();// manager.getRemoteDocumenCount();
 	}
 
 	public int getLocalDocumentCount() {
@@ -224,9 +227,7 @@ public final class CampaignClient implements DocumentManagerListener {
 			addBean(current);
 			currentPlayer = getBean(current.getId(), connectTimeout30second);
 			if (currentPlayer == null) {
-				throw new RuntimeErrorException(new Error(
-						"impossible de créer un joueur"),
-						"impossible de créer un joueur");
+				throw new RuntimeException("impossible de créer un joueur");
 			}
 			connectPlayer();
 
@@ -234,15 +235,14 @@ public final class CampaignClient implements DocumentManagerListener {
 				UniqueID id = null;
 				BeanDirectory root = new BeanDirectory(id, "ROOT");
 				root.setOwner(currentPlayer.getId());
-				addBean(root);
+
+				manager.createDocument(root);
 
 				// we wait it here because the root directory must exist!
 				rootDirectory = getBean(root.getId(), 3000L);
 
 				BeanDirectory pj = new BeanDirectory(rootDirectory,
 						"personnages");
-				rootDirectory.addDocument(pj);
-				pj.setOwner(currentPlayer.getId());
 				addBean(pj);
 			}
 		}
@@ -285,7 +285,7 @@ public final class CampaignClient implements DocumentManagerListener {
 		realAddBean(bean);
 	}
 
-	public void addBean(BeanDocument doc) {
+	public void addBean(BeanBasicDocument doc) {
 		BeanDirectory dir = getBean(doc.getParent());
 		dir.addDocument(doc);
 		doc.setOwner(getCurrentPlayer().getId());
@@ -455,9 +455,9 @@ public final class CampaignClient implements DocumentManagerListener {
 			if (doc.getParent() == null) {
 				this.rootDirectory = doc;
 			}
-		}
-
-		if (Beans.isInstanceOf(bean, BeanDocument.class)) {
+			notifyBeanDocumentAdded(doc);
+			notifyBeanAdded(doc);
+		} else if (Beans.isInstanceOf(bean, BeanDocument.class)) {
 			final BeanDocument doc = (BeanDocument) Beans.getInstanceOf(bean,
 					BeanDocument.class);
 
@@ -479,11 +479,6 @@ public final class CampaignClient implements DocumentManagerListener {
 				}
 			});
 		} else {
-			if (Beans.isInstanceOf(bean, BeanBasicDocument.class)) {
-				final BeanBasicDocument doc = (BeanBasicDocument) Beans
-						.getInstanceOf(bean, BeanBasicDocument.class);
-				notifyBeanDocumentAdded(doc);
-			}
 			notifyBeanAdded(bean);
 		}
 	}
@@ -523,16 +518,18 @@ public final class CampaignClient implements DocumentManagerListener {
 	}
 
 	public void saveGame() throws Exception {
-		File dir = new File(manager.getSpecificPath());
+		File dir = new File(manager.getSpecificBeanPath());
 		if (dir.exists()) {
-			deleteRecursive(dir);
+			for (File file : dir.listFiles()) {
+				deleteRecursive(file);
+			}
 		}
 
 		manager.saveLocal();
 	}
 
 	public void loadGame(String campaignName) throws Exception {
-		File baseDir = new File(manager.getSpecificPath());
+		File baseDir = new File(manager.getSpecificBeanPath());
 		if (baseDir.exists()) {
 			for (File dir : baseDir.listFiles()) {
 				if (dir.isDirectory()) {

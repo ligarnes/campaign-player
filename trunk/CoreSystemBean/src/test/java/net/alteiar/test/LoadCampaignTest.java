@@ -6,7 +6,7 @@ import java.util.concurrent.TimeoutException;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.CampaignFactoryNew;
-import net.alteiar.campaign.MyKryoInit;
+import net.alteiar.kryo.MyKryoInit;
 import net.alteiar.newversion.server.ServerDocuments;
 import net.alteiar.player.Player;
 
@@ -32,8 +32,8 @@ public class LoadCampaignTest extends BasicTest {
 		String address = "127.0.0.1";
 		int port = 4545;
 
-		CampaignFactoryNew.loadCampaign(address, port, getGlobalDirectory(),
-				getCampaignDirectory(), new MyKryoInit());
+		CampaignFactoryNew.loadCampaign(address, port, "./save",
+				getGlobalDirectory(), getCampaignDirectory(), new MyKryoInit());
 
 		long before = System.currentTimeMillis();
 		int currentSize = CampaignClient.getInstance().getPlayers().size();

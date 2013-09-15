@@ -1,7 +1,6 @@
 package net.alteiar.newversion.client;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import net.alteiar.newversion.server.kryo.NetworkKryoInit;
 import net.alteiar.newversion.shared.reply.ReplyCampaignServer;
@@ -53,12 +52,9 @@ public class ClientGeneralDocument extends Listener {
 		if (object instanceof RequestDelete) {
 			documentClosed((RequestDelete) object);
 		} else if (object instanceof RequestIdsServer) {
-			System.out
-					.println("ids: " + Arrays.toString(this.manager.getIds()));
 			client.sendTCP(new ReplyIdsClient(this.manager.getIds()));
 		} else if (object instanceof ReplyCampaignServer) {
 			if (!manager.isInitialized()) {
-				System.out.println("init campaign");
 				initCampaign((ReplyCampaignServer) object);
 			}
 		}

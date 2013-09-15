@@ -38,9 +38,11 @@ import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.CampaignListener;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.Languages;
 import net.alteiar.component.MyList;
+import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.player.Player;
 
 public class PanelChoosePlayer extends PanelStartGameDialog {
@@ -65,7 +67,7 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 
-		initGui();
+		refreshGui();
 	}
 
 	@Override
@@ -73,13 +75,14 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		return null;
 	}
 
-	private final void initGui() {
+	private final void refreshGui() {
+		this.removeAll();
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		List<Player> players = getAvaiblePlayers();
 
 		playerList = new MyList<Player>(players);
-
 		playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		playerList.setLayoutOrientation(JList.VERTICAL);
 		playerList.setCellRenderer(new PlayerCellRenderer());
@@ -120,6 +123,22 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		}
 
 		this.add(buttonPanel);
+
+		CampaignClient.getInstance().addCampaignListener(
+				new CampaignListener() {
+					@Override
+					public void playerAdded(Player player) {
+						refreshGui();
+					}
+
+					@Override
+					public void beanRemoved(BeanBasicDocument bean) {
+					}
+
+					@Override
+					public void beanAdded(BeanBasicDocument bean) {
+					}
+				});
 	}
 
 	private void choosePlayer() {

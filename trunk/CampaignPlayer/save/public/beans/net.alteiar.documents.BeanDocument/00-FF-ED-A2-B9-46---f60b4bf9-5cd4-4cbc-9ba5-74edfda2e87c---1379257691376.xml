@@ -1,0 +1,19 @@
+<beanDocument serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:f60b4bf9-5cd4-4cbc-9ba5-74edfda2e87c:1379257691376</guid>
+   </id>
+   <owner serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:fe176dea-e287-4487-94b5-038afea17497:1379256046148</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>true</isPublic>
+   <parent serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:30bb0c02-5e08-422b-a8b8-0de2a1d7d07d:1379256046290</guid>
+   </parent>
+   <documentName>Gnoma</documentName>
+   <beanId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:808b1f25-fa04-4d2b-b9cb-312ed805a700:1379257691375</guid>
+   </beanId>
+   <documentType>character</documentType>
+</beanDocument>

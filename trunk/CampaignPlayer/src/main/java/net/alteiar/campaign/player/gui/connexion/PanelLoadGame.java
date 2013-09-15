@@ -69,12 +69,10 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelLoading(getDialog(), this,
-				new PanelCreateOrChoosePlayer(getDialog()));
+		return new PanelLoading(getDialog(), null);
 	}
 
 	private final void initGui() {
-
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -173,7 +171,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 			public void run() {
 				NetworkProperties networkProp = new NetworkProperties();
 				CampaignFactoryNew.loadCampaign(networkProp.getServerIp(),
-						networkProp.getServerPort(),
+						networkProp.getServerPort(), HelpersPath.PATH_SAVE,
 						HelpersPath.PATH_DOCUMENT_GLOBAL, campaignPath,
 						PluginSystem.getInstance().getKryo());
 			}

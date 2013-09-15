@@ -1,0 +1,10 @@
+<imageBean>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:0d6320c3-0ec5-4e17-a2d1-cf48cf479229:1379256074782</guid>
+   </id>
+   <image class="net.alteiar.utils.file.images.SerializableImage">
+      <id serialVersionUID="1">
+         <guid>00-FF-ED-A2-B9-46:4d82f13d-649e-4d6f-88b5-243d306c5856:1379256072275</guid>
+      </id>
+   </image>
+</imageBean>
