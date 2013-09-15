@@ -14,6 +14,8 @@ import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.campaign.player.tools.NetworkProperties;
+import net.alteiar.campaign.player.tools.Threads;
+import net.alteiar.thread.MyRunnable;
 
 import org.apache.log4j.Logger;
 
@@ -53,7 +55,24 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 			next = new PanelLoadGame(getDialog(), this);
 			break;
 		case JOIN:
-			next = new PanelJoinGame(getDialog(), this);
+			Threads.execute(new MyRunnable() {
+				@Override
+				public void run() {
+					NetworkProperties networkProp = new NetworkProperties();
+					CampaignFactoryNew.connectToServer(networkProp
+							.getServerIp(), networkProp.getServerPort(),
+							HelpersPath.PATH_SAVE,
+							HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
+									.getInstance().getKryo());
+				}
+
+				@Override
+				public String getTaskName() {
+					return "Connect to server";
+				}
+			});
+			next = new PanelLoading(getDialog(), this);
+			break;
 		}
 		return next;
 	}

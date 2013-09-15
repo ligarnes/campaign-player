@@ -24,17 +24,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.List;
 import java.util.Vector;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import net.alteiar.campaign.CampaignFactoryNew;
@@ -45,7 +41,6 @@ import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.campaign.player.tools.GlobalProperties;
 import net.alteiar.campaign.player.tools.NetworkProperties;
 import net.alteiar.campaign.player.tools.Threads;
-import net.alteiar.component.MyCombobox;
 import net.alteiar.component.MyList;
 import net.alteiar.thread.MyRunnable;
 
@@ -56,15 +51,11 @@ public class PanelLoadGame extends PanelStartGameDialog {
 
 	private MyList<String> savedGameList;
 
-	private MyCombobox<String> comboboxServerIp;
-	private JTextField textFieldPort;
-
 	public PanelLoadGame(StartGameDialog startGameDialog,
 			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
 
 		initGui();
-
 	}
 
 	@Override
@@ -76,34 +67,6 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		GlobalProperties globalProp = Helpers.getGlobalProperties();
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
-		comboboxServerIp = new MyCombobox<String>();
-		textFieldPort = new JTextField(5);
-
-		textFieldPort.setText(globalProp.getLoadPort());
-
-		JPanel server = new JPanel();
-		server.setLayout(new BoxLayout(server, BoxLayout.Y_AXIS));
-		server.setBorder(BorderFactory.createTitledBorder(Languages
-				.getText("server")));
-
-		List<String> allAdresses = getAddress();
-		for (String address : allAdresses) {
-			comboboxServerIp.addItem(address);
-		}
-
-		JPanel serverAddressIpPanel = new JPanel(new FlowLayout());
-		serverAddressIpPanel.add(new JLabel(Languages.getText("serveur_ip")));
-		serverAddressIpPanel.add(comboboxServerIp);
-
-		JPanel portLabel = new JPanel(new FlowLayout());
-		portLabel.add(new JLabel(Languages.getText("port")));
-		portLabel.add(textFieldPort);
-
-		server.add(serverAddressIpPanel);
-		server.add(portLabel);
-
-		this.add(server);
 
 		Vector<String> savedGames = getSavedGames();
 
@@ -138,24 +101,9 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		buttonPanel.add(createButton);
 
 		String campaignName = globalProp.getLoadCampaign();
-		String address = globalProp.getLoadIpLocal();
-		String port = globalProp.getLoadPort();
-
-		if (allAdresses.contains(address)) {
-			comboboxServerIp.setSelectedItem(address);
-		}
-		textFieldPort.setText(port);
 		savedGameList.setSelectedValue(campaignName, true);
 
 		this.add(buttonPanel);
-	}
-
-	public String getServerAddressIp() {
-		return comboboxServerIp.getSelectedItem();
-	}
-
-	public int getPort() {
-		return Integer.valueOf(textFieldPort.getText());
 	}
 
 	public String getCampaignName() {
