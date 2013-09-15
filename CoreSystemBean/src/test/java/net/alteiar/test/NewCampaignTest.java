@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.CampaignFactoryNew;
-import net.alteiar.campaign.MyKryoInit;
+import net.alteiar.kryo.MyKryoInit;
 import net.alteiar.newversion.server.ServerDocuments;
 
 import org.junit.After;
@@ -34,7 +34,7 @@ public class NewCampaignTest extends BasicTest {
 
 		deleteRecursive(new File(localDirectoryPath));
 
-		CampaignFactoryNew.startNewCampaign(address, port,
+		CampaignFactoryNew.startNewCampaign(address, port, "./save",
 				getGlobalDirectory(), new MyKryoInit());
 
 		CampaignClient.getInstance().createPlayer(getPlayerName(), true,

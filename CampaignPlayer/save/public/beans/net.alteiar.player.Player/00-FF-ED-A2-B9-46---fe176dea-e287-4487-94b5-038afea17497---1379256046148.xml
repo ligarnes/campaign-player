@@ -1,0 +1,13 @@
+<player serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:fe176dea-e287-4487-94b5-038afea17497:1379256046148</guid>
+   </id>
+   <name>tes</name>
+   <dm>true</dm>
+   <color>
+      <r>0</r>
+      <g>0</g>
+      <b>255</b>
+      <a>255</a>
+   </color>
+</player>

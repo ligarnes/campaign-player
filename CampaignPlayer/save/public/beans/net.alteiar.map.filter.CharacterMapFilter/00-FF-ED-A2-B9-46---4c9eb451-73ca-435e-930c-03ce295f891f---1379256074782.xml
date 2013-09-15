@@ -1,0 +1,17 @@
+<characterMapFilter>
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:4c9eb451-73ca-435e-930c-03ce295f891f:1379256074782</guid>
+   </id>
+   <map serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:f2d5ffbe-8b01-4f48-860a-e2f780154324:1379256074782</guid>
+   </map>
+   <elementsViews>
+      <uniqueID serialVersionUID="1">
+         <guid>00-FF-ED-A2-B9-46:fe563dd7-bab4-43ee-99eb-aac44f3881ee:1379257705340</guid>
+      </uniqueID>
+   </elementsViews>
+   <maxVision>4</maxVision>
+   <filteredImageId serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:6565ee9b-13b5-46fe-8ba9-18fd15ebbbde:1379257722075</guid>
+   </filteredImageId>
+</characterMapFilter>

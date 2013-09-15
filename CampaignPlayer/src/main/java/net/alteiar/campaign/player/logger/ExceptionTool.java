@@ -49,6 +49,7 @@ public class ExceptionTool {
 		StringWriter sw = new StringWriter();
 
 		if (e != null) {
+			e.printStackTrace();
 			e.printStackTrace(new PrintWriter(sw));
 		}
 

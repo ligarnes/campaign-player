@@ -45,6 +45,8 @@ import com.esotericsoftware.kryo.io.Output;
  */
 public class SerializableFile implements KryoSerializable {
 
+	public static final String FILE_DIR = "files";
+
 	@Element
 	private UniqueID id;
 
@@ -53,16 +55,17 @@ public class SerializableFile implements KryoSerializable {
 
 	public SerializableFile(File file) throws IOException {
 		id = new UniqueID();
-		FileUtils.copyFile(file, getLocalFile());
+
+		String campaignDir = CampaignClient.getInstance()
+				.getCampaignDirectory();
+		String filename = FILE_DIR + "/"
+				+ DocumentIO.validateFilename(id.toString());
+		FileUtils.copyFile(file, new File(campaignDir, filename));
 	}
 
 	protected File getLocalFile() {
-		String campaignDir = CampaignClient.getInstance()
-				.getCampaignDirectory();
-		System.out.println("file at: " + campaignDir + "files/"
-				+ DocumentIO.validateFilename(id.toString()));
-		return new File(campaignDir, "files/"
-				+ DocumentIO.validateFilename(id.toString()));
+		return CampaignClient.getInstance().searchFile(
+				DocumentIO.validateFilename(id.toString()));
 	}
 
 	@Override

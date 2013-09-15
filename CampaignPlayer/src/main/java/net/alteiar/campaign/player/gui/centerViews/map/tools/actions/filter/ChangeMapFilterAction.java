@@ -87,8 +87,8 @@ public class ChangeMapFilterAction extends MapAction {
 
 					CampaignClient.getInstance().addBean(newFilter);
 					// wait to be sure the bean is received
-					CampaignClient.getInstance().getBean(newFilter.getId(),
-							10000L);
+					MapFilter f = CampaignClient.getInstance().getBean(
+							newFilter.getId(), 10000L);
 
 					// set the new filter
 					map.setFilter(newFilter.getId());

@@ -37,16 +37,12 @@ public class PanelLoading extends PanelStartGameDialog implements
 		ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private final PanelStartGameDialog next;
-
 	private final JProgressBar progressBar;
 	private final Timer time;
 
 	public PanelLoading(StartGameDialog startGameDialog,
-			PanelStartGameDialog previous, PanelStartGameDialog next) {
+			PanelStartGameDialog previous) {
 		super(startGameDialog, previous);
-
-		this.next = next;
 
 		time = new Timer(100, this);
 		time.start();
@@ -79,14 +75,14 @@ public class PanelLoading extends PanelStartGameDialog implements
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return next;
+		return new PanelCreateOrChoosePlayer(getDialog());
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		final CampaignClient c = CampaignClient.getInstance();
 
-		if (c.isLoaded()) {
+		if (c != null && c.isLoaded()) {
 			nextState();
 			time.stop();
 		}

@@ -95,6 +95,7 @@ public class PanelCharacterInfo extends JPanel implements
 
 			if (comboBox.getItemCount() < 2) {
 				comboBox.setSelectedItem(adapter);
+				comboboxChange();
 			}
 		}
 	}
@@ -227,16 +228,18 @@ public class PanelCharacterInfo extends JPanel implements
 		gbc_textFieldCaTouch.gridy = 6;
 		add(textFieldAcTouch, gbc_textFieldCaTouch);
 		textFieldAcTouch.setColumns(10);
+
+		comboboxChange();
 	}
 
 	private void comboboxChange() {
 		if (this.characterDocument != null) {
-			this.characterDocument.removePropertyChangeListener(this);
+			this.characterDocument.getBean().removePropertyChangeListener(this);
 		}
 
-		if (comboBox.getItemCount() > 0) {
+		if (comboBox.getItemCount() > 0 && comboBox.getSelectedItem() != null) {
 			characterDocument = comboBox.getSelectedItem().getCharacter();
-			this.characterDocument.addPropertyChangeListener(this);
+			this.characterDocument.getBean().addPropertyChangeListener(this);
 			updateCharacterView();
 		}
 	}

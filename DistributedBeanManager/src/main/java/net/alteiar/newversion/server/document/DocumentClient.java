@@ -30,20 +30,6 @@ public class DocumentClient implements IDocument, PropertyChangeListener {
 	public void propertyChange(final PropertyChangeEvent evt) {
 		listener.remoteValueChanged(bean.getBean().getId(),
 				evt.getPropertyName(), evt.getNewValue());
-
-		/*
-		 * // Property change ask remote
-		 * ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
-		 * 
-		 * @Override public void run() { try {
-		 * remote.setBeanValue(evt.getPropertyName(), (Serializable)
-		 * evt.getNewValue()); } catch (RemoteException e) {
-		 * Logger.getLogger(getClass()).error("Connexion perdu", e); } }
-		 * 
-		 * @Override public String getTaskName() { return evt.getPropertyName()
-		 * + " change task"; } });
-		 */
-
 	}
 
 	@Override

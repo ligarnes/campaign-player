@@ -1,0 +1,23 @@
+<beanDirectory serialVersionUID="1">
+   <id serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:30bb0c02-5e08-422b-a8b8-0de2a1d7d07d:1379256046290</guid>
+   </id>
+   <owner serialVersionUID="1">
+      <guid>00-FF-ED-A2-B9-46:fe176dea-e287-4487-94b5-038afea17497:1379256046148</guid>
+   </owner>
+   <modifiers/>
+   <users/>
+   <isPublic>false</isPublic>
+   <documentName>ROOT</documentName>
+   <documents>
+      <uniqueID serialVersionUID="1">
+         <guid>00-FF-ED-A2-B9-46:66424427-0a46-4bdc-bf6b-9ad938c10a97:1379256046417</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>00-FF-ED-A2-B9-46:40d9327a-f13f-4d21-af7e-ecf4189453fd:1379256074786</guid>
+      </uniqueID>
+      <uniqueID serialVersionUID="1">
+         <guid>00-FF-ED-A2-B9-46:f60b4bf9-5cd4-4cbc-9ba5-74edfda2e87c:1379257691376</guid>
+      </uniqueID>
+   </documents>
+</beanDirectory>

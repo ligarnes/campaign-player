@@ -47,8 +47,7 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 		PanelStartGameDialog next = null;
 		switch (selection) {
 		case CREATE:
-			next = new PanelLoading(getDialog(), this, new PanelCreatePlayer(
-					getDialog(), null));
+			next = new PanelLoading(getDialog(), this);
 			break;
 		case LOAD:
 			next = new PanelLoadGame(getDialog(), this);
@@ -107,7 +106,7 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 			// Create the game
 			try {
 				CampaignFactoryNew.startNewCampaign(networkProp.getServerIp(),
-						networkProp.getServerPort(),
+						networkProp.getServerPort(), HelpersPath.PATH_SAVE,
 						HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
 								.getInstance().getKryo());
 			} catch (Exception e) {

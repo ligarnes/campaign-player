@@ -58,8 +58,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 
 	@Override
 	protected PanelStartGameDialog getNext() {
-		return new PanelLoading(getDialog(), this,
-				new PanelCreateOrChoosePlayer(getDialog()));
+		return new PanelLoading(getDialog(), this);
 	}
 
 	private final void initGui() {
@@ -147,7 +146,7 @@ public class PanelJoinGame extends PanelStartGameDialog {
 			public void run() {
 				NetworkProperties networkProp = new NetworkProperties();
 				CampaignFactoryNew.connectToServer(networkProp.getServerIp(),
-						networkProp.getServerPort(),
+						networkProp.getServerPort(), HelpersPath.PATH_SAVE,
 						HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
 								.getInstance().getKryo());
 			}

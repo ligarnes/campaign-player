@@ -1,14 +1,10 @@
 package net.alteiar.map.filter;
 
 import java.awt.Polygon;
-import java.io.Serializable;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
-public class MyPolygonFilter implements Serializable {
-	@Attribute
-	private static final long serialVersionUID = 1L;
+public class MyPolygonFilter {
 
 	@Element
 	private Polygon polygon;

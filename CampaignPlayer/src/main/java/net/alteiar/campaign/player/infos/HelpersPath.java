@@ -5,7 +5,7 @@ public class HelpersPath {
 	public static final String PATH_ICONS = "./ressources/icons/";
 	public static final String PATH_TEXTURE = "./ressources/texture/";
 	public static final String PATH_PROPERTIES = "./ressources/data/";
-	public static final String PATH_SAVE = "./ressources/sauvegarde/";
+	public static final String PATH_SAVE = "./save/";
 	public static final String PATH_PLUGIN = "./ressources/plugin/";
 	public static final String PATH_DOCUMENT_GLOBAL = "./ressources/global/";
 

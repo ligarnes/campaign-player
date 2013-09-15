@@ -18,7 +18,13 @@ public abstract class MapFilter extends BasicBean {
 	@Element
 	private UniqueID map;
 
+	protected MapFilter(UniqueID id, UniqueID map) {
+		super(id);
+		this.map = map;
+	}
+
 	public MapFilter(UniqueID map) {
+		super();
 		this.map = map;
 	}
 
@@ -26,10 +32,14 @@ public abstract class MapFilter extends BasicBean {
 		return CampaignClient.getInstance().getBean(map);
 	}
 
+	// rotected void setMapId(UniqueID map) {
+	// this.map = map;
+	// }
+
 	public MapFilter() {
 	}
 
-	protected UniqueID getMapId() {
+	public UniqueID getMapId() {
 		return map;
 	}
 
@@ -60,4 +70,5 @@ public abstract class MapFilter extends BasicBean {
 
 		g2.dispose();
 	}
+
 }

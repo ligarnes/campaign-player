@@ -45,7 +45,7 @@ public class ChunkObjectReceived {
 			Class<?> c = Class.forName(classname);
 			ByteArrayInputStream stream = new ByteArrayInputStream(getDatas());
 			Input input = new Input(stream);
-			bean = (E) k.readObject(input, c);
+			bean = (E) k.readObjectOrNull(input, c);
 			input.close(); // Also calls output.flush()
 		} catch (ClassNotFoundException e) {
 			Logger.getLogger(getClass()).warn(

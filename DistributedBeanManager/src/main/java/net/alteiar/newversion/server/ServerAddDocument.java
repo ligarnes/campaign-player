@@ -9,8 +9,8 @@ import net.alteiar.newversion.server.kryo.NetworkKryoInit;
 import net.alteiar.newversion.shared.SendingKey;
 import net.alteiar.newversion.shared.chunk.ChunkSendFactory;
 import net.alteiar.newversion.shared.message.MessageCreateValue;
+import net.alteiar.newversion.shared.message.MessageReadyToReceive;
 import net.alteiar.newversion.shared.message.MessageSplitEnd;
-import net.alteiar.newversion.shared.message.MessageSplitReady;
 import net.alteiar.newversion.shared.request.RequestObject;
 import net.alteiar.shared.IUniqueObject;
 import net.alteiar.shared.UniqueID;
@@ -164,28 +164,11 @@ public class ServerAddDocument extends Listener {
 			}
 
 			try {
-				int size = conn.sendTCP(reply);
+				conn.sendTCP(reply);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		}
-
-		/*
-		 * System.out.println("sending " + reply.getId() + " " +
-		 * humanReadableByteCount(size, true) + " to " +
-		 * conn.getRemoteAddressTCP());
-		 * 
-		 * System.out.println("buffer Size: " +
-		 * humanReadableByteCount(conn.getTcpWriteBufferSize(), true) + "/" +
-		 * humanReadableByteCount(bufferSize, true));
-		 * 
-		 * Runtime runtime = Runtime.getRuntime(); Integer byteToMega = 1048576;
-		 * 
-		 * System.out.println("used : " + ((runtime.totalMemory() -
-		 * runtime.freeMemory()) / byteToMega) + "mb ");
-		 * System.out.println("  committed : " + (runtime.totalMemory() /
-		 * byteToMega) + "mb ");
-		 */
 	}
 
 	@Override
@@ -197,16 +180,15 @@ public class ServerAddDocument extends Listener {
 	public final void received(Connection conn, Object obj) {
 
 		try {
-			if (obj instanceof MessageSplitReady) {
+			if (obj instanceof MessageReadyToReceive) {
 				Encaps reply = messageReadyReceived(conn,
-						(MessageSplitReady) obj);
+						(MessageReadyToReceive) obj);
 				sendTCPMessage(conn, reply);
 			} else if (obj instanceof MessageCreateValue) {
 				Object reply = messageObjectReceived((MessageCreateValue) obj);
 				conn.sendTCP(reply);
 			} else if (obj instanceof MessageSplitEnd) {
 				messageObjectEndReceived((MessageSplitEnd) obj);
-
 			} else if (obj instanceof RequestObject) {
 				Connection dest = null;
 
@@ -242,7 +224,7 @@ public class ServerAddDocument extends Listener {
 	}
 
 	private final Encaps messageReadyReceived(Connection conn,
-			MessageSplitReady obj) {
+			MessageReadyToReceive obj) {
 		Encaps sended = sendingUsers.get(new SendingKey(obj.getId(), conn));
 
 		if (sended.isFinish()) {
@@ -254,7 +236,8 @@ public class ServerAddDocument extends Listener {
 		return sended;
 	}
 
-	private final MessageSplitReady messageObjectReceived(MessageCreateValue obj) {
+	private final MessageReadyToReceive messageObjectReceived(
+			MessageCreateValue obj) {
 		ObjectSender encaps = sendingObjets.get(obj.getId());
 
 		if (encaps == null) {
@@ -275,7 +258,7 @@ public class ServerAddDocument extends Listener {
 		}
 		encaps.addChunk(obj);
 
-		return new MessageSplitReady(obj.getId());
+		return new MessageReadyToReceive(obj.getId());
 	}
 
 	private final void messageObjectEndReceived(MessageSplitEnd obj) {

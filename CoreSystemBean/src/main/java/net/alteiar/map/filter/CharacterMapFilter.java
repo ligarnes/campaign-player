@@ -28,8 +28,8 @@ import org.apache.log4j.Logger;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
-public class CharacterMapFilter extends MapFilter implements
-		PropertyChangeListener {
+public class CharacterMapFilter extends MapFilter implements /* KryoSerializable, */
+PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	public static final String METH_ADD_ELEMENT_VIEW_METHOD = "addElementIdView";
@@ -94,14 +94,26 @@ public class CharacterMapFilter extends MapFilter implements
 		refreshVision = true;
 	}
 
+	public CharacterMapFilter(UniqueID id, UniqueID mapID,
+			HashSet<UniqueID> elements, UniqueID filteredImageId, int maxVision) {
+		super(id, mapID);
+
+		elementsViews = elements;
+		this.filteredImageId = filteredImageId;
+		this.maxVision = maxVision;
+
+		somethingChange = false;
+		refreshVision = true;
+
+		unserialized();
+	}
+
 	public CharacterMapFilter() {
 	}
 
-	private void readObject(java.io.ObjectInputStream in) throws IOException,
-			ClassNotFoundException {
-		in.defaultReadObject();
-
+	public void unserialized() {
 		HashSet<UniqueID> ids = new HashSet<UniqueID>();
+
 		if (filteredImageId != null) {
 			ids.add(filteredImageId);
 		}
@@ -140,6 +152,13 @@ public class CharacterMapFilter extends MapFilter implements
 				refreshFilterImageThread();
 			}
 		};
+	}
+
+	private void readObject(java.io.ObjectInputStream in) throws IOException,
+			ClassNotFoundException {
+		in.defaultReadObject();
+
+		unserialized();
 
 		somethingChange = false;
 		refreshVision = true;
@@ -310,6 +329,7 @@ public class CharacterMapFilter extends MapFilter implements
 		} else {
 			filterImage = visionMap.buildImage();
 		}
+
 		notifyLocal(METH_REVALIDATE_FILTER_IMAGE_METHOD, oldValue, filterImage);
 	}
 

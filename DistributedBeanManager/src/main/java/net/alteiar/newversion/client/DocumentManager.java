@@ -20,6 +20,8 @@ import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
 import net.alteiar.thread.ThreadPoolUtils;
 
+import org.apache.log4j.Logger;
+
 public class DocumentManager {
 
 	// Use to notify when a document is received for blocking access
@@ -34,6 +36,8 @@ public class DocumentManager {
 
 	private final HashSet<DocumentManagerListener> listeners;
 	private final HashMap<UniqueID, IDocument> documents;
+
+	private final String dirSpecific;
 	private String specificPath;
 	private final String globalPath;
 
@@ -41,11 +45,12 @@ public class DocumentManager {
 	private final ClientAddDocument addDocu;
 	private final ClientModifyDocument modDocu;
 
-	public DocumentManager(String ipServeur, int portTCP, String globalPath,
-			KryoInit init) throws IOException {
+	public DocumentManager(String ipServeur, int portTCP, String dirSpecific,
+			String globalPath, KryoInit init) throws IOException {
 		documents = new HashMap<UniqueID, IDocument>();
 		listeners = new HashSet<DocumentManagerListener>();
 
+		this.dirSpecific = dirSpecific;
 		this.globalPath = globalPath;
 
 		generalDocu = new ClientGeneralDocument(this, ipServeur, portTCP);
@@ -57,14 +62,13 @@ public class DocumentManager {
 	}
 
 	protected void initCampaign(String campaignName, UniqueID[] ids) {
-		System.out.println("Campaign name: " + campaignName);
-		this.specificPath = "./ressources/sauvegarde/" + campaignName;
+		this.specificPath = campaignName;
+		File dir = new File(getSpecificBeanPath());
+		dir.mkdirs();
 
 		// ask for each documents
 		if (ids != null) {
 			for (UniqueID id : ids) {
-				System.out.println("request: " + id);
-				// addDocu.requestDocument(id);
 				loadDocument(id);
 			}
 		}
@@ -79,22 +83,15 @@ public class DocumentManager {
 	 * @throws Exception
 	 */
 	private void loadDocument(UniqueID guid) {
-		String filename = DocumentIO.validateFilename(guid.toString());
-
-		// Load the bean
-		BasicBean bean = null;
-		File localFile = new File(getSpecificPath(), filename);
-		File globalFile = new File(getGlobalPath(), filename);
-
 		try {
-			if (localFile.exists()) {
+			BasicBean localBean = searchBean(getSpecificPath(), guid);
+			BasicBean globalBean = searchBean(getGlobalPath(), guid);
+			if (localBean != null) {
 				// load local bean if exist
-				bean = DocumentIO.loadBeanLocal(localFile);
-				documentAdded(bean);
-			} else if (globalFile.exists()) {
+				documentAdded(localBean);
+			} else if (globalBean != null) {
 				// load global bean if exist
-				bean = DocumentIO.loadBeanLocal(globalFile);
-				documentAdded(bean);
+				documentAdded(globalBean);
 			} else {
 				// load bean from the server
 				addDocu.requestDocument(guid);
@@ -135,8 +132,6 @@ public class DocumentManager {
 	 * @param bean
 	 */
 	protected void documentAdded(BasicBean bean) {
-		// BasicBean bean = msg.getBean();
-
 		DocumentClient doc = new DocumentClient(this);
 		doc.loadDocument(bean);
 
@@ -178,25 +173,38 @@ public class DocumentManager {
 	 * @param msg
 	 */
 	protected void documentClosed(UniqueID guid) {
-		IDocument doc = documents.remove(guid);
-		doc.remoteCloseDocument();
+		IDocument doc = null;
+		synchronized (documents) {
+			doc = documents.remove(guid);
+		}
+
+		if (doc != null) {
+			// notify listener that a document is added
+			for (DocumentManagerListener listener : getListeners()) {
+				listener.beanRemoved(doc.getBeanEncapsulator().getBean());
+			}
+
+			// internal notify that a document is received
+			getCounterInstance().countDown();
+			doc.remoteCloseDocument();
+		}
 	}
 
 	public int getLocalDocumentCount() {
 		return documents.size();
 	}
 
-	protected BasicBean searchGlobalBean(UniqueID id) {
+	private BasicBean searchBean(String path, UniqueID id) {
 		BasicBean beanFound = null;
 		String filename = DocumentIO.validateFilename(id.toString());
 
-		File found = searchFile(new File(getGlobalPath()), filename);
+		File found = searchFile(new File(path), filename);
 		if (found != null) {
 			try {
 				beanFound = DocumentIO.loadBeanLocal(found);
 			} catch (Exception e) {
 				// Do not care if we cannot read the file it may be an error
-				// Logger.getLogger(getClass()).warn("", e);
+				Logger.getLogger(getClass()).warn("", e);
 			}
 		}
 		return beanFound;
@@ -225,17 +233,22 @@ public class DocumentManager {
 		IDocument doc = getDocument(id, -1L);
 
 		if (doc == null) {
-			// try to find it locally
-			BasicBean bean = searchGlobalBean(id);
+			// try to find it localy in campaign
+			BasicBean bean = searchBean(getSpecificPath(), id);
 			if (bean != null) {
-				// add to document in order to avoid search again
-				addDocument(new DocumentLocal(bean));
+				documentAdded(bean);
+			} else {
+				// try to find it globaly
+				bean = searchBean(getGlobalPath(), id);
+				if (bean != null) {
+					// add to document in order to avoid search again
+					addDocument(new DocumentLocal(bean));
+				}
 			}
 			doc = getDocument(id, timeout);
 		}
 
 		return doc == null ? null : (E) doc.getBeanEncapsulator().getBean();
-		// (E) doc.getBeanEncapsulator().getBean();
 	}
 
 	public UniqueID[] getIds() {
@@ -298,7 +311,7 @@ public class DocumentManager {
 	public void saveLocal() throws Exception {
 		synchronized (documents) {
 			for (IDocument doc : documents.values()) {
-				doc.save(getSpecificPath());
+				doc.save(getSpecificBeanPath());
 			}
 		}
 	}
@@ -308,8 +321,12 @@ public class DocumentManager {
 		doc.save(getGlobalPath());
 	}
 
+	public String getSpecificBeanPath() {
+		return dirSpecific + "/" + specificPath + "/beans";
+	}
+
 	public String getSpecificPath() {
-		return specificPath;
+		return dirSpecific + "/" + specificPath;
 	}
 
 	public String getGlobalPath() {
