@@ -7,10 +7,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.alteiar.beans.chat.Chat;
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.chat.MessageFactory;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.chat.Chat;
-import net.alteiar.chat.Message;
-import net.alteiar.chat.MessageFactory;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;
 

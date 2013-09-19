@@ -5,13 +5,13 @@ import static org.junit.Assert.assertEquals;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import net.alteiar.beans.dice.Dice;
+import net.alteiar.beans.dice.DiceBag;
+import net.alteiar.beans.dice.DiceListener;
+import net.alteiar.beans.dice.DiceRoller;
+import net.alteiar.beans.dice.DiceSingle;
+import net.alteiar.beans.dice.visitor.DiceCountVisitor;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.dice.Dice;
-import net.alteiar.dice.DiceBag;
-import net.alteiar.dice.DiceListener;
-import net.alteiar.dice.DiceRoller;
-import net.alteiar.dice.DiceSingle;
-import net.alteiar.dice.visitor.DiceCountVisitor;
 import net.alteiar.test.NewCampaignTest;
 
 import org.junit.Test;

@@ -1,5 +1,6 @@
 package net.alteiar.campaign.player.infos;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -33,8 +34,13 @@ public class HelpersImages {
 		return img;
 	}
 
+	public static void resizeImage(ImageIcon icon, Integer width, Integer height) {
+		new ImageIcon(icon.getImage().getScaledInstance(width, height,
+				Image.SCALE_SMOOTH));
+	}
+
 	public static ImageIcon getIcon(String name) {
-		return new ImageIcon(getImage(HelpersPath.getPathIcons(name)));
+		return new ImageIcon(HelpersPath.getPathIcons(name));
 	}
 
 	public static ImageIcon getIcon(String name, Integer width, Integer height) {

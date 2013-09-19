@@ -5,9 +5,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 
+import net.alteiar.beans.dice.DiceBag;
+import net.alteiar.beans.dice.DiceSingle;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.dice.DiceBag;
-import net.alteiar.dice.DiceSingle;
 
 public class DiceBagAction extends AbstractAction {
 	private static final long serialVersionUID = 1L;

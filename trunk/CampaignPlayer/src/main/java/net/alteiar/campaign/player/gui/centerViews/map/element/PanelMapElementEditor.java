@@ -2,8 +2,8 @@ package net.alteiar.campaign.player.gui.centerViews.map.element;
 
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.dialog.PanelOkCancel;
-import net.alteiar.map.elements.MapElement;
 
 public abstract class PanelMapElementEditor extends JPanel implements
 		PanelOkCancel {

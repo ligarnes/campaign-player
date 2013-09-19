@@ -4,9 +4,10 @@ import java.awt.FlowLayout;
 
 import javax.swing.JTextField;
 
+import net.alteiar.beans.map.elements.IAction;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelAlwaysValidOkCancel;
-import net.alteiar.map.elements.IAction;
 import pathfinder.bean.unit.Unit;
 
 public abstract class ChangeHealthPoint extends IAction {
@@ -53,7 +54,7 @@ public abstract class ChangeHealthPoint extends IAction {
 		panelDegat.setLayout(new FlowLayout());
 		panelDegat.add(textFieldDegat);
 		DialogOkCancel<PanelAlwaysValidOkCancel> dialog = new DialogOkCancel<PanelAlwaysValidOkCancel>(
-				null, getName(), true, panelDegat);
+				MainFrame.FRAME, getName(), true, panelDegat);
 		dialog.setLocation(xOnScreen - (dialog.getWidth() / 2), yOnScreen
 				- (dialog.getHeight() / 2));
 		dialog.setVisible(true);

@@ -1,9 +1,9 @@
 package net.alteiar.campaign.player.gui.sideView.chat.macro;
 
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.dice.DiceBag;
+import net.alteiar.beans.dice.DiceSingle;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.chat.Message;
-import net.alteiar.dice.DiceBag;
-import net.alteiar.dice.DiceSingle;
 
 public class DiceMacro extends Macro {
 

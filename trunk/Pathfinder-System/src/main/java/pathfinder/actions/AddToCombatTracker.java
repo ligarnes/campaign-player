@@ -3,9 +3,9 @@ package pathfinder.actions;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.map.elements.IAction;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.combatTraker.CombatTrackerUnit;
-import net.alteiar.map.elements.IAction;
 import pathfinder.bean.unit.Unit;
 import pathfinder.gui.adapter.PathfinderCharacterCombatTraker;
 

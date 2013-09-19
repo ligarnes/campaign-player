@@ -12,13 +12,14 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.MapElement;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
 import net.alteiar.factory.MapElementFactory;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.MapElement;
 
 public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +28,7 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 
 	public static void createMapElement(MapBean map, Point position) {
 		DialogOkCancel<PanelCreateMapElement> dlg = new DialogOkCancel<PanelCreateMapElement>(
-				null, "Cr\u00E9er un element", true, mapElement);
+				MainFrame.FRAME, "Cr\u00E9er un element", true, mapElement);
 
 		dlg.getMainPanel().refreshElements(map);
 		dlg.setOkText("Cr\u00E9er");
@@ -45,7 +46,7 @@ public class PanelCreateMapElement extends JPanel implements PanelOkCancel {
 
 	public static void createMapElement(MapBean map, MapEvent event) {
 		DialogOkCancel<PanelCreateMapElement> dlg = new DialogOkCancel<PanelCreateMapElement>(
-				null, "Cr\u00E9er un element", true, mapElement);
+				MainFrame.FRAME, "Cr\u00E9er un element", true, mapElement);
 
 		dlg.getMainPanel().refreshElements(map);
 		dlg.setOkText("Cr\u00E9er");

@@ -16,8 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import net.alteiar.beans.dice.DiceSingle;
 import net.alteiar.campaign.player.infos.HelpersImages;
-import net.alteiar.dice.DiceSingle;
 
 public class PanelDiceSelection extends JPanel implements ActionListener {
 

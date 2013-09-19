@@ -22,10 +22,10 @@ package net.alteiar.campaign.player.gui.centerViews.map;
 import java.awt.Point;
 import java.awt.geom.Point2D;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.MapElement;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.Zoomable;
 

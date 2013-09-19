@@ -10,12 +10,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.LineToMouse;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.PathToMouse;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapListener;
-import net.alteiar.map.elements.MapElement;
 
 public class MoveState extends MapElementListenerState implements MapListener {
 	private final MapElement mapElement;

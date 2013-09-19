@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.documents.BeanDirectory;
 
@@ -17,13 +18,12 @@ public class NewDirectoryAction extends AbstractAction {
 		this.parent = dir;
 
 		putValue(NAME, "Ajouter un dossier");
-		// putValue(LARGE_ICON_KEY, Helpers.getIcon(ICON_SHOW_GRID));
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		DialogOkCancel<PanelChangeName> dlg = new DialogOkCancel<PanelChangeName>(
-				null, "Nouveau dossier", true, new PanelChangeName(
+				MainFrame.FRAME, "Nouveau dossier", true, new PanelChangeName(
 						"nouveau dossier"));
 
 		dlg.setLocationRelativeTo(null);

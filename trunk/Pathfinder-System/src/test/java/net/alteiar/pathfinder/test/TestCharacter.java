@@ -6,9 +6,9 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.io.IOException;
 
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.media.ImageBean;
 import net.alteiar.utils.file.images.SerializableImage;
 import net.alteiar.utils.file.images.TransfertImage;
 

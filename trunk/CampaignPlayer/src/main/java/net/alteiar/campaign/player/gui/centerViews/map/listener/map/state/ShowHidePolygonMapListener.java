@@ -7,12 +7,12 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
+import net.alteiar.beans.map.filter.ManualMapFilter;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.PolygonToMouse;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.ActionMapListener;
-import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.shared.UniqueID;
 
 public class ShowHidePolygonMapListener extends ActionMapListener {

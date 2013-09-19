@@ -10,16 +10,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+import net.alteiar.beans.map.elements.IAction;
+import net.alteiar.beans.map.elements.MapElement;
+import net.alteiar.beans.map.filter.CharacterMapFilter;
+import net.alteiar.beans.map.filter.MapFilter;
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.AddRemoveElementToView;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
-import net.alteiar.map.elements.IAction;
-import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.filter.CharacterMapFilter;
-import net.alteiar.map.filter.MapFilter;
 
 import org.apache.log4j.Logger;
 
@@ -192,7 +193,7 @@ public class DefaultState extends MapElementListenerState {
 				public void actionPerformed(ActionEvent e) {
 
 					DialogOkCancel<PanelMapElementEditor> dlg = new DialogOkCancel<PanelMapElementEditor>(
-							null, "Editer", true, pane);
+							MainFrame.FRAME, "Editer", true, pane);
 					dlg.setOkText("Editer");
 					dlg.setCancelText("Annuler");
 

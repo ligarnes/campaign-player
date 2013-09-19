@@ -2,7 +2,6 @@ package net.alteiar.test;
 
 import java.awt.Color;
 import java.io.File;
-import java.io.IOException;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.CampaignFactoryNew;
@@ -19,12 +18,10 @@ public class NewCampaignTest extends BasicTest {
 	@Before
 	public void beforeTest() {
 		// Start a server
-		try {
-			server = new ServerDocuments(4545, "abc");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * try { server = new ServerDocuments(4545, "abc"); } catch (IOException
+		 * e) { // TODO Auto-generated catch block e.printStackTrace(); }
+		 */
 
 		System.out.println("Setting up test");
 		String address = "127.0.0.1";
@@ -54,7 +51,6 @@ public class NewCampaignTest extends BasicTest {
 		}
 		CampaignFactoryNew.leaveGame();
 
-		server.stopServer();
 		System.out.println("tearing down");
 	}
 

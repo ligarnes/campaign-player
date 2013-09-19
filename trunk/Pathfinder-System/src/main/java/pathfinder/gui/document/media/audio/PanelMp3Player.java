@@ -11,7 +11,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import net.alteiar.media.AudioBean;
+import net.alteiar.beans.media.AudioBean;
 
 public class PanelMp3Player extends JPanel implements PropertyChangeListener {
 	private static final long serialVersionUID = 1L;

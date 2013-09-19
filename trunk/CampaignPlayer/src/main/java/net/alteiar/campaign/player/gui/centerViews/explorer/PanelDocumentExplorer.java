@@ -1,6 +1,7 @@
 package net.alteiar.campaign.player.gui.centerViews.explorer;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -23,6 +24,8 @@ import javax.swing.tree.TreeSelectionModel;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.CampaignListener;
+import net.alteiar.campaign.player.gui.centerViews.explorer.mine.DocumentNode;
+import net.alteiar.campaign.player.gui.centerViews.explorer.mine.MyTreeCellRenderer;
 import net.alteiar.campaign.player.gui.documents.PanelCreateDocument;
 import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.logger.ExceptionTool;
@@ -48,16 +51,21 @@ public class PanelDocumentExplorer extends JPanel {
 		this.setLayout(new BorderLayout());
 
 		BeanDirectory root = CampaignClient.getInstance().getRootDirectory();
-		DefaultMutableTreeNode all = new DefaultMutableTreeNode(
-				new DocumentAdapter(root), root.isDirectory());
+		DefaultMutableTreeNode all = new DocumentNode(root, root.isDirectory());
 
 		treeModel = new DefaultTreeModel(all, true);
 		tree = new JTree();
-		tree.setEditable(true);
 		tree.setModel(treeModel);
 		tree.setRootVisible(false);
 		tree.getSelectionModel().setSelectionMode(
 				TreeSelectionModel.SINGLE_TREE_SELECTION);
+
+		tree.setCellRenderer(new MyTreeCellRenderer());
+
+		// tree.setCellEditor(new MyTreeCellEditor(tree));
+		// tree.setEditable(true);
+
+		tree.setRowHeight(38);
 
 		JScrollPane treeView = new JScrollPane(tree);
 		this.add(treeView, BorderLayout.CENTER);
@@ -86,6 +94,9 @@ public class PanelDocumentExplorer extends JPanel {
 						refreshTree();
 					}
 				});
+
+		this.setMinimumSize(new Dimension(300, 300));
+		this.setPreferredSize(new Dimension(300, 300));
 	}
 
 	protected JPanel createPanelCreate() {
@@ -107,10 +118,8 @@ public class PanelDocumentExplorer extends JPanel {
 						dirNode = (DefaultMutableTreeNode) dirNode.getParent();
 					}
 				}
-				DocumentAdapter adapter = (DocumentAdapter) dirNode
-						.getUserObject();
-				PanelCreateDocument.createDocument((BeanDirectory) adapter
-						.getDocument());
+				PanelCreateDocument.createDocument((BeanDirectory) dirNode
+						.getUserObject());
 			}
 		});
 
@@ -141,8 +150,7 @@ public class PanelDocumentExplorer extends JPanel {
 		Threads.execute(new MyRunnable() {
 			@Override
 			public void run() {
-				DefaultMutableTreeNode root = (DefaultMutableTreeNode) treeModel
-						.getRoot();
+				DocumentNode root = (DocumentNode) treeModel.getRoot();
 				synchronized (treeModel) {
 					fillIt(root);
 				}
@@ -164,10 +172,10 @@ public class PanelDocumentExplorer extends JPanel {
 		});
 	}
 
-	private void fillIt(final DefaultMutableTreeNode parent) {
-		DocumentAdapter dir = (DocumentAdapter) parent.getUserObject();
+	private void fillIt(final DocumentNode parent) {
+		BeanBasicDocument dir = parent.getUserObject();
 
-		BeanDirectory beanDir = (BeanDirectory) dir.getDocument();
+		BeanDirectory beanDir = (BeanDirectory) dir;
 
 		beanDir.addPropertyChangeListener(new PropertyChangeListener() {
 			@Override
@@ -176,13 +184,11 @@ public class PanelDocumentExplorer extends JPanel {
 			}
 		});
 
-		Map<String, DefaultMutableTreeNode> existingDocs = new HashMap<>();
+		Map<String, DocumentNode> existingDocs = new HashMap<>();
 
 		for (int i = 0; i < parent.getChildCount(); i++) {
-			DefaultMutableTreeNode childNode = (DefaultMutableTreeNode) parent
-					.getChildAt(i);
-			String documentId = ((DocumentAdapter) childNode.getUserObject())
-					.getDocument().getId().toString();
+			DocumentNode childNode = (DocumentNode) parent.getChildAt(i);
+			String documentId = childNode.getUserObject().getId().toString();
 			existingDocs.put(documentId, childNode);
 		}
 
@@ -191,14 +197,14 @@ public class PanelDocumentExplorer extends JPanel {
 					.getBean(id);
 
 			if (beanBasicDocument != null) {
-				DefaultMutableTreeNode node = existingDocs
-						.get(beanBasicDocument.getId().toString());
+				DocumentNode node = existingDocs.get(beanBasicDocument.getId()
+						.toString());
 
 				if (node != null) {
 					existingDocs.remove(beanBasicDocument.getId().toString());
 				} else {
-					node = new DefaultMutableTreeNode(new DocumentAdapter(
-							beanBasicDocument), beanBasicDocument.isDirectory());
+					node = new DocumentNode(beanBasicDocument,
+							beanBasicDocument.isDirectory());
 					parent.add(node);
 				}
 
@@ -228,9 +234,9 @@ public class PanelDocumentExplorer extends JPanel {
 
 				boolean docRemoved = false;
 				while (itt.hasNext() && !docRemoved) {
-					DefaultMutableTreeNode childNode = itt.next();
-					String documentId = ((DocumentAdapter) childNode
-							.getUserObject()).getDocument().getId().toString();
+					DocumentNode childNode = (DocumentNode) itt.next();
+					String documentId = childNode.getUserObject().getId()
+							.toString();
 					if (documentId.equals(docIdToRemove)) {
 						itt.remove();
 						docRemoved = true;

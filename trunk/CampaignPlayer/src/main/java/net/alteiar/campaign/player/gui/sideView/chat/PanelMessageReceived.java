@@ -11,13 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.dice.Dice;
+import net.alteiar.beans.dice.DiceListener;
+import net.alteiar.beans.dice.visitor.DiceCountVisitor;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.sideView.chat.message.PanelDice;
 import net.alteiar.campaign.player.gui.sideView.chat.message.PanelTextMessage;
-import net.alteiar.chat.Message;
-import net.alteiar.dice.Dice;
-import net.alteiar.dice.DiceListener;
-import net.alteiar.dice.visitor.DiceCountVisitor;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelMessageReceived extends JPanel {

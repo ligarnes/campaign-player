@@ -7,7 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.TransferHandler;
 
-import net.alteiar.combatTraker.CombatTraker;
+import net.alteiar.beans.combatTraker.CombatTraker;
 
 import org.apache.log4j.Logger;
 

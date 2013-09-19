@@ -5,12 +5,12 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 
+import net.alteiar.beans.map.filter.CharacterMapFilter;
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
-import net.alteiar.map.filter.CharacterMapFilter;
-import net.alteiar.media.ImageBean;
 import net.alteiar.utils.file.images.SerializableImage;
 
 import org.apache.log4j.Logger;

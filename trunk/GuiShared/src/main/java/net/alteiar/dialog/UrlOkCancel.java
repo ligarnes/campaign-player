@@ -30,7 +30,7 @@ public class UrlOkCancel extends JPanel implements PanelOkCancel {
 	public Boolean isDataValid() {
 		Boolean isDataValid = true;
 		try {
-			URL url = new URL(textFieldUrl.getText());
+			new URL(textFieldUrl.getText());
 		} catch (MalformedURLException e) {
 			isDataValid = false;
 		}

@@ -16,11 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.fileChooser.StaticDialog;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.logger.ExceptionTool;
-import net.alteiar.media.ImageBean;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.utils.file.images.SerializableImage;

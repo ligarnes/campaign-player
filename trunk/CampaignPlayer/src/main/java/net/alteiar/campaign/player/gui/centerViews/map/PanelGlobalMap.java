@@ -25,6 +25,9 @@ import java.awt.geom.Point2D;
 
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.MapElement;
+import net.alteiar.beans.map.filter.ManualMapFilter;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
@@ -33,9 +36,6 @@ import net.alteiar.campaign.player.gui.centerViews.map.listener.mapElement.MapEl
 import net.alteiar.campaign.player.gui.centerViews.map.tools.PanelToolsAdventure;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.factory.MapElementFactory;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.Zoomable;
 

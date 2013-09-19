@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.dialog.DialogOkCancel;
@@ -34,7 +35,8 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 
 	public static void createDocument(final BeanDirectory parent) {
 		DialogOkCancel<PanelCreateDocument> dlg = new DialogOkCancel<PanelCreateDocument>(
-				null, "Cr\u00E9er un document", true, documentBuilder);
+				MainFrame.FRAME, "Cr\u00E9er un document", true,
+				documentBuilder);
 
 		dlg.getMainPanel().refreshElements();
 		dlg.setOkText("Cr\u00E9er");

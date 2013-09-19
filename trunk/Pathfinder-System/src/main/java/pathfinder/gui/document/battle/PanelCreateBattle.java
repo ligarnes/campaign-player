@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import net.alteiar.beans.map.MapBean;
 import net.alteiar.campaign.player.gui.documents.PanelDocumentBuilder;
 import net.alteiar.campaign.player.gui.tools.selector.image.ImageSelectorStrategy;
 import net.alteiar.campaign.player.gui.tools.selector.image.LocalImageSelector;
@@ -26,7 +27,6 @@ import net.alteiar.campaign.player.gui.tools.selector.image.WebImageSelector;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.factory.MapFactory;
-import net.alteiar.map.MapBean;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.ImageUtil;
 import net.alteiar.thread.MyRunnable;

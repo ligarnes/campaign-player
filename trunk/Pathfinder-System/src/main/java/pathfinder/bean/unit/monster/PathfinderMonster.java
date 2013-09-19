@@ -3,8 +3,8 @@ package pathfinder.bean.unit.monster;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.media.ImageBean;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 

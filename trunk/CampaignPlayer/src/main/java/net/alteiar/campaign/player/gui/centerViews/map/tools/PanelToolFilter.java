@@ -11,16 +11,16 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.filter.CharacterMapFilter;
+import net.alteiar.beans.map.filter.ManualMapFilter;
+import net.alteiar.beans.map.filter.MapFilter;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.AddRemoveElementToView;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.ChooseFilterAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.ShowHideAllAction;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter.ShowHideAreaAction;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.filter.CharacterMapFilter;
-import net.alteiar.map.filter.ManualMapFilter;
-import net.alteiar.map.filter.MapFilter;
 
 public class PanelToolFilter extends JToolBar {
 	private static final long serialVersionUID = 1L;

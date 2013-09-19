@@ -13,10 +13,10 @@ import java.util.List;
 
 import net.alteiar.SuppressBeanListener;
 import net.alteiar.WaitBeanListener;
-import net.alteiar.chat.Chat;
-import net.alteiar.chat.MessageFactory;
-import net.alteiar.combatTraker.CombatTraker;
-import net.alteiar.dice.DiceRoller;
+import net.alteiar.beans.chat.Chat;
+import net.alteiar.beans.chat.MessageFactory;
+import net.alteiar.beans.combatTraker.CombatTraker;
+import net.alteiar.beans.dice.DiceRoller;
 import net.alteiar.documents.AuthorizationBean;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;

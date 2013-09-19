@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
 
+import net.alteiar.beans.chat.Chat;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.chat.Chat;
 import net.alteiar.newversion.shared.bean.BeanEncapsulator;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;

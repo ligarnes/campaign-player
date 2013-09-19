@@ -1,8 +1,8 @@
 package net.alteiar.factory;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.MapElement;
 
 public class MapElementFactory {
 

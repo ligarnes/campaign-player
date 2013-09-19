@@ -49,6 +49,28 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 		PanelStartGameDialog next = null;
 		switch (selection) {
 		case CREATE:
+			Threads.execute(new MyRunnable() {
+				@Override
+				public void run() {
+					NetworkProperties networkProp = new NetworkProperties();
+					// Create the game
+					try {
+						CampaignFactoryNew.startNewCampaign(networkProp
+								.getServerIp(), networkProp.getServerPort(),
+								HelpersPath.PATH_SAVE,
+								HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
+										.getInstance().getKryo());
+					} catch (Exception e) {
+						Logger.getLogger(getClass()).error(
+								"Impossible de créer la partie", e);
+					}
+				}
+
+				@Override
+				public String getTaskName() {
+					return "Create game";
+				}
+			});
 			next = new PanelLoading(getDialog(), this);
 			break;
 		case LOAD:
@@ -68,7 +90,7 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 
 				@Override
 				public String getTaskName() {
-					return "Connect to server";
+					return "Join game";
 				}
 			});
 			next = new PanelLoading(getDialog(), this);
@@ -120,19 +142,6 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == createButton) {
 			selection = MenuSelection.CREATE;
-
-			NetworkProperties networkProp = new NetworkProperties();
-			// Create the game
-			try {
-				CampaignFactoryNew.startNewCampaign(networkProp.getServerIp(),
-						networkProp.getServerPort(), HelpersPath.PATH_SAVE,
-						HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
-								.getInstance().getKryo());
-			} catch (Exception e) {
-				Logger.getLogger(getClass()).error(
-						"Impossible de créer la partie", e);
-			}
-
 		} else if (event.getSource() == loadButton) {
 			selection = MenuSelection.LOAD;
 		} else if (event.getSource() == joinButton) {
