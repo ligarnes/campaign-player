@@ -13,10 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.combatTraker.CombatTraker;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.sideView.combatTraker.dnd.ListTransferHandler;
-import net.alteiar.combatTraker.CombatTrackerUnit;
-import net.alteiar.combatTraker.CombatTraker;
 
 public class PanelCombatTraker extends JPanel {
 	private static final long serialVersionUID = 1L;

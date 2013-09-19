@@ -10,8 +10,8 @@ public class DocumentImageSelector implements ImageSelectorStrategy {
 
 		/*
 		 * DialogOkCancel<UrlOkCancel> dialogUrl = new
-		 * DialogOkCancel<UrlOkCancel>( null, "Choisir une image sur internet",
-		 * true, new UrlOkCancel());
+		 * DialogOkCancel<UrlOkCancel>( MainFrame.FRAME,
+		 * "Choisir une image sur internet", true, new UrlOkCancel());
 		 * 
 		 * dialogUrl.setOkText("Choisir"); dialogUrl.setCancelText("Annuler");
 		 * dialogUrl.setLocationRelativeTo(null); dialogUrl.pack();

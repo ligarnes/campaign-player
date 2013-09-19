@@ -13,11 +13,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import net.alteiar.beans.map.MapUtils;
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.Map2DUtils;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.map.MapUtils;
-import net.alteiar.map.elements.MapElement;
 
 public class PathToMouse extends LineToMouse {
 

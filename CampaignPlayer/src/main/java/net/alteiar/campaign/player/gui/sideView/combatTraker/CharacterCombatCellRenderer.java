@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.ListCellRenderer;
 
-import net.alteiar.combatTraker.CombatTrackerUnit;
-import net.alteiar.combatTraker.CombatTraker;
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.combatTraker.CombatTraker;
 
 public class CharacterCombatCellRenderer implements
 		ListCellRenderer<CombatTrackerUnit> {

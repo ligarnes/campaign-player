@@ -12,32 +12,32 @@ import javax.swing.JPanel;
 public class MyCombobox<E> extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private final JComboBox combobox;
+	private final JComboBox<E> combobox;
 
 	public MyCombobox() {
-		this(new JComboBox());
+		this(new JComboBox<E>());
 	}
 
 	public MyCombobox(E[] values) {
-		this(new JComboBox(values));
+		this(new JComboBox<E>(values));
 	}
 
 	public MyCombobox(Collection<E> values) {
-		this(new JComboBox(new Vector<E>(values)));
+		this(new JComboBox<E>(new Vector<E>(values)));
 	}
 
-	private MyCombobox(JComboBox combobox) {
+	private MyCombobox(JComboBox<E> combobox) {
 		this.combobox = combobox;
 		this.add(this.combobox);
 
 	}
 
 	public void setValues(E[] values) {
-		combobox.setModel(new DefaultComboBoxModel(values));
+		combobox.setModel(new DefaultComboBoxModel<E>(values));
 	}
 
 	public void setValues(Collection<E> values) {
-		combobox.setModel(new DefaultComboBoxModel(new Vector<E>(values)));
+		combobox.setModel(new DefaultComboBoxModel<E>(new Vector<E>(values)));
 	}
 
 	public void setSelectedItem(E item) {
@@ -45,7 +45,7 @@ public class MyCombobox<E> extends JPanel {
 	}
 
 	public E getItemAt(int idx) {
-		return (E) combobox.getItemAt(idx);
+		return combobox.getItemAt(idx);
 	}
 
 	@SuppressWarnings("unchecked")

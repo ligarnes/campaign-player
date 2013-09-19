@@ -7,10 +7,10 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.MapBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
-import net.alteiar.map.MapBean;
 import pathfinder.bean.unit.monster.MonsterBuilder;
 import pathfinder.bean.unit.monster.PathfinderMonster;
 import pathfinder.gui.adapter.MonsterBuilderAdapter;

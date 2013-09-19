@@ -6,10 +6,10 @@ import static org.junit.Assert.fail;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import net.alteiar.beans.chat.Chat;
+import net.alteiar.beans.chat.MessageFactory;
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.chat.Chat;
-import net.alteiar.chat.MessageFactory;
-import net.alteiar.media.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.utils.file.images.WebImage;

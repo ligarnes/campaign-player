@@ -20,19 +20,18 @@ import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.Scale;
+import net.alteiar.beans.map.elements.RectangleElement;
+import net.alteiar.beans.map.filter.ManualMapFilter;
+import net.alteiar.beans.map.size.MapElementSize;
+import net.alteiar.beans.map.size.MapElementSizeMeter;
+import net.alteiar.beans.map.size.MapElementSizePixel;
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.factory.MapElementFactory;
 import net.alteiar.factory.MapFactory;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.Scale;
-import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.map.filter.ManualMapFilter;
-import net.alteiar.map.size.MapElementSize;
-import net.alteiar.map.size.MapElementSizeMeter;
-import net.alteiar.map.size.MapElementSizePixel;
-import net.alteiar.media.ImageBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;
 import net.alteiar.utils.file.images.SerializableImage;
@@ -128,9 +127,6 @@ public class TestMap extends NewCampaignTest {
 
 		MapElementFactory.buildMapElement(rectangle, battle);
 
-		// wait for the element to be loaded
-		MapElement e = getBeans(rectangle);
-
 		// wait for the element to be in the element list
 		while (elementsOnMap.isEmpty()) {
 			sleep(10);
@@ -143,7 +139,7 @@ public class TestMap extends NewCampaignTest {
 
 		assertEquals(
 				"The map should have at least 1 element at the position (6,6)",
-				1, battle.getElementsAt(new Point(7, 7)).size());
+				1, battle.getElementsAt(new Point(6, 6)).size());
 		assertEquals(
 				"The map should'nt have any element at the position (4,4)", 0,
 				battle.getElementsAt(new Point(4, 4)).size());

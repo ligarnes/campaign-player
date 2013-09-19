@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import net.alteiar.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
 
 public class PanelCharacterCombat extends JPanel {
 	private static final long serialVersionUID = 1L;

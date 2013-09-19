@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
@@ -23,7 +24,6 @@ import net.alteiar.campaign.player.plugin.external.PluginList;
 import net.alteiar.campaign.player.tools.PropertieBase;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.kryo.MyKryoInit;
-import net.alteiar.map.elements.MapElement;
 
 import org.apache.log4j.Logger;
 

@@ -3,12 +3,12 @@ package plugin;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import net.alteiar.beans.map.elements.CircleElement;
+import net.alteiar.beans.map.elements.RectangleElement;
 import net.alteiar.campaign.player.plugin.external.DocumentPlugin;
 import net.alteiar.campaign.player.plugin.external.IPlugin;
 import net.alteiar.campaign.player.plugin.external.MapElementPlugin;
 import net.alteiar.campaign.player.plugin.external.PluginList;
-import net.alteiar.map.elements.CircleElement;
-import net.alteiar.map.elements.RectangleElement;
 
 import org.apache.log4j.Logger;
 

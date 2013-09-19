@@ -3,17 +3,18 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.filter.CharacterMapFilter;
+import net.alteiar.beans.map.filter.ManualMapFilter;
+import net.alteiar.beans.map.filter.MapFilter;
+import net.alteiar.beans.map.filter.NoMapFilter;
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
 import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.list.PanelSelectList;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.filter.CharacterMapFilter;
-import net.alteiar.map.filter.ManualMapFilter;
-import net.alteiar.map.filter.MapFilter;
-import net.alteiar.map.filter.NoMapFilter;
 import net.alteiar.thread.MyRunnable;
 
 public class ChangeMapFilterAction extends MapAction {
@@ -60,7 +61,7 @@ public class ChangeMapFilterAction extends MapAction {
 				adapters, false);
 
 		DialogOkCancel<PanelSelectList<FilterAdapter>> dlg = new DialogOkCancel<PanelSelectList<FilterAdapter>>(
-				null, "Choisir le type de filtre", true, panel);
+				MainFrame.FRAME, "Choisir le type de filtre", true, panel);
 
 		dlg.setLocationRelativeTo(null);
 		dlg.setVisible(true);
@@ -86,9 +87,6 @@ public class ChangeMapFilterAction extends MapAction {
 					}
 
 					CampaignClient.getInstance().addBean(newFilter);
-					// wait to be sure the bean is received
-					MapFilter f = CampaignClient.getInstance().getBean(
-							newFilter.getId(), 10000L);
 
 					// set the new filter
 					map.setFilter(newFilter.getId());

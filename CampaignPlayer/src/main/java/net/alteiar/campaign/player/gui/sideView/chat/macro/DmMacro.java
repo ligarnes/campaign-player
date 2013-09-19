@@ -1,7 +1,7 @@
 package net.alteiar.campaign.player.gui.sideView.chat.macro;
 
-import net.alteiar.chat.Message;
-import net.alteiar.chat.MessageFactory;
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.chat.MessageFactory;
 
 public class DmMacro extends Macro {
 

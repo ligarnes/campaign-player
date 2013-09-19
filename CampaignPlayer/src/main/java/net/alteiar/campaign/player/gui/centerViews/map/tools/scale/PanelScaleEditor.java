@@ -13,10 +13,10 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.Scale;
 import net.alteiar.dialog.PanelAlwaysValidOkCancel;
 import net.alteiar.dialog.PanelOkCancel;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.Scale;
 import net.alteiar.zoom.MoveZoomListener;
 import net.alteiar.zoom.PanelMoveZoom;
 import net.alteiar.zoom.PanelZoomEditor;

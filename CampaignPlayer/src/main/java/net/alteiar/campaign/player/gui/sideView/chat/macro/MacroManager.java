@@ -3,8 +3,8 @@ package net.alteiar.campaign.player.gui.sideView.chat.macro;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import net.alteiar.chat.Message;
-import net.alteiar.chat.MessageFactory;
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.chat.MessageFactory;
 
 public class MacroManager {
 

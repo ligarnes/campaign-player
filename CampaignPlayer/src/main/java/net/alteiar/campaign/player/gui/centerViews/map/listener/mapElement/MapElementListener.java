@@ -2,11 +2,11 @@ package net.alteiar.campaign.player.gui.centerViews.map.listener.mapElement;
 
 import java.awt.event.MouseEvent;
 
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.Drawable.DrawableMouseListener;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawable;
-import net.alteiar.map.elements.MapElement;
 
 public class MapElementListener implements DrawableMouseListener {
 

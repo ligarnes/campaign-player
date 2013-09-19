@@ -10,15 +10,15 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.CircleElement;
+import net.alteiar.beans.map.elements.RectangleElement;
+import net.alteiar.beans.map.size.MapElementSize;
+import net.alteiar.beans.map.size.MapElementSizeMeter;
+import net.alteiar.beans.map.size.MapElementSizePixel;
+import net.alteiar.beans.map.size.MapElementSizeSquare;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.factory.MapElementFactory;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.CircleElement;
-import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.map.size.MapElementSize;
-import net.alteiar.map.size.MapElementSizeMeter;
-import net.alteiar.map.size.MapElementSizePixel;
-import net.alteiar.map.size.MapElementSizeSquare;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;
 

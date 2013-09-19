@@ -4,8 +4,8 @@ import java.awt.Point;
 
 import javax.swing.JPanel;
 
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.MapElement;
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.MapElement;
 
 public abstract class PanelMapElementBuilder extends JPanel {
 	private static final long serialVersionUID = 1L;

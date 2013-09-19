@@ -2,11 +2,11 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.actions.filter;
 
 import java.awt.event.ActionEvent;
 
+import net.alteiar.beans.map.filter.ManualMapFilter;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
 import net.alteiar.campaign.player.infos.HelpersImages;
-import net.alteiar.map.filter.ManualMapFilter;
 import net.alteiar.shared.UniqueID;
 
 public class ShowHideAllAction extends MapAction {

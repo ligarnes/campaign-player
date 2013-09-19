@@ -5,11 +5,11 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.alteiar.beans.map.size.MapElementSize;
+import net.alteiar.beans.map.size.MapElementSizeMeter;
+import net.alteiar.beans.map.size.MapElementSizePixel;
+import net.alteiar.beans.map.size.MapElementSizeSquare;
 import net.alteiar.component.MyCombobox;
-import net.alteiar.map.size.MapElementSize;
-import net.alteiar.map.size.MapElementSizeMeter;
-import net.alteiar.map.size.MapElementSizePixel;
-import net.alteiar.map.size.MapElementSizeSquare;
 
 public class PanelElementSize extends JPanel {
 	private static final long serialVersionUID = 1L;

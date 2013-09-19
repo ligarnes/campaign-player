@@ -15,13 +15,13 @@ import java.util.List;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import net.alteiar.beans.map.MapBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.MapElementDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.button.ButtonDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapEvent;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.MapListener;
-import net.alteiar.map.MapBean;
 
 public class PanelMapWithListener extends PanelMapBasic implements
 		MouseListener, MouseMotionListener, MouseWheelListener {

@@ -33,11 +33,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import net.alteiar.beans.chat.Chat;
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.chat.MessageFactory;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.sideView.chat.macro.MacroManager;
-import net.alteiar.chat.Chat;
-import net.alteiar.chat.Message;
-import net.alteiar.chat.MessageFactory;
 
 /**
  * @author Cody Stoutenburg

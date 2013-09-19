@@ -3,7 +3,7 @@ package net.alteiar.campaign.player.gui.sideView.chat.message;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.alteiar.chat.Message;
+import net.alteiar.beans.chat.Message;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelTextMessage extends JPanel {

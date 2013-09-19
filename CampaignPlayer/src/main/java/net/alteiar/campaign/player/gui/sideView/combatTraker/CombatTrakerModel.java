@@ -5,10 +5,10 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.AbstractListModel;
 
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.combatTraker.CombatTraker;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.tools.Threads;
-import net.alteiar.combatTraker.CombatTrackerUnit;
-import net.alteiar.combatTraker.CombatTraker;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
 

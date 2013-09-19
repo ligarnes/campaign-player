@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import net.alteiar.beans.chat.Chat;
+import net.alteiar.beans.chat.MessageFactory;
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.chat.Chat;
-import net.alteiar.chat.MessageFactory;
-import net.alteiar.map.MapBean;
-import net.alteiar.media.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignTest;

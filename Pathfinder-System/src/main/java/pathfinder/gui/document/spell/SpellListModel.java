@@ -18,8 +18,8 @@ import javax.swing.ListModel;
 import pathfinder.bean.spell.Spell;
 import pathfinder.bean.spell.filter.SpellLevelComparator;
 
-public class SpellListModel extends AbstractListModel implements ListModel,
-		ListCellRenderer {
+public class SpellListModel extends AbstractListModel<Spell> implements
+		ListModel<Spell>, ListCellRenderer<Spell> {
 	private static final long serialVersionUID = 1L;
 
 	private String classe;
@@ -101,7 +101,8 @@ public class SpellListModel extends AbstractListModel implements ListModel,
 		return values.get(index);
 	}
 
-	protected JLabel buildSpell(Spell spell, JList list, boolean isSelected) {
+	protected JLabel buildSpell(Spell spell, JList<? extends Spell> list,
+			boolean isSelected) {
 		JLabel label = new JLabel(spell.getName());
 		label.setOpaque(true);
 
@@ -122,12 +123,12 @@ public class SpellListModel extends AbstractListModel implements ListModel,
 	}
 
 	@Override
-	public Component getListCellRendererComponent(JList list, Object value,
-			int index, boolean isSelected, boolean cellHasFocus) {
+	public Component getListCellRendererComponent(JList<? extends Spell> list,
+			Spell value, int index, boolean isSelected, boolean cellHasFocus) {
 
 		JLabel label = null;
 		if (value != null) {
-			label = buildSpell((Spell) value, list, isSelected);
+			label = buildSpell(value, list, isSelected);
 		} else if ((index + 1) < getSize()) {
 			Spell spell = getElementAt(index + 1);
 			label = buildTitle("Niveau " + spell.getLevel(classe));

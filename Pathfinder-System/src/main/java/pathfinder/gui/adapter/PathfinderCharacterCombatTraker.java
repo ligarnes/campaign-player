@@ -2,10 +2,10 @@ package pathfinder.gui.adapter;
 
 import java.beans.PropertyChangeListener;
 
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.dice.DiceBag;
+import net.alteiar.beans.dice.DiceSingle;
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.combatTraker.CombatTrackerUnit;
-import net.alteiar.dice.DiceBag;
-import net.alteiar.dice.DiceSingle;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;

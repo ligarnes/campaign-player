@@ -2,8 +2,8 @@ package net.alteiar.campaign.player.gui.centerViews.map.listener.mapElement;
 
 import java.awt.event.MouseEvent;
 
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
-import net.alteiar.map.elements.MapElement;
 
 public abstract class MapElementListenerState {
 	private final MapEditableInfo info;

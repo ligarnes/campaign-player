@@ -3,7 +3,7 @@ package net.alteiar.campaign.player.gui.centerViews.map.tools.dice;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import net.alteiar.dice.DiceSingle;
+import net.alteiar.beans.dice.DiceSingle;
 
 public class Die implements ActionListener {
 

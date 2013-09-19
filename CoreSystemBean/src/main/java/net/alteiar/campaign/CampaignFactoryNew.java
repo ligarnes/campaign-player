@@ -1,8 +1,8 @@
 package net.alteiar.campaign;
 
-import net.alteiar.chat.Chat;
-import net.alteiar.combatTraker.CombatTraker;
-import net.alteiar.dice.DiceRoller;
+import net.alteiar.beans.chat.Chat;
+import net.alteiar.beans.combatTraker.CombatTraker;
+import net.alteiar.beans.dice.DiceRoller;
 import net.alteiar.kryo.MyKryoInit;
 import net.alteiar.player.Player;
 import net.alteiar.thread.ThreadPoolUtils;

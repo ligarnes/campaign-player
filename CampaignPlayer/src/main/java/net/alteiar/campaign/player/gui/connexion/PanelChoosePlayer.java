@@ -19,8 +19,6 @@
  */
 package net.alteiar.campaign.player.gui.connexion;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -30,15 +28,14 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.CampaignListener;
+import net.alteiar.campaign.player.gui.players.PlayerCellRenderer;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.Languages;
 import net.alteiar.component.MyList;
@@ -147,39 +144,5 @@ public class PanelChoosePlayer extends PanelStartGameDialog {
 		Helpers.getGlobalProperties().setPlayerChoose(player.getName());
 		Helpers.getGlobalProperties().save();
 		nextState();
-	}
-
-	private static class PlayerCellRenderer extends JLabel implements
-			ListCellRenderer {
-
-		private static final long serialVersionUID = 1L;
-		private static final Color HIGHLIGHT_COLOR = new Color(0, 0, 128);
-
-		public PlayerCellRenderer() {
-			setOpaque(true);
-		}
-
-		@Override
-		public Component getListCellRendererComponent(JList list, Object value,
-				int index, boolean isSelected, boolean cellHasFocus) {
-			String cellText = "";
-
-			Player player = (Player) value;
-			cellText += player.getName();
-			if (player.isDm()) {
-				cellText += " " + Languages.getText("game_master");
-			}
-
-			setText(cellText);
-			if (isSelected) {
-				setBackground(HIGHLIGHT_COLOR);
-				setForeground(Color.white);
-			} else {
-				setBackground(Color.white);
-				setForeground(Color.black);
-			}
-			return this;
-		}
-
 	}
 }

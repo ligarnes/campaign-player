@@ -6,11 +6,11 @@ import java.awt.Insets;
 
 import javax.swing.JLabel;
 
+import net.alteiar.beans.map.Scale;
+import net.alteiar.beans.map.elements.RectangleElement;
+import net.alteiar.beans.map.size.MapElementSize;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementEditor;
 import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
-import net.alteiar.map.Scale;
-import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.map.size.MapElementSize;
 
 public class PanelRectangleEditor extends PanelMapElementEditor {
 	private static final long serialVersionUID = 1L;

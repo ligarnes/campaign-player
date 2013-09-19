@@ -3,7 +3,7 @@ package net.alteiar.campaign.player.gui.sideView.combatTraker;
 import java.io.Serializable;
 import java.util.Comparator;
 
-import net.alteiar.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
 
 public class InitiativeComparator implements Comparator<CombatTrackerUnit>,
 		Serializable {

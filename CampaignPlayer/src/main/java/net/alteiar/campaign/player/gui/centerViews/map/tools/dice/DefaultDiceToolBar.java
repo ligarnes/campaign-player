@@ -9,11 +9,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
+import net.alteiar.beans.chat.Message;
+import net.alteiar.beans.dice.DiceBag;
+import net.alteiar.beans.dice.DiceSingle;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.infos.HelpersImages;
-import net.alteiar.chat.Message;
-import net.alteiar.dice.DiceBag;
-import net.alteiar.dice.DiceSingle;
 
 public class DefaultDiceToolBar extends JToolBar {
 	private static final long serialVersionUID = 1L;

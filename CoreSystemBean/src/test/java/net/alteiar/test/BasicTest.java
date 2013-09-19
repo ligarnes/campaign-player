@@ -28,7 +28,7 @@ public abstract class BasicTest {
 	/**
 	 * timeout is used in test when we try to get a bean
 	 */
-	protected Long timeout = 500L;
+	protected Long timeout = 5000L;
 
 	public void waitForChange(BasicBean bean, String property,
 			Object expectedValue) {

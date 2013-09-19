@@ -4,10 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.media.ImageBean;
 import net.alteiar.zoom.MoveZoomListener;
 import net.alteiar.zoom.PanelMoveZoom;
 

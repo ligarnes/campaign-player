@@ -9,12 +9,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.MapBean;
+import net.alteiar.beans.map.elements.MapElement;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.component.MyCombobox;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.map.MapBean;
-import net.alteiar.map.elements.MapElement;
 import net.alteiar.shared.UniqueID;
 import pathfinder.gui.adapter.CharacterAdapter;
 import pathfinder.gui.mapElement.PathfinderCharacterElement;

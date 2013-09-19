@@ -6,13 +6,14 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import net.alteiar.beans.map.elements.MapElement;
+import net.alteiar.beans.map.filter.CharacterMapFilter;
 import net.alteiar.campaign.CampaignClient;
+import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.centerViews.map.MapEditableInfo;
 import net.alteiar.campaign.player.gui.centerViews.map.tools.actions.MapAction;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.list.PanelSelectList;
-import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.filter.CharacterMapFilter;
 import net.alteiar.shared.UniqueID;
 
 public class AddRemoveElementToView extends MapAction {
@@ -90,7 +91,7 @@ public class AddRemoveElementToView extends MapAction {
 					adapters, true);
 
 			DialogOkCancel<PanelSelectList<ElementViewAdapter>> dlg = new DialogOkCancel<PanelSelectList<ElementViewAdapter>>(
-					null, title, true, panel);
+					MainFrame.FRAME, title, true, panel);
 			dlg.setLocationRelativeTo(null);
 			dlg.pack();
 			dlg.setVisible(true);

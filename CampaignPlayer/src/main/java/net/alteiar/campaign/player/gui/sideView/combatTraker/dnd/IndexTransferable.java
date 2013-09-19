@@ -4,7 +4,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 
-import net.alteiar.combatTraker.CombatTrackerUnit;
+import net.alteiar.beans.combatTraker.CombatTrackerUnit;
 
 public class IndexTransferable implements Transferable {
 

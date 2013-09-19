@@ -9,10 +9,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashSet;
 
+import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.AuthorizationAdapter;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.media.ImageBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.test.NewCampaignNoGMTest;

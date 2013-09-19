@@ -20,7 +20,7 @@ public class PanelSpellListSource extends JPanel {
 	private final SpellListModel modelRenderer;
 
 	public PanelSpellListSource(String classe, List<Spell> spells) {
-		JList list = new JList();
+		JList<Spell> list = new JList<Spell>();
 
 		handler = new SpellListTransferHandler();
 

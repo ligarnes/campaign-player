@@ -10,12 +10,15 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.alteiar.SuppressBeanListener;
+import net.alteiar.beans.map.elements.IAction;
+import net.alteiar.beans.map.elements.MapElement;
+import net.alteiar.beans.map.size.MapElementSize;
+import net.alteiar.beans.map.size.MapElementSizeSquare;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
-import net.alteiar.map.elements.IAction;
-import net.alteiar.map.elements.MapElement;
-import net.alteiar.map.size.MapElementSize;
-import net.alteiar.map.size.MapElementSizeSquare;
+import net.alteiar.factory.MapElementFactory;
+import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 
 import org.simpleframework.xml.Element;
@@ -46,8 +49,22 @@ public class PathfinderCharacterElement extends MapElement {
 		this(point, character.getId());
 	}
 
-	public PathfinderCharacterElement(Point point, UniqueID characterId) {
+	public PathfinderCharacterElement(Point point, final UniqueID characterId) {
 		super(point);
+
+		CampaignClient.getInstance().addSuppressBeanListener(
+				new SuppressBeanListener() {
+					@Override
+					public UniqueID getBeanId() {
+						return characterId;
+					}
+
+					@Override
+					public void beanRemoved(BasicBean bean) {
+						MapElementFactory.removeMapElement(
+								PathfinderCharacterElement.this, getMap());
+					}
+				});
 
 		this.charactedId = characterId;
 		width = new MapElementSizeSquare(1);
@@ -72,7 +89,11 @@ public class PathfinderCharacterElement extends MapElement {
 	@Override
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		super.removePropertyChangeListener(listener);
-		getDocumentCharacter().getBean().removePropertyChangeListener(listener);
+
+		if (getDocumentCharacter().getBean() != null) {
+			getDocumentCharacter().getBean().removePropertyChangeListener(
+					listener);
+		}
 	}
 
 	@Override

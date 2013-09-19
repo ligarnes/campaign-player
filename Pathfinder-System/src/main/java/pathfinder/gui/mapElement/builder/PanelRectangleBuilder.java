@@ -9,11 +9,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.alteiar.beans.map.elements.RectangleElement;
+import net.alteiar.beans.map.size.MapElementSize;
 import net.alteiar.campaign.player.gui.centerViews.map.element.PanelMapElementBuilder;
 import net.alteiar.campaign.player.gui.centerViews.map.element.utils.PanelElementSize;
 import net.alteiar.panel.PanelSelectColor;
-import net.alteiar.map.elements.RectangleElement;
-import net.alteiar.map.size.MapElementSize;
 
 public class PanelRectangleBuilder extends PanelMapElementBuilder {
 	private static final long serialVersionUID = 1L;

@@ -88,7 +88,8 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		textFieldName.setColumns(8);
 
 		JButton btnEditAccess = new JButton();
-		btnEditAccess.setIcon(HelpersImages.getIcon("PlayerAccessIcon.png", 40, 40));
+		btnEditAccess.setIcon(HelpersImages.getIcon("PlayerAccessIcon.png", 40,
+				40));
 		btnEditAccess.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -264,8 +265,8 @@ public class PanelCompleteCharacterSheet extends JPanel implements
 		/*
 		 * PanelPlayerAccess panelAccess = new PanelPlayerAccess();
 		 * DialogOkCancel<PanelPlayerAccess> dialog = new
-		 * DialogOkCancel<PanelPlayerAccess>( null, "Changer les access", true,
-		 * panelAccess);
+		 * DialogOkCancel<PanelPlayerAccess>( MainFrame.FRAME,
+		 * "Changer les access", true, panelAccess);
 		 * 
 		 * panelAccess.setAccess(this.character.getAccess());
 		 * 
