@@ -18,7 +18,13 @@ public class RemoveDirectoryAction extends AbstractAction {
 		this.dir = dir;
 
 		putValue(NAME, "Supprimer le dossier");
-		// putValue(LARGE_ICON_KEY, Helpers.getIcon(ICON_SHOW_GRID));
+
+		if (dir.isAllowedToApplyChange(CampaignClient.getInstance()
+				.getCurrentPlayer())) {
+			setEnabled(true);
+		} else {
+			setEnabled(false);
+		}
 	}
 
 	@Override

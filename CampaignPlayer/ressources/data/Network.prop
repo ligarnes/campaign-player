@@ -1,4 +1,8 @@
-#24.142.94.63
-#5455
-server.ip=24.142.94.63
-server.port=4545
+# Beta server for users
+#server.ip=24.142.94.63
+#server.port=4545
+
+
+# Local test server for users
+server.ip=192.168.0.103
+server.port=5656

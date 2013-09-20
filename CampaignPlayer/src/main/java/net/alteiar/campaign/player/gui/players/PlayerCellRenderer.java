@@ -22,10 +22,11 @@ public class PlayerCellRenderer implements ListCellRenderer<Player> {
 			Player value, int index, boolean isSelected, boolean cellHasFocus) {
 
 		String cellText = "";
-
-		cellText += value.getName();
-		if (value.isDm()) {
-			cellText += " " + Languages.getText("game_master");
+		if (value != null) {
+			cellText += value.getName();
+			if (value.isDm()) {
+				cellText += " " + Languages.getText("game_master");
+			}
 		}
 		return renderer.getListCellRendererComponent(list, cellText, index,
 				isSelected, cellHasFocus);

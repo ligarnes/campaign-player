@@ -226,6 +226,7 @@ public class DocumentManager {
 		return found;
 	}
 
+	@SuppressWarnings("unchecked")
 	public <E extends BasicBean> E getBean(UniqueID id, long timeout) {
 		if (id == null) {
 			throw new NullPointerException("the unique id must'nt be null");
@@ -241,7 +242,7 @@ public class DocumentManager {
 				// try to find it globaly
 				bean = searchBean(getGlobalPath(), id);
 				if (bean != null) {
-					// add to document in order to avoid search again
+					// add to document in order to avoid search agains
 					addDocument(new DocumentLocal(bean));
 				}
 			}

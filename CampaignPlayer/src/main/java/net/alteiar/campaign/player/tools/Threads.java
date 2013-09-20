@@ -37,6 +37,7 @@ public class Threads {
 	 * @param run
 	 */
 	public static void execute(MyRunnable run) {
+		// System.out.println("run add task: " + run.getTaskName());
 		THREAD_POOL.execute(run);
 	}
 }

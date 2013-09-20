@@ -34,7 +34,6 @@ public class ClientModifyDocument extends DocuManager {
 		NetworkKryoInit newInit = new NetworkKryoInit();
 		newInit.registerKryo(client.getKryo());
 
-		// init.registerKryo(client.getKryo());
 		client.addListener(this);
 
 		serializer = new Kryo();
@@ -51,6 +50,7 @@ public class ClientModifyDocument extends DocuManager {
 	public void modifyDocument(final MessageModifyValue bean) {
 		final ChunkObjectSend sended = factory.generateMessages(bean);
 
+		sended.setGuid(new UniqueID());
 		sendObject(client, sended);
 	}
 

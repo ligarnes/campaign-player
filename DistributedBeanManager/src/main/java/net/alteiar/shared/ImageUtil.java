@@ -14,9 +14,17 @@ public class ImageUtil {
 	public static BufferedImage resizeImage(BufferedImage image, int width,
 			int height) {
 		return resizeImage(image, width, height, HIGH_RESOLUTION);
-
 	}
 
+	/**
+	 * Don't use image.getScaledInstance() because it's to slow
+	 * 
+	 * @param image
+	 * @param width
+	 * @param height
+	 * @param resolution
+	 * @return
+	 */
 	public static BufferedImage resizeImage(BufferedImage image, int width,
 			int height, Object resolution) {
 		int type = image.getType() == 0 ? 2 : image.getType();

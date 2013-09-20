@@ -139,8 +139,6 @@ public class PanelCreateDocument extends JPanel implements PanelOkCancel {
 			BeanDocument doc = new BeanDocument(dir, builder.getDocumentName(),
 					builder.getDocumentType(), bean);
 
-			// TODO remove setPublic only for test
-			doc.setPublic(true);
 			CampaignClient.getInstance().addBean(doc);
 		}
 	}

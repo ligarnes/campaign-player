@@ -38,6 +38,7 @@ public class ChunkObjectReceived {
 		return datas.toByteArray();
 	}
 
+	@SuppressWarnings("unchecked")
 	public <E extends IUniqueObject> E getBean(Kryo k) {
 		E bean = null;
 

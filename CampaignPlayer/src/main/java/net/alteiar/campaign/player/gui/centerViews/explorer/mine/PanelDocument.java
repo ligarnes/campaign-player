@@ -11,7 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanBasicDocument;
+import net.alteiar.player.Player;
+import net.alteiar.shared.UniqueID;
 
 public class PanelDocument extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +22,7 @@ public class PanelDocument extends JPanel {
 	private final JLabel lblIcon;
 	private final JLabel lblName;
 	private final JLabel lblShared;
+	private final JLabel lblOwner;
 
 	public PanelDocument() {
 		setOpaque(false);
@@ -55,7 +59,6 @@ public class PanelDocument extends JPanel {
 		add(lblName, gbc_label);
 
 		lblShared = new JLabel("");
-		lblShared.setOpaque(true);
 		lblShared.setMaximumSize(new Dimension(32, 32));
 		lblShared.setMinimumSize(new Dimension(32, 32));
 		lblShared.setPreferredSize(new Dimension(32, 32));
@@ -65,7 +68,7 @@ public class PanelDocument extends JPanel {
 		gbc_lblShared.gridy = 0;
 		add(lblShared, gbc_lblShared);
 
-		JLabel lblOwner = new JLabel("(cody)");
+		lblOwner = new JLabel("(cody)");
 		lblOwner.setMaximumSize(new Dimension(31, 10));
 		lblOwner.setMinimumSize(new Dimension(31, 10));
 		lblOwner.setPreferredSize(new Dimension(31, 10));
@@ -87,5 +90,29 @@ public class PanelDocument extends JPanel {
 		lblName.setText(doc.getDocumentName());
 
 		lblShared.setIcon(ExplorerIconUtils.getLockIcon(doc));
+
+		StringBuilder owners = new StringBuilder("<html>");
+		if (doc.getPublic()) {
+			owners.append("<span style=\"color:#088A08\">Public</span>");
+		} else {
+			Player owner = CampaignClient.getInstance().getBean(doc.getOwner());
+			owners.append("<span style=\"color:#FF0000\">" + owner.getName()
+					+ "</span> ");
+
+			for (UniqueID modifier : doc.getModifiers()) {
+				Player mod = CampaignClient.getInstance().getBean(modifier);
+				owners.append("<span style=\"color:#FF8000\">" + mod.getName()
+						+ "</span> ");
+			}
+
+			for (UniqueID users : doc.getUsers()) {
+				Player user = CampaignClient.getInstance().getBean(users);
+				owners.append("<span style=\"color:#FFFF00\">" + user.getName()
+						+ "</span> ");
+			}
+		}
+		owners.append("</html>");
+
+		lblOwner.setText(owners.toString());
 	}
 }

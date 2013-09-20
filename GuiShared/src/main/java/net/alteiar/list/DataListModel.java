@@ -22,6 +22,10 @@ public class DataListModel<E> extends AbstractListModel<E> implements
 		this.datas = new ArrayList<E>();
 	}
 
+	public ArrayList<E> getDatas() {
+		return datas;
+	}
+
 	public void addDatas(List<E> data) {
 		this.datas.addAll(data);
 
@@ -42,6 +46,10 @@ public class DataListModel<E> extends AbstractListModel<E> implements
 	public void removeData(E data) {
 		this.datas.remove(data);
 		this.fireIntervalRemoved(this, datas.size(), datas.size() + 1);
+	}
+
+	public void clear() {
+		this.datas.clear();
 	}
 
 	@Override
