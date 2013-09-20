@@ -4,7 +4,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import net.alteiar.documents.BeanBasicDocument;
 
-public class DocumentNode extends DefaultMutableTreeNode {
+public class DocumentNode extends DefaultMutableTreeNode implements Cloneable {
 	private static final long serialVersionUID = 1L;
 
 	public DocumentNode() {
@@ -39,4 +39,8 @@ public class DocumentNode extends DefaultMutableTreeNode {
 		return (BeanBasicDocument) super.getUserObject();
 	}
 
+	@Override
+	public DocumentNode clone() {
+		return (DocumentNode) super.clone();
+	}
 }

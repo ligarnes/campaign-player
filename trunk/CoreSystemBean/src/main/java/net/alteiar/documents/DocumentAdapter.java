@@ -5,7 +5,7 @@ import java.beans.PropertyChangeListener;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public abstract class AuthorizationAdapter implements PropertyChangeListener {
+public abstract class DocumentAdapter implements PropertyChangeListener {
 
 	private final HashSet<String> properties;
 
@@ -21,14 +21,19 @@ public abstract class AuthorizationAdapter implements PropertyChangeListener {
 		properties.add(AuthorizationBean.METH_REMOVE_MODIFIER_METHOD);
 		properties.add(AuthorizationBean.METH_REMOVE_USER_METHOD);
 
+		properties.add(BeanBasicDocument.PROP_DOCUMENT_NAME_PROPERTY);
+		properties.add(BeanBasicDocument.PROP_PARENT_PROPERTY);
+		properties.add(BeanDirectory.METH_ADD_DOCUMENT_METHOD);
+		properties.add(BeanDirectory.METH_REMOVE_DOCUMENT_METHOD);
+
 		return properties;
 	}
 
-	public AuthorizationAdapter() {
+	public DocumentAdapter() {
 		properties = initializeProperties();
 	}
 
-	public AuthorizationAdapter(AuthorizationBean bean) {
+	public DocumentAdapter(AuthorizationBean bean) {
 		properties = initializeProperties();
 
 		for (String prop : properties) {
@@ -48,9 +53,9 @@ public abstract class AuthorizationAdapter implements PropertyChangeListener {
 		}
 
 		if (auth) {
-			authorizationChanged(evt);
+			documentChanged(evt);
 		}
 	}
 
-	public abstract void authorizationChanged(PropertyChangeEvent evt);
+	public abstract void documentChanged(PropertyChangeEvent evt);
 }

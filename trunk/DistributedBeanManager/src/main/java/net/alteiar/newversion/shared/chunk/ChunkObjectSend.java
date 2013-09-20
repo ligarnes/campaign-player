@@ -8,7 +8,7 @@ import net.alteiar.shared.UniqueID;
 
 public class ChunkObjectSend {
 	private final String classname;
-	private final UniqueID guid;
+	private UniqueID guid;
 	private final byte[] data;
 
 	private final int chunkSize;
@@ -24,6 +24,10 @@ public class ChunkObjectSend {
 		this.chunkSize = chunkSize;
 
 		chunkCount = (int) Math.ceil(data.length / (double) chunkSize);
+	}
+
+	public void setGuid(UniqueID guid) {
+		this.guid = guid;
 	}
 
 	public UniqueID getGuid() {

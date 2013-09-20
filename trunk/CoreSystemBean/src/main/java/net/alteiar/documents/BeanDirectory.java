@@ -59,20 +59,24 @@ public class BeanDirectory extends BeanBasicDocument {
 	}
 
 	public void addDocumentRemote(UniqueID document) {
-		if (notifyRemote(METH_ADD_DOCUMENT_METHOD, null, document)) {
-			this.documents.add(document);
-			notifyLocal(METH_ADD_DOCUMENT_METHOD, null, document);
+		if (!documents.contains(document) && !document.equals(getId())) {
+			if (notifyRemote(METH_ADD_DOCUMENT_METHOD, null, document)) {
+				this.documents.add(document);
+				notifyLocal(METH_ADD_DOCUMENT_METHOD, null, document);
+			}
 		}
 	}
 
 	public void removeDocument(BeanBasicDocument document) {
-		this.addDocumentRemote(document.getId());
+		this.removeDocumentRemote(document.getId());
 	}
 
 	public void removeDocumentRemote(UniqueID document) {
-		if (notifyRemote(METH_REMOVE_DOCUMENT_METHOD, null, document)) {
-			this.documents.add(document);
-			notifyLocal(METH_REMOVE_DOCUMENT_METHOD, null, document);
+		if (documents.contains(document)) {
+			if (notifyRemote(METH_REMOVE_DOCUMENT_METHOD, null, document)) {
+				this.documents.remove(document);
+				notifyLocal(METH_REMOVE_DOCUMENT_METHOD, null, document);
+			}
 		}
 	}
 

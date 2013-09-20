@@ -106,38 +106,46 @@ public abstract class AuthorizationBean extends BasicBean {
 	}
 
 	public void addModifier(UniqueID playerId) {
-		if (notifyRemote(METH_ADD_MODIFIER_METHOD, null, playerId)) {
-			synchronized (modifiers) {
-				modifiers.add(playerId);
+		if (!modifiers.contains(playerId)) {
+			if (notifyRemote(METH_ADD_MODIFIER_METHOD, null, playerId)) {
+				synchronized (modifiers) {
+					modifiers.add(playerId);
+				}
+				notifyLocal(METH_ADD_MODIFIER_METHOD, null, playerId);
 			}
-			notifyLocal(METH_ADD_MODIFIER_METHOD, null, playerId);
 		}
 	}
 
 	public void removeModifier(UniqueID playerId) {
-		if (notifyRemote(METH_REMOVE_MODIFIER_METHOD, null, playerId)) {
-			synchronized (modifiers) {
-				modifiers.remove(playerId);
+		if (modifiers.contains(playerId)) {
+			if (notifyRemote(METH_REMOVE_MODIFIER_METHOD, null, playerId)) {
+				synchronized (modifiers) {
+					modifiers.remove(playerId);
+				}
+				notifyLocal(METH_REMOVE_MODIFIER_METHOD, null, playerId);
 			}
-			notifyLocal(METH_REMOVE_MODIFIER_METHOD, null, playerId);
 		}
 	}
 
 	public void addUser(UniqueID playerId) {
-		if (notifyRemote(METH_ADD_USER_METHOD, null, playerId)) {
-			synchronized (users) {
-				users.add(playerId);
+		if (!users.contains(playerId)) {
+			if (notifyRemote(METH_ADD_USER_METHOD, null, playerId)) {
+				synchronized (users) {
+					users.add(playerId);
+				}
+				notifyLocal(METH_ADD_USER_METHOD, null, playerId);
 			}
-			notifyLocal(METH_ADD_USER_METHOD, null, playerId);
 		}
 	}
 
 	public void removeUser(UniqueID playerId) {
-		if (notifyRemote(METH_REMOVE_USER_METHOD, null, playerId)) {
-			synchronized (users) {
-				users.remove(playerId);
+		if (users.contains(playerId)) {
+			if (notifyRemote(METH_REMOVE_USER_METHOD, null, playerId)) {
+				synchronized (users) {
+					users.remove(playerId);
+				}
+				notifyLocal(METH_REMOVE_USER_METHOD, null, playerId);
 			}
-			notifyLocal(METH_REMOVE_USER_METHOD, null, playerId);
 		}
 	}
 

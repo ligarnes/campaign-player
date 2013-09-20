@@ -1,13 +1,16 @@
 package net.alteiar.list;
 
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -19,38 +22,43 @@ public class MyDoubleList<E> extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private DataListModel<E> modelSrc;
-	private DataListModel<E> modelTarget;
+	private final DataListModel<E> modelSrc;
+	private final DataListModel<E> modelTarget;
 
-	private JList<E> listSrc;
-	private JList<E> listTarget;
+	private final JList<E> listSrc;
+	private final JList<E> listTarget;
 
-	public MyDoubleList(List<E> datas) {
-		this();
-		modelSrc.addDatas(datas);
-	}
-
-	public MyDoubleList(List<E> datas, List<E> targets) {
-		this();
-		modelSrc.addDatas(datas);
-		modelTarget.addDatas(targets);
-	}
-
-	public MyDoubleList() {
+	public MyDoubleList(String titleSrc, String titleTarget) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 47, -5, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 39, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 39, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 0.0, 1.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
+
+		JLabel lbltitleSrc = new JLabel("titleSrc");
+		lbltitleSrc.setFont(new Font("Tahoma", Font.BOLD, 11));
+		GridBagConstraints gbc_lbltitleSrc = new GridBagConstraints();
+		gbc_lbltitleSrc.insets = new Insets(0, 0, 5, 5);
+		gbc_lbltitleSrc.gridx = 0;
+		gbc_lbltitleSrc.gridy = 0;
+		add(lbltitleSrc, gbc_lbltitleSrc);
+
+		JLabel lblTitletarget = new JLabel("titleTarget");
+		lblTitletarget.setFont(new Font("Tahoma", Font.BOLD, 11));
+		GridBagConstraints gbc_lblTitletarget = new GridBagConstraints();
+		gbc_lblTitletarget.insets = new Insets(0, 0, 5, 0);
+		gbc_lblTitletarget.gridx = 2;
+		gbc_lblTitletarget.gridy = 0;
+		add(lblTitletarget, gbc_lblTitletarget);
 
 		JScrollPane scrollPaneSrc = new JScrollPane();
 		GridBagConstraints gbc_scrollPaneSrc = new GridBagConstraints();
 		gbc_scrollPaneSrc.insets = new Insets(0, 0, 0, 5);
 		gbc_scrollPaneSrc.fill = GridBagConstraints.BOTH;
 		gbc_scrollPaneSrc.gridx = 0;
-		gbc_scrollPaneSrc.gridy = 0;
+		gbc_scrollPaneSrc.gridy = 1;
 		add(scrollPaneSrc, gbc_scrollPaneSrc);
 
 		listSrc = new JList<E>();
@@ -61,7 +69,7 @@ public class MyDoubleList<E> extends JPanel {
 		gbc_panel.insets = new Insets(0, 0, 0, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
-		gbc_panel.gridy = 0;
+		gbc_panel.gridy = 1;
 		add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 0, 0 };
@@ -104,7 +112,7 @@ public class MyDoubleList<E> extends JPanel {
 		GridBagConstraints gbc_scrollPaneTarget = new GridBagConstraints();
 		gbc_scrollPaneTarget.fill = GridBagConstraints.BOTH;
 		gbc_scrollPaneTarget.gridx = 2;
-		gbc_scrollPaneTarget.gridy = 0;
+		gbc_scrollPaneTarget.gridy = 1;
 		add(scrollPaneTarget, gbc_scrollPaneTarget);
 
 		listTarget = new JList<E>();
@@ -133,6 +141,14 @@ public class MyDoubleList<E> extends JPanel {
 		listTarget.setModel(modelTarget);
 		listTarget.setDragEnabled(true);
 		listTarget.setTransferHandler(new ListTransferHandler<E>());
+
+		lbltitleSrc.setText(titleSrc);
+		lblTitletarget.setText(titleTarget);
+	}
+
+	public void setEnable(boolean isEnable) {
+		listSrc.setEnabled(isEnable);
+		listTarget.setEnabled(isEnable);
 	}
 
 	private void addList() {
@@ -151,6 +167,29 @@ public class MyDoubleList<E> extends JPanel {
 	public void setCellRenderer(ListCellRenderer<E> cellRenderer) {
 		listSrc.setCellRenderer(cellRenderer);
 		listTarget.setCellRenderer(cellRenderer);
+	}
+
+	public void selectData(E data) {
+		modelSrc.removeData(data);
+		modelTarget.addData(data);
+	}
+
+	public void setDatas(List<E> datas) {
+		modelSrc.addDatas(datas);
+		modelTarget.clear();
+	}
+
+	public void clear() {
+		modelSrc.clear();
+		modelTarget.clear();
+	}
+
+	public ArrayList<E> getSourceDatas() {
+		return modelSrc.getDatas();
+	}
+
+	public ArrayList<E> getTargetDatas() {
+		return modelTarget.getDatas();
 	}
 
 }

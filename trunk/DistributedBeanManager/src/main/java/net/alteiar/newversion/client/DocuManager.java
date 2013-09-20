@@ -62,9 +62,16 @@ public abstract class DocuManager extends Listener {
 
 	protected void sendObject(Connection conn, ChunkObjectSend send) {
 		Encaps encap = new Encaps(send);
-		sendingObject.put(new SendingKey(send.getGuid(), conn), encap);
+		SendingKey key = new SendingKey(send.getGuid(), conn);
 
-		sendTCPMessage(conn, encap.getNextChunk());
+		if (!sendingObject.containsKey(key)) {
+			sendingObject.put(key, encap);
+			sendTCPMessage(conn, encap.getNextChunk());
+		} else {
+			// need to wait
+			System.out.println("already sending " + key);
+		}
+
 	}
 
 	private void sendTCPMessage(final Connection conn, final IUniqueObject obj) {
@@ -76,8 +83,9 @@ public abstract class DocuManager extends Listener {
 					try {
 						Thread.sleep(10);
 					} catch (InterruptedException e) {
-						Logger.getLogger(getClass()).debug(
-								"Erreur durant l'attente", e);
+						Logger.getLogger(getClass())
+								.debug("Erreur durant l'attente du buffer d'envoie",
+										e);
 					}
 				}
 

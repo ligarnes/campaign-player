@@ -28,7 +28,7 @@ public class MyTreeCellRenderer extends DefaultTreeCellRenderer {
 		if (expanded) {
 			icon = ExplorerIconUtils.getDirOpenIcon(32, 32);
 		}
-		if (leaf) {
+		if (leaf && !node.getAllowsChildren()) {
 			icon = ExplorerIconUtils.getFileIcon(
 					(BeanDocument) node.getUserObject(), 32, 32);
 		}
