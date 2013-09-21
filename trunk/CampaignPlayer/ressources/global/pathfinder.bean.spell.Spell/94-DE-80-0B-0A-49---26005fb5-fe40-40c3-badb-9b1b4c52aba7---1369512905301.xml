@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:26005fb5-fe40-40c3-badb-9b1b4c52aba7:1369512905301</guid>
    </id>
    <name>Lumière brûlante</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f4f7518b-c00a-4710-8c98-c279823e3ba1:1369512905301</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ad0b2edd-a5d2-4955-b5d8-56b05e24ee78:1369512905301</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4e33a3f7-bc15-4a36-a006-6cf355d6538c:1369512905301</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

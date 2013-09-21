@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:299e3308-4e05-4d55-8a02-510785f6f674:1369512904727</guid>
    </id>
    <name>Façonnage du bois</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d07a203a-0fa5-4292-b8a5-8312692e5029:1369512904727</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0a117f8f-f5dd-4685-9788-be0a7736bc08:1369512904727</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2e1080ff-0c46-4707-a354-102a9d5431b8:1369512904727</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

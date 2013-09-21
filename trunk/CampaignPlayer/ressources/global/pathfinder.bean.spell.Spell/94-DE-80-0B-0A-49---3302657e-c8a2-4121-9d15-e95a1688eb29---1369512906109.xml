@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3302657e-c8a2-4121-9d15-e95a1688eb29:1369512906109</guid>
    </id>
    <name>Sanctuaire</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6f76313c-6e79-4654-8738-4bf4b32762df:1369512906108</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:61d4833b-89f9-4505-a987-efd0bac7867c:1369512906108</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e43f3b14-1ec6-466c-adba-fdb9b8c4cfe0:1369512906108</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

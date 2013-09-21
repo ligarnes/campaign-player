@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0632cbef-926b-4ed3-a87a-c0b76e4b5a21:1369512905337</guid>
    </id>
    <name>Main broyeuse</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:95aed6d2-1aca-4544-a1da-1e2296d83263:1369512905337</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9dabd7ae-8d01-4cec-b573-ea79b79f0872:1369512905337</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8bbde950-4872-4a2f-b5da-775d45dfbd4d:1369512905337</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

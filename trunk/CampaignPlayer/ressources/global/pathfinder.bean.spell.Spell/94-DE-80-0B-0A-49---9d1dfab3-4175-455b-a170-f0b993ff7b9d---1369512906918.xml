@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9d1dfab3-4175-455b-a170-f0b993ff7b9d:1369512906918</guid>
    </id>
    <name>Diagnostic</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4d77bfa0-5403-4da3-be77-cc36df686fa0:1369512906918</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a7def199-61ab-4690-abed-b7eba85ff07b:1369512906918</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:07c4cb51-6b47-4958-81de-3939064d4f34:1369512906918</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

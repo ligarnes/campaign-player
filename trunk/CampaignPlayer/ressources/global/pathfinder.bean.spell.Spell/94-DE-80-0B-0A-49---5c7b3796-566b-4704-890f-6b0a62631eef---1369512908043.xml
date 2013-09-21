@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5c7b3796-566b-4704-890f-6b0a62631eef:1369512908043</guid>
    </id>
    <name>Terre maudite</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2c1696ed-0d1f-4f7d-b313-45cd338eb5f6:1369512908043</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a73eb726-2a32-4b3e-a4eb-05a718ec39da:1369512908043</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e9d6fd8f-dd91-49d8-9cc0-e5268b70761c:1369512908043</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

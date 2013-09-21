@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3b437e6f-ce60-4ca8-9a37-dd98983cb0d7:1369512907050</guid>
    </id>
    <name>Lame de sombre triomphe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8f50b7a8-3a47-4b55-9bc0-717281c0aef8:1369512907050</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:263da5a1-1d5d-4dec-866d-d20845d81ac6:1369512907050</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:455b9235-fce0-4509-b830-25c67167dbb3:1369512907050</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cf3fc97c-2b42-4a64-8466-77ecc0f8e1ee:1369512905942</guid>
    </id>
    <name>Reflets d&apos;ombre</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e1866b20-a800-4974-8d97-1cdb2b0ad095:1369512905942</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a3f1b4c8-9a55-4c43-b365-1dc93b653768:1369512905942</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dda23803-cb02-44d8-8bfb-f52c4a988821:1369512905942</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6413f16d-4fd3-4ee3-871d-ac84fddb8755:1369512903920</guid>
    </id>
    <name>Contrôle de l&apos;eau</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:093c4349-7d4c-4ac9-9586-3d69c757d448:1369512903920</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e915f82d-0421-4308-95e3-6a2b299f8e83:1369512903920</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f4926a36-469a-4476-accb-d79f5733b582:1369512903920</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

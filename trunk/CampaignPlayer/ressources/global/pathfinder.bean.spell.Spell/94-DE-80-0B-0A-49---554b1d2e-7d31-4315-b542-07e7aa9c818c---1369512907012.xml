@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:554b1d2e-7d31-4315-b542-07e7aa9c818c:1369512907012</guid>
    </id>
    <name>Hébétement de groupe</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d9216b30-4d44-4d57-b245-161ec6f7c9ef:1369512907012</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8a463e34-8f5b-4640-bdb7-0858e25be743:1369512907012</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b60fb5d3-5be5-421c-adf6-e0057cedbd8c:1369512907012</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

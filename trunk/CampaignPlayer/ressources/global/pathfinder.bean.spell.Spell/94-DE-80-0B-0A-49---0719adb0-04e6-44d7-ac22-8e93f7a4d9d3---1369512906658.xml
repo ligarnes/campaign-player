@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0719adb0-04e6-44d7-ac22-8e93f7a4d9d3:1369512906658</guid>
    </id>
    <name>Allié compatissant</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8b66aee-55c1-47f6-a7a4-63cf66aaa201:1369512906657</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:36bbaea7-d3ad-482c-8079-a7affa657289:1369512906657</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1ab43932-2a3f-4c45-8d0b-5691f5092eaf:1369512906657</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

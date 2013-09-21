@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:37ef929f-3711-40b1-87b6-1929b4ddca57:1369512904210</guid>
    </id>
    <name>Création d&apos;eau</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:74ef64f4-91ea-4898-a09a-dbecd16887c3:1369512904209</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f7a81718-10b5-43b9-9678-0b89d9bd397d:1369512904209</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:285407a7-9d67-4ff5-96ad-fe302a2e80a4:1369512904209</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

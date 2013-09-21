@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6ca0d8d6-8709-4771-b77c-c12c0a1c9d23:1369512906322</guid>
    </id>
    <name>Ténèbres</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8fc8ac5b-cfbc-4673-a1de-3b2c3855c769:1369512906322</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9806161e-714b-49d1-95ba-d65288353acf:1369512906322</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b040edf8-a21f-4ba1-8177-ffd206893f27:1369512906322</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8ed27c21-802d-4c7a-a22e-40a3a6231967:1369512905550</guid>
    </id>
    <name>Mur illusoire</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:afa07ef3-ee62-49d2-a8a0-54beb20fea23:1369512905550</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd455afa-d8db-4723-8e2d-8bf8578a0b51:1369512905550</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e2aa0932-2cc5-4b97-b182-e6cca0c51eb2:1369512905550</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

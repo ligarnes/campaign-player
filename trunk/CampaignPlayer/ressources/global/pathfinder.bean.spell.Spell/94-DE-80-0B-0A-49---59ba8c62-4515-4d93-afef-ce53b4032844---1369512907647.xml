@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:59ba8c62-4515-4d93-afef-ce53b4032844:1369512907647</guid>
    </id>
    <name>Crâne ricanant</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:536c0c52-c330-4876-a158-3f2d1db2032a:1369512907647</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9125b692-c235-4849-99e4-2d9a77cc0b1c:1369512907647</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ee73118e-c1bb-4466-b28f-0a5586b6bf03:1369512907647</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

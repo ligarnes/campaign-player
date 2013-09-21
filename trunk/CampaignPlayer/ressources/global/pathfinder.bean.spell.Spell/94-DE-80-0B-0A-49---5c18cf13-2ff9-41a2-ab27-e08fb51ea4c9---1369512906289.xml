@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5c18cf13-2ff9-41a2-ab27-e08fb51ea4c9:1369512906289</guid>
    </id>
    <name>Symbole de persuasion</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a6ef974-2839-465c-a52d-56f7539dc657:1369512906289</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6ca157b9-217d-41b3-ac1b-460c2c353999:1369512906289</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:887a8434-6158-478b-8266-62e792fa22a6:1369512906289</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:db187caa-76c3-4aa2-8d0f-637a5b52f53d:1369512906125</guid>
    </id>
    <name>Scrutation</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2c015671-bc3e-4c9f-ad32-4d02f3e9654b:1369512906125</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3ed7973d-73ca-44ea-9ef5-499fbf5867cf:1369512906125</guid>
       </id>
       <unit>hour</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f5f8a904-007c-4741-8479-aac11901967c:1369512906125</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

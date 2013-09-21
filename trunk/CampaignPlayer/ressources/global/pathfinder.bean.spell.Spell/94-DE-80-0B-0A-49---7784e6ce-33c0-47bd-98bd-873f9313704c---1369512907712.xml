@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7784e6ce-33c0-47bd-98bd-873f9313704c:1369512907712</guid>
    </id>
    <name>Dissipation de la fièvre</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dc25d032-a810-458f-aa87-365cf6d965f5:1369512907712</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b1adfc19-739a-49fe-a8e6-311aac004fb4:1369512907712</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fe8117dd-1c53-4564-aaef-db26028168f9:1369512907712</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

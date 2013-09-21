@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9cab5f4d-eafe-422e-9ca4-c1c450a09dee:1369512906743</guid>
    </id>
    <name>Brume sanglante</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:db0ae72d-167a-40f1-adcc-55cd5627912f:1369512906743</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d1925641-3258-4961-ad59-aa34272267dc:1369512906743</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:53db850d-3811-4489-9ac6-52b33080c729:1369512906743</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

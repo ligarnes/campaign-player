@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:423c8e66-b6ea-477f-85e3-db95962b020b:1369512903501</guid>
    </id>
    <name>Berceuse</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9497c0e5-8799-4424-9154-1d3c91efc39a:1369512903501</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7fb890c2-5312-4369-aedf-375251cf7308:1369512903501</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:13b487b7-32f9-49be-9a41-964f496df198:1369512903501</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

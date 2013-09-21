@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:48540d23-e7d7-4a20-b6ed-c06aa0f690d2:1369512903729</guid>
    </id>
    <name>Changement de forme</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:57f587d6-936e-4ca2-81db-5817860dba6c:1369512903729</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae6fd68a-08c3-41ee-b280-e28289159341:1369512903729</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1e49dcbb-3b2a-406e-91c7-f9bbd273857d:1369512903729</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

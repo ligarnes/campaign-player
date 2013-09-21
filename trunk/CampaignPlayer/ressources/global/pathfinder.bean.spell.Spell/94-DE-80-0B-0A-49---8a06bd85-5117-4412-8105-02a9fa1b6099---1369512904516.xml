@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8a06bd85-5117-4412-8105-02a9fa1b6099:1369512904516</guid>
    </id>
    <name>Dissipation de la magie</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f2d11a11-804e-4854-8967-f27c100552a6:1369512904515</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:faca35cf-8971-432b-8463-d9ecdf5e8359:1369512904515</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:70e90797-771b-4c6b-93b6-f72a295ad10c:1369512904515</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

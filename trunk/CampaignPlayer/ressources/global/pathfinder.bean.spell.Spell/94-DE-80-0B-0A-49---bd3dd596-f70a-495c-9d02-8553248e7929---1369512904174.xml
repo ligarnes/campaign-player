@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bd3dd596-f70a-495c-9d02-8553248e7929:1369512904174</guid>
    </id>
    <name>Courroux de l&apos;ordre</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dea01ae9-f060-4c34-aaa7-6e9167e640a9:1369512904173</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ca064611-6686-40d0-bdda-81f3602f8327:1369512904174</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:96de4a4a-eaa8-4af0-a916-18c6c59b450e:1369512904174</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

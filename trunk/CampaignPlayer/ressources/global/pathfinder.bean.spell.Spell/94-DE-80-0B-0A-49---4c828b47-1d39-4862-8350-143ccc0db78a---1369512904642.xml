@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4c828b47-1d39-4862-8350-143ccc0db78a:1369512904642</guid>
    </id>
    <name>Ennemi subconscient</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f63f18be-5c1f-4a00-8669-d059259e7b57:1369512904642</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5b939ec2-a2ae-48f3-a6e4-441685cabf6c:1369512904642</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a0ee1229-a0d9-455b-8fd5-c2a2e56194eb:1369512904642</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

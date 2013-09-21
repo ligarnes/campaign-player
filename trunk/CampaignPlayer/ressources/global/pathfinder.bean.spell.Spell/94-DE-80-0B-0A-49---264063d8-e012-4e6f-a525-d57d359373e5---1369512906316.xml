@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:264063d8-e012-4e6f-a525-d57d359373e5:1369512906316</guid>
    </id>
    <name>Tempête vengeresse</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:81803eaf-3fd3-4564-b0c2-67974e39e47d:1369512906316</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4ad848a1-23d5-4cb6-85fd-442a7ed67d35:1369512906316</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:54243f82-31cd-43b5-af5a-587a8e17ebcf:1369512906316</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

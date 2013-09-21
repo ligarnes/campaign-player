@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:383d4bb2-71ff-4c6f-b3da-2a635ac5dd0f:1369512905496</guid>
    </id>
    <name>Morsure magique suprême</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:74a75035-6dab-42f8-876f-a83d2024bcf8:1369512905496</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:475c0b80-b289-4071-b67b-b0fe3c62033b:1369512905496</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:82dd7e65-843a-410b-aec6-997b22c30f8a:1369512905496</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

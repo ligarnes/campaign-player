@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:eca44597-ba79-4ecf-a0c3-07fd95d5b972:1369512907989</guid>
    </id>
    <name>Sculpture de simulacre</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0b00938e-25fd-454b-8137-a823d06875bc:1369512907989</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8a17eb1f-9323-49c0-8447-4fe0a013b922:1369512907989</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ef9e0f6e-f21b-466b-85db-f79b13dbff2d:1369512907989</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

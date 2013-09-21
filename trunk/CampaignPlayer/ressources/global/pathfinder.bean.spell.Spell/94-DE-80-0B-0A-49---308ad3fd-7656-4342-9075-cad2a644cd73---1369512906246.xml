@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:308ad3fd-7656-4342-9075-cad2a644cd73:1369512906246</guid>
    </id>
    <name>Sphère glaciale</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bb7d78cb-bec4-4533-bee6-fc2b0f62fba5:1369512906246</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e8875dd1-a3cd-4357-bf4b-a022c11bd60e:1369512906246</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0f87739b-2560-461e-8fd8-decd9f60ffa0:1369512906246</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

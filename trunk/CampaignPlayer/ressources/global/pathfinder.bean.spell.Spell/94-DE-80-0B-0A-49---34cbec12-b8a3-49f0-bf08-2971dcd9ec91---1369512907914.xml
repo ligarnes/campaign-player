@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:34cbec12-b8a3-49f0-bf08-2971dcd9ec91:1369512907914</guid>
    </id>
    <name>Poison pernicieux</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b9b616c4-55cf-4ccf-a739-fa2ac9143993:1369512907913</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a46ba00f-559d-43fa-bc0a-81395804ccb1:1369512907913</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:16f7685e-bca1-48cf-962c-ee9ce69b61ca:1369512907914</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

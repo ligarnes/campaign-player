@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:683ea04a-5d7f-4249-a275-95a8bb012aba:1369512907788</guid>
    </id>
    <name>Hurlement perçant</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bfe1ba5c-88aa-42e9-a3fe-cb2ea0194a38:1369512907787</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3e7ac9a5-41bb-470f-b20c-757cf1d9906f:1369512907787</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c8b123a7-6022-4925-a5ff-0f1db0d4a1ec:1369512907787</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2a317d12-069b-4029-88dc-7ea679087fd9:1369512905517</guid>
    </id>
    <name>Motif scintillant</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c288fc38-ea3f-4f5a-8df6-2b3977142ebf:1369512905517</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:791e3ffd-3fa4-4d5f-8759-af8ae45fbca5:1369512905517</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:09f4aa39-c752-48d1-8eda-cbf2d432696f:1369512905517</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

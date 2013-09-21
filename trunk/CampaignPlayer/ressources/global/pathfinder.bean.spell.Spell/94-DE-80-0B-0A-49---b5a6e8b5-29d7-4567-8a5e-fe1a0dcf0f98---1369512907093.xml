@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b5a6e8b5-29d7-4567-8a5e-fe1a0dcf0f98:1369512907093</guid>
    </id>
    <name>Mépris absolu</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7a981beb-aaa2-4388-8b35-32ec4eea2917:1369512907093</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5d45ff1b-6bb4-44a0-808f-7e0f3071dc83:1369512907093</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1948aefd-c3c6-4094-b2ef-9c0e59ffa1e5:1369512907093</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

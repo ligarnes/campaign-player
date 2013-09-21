@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d31072e4-5b4b-4cc9-8989-1414acf07052:1369512907134</guid>
    </id>
    <name>Phalange de bois</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:88719553-4e43-48d1-8658-91a3996b867e:1369512907134</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dd4dd6d5-3307-4ce7-8419-732430f926d5:1369512907134</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6fe77bbf-04a1-4d4f-8ca5-16e9b12c7957:1369512907134</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

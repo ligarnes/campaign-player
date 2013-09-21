@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:034bc14f-f585-4a54-877b-15d8278df241:1369512906752</guid>
    </id>
    <name>Caresse vaseuse</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:882cd999-27e3-443d-b1a5-9cb55ef13e82:1369512906751</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2d8a2858-1d3c-4fac-8908-97ea339d6232:1369512906751</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d2d3132d-a8b6-4b75-abd7-9328fefe10c7:1369512906752</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

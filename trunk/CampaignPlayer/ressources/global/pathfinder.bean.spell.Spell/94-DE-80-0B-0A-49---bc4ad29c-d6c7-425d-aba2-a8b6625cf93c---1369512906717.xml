@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bc4ad29c-d6c7-425d-aba2-a8b6625cf93c:1369512906717</guid>
    </id>
    <name>Bandes de protection</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:211281d7-0866-48a9-b769-35f3aec71acf:1369512906717</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d3b28b7b-ba41-4977-9af0-4a56bdfbc964:1369512906717</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3bc1e7ed-8dec-441f-b700-f8bd6bb33fd6:1369512906717</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:947ae722-8825-48fb-8c70-48453c7b3802:1369512905863</guid>
    </id>
    <name>Rage</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:88d0b974-4b48-44b2-b0b6-3ad51ff93534:1369512905862</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2f11a340-fa42-4382-8544-062ba3754b86:1369512905863</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:945f6f07-23b7-48f4-97b1-95a5d7aa6662:1369512905863</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

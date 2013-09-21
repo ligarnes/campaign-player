@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:03792e3b-45a2-4061-ae61-98f67df9f077:1369512905875</guid>
    </id>
    <name>Rapetissement d&apos;animal</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ef90b09b-3f61-4131-b7c3-6f1e7fa7c711:1369512905875</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ece9cdd5-0186-49ac-9f5c-281c3a108fff:1369512905875</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:590c7703-7279-4529-b0db-4fca8d76fa54:1369512905875</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

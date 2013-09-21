@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:41b61961-908b-4157-a15d-588f0fca1639:1369512905052</guid>
    </id>
    <name>Guérison suprême de groupe</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2d17ad69-e138-4b78-a979-bb31a7bec357:1369512905052</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fba8afd6-1f9d-404c-9644-9076a9b1b221:1369512905052</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:53a5c5eb-c59e-42d0-a6da-1410ddf29c86:1369512905052</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

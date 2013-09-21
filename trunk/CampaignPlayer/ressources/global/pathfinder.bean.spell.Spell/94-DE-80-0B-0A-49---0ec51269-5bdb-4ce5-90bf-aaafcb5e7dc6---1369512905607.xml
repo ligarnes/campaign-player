@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0ec51269-5bdb-4ce5-90bf-aaafcb5e7dc6:1369512905607</guid>
    </id>
    <name>Ouverture/fermeture</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3883762b-39de-43d2-9fde-eace6a453943:1369512905606</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0fc5b7a6-afe9-4979-b22b-646adc1d472c:1369512905607</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3806c995-01c8-4dd4-be0b-661c92fb6260:1369512905607</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

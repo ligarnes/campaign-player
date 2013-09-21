@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:52988052-4ac4-49f1-ba10-9db3fab56f3d:1369512906165</guid>
    </id>
    <name>Soins légers</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:86b09204-ce7d-4a0b-8dcc-c314d92488b4:1369512906165</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5158e51f-fd86-4765-9af8-16e113d468ae:1369512906165</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:60683fdf-d190-41a0-a870-82755a054209:1369512906165</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

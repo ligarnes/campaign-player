@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a2f1b2b5-6db3-45b3-85a7-4797894c823b:1369512904101</guid>
    </id>
    <name>Convocation de monstres IX</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9789b46e-7897-40cd-a71e-57fc60d50794:1369512904100</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:287f776c-bab7-45cf-bb83-87fb808a1f63:1369512904100</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:31319cde-6c71-4293-b34f-707ce70c9317:1369512904100</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

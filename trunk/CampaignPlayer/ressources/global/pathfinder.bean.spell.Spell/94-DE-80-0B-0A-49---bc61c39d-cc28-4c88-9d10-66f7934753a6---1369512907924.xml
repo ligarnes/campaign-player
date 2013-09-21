@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bc61c39d-cc28-4c88-9d10-66f7934753a6:1369512907924</guid>
    </id>
    <name>Présence écrasante</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aa6c7b28-4025-4715-8774-12c49448c7fb:1369512907924</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5ae5661c-193b-489a-a23e-c44953a47fb1:1369512907924</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9dc3349d-fac5-470c-a279-13c59e46bedb:1369512907924</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

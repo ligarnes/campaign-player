@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e0561abb-5926-4a21-9dbc-8b05a23a2616:1369512905714</guid>
    </id>
    <name>Poigne agrippeuse</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b2259c90-6297-4f21-bfc6-1978e934fe70:1369512905714</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:793f94c1-2e1f-4187-857c-05166c159ba0:1369512905714</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cfbcc9e0-04ad-474e-b8d7-1ddcd04dc88c:1369512905714</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

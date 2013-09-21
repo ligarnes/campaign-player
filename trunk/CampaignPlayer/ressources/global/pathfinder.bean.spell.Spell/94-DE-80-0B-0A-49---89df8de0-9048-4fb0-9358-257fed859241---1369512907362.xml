@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:89df8de0-9048-4fb0-9358-257fed859241:1369512907362</guid>
    </id>
    <name>Tempête de peste</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:08a28f64-b9b8-4248-ac4d-d288f6315963:1369512907362</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:351e484f-c90a-4b73-b8bb-d53201c4fa93:1369512907362</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be9b8bb0-fbf8-4d5c-8305-adfc55706f95:1369512907362</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0d6c0c02-f3bb-4a88-9dad-11f1204a9641:1369512906206</guid>
    </id>
    <name>Souhait</name>
    <school>universal</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:badfa572-03e9-4b08-8c95-18dde1453e2c:1369512906206</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d03c4b52-b4f2-4a91-88a5-96c0d93e0e95:1369512906206</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8bb342f-4e42-47be-be14-cceaae8bd95c:1369512906206</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

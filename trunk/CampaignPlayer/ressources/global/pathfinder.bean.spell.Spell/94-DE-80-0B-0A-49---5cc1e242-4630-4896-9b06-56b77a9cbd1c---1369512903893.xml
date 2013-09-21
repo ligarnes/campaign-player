@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5cc1e242-4630-4896-9b06-56b77a9cbd1c:1369512903893</guid>
    </id>
    <name>Contagion</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6e86d07e-c541-4d44-bc71-49215b9f1a10:1369512903893</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0e8f5d1a-b89b-44ac-9921-1ca7c90a7d14:1369512903893</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4d96374c-a751-4eb5-b06f-67e8a964c851:1369512903893</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

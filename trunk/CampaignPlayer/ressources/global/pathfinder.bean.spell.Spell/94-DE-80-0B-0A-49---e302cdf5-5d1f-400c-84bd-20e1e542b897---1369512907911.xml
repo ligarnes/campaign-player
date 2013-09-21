@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e302cdf5-5d1f-400c-84bd-20e1e542b897:1369512907911</guid>
    </id>
    <name>Poing de force</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9ea95bc0-1a28-43b7-8fbd-8b30889a36f8:1369512907911</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8f7cd1b3-ce4d-4b5e-9075-6a0ffecdf84b:1369512907911</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5b21633f-44e0-44aa-984d-3b66e5c0c707:1369512907911</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

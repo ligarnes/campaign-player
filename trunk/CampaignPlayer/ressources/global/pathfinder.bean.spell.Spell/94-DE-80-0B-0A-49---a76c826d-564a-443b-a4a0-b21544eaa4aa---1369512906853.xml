@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a76c826d-564a-443b-a4a0-b21544eaa4aa:1369512906853</guid>
    </id>
    <name>Crachat venimeux</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3c1a362f-bf41-4ee3-bd66-d3ef172fa02c:1369512906853</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0bc804ee-e1f3-410e-82d8-4b9310260ce0:1369512906853</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:91a7847d-8c95-4722-b586-9de4badd7e9c:1369512906853</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

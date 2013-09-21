@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:09a90998-cb09-47ec-a16d-b53745b6010b:1369512907770</guid>
    </id>
    <name>Froid pénétrant</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f5a38c1f-fe10-41c8-802e-bd064b9cef20:1369512907770</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:07fae636-6775-4b57-ad3b-56cfd095345e:1369512907770</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e13e79f0-49d7-49df-9fc3-4627d4935ba2:1369512907770</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

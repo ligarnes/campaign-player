@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1ae38848-8dcd-466a-8819-a707f86e46f3:1369512903910</guid>
    </id>
    <name>Contrat suprême</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6674bf24-adf3-44f1-bd67-ab981c910d56:1369512903910</guid>
       </id>
       <value>courte (7,50 m + 1,50 m/2 niveaux) (5 case(s) + 1 case(s)/2 niveaux) (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a116e8ef-e083-4dd7-bc52-9c7194b60202:1369512903910</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e5223d5-0dd0-4f34-b928-e48e43564ba3:1369512903910</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:85096961-f9d5-4594-95b9-0c470d42ae47:1369512904018</guid>
    </id>
    <name>Convocation d&apos;ombres</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d545dd0d-674f-4f52-b629-c4e9ab7af9ff:1369512904017</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:691139ae-9d42-435f-bd02-08fe880a0814:1369512904017</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2812b283-4a1b-4667-bffb-0eb4f984795f:1369512904017</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c8519ed8-818d-4a8f-adc2-3bec23dde4c5:1369512906757</guid>
    </id>
    <name>Cercle de clarté</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8234688d-094e-4789-afe2-b018b06b2914:1369512906757</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a9e3cc5-049b-4e65-ae61-50a36dfb4f52:1369512906757</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2f663bc1-6a6f-43e4-b4c0-40d0e89aa996:1369512906757</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

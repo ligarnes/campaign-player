@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:461d9ecc-cf9b-4d27-8e1e-be2595d158df:1369512907834</guid>
    </id>
    <name>Marionnette de peau</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:97123ca9-c6b7-4592-86b6-2092086f6d7e:1369512907834</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5793e44e-9fe8-4f7b-9c81-2364116a05e9:1369512907834</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0f077df0-70f1-4f69-893e-45a2653c9885:1369512907834</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

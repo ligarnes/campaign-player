@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7151a3d5-4d3e-4a10-8c7f-4d57d9b6f836:1369512905613</guid>
    </id>
    <name>Panoplie magique</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:265d495c-d2f9-4974-9cff-bccbfa6281aa:1369512905613</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:96ff65f6-bce5-4681-a0b8-ae28e8d556f7:1369512905613</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fb3fcbfc-9bef-4d71-b089-3a5ef76fbf13:1369512905613</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

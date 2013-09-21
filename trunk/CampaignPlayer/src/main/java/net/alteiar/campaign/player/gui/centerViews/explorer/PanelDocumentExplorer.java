@@ -14,9 +14,10 @@ import javax.swing.JTree;
 import javax.swing.tree.TreeSelectionModel;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.DocumentNode;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.MyTreeCellRenderer;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.dnd.TreeTransferHandler;
+import net.alteiar.campaign.player.gui.centerViews.explorer.tree.DocumentNode;
+import net.alteiar.campaign.player.gui.centerViews.explorer.tree.MyTreeCellRenderer;
+import net.alteiar.campaign.player.gui.centerViews.explorer.tree.MyTreeModel;
+import net.alteiar.campaign.player.gui.centerViews.explorer.tree.dnd.TreeTransferHandler;
 import net.alteiar.campaign.player.gui.documents.PanelCreateDocument;
 import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.logger.ExceptionTool;

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:33a781a2-d4f9-4010-b3aa-90da7df40a7f:1369512903790</guid>
    </id>
    <name>Clairaudience/clairvoyance</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b4576f32-4536-42cd-b5d0-94ca7cebb429:1369512903790</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:24f3712c-1171-4a35-8178-1bfb50551394:1369512903790</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8d78101e-1efa-4aaf-9564-ee79c4c317ce:1369512903790</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

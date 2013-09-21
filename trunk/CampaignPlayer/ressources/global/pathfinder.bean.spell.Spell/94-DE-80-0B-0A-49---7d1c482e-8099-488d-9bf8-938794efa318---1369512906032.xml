@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7d1c482e-8099-488d-9bf8-938794efa318:1369512906032</guid>
    </id>
    <name>Résistance à la magie</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:42bacd20-014e-46f1-b72b-24fde983b17e:1369512906032</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:95cdaea2-23e7-49b7-8fad-209c1f32ba4a:1369512906032</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:88655e65-31c2-466b-9d32-7c09ec36894c:1369512906032</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

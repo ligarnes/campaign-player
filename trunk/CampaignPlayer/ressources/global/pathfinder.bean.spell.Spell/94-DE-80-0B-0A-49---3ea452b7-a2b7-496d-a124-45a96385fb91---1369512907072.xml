@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3ea452b7-a2b7-496d-a124-45a96385fb91:1369512907072</guid>
    </id>
    <name>Malédiction de négation magique</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:659d7734-8cd3-4d7d-beee-e95fd2298a0a:1369512907072</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c5574919-6b4a-4e15-b866-f974b46e2246:1369512907072</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:32956e1f-1cbc-49e7-a1f8-d8e7e570486a:1369512907072</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

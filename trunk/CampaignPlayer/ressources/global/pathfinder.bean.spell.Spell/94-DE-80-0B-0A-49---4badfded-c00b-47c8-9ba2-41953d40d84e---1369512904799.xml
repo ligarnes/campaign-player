@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4badfded-c00b-47c8-9ba2-41953d40d84e:1369512904799</guid>
    </id>
    <name>Flétrissement végétal</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8b6ff198-4b2e-49e4-b000-4d481ec84665:1369512904799</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aa640d2d-1b4d-4d05-b722-7e55b022b622:1369512904799</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e577dce1-582b-464f-b422-4786e315cbd5:1369512904799</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

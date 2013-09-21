@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:32edb493-e5ed-4606-9ce6-10125f1ebf9b:1369512906415</guid>
    </id>
    <name>Vision magique suprême</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ad002a81-604d-45e7-a627-646a7eb34af3:1369512906415</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b773e757-e364-4df1-94fa-9335f244ea63:1369512906415</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:73baf13a-fbf7-4e6b-9c6e-f093d0753641:1369512906415</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

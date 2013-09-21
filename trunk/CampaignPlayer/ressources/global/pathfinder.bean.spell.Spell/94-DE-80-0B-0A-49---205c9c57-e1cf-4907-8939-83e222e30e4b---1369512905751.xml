@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:205c9c57-e1cf-4907-8939-83e222e30e4b:1369512905751</guid>
    </id>
    <name>Préservation des morts</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7ae72706-0bd8-4a9a-8af8-cd7349445eb6:1369512905751</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:50a51629-75cf-4897-b139-6663eaaec1c1:1369512905751</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:936bba02-fd39-43b2-b051-e4c679f528cf:1369512905751</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9a2ce52e-beb3-4c7d-98b1-abd5aba4e3c3:1369512906976</guid>
    </id>
    <name>Férocité du blaireau</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:26ae5efb-d858-42c2-95af-410976898e67:1369512906976</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b711454a-4f69-4ba9-86ed-243f3577d1a8:1369512906976</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:01c6a6f9-1f8b-42c3-96cc-e2650e1eae1c:1369512906976</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

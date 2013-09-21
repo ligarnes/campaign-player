@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0f90d306-6238-41e9-a631-fbc719bb9032:1369512907811</guid>
    </id>
    <name>Jouer d&apos;un instrument</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:92860261-9c3e-4d94-ad9a-a40263c890c0:1369512907811</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:061c6f9f-05c1-4df5-b5f7-c4d81c8254ac:1369512907811</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:43276375-2b29-4a8f-b31d-70e7240f69a5:1369512907811</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

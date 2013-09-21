@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ac349c01-b21d-43da-a6e2-d75d0fcd4286:1369512907613</guid>
    </id>
    <name>Contrôle de créature artificielle</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:87363b3e-d483-48dd-b560-b9dd8d4db754:1369512907613</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:80b2b230-cc74-4578-9b0d-fab12a356499:1369512907613</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:19f50932-beb1-4bb4-983c-04fbaa04bd0b:1369512907613</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

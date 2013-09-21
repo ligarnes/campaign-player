@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f677cb3e-b14f-4c09-a946-05f1a2e31144:1369512905428</guid>
    </id>
    <name>Métal brûlant</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:163312ce-0124-4d39-8023-87666cdc0bc0:1369512905428</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e48fd671-e06c-48be-9c2f-a2ebf11b32e0:1369512905428</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:64cfcedf-42c9-4a68-baf8-5c9b51f95c10:1369512905428</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

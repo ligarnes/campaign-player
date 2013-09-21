@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1fb7c588-cce4-4b8a-ae44-773c7367c264:1369512907189</guid>
    </id>
    <name>Rayon de fièvre</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ce500885-697d-4ed7-9b37-874a83bc0318:1369512907189</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aedc66d3-0f70-4a6b-94e0-61cb56ff3f3f:1369512907189</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b72aa063-bc9c-4331-ad20-7027ebd27645:1369512907189</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

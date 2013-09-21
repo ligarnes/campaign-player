@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d721c89d-0958-49f7-aae4-2f5ca7183dd4:1369512906098</guid>
    </id>
    <name>Sanctification</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:634714b8-80c3-4ada-a3da-c87c6e773961:1369512906098</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7364ea63-625c-4d35-b428-97858bf8c1c0:1369512906098</guid>
       </id>
       <unit>hour</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:813172b2-a1e5-4517-aa1a-5bcd299a48c5:1369512906098</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

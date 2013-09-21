@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c6f5833a-b360-43d6-8345-4bb6c2a88655:1369512905689</guid>
    </id>
    <name>Piège illusoire</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0e64c30e-7ada-488b-985e-5e8464d4691c:1369512905689</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0b32442d-a222-44c4-880f-cfbe4341a209:1369512905689</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:59ccb728-abaa-4788-8064-e9f364287baf:1369512905689</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

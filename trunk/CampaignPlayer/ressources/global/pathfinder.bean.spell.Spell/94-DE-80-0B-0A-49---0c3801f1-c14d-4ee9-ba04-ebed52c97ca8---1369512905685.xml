@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0c3801f1-c14d-4ee9-ba04-ebed52c97ca8:1369512905685</guid>
    </id>
    <name>Piège à feu</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7adcef0f-5d7b-43eb-945c-dc95aa62ca75:1369512905685</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f73a8383-a1a0-4556-a67a-14323e3b3011:1369512905685</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:83ac4ae6-a2d3-4a0e-ab61-cc5c69635123:1369512905685</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

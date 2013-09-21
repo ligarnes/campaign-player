@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3644aac3-3e91-49cd-915e-07ed905ac2b8:1369512906748</guid>
    </id>
    <name>Cadeau empoisonné</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ffa0e7a8-ba4a-43b4-88bc-9552c212bb90:1369512906748</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:695715ea-199d-4850-bd07-d6c5dc71bfc9:1369512906748</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:19d20985-6739-40d9-b89d-ff817a5ece98:1369512906748</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

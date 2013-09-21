@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3a6f6217-a27a-4f02-bac5-c75d4fa32e23:1369512905818</guid>
    </id>
    <name>Protection contre les projectiles</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c89316d7-8f71-46bd-85e8-4545414fd407:1369512905818</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a12d5585-b0bd-4f93-a594-c4f76f03868c:1369512905818</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a072e837-38c7-4b49-af53-8beffc943161:1369512905818</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

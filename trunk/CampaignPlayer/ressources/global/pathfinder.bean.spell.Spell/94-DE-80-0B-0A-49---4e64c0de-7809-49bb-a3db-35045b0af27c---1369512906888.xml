@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4e64c0de-7809-49bb-a3db-35045b0af27c:1369512906888</guid>
    </id>
    <name>Danse des mille coupures</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c41bc5c5-7b6c-4381-b5d5-b6b853ddfc2f:1369512906888</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e255f726-f9cd-47db-a0ea-bc4b5dbdd445:1369512906888</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:de2ec2af-cb12-4299-9958-f19ef82764b9:1369512906888</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

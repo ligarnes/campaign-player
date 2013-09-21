@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:54a0a6fe-d069-4bce-a47e-c2729fe0b79e:1369512905770</guid>
    </id>
    <name>Profanation</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:393541c0-7e8c-47ae-8b74-6874b2aacbed:1369512905770</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0300fa55-7651-4933-8619-bec6263e4cbf:1369512905770</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:77ee1ece-33d0-42c4-b2f1-1485692bda80:1369512905770</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

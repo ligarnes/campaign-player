@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:19c37e21-8748-456c-832b-19ba32966763:1369512907098</guid>
    </id>
    <name>Monture de guerre</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:888109e8-cad9-4b96-bee5-ace7d1846e64:1369512907098</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bbbecf50-241f-41cf-914d-64c007a943a1:1369512907098</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d5c36776-abd8-4f97-9abd-3da9397eceeb:1369512907098</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

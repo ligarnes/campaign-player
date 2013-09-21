@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:49f7c5a9-cd54-4942-8cb4-7e73a7c80b13:1369512904473</guid>
    </id>
    <name>Détection du mensonge</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c330f85f-2ce6-4fe1-a43f-efead1343b7b:1369512904473</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:609629ba-2813-484c-a414-3a378c82c289:1369512904473</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2cb30c0e-ac73-4532-894d-806e7d0e1f40:1369512904473</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

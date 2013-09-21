@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:22398a0e-2e25-4da5-8966-2eb25e973ff6:1369512906908</guid>
    </id>
    <name>Déguiser autrui</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:094121b9-3de6-4cd1-8271-8222cd105f59:1369512906908</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4f128b3b-76e3-4af2-899b-5c701e5185a9:1369512906908</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bfc873d3-5ba0-4e50-a342-72a05a9265c3:1369512906908</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

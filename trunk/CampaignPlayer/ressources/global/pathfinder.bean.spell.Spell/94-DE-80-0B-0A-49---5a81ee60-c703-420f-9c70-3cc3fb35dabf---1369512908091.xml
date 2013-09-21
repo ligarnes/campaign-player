@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5a81ee60-c703-420f-9c70-3cc3fb35dabf:1369512908091</guid>
    </id>
    <name>Vol de voix</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a5dcce6a-2cf9-4008-a321-68c3f10b06c9:1369512908091</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1608df76-5ef6-49b6-a74d-feb2d050e066:1369512908091</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:645bd43c-11f7-4e17-ba98-3e6434262543:1369512908091</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

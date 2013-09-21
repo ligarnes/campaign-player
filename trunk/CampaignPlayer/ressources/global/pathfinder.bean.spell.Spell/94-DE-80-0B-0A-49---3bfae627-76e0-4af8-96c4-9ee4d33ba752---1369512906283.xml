@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3bfae627-76e0-4af8-96c4-9ee4d33ba752:1369512906283</guid>
    </id>
    <name>Symbole de faiblesse</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44a8d3e5-a73a-4531-b6ed-ebc2de87aa38:1369512906283</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bfde7927-fb5d-4687-9fd4-b350b4b958a3:1369512906283</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a4d9829c-1180-4424-81d7-651490873382:1369512906283</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

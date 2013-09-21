@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:23b753d1-bd01-4471-a476-5f995bd95602:1369512905693</guid>
    </id>
    <name>Pierre magique</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:186d9416-19b3-47d1-8d17-1e5fdb78b697:1369512905693</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7e396579-881a-4239-ac5a-60afebe3ab89:1369512905693</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f5cd0f8b-2ecc-4df2-9ca6-a2750a51bcce:1369512905693</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

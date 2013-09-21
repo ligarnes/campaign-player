@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:89f6ab2e-2b92-4e11-b3e3-b79a9dd1a89b:1369512903962</guid>
    </id>
    <name>Convocation d&apos;alliés naturels II</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44c7efd4-d135-4371-ac81-3a521e35fb5a:1369512903962</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:80b28af8-ec82-47e8-b1df-c77a14afe1b8:1369512903962</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c574dea0-ff50-42f2-acd1-04f58af6c258:1369512903962</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

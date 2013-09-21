@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b63962fd-37fd-4a63-a81b-f7cad3b2fc73:1369512904983</guid>
    </id>
    <name>Glissement de terrain</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:616b2b40-050c-4162-8612-58079fab9f94:1369512904983</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:420c9b68-1a9f-4fa2-b9bb-db1a7b969fab:1369512904983</guid>
       </id>
       <unit>special</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0037d243-f683-41a2-a694-94af145d0a32:1369512904983</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5d235aee-9055-45e8-9462-1d55bc79bafa:1369512905635</guid>
    </id>
    <name>Pattes d&apos;araignée</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ba7686bc-d973-4b8d-917c-3f103cf08c10:1369512905635</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:81911182-121b-42a5-8467-260e4ac4cee1:1369512905635</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3f1a135c-c3c7-4310-b1ba-82c25cfb64d2:1369512905635</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

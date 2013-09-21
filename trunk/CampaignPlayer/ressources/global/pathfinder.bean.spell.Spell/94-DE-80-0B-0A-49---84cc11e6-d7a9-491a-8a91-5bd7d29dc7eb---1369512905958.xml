@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:84cc11e6-d7a9-491a-8a91-5bd7d29dc7eb:1369512905958</guid>
    </id>
    <name>Regain d&apos;assurance</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0795df8-9f37-4f02-a022-d440241137de:1369512905958</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a762e0ea-0e4b-4cb9-b551-2b344c93dd26:1369512905958</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b99e2963-523a-42dc-9790-ce1b961742d4:1369512905958</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

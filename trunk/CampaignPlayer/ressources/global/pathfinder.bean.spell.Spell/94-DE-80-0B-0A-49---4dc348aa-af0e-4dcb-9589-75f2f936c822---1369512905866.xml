@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4dc348aa-af0e-4dcb-9589-75f2f936c822:1369512905866</guid>
    </id>
    <name>Ralentissement du poison</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b30162fe-c3b4-49dd-b1b4-fb214f427bd1:1369512905866</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:67b472eb-6b19-4df0-a890-2401f914ce8c:1369512905866</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f8c7a84c-d701-493d-8632-7ac158495dd2:1369512905866</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

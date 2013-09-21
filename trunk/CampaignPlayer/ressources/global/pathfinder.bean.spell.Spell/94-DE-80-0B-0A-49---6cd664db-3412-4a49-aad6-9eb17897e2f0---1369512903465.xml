@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6cd664db-3412-4a49-aad6-9eb17897e2f0:1369512903465</guid>
    </id>
    <name>Barrière de lames</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fe42581a-a89a-4f2f-8d0a-dc0362a803ad:1369512903465</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:16315242-9c52-46b4-a379-758214c27d34:1369512903465</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d1a0ea96-14a7-4142-bf9a-77a2aed4a06a:1369512903465</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

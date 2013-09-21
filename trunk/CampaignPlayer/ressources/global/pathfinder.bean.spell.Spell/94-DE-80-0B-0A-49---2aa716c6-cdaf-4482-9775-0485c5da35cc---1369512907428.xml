@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2aa716c6-cdaf-4482-9775-0485c5da35cc:1369512907428</guid>
    </id>
    <name>Abri de toile</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:af4fe1c3-13a4-45f0-ae52-2f7dea3f6189:1369512907428</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ba08eb52-ac91-44d8-98b6-01ce3e2521e4:1369512907428</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e7d85af-12f8-4516-b118-e155506070d7:1369512907428</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a8a19b3f-7290-40b7-9c2f-00242308325d:1369512907796</guid>
    </id>
    <name>Infestation fongique</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:07d4a76a-dc51-444b-a772-b55cdb979741:1369512907796</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c34d53c3-8713-405f-8faa-a86704fbd106:1369512907796</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4cc5a19b-9bdb-4833-b744-2bdf37a757f1:1369512907796</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

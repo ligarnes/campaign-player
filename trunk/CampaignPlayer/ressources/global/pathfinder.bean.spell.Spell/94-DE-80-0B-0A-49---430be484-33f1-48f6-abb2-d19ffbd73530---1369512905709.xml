@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:430be484-33f1-48f6-abb2-d19ffbd73530:1369512905709</guid>
    </id>
    <name>Plainte d&apos;outre-tombe</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:60dac3df-826e-4b81-b5aa-fed16cc787f7:1369512905709</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:28d8d5d8-7964-4663-be9d-9e3eae0f5c99:1369512905709</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0feb61f5-ca70-4793-8432-970bac821782:1369512905709</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

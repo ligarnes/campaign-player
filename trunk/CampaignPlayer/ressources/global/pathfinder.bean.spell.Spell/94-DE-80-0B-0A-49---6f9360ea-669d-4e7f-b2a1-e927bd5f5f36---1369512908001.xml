@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6f9360ea-669d-4e7f-b2a1-e927bd5f5f36:1369512908001</guid>
    </id>
    <name>Simulacre mineur</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b7a8f50c-05ac-437f-8d19-134a3ec024ae:1369512908001</guid>
       </id>
       <unit>cases</unit>
       <value>0</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:01ac5c35-f0f5-4195-a0de-60ba03f630c4:1369512908001</guid>
       </id>
       <unit>hour</unit>
@@ -22,7 +22,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4ca82102-b285-4a3f-86b5-308175755b60:1369512908001</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

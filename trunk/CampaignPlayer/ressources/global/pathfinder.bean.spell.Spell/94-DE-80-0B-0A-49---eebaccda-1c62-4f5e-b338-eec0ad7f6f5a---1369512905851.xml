@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:eebaccda-1c62-4f5e-b338-eec0ad7f6f5a:1369512905851</guid>
    </id>
    <name>Quête</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1becedd7-f78b-4c91-847a-a4b78ba72c39:1369512905850</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:08907271-72f1-4c3e-b1f5-80ea9f6c7d61:1369512905850</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b369e8e9-565b-4515-9a68-7a34f26c2fdc:1369512905850</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

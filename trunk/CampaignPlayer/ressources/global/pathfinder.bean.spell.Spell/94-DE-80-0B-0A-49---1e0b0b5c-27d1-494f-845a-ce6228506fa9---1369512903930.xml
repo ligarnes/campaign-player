@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1e0b0b5c-27d1-494f-845a-ce6228506fa9:1369512903930</guid>
    </id>
    <name>Contrôle des plantes</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:139c59da-80ba-48c7-8c25-96705ca95550:1369512903930</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e1d965b2-01a7-433a-9e11-8c2d0060698e:1369512903930</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0135108b-9c57-4545-a3d9-d1686db224e7:1369512903930</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

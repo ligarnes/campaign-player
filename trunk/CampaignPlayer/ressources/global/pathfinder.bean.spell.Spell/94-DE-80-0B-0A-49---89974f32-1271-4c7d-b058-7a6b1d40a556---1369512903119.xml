@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:89974f32-1271-4c7d-b058-7a6b1d40a556:1369512903119</guid>
    </id>
    <name>Allié d&apos;outreplan</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:58a23eb1-4467-4a0b-a83c-7106bbaf4c81:1369512903118</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fc4a9d26-8638-4200-8cbb-bce223e7eefe:1369512903118</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c720862a-2b19-43a4-8b9e-e91465fc1427:1369512903119</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

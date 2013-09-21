@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1ab4ef31-8120-46e3-8438-f1ac40bab8c8:1369512904461</guid>
    </id>
    <name>Détection du Bien</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b7d1c629-4223-46d0-b780-93df92c9246c:1369512904461</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2a2a0fbb-ebf8-40a7-a9a2-e2ea3a24d6f6:1369512904461</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f178c2e3-a55e-480c-adc1-da5017b4090f:1369512904461</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

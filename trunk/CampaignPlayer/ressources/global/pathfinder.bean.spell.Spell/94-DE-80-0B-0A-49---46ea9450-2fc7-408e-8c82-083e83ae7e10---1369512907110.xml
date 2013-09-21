@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:46ea9450-2fc7-408e-8c82-083e83ae7e10:1369512907110</guid>
    </id>
    <name>Nuit polaire</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cfe69812-6441-47b7-a752-cfc59100e8f6:1369512907110</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9f1e9b0-4401-42b6-934f-6471f76d266b:1369512907110</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c7f0e36f-ffa7-44da-9d6a-c035b3984219:1369512907110</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

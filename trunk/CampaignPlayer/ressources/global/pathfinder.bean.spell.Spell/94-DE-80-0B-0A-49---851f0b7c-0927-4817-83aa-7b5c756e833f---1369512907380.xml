@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:851f0b7c-0927-4817-83aa-7b5c756e833f:1369512907380</guid>
    </id>
    <name>vagues d&apos;extase</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8e5b0626-273e-4d34-85c1-25b05aec5245:1369512907380</guid>
       </id>
       <unit>cases</unit>
       <value>6</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2de53919-7f0b-4faf-8f0a-e1801c1a3e39:1369512907380</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f75356c2-88a0-40fc-85fe-d16569ef7842:1369512907380</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

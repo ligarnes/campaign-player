@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3349923b-931e-4a03-ab20-74afe1af2b7b:1369512907955</guid>
    </id>
    <name>Résistance à l&apos;âge</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7c7dcfc7-3fd3-48fb-a1ec-8c046b418698:1369512907955</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:90ed5d4c-b591-4b7b-a8aa-b8dc5fcfca16:1369512907955</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:43749689-1e74-49fc-892a-8108dad7f4be:1369512907955</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

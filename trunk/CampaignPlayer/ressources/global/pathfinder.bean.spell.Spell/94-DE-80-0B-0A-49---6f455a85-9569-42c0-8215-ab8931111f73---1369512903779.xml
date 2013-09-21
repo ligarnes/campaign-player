@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6f455a85-9569-42c0-8215-ab8931111f73:1369512903779</guid>
    </id>
    <name>Chien de garde</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0c159c83-d029-4734-bc58-1e9fe74b83cd:1369512903779</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7dbf50c1-3b86-43ac-983b-0203b7f19b42:1369512903779</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae89f755-c28b-4158-878e-c394d23f998c:1369512903779</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

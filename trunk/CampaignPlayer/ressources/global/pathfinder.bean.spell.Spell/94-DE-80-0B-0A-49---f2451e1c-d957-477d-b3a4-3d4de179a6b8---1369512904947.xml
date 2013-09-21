@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f2451e1c-d957-477d-b3a4-3d4de179a6b8:1369512904947</guid>
    </id>
    <name>Frayeur</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f60479f5-5174-4ded-8e4d-8e8172b751c6:1369512904947</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ee29c7c1-b37b-45e5-84dc-3094ba2a9e40:1369512904947</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2afd67a2-38ac-4171-a310-ed5e07f28fb4:1369512904947</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

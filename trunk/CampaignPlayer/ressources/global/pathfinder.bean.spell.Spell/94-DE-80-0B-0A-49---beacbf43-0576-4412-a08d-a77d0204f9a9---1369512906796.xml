@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:beacbf43-0576-4412-a08d-a77d0204f9a9:1369512906796</guid>
    </id>
    <name>Contrôle des créatures convoquées</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3066b0e7-d6c3-4009-a9ec-138fc973b7ba:1369512906796</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d4272a1e-3c62-4eda-87c3-f4090b12f5e5:1369512906796</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:16bb8ce7-7b99-41a7-839a-f5cddb781ff6:1369512906796</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

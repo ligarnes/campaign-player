@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6003dac6-7d9a-4f96-acea-82817ba4fb92:1369512904888</guid>
    </id>
    <name>Forme draconique III</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6db0b766-9a42-4c42-ac92-c91a006a5cae:1369512904888</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d7d5a695-7959-43f3-b4b9-8ca2f698641a:1369512904888</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:43c511e0-cfb0-4108-9bf7-3dfeabe3f695:1369512904888</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

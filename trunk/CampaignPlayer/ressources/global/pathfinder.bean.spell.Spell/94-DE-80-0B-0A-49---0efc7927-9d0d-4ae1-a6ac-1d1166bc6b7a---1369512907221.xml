@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0efc7927-9d0d-4ae1-a6ac-1d1166bc6b7a:1369512907221</guid>
    </id>
    <name>Résurrection temporaire</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3ead76ce-f0a5-40da-923c-2eae2d7a0209:1369512907221</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:94490d76-6092-4939-b7a2-cde3203d0017:1369512907221</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3eeaea19-0b7e-4126-8b08-60646bcd8fc2:1369512907221</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

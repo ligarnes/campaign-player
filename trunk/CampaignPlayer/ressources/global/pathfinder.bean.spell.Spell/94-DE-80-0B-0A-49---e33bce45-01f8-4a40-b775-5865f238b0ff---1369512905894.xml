@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e33bce45-01f8-4a40-b775-5865f238b0ff:1369512905894</guid>
    </id>
    <name>Rayon ardent</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d1a8c689-7357-4dd5-b993-a1af1d6ba423:1369512905894</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e6221099-36d0-49c7-843b-8cc244839645:1369512905894</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e5e2e71-7e42-4e37-b5d5-89477bf01a3f:1369512905894</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4acf514e-e49c-4d86-9885-aec1b880ce50:1369512903944</guid>
    </id>
    <name>Contrôle du climat</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2849d562-ed4b-4035-9418-a4dd43644a24:1369512903944</guid>
       </id>
       <value>3 km</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b0e443c1-50d3-4bd4-8737-9d3d82752b7d:1369512903944</guid>
       </id>
       <unit>special</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c32a14f2-df8e-4212-8e32-89370ee08602:1369512903944</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

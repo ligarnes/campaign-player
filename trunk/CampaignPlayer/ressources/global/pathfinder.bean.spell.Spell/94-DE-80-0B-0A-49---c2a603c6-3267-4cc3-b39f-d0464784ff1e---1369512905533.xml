@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c2a603c6-3267-4cc3-b39f-d0464784ff1e:1369512905533</guid>
    </id>
    <name>Mur de pierre</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a8dd86da-cc8c-48fe-85b8-ae30e9619c01:1369512905533</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:14afdcd5-3d17-4e78-b83a-ebf71a49b45d:1369512905533</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:55016986-af87-4ba0-8cc1-1f9092f8f5f8:1369512905533</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

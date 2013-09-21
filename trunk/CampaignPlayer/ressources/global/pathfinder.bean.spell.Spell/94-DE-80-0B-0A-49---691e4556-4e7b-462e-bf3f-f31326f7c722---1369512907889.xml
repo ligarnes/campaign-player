@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:691e4556-4e7b-462e-bf3f-f31326f7c722:1369512907889</guid>
    </id>
    <name>Partage des souvenirs</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:843403d8-cf5d-4794-a07f-18792d66f4c7:1369512907889</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a778a15b-c58e-4ef0-9eea-9e4a449fae63:1369512907889</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d4222974-dffa-4c12-9c18-be635667b1e7:1369512907889</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

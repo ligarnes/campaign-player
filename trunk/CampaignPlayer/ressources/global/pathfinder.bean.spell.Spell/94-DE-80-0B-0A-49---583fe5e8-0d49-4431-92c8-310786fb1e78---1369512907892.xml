@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:583fe5e8-0d49-4431-92c8-310786fb1e78:1369512907892</guid>
    </id>
    <name>Pas de l&apos;ombre</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:72c3a1cb-ec6d-4078-b231-2d1775b63fd0:1369512907892</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b4cc4a7e-7d8d-4f2e-9964-b0e6f28cb9e6:1369512907892</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:42e4aa90-79f0-4d5b-b60e-268c71ac3856:1369512907892</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

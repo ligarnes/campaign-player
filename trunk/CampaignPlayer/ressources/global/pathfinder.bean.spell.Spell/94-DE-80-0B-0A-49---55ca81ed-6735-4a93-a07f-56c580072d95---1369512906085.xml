@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:55ca81ed-6735-4a93-a07f-56c580072d95:1369512906085</guid>
    </id>
    <name>Sagesse du hibou de groupe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:58987ea9-3df8-49bd-b228-0c5eda5f8413:1369512906084</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6c075ba6-319f-496f-a35b-b1ceaa9c75b2:1369512906084</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b63ef80b-bcf9-4be9-ab70-e946ca8c4e71:1369512906085</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

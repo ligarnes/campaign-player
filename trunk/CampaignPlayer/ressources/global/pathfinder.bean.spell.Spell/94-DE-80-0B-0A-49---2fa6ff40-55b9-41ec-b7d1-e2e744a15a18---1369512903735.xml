@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2fa6ff40-55b9-41ec-b7d1-e2e744a15a18:1369512903735</guid>
    </id>
    <name>Changement de plan</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c2e4c37c-a1ba-48dc-8dc1-676df36b193e:1369512903735</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:28cee13a-f83a-48f4-8d22-a0084123af02:1369512903735</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:07311769-2d6f-4e3e-9680-15d0806500fd:1369512903735</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

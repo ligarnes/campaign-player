@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0f201e6d-cb9d-46c5-8e30-f01ebd71dac3:1369512905268</guid>
    </id>
    <name>Lien télépathique</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b186a630-4c50-422b-9cc2-2f45462f39d0:1369512905268</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cdf7de88-3c46-40f7-aa46-580fe272e0bc:1369512905268</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0f475113-6ff2-4703-9b69-3d24060a4c65:1369512905268</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

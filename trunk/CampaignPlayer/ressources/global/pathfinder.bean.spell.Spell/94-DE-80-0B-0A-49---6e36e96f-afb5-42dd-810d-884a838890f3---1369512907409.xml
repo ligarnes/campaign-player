@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6e36e96f-afb5-42dd-810d-884a838890f3:1369512907409</guid>
    </id>
    <name>Vol d&apos;arcane</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:321e80d4-dd50-4b0c-a034-0c06a3d42ae8:1369512907409</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:47743636-8845-4af4-b9e7-ec212b14f7e6:1369512907409</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:42e83f73-4171-401a-a220-5427510b743c:1369512907409</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

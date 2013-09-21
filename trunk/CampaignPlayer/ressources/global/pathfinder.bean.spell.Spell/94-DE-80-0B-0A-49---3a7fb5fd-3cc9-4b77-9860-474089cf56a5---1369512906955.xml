@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3a7fb5fd-3cc9-4b77-9860-474089cf56a5:1369512906955</guid>
    </id>
    <name>Éruption caustique</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a56588c-dc10-4de4-8b0a-d9e02c8a0633:1369512906955</guid>
       </id>
       <unit>cases</unit>
       <value>6</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1a9b4ea3-a42b-4886-b17e-bc9fe4f2fc6f:1369512906955</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:df05b0da-b006-40b8-9dd0-316904f0b9d1:1369512906955</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

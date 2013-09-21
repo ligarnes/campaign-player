@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f27aea74-c323-47b1-9aa3-187794b39124:1369512903386</guid>
    </id>
    <name>Augure</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e9b658c1-6f64-4425-bbb4-a7aefbc3df43:1369512903386</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:23bfc027-52dc-4da5-8f11-1e58c04b26ac:1369512903386</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9ec3e310-849a-47c8-a3c6-ba4ff244069a:1369512903386</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

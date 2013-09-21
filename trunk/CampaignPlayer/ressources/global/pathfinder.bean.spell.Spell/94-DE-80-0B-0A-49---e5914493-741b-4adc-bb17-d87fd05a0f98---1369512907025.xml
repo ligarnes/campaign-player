@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e5914493-741b-4adc-bb17-d87fd05a0f98:1369512907025</guid>
    </id>
    <name>Infestation de vers</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aaa30c27-25d0-47ae-b66d-6f78d0679155:1369512907025</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:de1c4bbd-fff7-48f0-9d58-4a832c0562a1:1369512907025</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:61388d4b-3f4a-407d-9ea8-c7d2562655cf:1369512907025</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

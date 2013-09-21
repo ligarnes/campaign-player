@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b175f8d4-3b98-4817-b62f-c6a79d98f035:1369512903646</guid>
    </id>
    <name>Brume de dissimulation</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3d4f76ad-9e3e-4cc9-afbd-dc7cf592a465:1369512903646</guid>
       </id>
       <unit>cases</unit>
       <value>4</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c302fb85-aeeb-408b-85c1-3d8a9bc4de52:1369512903646</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:32cb766e-2942-4544-a096-b46b0c80ee58:1369512903646</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

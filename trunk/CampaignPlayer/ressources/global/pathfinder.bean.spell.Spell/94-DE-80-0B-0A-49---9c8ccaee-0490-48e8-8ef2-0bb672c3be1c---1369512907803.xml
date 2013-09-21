@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9c8ccaee-0490-48e8-8ef2-0bb672c3be1c:1369512907803</guid>
    </id>
    <name>Interrogatoire supérieur</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e2199d30-6614-4dd0-baa7-19eba7a1dc63:1369512907803</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bd686457-6ead-4c24-80bf-90ab1a3b806a:1369512907803</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d1ebb083-abdc-4bd6-a592-16ebe8662dda:1369512907803</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

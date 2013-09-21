@@ -27,7 +27,6 @@ import java.rmi.RemoteException;
 
 import net.alteiar.beans.map.size.MapElementSize;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
 /**
@@ -35,7 +34,6 @@ import org.simpleframework.xml.Element;
  * 
  */
 public class RectangleElement extends ColoredShape {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_WIDTH_PROPERTY = "width";

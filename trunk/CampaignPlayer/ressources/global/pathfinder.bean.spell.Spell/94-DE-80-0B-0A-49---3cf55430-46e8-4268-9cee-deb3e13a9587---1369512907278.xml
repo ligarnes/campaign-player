@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3cf55430-46e8-4268-9cee-deb3e13a9587:1369512907278</guid>
    </id>
    <name>Symbole de guérison</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0b0e91a6-0be6-4841-8cd1-9c272a56c13e:1369512907278</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:02523031-bfca-4082-85b4-149e00c78c2d:1369512907278</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0934826-a8cd-4e3f-863a-34daee9b406b:1369512907278</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

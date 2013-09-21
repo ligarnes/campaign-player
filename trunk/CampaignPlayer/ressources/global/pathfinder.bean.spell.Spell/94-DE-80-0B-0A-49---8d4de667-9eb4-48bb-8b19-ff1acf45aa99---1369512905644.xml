@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8d4de667-9eb4-48bb-8b19-ff1acf45aa99:1369512905644</guid>
    </id>
    <name>Peau d&apos;écorce</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:df924ea6-0010-436c-8028-e5c520775c6a:1369512905644</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2c2e0b55-3eb4-4353-a75b-75e01281ade5:1369512905644</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7356b98a-d306-4396-8474-7ce00790a3c8:1369512905644</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

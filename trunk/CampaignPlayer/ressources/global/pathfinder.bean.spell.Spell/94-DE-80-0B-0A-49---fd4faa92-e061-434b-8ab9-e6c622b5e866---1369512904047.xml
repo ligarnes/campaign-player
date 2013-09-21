@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fd4faa92-e061-434b-8ab9-e6c622b5e866:1369512904047</guid>
    </id>
    <name>Convocation de monstres III</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d997726e-036a-46bd-9556-89a2025606be:1369512904046</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:73ae0b22-a7b8-4824-b94a-4146f0dc039a:1369512904046</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d38e57f1-c2ca-41e3-9ff1-a63073707036:1369512904047</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

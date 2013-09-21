@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d2f2bfb3-b528-472b-933a-e193c1be97fa:1369512905181</guid>
    </id>
    <name>Imprécation</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:89d8c728-45cd-4ced-8892-e6ab9b3a4117:1369512905181</guid>
       </id>
       <value>15 m/10 c</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a268879d-9467-4134-a37c-5fc7fff1c371:1369512905181</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8efb36d5-ba76-466b-89ec-54dc4dfce68a:1369512905181</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

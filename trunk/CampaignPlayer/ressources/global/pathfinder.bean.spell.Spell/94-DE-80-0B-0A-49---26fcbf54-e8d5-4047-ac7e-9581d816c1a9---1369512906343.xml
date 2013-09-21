@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:26fcbf54-e8d5-4047-ac7e-9581d816c1a9:1369512906343</guid>
    </id>
    <name>Transfert de sorts</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b6a63217-4c4c-40f2-a413-94b5063779f8:1369512906343</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2fc91f63-0a63-48d3-b31d-4076c30a2b75:1369512906343</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3ab04690-417a-449f-aa99-fa5b79edbfed:1369512906343</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

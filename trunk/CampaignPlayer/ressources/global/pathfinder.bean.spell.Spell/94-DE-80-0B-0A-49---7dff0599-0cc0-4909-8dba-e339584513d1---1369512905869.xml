@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7dff0599-0cc0-4909-8dba-e339584513d1:1369512905869</guid>
    </id>
    <name>Ramollissement de la terre et de la pierre</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bcc75141-0788-40b6-82c8-7bdc45d0ddf6:1369512905869</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0cd8d18c-46a5-4769-ab87-ea17d644586b:1369512905869</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:43f37352-03e4-48b5-8305-0cc5f3ab2db6:1369512905869</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

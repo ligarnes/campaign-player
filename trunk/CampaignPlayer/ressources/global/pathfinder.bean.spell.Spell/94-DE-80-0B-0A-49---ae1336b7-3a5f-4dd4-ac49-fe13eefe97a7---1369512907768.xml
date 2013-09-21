@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ae1336b7-3a5f-4dd4-ac49-fe13eefe97a7:1369512907768</guid>
    </id>
    <name>Frappe de la corneille sanglante</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:36fedb07-ae21-4404-9f70-522bc5134c8e:1369512907768</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:de2a094e-0475-47d1-952a-fce71447ffa9:1369512907768</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4c2e7a28-52f6-4f37-adec-43225181992f:1369512907768</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

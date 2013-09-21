@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:650c2cf9-3659-47a7-86a2-96de6bd5cc86:1369512905225</guid>
    </id>
    <name>Invisibilité pour les morts-vivants</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6c3d2216-2ddf-4c81-9a58-414f012240de:1369512905225</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:434876cf-8be9-4036-a220-d73c91c5d6e8:1369512905225</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5f70c77a-c041-4a09-a161-bbb92f20aa88:1369512905225</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

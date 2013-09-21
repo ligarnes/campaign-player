@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8707e7db-042c-4945-bd82-22ae06566904:1369512906104</guid>
    </id>
    <name>Sanctification maléfique</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f5bf60ec-3548-47b6-92bb-6c862af32dbf:1369512906104</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a4b47a0-3518-449d-83c4-e11e015fe993:1369512906104</guid>
       </id>
       <unit>hour</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:309c5650-d2ca-45d9-bf82-c546ea4be13c:1369512906104</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

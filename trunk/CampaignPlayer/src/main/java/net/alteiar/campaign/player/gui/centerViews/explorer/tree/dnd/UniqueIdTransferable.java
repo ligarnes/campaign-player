@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.explorer.mine.dnd;
+package net.alteiar.campaign.player.gui.centerViews.explorer.tree.dnd;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9c92a986-9390-4aa5-b8cc-d720ef653189:1369512903567</guid>
    </id>
    <name>Bouche magique</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9d851d27-6b53-41c4-86cc-96c4f0880a22:1369512903567</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3b53314a-6c80-4bca-819b-380762804d05:1369512903567</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:971979b6-2330-474b-929d-e86148475df3:1369512903567</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

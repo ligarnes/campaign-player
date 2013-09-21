@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d0a9d0a1-2b3d-4931-a87a-fcf521cee028:1369512905936</guid>
    </id>
    <name>Réduction d&apos;objet</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0d6a560d-b5f9-402d-a0a2-5747eb1a1ea6:1369512905936</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c26397b2-a708-4a32-881d-cde0d0243cc4:1369512905936</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:631ad677-25b4-426f-a833-ca0c4b9eab1b:1369512905936</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

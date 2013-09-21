@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1cd7dd8a-8480-4e42-be13-4664f34dec1e:1369512903618</guid>
    </id>
    <name>Bourrasque</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:75e6b2ef-c8c2-465f-baaa-73bf15b0f4e1:1369512903618</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c4e91284-e507-4aa9-9f0d-b9ac06b293d4:1369512903618</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4f80cb21-a41a-4132-be36-dd1fa0285cc9:1369512903618</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

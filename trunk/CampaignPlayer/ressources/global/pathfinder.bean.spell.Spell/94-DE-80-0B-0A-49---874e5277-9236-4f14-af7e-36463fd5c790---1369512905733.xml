@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:874e5277-9236-4f14-af7e-36463fd5c790:1369512905733</guid>
    </id>
    <name>Porte dimensionnelle</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ab651647-26a9-47fa-aff0-d78250083008:1369512905733</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:50c59b98-132c-4d43-9e53-d3376c8ae7c7:1369512905733</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8c7589b6-6e70-4430-b7ad-1772bbf8d487:1369512905733</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fdf537a0-abcb-46af-a2a2-6f02cdc9568c:1369512906275</guid>
    </id>
    <name>Symbole d&apos;aliénation mentale</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0cc30d38-0a8e-43f3-8d59-34c1e8cb4895:1369512906275</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c52edd7b-bb5b-4a0c-8a0a-5c590dc86afc:1369512906275</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d2d21d90-ee94-4358-a828-019ffae8d560:1369512906275</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

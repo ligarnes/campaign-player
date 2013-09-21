@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f6b321d5-e453-42f8-8695-5ea06342c0bb:1369512906183</guid>
    </id>
    <name>Sommeil profond</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e668b11-0304-4010-b8a5-ade6d35338d1:1369512906182</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b7dd4230-397e-4cc8-b2fa-bd33b6589d5c:1369512906182</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0cc70236-d76c-4adc-bd5a-3d1814a367f6:1369512906182</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

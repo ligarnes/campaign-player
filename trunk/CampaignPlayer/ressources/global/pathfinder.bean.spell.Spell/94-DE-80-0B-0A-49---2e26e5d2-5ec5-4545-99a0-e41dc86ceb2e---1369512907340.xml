@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2e26e5d2-5ec5-4545-99a0-e41dc86ceb2e:1369512907340</guid>
    </id>
    <name>Symbole de scrutation</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ec2aa680-9773-4e5c-84cb-8a2c7bbc1541:1369512907339</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3f6d2481-9385-4dc7-84aa-154ced7e97a6:1369512907339</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:af0642bb-7ace-43f6-8d1d-9481237d784c:1369512907340</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

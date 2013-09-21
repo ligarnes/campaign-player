@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d7b45743-1a68-49b5-aa2f-4a051e4d7df9:1369512903378</guid>
    </id>
    <name>Attirance</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:46359246-6b50-46f7-a9c1-24fc15443d01:1369512903378</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b869c07f-0079-49f6-988b-73cc7016b941:1369512903378</guid>
       </id>
       <unit>hour</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:25e0aefe-9518-4075-bb3b-6ec611111790:1369512903378</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

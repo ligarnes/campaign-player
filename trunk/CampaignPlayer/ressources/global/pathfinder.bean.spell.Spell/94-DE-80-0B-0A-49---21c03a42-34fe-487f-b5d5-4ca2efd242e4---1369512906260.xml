@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:21c03a42-34fe-487f-b5d5-4ca2efd242e4:1369512906260</guid>
    </id>
    <name>Stabilisation</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:483ac9a4-280a-4933-9ffb-9ec6658c52a9:1369512906260</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9093c0b-8766-420c-b30d-bd7b3e79d002:1369512906260</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5bc1efb1-4261-4ed4-bee4-b85df20d2cae:1369512906260</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

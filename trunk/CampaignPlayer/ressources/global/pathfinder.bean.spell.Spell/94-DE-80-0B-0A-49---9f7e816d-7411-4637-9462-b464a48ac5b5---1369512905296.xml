@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9f7e816d-7411-4637-9462-b464a48ac5b5:1369512905296</guid>
    </id>
    <name>Lueurs hypnotiques</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:db2d9017-71b7-46ad-8c8b-d2d53671737d:1369512905295</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d17052db-9827-4434-b3d5-7b9e912a5966:1369512905295</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dbbbe5dc-b333-454c-83e8-fa325644612c:1369512905295</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

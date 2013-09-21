@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c1e55385-dfd4-40fc-a77a-ff9d7c93928e:1369512908019</guid>
    </id>
    <name>Symbole de sceau</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:009bea6d-a53d-45e6-8fa7-8a71f964899a:1369512908018</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7fcf2609-7b0d-4329-8f9c-ceeaa8c040e5:1369512908019</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c9a1095e-e552-4fc4-8170-e1ed58032c49:1369512908019</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

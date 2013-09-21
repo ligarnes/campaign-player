@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:76001a7a-dca7-47ef-b4ac-0ba4f6ef9ffc:1369512907752</guid>
    </id>
    <name>Fierté illusoire</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4f257708-8d8a-46a0-b199-1914a781e488:1369512907752</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:858efc8c-dce3-4604-8a31-d5bf48d7447c:1369512907752</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ca9b8522-ae23-4bc1-bfe6-23d438d06896:1369512907752</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

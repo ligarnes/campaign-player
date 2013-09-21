@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8ed8cd6a-0c2c-4090-8209-5546a2f26c7c:1369512907383</guid>
    </id>
    <name>Vengeance pour outrage</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:83630c6b-6e45-4d33-a2f4-3a3a30b7724b:1369512907383</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0829b646-86f1-4e2e-a01c-f46b762ec0ec:1369512907383</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0c81c276-ef79-43c4-b7b3-8192a9492238:1369512907383</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

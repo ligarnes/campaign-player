@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5424cdb3-32c0-47a3-aba4-48f8f0dce752:1369512908010</guid>
    </id>
    <name>Symbole de lenteur</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d0eeba9e-e7fe-46c5-8dc9-4ab16f3693cd:1369512908010</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:001ca7f0-52da-446c-acf2-6a8da61424f7:1369512908010</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bf46d86f-0dfe-424a-9057-fcb19eb65334:1369512908010</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

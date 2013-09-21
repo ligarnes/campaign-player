@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b4e5d4ec-af15-451f-bbbe-550c0f03a849:1369512907172</guid>
    </id>
    <name>Prison de glace de groupe</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ed004e05-b8ea-46f4-8cd1-9772e32c1208:1369512907172</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fc464a92-ede4-4aff-99ca-3f0990a3b116:1369512907172</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1d01a9f6-6f2d-4679-ac76-fd1ae5c0cc72:1369512907172</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

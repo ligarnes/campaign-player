@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:acfdc13b-efa8-4bfa-b9bf-8f893147b8e0:1369512906349</guid>
    </id>
    <name>Transmutation de la boue en pierre</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b515c7c9-cba6-4cb2-8286-15c602780d3b:1369512906349</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e96a886f-372d-460f-ad48-699be16c4d8b:1369512906349</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f762485d-8881-4d8e-8a8a-9ad96c188191:1369512906349</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

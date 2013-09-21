@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ceae585d-f225-4b5d-b206-226e65b2afe4:1369512906381</guid>
    </id>
    <name>Vent de murmures</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ccd1c1b0-8c8e-4c2a-8358-7016966931dd:1369512906381</guid>
       </id>
       <value>1,5 km/niveau</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4156b346-ec0b-4e4c-8070-9cca939771d3:1369512906381</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:00c6172c-6f13-4233-9437-d035ae6f7404:1369512906381</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:86a80a95-c2f6-4d53-8cdb-8db695b6aea2:1369512907996</guid>
    </id>
    <name>Silence forcé</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:683ed99c-cc14-40a7-a92f-5787d52ce900:1369512907996</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:08d14ad6-6138-4acc-9202-7f25f1291338:1369512907996</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ddfff58d-78e6-4f3e-81f2-77a334bf087b:1369512907996</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

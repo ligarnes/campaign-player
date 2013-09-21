@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2dda0114-f8ba-4470-aeb2-f508b66e97ec:1369512903513</guid>
    </id>
    <name>Blessure critique</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:19f77733-9ff9-4576-95ca-acacbdab884f:1369512903513</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:248c77e2-2f92-40db-a1ea-63551cccf9b4:1369512903513</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8c995945-f1cb-4996-a382-2c9a6ecbe0b5:1369512903513</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

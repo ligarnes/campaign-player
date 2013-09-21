@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:41bf4143-885d-43b5-881d-0e177a368797:1369512906913</guid>
    </id>
    <name>Désir anormal</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:392696d0-39e8-453c-bfe7-f08c0984a46b:1369512906912</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b78a1816-324f-4b4a-9cb2-18c1704eab98:1369512906912</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c0ed7671-3be4-41f3-b85d-e9bf9587924b:1369512906913</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

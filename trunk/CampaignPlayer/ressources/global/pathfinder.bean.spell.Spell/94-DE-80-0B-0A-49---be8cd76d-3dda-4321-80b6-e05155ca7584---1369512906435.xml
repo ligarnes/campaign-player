@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:be8cd76d-3dda-4321-80b6-e05155ca7584:1369512906435</guid>
    </id>
    <name>Vol supérieur</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:609b385b-0c8e-452e-8172-02698a348deb:1369512906435</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dabdb4db-a526-4c8c-b48a-dafd95158d8a:1369512906435</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c31a8089-6038-4b81-8cc3-6e3d228f7216:1369512906435</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

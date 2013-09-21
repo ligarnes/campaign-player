@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:090eb326-7406-4730-929d-8ae1bdad1cb7:1369512907716</guid>
    </id>
    <name>Dysfonctionnement</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e9f0e4ff-ae8d-4be9-8f5f-ff0ff36d6718:1369512907716</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:284e96f4-c639-470e-8f95-b0f643dadf73:1369512907716</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0cbbae18-06df-4d21-b2ff-2ecdb1aeb521:1369512907716</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

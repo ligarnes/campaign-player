@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0982ad81-ca4d-472e-950c-951810ff85de:1369512907019</guid>
    </id>
    <name>Hurlement primitif</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:70b87e64-f6e2-4608-bc1e-36b2793f28bb:1369512907019</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8ae6e26-0010-4720-8760-38fa91862411:1369512907019</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0fcf96c5-17f4-4e86-b6ae-d464303c94e8:1369512907019</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

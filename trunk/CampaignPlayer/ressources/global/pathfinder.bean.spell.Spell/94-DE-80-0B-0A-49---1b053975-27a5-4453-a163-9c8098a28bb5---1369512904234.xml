@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1b053975-27a5-4453-a163-9c8098a28bb5:1369512904234</guid>
    </id>
    <name>Cri</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6b6cfbaa-0e86-46b7-b1ca-6d0d589ba455:1369512904234</guid>
       </id>
       <unit>cases</unit>
       <value>6</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ac1b0628-251c-4a87-a0e0-d90e149f9f4b:1369512904234</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:604a504c-4352-452b-a28c-1c1a7f02364e:1369512904234</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

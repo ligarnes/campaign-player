@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:99ee566d-8104-482e-95b2-60bb621c3b97:1369512905077</guid>
    </id>
    <name>Hypnose</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6e12f51a-aca7-489e-bfac-11108223bc92:1369512905077</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b1d50cd9-e341-404c-aedb-769a7f50c151:1369512905077</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d5c15794-c1f2-43d7-98d8-ef904bfbe7d4:1369512905077</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

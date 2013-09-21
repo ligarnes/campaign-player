@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6efcc44d-882d-49f2-86f0-734b11b88388:1369512906076</guid>
    </id>
    <name>Ruse du renard de groupe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c1dfa1bb-3514-461b-aedf-ba7f315efd89:1369512906076</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fec59348-b5bc-420b-b69d-b3934ba284c7:1369512906076</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2a6adec1-5a40-4021-bcf8-8d9de97e30d2:1369512906076</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

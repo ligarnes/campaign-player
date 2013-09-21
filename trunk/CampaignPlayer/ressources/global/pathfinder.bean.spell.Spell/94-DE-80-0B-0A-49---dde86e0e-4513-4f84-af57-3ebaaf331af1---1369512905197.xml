@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:dde86e0e-4513-4f84-af57-3ebaaf331af1:1369512905197</guid>
    </id>
    <name>Interdiction</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6135ea77-c675-46eb-ac03-dcb7093945e3:1369512905197</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9233dce1-b462-4751-8250-f640e710c68f:1369512905197</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:99d109f0-2af6-477b-adbe-d3a7cb697cba:1369512905197</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

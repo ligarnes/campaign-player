@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d2799a54-1ac2-469e-8245-f0e592801eb8:1369512907219</guid>
    </id>
    <name>Restauration de cadavre</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fca26eea-7225-467b-b12a-d1a39ced1bb7:1369512907219</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:32b9a863-c537-4699-9879-777a7c8ef15c:1369512907219</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a7a6993c-a096-47cc-b503-48f50e65cff4:1369512907219</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

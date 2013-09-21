@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:93276a10-07b9-4cf3-a7ed-33681a0abb00:1369512907895</guid>
    </id>
    <name>Pénombre protectrice</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c994b519-0623-4d51-8019-b13f894ad99f:1369512907895</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d9541d7c-9e7e-4e18-9a8e-b638c5ddd076:1369512907895</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7059e3fc-20da-4c56-b950-9a756326c330:1369512907895</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

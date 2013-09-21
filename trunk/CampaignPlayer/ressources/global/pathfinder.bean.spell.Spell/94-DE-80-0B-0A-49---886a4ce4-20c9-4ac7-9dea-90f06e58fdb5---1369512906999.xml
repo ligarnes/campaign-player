@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:886a4ce4-20c9-4ac7-9dea-90f06e58fdb5:1369512906999</guid>
    </id>
    <name>Froide frappe de glace</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c4c91fca-e363-4d8c-9527-e025da73299b:1369512906999</guid>
       </id>
       <unit>cases</unit>
       <value>6</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d41af86c-bd3c-4a08-ad33-5bc580e1d4b9:1369512906999</guid>
       </id>
       <unit>swiftAction</unit>
@@ -22,7 +22,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:609b4178-14d0-4cb0-a0e2-82fa67407c8b:1369512906999</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

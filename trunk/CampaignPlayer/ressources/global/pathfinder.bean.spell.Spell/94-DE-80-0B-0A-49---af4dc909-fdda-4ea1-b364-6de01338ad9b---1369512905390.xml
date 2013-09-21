@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:af4dc909-fdda-4ea1-b364-6de01338ad9b:1369512905390</guid>
    </id>
    <name>Marche sur l&apos;onde</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e42c663f-db29-4b69-9481-4349eeaf62d6:1369512905390</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44b6f497-b3b2-4121-a0eb-745d95a04395:1369512905390</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4fe0528f-1986-499a-9c78-a1b4d8c95e1e:1369512905390</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

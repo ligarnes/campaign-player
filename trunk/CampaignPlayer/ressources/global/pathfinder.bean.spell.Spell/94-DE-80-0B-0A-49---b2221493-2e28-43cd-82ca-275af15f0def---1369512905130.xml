@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b2221493-2e28-43cd-82ca-275af15f0def:1369512905130</guid>
    </id>
    <name>Image silencieuse</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:149c376b-5e8f-4fe6-b9fd-c5a4432beb74:1369512905130</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8ab651b4-8b5d-4aff-9225-f7219d234d7d:1369512905130</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7386e5c9-e0c0-4261-8766-2dadb8a7abb1:1369512905130</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

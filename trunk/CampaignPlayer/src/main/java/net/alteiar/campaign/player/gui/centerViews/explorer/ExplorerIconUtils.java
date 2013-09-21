@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.explorer.mine;
+package net.alteiar.campaign.player.gui.centerViews.explorer;
 
 import java.awt.image.BufferedImage;
 

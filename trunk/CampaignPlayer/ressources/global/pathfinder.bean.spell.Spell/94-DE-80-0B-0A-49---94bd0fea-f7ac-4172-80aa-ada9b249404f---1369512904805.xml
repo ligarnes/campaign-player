@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:94bd0fea-f7ac-4172-80aa-ada9b249404f:1369512904805</guid>
    </id>
    <name>Flétrissure</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7de3e6ff-3f0e-43b2-92ca-dd2e30b13626:1369512904804</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2b235e31-0844-4fc0-825c-f2b0ef29bf14:1369512904804</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0f25f7b-d9de-4d67-87ed-b7b5a0c00a46:1369512904804</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

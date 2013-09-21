@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9269039e-1007-418e-85d2-2800fc28da76:1369512907387</guid>
    </id>
    <name>Vents capricieux</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0a0e5fe-4fc4-4282-8564-07b379c2bb7a:1369512907387</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:951299c5-3b4e-48ce-bcaf-a23d37230b01:1369512907387</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7218d4f9-9870-449c-aaa4-20d1a610c453:1369512907387</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

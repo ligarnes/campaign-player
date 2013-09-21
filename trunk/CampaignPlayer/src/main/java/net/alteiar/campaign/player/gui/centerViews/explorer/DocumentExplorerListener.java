@@ -16,7 +16,7 @@ import net.alteiar.campaign.player.gui.centerViews.explorer.actions.RemoveDirect
 import net.alteiar.campaign.player.gui.centerViews.explorer.actions.files.DeleteDocumentAction;
 import net.alteiar.campaign.player.gui.centerViews.explorer.actions.files.NewDocumentAction;
 import net.alteiar.campaign.player.gui.centerViews.explorer.actions.files.ViewDocumentAction;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.DocumentNode;
+import net.alteiar.campaign.player.gui.centerViews.explorer.tree.DocumentNode;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
 import net.alteiar.documents.BeanDocument;

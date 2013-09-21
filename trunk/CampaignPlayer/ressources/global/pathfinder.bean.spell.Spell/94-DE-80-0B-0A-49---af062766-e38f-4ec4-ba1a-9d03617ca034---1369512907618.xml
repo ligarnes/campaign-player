@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:af062766-e38f-4ec4-ba1a-9d03617ca034:1369512907618</guid>
    </id>
    <name>Convocation d&apos;alliés mineur</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ef2cb1b4-92df-4573-9775-e300be9803dc:1369512907618</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a106ea43-97fc-4450-94f6-6dae566dc55b:1369512907618</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4fec67ba-99b7-4355-b2c3-edb0f82375ad:1369512907618</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

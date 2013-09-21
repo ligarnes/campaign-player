@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:810eb09e-f415-4f70-ae00-ec266c0fa1a7:1369512905374</guid>
    </id>
    <name>Manipulation des sons</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1cc36ff8-ce94-482b-b09e-076188a0fdb1:1369512905374</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:37e763ea-f697-460e-a0cc-37ed6e5fed7f:1369512905374</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ddd26ef3-1154-4025-98a8-3239bae64192:1369512905374</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

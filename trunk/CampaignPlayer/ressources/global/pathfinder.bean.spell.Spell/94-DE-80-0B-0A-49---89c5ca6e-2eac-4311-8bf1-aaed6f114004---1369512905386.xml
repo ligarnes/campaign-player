@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:89c5ca6e-2eac-4311-8bf1-aaed6f114004:1369512905386</guid>
    </id>
    <name>Marche dans les airs</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:84276de8-b7c5-4947-b421-f98c43b4a257:1369512905385</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:373b7c66-8270-481c-8623-727290d40d99:1369512905385</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:38ea4934-035d-4ca6-9962-61185ec9158b:1369512905386</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

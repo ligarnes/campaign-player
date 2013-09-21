@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0dad3797-ff7d-4a5c-b3f4-faa22ad1875a:1369512907930</guid>
    </id>
    <name>Projection astrale mineure</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f896f614-67a4-4f48-b093-4ee186531727:1369512907930</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bfe2b5f5-6b02-4263-b577-155a0c794e1a:1369512907930</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:333c6718-a23a-44c5-9241-a8a7b92ae817:1369512907930</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

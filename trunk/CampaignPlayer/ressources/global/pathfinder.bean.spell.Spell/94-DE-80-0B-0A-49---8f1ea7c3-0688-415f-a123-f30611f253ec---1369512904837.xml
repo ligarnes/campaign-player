@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8f1ea7c3-0688-415f-a123-f30611f253ec:1369512904837</guid>
    </id>
    <name>Forme bestiale I</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:eb9e6550-c196-4c35-86b6-5bb8fd1cf815:1369512904837</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0ff33a66-ab99-45f1-8cdf-f734957be1ad:1369512904837</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2caa7392-8ad0-466d-89f8-608319b694f8:1369512904837</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

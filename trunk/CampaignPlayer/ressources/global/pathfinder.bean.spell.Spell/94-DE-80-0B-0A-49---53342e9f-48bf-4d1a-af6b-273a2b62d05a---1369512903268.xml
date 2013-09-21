@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:53342e9f-48bf-4d1a-af6b-273a2b62d05a:1369512903268</guid>
    </id>
    <name>Apaisement des animaux</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:653f0595-2314-4524-b5a9-ebb1c2363cba:1369512903267</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b49cdc79-35e0-46b6-8fb6-cd0309a91fff:1369512903267</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:29828e53-54e7-452d-8dfe-aa46b3d905f4:1369512903267</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cb950b4b-cb30-416b-a97a-9cfdc61a2504:1369512907992</guid>
    </id>
    <name>Sens aiguisés</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f635c47c-46b5-4cb5-81f0-889524e9c012:1369512907991</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a89922a1-256d-4bef-80c7-8efecd97d809:1369512907991</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:75e6e40a-df52-4207-91d0-53044cc49c50:1369512907991</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

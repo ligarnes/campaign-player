@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:578a8874-85db-4eef-bad8-09ecdcdcca9d:1369512903184</guid>
    </id>
    <name>Animation des morts</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e79f2761-8671-4a6b-89c5-b8249d6073e7:1369512903184</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e35569b1-99a0-4094-b580-32223d8622cb:1369512903184</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3d417cb8-09b3-433b-bf1a-79ec5ad2f4de:1369512903184</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

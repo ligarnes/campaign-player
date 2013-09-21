@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5d759134-29e9-48b8-89fa-e52a0c6382ea:1369512906638</guid>
    </id>
    <name>Agonie</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2c4f4d05-80e1-47b8-af82-72be0cc5875e:1369512906638</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a56e58b8-5a1c-4d85-a923-cd362929490e:1369512906638</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a3d3d686-92ba-43cc-b646-c2aa75a8aac9:1369512906638</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

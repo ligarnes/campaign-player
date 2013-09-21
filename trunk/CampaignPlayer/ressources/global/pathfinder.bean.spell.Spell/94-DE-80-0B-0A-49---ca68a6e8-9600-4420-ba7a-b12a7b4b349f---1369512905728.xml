@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ca68a6e8-9600-4420-ba7a-b12a7b4b349f:1369512905728</guid>
    </id>
    <name>Porte de phase</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:019c2849-f5ba-4113-9ca9-2e8f5c29b295:1369512905728</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:18d86f03-ef86-4bdf-9584-834f1d934ac2:1369512905728</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6f0fd544-42d2-4cd0-bb66-ceb752c3d2b8:1369512905728</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

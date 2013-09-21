@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0adc4698-bdcd-4e3f-90df-9541ffa6f8c9:1369512905043</guid>
    </id>
    <name>Guérison des maladies</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6bbc9f9c-052a-48f7-82ae-aaaf36b836e7:1369512905043</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f30bb68b-915b-4515-825e-da066b416c75:1369512905043</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5346497d-03f9-4157-9dd5-fb89af50c780:1369512905043</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

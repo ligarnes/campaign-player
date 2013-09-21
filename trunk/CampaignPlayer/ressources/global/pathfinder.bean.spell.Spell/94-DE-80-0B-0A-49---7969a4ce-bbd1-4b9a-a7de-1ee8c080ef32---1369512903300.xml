@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7969a4ce-bbd1-4b9a-a7de-1ee8c080ef32:1369512903300</guid>
    </id>
    <name>Arme alignée</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:77732778-cfd4-40ae-9d93-27ecbe343e2e:1369512903300</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6472ceec-e5e5-4a80-9254-0829e225a8e4:1369512903300</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e7a80476-2acc-4ff1-b488-a5cfb86ae5dd:1369512903300</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

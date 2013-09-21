@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4aac016f-f843-4f08-8893-182135f25306:1369512907818</guid>
    </id>
    <name>Lance de pureté</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ce3507f0-8891-4502-b8a2-c220a80a5f68:1369512907817</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:447f1025-9140-46b9-a2c9-994972a25d8e:1369512907818</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:29b69525-d70a-49c9-a187-32644b35f860:1369512907818</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

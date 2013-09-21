@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3c2bc7ce-0bd9-45f2-b674-32f669de1999:1369512905370</guid>
    </id>
    <name>Manipulation à distance</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b73765c7-35ef-4525-a381-33d0520ff063:1369512905370</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:22c4b25c-7ec9-4d2e-acfd-97482a800982:1369512905370</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c9801912-bb42-41aa-856b-eed882b4af75:1369512905370</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

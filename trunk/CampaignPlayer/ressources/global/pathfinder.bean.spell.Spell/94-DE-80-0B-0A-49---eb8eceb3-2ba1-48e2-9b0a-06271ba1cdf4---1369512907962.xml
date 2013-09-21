@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:eb8eceb3-2ba1-48e2-9b0a-06271ba1cdf4:1369512907962</guid>
    </id>
    <name>Restauration d&apos;eidolon</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6dd2cc28-4932-4523-b7e4-2581e3404cf6:1369512907961</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6fd78d3a-c7cc-4a4d-9111-80198c4868cb:1369512907961</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b4168160-3d7e-43d3-b78b-c62c517905a3:1369512907962</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

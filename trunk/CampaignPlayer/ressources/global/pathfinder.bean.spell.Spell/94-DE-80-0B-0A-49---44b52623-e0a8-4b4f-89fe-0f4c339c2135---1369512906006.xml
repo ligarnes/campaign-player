@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:44b52623-e0a8-4b4f-89fe-0f4c339c2135:1369512906006</guid>
    </id>
    <name>Renvoi</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:31a976fd-f5a6-4106-b08a-553d9281050c:1369512906006</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e2317e5e-f9c9-4f66-af76-3a5bdfa99b12:1369512906006</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:583c721f-f827-40f4-aadd-8309003c5f93:1369512906006</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

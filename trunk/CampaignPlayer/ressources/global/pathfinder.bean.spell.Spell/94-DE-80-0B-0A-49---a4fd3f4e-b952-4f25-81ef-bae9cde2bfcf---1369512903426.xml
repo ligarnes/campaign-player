@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a4fd3f4e-b952-4f25-81ef-bae9cde2bfcf:1369512903426</guid>
    </id>
    <name>Bagou</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:052b26c2-3d76-4ee3-9070-04df2e43dca2:1369512903426</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:84a4f992-38df-47ac-a168-8fe0d5c06ab7:1369512903426</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:533f6a40-c682-43b6-aebf-cab2bdc53636:1369512903426</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

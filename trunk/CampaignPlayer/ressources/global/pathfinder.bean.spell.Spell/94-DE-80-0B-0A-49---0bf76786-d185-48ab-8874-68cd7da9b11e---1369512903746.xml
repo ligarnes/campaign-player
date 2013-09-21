@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0bf76786-d185-48ab-8874-68cd7da9b11e:1369512903746</guid>
    </id>
    <name>Charme-animal</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bc0fb5bb-d888-4ae2-a3ad-864013c92ba0:1369512903746</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ab01a4b5-07c7-4c17-9f0c-e7b106e0aa38:1369512903746</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:49845503-b60e-4460-9d1f-9b5227d8524a:1369512903746</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

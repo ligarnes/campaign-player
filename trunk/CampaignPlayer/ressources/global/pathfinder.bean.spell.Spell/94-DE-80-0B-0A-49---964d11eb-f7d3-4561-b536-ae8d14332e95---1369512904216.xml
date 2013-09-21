@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:964d11eb-f7d3-4561-b536-ae8d14332e95:1369512904216</guid>
    </id>
    <name>Création majeure</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d722a8d9-9929-4b71-b48f-f2f196ac5d51:1369512904216</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5bfd5540-2260-4447-91f6-66d97bb04238:1369512904216</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:34df7775-6cc3-4f4e-bbf2-63be1b0fe549:1369512904216</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

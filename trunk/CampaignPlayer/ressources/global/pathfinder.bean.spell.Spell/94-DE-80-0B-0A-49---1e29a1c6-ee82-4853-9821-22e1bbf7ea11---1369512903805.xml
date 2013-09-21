@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1e29a1c6-ee82-4853-9821-22e1bbf7ea11:1369512903805</guid>
    </id>
    <name>Coffre secret</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7e2398ad-99b3-4658-bbf8-90df883525dd:1369512903804</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3d350386-2ee8-4851-86da-49e2626a24ed:1369512903805</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:feb435cc-3b19-4e2e-a79b-02684e9aa619:1369512903805</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

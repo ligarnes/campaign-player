@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:828086a5-2006-4844-9c74-d1cd519439bd:1369512904160</guid>
    </id>
    <name>Couleurs dansantes</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:54687ec2-1fc8-43dd-93bf-e8bc762416cc:1369512904160</guid>
       </id>
       <unit>cases</unit>
       <value>3</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:777b2b8b-610a-4114-856e-66109c5740fc:1369512904160</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4de8ab4b-e66e-4ab0-939c-55dc0d8970e2:1369512904160</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

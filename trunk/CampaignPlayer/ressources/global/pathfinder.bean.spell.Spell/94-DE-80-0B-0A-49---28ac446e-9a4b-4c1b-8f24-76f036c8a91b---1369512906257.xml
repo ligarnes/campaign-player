@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:28ac446e-9a4b-4c1b-8f24-76f036c8a91b:1369512906257</guid>
    </id>
    <name>Splendeur de l&apos;aigle de groupe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3fdb9b2e-d4a0-42ee-8321-c3228afb33fe:1369512906257</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ef6592cb-5fcf-4597-b8d7-5198accbdc9c:1369512906257</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:826ebc2f-f762-427e-a6a1-2ea0310ea85c:1369512906257</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

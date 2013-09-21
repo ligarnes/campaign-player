@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a291ba50-1924-4f55-8d26-39bdd459e476:1369512905911</guid>
    </id>
    <name>Rayons prismatiques</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4c1a3f9b-12d6-4bde-91b4-73396af0e3ab:1369512905911</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:599bb04d-dfa9-4feb-b961-0d539200942c:1369512905911</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d7ef2e53-c1d3-449d-865b-cc100d3e0db9:1369512905911</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

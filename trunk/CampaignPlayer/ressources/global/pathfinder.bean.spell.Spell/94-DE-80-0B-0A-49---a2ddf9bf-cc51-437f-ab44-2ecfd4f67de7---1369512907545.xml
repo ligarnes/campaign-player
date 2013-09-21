@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a2ddf9bf-cc51-437f-ab44-2ecfd4f67de7:1369512907545</guid>
    </id>
    <name>Bouclier sacré</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:01737aa1-fd48-41fb-8bec-d3b938ffb941:1369512907545</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:74d20fb9-fb9b-4067-82f4-0be2de77169b:1369512907545</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b18aef3b-6e90-4c23-adfe-23618d0ecb49:1369512907545</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

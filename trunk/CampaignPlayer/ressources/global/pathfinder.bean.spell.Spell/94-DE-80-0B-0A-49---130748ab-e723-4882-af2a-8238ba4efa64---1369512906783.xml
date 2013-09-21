@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:130748ab-e723-4882-af2a-8238ba4efa64:1369512906783</guid>
    </id>
    <name>Contact défigurant</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3ead862a-26a2-4400-80db-4dbfb3a5defd:1369512906783</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:511b5f3c-07fd-4707-99d3-127329cacd72:1369512906783</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:57922663-9563-4152-a7a7-aa9d3e854891:1369512906783</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

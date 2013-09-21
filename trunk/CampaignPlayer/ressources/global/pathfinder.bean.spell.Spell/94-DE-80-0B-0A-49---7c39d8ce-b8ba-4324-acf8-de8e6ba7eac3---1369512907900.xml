@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7c39d8ce-b8ba-4324-acf8-de8e6ba7eac3:1369512907900</guid>
    </id>
    <name>Physique monstrueux I</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bcae6c6a-4c80-4a49-8178-6b09d5270cac:1369512907900</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:edd4b7eb-3de5-4cca-997c-a4a855f5db1c:1369512907900</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d5e16dae-8e21-43ef-aebc-475e4d8970a3:1369512907900</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

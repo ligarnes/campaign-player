@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8a961eea-4595-4866-a5f2-64d423537be5:1369512907453</guid>
    </id>
    <name>Aire de l&apos;aigle</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ef0553e2-aa1f-4445-847f-4a566080e5d9:1369512907453</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:087d87f0-ae49-4ae4-aea9-f5539e2cd9c7:1369512907453</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:46216bd4-0c05-4870-9630-5ea9633b105f:1369512907453</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

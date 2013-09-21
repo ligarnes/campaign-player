@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:79508cd3-24c5-4787-9e94-6951d1312083:1369512904501</guid>
    </id>
    <name>Disque flottant</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44b5c986-6c8e-4d28-b828-f162813d0a36:1369512904501</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c7975711-0ac9-466f-a16b-ffbc1732a65b:1369512904501</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1ddfe8ab-c877-48d2-9c5d-19b7acf13501:1369512904501</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

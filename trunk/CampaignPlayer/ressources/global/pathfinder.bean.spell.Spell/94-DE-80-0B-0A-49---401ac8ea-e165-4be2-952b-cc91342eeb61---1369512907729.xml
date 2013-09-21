@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:401ac8ea-e165-4be2-952b-cc91342eeb61:1369512907729</guid>
    </id>
    <name>Ennui oppressant</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e522b00-77ba-4d7a-bc2f-0099aeed25ba:1369512907729</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7560c8db-928e-42ae-acfa-f43112b2fa47:1369512907729</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1a33c1a2-dc0a-4f54-a126-3ad179c25315:1369512907729</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

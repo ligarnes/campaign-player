@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3c15e242-c796-4f55-befe-bad5910b9448:1369512907037</guid>
    </id>
    <name>Invasion d&apos;orties</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ed52199b-b45a-402d-be8e-b2c3341ce56e:1369512907037</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:101efa08-8276-497d-a488-d08b7ae16ab7:1369512907037</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:99069b6b-aa67-4dd8-b2fb-a2d2365f0dea:1369512907037</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

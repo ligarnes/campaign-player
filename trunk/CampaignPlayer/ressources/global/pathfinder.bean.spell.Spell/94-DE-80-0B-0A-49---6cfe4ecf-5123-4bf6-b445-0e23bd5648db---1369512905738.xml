@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6cfe4ecf-5123-4bf6-b445-0e23bd5648db:1369512905738</guid>
    </id>
    <name>Possession</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:75125baf-773b-486d-83ab-2271ea40d554:1369512905738</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3a46c2a6-75b2-43c6-a16b-8ef28111b727:1369512905738</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:80c00f70-186e-4ba3-b002-b69cd6f5d644:1369512905738</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

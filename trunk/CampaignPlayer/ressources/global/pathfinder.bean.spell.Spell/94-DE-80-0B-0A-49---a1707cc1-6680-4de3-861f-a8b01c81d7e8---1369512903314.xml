@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a1707cc1-6680-4de3-861f-a8b01c81d7e8:1369512903314</guid>
    </id>
    <name>Arme magique suprême</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fcc6f86e-2258-4f98-add5-9a7796495697:1369512903314</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d685948b-9036-40ac-96d3-43de9ea013cf:1369512903314</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d9511f01-aa71-43ae-bf7f-293fc6c262dc:1369512903314</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,9 +1,9 @@
 <monsterBuilder>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2d346972-c3a3-4a20-9190-18406e9c8350:1369827140065</guid>
    </id>
    <name>Orque</name>
-   <image serialVersionUID="1">
+   <image>
       <guid>94-DE-80-0B-0A-49:fd29f402-19e5-43ba-9b56-664a9d1c1a6f:1369827140058</guid>
    </image>
    <totalHp>6</totalHp>

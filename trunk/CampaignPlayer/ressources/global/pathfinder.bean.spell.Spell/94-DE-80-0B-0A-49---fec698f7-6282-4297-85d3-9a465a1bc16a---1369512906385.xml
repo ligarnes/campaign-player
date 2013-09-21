@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fec698f7-6282-4297-85d3-9a465a1bc16a:1369512906385</guid>
    </id>
    <name>Vent divin</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae7fa7c7-5ac5-4a72-bddd-b52e5204f624:1369512906384</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c12b7c2a-287a-42a6-90b6-9d0cb3e115f5:1369512906385</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:46011d7e-70ba-4461-9950-7f2a3ef67cff:1369512906385</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

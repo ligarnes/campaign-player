@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fac024bf-7f3d-45a4-8a78-1ea475886c32:1369512904608</guid>
    </id>
    <name>Empoisonnement</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a7bbf745-0676-4ea0-b326-99c84fed4cbd:1369512904608</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:48347112-4a9e-41f3-967e-6fcb284ff602:1369512904608</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6a2b317d-d99e-4c25-a835-d9e36a630e42:1369512904608</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7d4e01b7-a430-4f93-a064-3d971c97f022:1369512906754</guid>
    </id>
    <name>Carreau de peur</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:842d6568-ac9d-4a0e-9128-965fefd47bc5:1369512906754</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3d0f4f99-2bce-4664-bcb8-468777100240:1369512906754</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3360adf4-d700-4bfc-b742-f9854dcc9878:1369512906754</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

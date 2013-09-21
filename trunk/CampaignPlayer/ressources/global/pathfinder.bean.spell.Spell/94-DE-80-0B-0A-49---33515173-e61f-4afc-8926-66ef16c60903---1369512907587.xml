@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:33515173-e61f-4afc-8926-66ef16c60903:1369512907587</guid>
    </id>
    <name>Chevaucher les vagues</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c219c171-1a6b-4b70-9173-ab3e0168efc6:1369512907587</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5663d1f6-8d86-4c1c-ac8c-012cbb228a08:1369512907587</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c4f26d9e-a0a9-435d-86b9-80d9a274208d:1369512907587</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3dc0116b-f957-47ae-b6a2-9519aed9abd6:1369512906989</guid>
    </id>
    <name>Forme de vermine I</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2068203d-4ee3-43f4-bbe6-e77f4b154ea5:1369512906989</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5775d384-3992-4537-8eb8-a3f4f42353ff:1369512906989</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:66ba73a6-077c-4e29-b0a5-92f961421f48:1369512906989</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

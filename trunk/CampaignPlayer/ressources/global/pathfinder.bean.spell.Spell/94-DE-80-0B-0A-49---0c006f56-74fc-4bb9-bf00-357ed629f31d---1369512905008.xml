@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0c006f56-74fc-4bb9-bf00-357ed629f31d:1369512905008</guid>
    </id>
    <name>Gourdin magique</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4bf55b59-532f-4a38-bd17-bbc35ab262a8:1369512905008</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:14afa568-0e0a-487c-8fa4-84f9cd58ed1a:1369512905008</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:04f4fb04-81de-4c38-ba6b-4ee6afb45ae8:1369512905008</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

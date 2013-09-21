@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ba0ab157-7898-4ef3-8765-571261b73445:1369512905263</guid>
    </id>
    <name>Liberté de mouvement</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0d89c460-8a75-467d-8668-55790d9894d8:1369512905263</guid>
       </id>
       <value>personnelle ou contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:124721e6-2ce4-4637-ae9c-0fcab8727b87:1369512905263</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9b450965-70bd-4436-816f-2375f2a37536:1369512905263</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

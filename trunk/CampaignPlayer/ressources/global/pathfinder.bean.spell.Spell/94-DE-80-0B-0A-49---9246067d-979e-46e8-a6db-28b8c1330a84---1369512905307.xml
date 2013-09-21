@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9246067d-979e-46e8-a6db-28b8c1330a84:1369512905307</guid>
    </id>
    <name>Lumière du jour</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1c5f590f-efa0-4e1d-a72c-b170633d274d:1369512905306</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:570f9b76-af62-4331-8f7d-5f1f1a454316:1369512905306</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d83dc8ea-148c-4895-bd77-171f888f22a1:1369512905307</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

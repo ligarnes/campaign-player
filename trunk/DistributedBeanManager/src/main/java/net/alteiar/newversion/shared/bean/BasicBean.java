@@ -68,6 +68,15 @@ public abstract class BasicBean implements Serializable, IUniqueObject {
 	}
 
 	public void beanRemoved() {
+		for (PropertyChangeListener listener : propertyChangeSupport
+				.getPropertyChangeListeners().clone()) {
+			propertyChangeSupport.removePropertyChangeListener(listener);
+		}
+
+		for (VetoableChangeListener listener : vetoableRemoteChangeSupport
+				.getVetoableChangeListeners().clone()) {
+			vetoableRemoteChangeSupport.removeVetoableChangeListener(listener);
+		}
 	}
 
 	/**

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:eb3bdf97-7214-465a-96db-15ed8cef2bfa:1369512903822</guid>
    </id>
    <name>Communication à distance</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3449d14c-1a7f-4d60-8dbd-d8c5683afbbb:1369512903822</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f20880de-d86f-4a0c-8c9e-e8c7ab1c01bf:1369512903822</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:31c34e7c-e675-43d5-869a-3fb73fc3c88e:1369512903822</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

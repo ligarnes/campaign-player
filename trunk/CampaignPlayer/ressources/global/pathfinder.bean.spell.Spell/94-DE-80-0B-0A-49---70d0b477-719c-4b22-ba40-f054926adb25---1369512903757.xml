@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:70d0b477-719c-4b22-ba40-f054926adb25:1369512903757</guid>
    </id>
    <name>Charme-monstre de groupe</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c18330bf-d4a8-49a7-abf3-7281cebc36c6:1369512903757</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7dc0c1d2-b59b-4cdd-9bb0-ae1a7f2f25e1:1369512903757</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0a4ef3db-7090-44e3-9ce2-21823d2b2c64:1369512903757</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5326a0c3-9f51-49b6-93eb-57cda35ad69b:1369512907395</guid>
    </id>
    <name>Vision infernale</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be5e5b8a-d3ea-4ac8-8ab5-2e0310edf637:1369512907395</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:69175eff-54d2-4165-93b4-7302f839c42f:1369512907395</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:87e0c805-31ca-47a8-aeb8-b533f6090f0d:1369512907395</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

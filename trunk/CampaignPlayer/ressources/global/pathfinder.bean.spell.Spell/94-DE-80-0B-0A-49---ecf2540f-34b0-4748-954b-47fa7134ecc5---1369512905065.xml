@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ecf2540f-34b0-4748-954b-47fa7134ecc5:1369512905065</guid>
    </id>
    <name>Héroïsme</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6dbb0c28-7f92-4402-8e72-323f43146497:1369512905064</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0aadf29-3772-43f0-9d91-360022321e63:1369512905065</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:88b2d2c7-afe7-4f62-923e-c5fb9c7d7e25:1369512905065</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:23611337-baa7-43c6-99fa-2222ecaf6cb9:1369512906272</guid>
    </id>
    <name>Suggestion de groupe</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:52ec0b71-fe04-4177-a9b2-ff0a74f4ab20:1369512906272</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8a676098-940a-443f-93c3-9365fc957378:1369512906272</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:74dcaa36-2f37-4f34-899e-0cf55a8779d0:1369512906272</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

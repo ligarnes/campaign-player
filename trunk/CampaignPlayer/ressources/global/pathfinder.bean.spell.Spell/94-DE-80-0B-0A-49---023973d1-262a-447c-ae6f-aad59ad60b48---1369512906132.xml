@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:023973d1-262a-447c-ae6f-aad59ad60b48:1369512906132</guid>
    </id>
    <name>Séquestration</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:63e4c721-f0fd-43db-8be7-8cfde81f4a5d:1369512906132</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:35fef917-7f56-44d8-ab84-a90b3794e81a:1369512906132</guid>
       </id>
       <unit>special</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:807933b7-6a0e-4fc1-a641-df5fe7a053ad:1369512906132</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>
