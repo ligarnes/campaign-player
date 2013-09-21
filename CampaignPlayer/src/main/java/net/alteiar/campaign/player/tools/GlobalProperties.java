@@ -7,6 +7,8 @@ import java.io.Serializable;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.logger.ExceptionTool;
 
+import org.apache.log4j.Logger;
+
 /**
  * 
  * @author Cody Stoutenburg
@@ -20,15 +22,7 @@ public class GlobalProperties implements Serializable {
 	private static final String KEY_CREATE_COLOR_RED = "create.color.red";
 	private static final String KEY_CREATE_COLOR_GREEN = "create.color.green";
 	private static final String KEY_CREATE_COLOR_BLUE = "create.color.blue";
-	private static final String KEY_CREATE_IP_LOCAL = "create.ipLocal";
-	private static final String KEY_CREATE_PORT = "create.port";
 
-	private static final String KEY_JOIN_IP_LOCAL = "join.ipLocal";
-	private static final String KEY_JOIN_IP_SERVER = "join.ipServer";
-	private static final String KEY_JOIN_PORT = "join.port";
-
-	private static final String KEY_LOAD_IP_LOCAL = "load.ipLocal";
-	private static final String KEY_LOAD_PORT = "load.port";
 	private static final String KEY_LOAD_CAMPAIGN = "load.campaign";
 
 	private static final String KEY_CHOOSE_PLAYER = "load.player";
@@ -38,6 +32,8 @@ public class GlobalProperties implements Serializable {
 
 	private static final String KEY_LANGUAGE = "language";
 	private static final String KEY_COUNTRY = "country";
+
+	private static final String KEY_GAME_SYSTEM = "game.system";
 
 	private final PropertieBase property;
 
@@ -58,9 +54,16 @@ public class GlobalProperties implements Serializable {
 		} catch (IOException e) {
 			// if we fail to save just too bad, properties are here to help
 			// user
-			ExceptionTool.showWarning(e,
-					"Impossible de sauvegarder les propietes");
+			Logger.getLogger(getClass()).debug(e);
 		}
+	}
+
+	public String getGameSystem() {
+		return property.getValue(KEY_GAME_SYSTEM, "Inconnu");
+	}
+
+	public void setGameSystem(String gameSystem) {
+		this.property.setValue(KEY_GAME_SYSTEM, gameSystem);
 	}
 
 	public String getCreatePseudo() {
@@ -84,46 +87,6 @@ public class GlobalProperties implements Serializable {
 				String.valueOf(color.getGreen()));
 		property.setValue(KEY_CREATE_COLOR_BLUE,
 				String.valueOf(color.getBlue()));
-	}
-
-	public String getCreateIpLocal() {
-		return property.getValue(KEY_CREATE_IP_LOCAL, "127.0.0.1");
-	}
-
-	public void setCreateIpLocal(String ipLocal) {
-		property.setValue(KEY_CREATE_IP_LOCAL, ipLocal);
-	}
-
-	public String getCreatePort() {
-		return property.getValue(KEY_CREATE_PORT, "1099");
-	}
-
-	public void setCreatePort(String port) {
-		property.setValue(KEY_CREATE_PORT, port);
-	}
-
-	public String getJoinIpLocal() {
-		return property.getValue(KEY_JOIN_IP_LOCAL, "127.0.0.1");
-	}
-
-	public void setJoinIpLocal(String ipLocal) {
-		property.setValue(KEY_JOIN_IP_LOCAL, ipLocal);
-	}
-
-	public String getJoinIpServer() {
-		return property.getValue(KEY_JOIN_IP_SERVER, "127.0.0.1");
-	}
-
-	public void setJoinIpServer(String ipServer) {
-		property.setValue(KEY_JOIN_IP_SERVER, ipServer);
-	}
-
-	public String getJoinPort() {
-		return property.getValue(KEY_JOIN_PORT, "1099");
-	}
-
-	public void setJoinPort(String port) {
-		property.setValue(KEY_JOIN_PORT, port);
 	}
 
 	public String getPathImages() {
@@ -161,22 +124,6 @@ public class GlobalProperties implements Serializable {
 	/**
 	 * Load methods
 	 */
-	public String getLoadIpLocal() {
-		return property.getValue(KEY_LOAD_IP_LOCAL, "127.0.0.1");
-	}
-
-	public void setLoadIpLocal(String ipLocal) {
-		property.setValue(KEY_LOAD_IP_LOCAL, ipLocal);
-	}
-
-	public String getLoadPort() {
-		return property.getValue(KEY_LOAD_PORT, "1099");
-	}
-
-	public void setLoadPort(Integer port) {
-		property.setValue(KEY_LOAD_PORT, port.toString());
-	}
-
 	public String getLoadCampaign() {
 		return property.getValue(KEY_LOAD_CAMPAIGN, "");
 	}

@@ -7,7 +7,6 @@ public class HelpersPath {
 	public static final String PATH_PROPERTIES = "./ressources/data/";
 	public static final String PATH_SAVE = "./save/";
 	public static final String PATH_PLUGIN = "./ressources/plugin/";
-	public static final String PATH_DOCUMENT_GLOBAL = "./ressources/global/";
 
 	public static String getPathTexture(String name) {
 		return PATH_TEXTURE + name;

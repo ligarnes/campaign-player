@@ -2,7 +2,6 @@ package net.alteiar.campaign.player.plugin;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,112 +20,99 @@ import net.alteiar.campaign.player.plugin.external.DocumentPlugin;
 import net.alteiar.campaign.player.plugin.external.IPlugin;
 import net.alteiar.campaign.player.plugin.external.MapElementPlugin;
 import net.alteiar.campaign.player.plugin.external.PluginList;
-import net.alteiar.campaign.player.tools.PropertieBase;
+import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.kryo.MyKryoInit;
+import net.alteiar.thread.MyRunnable;
 
 import org.apache.log4j.Logger;
 
 public class PluginSystem {
 
-	private static PluginSystem INSTANCE = new PluginSystem();
+	private static PluginSystem INSTANCE;// = new PluginSystem();
+
+	public static void buildPluginSystem(PluginInfo path) throws IOException {
+		INSTANCE = new PluginSystem(path);
+		INSTANCE.initialize();
+	}
 
 	public static PluginSystem getInstance() {
 		return INSTANCE;
 	}
 
-	private static final String PROP_PLUGIN_NAME = "name";
-	private static final String PROP_JAR_NAME = "jar";
-	private static final String PROP_CLASS_DOCUMENT_PLUGIN_NAME = "document.classname";
-	private static final String PROP_CLASS_CORE_PLUGIN_NAME = "core.classname";
-
 	private ICorePlugin core;
+	private IPlugin plugin;
 	private final PluginList<DocumentPlugin> pluginDocument;
 	private final PluginList<MapElementPlugin> pluginElements;
 
 	private final MyKryoInit kryo;
 
-	public PluginSystem() {
+	private final String pluginPath;
+
+	public String getPluginBeans() {
+		return pluginPath;
+	}
+
+	public PluginSystem(PluginInfo pluginInfo) throws IOException {
+		pluginPath = pluginInfo.getJar().getParentFile().getCanonicalPath()
+				+ "/global";
+
 		kryo = new MyKryoInit();
 
 		pluginDocument = new PluginList<DocumentPlugin>();
 		pluginElements = new PluginList<MapElementPlugin>();
 
 		try {
-			loadPlugin("./ressources/plugin/pathfinder/");
+			for (File dep : pluginInfo.getDependencies()) {
+				ClassLoaderUtil.addFile(dep);
+			}
+
+			ClassLoaderUtil.addFile(pluginInfo.getJar());
+
+			core = (ICorePlugin) ClassLoader.getSystemClassLoader()
+					.loadClass(pluginInfo.getCorePlugin()).newInstance();
+
+			plugin = (IPlugin) ClassLoader.getSystemClassLoader()
+					.loadClass(pluginInfo.getDocumentPlugin()).newInstance();
+
+			for (DocumentPlugin plug : plugin.getDocuments()) {
+				this.pluginDocument.addPlugin(plug);
+			}
+
+			for (MapElementPlugin plug : plugin.getMapElements()) {
+				pluginElements.addPlugin(plug);
+			}
+
+			MyKryoInit kryo = new MyKryoInit();
+			kryo.addPluginClasses(plugin.getClasses());
+
 		} catch (Exception e) {
 			Logger.getLogger(getClass()).error("enable to load plugin ", e);
 			ExceptionTool.showError(e);
 		}
 	}
 
+	public void initialize() {
+		Threads.execute(new MyRunnable() {
+			@Override
+			public void run() {
+				try {
+					plugin.initialize();
+				} catch (Exception ex) {
+					Logger.getLogger(getClass()).error(
+							"Error while initializing pluggin", ex);
+				}
+			}
+
+			@Override
+			public String getTaskName() {
+				return "initialize plugin";
+			}
+		});
+	}
+
 	public MyKryoInit getKryo() {
 		return kryo;
-	}
-
-	public void loadPlugin(String directory) throws FileNotFoundException,
-			IOException {
-
-		File dir = new File(directory);
-
-		PropertieBase propertie = new PropertieBase(directory + "plugin.prop");
-		propertie.load();
-
-		String jarFile = propertie.getValue(PROP_JAR_NAME);
-		File jar = new File(dir, jarFile.trim());
-
-		if (!jar.exists()) {
-			throw new FileNotFoundException("Le fichier de plugin: "
-					+ jar.getCanonicalPath() + " n'as pas été trouvé");
-		}
-		ClassLoaderUtil.addFile(jar);
-
-		String pluginName = propertie.getValue(PROP_PLUGIN_NAME);
-
-		try {
-			// load document plugin
-			loadDocumentPlugin(propertie);
-
-			// load map elements
-
-			// load system specific
-			loadCorePlugin(propertie);
-		} catch (Exception e) {
-			Logger.getLogger(getClass()).error(
-					"enable to load plugin " + pluginName, e);
-			ExceptionTool.showError(e);
-		}
-	}
-
-	private void loadCorePlugin(PropertieBase propertie)
-			throws InstantiationException, IllegalAccessException,
-			ClassNotFoundException {
-		String className = propertie.getValue(PROP_CLASS_CORE_PLUGIN_NAME);
-
-		core = (ICorePlugin) ClassLoader.getSystemClassLoader()
-				.loadClass(className).newInstance();
-	}
-
-	private void loadDocumentPlugin(PropertieBase propertie)
-			throws InstantiationException, IllegalAccessException,
-			ClassNotFoundException {
-
-		String className = propertie.getValue(PROP_CLASS_DOCUMENT_PLUGIN_NAME);
-
-		IPlugin plugin;
-		plugin = (IPlugin) ClassLoader.getSystemClassLoader()
-				.loadClass(className).newInstance();
-
-		for (DocumentPlugin plug : plugin.getDocuments()) {
-			pluginDocument.addPlugin(plug);
-		}
-
-		for (MapElementPlugin plug : plugin.getMapElements()) {
-			pluginElements.addPlugin(plug);
-		}
-
-		MyKryoInit kryo = new MyKryoInit();
-		kryo.addPluginClasses(plugin.getClasses());
 	}
 
 	public DrawFilter getDrawInfo(MapEditableInfo mapInfo) {

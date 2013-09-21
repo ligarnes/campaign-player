@@ -33,13 +33,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-import net.alteiar.campaign.CampaignFactoryNew;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
-import net.alteiar.campaign.player.plugin.PluginSystem;
 import net.alteiar.campaign.player.tools.GlobalProperties;
-import net.alteiar.campaign.player.tools.NetworkProperties;
 import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.component.MyList;
 import net.alteiar.thread.MyRunnable;
@@ -117,11 +114,7 @@ public class PanelLoadGame extends PanelStartGameDialog {
 		Threads.execute(new MyRunnable() {
 			@Override
 			public void run() {
-				NetworkProperties networkProp = new NetworkProperties();
-				CampaignFactoryNew.loadCampaign(networkProp.getServerIp(),
-						networkProp.getServerPort(), HelpersPath.PATH_SAVE,
-						HelpersPath.PATH_DOCUMENT_GLOBAL, campaignPath,
-						PluginSystem.getInstance().getKryo());
+				MyCampaignFactory.loadCampaign(campaignPath);
 			}
 
 			@Override
@@ -134,7 +127,6 @@ public class PanelLoadGame extends PanelStartGameDialog {
 	}
 
 	public Vector<String> getSavedGames() {
-
 		Vector<String> savedGames = new Vector<String>();
 
 		File folder = new File(HelpersPath.PATH_SAVE);

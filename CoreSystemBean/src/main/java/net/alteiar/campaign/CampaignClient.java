@@ -150,6 +150,13 @@ public final class CampaignClient implements DocumentManagerListener {
 	public static <E extends BasicBean> ArrayList<E> loadDirectory(
 			File globalPath, Class<E> classes) {
 		File globalFile = new File(globalPath, classes.getCanonicalName());
+		try {
+			System.out
+					.println("file to load: " + globalFile.getCanonicalPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return loadDirectory(globalFile);
 	}
 
