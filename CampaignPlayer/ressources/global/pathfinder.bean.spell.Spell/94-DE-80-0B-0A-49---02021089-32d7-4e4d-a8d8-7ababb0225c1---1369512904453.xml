@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:02021089-32d7-4e4d-a8d8-7ababb0225c1:1369512904453</guid>
    </id>
    <name>Détection des passages secrets</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e2781f66-d108-4a57-b0e2-a039a83b13c6:1369512904452</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b8d454dc-6dcd-44ba-b27f-52504c2d20b9:1369512904452</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f407fe1c-c2a6-4d5b-9aae-86937ca8ea3d:1369512904452</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

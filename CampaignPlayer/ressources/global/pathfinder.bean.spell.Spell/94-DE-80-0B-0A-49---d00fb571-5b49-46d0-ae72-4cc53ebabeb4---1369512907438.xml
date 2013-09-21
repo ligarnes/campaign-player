@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d00fb571-5b49-46d0-ae72-4cc53ebabeb4:1369512907438</guid>
    </id>
    <name>Action interdite</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:840c4b9a-e535-437d-9e88-71b5bffde9c1:1369512907438</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9bad503-f61a-4ed6-a9a4-eeb3d45e615e:1369512907438</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:79befbfe-a6e7-4f5b-a9a5-2c9432490682:1369512907438</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

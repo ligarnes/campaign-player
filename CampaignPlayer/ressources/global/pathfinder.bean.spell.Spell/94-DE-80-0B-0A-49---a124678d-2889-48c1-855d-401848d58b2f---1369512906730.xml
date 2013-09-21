@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a124678d-2889-48c1-855d-401848d58b2f:1369512906730</guid>
    </id>
    <name>Boulette</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ddc38c5b-890b-43af-bc0a-fee1871dac29:1369512906730</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:66372062-bda9-4aa4-91f3-7fdf54df8a7d:1369512906730</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ed602eea-1a5c-44e8-b00e-7d0a1e76c05d:1369512906730</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

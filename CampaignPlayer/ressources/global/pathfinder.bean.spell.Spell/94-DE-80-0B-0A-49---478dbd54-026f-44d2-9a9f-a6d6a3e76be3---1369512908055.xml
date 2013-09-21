@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:478dbd54-026f-44d2-9a9f-a6d6a3e76be3:1369512908055</guid>
    </id>
    <name>Transmutation du sang en acide</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:eb6de88b-2888-4ad3-8934-df0c6b6a7941:1369512908055</guid>
       </id>
       <value>ccourte (7,50 m + 1,50 m/2 niveaux) (5 c + 1 c/2 niveaux)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7984976c-9c78-4986-a6cc-7d1e4a938fc9:1369512908055</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be35b369-b848-4115-8776-129e88e3dd2a:1369512908055</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

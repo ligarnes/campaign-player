@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:849f4035-ad5c-49d0-837c-8e326b0b79f3:1369512907620</guid>
    </id>
    <name>Convocation de froghémoth</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bdcff610-8f83-4a2a-a7db-0a1f3f807b42:1369512907620</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:75c12832-addd-4362-b81e-c413be75abd7:1369512907620</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:83aa4148-5d75-4499-8050-96fc03953263:1369512907620</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

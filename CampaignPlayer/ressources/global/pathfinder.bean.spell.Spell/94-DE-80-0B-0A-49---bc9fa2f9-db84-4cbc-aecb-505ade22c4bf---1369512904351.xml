@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bc9fa2f9-db84-4cbc-aecb-505ade22c4bf:1369512904351</guid>
    </id>
    <name>Délivrance</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:395cb0f4-f022-4c43-a950-6263bdc8b123:1369512904351</guid>
       </id>
       <value>courte (7,50 m + 1,50 m/2 niveaux) (5 case(s) + 1 case(s)/2 niveaux) (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6d36459b-6471-4cf7-beba-2086f8c7ad5c:1369512904351</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd3c45c0-77a7-4e00-9e5d-8db1316541ab:1369512904351</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:646a10db-94a0-430b-b69e-0d88dd095e3f:1369512905555</guid>
    </id>
    <name>Mur prismatique</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b80b82ec-e681-4374-8160-be43ef516f19:1369512905555</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:011ff9f0-3f6a-4319-bdc4-51464a9caed9:1369512905555</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d69847b6-2190-4032-9283-2aef5a0f1762:1369512905555</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4b418a91-6142-4f91-b298-6ec05d8bcab7:1369512904247</guid>
    </id>
    <name>Croissance animale</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7a9028d6-e7ed-4bd3-9c42-38a0ffc58d83:1369512904247</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c4312b46-a376-447e-bea6-5f16cbbadb30:1369512904247</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:391ac6d3-f80b-42a6-b60a-a649c698ec67:1369512904247</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

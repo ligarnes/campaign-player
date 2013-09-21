@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c3282060-aa89-4734-8ae9-a51dbea9e1e1:1369512904759</guid>
    </id>
    <name>Feuille morte</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:84e688d4-6aed-4ef0-9d0f-a9b4272fc467:1369512904758</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9d0451e7-5d4f-4de2-ab60-d0c87d916710:1369512904759</guid>
       </id>
       <unit>immediateAction</unit>
@@ -21,7 +21,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1cdc5d81-8e01-4859-944d-d3211fad3ed0:1369512904759</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

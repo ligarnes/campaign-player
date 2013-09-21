@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2035d51b-154e-474d-a2cc-c16e96642abc:1369512907375</guid>
    </id>
    <name>Transformation de maître</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8bfd0d6c-1f3f-4e8d-ae72-394f3270ce5f:1369512907375</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d3c13ee8-8276-40e0-937d-dde52c147de9:1369512907375</guid>
       </id>
       <unit>hour</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d7849b39-555d-43a7-8d56-0bbd1be06ab3:1369512907375</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

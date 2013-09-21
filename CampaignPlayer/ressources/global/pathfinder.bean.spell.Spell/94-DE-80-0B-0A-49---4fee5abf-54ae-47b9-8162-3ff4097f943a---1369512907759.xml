@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4fee5abf-54ae-47b9-8162-3ff4097f943a:1369512907759</guid>
    </id>
    <name>Folle hallucination</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f358895d-2712-42e4-981c-6d15858bbd72:1369512907759</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6d17f488-af72-447a-acc4-b668ca0e5121:1369512907759</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cc416a28-be46-4aa9-8714-ec37703d1364:1369512907759</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

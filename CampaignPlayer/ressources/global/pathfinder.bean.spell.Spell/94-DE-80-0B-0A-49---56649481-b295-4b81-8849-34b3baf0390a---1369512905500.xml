@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:56649481-b295-4b81-8849-34b3baf0390a:1369512905500</guid>
    </id>
    <name>Mort rampante</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a2e69daf-f8bb-43f2-a43b-cd6cc27c2cfc:1369512905500</guid>
       </id>
       <value>courte (7,50 m + 1,50 m/2 niveaux) (5 case(s) + 1 case(s)/2 niveaux) (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d28fb41c-5a61-4691-8c43-29d911586c10:1369512905500</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0fa929e9-d1c8-4587-80cf-e883c3eb567f:1369512905500</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

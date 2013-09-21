@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2fb38b64-060a-4299-8c30-01f0a6738874:1369512906699</guid>
    </id>
    <name>Arme d&apos;ombre</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:60a36b1e-dc78-43e5-8f37-9066e20ef82b:1369512906698</guid>
       </id>
       <unit>cases</unit>
       <value>0</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:89690780-2be0-4b56-a879-6656d820c315:1369512906699</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3509b8c7-449c-449d-9ea7-86646784dd4d:1369512906699</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

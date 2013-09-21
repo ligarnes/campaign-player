@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a86930a5-13ba-4795-979c-34906f1d82ab:1369512907326</guid>
    </id>
    <name>Symbole de lutte</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5a593267-a14f-4ebc-b80c-8e9bea203292:1369512907326</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c5387a19-9a7a-454e-bc08-ff74500df608:1369512907326</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:497c2015-3466-41a7-b66a-15eac122af93:1369512907326</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

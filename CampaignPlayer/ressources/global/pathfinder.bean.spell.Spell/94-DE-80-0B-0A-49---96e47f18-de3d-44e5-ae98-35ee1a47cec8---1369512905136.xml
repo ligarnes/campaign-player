@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:96e47f18-de3d-44e5-ae98-35ee1a47cec8:1369512905136</guid>
    </id>
    <name>Immobilisation d&apos;animal</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d5811dbe-c134-4628-bc95-568d46a839ca:1369512905136</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:39b64ca3-a5ae-4885-9ada-3e95333bd819:1369512905136</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2a597d26-7bd4-4240-bb97-94196d372f36:1369512905136</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:69d00d9c-14de-4190-b16b-dc4a316e53c3:1369512903149</guid>
    </id>
    <name>Analyse d&apos;enchantement</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d2491095-dde6-48e7-9af7-3310c2673a15:1369512903149</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5948cbf8-645f-4846-bd68-95342cfc0ddb:1369512903149</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d5e06cdf-7cfa-4756-a0c4-a5b65892f2fe:1369512903149</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

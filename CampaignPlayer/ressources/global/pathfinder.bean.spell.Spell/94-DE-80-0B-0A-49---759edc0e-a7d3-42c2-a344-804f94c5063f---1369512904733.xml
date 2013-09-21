@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:759edc0e-a7d3-42c2-a344-804f94c5063f:1369512904733</guid>
    </id>
    <name>Fatigue</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:19b9767c-8859-4582-99b4-74f81900c4df:1369512904732</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:24a8f191-5ef3-4bd7-924e-2aebf71624c0:1369512904732</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3c0c4c4e-6c44-45f6-aa1f-a1ccfb7626dd:1369512904733</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

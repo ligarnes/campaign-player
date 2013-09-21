@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:dac5a24e-75e2-42bf-ad8c-02fb7e0f8472:1369512904072</guid>
    </id>
    <name>Convocation de monstres VI</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a26d019e-a2d0-4fbd-b571-b74ad2bcdf3a:1369512904071</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8bd12430-5c2e-4d64-b6f1-90e5942a0a14:1369512904071</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:209ccb00-7e1f-4ccf-8e78-0eb4635d002e:1369512904072</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

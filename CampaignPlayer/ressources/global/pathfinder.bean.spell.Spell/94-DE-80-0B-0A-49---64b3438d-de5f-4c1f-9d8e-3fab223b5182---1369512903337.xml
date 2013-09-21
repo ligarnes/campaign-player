@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:64b3438d-de5f-4c1f-9d8e-3fab223b5182:1369512903337</guid>
    </id>
    <name>Armure de mage</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd314166-baec-4800-9f60-bf513f2275aa:1369512903337</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a12da913-5010-4f51-a2c1-e89fbe0bdfbf:1369512903337</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b9f1e963-4d21-4bfe-b995-5262d9c372f1:1369512903337</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

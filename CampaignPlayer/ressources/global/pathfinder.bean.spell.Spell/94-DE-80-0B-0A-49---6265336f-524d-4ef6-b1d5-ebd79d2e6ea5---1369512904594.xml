@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6265336f-524d-4ef6-b1d5-ebd79d2e6ea5:1369512904594</guid>
    </id>
    <name>Éloignement du métal et de la pierre</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:edb40b22-f239-4913-868d-c5b31a904ee9:1369512904594</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:321c110c-34d8-40ac-af75-24e22166fadc:1369512904594</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bf4f1a77-ee71-4737-b0db-e659a62a4764:1369512904594</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

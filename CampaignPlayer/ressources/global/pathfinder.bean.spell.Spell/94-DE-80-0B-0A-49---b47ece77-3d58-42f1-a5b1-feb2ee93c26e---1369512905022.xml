@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b47ece77-3d58-42f1-a5b1-feb2ee93c26e:1369512905022</guid>
    </id>
    <name>Graisse</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ec42281b-16b9-4976-9f8e-50385aeaaf2a:1369512905022</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44d96b15-e52c-4e53-91a3-c60130fa8aef:1369512905022</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d63d8d7a-01c2-46be-9b31-dfc381e30115:1369512905022</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

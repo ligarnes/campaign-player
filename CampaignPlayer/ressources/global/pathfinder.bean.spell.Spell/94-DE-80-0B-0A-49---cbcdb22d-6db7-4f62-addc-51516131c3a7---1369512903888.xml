@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cbcdb22d-6db7-4f62-addc-51516131c3a7:1369512903888</guid>
    </id>
    <name>Contact glacial</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4582ccd7-8599-4d69-bd6b-5943bea082ba:1369512903888</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7e674ede-1e35-4ef1-aebd-4c4e1f3f0b44:1369512903888</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fa9f907a-90c0-4764-8496-fc7e887cbfb8:1369512903888</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

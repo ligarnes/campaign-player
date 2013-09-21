@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:59265b8b-529e-4783-b214-1979cfed3572:1369512904811</guid>
    </id>
    <name>Flou</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:860b31f7-0e89-49cb-9f16-d2f98ab47b3e:1369512904810</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ed629e3c-b7fc-4cd5-b49b-5c4a7b32c034:1369512904810</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5de42dd5-e569-4ac6-ad6d-658a7931f75d:1369512904810</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e51de47d-4e23-47a5-a7e8-473cab8db622:1369512903495</guid>
    </id>
    <name>Bénédiction de l&apos;eau</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9596f6fa-ecf7-4dd6-8cfd-2bb8c976f484:1369512903495</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:afe70c0e-fd77-42e1-9e8b-722ef97e0f66:1369512903495</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d52ba0ab-17fe-4c91-a8f9-57524cbe9fbe:1369512903495</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

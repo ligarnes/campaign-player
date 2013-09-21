@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:48b22c7e-8f20-4c54-ade9-68e2164dc6c6:1369512907719</guid>
    </id>
    <name>Échec annoncé</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e1c647e0-9ab4-4a63-bece-d0db19f85b43:1369512907719</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c4c92089-838f-42e3-8451-efb09095deda:1369512907719</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:36337728-081a-4b12-9cb5-da0f9cf84f04:1369512907719</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

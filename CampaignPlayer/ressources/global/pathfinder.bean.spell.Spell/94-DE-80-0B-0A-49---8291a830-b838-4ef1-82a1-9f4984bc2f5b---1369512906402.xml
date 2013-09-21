@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8291a830-b838-4ef1-82a1-9f4984bc2f5b:1369512906402</guid>
    </id>
    <name>Verrouillage</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a1220b58-33db-46bb-8a62-92467c8a958a:1369512906402</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:26a92878-0624-4d8b-b435-c8a221d8fa7b:1369512906402</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dc542e92-7da9-45ff-88e4-882797987f5d:1369512906402</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

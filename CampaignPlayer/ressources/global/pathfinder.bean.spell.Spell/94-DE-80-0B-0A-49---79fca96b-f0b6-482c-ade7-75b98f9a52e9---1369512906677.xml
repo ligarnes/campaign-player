@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:79fca96b-f0b6-482c-ade7-75b98f9a52e9:1369512906677</guid>
    </id>
    <name>Animal anthropomorphe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c8945539-084b-472c-9d10-1821f740e069:1369512906677</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6e483d29-7cd5-4564-8250-3b6505cc0ae6:1369512906677</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:669ac784-3e9a-456d-89d0-4bd57e28cfe6:1369512906677</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

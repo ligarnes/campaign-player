@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:807d4895-2cc6-4685-807f-13c8cd7943c0:1369512904457</guid>
    </id>
    <name>Détection des pièges</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:70083613-ffd5-4765-b4f6-17e6ac2b628d:1369512904457</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f82b8bf6-667b-434c-9ea6-45c391288b76:1369512904457</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e81d0a17-ced9-4bd0-a611-a36b88b95496:1369512904457</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

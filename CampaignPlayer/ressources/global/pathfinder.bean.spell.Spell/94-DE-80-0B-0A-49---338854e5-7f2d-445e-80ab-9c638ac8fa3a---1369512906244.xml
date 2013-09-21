@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:338854e5-7f2d-445e-80ab-9c638ac8fa3a:1369512906244</guid>
    </id>
    <name>Sphère d&apos;isolement</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dba58434-8754-4622-ad02-109b25d77936:1369512906244</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ed16c196-969e-4484-95a9-90db8b4b64a1:1369512906244</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9c2c890-7597-483b-9581-dae80e9d6ed3:1369512906244</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

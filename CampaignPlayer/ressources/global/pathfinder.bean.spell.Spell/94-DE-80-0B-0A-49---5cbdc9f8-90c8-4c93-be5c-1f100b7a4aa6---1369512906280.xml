@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5cbdc9f8-90c8-4c93-be5c-1f100b7a4aa6:1369512906280</guid>
    </id>
    <name>Symbole de douleur</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5629f345-1d5a-490b-9c07-05f383c10276:1369512906280</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2db08912-28e8-49d9-82ee-0d7de363f81a:1369512906280</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:66c88ad1-04d0-40e5-9362-a621a008d8b8:1369512906280</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

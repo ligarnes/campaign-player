@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1ea8d16d-1015-4068-bd83-0ea92ca6879d:1369512907030</guid>
    </id>
    <name>Innombrables yeux</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:25dad9e1-4584-4c0e-bc51-f8b5619072e9:1369512907030</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bc19b076-6575-4832-a6a5-cb62bbe8923b:1369512907030</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0a8e53c7-04fe-43a0-a0cd-f35f5a0909ae:1369512907030</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

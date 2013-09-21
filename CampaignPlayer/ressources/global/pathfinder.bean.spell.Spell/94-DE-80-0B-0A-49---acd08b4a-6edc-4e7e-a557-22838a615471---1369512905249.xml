@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:acd08b4a-6edc-4e7e-a557-22838a615471:1369512905249</guid>
    </id>
    <name>Lenteur</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:63c511cb-d6a7-4bbe-89f1-01b10bde3a72:1369512905249</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:64a29a18-8c3d-4043-91d5-d165894c1eff:1369512905249</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7e6b59ce-a953-4222-bb58-20b05ca53466:1369512905249</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

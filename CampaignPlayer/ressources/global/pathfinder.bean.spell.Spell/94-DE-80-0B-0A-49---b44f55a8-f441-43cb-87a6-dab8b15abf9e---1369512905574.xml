@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b44f55a8-f441-43cb-87a6-dab8b15abf9e:1369512905574</guid>
    </id>
    <name>Neutralisation du poison</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44ea8f0d-5993-4d65-a3bd-adc984fcb07a:1369512905573</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:71f00287-1b6d-4a05-8725-d8e7d34f9499:1369512905573</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:291ee778-3795-45f3-8ff1-1121cc1f8f21:1369512905574</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

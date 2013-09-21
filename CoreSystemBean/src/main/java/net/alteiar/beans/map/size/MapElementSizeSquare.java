@@ -25,7 +25,6 @@ import java.io.ObjectOutput;
 
 import net.alteiar.beans.map.Scale;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
 /**
@@ -33,7 +32,6 @@ import org.simpleframework.xml.Element;
  * 
  */
 public class MapElementSizeSquare extends MapElementSize {
-	@Attribute
 	private static final long serialVersionUID = -9152421144887148374L;
 	@Element
 	private Double squareSize;

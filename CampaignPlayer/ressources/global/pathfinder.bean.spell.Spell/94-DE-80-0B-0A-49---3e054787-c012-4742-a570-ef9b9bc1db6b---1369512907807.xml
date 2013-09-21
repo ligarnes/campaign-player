@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3e054787-c012-4742-a570-ef9b9bc1db6b:1369512907807</guid>
    </id>
    <name>Jet d&apos;acide</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b9dbd003-8fa9-457c-9847-225f34d31537:1369512907807</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4e6f9c4c-de1e-45a2-b00c-52150664d15c:1369512907807</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5ab93500-53cd-45af-a78a-b8354e7d8334:1369512907807</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

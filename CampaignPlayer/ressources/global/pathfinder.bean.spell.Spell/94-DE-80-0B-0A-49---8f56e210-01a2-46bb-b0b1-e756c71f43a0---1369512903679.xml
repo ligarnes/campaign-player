@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8f56e210-01a2-46bb-b0b1-e756c71f43a0:1369512903679</guid>
    </id>
    <name>Cauchemar</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:29c3079f-2170-4c62-afb3-2608880ff3fc:1369512903679</guid>
       </id>
       <unit>unlimited</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:06a0fe74-bf2a-42d6-bc11-8a55c87c2016:1369512903679</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8f33078-6b9f-44eb-87df-da32eb5f6c4c:1369512903679</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

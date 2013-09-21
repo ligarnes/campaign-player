@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b5c75491-cc44-4529-8db8-17c3d67fc4b5:1369512904618</guid>
    </id>
    <name>Enchevêtrement</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cc3fa2a1-da4b-483b-aa08-d50cb9cdbe7b:1369512904618</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5d55dc0f-0530-489c-808b-64b487090fc0:1369512904618</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:51c69b50-7f61-4343-ba8b-af48a5aa2da2:1369512904618</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

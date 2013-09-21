@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:dbd5d858-af28-4111-b8a5-a462b3aeecb8:1369512905487</guid>
    </id>
    <name>Moment de prescience</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9d95b3c8-1dfe-45fc-8754-bc39a5ce7b30:1369512905487</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b45a60f7-a06f-4d83-840c-e2cf9bdc7535:1369512905487</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f3825046-a4ce-47d7-902e-65b1798120e9:1369512905487</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

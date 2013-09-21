@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c1b51de9-58a9-4a90-ae79-706464c1698a:1369512907982</guid>
    </id>
    <name>Sangsue de ki</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9d63a639-00ef-46aa-aaff-87e745f18118:1369512907982</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8127f119-d35d-4868-9284-893e9161b646:1369512907982</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:750d73ef-b246-43f8-9b60-8b78d2fb44b5:1369512907982</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

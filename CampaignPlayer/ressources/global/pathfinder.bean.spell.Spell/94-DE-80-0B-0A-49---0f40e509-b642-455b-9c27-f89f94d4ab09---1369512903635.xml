@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0f40e509-b642-455b-9c27-f89f94d4ab09:1369512903635</guid>
    </id>
    <name>Brouillard dense</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e8ceb400-1896-41f1-9c3c-dad5883b42fd:1369512903635</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1a47a812-fbe3-4d93-a083-281bb028cdec:1369512903635</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dff3c36d-1a2e-4177-b88e-8bb6a3241d70:1369512903635</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

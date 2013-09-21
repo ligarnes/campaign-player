@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d7076957-5314-45bf-8378-e8297ece3b6d:1369512903275</guid>
    </id>
    <name>Apaisement des émotions</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:629e8d90-2f86-4e10-92d0-25fe3c76dc8f:1369512903275</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c265cc3d-e673-4989-a4de-5515066d6579:1369512903275</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:01ce87b9-efa0-4a49-91bc-56db2c63b1bd:1369512903275</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

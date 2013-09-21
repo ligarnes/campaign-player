@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d1602b13-6cec-4e52-85f1-2401ee8a749d:1369512907195</guid>
    </id>
    <name>Rendre un jugement</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:60fd8be1-ee52-4c62-b128-3601dba1933f:1369512907194</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:638a4bc2-a829-4d28-bbac-cc12c95e6b07:1369512907194</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e6d8629f-6f52-4d91-bd7e-f6185f6cbe25:1369512907195</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

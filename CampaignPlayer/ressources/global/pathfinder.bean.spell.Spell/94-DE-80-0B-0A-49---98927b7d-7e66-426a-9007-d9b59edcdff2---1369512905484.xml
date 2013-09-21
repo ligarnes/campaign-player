@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:98927b7d-7e66-426a-9007-d9b59edcdff2:1369512905484</guid>
    </id>
    <name>Modification de mémoire</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e81cf9a-7bfc-475d-9c84-6b608a5761a2:1369512905484</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4244451b-722c-4893-925c-f85df6aaecfa:1369512905484</guid>
       </id>
       <unit>special</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd22be8d-15e0-4f03-a291-20b3d943db02:1369512905484</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3e799714-b822-411b-a2e0-0b061303800e:1369512906043</guid>
    </id>
    <name>Respiration aquatique</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f3994381-1868-4911-b1c4-366f96dee602:1369512906043</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d847e5b9-91a8-460b-8174-05d69409556f:1369512906043</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:91cf5c5d-d34f-4efe-99b3-2bedc037f0fb:1369512906043</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fc34d05f-44fc-4be3-b175-ea4dca6899c2:1369512907980</guid>
    </id>
    <name>Sang bouillant</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fd14b15a-6fc0-4c58-82b9-a0f01990917e:1369512907980</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:73d19164-e8e6-45c5-a5d5-e71f4e95a620:1369512907980</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2f0dc03d-4967-4336-af1e-79bd2d201ba0:1369512907980</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a79f6e28-5298-4789-ad25-bb83983d9a50:1369512905259</guid>
    </id>
    <name>Lévitation</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:097682bb-218e-49aa-a84a-ccd242795d38:1369512905258</guid>
       </id>
       <value>personnelle ou courte (7,50 m + 1,50 m/2 niveaux) (5 c + 1 c/2 niveaux)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ff217221-d3a0-4d64-8263-c09fd7894723:1369512905258</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6b69865f-b81c-4f77-af47-5c28e1a2fa7f:1369512905258</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

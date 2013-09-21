@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ec15a0c2-7e1b-489a-bd52-24281211d745:1369512905028</guid>
    </id>
    <name>Grand pas</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:19ab02f0-198a-4c5a-b92a-b7616f25d187:1369512905027</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:70e1fc8a-eb9f-4fe0-a68a-02c7ee295a4c:1369512905028</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:981ddd22-c944-43cd-ae94-fb8dd475a1e7:1369512905028</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

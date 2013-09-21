@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bc3148c8-c822-4253-af23-e51b358403ca:1369512906709</guid>
    </id>
    <name>Aura de funeste destin</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c42b2d89-9204-42dd-b66f-fe5ce2c1f6b9:1369512906709</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:04d3757d-a575-4d13-af64-2caf64e43af0:1369512906709</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e8f4032d-d49e-43c9-bf93-a6be13e7247d:1369512906709</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

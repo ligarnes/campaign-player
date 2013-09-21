@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:980a5298-0c6c-47a4-8c6f-dadbfdbf1684:1369512907231</guid>
    </id>
    <name>Sanctification de cadavre</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:15b5cb49-c8b0-4401-a931-bae81921bebd:1369512907231</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2b26a016-3aad-4e5b-898e-5e3fd8a46003:1369512907231</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f51f9b77-ef10-4820-ad7b-f8cb7e329450:1369512907231</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

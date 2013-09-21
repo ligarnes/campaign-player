@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7f0ebc10-bef2-4689-9334-6029d8d8b268:1369512907653</guid>
    </id>
    <name>Création de demi-plan mineure</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:12440c08-9a51-4365-8af5-753f66915286:1369512907653</guid>
       </id>
       <unit></unit>
       <value></value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:316917f3-2986-4317-9011-f801bf405d30:1369512907653</guid>
       </id>
       <unit>hour</unit>
@@ -22,7 +22,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f7944515-e1b8-4437-b9bf-59dfb4ac6d06:1369512907653</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

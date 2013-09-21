@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b26eac65-7336-4214-bf18-a654ecd9f4c5:1369512905216</guid>
    </id>
    <name>Invisibilité de groupe</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:27c0fedb-3db6-492f-b3a4-08f5d2086493:1369512905216</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c9592397-846a-4314-b4a9-768a556c73ac:1369512905216</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b10ae331-c467-448a-8942-096564e7f8c5:1369512905216</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

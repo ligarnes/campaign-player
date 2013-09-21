@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8a38de99-c4fe-4152-a28b-841123180d1e:1369512904683</guid>
    </id>
    <name>Éveil</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e609a76d-347b-4084-b897-48ee04746baa:1369512904683</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3726e5ce-1e47-4066-944a-0f331ce19082:1369512904683</guid>
       </id>
       <unit>hour</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:27136ceb-f151-45de-83b7-bc854f837981:1369512904683</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

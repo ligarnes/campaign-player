@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bde58d35-cf84-40a0-9e9b-eb14215929f5:1369512906371</guid>
    </id>
    <name>Traversée des ombres</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7b18ba6e-10af-41b2-94fe-74acdc0df50c:1369512906371</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c2bf696f-c410-4782-818f-396cb404cf32:1369512906371</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:775d4321-e41e-4bd3-a859-e7fedb297d47:1369512906371</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

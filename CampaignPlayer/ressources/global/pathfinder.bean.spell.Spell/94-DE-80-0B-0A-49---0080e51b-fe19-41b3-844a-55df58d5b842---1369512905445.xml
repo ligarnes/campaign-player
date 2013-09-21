@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0080e51b-fe19-41b3-844a-55df58d5b842:1369512905445</guid>
    </id>
    <name>Métamorphose animale</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fba86301-6ba0-47f4-a35e-f183fd5ea125:1369512905445</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1791bec9-d7f3-4b87-914c-da1b706790ad:1369512905445</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:791e464f-3cc6-4117-b044-20945d850981:1369512905445</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:827919d4-d60f-4b9d-b9f4-ab26f5e09647:1369512907495</guid>
    </id>
    <name>Apaisement de créatures artificielles</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cf9b591e-8040-49ee-839e-af715edbaa29:1369512907494</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6e8f3abc-c0bc-43f3-98ed-bba14ba7858f:1369512907494</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8c2a541-6140-4570-9d22-64cdea177525:1369512907494</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

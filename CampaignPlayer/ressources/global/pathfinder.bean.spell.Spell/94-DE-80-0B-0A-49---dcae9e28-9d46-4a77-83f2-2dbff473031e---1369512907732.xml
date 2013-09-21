@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:dcae9e28-9d46-4a77-83f2-2dbff473031e:1369512907732</guid>
    </id>
    <name>Épée impie</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d39dca99-8f48-476d-8e4e-471ff18d703d:1369512907731</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a237fe3a-3f25-4adb-b30c-759dd66ae67b:1369512907731</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7ecb14de-a3a0-4448-a017-6b4a465a57c1:1369512907731</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3822cef1-c578-42d9-ae96-16b72b271820:1369512905451</guid>
    </id>
    <name>Métamorphose funeste</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2d993a6f-33c7-40b9-a4a7-0706842f033e:1369512905451</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:14af34b1-c703-4cea-9d05-945cba6d3766:1369512905451</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0c25c186-0550-446a-b25d-4d4aa2279fd1:1369512905451</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

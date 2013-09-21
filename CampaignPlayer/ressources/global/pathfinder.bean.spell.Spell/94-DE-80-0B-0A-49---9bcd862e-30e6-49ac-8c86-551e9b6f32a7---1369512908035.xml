@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9bcd862e-30e6-49ac-8c86-551e9b6f32a7:1369512908035</guid>
    </id>
    <name>Tempête de cendres</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0c5e79c2-a5f7-4316-9497-cad4fd5c59dd:1369512908035</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7bcf6b15-1fa5-4803-9366-5c0554cfbcc3:1369512908035</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:195d984a-1235-4ede-8f52-167fc4d673da:1369512908035</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

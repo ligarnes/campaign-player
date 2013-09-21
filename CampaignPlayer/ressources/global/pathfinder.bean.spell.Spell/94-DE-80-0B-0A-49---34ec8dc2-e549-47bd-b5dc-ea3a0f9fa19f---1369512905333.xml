@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:34ec8dc2-e549-47bd-b5dc-ea3a0f9fa19f:1369512905333</guid>
    </id>
    <name>Magie des ombres suprême</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6c446087-ecfa-4923-b671-387df9ecde29:1369512905332</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:faa4ce4f-5eeb-4fcf-bc97-70be38eec9d8:1369512905332</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:38392e4f-d199-42e0-9cf5-5928cdb1d84e:1369512905332</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

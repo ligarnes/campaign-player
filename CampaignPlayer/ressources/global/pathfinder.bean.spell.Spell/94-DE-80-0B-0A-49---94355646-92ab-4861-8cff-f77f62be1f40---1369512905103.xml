@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:94355646-92ab-4861-8cff-f77f62be1f40:1369512905103</guid>
    </id>
    <name>Image accomplie</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ba60b9e9-ee53-4755-ad1f-4f0d2972de73:1369512905103</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5cfaaf29-6521-4ef8-842b-87bd4a304168:1369512905103</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:99fb4c86-af47-4fda-95ee-3590448c85ea:1369512905103</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

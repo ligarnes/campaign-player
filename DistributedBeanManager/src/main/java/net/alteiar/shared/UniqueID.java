@@ -8,11 +8,9 @@ import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.UUID;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
 public final class UniqueID implements Serializable {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	private static String MAC_ADRESS = null;

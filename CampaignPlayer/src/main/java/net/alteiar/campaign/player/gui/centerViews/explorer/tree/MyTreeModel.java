@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.explorer;
+package net.alteiar.campaign.player.gui.centerViews.explorer.tree;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 import javax.swing.SwingUtilities;
-import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -17,7 +16,6 @@ import javax.swing.tree.TreePath;
 import net.alteiar.WaitBeanListener;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.CampaignListener;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.DocumentNode;
 import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
@@ -26,6 +24,7 @@ import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.player.Player;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
+import net.alteiar.tree.DefaultMutableTreeNodeChildIterator;
 
 public class MyTreeModel extends DocumentAdapter implements TreeModel {
 
@@ -35,36 +34,18 @@ public class MyTreeModel extends DocumentAdapter implements TreeModel {
 	/**
 	 * Avoid multiple concurrent refresh
 	 */
-	private boolean needRefresh = false;
-	private boolean isRefreshing = false;
+	private boolean needRefreshAllDocs = false;
+	private boolean isRefreshingAllDocs = false;
 
 	public MyTreeModel(DocumentNode root) {
 		fullModel = new DefaultTreeModel(root);
 
 		printModel = new DefaultTreeModel(root.clone());
 
-		fullModel.addTreeModelListener(new TreeModelListener() {
-
-			@Override
-			public void treeStructureChanged(TreeModelEvent e) {
-				refreshModel();
-			}
-
-			@Override
-			public void treeNodesRemoved(TreeModelEvent e) {
-				refreshModel();
-			}
-
-			@Override
-			public void treeNodesInserted(TreeModelEvent e) {
-				refreshModel();
-			}
-
-			@Override
-			public void treeNodesChanged(TreeModelEvent e) {
-				refreshModel();
-			}
-		});
+		for (BeanBasicDocument doc : CampaignClient.getInstance()
+				.getDocuments()) {
+			doc.addPropertyChangeListener(MyTreeModel.this);
+		}
 
 		CampaignClient.getInstance().addCampaignListener(
 				new CampaignListener() {
@@ -76,12 +57,13 @@ public class MyTreeModel extends DocumentAdapter implements TreeModel {
 
 					@Override
 					public void beanRemoved(BeanBasicDocument bean) {
-						bean.addPropertyChangeListener(MyTreeModel.this);
+						bean.removePropertyChangeListener(MyTreeModel.this);
 						refreshTree();
 					}
 
 					@Override
 					public void beanAdded(BeanBasicDocument bean) {
+						bean.addPropertyChangeListener(MyTreeModel.this);
 						refreshTree();
 					}
 				});
@@ -95,22 +77,25 @@ public class MyTreeModel extends DocumentAdapter implements TreeModel {
 	}
 
 	private synchronized void refreshTree() {
-		if (isRefreshing) {
-			needRefresh = true;
+		if (isRefreshingAllDocs) {
+			needRefreshAllDocs = true;
 			return;
 		}
-		needRefresh = false;
-		isRefreshing = true;
+		needRefreshAllDocs = false;
+		isRefreshingAllDocs = true;
 
 		Threads.execute(new MyRunnable() {
 			@Override
 			public void run() {
 				DocumentNode root = (DocumentNode) fullModel.getRoot();
 				fillCompleteModel(root);
-				fullModel.reload();
-				isRefreshing = false;
-				if (needRefresh) {
+
+				// fullModel.reload();
+				isRefreshingAllDocs = false;
+				if (needRefreshAllDocs) {
 					refreshTree();
+				} else {
+					refreshModel();
 				}
 			}
 
@@ -206,13 +191,9 @@ public class MyTreeModel extends DocumentAdapter implements TreeModel {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				reload();
+				printModel.reload();
 			}
 		});
-	}
-
-	private synchronized void reload() {
-		printModel.reload();
 	}
 
 	private void fillPrintNode(Player current, DocumentNode root,

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:aeb3e5b2-fc2d-4ec1-a1c3-0ae033f0f474:1369512908084</guid>
    </id>
    <name>Voile répugnant</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:86c35564-6700-476f-966f-8bcb1870e079:1369512908084</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3d6937bd-8275-4398-8316-4d1566a77bd7:1369512908084</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:eeda7ff6-d23a-4ce7-84ed-886fb39f00c1:1369512908084</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

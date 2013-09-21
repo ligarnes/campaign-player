@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0213a45f-7eb6-43fe-b66e-8b6550fa3843:1369512907687</guid>
    </id>
    <name>De la soie à l&apos;acier</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1d1de765-7151-4365-a9c9-dfac3e7a733c:1369512907687</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c0a29184-91aa-4771-8292-d5e5ef654773:1369512907687</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fabdc07f-9c6c-4120-92e0-0355bf4bbab7:1369512907687</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

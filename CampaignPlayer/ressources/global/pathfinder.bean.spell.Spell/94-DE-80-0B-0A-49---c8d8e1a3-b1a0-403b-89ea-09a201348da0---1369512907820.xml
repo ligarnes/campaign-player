@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c8d8e1a3-b1a0-403b-89ea-09a201348da0:1369512907820</guid>
    </id>
    <name>Lien des esprits combatifs</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1c28a768-4a31-4826-94b1-9d941e63d5dd:1369512907820</guid>
       </id>
       <value>personnelle et courte (7,50 m + 1,50 m/2 niveaux) (5 case(s) + 1 case(s)/2 niveaux)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0702c05e-00d2-4f8b-81cc-7cd7a0633f77:1369512907820</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5574a637-b093-4de5-bce6-80933f9dfbeb:1369512907820</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

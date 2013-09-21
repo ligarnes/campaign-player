@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c33b348f-fb2e-4ee3-bc8f-38afa3ccc5ef:1369512905581</guid>
    </id>
    <name>Nuage nauséabond</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be86d3db-1ab7-4197-9c26-646c12815d02:1369512905580</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:413dc3fe-0d9b-4dac-80ce-534b259aeea9:1369512905581</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cfefcf14-cd1e-4397-8efb-4fcd194e7372:1369512905581</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

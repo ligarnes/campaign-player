@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:415bfdd9-b71a-4d43-a203-20f4931c18ab:1369512905631</guid>
    </id>
    <name>Passe-muraille</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:73d81b2c-d7e1-46ea-98c4-5f428fc99dc4:1369512905631</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f491ddaa-989e-4a7d-94d6-3e048296bad1:1369512905631</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2d772a86-001e-4371-b0bd-11a11332f96d:1369512905631</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

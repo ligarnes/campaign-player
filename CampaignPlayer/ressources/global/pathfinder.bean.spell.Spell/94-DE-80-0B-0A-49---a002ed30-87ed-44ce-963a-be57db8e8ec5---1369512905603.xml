@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a002ed30-87ed-44ce-963a-be57db8e8ec5:1369512905603</guid>
    </id>
    <name>Orientation</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f61393e6-4606-415a-b04a-101367d6da96:1369512905603</guid>
       </id>
       <value>personnelle ou contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2f59bd4c-0107-425b-976c-0096b579da40:1369512905603</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8f889439-153b-4406-ab78-267a487e58c6:1369512905603</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

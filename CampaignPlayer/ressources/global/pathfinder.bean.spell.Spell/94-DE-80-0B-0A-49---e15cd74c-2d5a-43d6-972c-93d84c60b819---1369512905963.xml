@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e15cd74c-2d5a-43d6-972c-93d84c60b819:1369512905963</guid>
    </id>
    <name>Régénération</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f8ada6d2-b13a-44a2-8dba-2f06b31a3554:1369512905963</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9494a650-af88-4d64-9436-65ac51ebf272:1369512905963</guid>
       </id>
       <unit>special</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3fcbc4b5-5e85-4683-a191-d80eae7d028b:1369512905963</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

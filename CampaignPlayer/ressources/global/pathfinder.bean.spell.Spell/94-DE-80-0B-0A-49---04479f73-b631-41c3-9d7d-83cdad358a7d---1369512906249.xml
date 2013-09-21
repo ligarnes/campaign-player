@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:04479f73-b631-41c3-9d7d-83cdad358a7d:1369512906249</guid>
    </id>
    <name>Sphère prismatique</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3b49a9b1-8e6f-48f7-87b1-adc8bd49877b:1369512906249</guid>
       </id>
       <unit>cases</unit>
       <value>2</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a58559c1-9ef9-4438-866d-5297f57f6f0d:1369512906249</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bdb968a8-af92-4bea-9911-91277b876f56:1369512906249</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

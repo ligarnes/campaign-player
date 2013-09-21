@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a0ec9adb-b8b0-45ca-9a8a-9d02f8e92dcc:1369512906018</guid>
    </id>
    <name>Repérage</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4dd08b7c-caf2-4a2e-ace0-181d3732d346:1369512906018</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:58cf42f3-aa64-4cd0-9e56-7c7ee9b7a758:1369512906018</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:41e16cfd-a810-4960-8f13-c6e591996e5e:1369512906018</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

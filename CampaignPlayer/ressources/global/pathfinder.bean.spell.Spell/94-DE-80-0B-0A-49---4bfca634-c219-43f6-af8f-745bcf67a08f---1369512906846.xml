@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4bfca634-c219-43f6-af8f-745bcf67a08f:1369512906846</guid>
    </id>
    <name>Corps de glace</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9e66a134-1bf6-4042-9076-8f57d36acecf:1369512906846</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:24af849b-e1c0-4cee-8600-9709ffb15f57:1369512906846</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d4e79f3c-9277-4dbd-95c2-3da92aab68f9:1369512906846</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

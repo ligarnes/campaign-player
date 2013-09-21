@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:25bd4b60-79c3-4ee9-a4f9-cbb547764494:1369512907581</guid>
    </id>
    <name>Chagrin écrasant</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fd7c7550-487a-46de-acde-728d0e5fa963:1369512907581</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:164e9cbd-e08d-4ea7-a2db-55436228599d:1369512907581</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:77fb6765-554a-4725-b30c-a511cde5955c:1369512907581</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

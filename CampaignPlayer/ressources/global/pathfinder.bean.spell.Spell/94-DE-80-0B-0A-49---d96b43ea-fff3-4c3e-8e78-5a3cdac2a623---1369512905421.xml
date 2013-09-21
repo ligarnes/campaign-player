@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d96b43ea-fff3-4c3e-8e78-5a3cdac2a623:1369512905421</guid>
    </id>
    <name>Messager animal</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bb18132c-ea1c-4c62-a48b-f0dcdf722315:1369512905421</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bf524490-a69b-49f2-bb09-4631d9e22a6b:1369512905421</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bd4b5377-ee58-4adf-8aac-12b500a77f44:1369512905421</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

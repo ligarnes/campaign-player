@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:974bf0c5-2a80-42ff-af79-7d44ae3b72fb:1369512904259</guid>
    </id>
    <name>Croissance végétale</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:671944a4-af4b-474e-b2df-e4cae399963a:1369512904259</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:de09700c-4839-443b-b502-9a4352cfb8ef:1369512904259</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aab4af2b-676b-446b-8151-dfdcb6673529:1369512904259</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

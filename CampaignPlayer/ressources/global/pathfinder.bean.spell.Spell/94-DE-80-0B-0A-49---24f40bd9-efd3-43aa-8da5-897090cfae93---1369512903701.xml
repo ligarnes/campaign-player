@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:24f40bd9-efd3-43aa-8da5-897090cfae93:1369512903701</guid>
    </id>
    <name>Cercle magique contre la Loi</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0db85e7b-9200-4f76-80b7-0a8737ce9837:1369512903701</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e787da81-5026-4516-93fb-44f90b1c4d86:1369512903701</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9797db98-642d-406e-97dd-5431c36611ef:1369512903701</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

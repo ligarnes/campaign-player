@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9e21d94f-c44c-4dda-aab1-590ca488ee91:1369512908030</guid>
    </id>
    <name>Témoin</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:061be6f2-6109-42da-b524-a1a1b6a8117a:1369512908030</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:00c8748a-c7eb-42ba-a16d-38fce784bb24:1369512908030</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:24d06175-95e9-42b2-b9c2-8dd3dfe1fbfe:1369512908030</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

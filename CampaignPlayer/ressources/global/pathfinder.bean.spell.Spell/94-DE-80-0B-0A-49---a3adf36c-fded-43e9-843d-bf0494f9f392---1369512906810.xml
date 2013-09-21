@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a3adf36c-fded-43e9-843d-bf0494f9f392:1369512906810</guid>
    </id>
    <name>Convocation de pudding noir</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6b1f9589-bd77-43ff-bba0-365ff315b507:1369512906810</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:90b82432-607b-48ca-877f-4376e275d668:1369512906810</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8ec7c36f-806f-484c-844c-937e46eebc30:1369512906810</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

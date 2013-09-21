@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7ed30cdd-d9f9-4904-b0d5-f7b1d48cea2b:1369512905508</guid>
    </id>
    <name>Mot de pouvoir étourdissant</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f70e5ec9-7d04-479d-8ccd-43eecd3b0e2f:1369512905508</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c94def2d-7e51-40cd-b6b9-4677fd36437d:1369512905508</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4ab39b3b-303c-4c3a-83ef-ab5750e45020:1369512905508</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

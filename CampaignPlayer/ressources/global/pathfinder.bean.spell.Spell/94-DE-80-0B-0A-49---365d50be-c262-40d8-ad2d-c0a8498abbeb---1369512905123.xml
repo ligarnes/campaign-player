@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:365d50be-c262-40d8-ad2d-c0a8498abbeb:1369512905123</guid>
    </id>
    <name>Image programmée</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:462e2d78-0533-49e1-8431-c528b5057239:1369512905123</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c9c31671-27a6-4156-890f-f3b0207b55b6:1369512905123</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:24b586a4-1648-4c54-b229-aedd23fbd056:1369512905123</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

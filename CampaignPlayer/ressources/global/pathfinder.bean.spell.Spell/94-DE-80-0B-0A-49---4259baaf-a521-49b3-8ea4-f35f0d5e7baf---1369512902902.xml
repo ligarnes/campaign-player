@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4259baaf-a521-49b3-8ea4-f35f0d5e7baf:1369512902902</guid>
    </id>
    <name>Abri</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:45780f4b-4299-4f7c-a645-78df6f656130:1369512902642</guid>
       </id>
       <unit>cases</unit>
       <value>4</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:924ba292-613b-4d3d-a4c2-73386dd07f57:1369512902901</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:68011f05-b7ef-49de-9a25-2a880378d102:1369512902901</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

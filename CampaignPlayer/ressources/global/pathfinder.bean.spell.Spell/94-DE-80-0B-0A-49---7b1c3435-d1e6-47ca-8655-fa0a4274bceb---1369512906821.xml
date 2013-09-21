@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7b1c3435-d1e6-47ca-8655-fa0a4274bceb:1369512906821</guid>
    </id>
    <name>Corde d&apos;échardes</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7da0c207-a88a-4d33-be2d-52a4f6195e93:1369512906821</guid>
       </id>
       <unit>cases</unit>
       <value>3</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd3bedc0-07ef-4f2d-a222-3851760c8cc8:1369512906821</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:202a1fc3-94ee-4c28-87a3-a2cb0133fa3a:1369512906821</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

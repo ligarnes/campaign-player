@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e84caa02-af1f-4c21-8ad9-10be76b395dd:1369512905560</guid>
    </id>
    <name>Mythes et légendes</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4f06732b-0c5b-4796-9f4d-83db4fe0db08:1369512905560</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7fbdc45f-ffdc-46d5-800d-a2983c356f38:1369512905560</guid>
       </id>
       <unit>special</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ffd3fe67-2b4a-4386-aa3e-30a9234a165b:1369512905560</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

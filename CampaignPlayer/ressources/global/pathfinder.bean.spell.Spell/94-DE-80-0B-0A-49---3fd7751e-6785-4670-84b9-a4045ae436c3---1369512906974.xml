@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3fd7751e-6785-4670-84b9-a4045ae436c3:1369512906974</guid>
    </id>
    <name>Extase</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3f6e5d11-be27-447f-a9ab-679b7f269300:1369512906973</guid>
       </id>
       <value>18 mètres (12 c)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f5543b9c-c102-4aca-b496-cd856f8e0cf9:1369512906973</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:158a53f0-5123-4038-a00f-bc875d61d95e:1369512906973</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

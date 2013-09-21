@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:55d9f5eb-b141-4d46-8f02-7429df8b2e0f:1369512905724</guid>
    </id>
    <name>Portail</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e78c0897-d02a-46e6-8850-f4b5e3a21c16:1369512905723</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2f974c3f-0445-4c2e-9a4b-759995d5d34c:1369512905723</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2a0c63e0-7269-494f-a1b8-8959aaee4789:1369512905723</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b4803090-cb41-4aa3-bf3e-d3e0db8b0c9d:1369512908003</guid>
    </id>
    <name>Singes fous</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ec8dc061-4277-4f3d-913a-cfd92366f139:1369512908003</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0763fd9e-d54d-456d-9689-2b7ed7887bfe:1369512908003</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:963fcbb2-82a9-4d71-821b-da8408fc792b:1369512908003</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

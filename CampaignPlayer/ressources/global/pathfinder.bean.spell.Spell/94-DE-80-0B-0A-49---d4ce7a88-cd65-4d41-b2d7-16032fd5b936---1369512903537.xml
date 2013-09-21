@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d4ce7a88-cd65-4d41-b2d7-16032fd5b936:1369512903537</guid>
    </id>
    <name>Blessure légère</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:816fc4de-6475-4f71-a831-54bc2baafd5b:1369512903537</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c77d9227-72c7-4d02-a6aa-9de2edad8199:1369512903537</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a7f69f79-70a0-4be3-a784-cf62b548647a:1369512903537</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

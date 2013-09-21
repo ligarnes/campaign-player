@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:70913dde-2cf3-4e76-9432-d458a1d6a69e:1369512904720</guid>
    </id>
    <name>Façonnage de la pierre</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c3462d46-4792-4335-98cb-94eac04b858a:1369512904719</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c02ec411-37fb-466d-b553-a5fef877e29e:1369512904719</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aed1cee9-7b8b-49a1-8636-06e143a2611d:1369512904719</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

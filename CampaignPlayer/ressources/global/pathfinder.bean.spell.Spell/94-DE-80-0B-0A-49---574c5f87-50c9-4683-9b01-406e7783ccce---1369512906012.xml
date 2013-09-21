@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:574c5f87-50c9-4683-9b01-406e7783ccce:1369512906012</guid>
    </id>
    <name>Réparation</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c9999d3b-c49f-4619-a1d2-d191c8f7be39:1369512906011</guid>
       </id>
       <unit>cases</unit>
       <value>2</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:89ceb454-71b4-49ff-9dab-8a35e15449e8:1369512906011</guid>
       </id>
       <unit>minute</unit>
@@ -22,7 +22,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:16cb89b2-1771-4a5c-8027-9699e1691f86:1369512906011</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6132a5d1-bca3-4876-a0fc-bd8bf20bd54f:1369512906777</guid>
    </id>
    <name>Connaître son ennemi</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:83baf612-a9dc-4c35-9049-4bea831c56fd:1369512906777</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:859b8346-559f-459f-a624-d2e941d5f369:1369512906777</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e87fd15b-53df-4c5e-93e4-e587aa7bcd3f:1369512906777</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

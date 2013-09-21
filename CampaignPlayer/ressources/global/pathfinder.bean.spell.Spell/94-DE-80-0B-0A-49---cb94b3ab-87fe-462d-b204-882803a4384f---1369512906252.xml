@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cb94b3ab-87fe-462d-b204-882803a4384f:1369512906252</guid>
    </id>
    <name>Sphère téléguidée</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9d85e009-517a-44f6-9843-21ffb31b7090:1369512906252</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4df046bd-bd16-43b4-8a62-ec882933aefa:1369512906252</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d6217e3f-c8bb-490b-aaee-8445df159ed8:1369512906252</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

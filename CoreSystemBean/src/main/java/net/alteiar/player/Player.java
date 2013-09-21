@@ -5,11 +5,9 @@ import java.awt.Color;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.ColorWrapper;
 
-import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
 public class Player extends BasicBean {
-	@Attribute
 	private static final long serialVersionUID = 1L;
 
 	public static final String PROP_NAME_PROPERTY = "name";

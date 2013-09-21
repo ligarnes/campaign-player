@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:77761be2-931a-40ab-8263-5d3eb818a6ff:1369512904739</guid>
    </id>
    <name>Faux-semblant</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2f481292-4644-4a66-a100-718e5cf5c5bc:1369512904739</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c587c01c-51a2-4e3e-92a7-681e7a378cec:1369512904739</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5487798a-7c80-4e0a-af98-124a701ed9e2:1369512904739</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

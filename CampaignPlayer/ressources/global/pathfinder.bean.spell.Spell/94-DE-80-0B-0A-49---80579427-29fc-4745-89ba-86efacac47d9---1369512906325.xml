@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:80579427-29fc-4745-89ba-86efacac47d9:1369512906325</guid>
    </id>
    <name>Ténèbres profondes</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6396c6e2-0425-40f0-912c-d80bb1f2b0ff:1369512906325</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0c33220-5225-43ec-ad21-83b6391f0efa:1369512906325</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7a0a93ab-ee3f-4eda-b6ae-b614ccaf84cf:1369512906325</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

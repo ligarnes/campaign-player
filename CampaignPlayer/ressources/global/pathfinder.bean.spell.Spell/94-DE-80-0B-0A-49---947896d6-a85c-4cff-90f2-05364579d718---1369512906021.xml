@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:947896d6-a85c-4cff-90f2-05364579d718:1369512906021</guid>
    </id>
    <name>Repli expéditif</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a29cd150-ba18-4881-8198-a5fdea9c150c:1369512906021</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:39eb3001-c1e4-4a21-9048-666716f1c099:1369512906021</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a084b7ff-0bff-4e4d-8a4f-34bd4f300e2e:1369512906021</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

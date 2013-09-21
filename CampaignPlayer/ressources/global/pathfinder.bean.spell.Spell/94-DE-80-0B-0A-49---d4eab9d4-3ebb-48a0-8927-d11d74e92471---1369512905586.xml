@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d4eab9d4-3ebb-48a0-8927-d11d74e92471:1369512905586</guid>
    </id>
    <name>Nuée d&apos;élémentaires</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:332adfdd-c089-4d3c-a944-d2bb017bf510:1369512905586</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:69287893-0d14-4695-ac3e-7a596732ea2f:1369512905586</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ba291a56-6869-4ca8-b7f0-a159c4da7c62:1369512905586</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

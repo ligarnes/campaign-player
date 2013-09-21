@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b6dc8aa3-7b00-483c-9480-43cbe827aa61:1369512907179</guid>
    </id>
    <name>Pulsion de jalousie</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b11c5797-531c-4322-9fbe-e50a6d487839:1369512907179</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:46f225d2-964a-49b2-894b-ba2eb5933d77:1369512907179</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ca18746c-6afd-453e-b84f-111eb5a6812c:1369512907179</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

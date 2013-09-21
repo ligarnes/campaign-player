@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:883255f1-317d-453f-96fa-1be3ac405fd4:1369512903043</guid>
    </id>
    <name>Affûtage</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1031025b-a90b-41c3-84a9-ccfe3ec764b5:1369512903043</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c37fea28-f95e-4321-bbfd-66fa0e647a07:1369512903043</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae4d452a-fbd9-4dbf-a13b-701c40a9eef1:1369512903043</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

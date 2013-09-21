@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a30a9831-eb3c-419f-9355-e98e3f0d36b2:1369512907595</guid>
    </id>
    <name>Chœur hanté</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7be173ee-febf-40fe-af20-5188d73db213:1369512907595</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b11e104e-694d-4e0f-a25b-a794f5f0a951:1369512907595</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:96ed315a-90f7-4864-b6be-0564785e0115:1369512907595</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

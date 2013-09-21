@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:68320b55-01fa-4b6e-b895-7c4eec4e768c:1369512906728</guid>
    </id>
    <name>Boule de goudron</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6f95ba5e-6246-4690-b8c8-f7dacf77b661:1369512906727</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c08ae227-c5a9-4310-b355-64870942fe5e:1369512906728</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9598978-0769-497b-b2ce-59f37b06c58a:1369512906728</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

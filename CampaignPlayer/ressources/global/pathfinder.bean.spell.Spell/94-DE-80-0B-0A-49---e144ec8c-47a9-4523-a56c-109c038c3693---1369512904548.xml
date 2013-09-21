@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e144ec8c-47a9-4523-a56c-109c038c3693:1369512904548</guid>
    </id>
    <name>Domination universelle</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae834472-da27-4dc2-848e-f1265d9c6e69:1369512904548</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3858920a-1ec0-4bab-bc8f-b77265b08251:1369512904548</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:efb991a2-c691-4c63-8a9b-2ac17510d202:1369512904548</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

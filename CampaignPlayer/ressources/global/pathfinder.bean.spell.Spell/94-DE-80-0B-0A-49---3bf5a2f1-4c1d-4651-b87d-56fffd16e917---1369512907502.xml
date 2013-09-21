@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3bf5a2f1-4c1d-4651-b87d-56fffd16e917:1369512907502</guid>
    </id>
    <name>Apprentissage par le sang</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5ccfc4c8-4e6a-4761-aed2-9c50d3f6292d:1369512907502</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:389032ac-3fa2-4ca0-be82-d32c6afafda9:1369512907502</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a8a0a337-2ed7-48be-b7d4-7717fd028528:1369512907502</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

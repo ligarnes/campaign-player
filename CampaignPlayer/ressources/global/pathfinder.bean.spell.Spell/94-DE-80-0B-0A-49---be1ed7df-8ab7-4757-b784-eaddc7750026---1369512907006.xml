@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:be1ed7df-8ab7-4757-b784-eaddc7750026:1369512907006</guid>
    </id>
    <name>Glace bénie</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:535c9d47-4e74-4afc-95aa-f9ddd0f45d11:1369512907006</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:442adcae-df76-4ed2-9675-babae8f96431:1369512907006</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ecd95263-68a8-4278-9569-b9d7b71b5e6f:1369512907006</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

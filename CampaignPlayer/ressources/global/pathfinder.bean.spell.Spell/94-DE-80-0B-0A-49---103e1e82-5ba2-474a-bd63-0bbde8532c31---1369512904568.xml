@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:103e1e82-5ba2-474a-bd63-0bbde8532c31:1369512904568</guid>
    </id>
    <name>Éclair multiple</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bc750ade-56b5-4c85-a2a8-f19019c3d8da:1369512904568</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e7480929-e10d-4fc4-8c0e-0c7c0a7ccd54:1369512904568</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d76ca292-dc36-444b-a6fb-ec0af2e6188f:1369512904568</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

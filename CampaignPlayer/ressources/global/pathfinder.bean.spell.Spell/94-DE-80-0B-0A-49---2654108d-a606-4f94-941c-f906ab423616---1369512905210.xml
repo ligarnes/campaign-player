@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2654108d-a606-4f94-941c-f906ab423616:1369512905210</guid>
    </id>
    <name>Invisibilité</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ccd9e31d-140d-41f1-ad64-1d1282f01230:1369512905210</guid>
       </id>
       <value>Présentation des sorts#PORTEE|personnelle ou Présentation des sorts#PORTEE|contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e4d31907-decd-46c9-ab43-3444e4f55f97:1369512905210</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cca9ac7b-55bb-46fc-8404-869b3f198d78:1369512905210</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

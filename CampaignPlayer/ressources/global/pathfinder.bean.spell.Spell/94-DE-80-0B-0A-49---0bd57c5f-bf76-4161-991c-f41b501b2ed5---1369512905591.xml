@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0bd57c5f-bf76-4161-991c-f41b501b2ed5:1369512905591</guid>
    </id>
    <name>Œil du mage</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:39ebb9db-81d9-4d87-b64c-7b5aa3d02e10:1369512905591</guid>
       </id>
       <unit>unlimited</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:62cf81b7-4593-47ac-a65a-780de374e52f:1369512905591</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:687f74ce-799c-46c6-a489-006fe429019c:1369512905591</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

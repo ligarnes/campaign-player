@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d93fe8f3-9554-4544-8804-759f6eecbaad:1369512905619</guid>
    </id>
    <name>Parole sacrée</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dcea99e9-8bf9-482d-ae7e-c29485672cd5:1369512905619</guid>
       </id>
       <unit>cases</unit>
       <value>8</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2e8d8596-4f8d-4dd3-8704-edb5ce022b18:1369512905619</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd4f6d07-0190-40e7-971a-fcb7042fdcb5:1369512905619</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6daf6748-254d-43e6-8cbd-66ec5777eb01:1369512907935</guid>
    </id>
    <name>Pur dégoût</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2320d47b-5f1c-486b-93b7-a5ae145f397a:1369512907935</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fe7bbef8-0f71-4c4d-9fae-22e860f4dc22:1369512907935</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:da33dacb-0e53-4f8b-b35b-a2e9c5b6a591:1369512907935</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

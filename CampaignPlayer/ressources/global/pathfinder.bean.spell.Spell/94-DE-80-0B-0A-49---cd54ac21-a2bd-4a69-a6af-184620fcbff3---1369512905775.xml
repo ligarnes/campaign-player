@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cd54ac21-a2bd-4a69-a6af-184620fcbff3:1369512905775</guid>
    </id>
    <name>Projectile magique</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:aabf8ed5-988c-4dcb-9ee1-91c1c92477c0:1369512905775</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:04775c6d-2a22-4ba7-ac6d-8934f815515f:1369512905775</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:92c3109f-05d3-4b95-bbcd-d04dca4b76f6:1369512905775</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

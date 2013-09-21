@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:040c30c6-ba4f-409e-b925-e9a467091e53:1369512905366</guid>
    </id>
    <name>Malédiction de l&apos;eau</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ccc43ec1-a015-424f-8e46-e10c00729ced:1369512905366</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d4a98826-979a-44de-8280-8c9df372060b:1369512905366</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d7be54ed-53ae-40d4-854c-55e71d0c27a6:1369512905366</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

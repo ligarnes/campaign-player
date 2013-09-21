@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c61ddea0-4488-471c-bc96-2f8c634ed994:1369512904746</guid>
    </id>
    <name>Faveur divine</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bf476afe-bb95-4650-855c-3604b698d411:1369512904746</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6c629e0a-756e-4cd2-b5d6-cf52c166e7aa:1369512904746</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7a54a309-77cd-490c-bbcb-2a3acb29f8f1:1369512904746</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:581b4578-d7c4-4ace-9bf0-bcbd1bccef6e:1369512904412</guid>
    </id>
    <name>Détection de la faune ou de la flore</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:23c1ffda-33d7-44c9-a1df-264f02f3ac2a:1369512904412</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0df34b97-8fad-4558-9a80-8c5e018afb56:1369512904412</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a023f7c2-23d0-4abc-bc32-cfba497b26c5:1369512904412</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

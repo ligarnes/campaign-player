@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:28a54dbb-11cc-4dde-ba38-b62c7057d036:1369512905490</guid>
    </id>
    <name>Monture</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3916cc61-52ed-4ab7-9ba6-49971295e840:1369512905490</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:827c9fee-5823-4887-a979-9fe01a359051:1369512905490</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ad39af0c-9b0c-4f71-b521-250fb801dee6:1369512905490</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

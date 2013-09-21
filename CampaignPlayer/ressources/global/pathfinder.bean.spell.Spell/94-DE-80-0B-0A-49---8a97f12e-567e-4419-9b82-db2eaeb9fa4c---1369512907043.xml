@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8a97f12e-567e-4419-9b82-db2eaeb9fa4c:1369512907043</guid>
    </id>
    <name>Jeunesse apparente</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:23dce21f-75d3-4f05-a2d7-763c9070f44e:1369512907043</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7d458136-f9c0-4157-acbb-e54216d239d9:1369512907043</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:43e13048-f668-42ea-9d76-263da4353d23:1369512907043</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

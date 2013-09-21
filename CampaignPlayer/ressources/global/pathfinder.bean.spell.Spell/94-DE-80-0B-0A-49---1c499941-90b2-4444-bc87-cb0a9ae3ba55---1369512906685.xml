@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1c499941-90b2-4444-bc87-cb0a9ae3ba55:1369512906685</guid>
    </id>
    <name>Anticipation du danger</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:75e4b171-d101-4032-9462-a127d54ae5f8:1369512906684</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:60407e38-63ab-4784-955b-bf475ac19a21:1369512906685</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0ca69ca9-b07a-4326-b9a5-4a2ae805db06:1369512906685</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7b6b3153-ca07-4775-8c57-a35c02bbed7c:1369512906392</guid>
    </id>
    <name>Vermine géante</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:85de6d83-21fb-47b5-aea9-d6dacfff0930:1369512906392</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ba4088c8-aaf2-47dc-ba5e-9fab71fe9904:1369512906392</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:39990209-c914-4c50-9aef-3d3ca3eb8763:1369512906392</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

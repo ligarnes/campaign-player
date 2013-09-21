@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2e6f5fb1-ad70-47a5-bc48-5c57a0c92119:1369512903613</guid>
    </id>
    <name>Boule de feu à retardement</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1d1a680b-872a-44a8-9b0e-f2e31be1df08:1369512903612</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1e4defaa-3d87-4f0e-b93f-c29994d2f153:1369512903612</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:26a08afe-c9ad-4958-a259-9732915f4235:1369512903612</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

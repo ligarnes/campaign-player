@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3f588dcf-4ac8-452c-9541-f827ecce125c:1369512905416</guid>
    </id>
    <name>Message</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0624346e-f8e7-4cce-bc16-e0dec54e0435:1369512905415</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:49a1ede9-a4f3-41bc-92c1-7131ed95c100:1369512905415</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d7711de9-3765-4b98-8f13-9ce1e2b547c5:1369512905416</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5f6d2e0d-5f68-42b7-9c75-fea8a18d2b5c:1369512905903</guid>
    </id>
    <name>Rayon d&apos;épuisement</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cf2429b7-fac5-4251-8de2-7f37ee3d6141:1369512905903</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6291d1ea-3279-46b8-9d26-618d31b78b75:1369512905903</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:84476b2a-a132-46e4-86ac-8aca8c9fd7e7:1369512905903</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c1086884-72ae-4fa1-8cba-87fca4c71e2f:1369512904402</guid>
    </id>
    <name>Destruction</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ce2ad259-1224-4e36-bed2-b480c47b63e2:1369512904401</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1faafb92-3000-4687-b5d2-1662d10511e0:1369512904401</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3f6bfe9a-546d-476b-9359-f9826ced9a1a:1369512904401</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

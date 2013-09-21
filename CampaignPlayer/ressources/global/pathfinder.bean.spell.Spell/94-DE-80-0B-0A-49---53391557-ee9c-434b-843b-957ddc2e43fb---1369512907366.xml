@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:53391557-ee9c-434b-843b-957ddc2e43fb:1369512907366</guid>
    </id>
    <name>Tempête volcanique</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5d4e5cf6-d176-4267-9445-3263cba9825a:1369512907366</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:36bf673f-a9f9-4dde-a12c-8b902da39da7:1369512907366</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1fc15c5d-8a2e-45e0-aac7-fafb51a2076e:1369512907366</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

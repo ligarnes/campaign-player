@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:04c59324-02c4-4fa6-8ca3-5cd9d3493161:1369512906736</guid>
    </id>
    <name>Brume de vitriol</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4ed3a0b7-15bb-4ae6-83cb-77e119920d5f:1369512906736</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:04f70d88-5fde-4d9c-b02b-26b18b1803fa:1369512906736</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b7fc547b-53fb-403b-9a30-8e3ffd3faeba:1369512906736</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

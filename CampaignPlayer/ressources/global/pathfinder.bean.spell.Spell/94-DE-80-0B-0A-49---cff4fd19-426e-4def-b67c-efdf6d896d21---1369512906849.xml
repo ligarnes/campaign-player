@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cff4fd19-426e-4def-b67c-efdf6d896d21:1369512906849</guid>
    </id>
    <name>Corrosion</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0e93286b-d3de-43a8-a3c0-bf252575e01d:1369512906849</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2fd8199e-94a0-4d00-b891-2a7268ce0544:1369512906849</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:91322f86-b215-4c88-b6b7-56f8a7d74a9c:1369512906849</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

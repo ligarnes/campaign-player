@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a206eb12-583b-4938-ac57-39d298f04cb4:1369512907922</guid>
    </id>
    <name>Poursuite divine</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4bba9248-4f65-4838-a387-90e6215b57ca:1369512907922</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b8e796cf-95d1-4a35-9247-be7d5e5ca226:1369512907922</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3a818af2-302c-4e77-94f8-ff30a06008ed:1369512907922</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

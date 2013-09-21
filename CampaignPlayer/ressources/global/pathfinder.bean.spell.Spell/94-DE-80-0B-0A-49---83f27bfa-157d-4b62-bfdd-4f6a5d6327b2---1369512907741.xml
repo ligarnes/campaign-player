@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:83f27bfa-157d-4b62-bfdd-4f6a5d6327b2:1369512907741</guid>
    </id>
    <name>Esprit malveillant</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:660e99c7-a06a-49f3-b2ce-39131ce4b81e:1369512907740</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2e1f6ea0-37cc-420f-b22f-631f3b3d46b9:1369512907740</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:304457a0-b165-4b5b-b695-56dcfd41cb69:1369512907740</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

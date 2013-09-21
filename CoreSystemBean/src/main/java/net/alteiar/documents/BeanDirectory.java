@@ -43,7 +43,7 @@ public class BeanDirectory extends BeanBasicDocument {
 	}
 
 	public HashSet<UniqueID> getDocuments() {
-		return documents;
+		return (HashSet<UniqueID>) documents.clone();
 	}
 
 	public void setDocuments(HashSet<UniqueID> documents) {

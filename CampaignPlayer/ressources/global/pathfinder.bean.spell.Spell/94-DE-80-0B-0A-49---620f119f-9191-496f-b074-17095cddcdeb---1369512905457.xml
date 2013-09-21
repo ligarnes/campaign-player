@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:620f119f-9191-496f-b074-17095cddcdeb:1369512905457</guid>
    </id>
    <name>Métamorphose suprême</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e10c38f8-911d-4504-91e2-b8f5e46c4001:1369512905456</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:35cd6f08-7f2f-4ccd-bb5e-8beeef0007bf:1369512905456</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:db0b300c-84e5-4584-8189-3a9e0fe4879a:1369512905456</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

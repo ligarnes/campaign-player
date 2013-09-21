@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cf409249-700f-418a-9158-b43f33937f71:1369512903094</guid>
    </id>
    <name>Aliénation mentale</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0b467d51-b9ba-44c1-8f12-69e818149ac2:1369512903094</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4ba4113f-8d67-4e72-a851-ccc4049fdae8:1369512903094</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be424d8c-1e3b-496c-ba5f-e1ea645c0e0b:1369512903094</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

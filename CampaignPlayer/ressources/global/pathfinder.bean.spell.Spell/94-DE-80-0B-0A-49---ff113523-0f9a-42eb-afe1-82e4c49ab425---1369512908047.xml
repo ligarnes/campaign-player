@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ff113523-0f9a-42eb-afe1-82e4c49ab425:1369512908047</guid>
    </id>
    <name>Terrible remord</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2d0f5417-494e-4618-96d8-b2d62b1b323d:1369512908047</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f36566f5-ad26-4786-94cf-1b20775f4702:1369512908047</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:97630dc1-df2e-475a-a792-a0446bdbb93d:1369512908047</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:63b1b9d9-6444-454f-8341-7621da63ca1e:1369512906339</guid>
    </id>
    <name>Toile d&apos;araignée</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:64c491dd-e0aa-4f6f-8697-68629b9f00ad:1369512906339</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d25d7478-4432-4c54-96b7-ce18768a0c43:1369512906339</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:764c072b-a9dc-434d-8d56-5336bb41c974:1369512906339</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -6,7 +6,7 @@ import javax.swing.AbstractAction;
 
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.MainFrame;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.PanelPropertyEditor;
+import net.alteiar.campaign.player.gui.centerViews.explorer.PanelPropertyEditor;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.documents.BeanBasicDocument;
 

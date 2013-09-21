@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8495733c-176c-4b03-b4e0-c2a3a0b18434:1369512907537</guid>
    </id>
    <name>Barde d&apos;ombre</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9349395b-5cbe-4cbb-9969-58e31040bc72:1369512907537</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:38da09d4-2454-4fac-8cf8-17837bd43c3d:1369512907537</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a902429-486a-4e49-a243-a21f9dba2ad7:1369512907537</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

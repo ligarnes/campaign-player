@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d7041e50-3c8b-492b-b302-eeb0be3ad124:1369512904817</guid>
    </id>
    <name>Force de taureau</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6eb073bf-e139-401a-83c0-1391a958224f:1369512904817</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:61d8389c-d963-437d-a3dd-23636eb49e22:1369512904817</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:62545e9c-ddd9-4bb3-9050-529209384cf1:1369512904817</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

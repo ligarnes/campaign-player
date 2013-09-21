@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4402f7fe-0317-45fa-a4c5-f08022a54061:1369512905238</guid>
    </id>
    <name>Lame de feu</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c7a07669-805b-4306-8e08-f813c71c6b88:1369512905238</guid>
       </id>
       <unit>cases</unit>
       <value>0</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cf0fc7e5-d552-4cb3-a748-bf1648822b54:1369512905238</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f6ef9439-f8f9-49c9-ada7-0346484cfd08:1369512905238</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

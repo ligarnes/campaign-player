@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:baaef40c-bba3-4787-9255-a41d76191c5d:1369512907096</guid>
    </id>
    <name>Misérable pitié</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1e40fb4c-ed27-4d58-b448-f7eab882bd36:1369512907096</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dc4952ec-0278-422d-adfc-c76be2b3b195:1369512907096</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:955c5e32-4021-4b33-aff4-c11f49470605:1369512907096</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

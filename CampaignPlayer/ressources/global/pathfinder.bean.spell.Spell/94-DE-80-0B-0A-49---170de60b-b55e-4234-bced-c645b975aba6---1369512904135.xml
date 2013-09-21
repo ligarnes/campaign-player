@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:170de60b-b55e-4234-bced-c645b975aba6:1369512904135</guid>
    </id>
    <name>Corps élémentaire I</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:23da340f-edb6-4687-9f92-5ab705b80da4:1369512904135</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4c460d9c-693e-4201-bb9d-6a110a77204d:1369512904135</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a649feea-152e-4faf-9fc8-1b812e1a66f2:1369512904135</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

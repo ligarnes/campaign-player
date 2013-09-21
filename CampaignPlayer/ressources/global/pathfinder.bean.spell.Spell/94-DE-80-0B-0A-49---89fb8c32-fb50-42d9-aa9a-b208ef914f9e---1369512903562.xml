@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:89fb8c32-fb50-42d9-aa9a-b208ef914f9e:1369512903562</guid>
    </id>
    <name>Bois de fer</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:64782b3c-d6cc-4caa-9083-2e2c704dae06:1369512903562</guid>
       </id>
       <unit>cases</unit>
       <value>0</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:852416ca-9fa3-469f-992c-c114574e4b40:1369512903562</guid>
       </id>
       <unit>special</unit>
@@ -22,7 +22,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c2d3559c-12e3-4699-9589-312b2a5bb1bd:1369512903562</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

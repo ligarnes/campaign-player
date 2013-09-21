@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:357246e4-9ab2-49de-8aaa-e35f3dc015cd:1369512907971</guid>
    </id>
    <name>Retardement de la douleur</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:36289f5e-7569-4125-bf8b-b2c30ad62113:1369512907971</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:85711b23-91e1-4e6e-8722-8a7a1c16d743:1369512907971</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ab0ae602-fd28-4a79-a6ee-f8881fe41a00:1369512907971</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

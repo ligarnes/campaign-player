@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5ec04606-b1cd-47af-82d5-d480b4cba634:1369512905719</guid>
    </id>
    <name>Poing serré</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4443d162-1362-4f12-922f-4d7a6fd6b580:1369512905719</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ba419131-bb52-4195-b2c7-773ba48f4ac7:1369512905719</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b3a5e75b-ffbf-4c0a-aae2-d9f8590380d1:1369512905719</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

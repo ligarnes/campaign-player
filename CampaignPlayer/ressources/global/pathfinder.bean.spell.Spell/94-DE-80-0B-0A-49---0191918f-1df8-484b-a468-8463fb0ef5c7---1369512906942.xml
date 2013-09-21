@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:0191918f-1df8-484b-a468-8463fb0ef5c7:1369512906942</guid>
    </id>
    <name>Engouement téméraire</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5b6ed265-86f2-4820-9236-a4a3c711a3c3:1369512906941</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:50b83388-3d99-4687-9e42-9a4fbc3c1cba:1369512906942</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1d08a922-705a-43e2-8079-1fd6be79d218:1369512906942</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

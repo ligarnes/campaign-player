@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fa81ff80-6b06-4d3e-b49a-2367db1c2604:1369512904677</guid>
    </id>
    <name>État gazeux</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ed483405-42bb-4d9f-81d6-eb5cf518d27b:1369512904677</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f69bf7e3-85f0-42bb-bd93-89352750852c:1369512904677</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f00468af-a40c-48b5-bb9d-a56671a9e9b2:1369512904677</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

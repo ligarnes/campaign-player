@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:38e28a0f-80bb-4bad-8b61-149c7a25f4a9:1369512905504</guid>
    </id>
    <name>Mot de pouvoir aveuglant</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:07078921-8fcf-4b40-b09d-41cc88a05771:1369512905504</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:485c3709-abf8-4832-ae19-aa3508a3da44:1369512905504</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a0d1fb3-827a-4cff-9517-455ca243b822:1369512905504</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

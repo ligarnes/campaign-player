@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c2052360-a5c8-474d-94c6-d15d8d6aa052:1369512906774</guid>
    </id>
    <name>Combattant pris au dépourvu</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0bf0782a-af17-419d-962d-b8c018fbadba:1369512906774</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a33107ee-5f17-4b17-918b-34e99396073e:1369512906774</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e3fda90-2bd6-4b62-b92b-8214c1a0962d:1369512906774</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

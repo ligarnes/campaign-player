@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.explorer.mine.dnd;
+package net.alteiar.campaign.player.gui.centerViews.explorer.tree.dnd;
 
 import java.awt.Point;
 import java.awt.datatransfer.Transferable;
@@ -11,7 +11,7 @@ import javax.swing.TransferHandler;
 import javax.swing.tree.TreePath;
 
 import net.alteiar.campaign.CampaignClient;
-import net.alteiar.campaign.player.gui.centerViews.explorer.mine.DocumentNode;
+import net.alteiar.campaign.player.gui.centerViews.explorer.tree.DocumentNode;
 import net.alteiar.documents.BeanBasicDocument;
 import net.alteiar.documents.BeanDirectory;
 import net.alteiar.shared.UniqueID;

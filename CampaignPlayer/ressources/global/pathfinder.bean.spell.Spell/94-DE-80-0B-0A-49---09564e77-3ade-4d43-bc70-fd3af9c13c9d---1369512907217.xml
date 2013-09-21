@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:09564e77-3ade-4d43-bc70-fd3af9c13c9d:1369512907217</guid>
    </id>
    <name>Restauration d&apos;eidolon mineure</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7f58ef65-49d7-4890-9786-cc3291e52543:1369512907217</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:763c7b1c-111b-44a9-b02b-5cf483fb8209:1369512907217</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a57f7186-7e31-45ed-b716-3e2d99860e6d:1369512907217</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d3345d95-d0d1-4893-ad8f-9aa3ab9d3542:1369512905411</guid>
    </id>
    <name>Mémorisation</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:57a7c072-4f3a-450e-ac46-8cbab35982f1:1369512905411</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0c12ee9a-c12a-4942-844b-0a288584dea5:1369512905411</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:65ee096c-e575-40f2-8d6b-f5be7119e48e:1369512905411</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

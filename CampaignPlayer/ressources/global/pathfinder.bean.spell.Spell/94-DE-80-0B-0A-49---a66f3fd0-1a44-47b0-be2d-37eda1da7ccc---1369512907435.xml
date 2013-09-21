@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a66f3fd0-1a44-47b0-be2d-37eda1da7ccc:1369512907435</guid>
    </id>
    <name>Accorder la grâce du champion</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3b0a2372-f045-4d72-bd7a-61d73a6adc2f:1369512907434</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c2dda0c5-6ec7-4c11-ae06-3e823184e1b2:1369512907434</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9909c5d5-068d-46e0-a977-c8c83d06e3a2:1369512907435</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

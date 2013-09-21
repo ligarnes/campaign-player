@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fd1f3de8-855b-4910-8756-6e5a17bf093b:1369512907121</guid>
    </id>
    <name>Panoplie du champion</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:23b56388-2a0b-4b2a-95de-eb9565ea7564:1369512907121</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fd8a85f8-9b4c-47e6-86ab-a39382d40210:1369512907121</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7471c8f9-cc2f-440e-bf01-4e78c8b80d4a:1369512907121</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:a2aa8055-b32a-4527-8955-5749cf5632a1:1369512903838</guid>
    </id>
    <name>Communication avec les plantes</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2e020714-043d-42a4-8af7-6247b2528f13:1369512903838</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:94909761-171c-4410-a4c8-43e59de30930:1369512903838</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2e626bd1-9123-4ca7-9f91-0bf30b3fd3fb:1369512903838</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

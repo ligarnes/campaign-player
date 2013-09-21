@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:79ef0ad9-ea7b-4f52-a509-3fff7a2a823a:1369512905526</guid>
    </id>
    <name>Mur de force</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1013240f-1554-42c5-bef0-1a77128c83f9:1369512905526</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5e785a6e-418b-41fa-ae7c-26aeb00167da:1369512905526</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c57e88b3-353d-475c-ad4c-8097c8e8040a:1369512905526</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

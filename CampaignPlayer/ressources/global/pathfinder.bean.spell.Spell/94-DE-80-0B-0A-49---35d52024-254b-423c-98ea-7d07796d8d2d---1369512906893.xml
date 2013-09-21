@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:35d52024-254b-423c-98ea-7d07796d8d2d:1369512906893</guid>
    </id>
    <name>Décharge défensive</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4af1340d-f497-4c65-838a-7e5b988041c4:1369512906893</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:67b6fef2-911a-44ae-a76b-abb4426ad8c3:1369512906893</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V M F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c265de7b-9e3e-49a1-a85b-447372f3f780:1369512906893</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

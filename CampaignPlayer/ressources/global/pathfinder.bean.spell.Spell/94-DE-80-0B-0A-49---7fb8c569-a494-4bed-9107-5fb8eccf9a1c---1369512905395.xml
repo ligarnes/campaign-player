@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7fb8c569-a494-4bed-9107-5fb8eccf9a1c:1369512905395</guid>
    </id>
    <name>Marque de la justice</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:366d8947-778c-429b-ba11-65a04eac320a:1369512905394</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:793c36f0-8f1f-4272-a6d5-856853a4750a:1369512905394</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b28eaa03-09c6-492c-8754-99fcee68913c:1369512905394</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

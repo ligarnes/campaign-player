@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ec637e08-f686-4072-99c0-436fc1e55198:1369512905099</guid>
    </id>
    <name>Illumination</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1094e273-0e09-4442-ab5d-b868a400b387:1369512905099</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:14469b8b-11aa-4aaa-b849-7592a198f9b5:1369512905099</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:94a32a04-534f-47ad-80bb-50493a4c2db4:1369512905099</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

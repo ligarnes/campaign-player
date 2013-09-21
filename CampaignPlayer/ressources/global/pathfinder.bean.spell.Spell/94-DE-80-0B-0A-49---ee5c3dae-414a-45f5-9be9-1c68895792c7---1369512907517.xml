@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ee5c3dae-414a-45f5-9be9-1c68895792c7:1369512907517</guid>
    </id>
    <name>Atavisme de groupe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c640626d-8a01-4ca8-ae64-86338e5e1577:1369512907517</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a4053838-8e9e-4f1a-be72-098b72d3afaa:1369512907517</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ff5edf81-aee6-4a86-b0fe-81a2c4a0b142:1369512907517</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

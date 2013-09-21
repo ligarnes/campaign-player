@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:36946bf8-7232-425b-9278-58a65488145b:1369512905595</guid>
    </id>
    <name>Œil indiscret</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:389c2339-15f3-40e3-ac39-8f7f2d32139c:1369512905594</guid>
       </id>
       <value>1,5 km</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a5731682-1944-4e68-8e78-1a1e2508b44d:1369512905594</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:97876eeb-5fe4-421a-805f-5dc4683c4704:1369512905594</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f044eb13-c73d-4c0d-871e-acd0b7534695:1369512903864</guid>
    </id>
    <name>Cône de froid</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c30a071d-83af-4548-b317-9e13c665fc9d:1369512903864</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:792b3412-4c60-48f5-b005-aeb5956a049c:1369512903864</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0bd1d7c2-6d93-468a-b4a4-7f57ed5736e9:1369512903864</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

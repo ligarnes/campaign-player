@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3cf605a9-3329-4fef-9dd5-c47e2a53a059:1369512903741</guid>
    </id>
    <name>Chant de discorde</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:25d87962-0204-497e-8d01-5afe62131097:1369512903741</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e90b6c2c-ddf6-4ac8-9ee4-7afd2797a2e2:1369512903741</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8077639-19db-429a-9deb-997a6b7b7c53:1369512903741</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

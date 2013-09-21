@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b6bc9a10-32ee-4c73-8812-a688e7a6a758:1369512906722</guid>
    </id>
    <name>Bénédiction de la taupe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:31104b07-844a-4578-8c31-f3dd377168eb:1369512906722</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a96fef24-481e-4a78-8ecc-073a89ab4030:1369512906722</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:521f8f06-6ff9-4c6f-b1f3-16281908da03:1369512906722</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

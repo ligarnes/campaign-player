@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:9eca1091-d239-4039-a3a7-0d70b712e823:1369512906295</guid>
    </id>
    <name>Symbole de terreur</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0a7c90d-48a3-4f6d-982e-18e380e68e40:1369512906295</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3f0f3550-456d-4400-954c-92fc8e194c9b:1369512906295</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7c107b5c-dfa2-45e0-8380-fb3e5cb3aadb:1369512906295</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

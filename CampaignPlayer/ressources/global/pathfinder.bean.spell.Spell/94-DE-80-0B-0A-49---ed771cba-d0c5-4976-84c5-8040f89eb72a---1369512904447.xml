@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ed771cba-d0c5-4976-84c5-8040f89eb72a:1369512904447</guid>
    </id>
    <name>Détection des morts-vivants</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ad318e51-9452-4f03-8008-5aa4c94f9cb6:1369512904447</guid>
       </id>
       <unit>cases</unit>
       <value>12</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3e901b99-c690-4eb3-a51f-de2b3c884ff4:1369512904447</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b9599ef1-00d0-4721-b95d-94af5de16c50:1369512904447</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

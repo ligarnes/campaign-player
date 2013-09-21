@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f72e2ddf-469f-4098-a343-ea4fabeb894b:1369512905872</guid>
    </id>
    <name>Rapetissement</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bd2a84e8-504d-49c4-92da-98a0f286ff4e:1369512905872</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ffd82147-d77e-4659-abd1-f5a5cebd64e9:1369512905872</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:529f6600-f127-4527-af42-39c31f689f41:1369512905872</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3a754398-2b52-49a2-a3e9-f755da6cd719:1369512904477</guid>
    </id>
    <name>Détection du poison</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c5baf1b1-fbf2-41be-90fe-709abbbede54:1369512904477</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e8d64bde-3584-4927-ae3a-0de6ea024a47:1369512904477</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:92d1eaba-7d20-4da8-931a-94bb800afe80:1369512904477</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

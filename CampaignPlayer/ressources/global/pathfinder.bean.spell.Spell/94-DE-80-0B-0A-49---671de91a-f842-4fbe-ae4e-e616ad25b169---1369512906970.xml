@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:671de91a-f842-4fbe-ae4e-e616ad25b169:1369512906970</guid>
    </id>
    <name>Étrange fièvre</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:15a1c8bb-ee0a-4061-b467-811e0e68b798:1369512906970</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:171c0ce6-f9e3-411c-b018-4d4fe91e10bc:1369512906970</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:632413c0-51f7-434f-8d5b-2d934c867a19:1369512906970</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6776311d-3617-4d86-bf43-0e1f3b2b5e97:1369512907608</guid>
    </id>
    <name>Contact gelé</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ea35371a-ab00-4835-8ccc-f4111c3865dc:1369512907608</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e4b394cc-682f-4ddc-8187-c438054aedf4:1369512907608</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e22cfd85-67f9-4b97-9eb3-99452dfec4db:1369512907608</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

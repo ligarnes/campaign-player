@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5e82db30-40ae-462d-b172-e0c8769c8c18:1369512907909</guid>
    </id>
    <name>Pluie de grenouilles</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:082692e2-7cb4-4915-aae9-53be2aed6d62:1369512907909</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:44b35288-81cc-42b3-b276-d4dfa6c30e34:1369512907909</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e9db53cd-ba24-47c1-9f47-f34cc6b42076:1369512907909</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

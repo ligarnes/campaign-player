@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6d077ec1-1c17-42b1-9a45-3dad2b4a9791:1369512906740</guid>
    </id>
    <name>Brume hantée</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fc7cd122-9139-41c8-b022-9d0bc649eafa:1369512906739</guid>
       </id>
       <unit>cases</unit>
       <value>4</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c774649b-3878-4aab-885e-d177aa8fcfc7:1369512906739</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dd097911-751e-47de-a35d-41a2240928a9:1369512906739</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:dd60a5f7-5fc4-49dc-8148-7272bfaed562:1369512907118</guid>
    </id>
    <name>Panacée universelle</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:16135de3-6202-42d8-9c88-cd76108a54a5:1369512907118</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:71c2da6c-c2ab-43b0-950d-51635273fff4:1369512907118</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:da0f9ac2-84ad-4d97-99a4-f796d1cf04e1:1369512907118</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

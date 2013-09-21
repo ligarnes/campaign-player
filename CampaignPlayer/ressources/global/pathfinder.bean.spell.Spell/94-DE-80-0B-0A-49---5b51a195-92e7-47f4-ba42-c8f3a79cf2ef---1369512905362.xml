@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5b51a195-92e7-47f4-ba42-c8f3a79cf2ef:1369512905362</guid>
    </id>
    <name>Malédiction</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ab31f6cf-d1c7-4428-9085-4c4f5b6d221c:1369512905362</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:996d111e-fff8-43af-9254-a7db3555ce16:1369512905362</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2eaafc09-8427-4723-b085-a6896cfe2da6:1369512905362</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

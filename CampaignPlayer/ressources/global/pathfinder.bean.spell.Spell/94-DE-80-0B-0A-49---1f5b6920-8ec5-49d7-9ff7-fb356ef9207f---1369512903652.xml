@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1f5b6920-8ec5-49d7-9ff7-fb356ef9207f:1369512903652</guid>
    </id>
    <name>Brume mentale</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:224c71a1-de4f-4c0a-b1fe-1378b02c2adb:1369512903652</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9eb93d2-b5e0-4a99-b1a6-440c4d7647db:1369512903652</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b9e5b7b4-11cc-4ea8-9460-c10293d8a10a:1369512903652</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

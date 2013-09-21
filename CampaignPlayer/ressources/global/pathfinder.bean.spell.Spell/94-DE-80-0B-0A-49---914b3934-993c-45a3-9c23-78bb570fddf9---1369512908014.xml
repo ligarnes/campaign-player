@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:914b3934-993c-45a3-9c23-78bb570fddf9:1369512908014</guid>
    </id>
    <name>Symbole de miroir</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:39d98b98-bce6-47bc-8bde-9f7c1c57061e:1369512908014</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cd4a6cd6-3297-4d79-acf0-881f9143e591:1369512908014</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3e1c5609-0718-4a00-98d3-35df1cfdea94:1369512908014</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,10 +1,10 @@
-package net.alteiar.campaign.player.gui.centerViews.explorer;
+package net.alteiar.tree;
 
 import java.util.Iterator;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-class DefaultMutableTreeNodeChildIterator implements
+public class DefaultMutableTreeNodeChildIterator implements
 		Iterator<DefaultMutableTreeNode> {
 
 	private final DefaultMutableTreeNode parent;

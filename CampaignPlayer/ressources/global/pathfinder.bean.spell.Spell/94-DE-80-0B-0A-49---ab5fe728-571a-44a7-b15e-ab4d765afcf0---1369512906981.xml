@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ab5fe728-571a-44a7-b15e-ab4d765afcf0:1369512906981</guid>
    </id>
    <name>Flèche de ki</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c603a3f5-c5b5-4e83-b827-98afc0e73f9a:1369512906981</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3ed914b9-cbb0-465d-9de0-fde2d14bfc20:1369512906981</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:84ae1684-8c0f-4fcb-9e56-04e31ce6291a:1369512906981</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

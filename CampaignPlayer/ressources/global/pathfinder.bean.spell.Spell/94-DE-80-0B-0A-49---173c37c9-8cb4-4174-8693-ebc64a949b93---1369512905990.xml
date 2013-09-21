@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:173c37c9-8cb4-4174-8693-ebc64a949b93:1369512905990</guid>
    </id>
    <name>Rejet du Mal</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1ac40d8b-456e-4b79-910f-38c548ff64b7:1369512905990</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:733278e4-8c7c-465f-bbf9-5576d79e560c:1369512905990</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6adff878-bdf6-4906-891e-c0e8338de074:1369512905990</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

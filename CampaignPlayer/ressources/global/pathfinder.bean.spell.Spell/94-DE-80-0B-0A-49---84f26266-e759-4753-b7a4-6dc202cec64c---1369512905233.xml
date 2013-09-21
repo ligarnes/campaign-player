@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:84f26266-e759-4753-b7a4-6dc202cec64c:1369512905233</guid>
    </id>
    <name>Invocation instantanée</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:522c9049-11f2-4420-824d-3a33bc961367:1369512905233</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a02cde81-fd90-46e8-9445-53c656888a95:1369512905233</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:adcdec87-622c-4d40-85b0-703b00002bd6:1369512905233</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

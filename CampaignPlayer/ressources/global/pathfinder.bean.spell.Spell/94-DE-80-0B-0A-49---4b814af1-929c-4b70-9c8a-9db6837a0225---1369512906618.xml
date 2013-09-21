@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4b814af1-929c-4b70-9c8a-9db6837a0225:1369512906618</guid>
    </id>
    <name>Accompagnement exquis</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b6b1ff78-058f-4891-a04f-26f27f5c5d8c:1369512906618</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:dcb1d736-c1e3-42f3-b100-4d5a44830c66:1369512906618</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7b929083-91eb-4f0d-97e4-0abe4f802505:1369512906618</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b77b2fcd-f322-41a2-9bb6-55abef67b402:1369512906354</guid>
    </id>
    <name>Transmutation de la pierre en chair</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:87127cdc-f1b0-4b9a-83e7-4a6f03ac4ef9:1369512906354</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:73bf661f-17dc-4749-b7f1-a601914bc498:1369512906354</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e5659039-3105-46b9-a974-0b2a53f394bb:1369512906354</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

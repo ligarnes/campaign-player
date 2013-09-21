@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:ebe0e8d1-2aca-48ac-a6f5-de1f78b14c39:1369512903351</guid>
    </id>
    <name>Aspersion acide</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f0b5712d-a857-4df3-b152-11e3b55dfb61:1369512903351</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:50895623-6f26-4f63-8e20-22736749060c:1369512903351</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:33de9120-8820-4008-b9fc-03fe982d4083:1369512903351</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

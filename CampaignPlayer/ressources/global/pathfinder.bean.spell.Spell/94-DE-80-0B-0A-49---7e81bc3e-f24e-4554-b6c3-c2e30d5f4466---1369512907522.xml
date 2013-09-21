@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7e81bc3e-f24e-4554-b6c3-c2e30d5f4466:1369512907522</guid>
    </id>
    <name>Aura d&apos;archon</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fa7b6791-d8ae-4160-b9fa-4efe9d6c7045:1369512907522</guid>
       </id>
       <unit>cases</unit>
       <value>4</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b297b201-1a8a-4b6e-96c2-b88c2571ca9b:1369512907522</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:09a025ab-d97c-4c5b-95c7-30015812fa2e:1369512907522</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

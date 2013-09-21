@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:c2164ad5-cb4b-41ea-80d4-07239eb71f1f:1369512903856</guid>
    </id>
    <name>Compréhension des langages</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:25e9610f-1449-4486-af04-3a9223eaf147:1369512903856</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0cee7bb3-86ef-474c-806d-31f147ae9205:1369512903856</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:82fea1d4-c046-4f91-bedc-1bdca8939aee:1369512903856</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

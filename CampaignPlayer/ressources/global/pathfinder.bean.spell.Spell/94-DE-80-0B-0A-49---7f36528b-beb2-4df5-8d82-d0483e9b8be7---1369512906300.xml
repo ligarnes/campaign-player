@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7f36528b-beb2-4df5-8d82-d0483e9b8be7:1369512906300</guid>
    </id>
    <name>Téléportation</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2a290755-3dbe-42c5-b1bb-17f3a855a617:1369512906300</guid>
       </id>
       <value>personnelle et contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:786c0649-f182-4391-bc9a-919a6dbe031f:1369512906300</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b20b72fa-05f3-4ca2-a42e-ec87d9bb29c4:1369512906300</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

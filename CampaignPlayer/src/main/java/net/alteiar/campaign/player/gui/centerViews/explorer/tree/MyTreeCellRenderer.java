@@ -1,4 +1,4 @@
-package net.alteiar.campaign.player.gui.centerViews.explorer.mine;
+package net.alteiar.campaign.player.gui.centerViews.explorer.tree;
 
 import java.awt.Component;
 
@@ -6,6 +6,8 @@ import javax.swing.Icon;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import net.alteiar.campaign.player.gui.centerViews.explorer.ExplorerIconUtils;
+import net.alteiar.campaign.player.gui.centerViews.explorer.PanelDocument;
 import net.alteiar.documents.BeanDocument;
 
 public class MyTreeCellRenderer extends DefaultTreeCellRenderer {

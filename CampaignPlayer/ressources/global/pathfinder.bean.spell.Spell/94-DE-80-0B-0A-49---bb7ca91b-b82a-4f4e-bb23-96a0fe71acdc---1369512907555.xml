@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:bb7ca91b-b82a-4f4e-bb23-96a0fe71acdc:1369512907555</guid>
    </id>
    <name>Bruit pénible</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:567c8db1-33f2-4f9f-bf92-633066cbab46:1369512907555</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:90380ddf-e9ae-43fd-9b4e-b23ed58e6a10:1369512907555</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9d9ebe49-18f1-4039-af77-68512f63de17:1369512907555</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

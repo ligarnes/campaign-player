@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8f81ff88-d42c-463b-b74f-213b8dd7f497:1369512904087</guid>
    </id>
    <name>Convocation de monstres VIII</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:cb52a74f-5596-43d7-bd5f-58b9db72aefb:1369512904087</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:62f5436d-b4ec-4b72-9a2e-89c6625e149a:1369512904087</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d75a9764-b215-4e3c-b9e0-4a471a3bac75:1369512904087</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

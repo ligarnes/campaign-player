@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d8ef5e1a-496b-44b6-bc96-5e69f23de839:1369512907192</guid>
    </id>
    <name>Réceptacle de l&apos;oracle</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ec432652-fc4e-43af-a8f1-a7b7be830c78:1369512907192</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2ee106b0-e8cf-4c5e-aaff-5620ebc7de78:1369512907192</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8a3b288e-679d-463c-a6a0-24ab4dde43e3:1369512907192</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

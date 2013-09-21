@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2b84fb3e-93e5-4269-8b19-47935d3e50e9:1369512906959</guid>
    </id>
    <name>Éruption de pustules</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d8715a7c-f03d-4408-b91f-7a8d9253bdf8:1369512906958</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6d32ea87-5aab-4ef6-b2ee-a80712ac5395:1369512906959</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f535f73d-923f-447b-a602-3cccda42a8b1:1369512906959</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

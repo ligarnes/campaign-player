@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d93bfca9-139c-4cb0-96c8-411013765494:1369512904374</guid>
    </id>
    <name>Déplacement</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7cbdbd9a-45cd-403a-b8a0-ae15c7fded54:1369512904374</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8644e8dd-49d1-4d39-944e-a2de10573c79:1369512904374</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be728dac-9844-4137-944c-9ac41a6d962e:1369512904374</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

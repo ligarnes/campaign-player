@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:610212ad-c7c8-43a7-8e8d-12e8ee785bd5:1369512905985</guid>
    </id>
    <name>Rejet du Chaos</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:eb706ce6-f536-4926-ad53-842f4730a599:1369512905984</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:1ddce31d-1fba-4b78-bc3a-72dffbd89d33:1369512905984</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c1ffa728-d4e3-4189-bc91-f1090a266c6d:1369512905985</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

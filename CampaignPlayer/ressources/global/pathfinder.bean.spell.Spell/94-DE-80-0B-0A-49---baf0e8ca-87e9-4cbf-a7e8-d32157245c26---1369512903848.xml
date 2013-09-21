@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:baf0e8ca-87e9-4cbf-a7e8-d32157245c26:1369512903848</guid>
    </id>
    <name>Communion avec la nature</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c52eca6f-35d7-488b-a06b-c1265f3ce5a7:1369512903848</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:434e3fe6-0518-4ce4-a193-c0ea8a4969bc:1369512903848</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:37c1f31b-bddf-46d6-8215-82de7a47f613:1369512903848</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

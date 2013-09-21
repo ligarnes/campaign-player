@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:2bf6767c-ade5-4ad8-97c0-573a21a5af71:1369512904316</guid>
    </id>
    <name>Décharge électrique</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:678c7829-df1b-4163-88fa-494ff60f6850:1369512904316</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f8698128-ebf1-4dc8-b225-78d53841d9c1:1369512904316</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:807b34ad-39dd-4505-ba7e-0d062ead643e:1369512904316</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

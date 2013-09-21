@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:47def546-f403-4102-960b-6d63afa1984e:1369512906331</guid>
    </id>
    <name>Terrain hallucinatoire</name>
    <school>illusion</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7a28c233-eab2-4abf-8209-3aebf4300452:1369512906330</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:43383f2c-a22d-4c87-9f57-eb0df2b4fe94:1369512906330</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b09c9d73-6400-4e34-8678-f591e34ce5af:1369512906331</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

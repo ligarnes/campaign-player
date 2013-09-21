@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6149083c-55e4-481e-bdcb-7eb240eca012:1369512906642</guid>
    </id>
    <name>Aiguillon persuasif</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:56218160-4b01-483b-b251-b4a2a21e523f:1369512906642</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:7d7f351b-2556-47d6-911f-8d9caf053cfd:1369512906642</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:65b7bde9-cd63-4cdb-a4c1-c8d6659a44e7:1369512906642</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4587b07c-8173-44d1-8c28-47a3d4038b4a:1369512905354</guid>
    </id>
    <name>Main spectrale</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:89dbe0e9-a28e-470b-985e-219220b9bbec:1369512905354</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fb020f1a-26e1-4332-9a9b-3bb929b6da12:1369512905354</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:af05b690-3388-49ee-861e-c7eca975b082:1369512905354</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3aa50ca9-f5c5-4369-840f-19e255a89b0c:1369512907155</guid>
    </id>
    <name>Porte-peste</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d30e800f-1a1d-4bc7-9806-49a9b6a4ff39:1369512907154</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:584cdc9c-e566-444e-85e3-b1a3416ef582:1369512907154</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:067c3411-6b99-442b-9373-c2938738e920:1369512907154</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

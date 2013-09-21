@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d68d2a07-aa25-44e4-abe1-7befb0ae935c:1369512905017</guid>
    </id>
    <name>Grâce féline de groupe</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:46f01e88-87d8-4130-850d-4aaf3efac36b:1369512905016</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0ffd94d0-1a9b-4d05-a698-254dc6ec88c5:1369512905017</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e952b4fe-1545-4e5a-b081-3731fa058b78:1369512905017</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

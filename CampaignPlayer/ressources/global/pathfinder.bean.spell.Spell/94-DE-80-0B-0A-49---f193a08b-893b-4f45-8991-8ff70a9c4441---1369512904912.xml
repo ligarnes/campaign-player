@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:f193a08b-893b-4f45-8991-8ff70a9c4441:1369512904912</guid>
    </id>
    <name>Forme de vase III</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5b7c0c45-37d0-4de0-b236-337c2f273c30:1369512904912</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4f8dd86d-031d-4220-a451-be9baeeb0f38:1369512904912</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6f2e804a-91cf-42e8-81bb-fe8dee1f17e7:1369512904912</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

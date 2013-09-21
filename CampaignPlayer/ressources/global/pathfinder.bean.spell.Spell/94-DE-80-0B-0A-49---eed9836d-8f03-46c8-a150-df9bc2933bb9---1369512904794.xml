@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:eed9836d-8f03-46c8-a150-df9bc2933bb9:1369512904794</guid>
    </id>
    <name>Flèches enflammées</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5efbc3b3-b660-4c09-a84d-bb917ee79bfa:1369512904793</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6df2964e-0e23-4b46-a7fc-8de61847cd62:1369512904793</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5a408a92-612d-414f-9f74-5ace340410ba:1369512904794</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

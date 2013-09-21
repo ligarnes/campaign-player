@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8bfc8abf-b931-4040-9237-f78d534b8ae1:1369512903601</guid>
    </id>
    <name>Bouclier entropique</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f9a29bc0-adac-490c-8668-13b843bc3a77:1369512903601</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a732dc48-5979-492f-8124-d82ffdf1f2cd:1369512903601</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f5368413-cd04-44a0-b76a-f5ec571a1fed:1369512903601</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

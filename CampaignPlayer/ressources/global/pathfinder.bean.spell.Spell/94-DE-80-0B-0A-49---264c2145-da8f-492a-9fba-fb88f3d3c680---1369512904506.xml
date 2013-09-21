@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:264c2145-da8f-492a-9fba-fb88f3d3c680:1369512904506</guid>
    </id>
    <name>Dissimulation d&apos;objet</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:28ff2912-e319-4a83-a747-3787b379b469:1369512904506</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0cd9958c-b3a9-4ef1-8623-4ca1d92522cb:1369512904506</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8754afe5-2909-4814-a1bf-17e932ee05d3:1369512904506</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

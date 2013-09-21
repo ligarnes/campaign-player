@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:97ec31a5-2094-4516-af3f-c3dabbd652dd:1369512907714</guid>
    </id>
    <name>Dragon d&apos;artifice</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:8f7dae7c-0433-470e-933f-98a6e98d0d30:1369512907714</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f801e78e-92c6-4f7f-a49f-82c02c3ed121:1369512907714</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0fe5f772-0197-4815-baf0-969902f135ce:1369512907714</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

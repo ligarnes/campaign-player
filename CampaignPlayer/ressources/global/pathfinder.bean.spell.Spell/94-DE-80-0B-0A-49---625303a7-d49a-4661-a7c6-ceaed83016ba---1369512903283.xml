@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:625303a7-d49a-4661-a7c6-ceaed83016ba:1369512903283</guid>
    </id>
    <name>Appel de la foudre</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:812f3fb9-b1eb-4c57-8a22-862e7901f263:1369512903283</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:0b33c14d-8b60-4db5-b716-8f39ddcf951e:1369512903283</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4aef03b3-725a-449e-8dcc-5b0c83c647c5:1369512903283</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

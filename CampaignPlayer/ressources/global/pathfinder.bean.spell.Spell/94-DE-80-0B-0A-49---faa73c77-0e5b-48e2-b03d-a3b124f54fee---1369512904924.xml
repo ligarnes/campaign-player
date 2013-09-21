@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:faa73c77-0e5b-48e2-b03d-a3b124f54fee:1369512904924</guid>
    </id>
    <name>Forme végétale II</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2cf7d9fe-8845-4286-9b37-9da6435d7295:1369512904923</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:146c544f-6a2a-46a3-a822-7fb10e75ef61:1369512904923</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fd81cfda-2a45-4c08-be10-b5b8e39cc352:1369512904923</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e02a995d-d637-4c5f-b557-ae4f76c47a10:1369512903477</guid>
    </id>
    <name>Bâton sylvanien</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4c00ea2c-0b66-48a7-b403-45ae7b3439c4:1369512903477</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4da8fd74-8c60-4e9a-b103-9cc1fcf581ab:1369512903477</guid>
       </id>
       <unit>round</unit>
@@ -21,7 +21,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:861c9428-1b25-4d22-a28e-0e236064b08e:1369512903477</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

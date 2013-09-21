@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e11aad51-9eca-4a8b-bc3a-7b1e7399be85:1369512906674</guid>
    </id>
    <name>Anatomie morte-vivante IV</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c4285599-15ae-46d2-9b8f-0a582d276e7c:1369512906674</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ab80ce23-ecc8-4261-bb24-350becddd48c:1369512906674</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5b5662c7-1274-4f78-8340-d9f587b723f7:1369512906674</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

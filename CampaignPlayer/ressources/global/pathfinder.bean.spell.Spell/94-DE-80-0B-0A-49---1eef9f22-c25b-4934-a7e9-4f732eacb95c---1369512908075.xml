@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:1eef9f22-c25b-4934-a7e9-4f732eacb95c:1369512908075</guid>
    </id>
    <name>Vision dans le noir supérieure</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:751d540b-af8b-4be9-9399-b1aaa89116f0:1369512908074</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f4955c29-6a68-4f43-84c2-caa06f9dfea1:1369512908074</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c2bfe6a2-6e17-4998-99e6-845121cde9ad:1369512908074</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

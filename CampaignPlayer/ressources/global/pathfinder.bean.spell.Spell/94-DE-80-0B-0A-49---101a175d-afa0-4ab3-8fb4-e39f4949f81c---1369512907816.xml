@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:101a175d-afa0-4ab3-8fb4-e39f4949f81c:1369512907816</guid>
    </id>
    <name>Lame de triomphe éclatant</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:237ac91d-3852-4cad-af98-b833c805581f:1369512907815</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:f244eb19-90b3-419a-934c-b65cb883d159:1369512907815</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:febdb120-4b0a-4292-ba7e-7ecb4c53a781:1369512907815</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

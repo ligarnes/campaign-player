@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:624cf860-c473-48b9-9e9c-a97e5d65d669:1369512905032</guid>
    </id>
    <name>Grand tertre</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d39cefbe-bd79-4703-9231-eaee22be905a:1369512905032</guid>
       </id>
       <unit>medium</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:47bd61f4-f45e-4796-808c-038905da0400:1369512905032</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:e4a85dba-ab03-41d8-954f-91f49a084646:1369512905032</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

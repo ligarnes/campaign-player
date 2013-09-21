@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:cedd8d24-d556-4135-a6f3-1f4da5016e29:1369512905747</guid>
    </id>
    <name>Prémonition</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae474d1e-54f7-44ba-94cb-07077cfa40a3:1369512905747</guid>
       </id>
       <value>Présentation des sorts#PORTEE|personnelle ou Présentation des sorts#PORTEE|contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4ec3dba1-3ee2-480f-9c5d-43dc62093757:1369512905747</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:74fc94f2-6665-495c-93b5-387b2113e754:1369512905747</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

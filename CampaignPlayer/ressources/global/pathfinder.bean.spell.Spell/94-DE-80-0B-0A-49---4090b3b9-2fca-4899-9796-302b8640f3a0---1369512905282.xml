@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:4090b3b9-2fca-4899-9796-302b8640f3a0:1369512905282</guid>
    </id>
    <name>Localisation suprême</name>
    <school>divination</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:375a1557-a4dd-47b5-9865-7063589a4223:1369512905282</guid>
       </id>
       <unit>unlimited</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:fd120e43-5626-4dbf-bcc2-cdc8fac6ac20:1369512905282</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b26090a4-520f-4e26-ab67-d2b31de076fb:1369512905282</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

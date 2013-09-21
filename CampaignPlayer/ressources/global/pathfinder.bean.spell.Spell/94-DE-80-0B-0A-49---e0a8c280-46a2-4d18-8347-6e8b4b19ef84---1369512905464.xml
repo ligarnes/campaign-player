@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:e0a8c280-46a2-4d18-8347-6e8b4b19ef84:1369512905464</guid>
    </id>
    <name>Miracle</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a739ac8a-e472-472c-b330-2083a6b47afb:1369512905464</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ae6170be-1b4b-4903-9eda-b53c1edaf3aa:1369512905464</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ff12b77e-f7f2-4569-ba77-36457aad4cf9:1369512905464</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

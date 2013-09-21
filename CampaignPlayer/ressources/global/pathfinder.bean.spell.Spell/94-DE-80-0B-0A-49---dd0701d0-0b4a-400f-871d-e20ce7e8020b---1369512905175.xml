@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:dd0701d0-0b4a-400f-871d-e20ce7e8020b:1369512905175</guid>
    </id>
    <name>Implosion</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c68a8901-f053-4987-ad26-4c9dfcf80992:1369512905175</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:936e3cb8-48c6-4657-8c61-9f395d5f8a14:1369512905175</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:b6773318-816a-4534-b4b2-c54794ddf561:1369512905175</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

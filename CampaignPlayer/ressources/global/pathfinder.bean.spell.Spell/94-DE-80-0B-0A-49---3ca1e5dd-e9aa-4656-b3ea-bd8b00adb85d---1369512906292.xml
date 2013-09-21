@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3ca1e5dd-e9aa-4656-b3ea-bd8b00adb85d:1369512906292</guid>
    </id>
    <name>Symbole de sommeil</name>
    <school>enchantment</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:64dd1722-eb0c-4621-a016-614aaa1b53d2:1369512906292</guid>
       </id>
       <value>0 m (voir description)</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:5c9901a1-eab8-491e-a351-e5ca5e4c8ce7:1369512906292</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:89cbc551-1d75-4c27-88ea-7069030a6b1f:1369512906292</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

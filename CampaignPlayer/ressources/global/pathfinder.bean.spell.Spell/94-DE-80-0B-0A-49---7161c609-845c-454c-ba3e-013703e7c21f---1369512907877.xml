@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:7161c609-845c-454c-ba3e-013703e7c21f:1369512907877</guid>
    </id>
    <name>Orbe du néant</name>
    <school>necromancy</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3726e51d-0cdb-4c72-9e02-566564885e72:1369512907877</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:2415cd54-c162-4664-9404-e7702e2b9bbe:1369512907877</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:228c70dd-3fdc-4711-ae52-a2fcb119dd4c:1369512907877</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

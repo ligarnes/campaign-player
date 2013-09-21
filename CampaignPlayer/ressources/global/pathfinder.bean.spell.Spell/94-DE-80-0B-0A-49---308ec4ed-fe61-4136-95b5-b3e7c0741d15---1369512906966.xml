@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:308ec4ed-fe61-4136-95b5-b3e7c0741d15:1369512906966</guid>
    </id>
    <name>Estoc sonore</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:d4080b5d-aee6-41ce-af87-3421e8a80aa7:1369512906966</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ea1eb328-a4ca-4615-81cb-a4c30a0b995f:1369512906966</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:bd630ade-4741-4fa3-aeee-bde94855dfe2:1369512906966</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

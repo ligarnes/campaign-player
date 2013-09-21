@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3bb34970-aeba-4a48-aade-dae8ff23dc2e:1369512906871</guid>
    </id>
    <name>Creusement</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:35088674-a5d7-4ec9-9e5e-05f31147da3a:1369512906871</guid>
       </id>
       <value>contact</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6d1df742-32d0-41ce-9289-04da7dadcbf2:1369512906871</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:858f15a1-d4be-4df5-b3b2-efced186d38b:1369512906871</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

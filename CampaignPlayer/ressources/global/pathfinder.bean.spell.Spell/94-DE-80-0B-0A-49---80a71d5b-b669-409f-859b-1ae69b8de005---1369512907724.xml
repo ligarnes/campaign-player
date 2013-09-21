@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:80a71d5b-b669-409f-859b-1ae69b8de005:1369512907724</guid>
    </id>
    <name>Éclat du chaos</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:6e24eedc-5097-4256-bfa9-5c2e32052099:1369512907724</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:387b7387-a005-4444-b9f4-0dffc26d1ed7:1369512907724</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:be87182f-6640-44f5-ae92-8b8f1323d8fb:1369512907724</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

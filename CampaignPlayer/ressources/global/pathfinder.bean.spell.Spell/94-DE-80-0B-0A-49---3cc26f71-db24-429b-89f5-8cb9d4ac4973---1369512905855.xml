@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:3cc26f71-db24-429b-89f5-8cb9d4ac4973:1369512905855</guid>
    </id>
    <name>Rabougrissement des plantes</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:793e87c7-78ee-4907-bc13-e5840c08c02c:1369512905855</guid>
       </id>
       <value>voir description</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:c50d6202-7f44-424b-a6c6-8d0dc26519d2:1369512905855</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:975c7264-92f0-4110-bb44-c8f942adcfba:1369512905855</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:5a9c37c4-195b-4a52-9044-4bfbbdd0c1ca:1369512907186</guid>
    </id>
    <name>Rappel de compagnon animal</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:45d85788-b88a-4b18-990c-2b25ea59b460:1369512907186</guid>
       </id>
       <unit>touch</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:079a7764-82fe-4501-a6df-367dabd00269:1369512907186</guid>
       </id>
       <unit>minute</unit>
@@ -21,7 +21,7 @@
    <composant>V S M</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:46710b5e-4a7c-4037-85b1-c75e6ebdf727:1369512907186</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

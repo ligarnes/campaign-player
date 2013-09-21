@@ -1,18 +1,18 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:557dac1e-056d-45aa-bf81-c1978fb86855:1369512903410</guid>
    </id>
    <name>Aura sacrée</name>
    <school>abjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:171024c4-87d0-4489-a606-7c43929c941f:1369512903410</guid>
       </id>
       <unit>cases</unit>
       <value>4</value>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:96de2fa7-73a7-4326-a200-7b8feacbb16c:1369512903410</guid>
       </id>
       <value>1</value>
@@ -21,7 +21,7 @@
    <composant>V S F</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:89afc864-5d43-47c2-a703-269f62678606:1369512903410</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

@@ -1,9 +1,9 @@
 <imageBean>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:fd29f402-19e5-43ba-9b56-664a9d1c1a6f:1369827140058</guid>
    </id>
     <image class="net.alteiar.utils.file.images.SerializableImage">
-      <id serialVersionUID="1">
+      <id>
          <guid>01-FF-ED-A2-B9-46:c70224e8-5a52-4f66-aad0-4007cedbd1b6:1379257683448</guid>
       </id>
    </image>

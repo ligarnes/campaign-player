@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:6f73bd46-a43c-482f-8270-2b31baa5f69f:1369512906311</guid>
    </id>
    <name>Tempête de grêle</name>
    <school>evocation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a3ba4ab2-d7cb-48aa-aca8-d2b5ebc0df3d:1369512906311</guid>
       </id>
       <unit>long</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ff68e629-48bb-4db4-a522-3924aba77114:1369512906311</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S M/DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ad60e8e9-f7b7-43c3-a444-20c76d5a8602:1369512906311</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

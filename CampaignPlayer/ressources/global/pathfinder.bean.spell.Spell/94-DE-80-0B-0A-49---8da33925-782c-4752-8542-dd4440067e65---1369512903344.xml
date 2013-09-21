@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:8da33925-782c-4752-8542-dd4440067e65:1369512903344</guid>
    </id>
    <name>Arrêt du temps</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:68c76e9c-5a8d-499b-b291-02ed362deef2:1369512903344</guid>
       </id>
       <unit>personal</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:13584a50-a055-4ab9-a99b-0fb1cf55a442:1369512903344</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:94b2bd8b-3079-41ba-880e-0634d9e78707:1369512903344</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

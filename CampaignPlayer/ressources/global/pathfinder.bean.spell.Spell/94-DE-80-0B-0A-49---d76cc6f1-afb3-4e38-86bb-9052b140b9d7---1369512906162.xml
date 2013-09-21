@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:d76cc6f1-afb3-4e38-86bb-9052b140b9d7:1369512906162</guid>
    </id>
    <name>Soins intensifs de groupe</name>
    <school>conjuration</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9a114274-31c2-41c7-9d03-dd2534e2ffcf:1369512906162</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:9f1af47f-f32a-4ecf-aa23-1b2b87ceccc2:1369512906162</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:3f35787c-4a23-4c09-b0f2-170f8e985915:1369512906162</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>

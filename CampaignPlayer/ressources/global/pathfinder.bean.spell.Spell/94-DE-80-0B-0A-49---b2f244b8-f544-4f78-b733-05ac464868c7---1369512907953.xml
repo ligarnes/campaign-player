@@ -1,17 +1,17 @@
 <spell>
-   <id serialVersionUID="1">
+   <id>
       <guid>94-DE-80-0B-0A-49:b2f244b8-f544-4f78-b733-05ac464868c7:1369512907953</guid>
    </id>
    <name>Réprobation</name>
    <school>transmutation</school>
    <range>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:4d5481b0-87da-431d-bf13-a206def1390a:1369512907953</guid>
       </id>
       <unit>close</unit>
    </range>
    <castingTime>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:a535c13a-8b09-4da4-a7be-60fa37f7b799:1369512907953</guid>
       </id>
       <value>1</value>
@@ -20,7 +20,7 @@
    <composant>V S DF</composant>
    <source>Ultimate magic</source>
    <reference>
-      <id serialVersionUID="1">
+      <id>
          <guid>94-DE-80-0B-0A-49:ade97979-ceaf-45e7-8ca0-81c48a8548cb:1369512907953</guid>
       </id>
       <name>Wiki Pathfinder-fr.org</name>
