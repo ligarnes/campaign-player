@@ -27,7 +27,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.connexion.StartGameDialog;
-import net.alteiar.campaign.player.plugin.PluginSystem;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -78,9 +77,6 @@ public class Main {
 		 * { Logger.getLogger(Main.class).warn(
 		 * "Impossible de changer le look and feel", e); }
 		 */
-
-		// Touch to load plugin class
-		PluginSystem.getInstance();
 
 		StartGameDialog startGameDialog = new StartGameDialog(MainFrame.FRAME,
 				"Campaign Player", true);

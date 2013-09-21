@@ -9,15 +9,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import net.alteiar.campaign.CampaignFactoryNew;
-import net.alteiar.campaign.player.infos.HelpersPath;
 import net.alteiar.campaign.player.infos.Languages;
-import net.alteiar.campaign.player.plugin.PluginSystem;
-import net.alteiar.campaign.player.tools.NetworkProperties;
 import net.alteiar.campaign.player.tools.Threads;
 import net.alteiar.thread.MyRunnable;
-
-import org.apache.log4j.Logger;
 
 public class PanelEnterGame extends PanelStartGameDialog implements
 		ActionListener {
@@ -52,18 +46,7 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 			Threads.execute(new MyRunnable() {
 				@Override
 				public void run() {
-					NetworkProperties networkProp = new NetworkProperties();
-					// Create the game
-					try {
-						CampaignFactoryNew.startNewCampaign(networkProp
-								.getServerIp(), networkProp.getServerPort(),
-								HelpersPath.PATH_SAVE,
-								HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
-										.getInstance().getKryo());
-					} catch (Exception e) {
-						Logger.getLogger(getClass()).error(
-								"Impossible de créer la partie", e);
-					}
+					MyCampaignFactory.startNewCampaign();
 				}
 
 				@Override
@@ -80,12 +63,7 @@ public class PanelEnterGame extends PanelStartGameDialog implements
 			Threads.execute(new MyRunnable() {
 				@Override
 				public void run() {
-					NetworkProperties networkProp = new NetworkProperties();
-					CampaignFactoryNew.connectToServer(networkProp
-							.getServerIp(), networkProp.getServerPort(),
-							HelpersPath.PATH_SAVE,
-							HelpersPath.PATH_DOCUMENT_GLOBAL, PluginSystem
-									.getInstance().getKryo());
+					MyCampaignFactory.joinCampaign();
 				}
 
 				@Override

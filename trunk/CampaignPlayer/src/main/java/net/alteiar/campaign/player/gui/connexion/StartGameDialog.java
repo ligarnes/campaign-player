@@ -13,7 +13,8 @@ public class StartGameDialog extends JDialog {
 	public StartGameDialog(Frame owner, String title, Boolean modal) {
 		super(owner, title, modal);
 		this.readyToStart = false;
-		this.getContentPane().add(new PanelEnterGame(this));
+		this.getContentPane().add(new PanelChooseGameSystem(this, null));
+		// this.getContentPane().add(new PanelEnterGame(this));
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setAlwaysOnTop(true);
