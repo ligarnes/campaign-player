@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TriggerAndElement>
+	<TriggerTypes>
+		<Trigger name="position">net.alteiar.trigger.PositionTrigger</Trigger>
+	</TriggerTypes>
+	<TriggerAssociation>
+		<Trigger name="position">
+			<class name="pathfinder character">pathfinder.mapElement.character.PathfinderCharacterElement</class>
+			<class name="circle element">net.alteiar.map.elements.CircleElement</class>
+			<class name="rectangle element">net.alteiar.map.elements.RectangleElement</class>
+		</Trigger>
+	</TriggerAssociation>
+</TriggerAndElement>
