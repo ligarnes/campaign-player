@@ -23,7 +23,6 @@ public class ImageBean extends BasicBean {
 	}
 
 	public ImageBean() {
-		image = null;
 	}
 
 	public TransfertImage getImage() {

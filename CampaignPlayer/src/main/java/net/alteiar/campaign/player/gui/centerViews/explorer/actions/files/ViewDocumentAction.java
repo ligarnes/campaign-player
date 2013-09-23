@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JDialog;
 
+import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.campaign.player.gui.documents.PanelViewDocument;
 import net.alteiar.campaign.player.plugin.PluginSystem;
@@ -21,6 +22,12 @@ public class ViewDocumentAction extends AbstractAction {
 
 		putValue(NAME, "Voir document");
 		// putValue(LARGE_ICON_KEY, Helpers.getIcon(ICON_SHOW_GRID));
+
+		if (file.isAllowedToSee(CampaignClient.getInstance().getCurrentPlayer())) {
+			setEnabled(true);
+		} else {
+			setEnabled(false);
+		}
 	}
 
 	@Override

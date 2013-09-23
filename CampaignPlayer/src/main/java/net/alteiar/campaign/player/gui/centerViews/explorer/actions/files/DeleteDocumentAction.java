@@ -17,6 +17,13 @@ public class DeleteDocumentAction extends AbstractAction {
 
 		putValue(NAME, "Supprimer document");
 		// putValue(LARGE_ICON_KEY, Helpers.getIcon(ICON_SHOW_GRID));
+
+		if (file.isAllowedToApplyChange(CampaignClient.getInstance()
+				.getCurrentPlayer())) {
+			setEnabled(true);
+		} else {
+			setEnabled(false);
+		}
 	}
 
 	@Override

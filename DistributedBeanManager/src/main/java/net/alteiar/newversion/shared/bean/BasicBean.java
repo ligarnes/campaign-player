@@ -51,13 +51,10 @@ public abstract class BasicBean implements Serializable, IUniqueObject {
 	 */
 	public void setId(UniqueID id) {
 		UniqueID oldValue = this.id;
-		try {
-			vetoableRemoteChangeSupport.fireVetoableChange(PROP_ID_PROPERTY,
-					oldValue, id);
+
+		if (notifyRemote(PROP_ID_PROPERTY, oldValue, id)) {
 			this.id = id;
-			propertyChangeSupport.firePropertyChange(PROP_ID_PROPERTY,
-					oldValue, id);
-		} catch (PropertyVetoException e) {
+			notifyLocal(PROP_ID_PROPERTY, oldValue, id);
 		}
 	}
 

@@ -1,20 +1,24 @@
-package generic.actions;
-
-import generic.bean.unit.Unit;
+package shadowrun.actions;
 
 import java.awt.FlowLayout;
 
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import net.alteiar.beans.map.elements.IAction;
 import net.alteiar.campaign.player.gui.MainFrame;
 import net.alteiar.dialog.DialogOkCancel;
 import net.alteiar.dialog.PanelAlwaysValidOkCancel;
+import shadowrun.bean.unit.ShadowrunCharacter;
 
 public abstract class ChangeHealthPoint extends IAction {
-	private final Unit character;
+	private final ShadowrunCharacter character;
 
-	public ChangeHealthPoint(Unit character) {
+	private enum HitPointPossibility {
+		Physique, Étourdissant
+	}
+
+	public ChangeHealthPoint(ShadowrunCharacter character) {
 		this.character = character;
 	}
 
@@ -23,15 +27,19 @@ public abstract class ChangeHealthPoint extends IAction {
 		return character != null;
 	}
 
-	protected final Unit getCharacter() {
+	protected final ShadowrunCharacter getCharacter() {
 		return character;
 	}
 
-	protected abstract void changeHealPoint(Integer healthPointModifier);
+	protected abstract void changePhysicalPoint(Integer healthPointModifier);
+
+	protected abstract void changeStunPoint(Integer healthPointModifier);
 
 	@Override
 	public final void doAction(int xOnScreen, int yOnScreen) throws Exception {
 		final JTextField textFieldDegat = new JTextField(5);
+		final JComboBox<HitPointPossibility> combobox = new JComboBox<>(
+				HitPointPossibility.values());
 
 		PanelAlwaysValidOkCancel panelDegat = new PanelAlwaysValidOkCancel() {
 			private static final long serialVersionUID = 1L;
@@ -53,7 +61,9 @@ public abstract class ChangeHealthPoint extends IAction {
 			}
 		};
 		panelDegat.setLayout(new FlowLayout());
+		panelDegat.add(combobox);
 		panelDegat.add(textFieldDegat);
+
 		DialogOkCancel<PanelAlwaysValidOkCancel> dialog = new DialogOkCancel<PanelAlwaysValidOkCancel>(
 				MainFrame.FRAME, getName(), true, panelDegat);
 		dialog.setLocation(xOnScreen - (dialog.getWidth() / 2), yOnScreen
@@ -63,7 +73,16 @@ public abstract class ChangeHealthPoint extends IAction {
 		if (dialog.getReturnStatus() == DialogOkCancel.RET_OK) {
 			Integer damage = Integer.valueOf(textFieldDegat.getText());
 
-			changeHealPoint(damage);
+			HitPointPossibility choice = (HitPointPossibility) combobox
+					.getSelectedItem();
+			switch (choice) {
+			case Physique:
+				changePhysicalPoint(damage);
+				break;
+			case Étourdissant:
+				changeStunPoint(damage);
+				break;
+			}
 		}
 	}
 }

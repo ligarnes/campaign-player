@@ -89,6 +89,7 @@ public class DocumentManager {
 			if (localBean != null) {
 				// load local bean if exist
 				documentAdded(localBean);
+
 			} else if (globalBean != null) {
 				// load global bean if exist
 				documentAdded(globalBean);
@@ -97,6 +98,7 @@ public class DocumentManager {
 				addDocu.requestDocument(guid);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			addDocu.requestDocument(guid);
 		}
 	}

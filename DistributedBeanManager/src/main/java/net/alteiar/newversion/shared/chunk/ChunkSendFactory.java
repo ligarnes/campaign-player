@@ -39,6 +39,7 @@ public class ChunkSendFactory {
 					buffer, chunkSize);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.exit(-1);
 		}
 
 		return msg;
