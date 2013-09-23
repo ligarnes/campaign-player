@@ -18,5 +18,4 @@ public class DoHeal extends ChangeHealthPoint {
 		getCharacter().setCurrentHp(
 				getCharacter().getCurrentHp() + healthPointModifier);
 	}
-
 }

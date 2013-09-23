@@ -27,7 +27,7 @@ public class MyCampaignFactory {
 		NetworkProperties networkProp = new NetworkProperties();
 
 		try {
-			CampaignFactoryNew.connectToServer(networkProp.getServerIp(),
+			CampaignFactoryNew.joinCampaign(networkProp.getServerIp(),
 					networkProp.getServerPort(), HelpersPath.PATH_SAVE,
 					PluginSystem.getInstance().getPluginBeans(), PluginSystem
 							.getInstance().getKryo());

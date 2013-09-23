@@ -68,13 +68,32 @@ public class SerializableFile implements KryoSerializable {
 				DocumentIO.validateFilename(id.toString()));
 	}
 
+	private File createFile() {
+		String campaignDir = CampaignClient.getInstance()
+				.getCampaignDirectory();
+		String filename = FILE_DIR + "/"
+				+ DocumentIO.validateFilename(id.toString());
+
+		File dir = new File(campaignDir, FILE_DIR);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		return new File(campaignDir, filename);
+	}
+
 	@Override
 	public void read(Kryo kryo, Input arg1) {
 		id = kryo.readObject(arg1, UniqueID.class);
 
 		byte[] data = kryo.readObject(arg1, byte[].class);
 		try {
-			writeByteToFile(data, getLocalFile());
+			File dest = createFile();
+
+			if (!dest.exists()) {
+				dest.createNewFile();
+			}
+
+			writeByteToFile(data, dest);
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).warn(
 					"Impossible d'enregister le fichier", e);
@@ -97,7 +116,14 @@ public class SerializableFile implements KryoSerializable {
 		}
 	}
 
-	private static void writeByteToFile(byte[] file, File dest)
+	/**
+	 * 
+	 * @param data
+	 * @param dest
+	 *            - the file must exist
+	 * @throws IOException
+	 */
+	private static void writeByteToFile(byte[] data, File dest)
 			throws IOException {
 		OutputStream os = null;
 
@@ -105,7 +131,7 @@ public class SerializableFile implements KryoSerializable {
 
 		try {
 			os = new FileOutputStream(dest);
-			os.write(file);
+			os.write(data);
 			os.flush();
 		} catch (IOException e) {
 			ex = e;

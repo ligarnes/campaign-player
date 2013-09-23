@@ -62,6 +62,7 @@ public abstract class DocuManager extends Listener {
 
 	protected void sendObject(Connection conn, ChunkObjectSend send) {
 		Encaps encap = new Encaps(send);
+
 		SendingKey key = new SendingKey(send.getGuid(), conn);
 
 		if (!sendingObject.containsKey(key)) {
@@ -71,7 +72,6 @@ public abstract class DocuManager extends Listener {
 			// need to wait
 			System.out.println("already sending " + key);
 		}
-
 	}
 
 	private void sendTCPMessage(final Connection conn, final IUniqueObject obj) {
@@ -127,7 +127,12 @@ public abstract class DocuManager extends Listener {
 			} else if (obj instanceof RequestObject) {
 				UniqueID id = ((RequestObject) obj).getGuid();
 				ChunkObjectSend send = getObjectSend(id);
-				sendObject(conn, send);
+
+				if (send != null) {
+					sendObject(conn, send);
+				} else {
+					System.out.println("request unknow object: " + id);
+				}
 			}
 		} catch (Exception ex) {
 			Logger.getLogger(getClass()).warn(

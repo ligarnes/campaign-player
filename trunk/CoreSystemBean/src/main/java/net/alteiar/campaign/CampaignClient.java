@@ -535,17 +535,20 @@ public final class CampaignClient implements DocumentManagerListener {
 		manager.saveLocal();
 	}
 
-	public void loadGame(String campaignName) throws Exception {
-		File baseDir = new File(manager.getSpecificBeanPath());
-		if (baseDir.exists()) {
-			for (File dir : baseDir.listFiles()) {
-				if (dir.isDirectory()) {
-					for (File fi : dir.listFiles()) {
-						if (fi.isFile()) {
-							BasicBean bean = DocumentIO.loadBeanLocal(fi);
-							if (bean != null) {
-								addBean(bean);
-							}
+	public void loadGame(String campaignPath) throws Exception {
+		File baseDir = new File(campaignPath);
+		if (!baseDir.exists()) {
+			throw new IOException("campaign dir does not exist: "
+					+ baseDir.getCanonicalPath());
+		}
+
+		for (File dir : baseDir.listFiles()) {
+			if (dir.isDirectory()) {
+				for (File fi : dir.listFiles()) {
+					if (fi.isFile()) {
+						BasicBean bean = DocumentIO.loadBeanLocal(fi);
+						if (bean != null) {
+							addBean(bean);
 						}
 					}
 				}

@@ -44,7 +44,7 @@ public class CampaignFactoryNew {
 	 * @param port
 	 * @param globalDocumentPath
 	 */
-	public static synchronized void connectToServer(String serverAdress,
+	private static synchronized void connectToServer(String serverAdress,
 			int port, String specificDir, String globalDocumentPath,
 			MyKryoInit kryoInit) {
 		if (CampaignClient.INSTANCE != null) {
@@ -53,27 +53,6 @@ public class CampaignFactoryNew {
 
 		CampaignClient.INSTANCE = new CampaignClient(serverAdress, port,
 				specificDir, globalDocumentPath, kryoInit);
-
-		// Sysout
-		// 30 sec timeout
-		long timeout = 30000L;
-		long begin = System.currentTimeMillis();
-		long end = System.currentTimeMillis();
-		while (!CampaignClient.INSTANCE.isInitialized()
-				&& (end - begin) < timeout) {
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				Logger.getLogger(CampaignFactoryNew.class).warn(
-						"Problème lors de l'initialization", e);
-			}
-			end = System.currentTimeMillis();
-		}
-
-		if (!CampaignClient.getInstance().isInitialized()) {
-			Logger.getLogger(CampaignFactoryNew.class).error(
-					"Impossible de se conneter au server!");
-		}
 	}
 
 	public static synchronized void loadCampaign(String serverAdress, int port,
@@ -83,7 +62,7 @@ public class CampaignFactoryNew {
 				kryoInit);
 
 		try {
-			CampaignClient.getInstance().loadGame(campaignName);
+			CampaignClient.getInstance().loadGame(campaignName + "/beans");
 		} catch (Exception e) {
 			Logger.getLogger(CampaignClient.class).error(
 					"Impossible de charger la campagne", e);
@@ -92,6 +71,8 @@ public class CampaignFactoryNew {
 		for (Player current : CampaignClient.getInstance().getPlayers()) {
 			current.setConnected(false);
 		}
+
+		waitForInitializedCampaign();
 	}
 
 	public static synchronized void startNewCampaign(String serverAdress,
@@ -108,5 +89,34 @@ public class CampaignFactoryNew {
 		CampaignClient.INSTANCE.addBean(diceRoller);
 		CampaignClient.INSTANCE.addBean(traker);
 
+		waitForInitializedCampaign();
+	}
+
+	public static void joinCampaign(String serverAdress, int port,
+			String specificDir, String globalDocumentPath, MyKryoInit kryoInit) {
+		connectToServer(serverAdress, port, specificDir, globalDocumentPath,
+				kryoInit);
+		waitForInitializedCampaign();
+	}
+
+	private static void waitForInitializedCampaign() {
+		// 30 sec timeout
+		long timeout = 30000L;
+		long begin = System.currentTimeMillis();
+		long end = System.currentTimeMillis();
+		while (!CampaignClient.INSTANCE.isInitialized()
+				&& (end - begin) < timeout) {
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				Logger.getLogger(CampaignFactoryNew.class).warn(
+						"Problème lors de l'initialization", e);
+			}
+			end = System.currentTimeMillis();
+		}
+		if (!CampaignClient.getInstance().isInitialized()) {
+			Logger.getLogger(CampaignFactoryNew.class).error(
+					"Impossible de se conneter au server!");
+		}
 	}
 }
