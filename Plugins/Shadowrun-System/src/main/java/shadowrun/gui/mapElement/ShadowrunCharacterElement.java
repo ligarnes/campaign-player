@@ -1,5 +1,7 @@
 package shadowrun.gui.mapElement;
 
+import generic.gui.mapElement.BarElement;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -75,6 +77,9 @@ public class ShadowrunCharacterElement extends MapElement {
 		this.charactedId = characterId;
 		width = new MapElementSizeSquare(1);
 		height = new MapElementSizeSquare(1);
+
+		physicalBar = new BarElement(Color.RED, Color.GREEN);
+		stunBar = new BarElement(Color.RED, Color.BLUE);
 	}
 
 	public BeanDocument getDocumentCharacter() {
@@ -113,16 +118,16 @@ public class ShadowrunCharacterElement extends MapElement {
 	}
 
 	@Override
-	protected void drawElement(Graphics2D g, double zoomFactor) {
+	protected void drawElement(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		ShadowrunCharacter character = getCharacter();
 		BufferedImage background = character.getCharacterImage();
 
 		Point position = getPosition();
-		int x = (int) (position.getX() * zoomFactor);
-		int y = (int) (position.getY() * zoomFactor);
-		int width = (int) (getWidthPixels() * zoomFactor);
-		int height = (int) (getHeightPixels() * zoomFactor);
+		int x = (int) (position.getX());
+		int y = (int) (position.getY());
+		int width = getWidthPixels().intValue();
+		int height = getHeightPixels().intValue();
 
 		if (background != null) {
 			g2.drawImage(background, x, y, width, height, null);
@@ -132,12 +137,12 @@ public class ShadowrunCharacterElement extends MapElement {
 
 		// add 0.5 because cast round to lower bound
 		int squareCount = Math.min(1,
-				(int) ((width / (getScale().getPixels() * zoomFactor)) + 0.5));
+				(int) ((width / (getScale().getPixels())) + 0.5));
 
 		// 5% of the character height
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.7f));
-		int heightLife = Math.max((int) (5 * squareCount * zoomFactor), 10);
+		int heightLife = Math.max(5 * squareCount, 10);
 		int yLife = y + height - heightLife;
 		int widthLife = width;
 
@@ -145,15 +150,14 @@ public class ShadowrunCharacterElement extends MapElement {
 		float physicalDamage = getCharacter().getPhysicalDamage().floatValue();
 		float probPhysical = 1 - (physicalDamage / physical);
 
-		physicalBar.drawBar(g2, zoomFactor, x, yLife, heightLife, widthLife,
-				probPhysical);
+		physicalBar.drawBar(g2, x, yLife, heightLife, widthLife, probPhysical);
 
 		float stun = getCharacter().getStunPoint().floatValue();
 		float stunDamage = getCharacter().getStunDamage().floatValue();
 		float probStun = 1 - (stunDamage / stun);
 
-		stunBar.drawBar(g2, zoomFactor, x, yLife - heightLife, heightLife,
-				widthLife, probStun);
+		stunBar.drawBar(g2, x, yLife - heightLife, heightLife, widthLife,
+				probStun);
 
 		g2.dispose();
 	}

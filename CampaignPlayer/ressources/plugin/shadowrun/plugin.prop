@@ -1,0 +1,5 @@
+name=Shadowrun
+jar=Shadowrun-system-1.0-SNAPSHOT.jar
+core.classname=plugin.ShadowrunCorePlugin
+document.classname=plugin.ShadowrunGeneralPlugin
+dependencies=Generic-system-1.0-SNAPSHOT.jar;

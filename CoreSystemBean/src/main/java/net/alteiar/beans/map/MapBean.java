@@ -3,9 +3,8 @@ package net.alteiar.beans.map;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -89,13 +88,12 @@ public class MapBean extends BasicBean {
 
 	public void drawBackground(Graphics2D g2, double zoomFactor) {
 		Graphics2D g = (Graphics2D) g2.create();
-		AffineTransform transform = new AffineTransform();
-		transform.scale(zoomFactor, zoomFactor);
+		g.scale(zoomFactor, zoomFactor);
 
-		BufferedImage backgroundImage = null;
+		Image backgroundImage = null;
 		try {
-			backgroundImage = ImageBean.getImage(backgroundId);
-			g.drawImage(backgroundImage, transform, null);
+			backgroundImage = ImageBean.getImage(backgroundId).restoreImage();
+			g.drawImage(backgroundImage, 0, 0, null);
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).warn("Impossible de charger l'image",
 					e);
@@ -103,12 +101,15 @@ public class MapBean extends BasicBean {
 		g.dispose();
 	}
 
-	public void drawElements(Graphics2D g2, double zoomFactor, boolean isDm) {
+	public void drawElements(Graphics2D g, double zoomFactor, boolean isDm) {
+		Graphics2D g2 = (Graphics2D) g.create();
+		g2.scale(zoomFactor, zoomFactor);
+
 		for (UniqueID mapElementId : getElements()) {
 			MapElement mapElement = CampaignClient.getInstance().getBean(
 					mapElementId);
 
-			mapElement.draw(g2, zoomFactor, isDm);
+			mapElement.draw(g2, 1.0, isDm);
 		}
 	}
 

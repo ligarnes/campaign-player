@@ -69,13 +69,13 @@ public abstract class DocuManager extends Listener {
 			sendingObject.put(key, encap);
 			sendTCPMessage(conn, encap.getNextChunk());
 		} else {
-			// need to wait
-			System.out.println("already sending " + key);
+			Logger.getLogger(getClass()).error(
+					"Le document " + send.getGuid()
+							+ " est deja en cours d'envoie !!!");
 		}
 	}
 
 	private void sendTCPMessage(final Connection conn, final IUniqueObject obj) {
-
 		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
 			@Override
 			public void run() {

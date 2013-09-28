@@ -140,6 +140,12 @@ public class DocumentManager {
 		addDocument(doc);
 	}
 
+	/**
+	 * This method really add the document, it must be call only by
+	 * documentAdded
+	 * 
+	 * @param document
+	 */
 	private void addDocument(IDocument document) {
 		// add the document
 		synchronized (documents) {
@@ -279,6 +285,11 @@ public class DocumentManager {
 		return value;
 	}
 
+	/**
+	 * Send a new document to the server and dispatch it to all players
+	 * 
+	 * @param bean
+	 */
 	public void createDocument(final BasicBean bean) {
 		ThreadPoolUtils.getClientPool().execute(new MyRunnable() {
 			@Override

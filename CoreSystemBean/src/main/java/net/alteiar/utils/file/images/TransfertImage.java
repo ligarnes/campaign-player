@@ -6,4 +6,6 @@ import java.io.IOException;
 public interface TransfertImage {
 
 	BufferedImage restoreImage() throws IOException;
+
+	void clearCache();
 }

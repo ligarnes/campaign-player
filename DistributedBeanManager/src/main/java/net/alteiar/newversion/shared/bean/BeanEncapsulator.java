@@ -59,7 +59,9 @@ public class BeanEncapsulator implements VetoableChangeListener {
 
 		if (previous != null) {
 			Timestamp prev = new Timestamp(previous);
+
 			Timestamp current = new Timestamp(timestamp);
+
 			if (!prev.after(current)) {
 				Logger.getLogger(getClass()).info(
 						"do not change value, old value: ("
@@ -124,10 +126,11 @@ public class BeanEncapsulator implements VetoableChangeListener {
 		boolean remoteChange = false;
 		synchronized (changed) {
 			remoteChange = changed.contains(changeNotification);
+			if (remoteChange) {
+				changed.remove(changeNotification);
+			}
 		}
-		if (remoteChange) {
-			changed.remove(changeNotification);
-		} else {
+		if (!remoteChange) {
 			propertyChangeSupportRemote.firePropertyChange(evt);
 			throw new PropertyVetoException("remote change", evt);
 		}

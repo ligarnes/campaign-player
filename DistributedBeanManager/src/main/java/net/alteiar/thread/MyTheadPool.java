@@ -1,7 +1,8 @@
 package net.alteiar.thread;
 
 import java.util.ArrayList;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -39,9 +40,14 @@ public class MyTheadPool {
 	private class MyRealThreadPool extends ThreadPoolExecutor {
 		private final ArrayList<TaskObserver> observers;
 
+		/**
+		 * @see Executors.newCachedThreadPool
+		 * @author ligarnes
+		 * 
+		 */
 		public MyRealThreadPool(int maximumThread) {
-			super(maximumThread, maximumThread, 0L, TimeUnit.MILLISECONDS,
-					new LinkedBlockingQueue<Runnable>());
+			super(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
+					new SynchronousQueue<Runnable>());
 
 			observers = new ArrayList<TaskObserver>();
 		}

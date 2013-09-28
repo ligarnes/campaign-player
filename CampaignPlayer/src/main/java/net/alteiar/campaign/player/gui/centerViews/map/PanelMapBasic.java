@@ -37,6 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 import net.alteiar.WaitBeanListener;
@@ -111,11 +112,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 
 					@Override
 					public void beanReceived(BasicBean bean) {
-						MapFilter filter = CampaignClient.getInstance()
-								.getBean(map.getFilter(), 15000);
-						if (filter != null) {
-							filter.addPropertyChangeListener(PanelMapBasic.this);
-						}
+						filterChanged();
 					}
 				});
 
@@ -135,6 +132,14 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		viewAsDm = CampaignClient.getInstance().getCurrentPlayer().isDm();
 
 		zoom(zoomFactor);
+	}
+
+	private void filterChanged() {
+		MapFilter filter = CampaignClient.getInstance().getBean(
+				map.getFilter(), 15000);
+		if (filter != null) {
+			filter.addPropertyChangeListener(PanelMapBasic.this);
+		}
 	}
 
 	public void setViewAsDm(boolean isDm) {
@@ -228,44 +233,49 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 	@Override
 	public void paint(Graphics g) {
 
-		Graphics2D g2 = (Graphics2D) g;
+		Graphics2D gGlobal = (Graphics2D) g;
 
-		paintTexture(g2);
+		paintTexture(gGlobal);
 
 		// Anti-alias!
-		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+		gGlobal.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+		gGlobal.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
 				RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 
-		g2.translate(offset, offset);
+		Graphics2D gMaps = (Graphics2D) gGlobal.create();
+
+		// setup the position
+		gMaps.translate(offset, offset);
+		gMaps.scale(zoomFactor, zoomFactor);
 
 		// draw background
-		map.drawBackground(g2, zoomFactor);
+		map.drawBackground(gMaps, 1.0);
 
 		synchronized (drawableElements) {
 			for (Drawable draw : drawableElements) {
-				draw.draw(g2, zoomFactor, viewAsDm);
+				draw.draw(gMaps, 1.0, viewAsDm);
 			}
 		}
 
 		if (showGrid) {
-			map.drawGrid(g2, zoomFactor);
+			map.drawGrid(gMaps, 1.0);
 		}
-		map.drawFilter(g2, zoomFactor, viewAsDm);
+		map.drawFilter(gMaps, 1.0, viewAsDm);
 
 		// Draw other info
 		for (MouseDrawable draw : drawables) {
-			draw.draw(g2, convertMousePosition(getMousePosition()));
+			draw.draw(gMaps, convertMousePosition(getMousePosition()));
 		}
 
-		g2.translate(-offset, -offset);
+		gMaps.dispose();
+		// g2.translate(-offset, -offset);
 
 		for (Drawable draw : buttons) {
-			draw.draw(g2, zoomFactor, viewAsDm);
+			draw.draw(gGlobal, 1.0, viewAsDm);
 		}
-		playerDraw.draw(g2);
-		g2.dispose();
+		playerDraw.draw(gGlobal);
+		gGlobal.dispose();
 
 		super.paint(g);
 	}
@@ -358,9 +368,7 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 			Threads.execute(new MyRunnable() {
 				@Override
 				public void run() {
-					MapFilter filter = CampaignClient.getInstance().getBean(
-							map.getFilter(), 15000);
-					filter.addPropertyChangeListener(PanelMapBasic.this);
+					filterChanged();
 				}
 
 				@Override
@@ -374,8 +382,14 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 
 	@Override
 	public void redraw() {
-		this.revalidate();
-		this.repaint();
+		SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				revalidate();
+				repaint();
+			}
+		});
 	}
 
 	@Override

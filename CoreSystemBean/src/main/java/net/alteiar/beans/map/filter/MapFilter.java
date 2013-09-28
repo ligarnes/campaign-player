@@ -3,7 +3,6 @@ package net.alteiar.beans.map.filter;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
 
 import net.alteiar.beans.map.MapBean;
 import net.alteiar.campaign.CampaignClient;
@@ -31,10 +30,6 @@ public abstract class MapFilter extends BasicBean {
 	protected MapBean getMap() {
 		return CampaignClient.getInstance().getBean(map);
 	}
-
-	// rotected void setMapId(UniqueID map) {
-	// this.map = map;
-	// }
 
 	public MapFilter() {
 	}
@@ -65,8 +60,8 @@ public abstract class MapFilter extends BasicBean {
 			g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 					1.0f));
 		}
-		g2.fill(new Rectangle2D.Double(0, 0, getMap().getWidth() * zoomFactor,
-				getMap().getHeight() * zoomFactor));
+
+		g2.fillRect(0, 0, getMap().getWidth(), getMap().getHeight());
 
 		g2.dispose();
 	}

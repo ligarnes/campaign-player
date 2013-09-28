@@ -1,6 +1,6 @@
 package net.alteiar.factory;
 
-import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -36,9 +36,9 @@ public class MapFactory {
 
 		CampaignClient.getInstance().addBean(background);
 
-		BufferedImage backgroundImage = background.getImage().restoreImage();
-		map.setWidth(backgroundImage.getWidth());
-		map.setHeight(backgroundImage.getHeight());
+		Image backgroundImage = background.getImage().restoreImage();
+		map.setWidth(backgroundImage.getWidth(null));
+		map.setHeight(backgroundImage.getHeight(null));
 
 		// ManualMapFilter filter = new ManualMapFilter(map.getId());
 		CharacterMapFilter filter = new CharacterMapFilter(map);

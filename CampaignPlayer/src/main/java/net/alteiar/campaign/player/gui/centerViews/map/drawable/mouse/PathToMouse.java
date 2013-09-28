@@ -51,9 +51,9 @@ public class PathToMouse extends LineToMouse {
 		Graphics2D g2 = (Graphics2D) g.create();
 
 		pts = removeDuplicate(pts);
-		double zoomFactor = getMapEditor().getZoomFactor();
-		Double squareSize = getMapEditor().getMap().getScale().getPixels()
-				* zoomFactor;
+		// double zoomFactor = getMapEditor().getZoomFactor();
+		Integer squareSize = getMapEditor().getMap().getScale().getPixels();
+		/** zoomFactor */
 
 		int i = 0;
 		for (Point point : pts) {
@@ -63,12 +63,12 @@ public class PathToMouse extends LineToMouse {
 			}
 
 			Point2D.Double next = MapUtils.convertSquareToPoint(getMapEditor()
-					.getMap(), point, zoomFactor);
+					.getMap(), point, 1.0);
 
 			g2.translate(next.x, next.y);
 
 			double gap = getMapEditor().getMap().getScale().getPixels() * 0.1;
-			double width = gap * zoomFactor;
+			double width = gap;// * zoomFactor;
 
 			Color color = CampaignClient.getInstance().getCurrentPlayer()
 					.getRealColor();
