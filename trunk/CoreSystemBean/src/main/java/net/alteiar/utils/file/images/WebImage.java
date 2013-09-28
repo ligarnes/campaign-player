@@ -48,4 +48,9 @@ public class WebImage implements TransfertImage {
 		}
 		return image;
 	}
+
+	@Override
+	public void clearCache() {
+		this.image = null;
+	}
 }

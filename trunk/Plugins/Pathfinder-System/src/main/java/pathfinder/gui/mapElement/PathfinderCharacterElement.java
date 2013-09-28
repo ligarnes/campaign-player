@@ -2,8 +2,8 @@ package pathfinder.gui.mapElement;
 
 import generic.actions.DoDamage;
 import generic.actions.DoHeal;
+import generic.gui.mapElement.BarElement;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -43,7 +43,10 @@ public class PathfinderCharacterElement extends MapElement {
 	@Element
 	private MapElementSize height;
 
+	private transient BarElement damageBar;
+
 	public PathfinderCharacterElement() {
+		damageBar = new BarElement(Color.RED, Color.GREEN);
 	}
 
 	public PathfinderCharacterElement(Point point, BeanDocument character) {
@@ -70,6 +73,8 @@ public class PathfinderCharacterElement extends MapElement {
 		this.charactedId = characterId;
 		width = new MapElementSizeSquare(1);
 		height = new MapElementSizeSquare(1);
+
+		damageBar = new BarElement(Color.RED, Color.GREEN);
 	}
 
 	public BeanDocument getDocumentCharacter() {
@@ -108,16 +113,16 @@ public class PathfinderCharacterElement extends MapElement {
 	}
 
 	@Override
-	protected void drawElement(Graphics2D g, double zoomFactor) {
+	protected void drawElement(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		PathfinderCharacter character = getCharacter();
 		BufferedImage background = character.getCharacterImage();
 
 		Point position = getPosition();
-		int x = (int) (position.getX() * zoomFactor);
-		int y = (int) (position.getY() * zoomFactor);
-		int width = (int) (getWidthPixels() * zoomFactor);
-		int height = (int) (getHeightPixels() * zoomFactor);
+		int x = (int) (position.getX());
+		int y = (int) (position.getY());
+		int width = getWidthPixels().intValue();
+		int height = getHeightPixels().intValue();
 
 		if (background != null) {
 			g2.drawImage(background, x, y, width, height, null);
@@ -127,13 +132,12 @@ public class PathfinderCharacterElement extends MapElement {
 
 		// Draw life bar
 		// add 0.5 because cast round to lower bound
+		// int
 		int squareCount = Math.min(1,
-				(int) ((width / (getScale().getPixels() * zoomFactor)) + 0.5));
+				(int) ((width / (getScale().getPixels())) + 0.5));
 
 		// 5% of the character height
-		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
-				0.7f));
-		int heightLife = Math.max((int) (5 * squareCount * zoomFactor), 5);
+		int heightLife = Math.max(5 * squareCount, 5);
 		int yLife = y + height - heightLife;
 		int widthLife = width;
 
@@ -141,14 +145,8 @@ public class PathfinderCharacterElement extends MapElement {
 		Integer totalHp = character.getTotalHp();
 
 		Float ratio = Math.min(1.0f, currentHp / (float) totalHp);
-		if (currentHp > 0) {
-			Color hp = new Color(1.0f - ratio, ratio, 0);
-			g2.setColor(hp);
-			g2.fillRect(x, yLife, (int) (widthLife * ratio), heightLife);
-		}
 
-		g2.setColor(Color.BLACK);
-		g2.drawRect(x, yLife, widthLife - 1, heightLife - 1);
+		damageBar.drawBar(g2, x, yLife, heightLife, widthLife, ratio);
 
 		g2.dispose();
 	}

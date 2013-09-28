@@ -1,21 +1,25 @@
 package net.alteiar.campaign.player.tools;
 
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import net.alteiar.thread.MyRunnable;
 
 public class Threads {
+	private static final ExecutorService THREAD_POOL = new MyTheadPool();
 
-	private static final Integer THREAD_MAX = 10;
-
-	private static final MyTheadPool THREAD_POOL = new MyTheadPool(THREAD_MAX);
-
+	/**
+	 * @see Executors.newCachedThreadPool
+	 * @author ligarnes
+	 * 
+	 */
 	public static class MyTheadPool extends ThreadPoolExecutor {
-		public MyTheadPool(int maximumThread) {
-			super(maximumThread, maximumThread, 10, TimeUnit.SECONDS,
-					new LinkedBlockingQueue<Runnable>(500));
+		public MyTheadPool() {
+			super(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
+					new SynchronousQueue<Runnable>());
 		}
 
 		@Override

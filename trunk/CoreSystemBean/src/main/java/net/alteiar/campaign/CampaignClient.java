@@ -285,6 +285,18 @@ public final class CampaignClient implements DocumentManagerListener {
 
 	void disconnect() {
 		this.currentPlayer.setConnected(false);
+
+		long begin = System.currentTimeMillis();
+		long end = begin;
+		// Timeout 3 sec
+		long timeout = 3000;
+		while (currentPlayer.getConnected() && (end - begin < timeout)) {
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				Logger.getLogger(getClass()).debug(e);
+			}
+		}
 		manager.stopClient();
 	}
 

@@ -16,21 +16,21 @@ import net.alteiar.WaitBeanListener;
 import net.alteiar.WaitMultipleBeansListener;
 import net.alteiar.beans.map.MapBean;
 import net.alteiar.beans.map.elements.MapElement;
-import net.alteiar.beans.map.filter.squaredMap.Array2D;
-import net.alteiar.beans.map.filter.squaredMap.ImageInfo;
+import net.alteiar.beans.map.filter.squaredMap.BooleanArray2D;
 import net.alteiar.beans.media.ImageBean;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
 import net.alteiar.thread.MyRunnable;
 import net.alteiar.thread.ThreadPoolUtils;
+import net.alteiar.utils.file.images.TransfertImage;
 
 import org.apache.log4j.Logger;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
-public class CharacterMapFilter extends MapFilter implements /* KryoSerializable, */
-PropertyChangeListener {
+public class CharacterMapFilter extends MapFilter implements
+		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	public static final String METH_ADD_ELEMENT_VIEW_METHOD = "addElementIdView";
@@ -43,11 +43,8 @@ PropertyChangeListener {
 	public static final String PROP_MAX_VISION_PROPERTY = "maxVision";
 	public static final String PROP_FILTERED_IMAGE_ID_PROPERTY = "filteredImageId";
 
-	private static int CLEAR_VALUE = 0;
-	private static int BLOCK_VALUE = 1;
-
-	private static int HIDE_VALUE = 0;
-	private static int VISIBLE_VALUE = 1;
+	private static boolean HIDE_VALUE = false;
+	private static boolean VISIBLE_VALUE = true;
 
 	private static int HIDDEN_DM_COLOR = (new Color(0f, 0f, 0f, 0.8f)).getRGB();
 	private static int HIDDEN_PLAYER_COLOR = (new Color(0f, 0f, 0f, 1.0f))
@@ -63,14 +60,11 @@ PropertyChangeListener {
 	@Element(required = false)
 	private UniqueID filteredImageId;
 
-	// local info, DO NOT SAVE IT, IT TAKE MANY SPACE
-	private transient ImageInfo squaredMap;
-
 	/**
 	 * The current vision map, this is computed each time we need it (but we
 	 * don't want to create a new large table each time
 	 */
-	private transient Array2D visionMap;
+	private transient BooleanArray2D filterMap;
 
 	/**
 	 * All of this is not really clean but enable good performance even on large
@@ -86,10 +80,8 @@ PropertyChangeListener {
 		elementsViews = new HashSet<UniqueID>();
 		maxVision = 4;
 
-		this.squaredMap = new ImageInfo(map);
-
-		visionMap = new Array2D(squaredMap.getImageWidth(),
-				squaredMap.getImageHeight(), HIDE_VALUE);
+		filterMap = new BooleanArray2D(map.getWidth(), map.getHeight(),
+				VISIBLE_VALUE);
 
 		somethingChange = false;
 		refreshVision = true;
@@ -127,9 +119,8 @@ PropertyChangeListener {
 			@Override
 			public void beanReceived() {
 				// Create all info given the map
-				squaredMap = new ImageInfo(getMap());
-				visionMap = new Array2D(getSquaredMap().getImageWidth(),
-						getSquaredMap().getImageHeight(), HIDE_VALUE);
+				filterMap = new BooleanArray2D(getMap().getWidth(), getMap()
+						.getHeight(), VISIBLE_VALUE);
 
 				// add listener on each element to view
 				ArrayList<MapElement> elements = CampaignClient.getInstance()
@@ -168,10 +159,6 @@ PropertyChangeListener {
 	@Override
 	public void beanRemoved() {
 		refreshVision = false;
-	}
-
-	private ImageInfo getSquaredMap() {
-		return squaredMap;
 	}
 
 	public HashSet<UniqueID> getViewer() {
@@ -215,30 +202,30 @@ PropertyChangeListener {
 	}
 
 	private void revalidateFilter() throws IOException {
-		this.getSquaredMap().fill(CLEAR_VALUE);
-
 		if (filteredImageId == null) {
 			return;
 		}
 
-		BufferedImage filter = ImageBean.getImage(filteredImageId);
+		TransfertImage img = ImageBean.getImage(filteredImageId);
+		BufferedImage filter = img.restoreImage();
+		img.clearCache();
 
-		if (filter.getWidth() != getSquaredMap().getImageWidth()
-				|| filter.getHeight() != getSquaredMap().getImageHeight()) {
+		if (filter.getWidth() != filterMap.getWidth()
+				|| filter.getHeight() != filterMap.getHeight()) {
 			throw new IllegalArgumentException(
 					"the image is not the same size as the map");
 		}
 
-		int blockingValue = Color.BLACK.getRGB();
-		for (int x = 0; x < getSquaredMap().getImageWidth(); x++) {
-			for (int y = 0; y < getSquaredMap().getImageHeight(); y++) {
+		int[] pix = new int[5];
 
-				int rgb = filter.getRGB(x, y);
+		for (int y = 0; y < filterMap.getHeight(); y++) {
+			for (int x = 0; x < filterMap.getWidth(); x++) {
+				filter.getRaster().getPixel(x, y, pix);
 
-				if (rgb == blockingValue) {
-					getSquaredMap().setValue(x, y, BLOCK_VALUE);
+				if (pix[0] == 0 && pix[1] == 0 && pix[2] == 0) {
+					filterMap.set(x, y, HIDE_VALUE);
 				} else {
-					getSquaredMap().setValue(x, y, CLEAR_VALUE);
+					filterMap.set(x, y, VISIBLE_VALUE);
 				}
 			}
 		}
@@ -249,9 +236,10 @@ PropertyChangeListener {
 	}
 
 	public void setMaxVision(Integer maxVision) {
-		Integer oldValue = maxVision;
+		Integer oldValue = this.maxVision;
 		if (notifyRemote(PROP_MAX_VISION_PROPERTY, oldValue, maxVision)) {
 			this.maxVision = maxVision;
+			somethingChange = true;
 			notifyLocal(PROP_MAX_VISION_PROPERTY, oldValue, maxVision);
 		}
 	}
@@ -273,7 +261,6 @@ PropertyChangeListener {
 
 						@Override
 						public void beanRemoved(BasicBean bean) {
-							System.out.println("remove map element");
 							removeElementView(element);
 						}
 					});
@@ -312,25 +299,30 @@ PropertyChangeListener {
 	}
 
 	private void refreshFilterImage() {
-		visionMap.fill(HIDE_VALUE);
+		BooleanArray2D visionMap = new BooleanArray2D(getMap().getWidth(),
+				getMap().getHeight(), HIDE_VALUE);
 
-		computeVision();
+		ArrayList<MapElement> elements = CampaignClient.getInstance().getBeans(
+				elementsViews);
 
-		visionMap.replaceValues(VISIBLE_VALUE, VISIBLE_COLOR);
+		for (MapElement element : elements) {
+			computeVision(visionMap, VISIBLE_VALUE, element.getCenterPosition());
+		}
 
+		BufferedImage img = null;
 		if (isDm) {
-			visionMap.replaceValues(HIDE_VALUE, HIDDEN_DM_COLOR);
+			img = visionMap.buildImage(VISIBLE_COLOR, HIDDEN_DM_COLOR);
 		} else {
-			visionMap.replaceValues(HIDE_VALUE, HIDDEN_PLAYER_COLOR);
+			img = visionMap.buildImage(VISIBLE_COLOR, HIDDEN_PLAYER_COLOR);
 		}
 
 		BufferedImage oldValue = this.filterImage;
 		if (filterImage != null) {
 			synchronized (filterImage) {
-				filterImage = visionMap.buildImage();
+				filterImage = img;
 			}
 		} else {
-			filterImage = visionMap.buildImage();
+			filterImage = img;
 		}
 
 		notifyLocal(METH_REVALIDATE_FILTER_IMAGE_METHOD, oldValue, filterImage);
@@ -381,16 +373,8 @@ PropertyChangeListener {
 
 	}
 
-	private void computeVision() {
-		ArrayList<MapElement> elements = CampaignClient.getInstance().getBeans(
-				elementsViews);
-
-		for (MapElement element : elements) {
-			computeVision(visionMap, VISIBLE_VALUE, element.getCenterPosition());
-		}
-	}
-
-	private void computeVision(Array2D image, int visibleColor, Point position) {
+	private void computeVision(BooleanArray2D image, boolean visibleColor,
+			Point position) {
 		int squareX = position.x;
 		int squareY = position.y;
 
@@ -398,12 +382,10 @@ PropertyChangeListener {
 				.getPixels());
 
 		int minX = Math.max(0, squareX - visionSquare);
-		int maxX = Math.min(getSquaredMap().getWidthSquare() - 1, squareX
-				+ visionSquare);
+		int maxX = Math.min(getMap().getWidth() - 1, squareX + visionSquare);
 
 		int minY = Math.max(0, squareY - visionSquare);
-		int maxY = Math.min(getSquaredMap().getHeightSquare() - 1, squareY
-				+ visionSquare);
+		int maxY = Math.min(getMap().getHeight() - 1, squareY + visionSquare);
 
 		for (int x = minX; x < maxX; ++x) {
 			line(image, position, new Point(x, minY), maxVision, visibleColor);
@@ -419,8 +401,8 @@ PropertyChangeListener {
 				* getMap().getScale().getPixels(), visibleColor);
 	}
 
-	private void addVisible(Array2D image, int squareSize, int x, int y,
-			int visibleColor) {
+	private void addVisible(BooleanArray2D image, int squareSize, int x, int y,
+			boolean visibleColor) {
 		int realX = x * squareSize;
 		int realY = y * squareSize;
 
@@ -431,8 +413,8 @@ PropertyChangeListener {
 		}
 	}
 
-	private void line(Array2D image, Point begin, Point end, int currentVision,
-			int visibleColor) {
+	private void line(BooleanArray2D image, Point begin, Point end,
+			int currentVision, boolean visibleColor) {
 		int w = end.x - begin.x;
 		int h = end.y - begin.y;
 		int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
@@ -465,11 +447,9 @@ PropertyChangeListener {
 		int numerator = longest >> 1;
 
 		for (int i = 0; i <= longest; i++) {
+			addVisible(image, 1, x, y, visibleColor);
 
-			addVisible(image, getSquaredMap().getSquareSize(), x, y,
-					visibleColor);
-
-			if (getSquaredMap().getValue(x, y) == BLOCK_VALUE) {
+			if (filterMap.get(x, y) == HIDE_VALUE) {
 				return;
 			}
 

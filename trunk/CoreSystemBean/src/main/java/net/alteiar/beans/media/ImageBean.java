@@ -1,6 +1,5 @@
 package net.alteiar.beans.media;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import net.alteiar.campaign.CampaignClient;
@@ -44,12 +43,12 @@ public class ImageBean extends BasicBean {
 	 * @throws IOException
 	 *             if we are not able to read the image
 	 */
-	public static BufferedImage getImage(UniqueID id) throws IOException {
+	public static TransfertImage getImage(UniqueID id) {
 		ImageBean imageBean = CampaignClient.getInstance().getBean(id);
 		if (imageBean == null) {
 			return null;
 		}
-		return imageBean.getImage().restoreImage();
+		return imageBean.getImage();
 	}
 
 }

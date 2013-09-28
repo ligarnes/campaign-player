@@ -69,22 +69,20 @@ public class RectangleElement extends ColoredShape {
 	}
 
 	@Override
-	protected Shape getShape(double zoomFactor) {
+	protected Shape getShape() {
 		Point p = getPosition();
-		return new Rectangle2D.Double(p.getX() * zoomFactor, p.getY()
-				* zoomFactor, getWidthPixels() * zoomFactor, getHeightPixels()
-				* zoomFactor);
+		return new Rectangle2D.Double(p.getX(), p.getY(), getWidthPixels(),
+				getHeightPixels());
 	}
 
 	@Override
-	protected Shape getShapeBorder(double zoomFactor, int strokeSize) {
+	protected Shape getShapeBorder(int strokeSize) {
 		Point p = getPosition();
 		Double strokeSizeMiddle = (double) strokeSize / 2;
 
-		return new Rectangle2D.Double(p.getX() * zoomFactor + strokeSizeMiddle,
-				p.getY() * zoomFactor + strokeSizeMiddle, getWidthPixels()
-						* zoomFactor - strokeSize, getHeightPixels()
-						* zoomFactor - strokeSize);
+		return new Rectangle2D.Double(p.getX() + strokeSizeMiddle, p.getY()
+				+ strokeSizeMiddle, getWidthPixels() - strokeSize,
+				getHeightPixels() - strokeSize);
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////

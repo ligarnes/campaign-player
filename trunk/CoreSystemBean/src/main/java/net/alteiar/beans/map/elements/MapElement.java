@@ -4,7 +4,6 @@ import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.util.Collections;
 import java.util.List;
@@ -51,43 +50,34 @@ public abstract class MapElement extends BasicBean {
 	}
 
 	public final void draw(Graphics2D g, double zoomFactor, boolean isDm) {
+		Graphics2D g2 = (Graphics2D) g.create();
+		g2.scale(zoomFactor, zoomFactor);
 		if (isHiddenForPlayer()) {
 			if (isDm) {
-				Graphics2D g2 = (Graphics2D) g.create();
 				g2.setComposite(AlphaComposite.getInstance(
 						AlphaComposite.SRC_OVER, 0.5f));
-				drawElement(g2, zoomFactor);
-				g2.dispose();
 			}
-		} else {
-			drawElement(g, zoomFactor);
 		}
+		drawElement(g2);
 
 		if (getSelected()) {
-			drawSelection(g, zoomFactor);
+			drawSelection(g2);
 		}
+		g2.dispose();
 	}
 
-	protected abstract void drawElement(Graphics2D g, double zoomFactor);
+	protected abstract void drawElement(Graphics2D g);
 
-	protected void drawSelection(Graphics2D g, double zoomFactor) {
+	protected void drawSelection(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 
-		Point position = getPosition();
-		int x = (int) (position.getX() * zoomFactor);
-		int y = (int) (position.getY() * zoomFactor);
-		int width = Long.valueOf(Math.round(getWidthPixels() * zoomFactor))
-				.intValue();
-		int height = Long.valueOf(Math.round(getHeightPixels() * zoomFactor))
-				.intValue();
+		int width = Long.valueOf(Math.round(getWidthPixels())).intValue();
+		int height = Long.valueOf(Math.round(getHeightPixels())).intValue();
 
-		AffineTransform transform = new AffineTransform();
-		transform.translate(x, y);
-
+		g2.translate(position.getX(), position.getY());
 		g2.setColor(CampaignClient.getInstance().getCurrentPlayer()
 				.getRealColor());
 		g2.setStroke(new BasicStroke(5.0f));
-		g2.transform(transform);
 		g2.drawRect(0, 0, width, height);
 		g2.dispose();
 	}

@@ -43,12 +43,12 @@ public abstract class ColoredShape extends MapElement {
 		}
 	}
 
-	protected abstract Shape getShape(double zoomFactor);
+	protected abstract Shape getShape();
 
-	protected abstract Shape getShapeBorder(double zoomFactor, int strokeSize);
+	protected abstract Shape getShapeBorder(int strokeSize);
 
 	@Override
-	protected void drawElement(Graphics2D g, double zoomFactor) {
+	protected void drawElement(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		// Compute the size of the stroke
 		Integer strokeSize = STROKE_SIZE_LARGE;
@@ -63,20 +63,20 @@ public abstract class ColoredShape extends MapElement {
 		g2.setColor(getColor());
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.5f));
-		g2.fill(getShape(zoomFactor));
+		g2.fill(getShape());
 
 		// Draw the border
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				1.0f));
 		g2.setColor(Color.BLACK);
 		g2.setStroke(new BasicStroke(strokeSize));
-		g2.draw(getShapeBorder(zoomFactor, strokeSize));
+		g2.draw(getShapeBorder(strokeSize));
 
 		g2.dispose();
 	}
 
 	@Override
 	public Boolean contain(Point p) {
-		return getShape(1.0).contains(p);
+		return getShape().contains(p);
 	}
 }

@@ -19,13 +19,21 @@
  */
 package net.alteiar.utils.file.images;
 
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 import net.alteiar.utils.file.SerializableFile;
+
+import org.apache.log4j.Logger;
 
 /**
  * @author Cody Stoutenburg
@@ -46,8 +54,38 @@ public class SerializableImage extends SerializableFile implements
 	@Override
 	public BufferedImage restoreImage() throws IOException {
 		if (image == null) {
-			image = ImageIO.read(getLocalFile());
+			final MediaTracker tracker = new MediaTracker(new JPanel());
+
+			DataInputStream datainputstream = new DataInputStream(
+					new FileInputStream(getLocalFile()));
+
+			byte bytes[] = new byte[datainputstream.available()];
+
+			datainputstream.readFully(bytes);
+			datainputstream.close();
+
+			Image img = Toolkit.getDefaultToolkit().createImage(bytes);
+
+			tracker.addImage(img, 1);
+			try {
+				tracker.waitForID(1);
+				tracker.removeImage(img);
+
+				image = new BufferedImage(img.getWidth(null),
+						img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+				image.getGraphics().drawImage(img, 0, 0, null);
+			} catch (InterruptedException e) {
+				Logger.getLogger(getClass()).warn("Probleme lors de l'attente",
+						e);
+				image = ImageIO.read(getLocalFile());
+			}
 		}
 		return image;
+	}
+
+	@Override
+	public void clearCache() {
+		this.image = null;
 	}
 }

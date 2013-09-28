@@ -127,12 +127,12 @@ public class ExceptionTool {
 	 *            if msg is null print e.getMessage()
 	 */
 	public static void showError(Throwable e, String msg) {
-		e.printStackTrace();
 
 		// stock la trace d'execution dans une String
 		StringWriter sw = new StringWriter();
 
 		if (e != null) {
+			e.printStackTrace();
 			e.printStackTrace(new PrintWriter(sw));
 		}
 

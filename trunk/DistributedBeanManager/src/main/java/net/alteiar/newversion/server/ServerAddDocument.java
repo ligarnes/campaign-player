@@ -151,8 +151,14 @@ public class ServerAddDocument extends Listener {
 		});
 	}
 
+	/**
+	 * This method send the object reply over internet, he verify that his
+	 * buffer are not full before sending
+	 * 
+	 * @param conn
+	 * @param reply
+	 */
 	private void realSend(Connection conn, IUniqueObject reply) {
-
 		synchronized (conn) {
 			while ((conn.getTcpWriteBufferSize() + getMaxChunkSize()) >= bufferSize) {
 				try {
@@ -166,7 +172,8 @@ public class ServerAddDocument extends Listener {
 			try {
 				conn.sendTCP(reply);
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				Logger.getLogger(getClass()).error(
+					"Error occur when sending message", ex);
 			}
 		}
 	}
@@ -176,9 +183,16 @@ public class ServerAddDocument extends Listener {
 		conn.updateReturnTripTime();
 	}
 
+	/**
+	 * This method is call each time we receive a message from internet
+	 * 
+	 * @param Connection
+	 *            conn
+	 * @param Object
+	 *            obj
+	 */
 	@Override
 	public final void received(Connection conn, Object obj) {
-
 		try {
 			if (obj instanceof MessageReadyToReceive) {
 				Encaps reply = messageReadyReceived(conn,
@@ -208,21 +222,20 @@ public class ServerAddDocument extends Listener {
 				dest.sendTCP(obj);
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			Logger.getLogger(getClass()).error(
+					"Error occur when receiving message", ex);
 		}
 
 	}
 
-	public static String humanReadableByteCount(long bytes, boolean si) {
-		int unit = si ? 1000 : 1024;
-		if (bytes < unit)
-			return bytes + " B";
-		int exp = (int) (Math.log(bytes) / Math.log(unit));
-		String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1)
-				+ (si ? "" : "i");
-		return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
-	}
-
+	/**
+	 * A client have receive the last data we send to him and he is ready to
+	 * receive more
+	 * 
+	 * @param conn
+	 * @param obj
+	 * @return the reply we should send
+	 */
 	private final Encaps messageReadyReceived(Connection conn,
 			MessageReadyToReceive obj) {
 		Encaps sended = sendingUsers.get(new SendingKey(obj.getId(), conn));
@@ -236,6 +249,12 @@ public class ServerAddDocument extends Listener {
 		return sended;
 	}
 
+	/**
+	 * A client send us a new bean
+	 * 
+	 * @param obj
+	 * @return the reply we should send
+	 */
 	private final MessageReadyToReceive messageObjectReceived(
 			MessageCreateValue obj) {
 		ObjectSender encaps = sendingObjets.get(obj.getId());

@@ -32,15 +32,15 @@ public class CircleElement extends ColoredShape {
 	}
 
 	@Override
-	protected Shape getShape(double zoomFactor) {
+	protected Shape getShape() {
 		Point p = getPosition();
 
 		Double strokeSizeMiddle = STROKE_SIZE_LARGE / 2.0;
 
-		double x = p.getX() * zoomFactor + strokeSizeMiddle;
-		double y = p.getY() * zoomFactor + strokeSizeMiddle;
+		double x = p.getX() + strokeSizeMiddle;
+		double y = p.getY() + strokeSizeMiddle;
 
-		double diameter = (getRadiusPixel() * zoomFactor - STROKE_SIZE_LARGE) * 2;
+		double diameter = (getRadiusPixel() - STROKE_SIZE_LARGE) * 2;
 
 		Shape shape = new Ellipse2D.Double(x, y, diameter, diameter);
 
@@ -48,8 +48,8 @@ public class CircleElement extends ColoredShape {
 	}
 
 	@Override
-	protected Shape getShapeBorder(double zoomFactor, int strokeSize) {
-		return getShape(zoomFactor);
+	protected Shape getShapeBorder(int strokeSize) {
+		return getShape();
 	}
 
 	@Override

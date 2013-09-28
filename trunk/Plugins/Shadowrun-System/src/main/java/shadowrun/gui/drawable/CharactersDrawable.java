@@ -1,6 +1,7 @@
 package shadowrun.gui.drawable;
 
 import generic.DocumentTypeConstant;
+import generic.gui.mapElement.BarElement;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -13,7 +14,6 @@ import net.alteiar.campaign.CampaignClient;
 import net.alteiar.documents.BeanDocument;
 import net.alteiar.player.Player;
 import shadowrun.bean.unit.ShadowrunCharacter;
-import shadowrun.gui.mapElement.BarElement;
 
 public class CharactersDrawable {
 
@@ -83,10 +83,9 @@ public class CharactersDrawable {
 		float stunDamage = character.getStunDamage().floatValue();
 		float probStun = 1 - (stunDamage / stun);
 
-		physicalBar.drawBar(g2, 1.0, 0, yLife, heightLife, widthLife,
-				probPhysical);
+		physicalBar.drawBar(g2, 0, yLife, heightLife, widthLife, probPhysical);
 
-		stunBar.drawBar(g2, 1.0, 0, yLife - heightLife, heightLife, widthLife,
+		stunBar.drawBar(g2, 0, yLife - heightLife, heightLife, widthLife,
 				probStun);
 	}
 
