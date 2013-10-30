@@ -29,7 +29,8 @@ public class AddElementAction extends MapAction {
 		this.listener = new AddElementListener(getMapInfo());
 
 		putValue(NAME, "Ajouter un élément");
-		putValue(SMALL_ICON, HelpersImages.getIcon(ICON_ADD_ELEMENT_REDUCE_NAME));
+		putValue(SMALL_ICON,
+				HelpersImages.getIcon(ICON_ADD_ELEMENT_REDUCE_NAME));
 		putValue(LARGE_ICON_KEY, HelpersImages.getIcon(ICON_ADD_ELEMENT_NAME));
 	}
 

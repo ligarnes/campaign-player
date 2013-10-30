@@ -188,6 +188,9 @@ public class PanelPropertyEditor extends JPanel implements PanelOkCancel {
 			comboboxModel.addElement(player);
 		}
 
+		Player owner = CampaignClient.getInstance().getBean(doc.getOwner());
+		comboboxModel.setSelectedItem(owner);
+
 		playersEditors.setDatas(players);
 		playersUsers.setDatas(players);
 
@@ -218,6 +221,8 @@ public class PanelPropertyEditor extends JPanel implements PanelOkCancel {
 		doc.setDocumentName(textField.getText());
 
 		doc.setPublic(chckbxPublic.isSelected());
+
+		doc.setOwner(((Player) comboboxModel.getSelectedItem()).getId());
 
 		if (!chckbxPublic.isSelected()) {
 			for (Player player : playersUsers.getTargetDatas()) {

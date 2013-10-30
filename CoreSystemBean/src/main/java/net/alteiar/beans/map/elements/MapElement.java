@@ -10,6 +10,7 @@ import java.util.List;
 
 import net.alteiar.beans.map.MapBean;
 import net.alteiar.beans.map.Scale;
+import net.alteiar.beans.map.UnzoomGraphics;
 import net.alteiar.campaign.CampaignClient;
 import net.alteiar.newversion.shared.bean.BasicBean;
 import net.alteiar.shared.UniqueID;
@@ -51,7 +52,7 @@ public abstract class MapElement extends BasicBean {
 
 	public final void draw(Graphics2D g, double zoomFactor, boolean isDm) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		g2.scale(zoomFactor, zoomFactor);
+		// g2.scale(zoomFactor, zoomFactor);
 		if (isHiddenForPlayer()) {
 			if (isDm) {
 				g2.setComposite(AlphaComposite.getInstance(
@@ -59,27 +60,33 @@ public abstract class MapElement extends BasicBean {
 			}
 		}
 		drawElement(g2);
+		g2.dispose();
 
 		if (getSelected()) {
-			drawSelection(g2);
+			drawSelection(g);
 		}
-		g2.dispose();
 	}
 
 	protected abstract void drawElement(Graphics2D g);
 
 	protected void drawSelection(Graphics2D g) {
-		Graphics2D g2 = (Graphics2D) g.create();
+		UnzoomGraphics t = new UnzoomGraphics(g);
 
-		int width = Long.valueOf(Math.round(getWidthPixels())).intValue();
-		int height = Long.valueOf(Math.round(getHeightPixels())).intValue();
+		double zoomFactor = t.getZoomFactor();
+		Graphics2D g2 = t.generateGraphics();
 
-		g2.translate(position.getX(), position.getY());
+		int width = Long.valueOf(Math.round(getWidthPixels() * zoomFactor))
+				.intValue();
+		int height = Long.valueOf(Math.round(getHeightPixels() * zoomFactor))
+				.intValue();
+
+		g2.translate(position.getX() * zoomFactor, position.getY() * zoomFactor);
 		g2.setColor(CampaignClient.getInstance().getCurrentPlayer()
 				.getRealColor());
 		g2.setStroke(new BasicStroke(5.0f));
 		g2.drawRect(0, 0, width, height);
-		g2.dispose();
+
+		t.disposeGraphics();
 	}
 
 	public abstract Boolean contain(Point p);

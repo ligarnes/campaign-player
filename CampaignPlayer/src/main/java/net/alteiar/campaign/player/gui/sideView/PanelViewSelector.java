@@ -17,7 +17,7 @@ public class PanelViewSelector extends JPanel {
 
 		for (ApplicationView applicationView : views) {
 			JButton btn = new JButton();
-			btn.setAction(new ViewActionSelector(applicationView.getName()));
+			btn.setAction(new ViewActionSelector(applicationView));
 			this.add(btn);
 		}
 	}

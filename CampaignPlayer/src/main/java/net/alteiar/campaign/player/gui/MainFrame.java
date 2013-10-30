@@ -21,16 +21,14 @@ package net.alteiar.campaign.player.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
 
 import net.alteiar.campaign.CampaignFactoryNew;
+import net.alteiar.campaign.player.gui.centerViews.map.tools.dice.PathfinderDiceToolBar;
 import net.alteiar.campaign.player.infos.Helpers;
 import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.infos.HelpersPath;
@@ -54,8 +52,6 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	// south
 	private final JPanel southPanel;
-	private JLabel currentTask;
-	private JProgressBar progressBar;
 
 	private MainFrame() {
 		super();
@@ -85,12 +81,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		this.setLayout(new BorderLayout());
 
 		// south setup
-		currentTask = new JLabel("rien");
-		progressBar = new JProgressBar();
-
-		southPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		southPanel.add(currentTask);
-		southPanel.add(progressBar);
+		southPanel.add(new PathfinderDiceToolBar());
 
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.add(westPanel, BorderLayout.WEST);

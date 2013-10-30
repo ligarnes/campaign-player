@@ -326,15 +326,15 @@ public class TestMap extends NewCampaignTest {
 				BufferedImage.TYPE_INT_ARGB);
 
 		Graphics2D g = (Graphics2D) image1.getGraphics();
-		battle1.drawBackground(g, compareZoomFactor);
-		battle1.drawFilter(g, compareZoomFactor, true);
-		battle1.drawGrid(g, compareZoomFactor);
+		battle1.drawBackground(g);
+		battle1.drawFilter(g, true);
+		battle1.drawGrid(g);
 		g.dispose();
 
 		g = (Graphics2D) image2.getGraphics();
-		battle2.drawBackground(g, compareZoomFactor);
-		battle2.drawFilter(g, compareZoomFactor, true);
-		battle2.drawGrid(g, compareZoomFactor);
+		battle2.drawBackground(g);
+		battle2.drawFilter(g, true);
+		battle2.drawGrid(g);
 		g.dispose();
 
 		try {
@@ -397,8 +397,8 @@ public class TestMap extends NewCampaignTest {
 			ManualMapFilter targetFilter = new ManualMapFilter(battleId);
 
 			Graphics2D g = (Graphics2D) filteredImage.getGraphics();
-			mapFiltered.drawBackground(g, 2.75);
-			mapFiltered.drawFilter(g, 2.75, true);
+			mapFiltered.drawBackground(g);
+			mapFiltered.drawFilter(g, true);
 			g.dispose();
 
 			g = (Graphics2D) targetFilteredImage.getGraphics();
@@ -429,8 +429,8 @@ public class TestMap extends NewCampaignTest {
 					BufferedImage.TYPE_INT_ARGB);
 
 			g = (Graphics2D) filteredShowImage.getGraphics();
-			mapFiltered.drawBackground(g, 0.75);
-			mapFiltered.drawFilter(g, 0.75, true);
+			mapFiltered.drawBackground(g);
+			mapFiltered.drawFilter(g, true);
 			g.dispose();
 
 			g = (Graphics2D) targetFilteredShowImage.getGraphics();
@@ -450,8 +450,8 @@ public class TestMap extends NewCampaignTest {
 					BufferedImage.TYPE_INT_ARGB);
 
 			g = (Graphics2D) filteredShowImage.getGraphics();
-			mapFiltered.drawBackground(g, compareZoomFactor);
-			mapFiltered.drawFilter(g, compareZoomFactor, true);
+			mapFiltered.drawBackground(g);
+			mapFiltered.drawFilter(g, true);
 			g.dispose();
 
 			assertTrue("Images filter should not be same",
@@ -473,8 +473,8 @@ public class TestMap extends NewCampaignTest {
 					BufferedImage.TYPE_INT_ARGB);
 
 			g = (Graphics2D) filteredShowHideImage.getGraphics();
-			mapFiltered.drawBackground(g, 1);
-			mapFiltered.drawFilter(g, 1, true);
+			mapFiltered.drawBackground(g);
+			mapFiltered.drawFilter(g, true);
 			g.dispose();
 
 			g = (Graphics2D) targetFilteredShowHideImage.getGraphics();
@@ -495,8 +495,8 @@ public class TestMap extends NewCampaignTest {
 					(int) (mapFiltered.getHeight() * compareZoomFactor),
 					BufferedImage.TYPE_INT_ARGB);
 			g = (Graphics2D) filteredShowImage.getGraphics();
-			mapFiltered.drawBackground(g, compareZoomFactor);
-			mapFiltered.drawFilter(g, compareZoomFactor, true);
+			mapFiltered.drawBackground(g);
+			mapFiltered.drawFilter(g, true);
 			filter.draw(g, compareZoomFactor, true);
 			g.dispose();
 			assertTrue("Images filter should not be same",

@@ -13,6 +13,7 @@ import net.alteiar.campaign.player.gui.sideView.PanelWest;
 import net.alteiar.campaign.player.gui.sideView.SideView;
 import net.alteiar.campaign.player.gui.sideView.chat.PanelChatFactory;
 import net.alteiar.campaign.player.gui.sideView.combatTraker.PanelCombatTraker;
+import net.alteiar.campaign.player.infos.HelpersImages;
 import net.alteiar.campaign.player.plugin.PluginSystem;
 
 public class UiManager {
@@ -77,7 +78,7 @@ public class UiManager {
 		battle.addSideView(combatTracker);
 
 		ApplicationView settings = new ApplicationView("Paramètres",
-				new PanelSettings(), null);
+				new PanelSettings(), HelpersImages.getIcon("params.png"));
 		settings.addSideView(chat);
 
 		addView(dashBoard);

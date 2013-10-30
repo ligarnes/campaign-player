@@ -86,19 +86,15 @@ public class MapBean extends BasicBean {
 		return elementsAt;
 	}
 
-	public void drawBackground(Graphics2D g2, double zoomFactor) {
-		Graphics2D g = (Graphics2D) g2.create();
-		g.scale(zoomFactor, zoomFactor);
-
+	public void drawBackground(Graphics2D g2) {
 		Image backgroundImage = null;
 		try {
 			backgroundImage = ImageBean.getImage(backgroundId).restoreImage();
-			g.drawImage(backgroundImage, 0, 0, null);
+			g2.drawImage(backgroundImage, 0, 0, null);
 		} catch (IOException e) {
 			Logger.getLogger(getClass()).warn("Impossible de charger l'image",
 					e);
 		}
-		g.dispose();
 	}
 
 	public void drawElements(Graphics2D g, double zoomFactor, boolean isDm) {
@@ -113,11 +109,12 @@ public class MapBean extends BasicBean {
 		}
 	}
 
-	public void drawFilter(Graphics2D g2, double zoomFactor, boolean isDm) {
+	public void drawFilter(Graphics2D g2, boolean isDm) {
 		if (filterId != null) {
 			MapFilter filter = CampaignClient.getInstance().getBean(filterId);
 			if (filter != null) {
-				filter.draw(g2, zoomFactor, isDm);
+				// TODO FIXME remove 1.0
+				filter.draw(g2, 1.0, isDm);
 			} else {
 				Graphics2D g = (Graphics2D) g2.create();
 				g.setColor(Color.BLACK);
@@ -128,14 +125,17 @@ public class MapBean extends BasicBean {
 					g.setComposite(AlphaComposite.getInstance(
 							AlphaComposite.SRC_OVER, 1.0f));
 				}
-				g.fillRect(0, 0, (int) (getWidth() * zoomFactor),
-						(int) (getHeight() * zoomFactor));
+				g.fillRect(0, 0, getWidth(), getHeight());
 			}
 		}
 	}
 
-	public void drawGrid(Graphics2D g, double zoomFactor) {
-		Graphics2D g2 = (Graphics2D) g.create();
+	public void drawGrid(Graphics2D g) {
+		UnzoomGraphics t = new UnzoomGraphics(g);
+
+		double zoomFactor = t.getZoomFactor();
+		Graphics2D g2 = t.generateGraphics();
+
 		Double squareSize = this.getScale().getPixels() * zoomFactor;
 
 		Double width = this.getWidth() * zoomFactor;
@@ -147,7 +147,8 @@ public class MapBean extends BasicBean {
 		for (double i = 0; i < height; i += squareSize) {
 			g2.drawLine(0, (int) i, width.intValue(), (int) i);
 		}
-		g2.dispose();
+
+		t.disposeGraphics();
 	}
 
 	// ///////////////// BEAN METHODS ///////////////////////

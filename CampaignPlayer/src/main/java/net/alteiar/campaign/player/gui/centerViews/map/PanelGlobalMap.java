@@ -27,8 +27,6 @@ import javax.swing.JPanel;
 
 import net.alteiar.beans.map.MapBean;
 import net.alteiar.beans.map.elements.MapElement;
-import net.alteiar.beans.map.filter.ManualMapFilter;
-import net.alteiar.campaign.CampaignClient;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.DrawFilter;
 import net.alteiar.campaign.player.gui.centerViews.map.drawable.mouse.MouseDrawable;
 import net.alteiar.campaign.player.gui.centerViews.map.listener.map.GlobalMapListener;
@@ -179,10 +177,6 @@ public class PanelGlobalMap extends JPanel implements MapEditableInfo, Zoomable 
 	@Override
 	public void zoom(Point center, int zoomFactor) {
 		movePanel.zoom(center, zoomFactor);
-	}
-
-	public ManualMapFilter getMapFilter() {
-		return CampaignClient.getInstance().getBean(this.map.getFilter());
 	}
 
 	@Override
