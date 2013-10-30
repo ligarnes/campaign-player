@@ -250,18 +250,18 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		gMaps.scale(zoomFactor, zoomFactor);
 
 		// draw background
-		map.drawBackground(gMaps, 1.0);
+		map.drawBackground(gMaps);
 
 		synchronized (drawableElements) {
 			for (Drawable draw : drawableElements) {
-				draw.draw(gMaps, 1.0, viewAsDm);
+				draw.draw(gMaps, zoomFactor, viewAsDm);
 			}
 		}
 
 		if (showGrid) {
-			map.drawGrid(gMaps, 1.0);
+			map.drawGrid(gMaps);
 		}
-		map.drawFilter(gMaps, 1.0, viewAsDm);
+		map.drawFilter(gMaps, viewAsDm);
 
 		// Draw other info
 		for (MouseDrawable draw : drawables) {
@@ -269,7 +269,6 @@ public class PanelMapBasic extends JPanel implements PropertyChangeListener,
 		}
 
 		gMaps.dispose();
-		// g2.translate(-offset, -offset);
 
 		for (Drawable draw : buttons) {
 			draw.draw(gGlobal, 1.0, viewAsDm);

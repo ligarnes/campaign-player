@@ -23,8 +23,10 @@ public class BarElement {
 			g2.fillRect(x, y, (int) (width * ratio), height);
 		}
 
+		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+				1.0f));
 		g2.setColor(Color.BLACK);
-		g2.drawRect(x, y, width - 1, height - 1);
+		g2.drawRect(x, y, width, height);
 
 		g2.dispose();
 	}

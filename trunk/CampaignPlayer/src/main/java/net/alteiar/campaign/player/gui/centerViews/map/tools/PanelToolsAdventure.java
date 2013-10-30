@@ -37,6 +37,5 @@ public class PanelToolsAdventure extends JTabbedPane {
 		pane = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		pane.add(diceToolBar);
 		this.addTab("Dés", pane);
-
 	}
 }

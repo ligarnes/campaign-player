@@ -20,41 +20,26 @@
 package net.alteiar.campaign.player.gui.centerViews;
 
 import java.awt.BorderLayout;
-import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
 import net.alteiar.campaign.player.gui.centerViews.explorer.PanelDocumentExplorer;
 import net.alteiar.campaign.player.gui.players.PanelViewPlayers;
-import net.alteiar.campaign.player.infos.HelpersImages;
-import net.alteiar.campaign.player.infos.HelpersPath;
-import net.alteiar.panel.MyPanel;
 
 /**
  * @author Cody Stoutenburg
  * 
  */
-public class PanelDashboard extends MyPanel {
+public class PanelDashboard extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// nice font for fantasy
-	// private static Font PLAYER_FONT = new Font("French Script MT",
-	// Font.PLAIN,
-	// 32);
-
-	private static BufferedImage getBackgroundTexture() {
-		return HelpersImages.getImage(HelpersPath.getPathTexture("parchemin.jpg"), 500,
-				500);
-	}
-
 	public PanelDashboard() {
-		super(getBackgroundTexture(), new BorderLayout());
+		super(/* getBackgroundTexture(), */new BorderLayout());
 
 		JPanel center = new JPanel();
 		center.setOpaque(false);
 
 		center.add(new PanelViewPlayers());
-		// center.add(new PanelDocumentManager());
 
 		center.add(new PanelDocumentExplorer());
 

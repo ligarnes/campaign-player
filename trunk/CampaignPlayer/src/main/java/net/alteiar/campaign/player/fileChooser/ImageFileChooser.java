@@ -78,7 +78,6 @@ public class ImageFileChooser extends JFileChooser {
 		}
 
 		private void changeImage() {
-			System.out.println("change image");
 			File file = ImageFileChooser.this.getSelectedFile();
 
 			if (file == null || file.isDirectory()) {
@@ -89,7 +88,6 @@ public class ImageFileChooser extends JFileChooser {
 				ImageIcon icon = imageCache.get(filename);
 
 				if (icon == null) {
-					System.out.println("load image");
 					// Create a new icon with the default image
 					icon = new ImageIcon(new BufferedImage(ICON_SIZE_MAX,
 							ICON_SIZE_MAX, BufferedImage.TYPE_INT_ARGB));

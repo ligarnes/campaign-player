@@ -48,8 +48,12 @@ public class PanelMapPrevious extends JPanel implements Zoomable {
 		g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
 				RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
 
+		Graphics2D graphicsMap = (Graphics2D) g2.create();
+		graphicsMap.scale(zoomFactor, zoomFactor);
 		// draw background
-		map.drawBackground(g2, zoomFactor);
+		map.drawBackground(graphicsMap);
+
+		graphicsMap.dispose();
 
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
 				0.5f));
