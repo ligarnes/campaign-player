@@ -1,0 +1,27 @@
+# Tâche prioritaire #
+  * Système de sauvegarde
+    * sauvegarder des documents
+    * charger des documents
+    * sauvegarder des campagnes
+    * charger des campagnes
+  * maintenir le taux de couverture pour les projets CoreSystemBean et DistributedBeanManager supérieur à 70% (taux actuelle: 81%)
+
+# CoreSystemBean et PathfinderSystem #
+  * Variable local et partager a partir du plugin (intégré dans le system de bean)
+  * Propriété de partage des documents
+    * visibilité de partage (fait par Sylvain, mis à jour par cody)
+    * propriété ou modification temporaire
+  * Extraire les personnages (je pense qu'il faut faire une classe de base dans le core project qui sera étendu dans les plugin ??)
+  * Système de Monstres
+
+# Player #
+  * Faire un système de fichier (cody)
+    * ajout d'un type de bean (les document beans qui représente les documents)
+  * Faire un autre type de carte plus libre
+  * Faire un système de plugin plus propre
+
+# DistributedBeanManager #
+Ce projet est sensé être stable et ne plus subir que des modifications mineurs
+
+# NewServer #
+Ce projet devrait ne plus être utiliser pour finalement être supprimer.
